@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const FRAGMENT_SHADER = `#version 300 es
 precision highp float;
@@ -49,59 +49,75 @@ function hexToRgb(hex: string): [number, number, number] | null {
 }
 
 class SmokeRenderer {
-  private gl: WebGL2RenderingContext;
-  private program: WebGLProgram;
-  private vs: WebGLShader;
-  private fs: WebGLShader;
-  private buffer: WebGLBuffer;
+  private gl: WebGL2RenderingContext | null = null;
+  private program: WebGLProgram | null = null;
+  private vs: WebGLShader | null = null;
+  private fs: WebGLShader | null = null;
+  private buffer: WebGLBuffer | null = null;
   private uResolution: WebGLUniformLocation | null = null;
   private uTime: WebGLUniformLocation | null = null;
   private uColor: WebGLUniformLocation | null = null;
   color: [number, number, number] = [0.227, 0.267, 0.435];
+  ok = false;
 
   constructor(private canvas: HTMLCanvasElement) {
-    const gl = canvas.getContext("webgl2")!;
+    const gl = canvas.getContext("webgl2");
+    if (!gl) return;
     this.gl = gl;
-    this.vs = this.compile(gl.createShader(gl.VERTEX_SHADER)!, VERTEX_SHADER);
-    this.fs = this.compile(gl.createShader(gl.FRAGMENT_SHADER)!, FRAGMENT_SHADER);
-    this.program = gl.createProgram()!;
-    gl.attachShader(this.program, this.vs);
-    gl.attachShader(this.program, this.fs);
-    gl.linkProgram(this.program);
 
-    this.buffer = gl.createBuffer()!;
-    gl.bindBuffer(gl.ARRAY_BUFFER, this.buffer);
+    const vs = gl.createShader(gl.VERTEX_SHADER);
+    const fs = gl.createShader(gl.FRAGMENT_SHADER);
+    const program = gl.createProgram();
+    if (!vs || !fs || !program) return;
+
+    this.vs = vs;
+    this.fs = fs;
+    this.program = program;
+
+    gl.shaderSource(vs, VERTEX_SHADER);
+    gl.compileShader(vs);
+    gl.shaderSource(fs, FRAGMENT_SHADER);
+    gl.compileShader(fs);
+    gl.attachShader(program, vs);
+    gl.attachShader(program, fs);
+    gl.linkProgram(program);
+
+    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) return;
+
+    const buffer = gl.createBuffer();
+    if (!buffer) return;
+    this.buffer = buffer;
+
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, 1, -1, -1, 1, 1, 1, -1]), gl.STATIC_DRAW);
-    const pos = gl.getAttribLocation(this.program, "position");
+    const pos = gl.getAttribLocation(program, "position");
     gl.enableVertexAttribArray(pos);
     gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
 
-    this.uResolution = gl.getUniformLocation(this.program, "resolution");
-    this.uTime = gl.getUniformLocation(this.program, "time");
-    this.uColor = gl.getUniformLocation(this.program, "u_color");
-  }
-
-  private compile(shader: WebGLShader, source: string): WebGLShader {
-    this.gl.shaderSource(shader, source);
-    this.gl.compileShader(shader);
-    return shader;
+    this.uResolution = gl.getUniformLocation(program, "resolution");
+    this.uTime = gl.getUniformLocation(program, "time");
+    this.uColor = gl.getUniformLocation(program, "u_color");
+    this.ok = true;
   }
 
   resize() {
+    const gl = this.gl;
+    if (!gl) return;
     const dpr = Math.min(1.75, Math.max(1, window.devicePixelRatio || 1));
     this.canvas.width = Math.floor(window.innerWidth * dpr);
     this.canvas.height = Math.floor(window.innerHeight * dpr);
     this.canvas.style.width = window.innerWidth + "px";
     this.canvas.style.height = window.innerHeight + "px";
-    this.gl.viewport(0, 0, this.canvas.width, this.canvas.height);
+    gl.viewport(0, 0, this.canvas.width, this.canvas.height);
   }
 
   render(now: number) {
-    const { gl, program, canvas } = this;
+    const { gl, program, buffer, canvas } = this;
+    if (!gl || !program || !buffer) return;
     gl.clearColor(0.08, 0.10, 0.18, 1);
     gl.clear(gl.COLOR_BUFFER_BIT);
     gl.useProgram(program);
-    gl.bindBuffer(gl.ARRAY_BUFFER, this.buffer);
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
     gl.uniform2f(this.uResolution, canvas.width, canvas.height);
     gl.uniform1f(this.uTime, now * 1e-3);
     gl.uniform3fv(this.uColor, this.color);
@@ -110,22 +126,53 @@ class SmokeRenderer {
 
   dispose() {
     const { gl, program, vs, fs } = this;
-    gl.detachShader(program, vs);
-    gl.detachShader(program, fs);
-    gl.deleteShader(vs);
-    gl.deleteShader(fs);
+    if (!gl || !program) return;
+    if (vs) { gl.detachShader(program, vs); gl.deleteShader(vs); }
+    if (fs) { gl.detachShader(program, fs); gl.deleteShader(fs); }
     gl.deleteProgram(program);
   }
+}
+
+const FIXED: React.CSSProperties = {
+  position: "fixed",
+  inset: 0,
+  width: "100%",
+  height: "100%",
+  zIndex: 0,
+  display: "block",
+};
+
+function CssFallback() {
+  return (
+    <div
+      style={{
+        ...FIXED,
+        background: `
+          radial-gradient(ellipse 140% 80% at 20% 60%, #2d3660 0%, transparent 55%),
+          radial-gradient(ellipse 100% 60% at 80% 30%, #1e2a50 0%, transparent 55%),
+          radial-gradient(ellipse 80% 100% at 50% 80%, #252d45 0%, transparent 60%),
+          #1B2238
+        `,
+      }}
+    />
+  );
 }
 
 export default function SmokeBackground({ smokeColor = "#3A4470" }: { smokeColor?: string }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const rendererRef = useRef<SmokeRenderer | null>(null);
+  const [webglOk, setWebglOk] = useState<boolean | null>(null);
 
   useEffect(() => {
     if (!canvasRef.current) return;
     const renderer = new SmokeRenderer(canvasRef.current);
     rendererRef.current = renderer;
+
+    if (!renderer.ok) {
+      setWebglOk(false);
+      return;
+    }
+    setWebglOk(true);
 
     const handleResize = () => renderer.resize();
     handleResize();
@@ -147,20 +194,12 @@ export default function SmokeBackground({ smokeColor = "#3A4470" }: { smokeColor
 
   useEffect(() => {
     const rgb = hexToRgb(smokeColor);
-    if (rgb && rendererRef.current) rendererRef.current.color = rgb;
+    if (rgb && rendererRef.current?.ok) rendererRef.current.color = rgb;
   }, [smokeColor]);
 
-  return (
-    <canvas
-      ref={canvasRef}
-      style={{
-        position: "fixed",
-        inset: 0,
-        width: "100%",
-        height: "100%",
-        zIndex: 0,
-        display: "block",
-      }}
-    />
-  );
+  // Render nothing until we know whether WebGL works (avoids flash)
+  if (webglOk === null) return <div style={{ ...FIXED, background: "#1B2238" }} />;
+  if (!webglOk) return <CssFallback />;
+
+  return <canvas ref={canvasRef} style={FIXED} />;
 }
