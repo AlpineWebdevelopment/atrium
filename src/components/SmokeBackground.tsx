@@ -161,18 +161,17 @@ function CssFallback() {
 export default function SmokeBackground({ smokeColor = "#3A4470" }: { smokeColor?: string }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const rendererRef = useRef<SmokeRenderer | null>(null);
-  const [webglOk, setWebglOk] = useState<boolean | null>(null);
+  const [useFallback, setUseFallback] = useState(false);
 
   useEffect(() => {
     if (!canvasRef.current) return;
     const renderer = new SmokeRenderer(canvasRef.current);
-    rendererRef.current = renderer;
 
     if (!renderer.ok) {
-      setWebglOk(false);
+      setUseFallback(true);
       return;
     }
-    setWebglOk(true);
+    rendererRef.current = renderer;
 
     const handleResize = () => renderer.resize();
     handleResize();
@@ -197,9 +196,7 @@ export default function SmokeBackground({ smokeColor = "#3A4470" }: { smokeColor
     if (rgb && rendererRef.current?.ok) rendererRef.current.color = rgb;
   }, [smokeColor]);
 
-  // Render nothing until we know whether WebGL works (avoids flash)
-  if (webglOk === null) return <div style={{ ...FIXED, background: "#1B2238" }} />;
-  if (!webglOk) return <CssFallback />;
+  if (useFallback) return <CssFallback />;
 
   return <canvas ref={canvasRef} style={FIXED} />;
 }
