@@ -5,7 +5,8 @@
       "PowerShell(node --version)",
       "PowerShell(npm --version)",
       "Bash(Get-Content \"C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--severinnhq-atrium\\\\f2cba6a6-7b8a-49be-952a-0781e746c4ff\\\\tasks\\\\bi5ek0vzd.output\" -Wait)",
-      "Bash(Select-String -Pattern \"Success|Error|failed|Done|ready|created|npm warn|✓|✗\" --SimpleMatch)"
+      "Bash(Select-String -Pattern \"Success|Error|failed|Done|ready|created|npm warn|✓|✗\" --SimpleMatch)",
+      "Bash(find \"/mnt/c/Users/user/Downloads/Atrium Landing Page\" -type f | sort)"
     ]
   }
 }

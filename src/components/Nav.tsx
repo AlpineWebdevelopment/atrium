@@ -27,7 +27,8 @@ export default function Nav() {
       <div className="nav__inner">
         <Wordmark />
 
-        <div className="nav__pill">
+        <div className="nav__center">
+          <span className="nav__badge atr-mono-xs">Atrium pilot · 30 d</span>
           <ul className="nav__links">
             {NAV_LINKS.map((l) => (
               <li key={l.id}>
@@ -44,11 +45,8 @@ export default function Nav() {
         </div>
 
         <div className="nav__cta">
-          <button
-            className="btn btn--primary"
-            onClick={() => alert("Booking link wired in production.")}
-          >
-            Book a call
+          <button className="btn btn--ghost">
+            Sign in →
           </button>
         </div>
       </div>
