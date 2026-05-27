@@ -1,25 +1,43 @@
-import FadingVideo from "./FadingVideo";
+import ArrowRight from "./ArrowRight";
 
 export default function Hero() {
   return (
-    <section className="hero">
-      <FadingVideo src="/hero-bg.mp4" className="hero__video" />
-      <div className="hero__scrim" aria-hidden="true" />
-
-      <div className="hero__inner">
-        <h1 className="hero__title">
-          <span>The front desk</span>
-          <span>that never closes.</span>
-        </h1>
+    <section className="hero" data-screen-label="01 Hero">
+      <div className="container">
+        <span className="hero__eyebrow">
+          Értékesítési rendszerek szolgáltató cégeknek
+        </span>
+        <h1 className="hero__title">A bevétel, ami eddig elveszett.</h1>
         <p className="hero__sub">
-          Atrium answers every call, message, and DM. In Hungarian,
-          English, and German. The next morning, your team has the
-          booked appointment.
+          Az Atrium egy magyar nyelvű AI-alapú értékesítési rendszer — minden hívást fogad,
+          minden időpontot lefoglal, minden érdeklődőt utánkövet. Az Ön csapatának nem
+          kell új eszközt tanulnia.
         </p>
-        <div className="hero__ctas">
-          <a href="#pilot" className="btn btn--primary btn--lg btn--pill">
-            Start a 30-day pilot
-          </a>
+        <div className="hero__actions">
+          <button className="btn">
+            Foglaljon időpontot
+            <ArrowRight />
+          </button>
+          <a className="btn btn--ghost" href="#system">A komponensekről</a>
+        </div>
+
+        <div className="hero__manifest" aria-label="A rendszer alapjai">
+          <div>
+            <span className="k">Nyelv</span>
+            <span className="v">Magyar, formális Ön-megszólítás</span>
+          </div>
+          <div>
+            <span className="k">Motor</span>
+            <span className="v">AI-ügynökök, hangon és írásban</span>
+          </div>
+          <div>
+            <span className="k">Integráció</span>
+            <span className="v">Az Ön meglévő naptárába és CRM-jébe</span>
+          </div>
+          <div>
+            <span className="k">Adatkezelés</span>
+            <span className="v">EU-ban hosztolva, GDPR-konform</span>
+          </div>
         </div>
       </div>
     </section>

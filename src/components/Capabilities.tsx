@@ -1,72 +1,66 @@
-import FadingVideo from "./FadingVideo";
-import Image from "next/image";
-
-const CAPABILITIES = [
+const CAPS = [
   {
-    title: "Answer the call",
-    body:  "24/7 reception across every channel, multilingual by default. One conversation, every channel.",
-    tags:  ["Voice", "WhatsApp", "Instagram", "Web chat"],
-    icon:  "/icon-phone.svg",
+    hu: "Fogadja a hívást.",
+    en: "Reception",
+    desc: "Minden hívás. Munkaidő után, hétvégén, akkor is amikor a recepció más vonalon van. Magyarul, formális Ön-megszólítással — természetes beszéddel, nem gépi menüvel.",
   },
   {
-    title: "Book the appointment",
-    body:  "Direct integration with the scheduler you already use. The next morning, your team has the booked appointment.",
-    tags:  ["Existing scheduler", "HU · EN · DE", "Calendar sync", "No double-book"],
-    icon:  "/icon-calendar.svg",
+    hu: "Lefoglalja az időpontot.",
+    en: "Scheduling",
+    desc: "Az Ön meglévő naptárába foglal. Az ügyfél megerősítést kap, Ön egy bejegyzést a naptárban. Nincs külön rendszer, nincs új jelszó.",
   },
   {
-    title: "Recover the no-show",
-    body:  "Outbound voice and SMS in the high-recovery window around a missed appointment. Calm, considered, in the patient's language.",
-    tags:  ["Within 30 min", "Polite tone", "SMS + voice", "Auto-reschedule"],
-    icon:  "/icon-pulse.svg",
+    hu: "Visszahívja az elmaradtakat.",
+    en: "No-show recovery",
+    desc: "Minden elmaradt időpontot kimenő hívás és SMS követ — abban az ablakban, amikor a visszanyerési arány a legmagasabb. A legtisztább ROI-pont egy appointment-alapú üzletnél.",
   },
   {
-    title: "Reactivate the dormant",
-    body:  "Outbound campaigns to records that have gone quiet — overdue patients, leads that never converted, plans that were quoted but never started.",
-    tags:  ["Overdue checks", "Cold leads", "Quoted plans", "Win-back"],
-    icon:  "/icon-inbox.svg",
+    hu: "Visszahozza a régieket.",
+    en: "Reactivation",
+    desc: "Megkeresi azokat, akik elcsendesedtek: 12 hónapja nem jártak, félbehagyott kezelés, alvó ügyfél-rekordok. A nem létező marketingköltségből hozott bevétel.",
   },
-] as const;
-
-function CapabilityCard({
-  title, body, tags, icon,
-}: { title: string; body: string; tags: readonly string[]; icon: string }) {
-  return (
-    <article className="cap-card liquid-glass">
-      <div className="cap-card__top">
-        <div className="cap-card__icon liquid-glass">
-          <Image src={icon} alt="" width={20} height={20} />
-        </div>
-        <div className="cap-card__tags">
-          {tags.map((t) => (
-            <span key={t} className="cap-tag liquid-glass">{t}</span>
-          ))}
-        </div>
-      </div>
-      <div className="cap-card__body">
-        <h3 className="cap-card__title">{title}</h3>
-        <p className="cap-card__copy">{body}</p>
-      </div>
-    </article>
-  );
-}
+  {
+    hu: "Utánköveti az érdeklődőt.",
+    en: "Follow-up",
+    desc: "Minden FB-lead, Google-űrlap, kapcsolat-felvétel kontaktálva — percek alatt, nem napok múlva. A legmagasabb-leverage komponens minden hirdetést futtató cégnél.",
+  },
+  {
+    hu: "Kéri az értékelést.",
+    en: "Reviews",
+    desc: "Látogatás utáni nudge-ok: az elégedettet a nyilvános értékelésbe tereli, az elégedetlent egy privát csatornába. Mindez óvatosan, magyar GDPR-norma szerint.",
+  },
+  {
+    hu: "Megmutatja, mi működik.",
+    en: "Reporting",
+    desc: "Tiszta havi nézet: honnan jön a bevétel, hol szivárog, mit hozott vissza a rendszer. Ez az a réteg, ami a kapcsolatot vendorból partnerre fordítja.",
+  },
+];
 
 export default function Capabilities() {
   return (
-    <section className="caps" id="capabilities">
-      <FadingVideo src="/caps-bg.mp4" className="caps__video" />
-      <div className="caps__scrim" aria-hidden="true" />
-
-      <div className="caps__inner">
-        <div className="caps__heading">
-          <h2 className="caps__title">Front of house, evolved.</h2>
-          <p className="caps__sub">
-            One unified system. Seven jobs. One voice. These are where the pilot starts.
+    <section className="section" id="system" data-screen-label="03 A rendszer">
+      <div className="container">
+        <div className="caps__head">
+          <h2 className="section__h">
+            Hét komponens, egy rendszer.<br />
+            Az operatív munkájához igazítva.
+          </h2>
+          <p>
+            A Teljes Rendszer mindig mind a hét komponenst tartalmazza. A konfiguráció
+            és az integrációs cél az Ön üzletére szabva. Egyetlen vásárlás, egy
+            integráció — nem hét darab modul, amit Önnek kell összefogni.
           </p>
         </div>
-        <div className="caps__grid">
-          {CAPABILITIES.map((c) => (
-            <CapabilityCard key={c.title} {...c} />
+        <div className="caps__list">
+          {CAPS.map((c, i) => (
+            <div className="caps__row" key={i}>
+              <div className="caps__num">{String(i + 1).padStart(2, "0")}</div>
+              <div className="caps__name">
+                {c.hu}
+                <em>{c.en}</em>
+              </div>
+              <div className="caps__desc">{c.desc}</div>
+            </div>
           ))}
         </div>
       </div>
