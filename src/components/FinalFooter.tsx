@@ -16,7 +16,7 @@ export default function FinalFooter() {
               a bevétel, és megmondjuk, mit lehet vele kezdeni. Ha még nem áll össze a
               döntés, kap egy auditot a beszélgetés alapján.
             </p>
-            <button className="btn btn--on-ink">
+            <button className="btn">
               Foglaljon időpontot
               <ArrowRight />
             </button>

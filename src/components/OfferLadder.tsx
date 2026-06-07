@@ -35,7 +35,7 @@ const RUNGS = [
 
 export default function OfferLadder() {
   return (
-    <section className="section" id="offer" data-screen-label="06 Csomagok">
+    <section className="section section--texture" id="offer" data-screen-label="06 Csomagok">
       <div className="container">
 
         <div className="ladder__intro">
