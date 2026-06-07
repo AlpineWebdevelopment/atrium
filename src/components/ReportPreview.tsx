@@ -8,18 +8,23 @@ const BARS = [
 
 export default function ReportPreview() {
   return (
-    <section className="section" id="report" data-screen-label="05 Havi jelentés">
+    <section className="section section--alt" id="report" data-screen-label="05 Havi jelentés">
       <div className="container">
-        <div className="report">
+        <div className="report__intro">
           <div className="report__copy">
-            <p className="eyebrow">A hetedik komponens</p>
+            <span className="eyebrow">A hetedik komponens</span>
             <h2 className="section__h">
-              Egy oldal a hónap végén. Számokban, amik mögött a saját számai állnak.
+              Egy oldal a hónap végén.
             </h2>
             <p>
-              A jelentés nem műszerfal, amit Önnek kell megnyitnia. Havonta egyszer
-              eljut Önhöz — emailben, PDF-ben, vagy konzultáción személyesen. Annyit
-              tartalmaz, amennyit egy reggeli kávé alatt át lehet futni.
+              A jelentés nem műszerfal, amit Önnek kell megnyitnia. Havonta
+              egyszer eljut Önhöz — emailben, PDF-ben, vagy konzultáción
+              személyesen. Annyit tartalmaz, amennyit egy reggeli kávé alatt
+              át lehet futni.
+            </p>
+            <p>
+              Ez az a réteg, ami a kapcsolatot vendorból partnerre fordítja.
+              Ön látja, mi hozta vissza a bevételt, és mi szivárog még.
             </p>
             <div className="meta">
               Példa-jelentés · valós kliensszámok 2026-tól

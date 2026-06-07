@@ -28,7 +28,7 @@ const RUNGS = [
     name: "Atrium Egyedi",
     price: "Egyedi ár",
     sub: "A munka méretéhez igazítva · az ajánlatlétra mellett",
-    desc: "Amikor az Ön problémája nem illik egyik rungra sem — egy egyedi munkafolyamat vagy automatizáció a komponens-könyvtáron kívül. A Modular meglevő komponenseket szerel össze; az Egyedi újat épít.",
+    desc: "Amikor az Ön problémája nem illik egyik rungra sem — egy egyedi munkafolyamat vagy automatizáció a komponens-könyvtáron kívül.",
     focus: false,
   },
 ];
@@ -37,14 +37,14 @@ export default function OfferLadder() {
   return (
     <section className="section" id="offer" data-screen-label="06 Csomagok">
       <div className="container">
-        <div className="ladder__head">
-          <p className="eyebrow">Csomagok</p>
+
+        <div className="ladder__intro">
           <h2 className="section__h">
             Egy árpont mindenkinek, aki bejön a megbeszélésre.
           </h2>
           <p className="section__lede">
-            Az ajánlat-létra négy nyilvános rungja. A pontos csomag-méret a megbeszélésen
-            dől el, az Ön számai alapján.
+            Az ajánlat-létra négy nyilvános rungja. A pontos csomag-méret
+            a megbeszélésen dől el, az Ön számai alapján.
           </p>
         </div>
 
@@ -72,6 +72,7 @@ export default function OfferLadder() {
           Nagyobb lánc (4+ lokáció, 500 M Ft / év feletti üzlet) esetén külön Atrium
           Partner-engagement, nem productized rung.
         </p>
+
       </div>
     </section>
   );

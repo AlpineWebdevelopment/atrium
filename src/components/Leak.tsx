@@ -1,19 +1,20 @@
 export default function Leak() {
   return (
-    <section className="section" id="leak" data-screen-label="02 A szivárgás">
+    <section className="section section--alt" id="leak" data-screen-label="02 A szivárgás">
       <div className="container">
-        <div className="leak__head">
-          <p className="eyebrow">A szivárgás</p>
+
+        <div className="leak__intro">
           <h2 className="section__h">
             Minden szolgáltató cégnél szivárog a bevétel.{" "}
             <em>
               A 9 órás hívás, ami hangpostára megy. A FB-érdeklődő, akit
-              három nap múlva hívnak. Az ügyfél, aki nem kapott visszajelzést.
+              három nap múlva hívnak.
             </em>
           </h2>
           <p className="section__lede">
             Nem véletlen, és nem hanyagság. A front-of-house munka ritmusa
             ütközik a vásárlói viselkedéssel — és a különbség pénzben mérhető.
+            Az Atrium ezeket a pontokat fogja meg.
           </p>
         </div>
 
@@ -43,6 +44,7 @@ export default function Leak() {
             <div className="leak__source">Munkahipotézis · az első 5–10 Pilot kalibrálja</div>
           </div>
         </div>
+
       </div>
     </section>
   );

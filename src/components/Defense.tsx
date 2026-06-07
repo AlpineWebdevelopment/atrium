@@ -1,7 +1,7 @@
 const DONT = [
   "Nem mondjuk, hogy 10x bevétel három hónap alatt.",
   "Nem rakunk a weboldalra hamis vagy összeszerkesztett hangmintát.",
-  'Nem írunk „300 elégedett ügyfél”-t név nélkül.',
+  'Nem írunk „300 elégedett ügyfél"-t név nélkül.',
   "Nem adunk ingyen hardvert. Az nem a mi mozdulatunk.",
   "Nem hordunk chat-widgetet ezen az oldalon. A márkának nincs chatbotja.",
   "Nem nevezzük magunkat AI ügynökségnek.",
@@ -18,17 +18,18 @@ const DO = [
 
 export default function Defense() {
   return (
-    <section className="section" id="defense" data-screen-label="07 A márka védvonala">
+    <section className="section section--alt" id="defense" data-screen-label="07 A márka védvonala">
       <div className="container">
-        <div className="defense__head">
-          <p className="eyebrow">A márka védvonala</p>
+
+        <div className="defense__intro">
+          <span className="eyebrow">A márka védvonala</span>
           <h2 className="section__h">
             Amit nem csinálunk, az ugyanolyan fontos, mint amit igen.
           </h2>
-          <p className="section__lede">
-            A magyar AI-piacon sok minden zajos. Az Atrium a hangerővel ellentétes
-            irányba dolgozik — az alábbi két lista nem marketingfogás, hanem belső
-            mérce. Évek múlva is ugyanígy fog kinézni.
+          <p className="section__lede" style={{ marginTop: "20px" }}>
+            A magyar AI-piacon sok minden zajos. Az Atrium a hangerővel
+            ellentétes irányba dolgozik — az alábbi két lista nem
+            marketingfogás, hanem belső mérce.
           </p>
         </div>
 
@@ -46,6 +47,7 @@ export default function Defense() {
             </ul>
           </div>
         </div>
+
       </div>
     </section>
   );
