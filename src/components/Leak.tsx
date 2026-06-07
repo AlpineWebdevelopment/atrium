@@ -1,9 +1,11 @@
+import CountUp from "./CountUp";
+
 export default function Leak() {
   return (
     <section className="section section--alt" id="leak" data-screen-label="02 A szivárgás">
       <div className="container">
 
-        <div className="leak__intro">
+        <div className="leak__intro reveal">
           <h2 className="section__h">
             Minden szolgáltató cégnél szivárog a bevétel.{" "}
             <em>
@@ -19,24 +21,30 @@ export default function Leak() {
         </div>
 
         <div className="leak__grid">
-          <div className="leak__cell">
-            <div className="leak__num">82<span className="unit">%</span></div>
+          <div className="leak__cell reveal" data-delay="1">
+            <div className="leak__num">
+              <CountUp to={82} suffix="%" duration={1800} />
+            </div>
             <div className="leak__label">
               A szolgáltató vállalkozások többsége nem fogadja a hívásait
               munkaidő után. Este 6 és reggel 8 között hangposta.
             </div>
             <div className="leak__source">Iparági becslés · KKV szegmens</div>
           </div>
-          <div className="leak__cell">
-            <div className="leak__num">3<span className="unit">&nbsp;nap</span></div>
+          <div className="leak__cell reveal" data-delay="2">
+            <div className="leak__num">
+              <CountUp to={3} suffix=" nap" duration={1400} />
+            </div>
             <div className="leak__label">
               Egy átlagos magyar szolgáltató cégnek ennyi időbe telik
               visszahívni egy beérkezett FB-űrlapot.
             </div>
             <div className="leak__source">Átlagos lead-response · 2025</div>
           </div>
-          <div className="leak__cell">
-            <div className="leak__num">60<span className="unit">&nbsp;nap</span></div>
+          <div className="leak__cell reveal" data-delay="3">
+            <div className="leak__num">
+              <CountUp to={60} suffix=" nap" duration={2000} />
+            </div>
             <div className="leak__label">
               A rendszer ennyi idő alatt szokta visszafizetni saját magát
               a megfogott bevételből. Utána a többi felüljáró.
