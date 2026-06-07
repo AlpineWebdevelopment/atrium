@@ -67,12 +67,8 @@ button { font-family: inherit; cursor: pointer; border: 0; }
 .section {
   padding: 120px 0;
   border-top: 1px solid var(--ink-08);
-  /* Subtle warm gradient — keeps sections from feeling flat */
-  background: linear-gradient(160deg, var(--bone) 0%, #eae4db 50%, var(--bone) 100%);
 }
-.section--alt {
-  background: linear-gradient(160deg, #e8e2d8 0%, #ddd6cb 55%, #e8e2d8 100%);
-}
+.section--alt { background: var(--bone); }
 
 
 /* ---------- Shared type tokens ---------------------------- */
@@ -251,13 +247,7 @@ button { font-family: inherit; cursor: pointer; border: 0; }
 /* =========================================================
    HERO
    ========================================================= */
-.hero {
-  padding: 80px 0 0;
-  /* Warm golden light from top-right, like a soft studio lamp behind the UI mockup */
-  background:
-    radial-gradient(ellipse 55% 60% at 85% -5%, rgba(210, 165, 60, 0.13) 0%, transparent 65%),
-    radial-gradient(ellipse 40% 40% at 15% 110%, rgba(180, 155, 100, 0.07) 0%, transparent 60%);
-}
+.hero { padding: 80px 0 0; }
 
 .hero__grid {
   display: grid;
@@ -468,10 +458,6 @@ button { font-family: inherit; cursor: pointer; border: 0; }
 /* =========================================================
    LEAK — problem stats
    ========================================================= */
-/* Left-side sweep: darker warm tone anchoring the large stat numbers */
-section#leak {
-  background: linear-gradient(to right, #c4baab 0%, var(--surface-canvas-alt) 42%);
-}
 .leak__intro {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
@@ -515,10 +501,6 @@ section#leak {
 /* =========================================================
    CAPABILITIES — 4-column card grid
    ========================================================= */
-/* Diagonal warm-to-cool gradient giving the section visual depth */
-section#system {
-  background: linear-gradient(148deg, var(--bone) 0%, #e5dfd4 55%, var(--surface-canvas-alt) 100%);
-}
 .caps__intro {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
@@ -603,10 +585,6 @@ section#system {
 /* =========================================================
    HOW IT FITS
    ========================================================= */
-/* Right-side sweep: warmth drifting in from the right, sense of directional motion */
-section#fits {
-  background: linear-gradient(to left, #d9d1c6 0%, var(--bone) 45%);
-}
 .fits__intro { max-width: 640px; margin-bottom: 72px; }
 .fits__intro .section__h { margin-bottom: 20px; }
 
@@ -762,10 +740,6 @@ section#fits {
 /* =========================================================
    OFFER LADDER
    ========================================================= */
-/* Radial "stage light" rising from below the pricing cards */
-section#offer {
-  background: radial-gradient(ellipse 90% 60% at 50% 110%, var(--surface-canvas-alt) 0%, var(--bone) 55%);
-}
 .ladder__intro {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
