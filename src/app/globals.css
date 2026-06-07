@@ -103,36 +103,59 @@ button { font-family: inherit; cursor: pointer; border: 0; }
   font-family: var(--font-body);
   font-size: 16px;
   font-weight: 500;
-  padding: 17px 36px;
-  background: linear-gradient(180deg, #0d1a2e 0%, var(--ink) 100%);
-  color: var(--bone);
-  border-radius: 999px;
+  padding: 18px 40px;
+  background: transparent;
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  border-radius: 6px;
   display: inline-flex;
   align-items: center;
   gap: 10px;
   line-height: 1;
   letter-spacing: 0.01em;
-  box-shadow: 0 2px 6px rgba(1,14,30,0.18), 0 6px 20px rgba(1,14,30,0.10);
-  transition: transform 200ms var(--ease), box-shadow 200ms var(--ease), opacity 200ms var(--ease);
+  transition: background 220ms var(--ease), color 220ms var(--ease), transform 200ms var(--ease);
   cursor: pointer;
+  position: relative;
 }
 .btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(1,14,30,0.22), 0 12px 32px rgba(1,14,30,0.12);
-  opacity: 0.94;
+  background: var(--ink);
+  color: var(--bone);
+  transform: translateY(-1px);
 }
-.btn:active { transform: translateY(0); box-shadow: 0 1px 4px rgba(1,14,30,0.18); }
+.btn:active { transform: translateY(0); }
+
+/* Secondary / ghost — minimal text link style */
 .btn--ghost {
+  border-color: transparent;
+  color: var(--ink-70);
+  padding-left: 0;
+  padding-right: 0;
+}
+.btn--ghost:hover {
   background: transparent;
   color: var(--ink);
-  border: 1.5px solid var(--ink-20);
-  box-shadow: none;
+  transform: none;
 }
-.btn--ghost:hover { background: var(--ink-04); box-shadow: none; opacity: 1; transform: none; }
+.btn--ghost::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -2px;
+  width: 0; height: 1px;
+  background: var(--ink);
+  transition: width 240ms var(--ease);
+}
+.btn--ghost:hover::after { width: 100%; }
+
+/* On dark background */
 .btn--on-ink {
+  background: transparent;
+  color: var(--bone);
+  border-color: rgba(245,242,237,0.40);
+}
+.btn--on-ink:hover {
   background: var(--bone);
   color: var(--ink);
-  box-shadow: 0 2px 6px rgba(1,14,30,0.30), 0 6px 20px rgba(1,14,30,0.18);
+  border-color: var(--bone);
 }
 .btn .icon { width: 16px; height: 16px; stroke: currentColor; stroke-width: 1.5; fill: none; }
 
@@ -209,19 +232,19 @@ button { font-family: inherit; cursor: pointer; border: 0; }
   font-size: 13px;
   font-weight: 500;
   padding: 10px 22px;
-  background: linear-gradient(180deg, #0d1a2e 0%, var(--ink) 100%);
-  color: var(--bone);
-  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  border-radius: 6px;
   display: inline-flex;
   align-items: center;
   gap: 8px;
   line-height: 1;
   letter-spacing: 0.01em;
-  box-shadow: 0 2px 8px rgba(1,14,30,0.18);
-  transition: opacity 180ms var(--ease), transform 180ms var(--ease), box-shadow 180ms var(--ease);
+  transition: background 200ms var(--ease), color 200ms var(--ease), transform 180ms var(--ease);
   cursor: pointer;
 }
-.nav__cta:hover { opacity: 0.88; transform: translateY(-1px); box-shadow: 0 4px 14px rgba(1,14,30,0.22); }
+.nav__cta:hover { background: var(--ink); color: var(--bone); transform: translateY(-1px); }
 .nav__cta .icon { width: 13px; height: 13px; stroke: currentColor; stroke-width: 1.5; fill: none; }
 @media (max-width: 800px) { .nav__links { display: none; } }
 
@@ -441,6 +464,10 @@ button { font-family: inherit; cursor: pointer; border: 0; }
 /* =========================================================
    LEAK — problem stats
    ========================================================= */
+/* Left-side sweep: darker warm tone anchoring the large stat numbers */
+section#leak {
+  background: linear-gradient(to right, #c4baab 0%, var(--surface-canvas-alt) 42%);
+}
 .leak__intro {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
@@ -571,6 +598,10 @@ section#system {
 /* =========================================================
    HOW IT FITS
    ========================================================= */
+/* Right-side sweep: warmth drifting in from the right, sense of directional motion */
+section#fits {
+  background: linear-gradient(to left, #d9d1c6 0%, var(--bone) 45%);
+}
 .fits__intro { max-width: 640px; margin-bottom: 72px; }
 .fits__intro .section__h { margin-bottom: 20px; }
 
