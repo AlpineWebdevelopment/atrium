@@ -101,28 +101,39 @@ button { font-family: inherit; cursor: pointer; border: 0; }
 /* ---------- Buttons --------------------------------------- */
 .btn {
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
-  padding: 13px 22px;
-  background: var(--signal);
-  color: var(--ink);
-  border-radius: 6px;
+  padding: 17px 36px;
+  background: linear-gradient(180deg, #0d1a2e 0%, var(--ink) 100%);
+  color: var(--bone);
+  border-radius: 999px;
   display: inline-flex;
   align-items: center;
   gap: 10px;
   line-height: 1;
-  transition: opacity 200ms var(--ease), transform 200ms var(--ease);
+  letter-spacing: 0.01em;
+  box-shadow: 0 2px 6px rgba(1,14,30,0.18), 0 6px 20px rgba(1,14,30,0.10);
+  transition: transform 200ms var(--ease), box-shadow 200ms var(--ease), opacity 200ms var(--ease);
   cursor: pointer;
 }
-.btn:hover  { opacity: 0.84; transform: translateY(-1px); }
-.btn:active { opacity: 0.88; transform: none; }
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(1,14,30,0.22), 0 12px 32px rgba(1,14,30,0.12);
+  opacity: 0.94;
+}
+.btn:active { transform: translateY(0); box-shadow: 0 1px 4px rgba(1,14,30,0.18); }
 .btn--ghost {
   background: transparent;
   color: var(--ink);
-  border: 1px solid var(--ink-20);
+  border: 1.5px solid var(--ink-20);
+  box-shadow: none;
 }
-.btn--ghost:hover { background: var(--ink-04); opacity: 1; }
-.btn--on-ink { background: var(--bone); color: var(--ink); }
+.btn--ghost:hover { background: var(--ink-04); box-shadow: none; opacity: 1; transform: none; }
+.btn--on-ink {
+  background: var(--bone);
+  color: var(--ink);
+  box-shadow: 0 2px 6px rgba(1,14,30,0.30), 0 6px 20px rgba(1,14,30,0.18);
+}
 .btn .icon { width: 16px; height: 16px; stroke: currentColor; stroke-width: 1.5; fill: none; }
 
 /* ---------- Scroll reveal --------------------------------- */
@@ -197,25 +208,33 @@ button { font-family: inherit; cursor: pointer; border: 0; }
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 500;
-  padding: 9px 18px;
-  background: var(--signal);
-  color: var(--ink);
-  border-radius: 6px;
+  padding: 10px 22px;
+  background: linear-gradient(180deg, #0d1a2e 0%, var(--ink) 100%);
+  color: var(--bone);
+  border-radius: 999px;
   display: inline-flex;
   align-items: center;
   gap: 8px;
   line-height: 1;
-  transition: opacity 180ms var(--ease), transform 180ms var(--ease);
+  letter-spacing: 0.01em;
+  box-shadow: 0 2px 8px rgba(1,14,30,0.18);
+  transition: opacity 180ms var(--ease), transform 180ms var(--ease), box-shadow 180ms var(--ease);
   cursor: pointer;
 }
-.nav__cta:hover { opacity: 0.84; transform: translateY(-1px); }
+.nav__cta:hover { opacity: 0.88; transform: translateY(-1px); box-shadow: 0 4px 14px rgba(1,14,30,0.22); }
 .nav__cta .icon { width: 13px; height: 13px; stroke: currentColor; stroke-width: 1.5; fill: none; }
 @media (max-width: 800px) { .nav__links { display: none; } }
 
 /* =========================================================
    HERO
    ========================================================= */
-.hero { padding: 80px 0 0; }
+.hero {
+  padding: 80px 0 0;
+  /* Warm golden light from top-right, like a soft studio lamp behind the UI mockup */
+  background:
+    radial-gradient(ellipse 55% 60% at 85% -5%, rgba(210, 165, 60, 0.13) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 40% at 15% 110%, rgba(180, 155, 100, 0.07) 0%, transparent 60%);
+}
 
 .hero__grid {
   display: grid;
@@ -241,10 +260,6 @@ button { font-family: inherit; cursor: pointer; border: 0; }
   letter-spacing: -0.028em;
   color: var(--ink);
   margin: 0 0 28px 0;
-}
-.hero__title-signal {
-  color: var(--signal);
-  font-style: italic;
 }
 .hero__sub {
   font-family: var(--font-body);
@@ -375,7 +390,7 @@ button { font-family: inherit; cursor: pointer; border: 0; }
   font-weight: 500;
   font-size: 22px;
   letter-spacing: -0.02em;
-  color: var(--signal);
+  color: var(--ink);
   line-height: 1;
 }
 .hero__ui-stat-label {
@@ -455,7 +470,7 @@ button { font-family: inherit; cursor: pointer; border: 0; }
   font-size: clamp(72px, 8vw, 108px);
   letter-spacing: -0.04em;
   line-height: 1;
-  color: var(--signal);
+  color: var(--ink);
 }
 .leak__num .unit { font-size: 32px; color: var(--stone); margin-left: 2px; }
 .leak__label { font-family: var(--font-body); font-size: 14px; line-height: 1.55; color: var(--stone); }
@@ -469,6 +484,10 @@ button { font-family: inherit; cursor: pointer; border: 0; }
 /* =========================================================
    CAPABILITIES — 4-column card grid
    ========================================================= */
+/* Diagonal warm-to-cool gradient giving the section visual depth */
+section#system {
+  background: linear-gradient(148deg, var(--bone) 0%, #e5dfd4 55%, var(--surface-canvas-alt) 100%);
+}
 .caps__intro {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
@@ -615,8 +634,7 @@ button { font-family: inherit; cursor: pointer; border: 0; }
   padding: 48px;
   background: var(--surface-canvas-alt);
   border: 1px solid var(--ink-08);
-  border-left: 3px solid var(--signal);
-  border-radius: 0 8px 8px 0;
+  border-radius: 8px;
 }
 .fits__rule h3 {
   font-family: var(--font-display);
@@ -706,6 +724,10 @@ button { font-family: inherit; cursor: pointer; border: 0; }
 /* =========================================================
    OFFER LADDER
    ========================================================= */
+/* Radial "stage light" rising from below the pricing cards */
+section#offer {
+  background: radial-gradient(ellipse 90% 60% at 50% 110%, var(--surface-canvas-alt) 0%, var(--bone) 55%);
+}
 .ladder__intro {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
@@ -743,7 +765,6 @@ button { font-family: inherit; cursor: pointer; border: 0; }
 }
 .ladder__rung { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.07em; color: var(--stone); }
 .ladder__name { font-family: var(--font-display); font-weight: 500; font-size: 19px; letter-spacing: -0.01em; line-height: 1.15; }
-.ladder__col--focus .ladder__name { color: var(--signal); }
 .ladder__price { font-family: var(--font-display); font-weight: 500; font-size: 26px; letter-spacing: -0.02em; line-height: 1; margin-top: 4px; }
 .ladder__price small { font-family: var(--font-body); font-size: 12px; font-weight: 400; display: block; color: var(--stone); margin-top: 5px; }
 .ladder__desc { font-family: var(--font-body); font-size: 13.5px; line-height: 1.56; margin: 0; color: var(--ink-70); }
@@ -798,8 +819,7 @@ button { font-family: inherit; cursor: pointer; border: 0; }
    FINAL CTA + FOOTER
    ========================================================= */
 .final {
-  background: var(--ink);
-  /* Subtle cross-hatch on ink */
+  background: linear-gradient(135deg, #010E1E 0%, #040f08 60%, #071a0d 100%);
   color: var(--bone);
   padding: 120px 0 0;
   border-top-color: transparent;
