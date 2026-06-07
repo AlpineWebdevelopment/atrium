@@ -18,7 +18,7 @@ const DO = [
 
 export default function Defense() {
   return (
-    <section className="section section--alt section--texture" id="defense" data-screen-label="07 A márka védvonala">
+    <section className="section section--alt section--texture-grid" id="defense" data-screen-label="07 A márka védvonala">
       <div className="container">
 
         <div className="defense__intro">
