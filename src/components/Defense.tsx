@@ -1,7 +1,7 @@
 const DONT = [
   "Nem mondjuk, hogy 10x bevétel három hónap alatt.",
   "Nem rakunk a weboldalra hamis vagy összeszerkesztett hangmintát.",
-  'Nem írunk „300 elégedett ügyfél"-t név nélkül.',
+  'Nem írunk „300 elégedett ügyfél”-t név nélkül.',
   "Nem adunk ingyen hardvert. Az nem a mi mozdulatunk.",
   "Nem hordunk chat-widgetet ezen az oldalon. A márkának nincs chatbotja.",
   "Nem nevezzük magunkat AI ügynökségnek.",
@@ -18,7 +18,7 @@ const DO = [
 
 export default function Defense() {
   return (
-    <section className="section section--ink" id="defense" data-screen-label="07 A márka védvonala">
+    <section className="section" id="defense" data-screen-label="07 A márka védvonala">
       <div className="container">
         <div className="defense__head">
           <p className="eyebrow">A márka védvonala</p>

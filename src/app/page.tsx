@@ -1,6 +1,5 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import Ticker from "@/components/Ticker";
 import Leak from "@/components/Leak";
 import Capabilities from "@/components/Capabilities";
 import HowItFits from "@/components/HowItFits";
@@ -14,7 +13,6 @@ export default function Home() {
     <div className="page" data-screen-label="atriumscaling.com /">
       <Nav />
       <Hero />
-      <Ticker />
       <Leak />
       <Capabilities />
       <HowItFits />
