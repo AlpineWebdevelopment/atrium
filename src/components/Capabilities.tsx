@@ -38,7 +38,7 @@ const CAPS = [
 
 export default function Capabilities() {
   return (
-    <section className="section section--texture" id="system" data-screen-label="03 A rendszer">
+    <section className="section" id="system" data-screen-label="03 A rendszer">
       <div className="container">
 
         <div className="caps__intro">

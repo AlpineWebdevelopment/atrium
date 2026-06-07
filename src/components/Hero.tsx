@@ -12,7 +12,9 @@ export default function Hero() {
               Értékesítési rendszerek szolgáltató cégeknek
             </span>
             <h1 className="hero__title">
-              A bevétel, ami eddig elveszett.
+              A bevétel,<br />
+              ami eddig<br />
+              <em className="hero__title-signal">elveszett.</em>
             </h1>
             <p className="hero__sub">
               Az Atrium egy magyar nyelvű AI-alapú értékesítési rendszer —
