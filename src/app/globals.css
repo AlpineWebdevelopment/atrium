@@ -98,44 +98,64 @@ button { font-family: inherit; cursor: pointer; border: 0; }
   margin: 0;
 }
 
-/* ---------- Buttons --------------------------------------- */
+/* ---------- Buttons — Shopify Polaris style --------------- */
 .btn {
   font-family: var(--font-body);
   font-size: 14px;
   font-weight: 500;
-  padding: 13px 26px;
+  padding: 10px 20px;
   background: var(--signal);
   color: var(--ink);
-  border: none;
-  border-radius: 999px;
+  border: 1px solid rgba(1,14,30,0.14);
+  border-radius: 8px;
   display: inline-flex;
   align-items: center;
-  gap: 9px;
+  gap: 8px;
   line-height: 1;
   letter-spacing: 0.01em;
-  transition: transform 180ms var(--ease), opacity 180ms var(--ease);
+  /* Outer lift + inset bottom edge — the Polaris 3-D stamp */
+  box-shadow: 0 2px 4px rgba(1,14,30,0.12), inset 0 -2px 0 rgba(1,14,30,0.18);
+  transition: box-shadow 150ms var(--ease), transform 150ms var(--ease), opacity 150ms var(--ease);
   cursor: pointer;
 }
-.btn:hover  { transform: translateY(-1px); opacity: 0.88; }
-.btn:active { transform: translateY(0); opacity: 1; }
+.btn:hover {
+  box-shadow: 0 3px 8px rgba(1,14,30,0.16), inset 0 -2px 0 rgba(1,14,30,0.18);
+  transform: translateY(-1px);
+}
+.btn:active {
+  box-shadow: inset 0 2px 0 rgba(1,14,30,0.14);
+  transform: translateY(0);
+}
 
 /* Secondary / ghost */
 .btn--ghost {
-  background: transparent;
-  color: var(--ink-70);
+  background: var(--bone);
+  color: var(--ink);
   border: 1px solid var(--ink-20);
-  border-radius: 999px;
+  box-shadow: 0 1px 3px rgba(1,14,30,0.08), inset 0 -1px 0 rgba(1,14,30,0.10);
 }
-.btn--ghost:hover { background: var(--ink-04); opacity: 1; transform: none; }
+.btn--ghost:hover {
+  background: var(--surface-canvas-alt);
+  box-shadow: 0 2px 5px rgba(1,14,30,0.10), inset 0 -1px 0 rgba(1,14,30,0.10);
+  transform: translateY(-1px);
+  opacity: 1;
+}
+.btn--ghost:active { box-shadow: inset 0 1px 0 rgba(1,14,30,0.10); transform: translateY(0); }
 
 /* On dark background */
 .btn--on-ink {
-  background: transparent;
+  background: rgba(245,242,237,0.10);
   color: var(--bone);
-  border: 1px solid rgba(245,242,237,0.35);
-  border-radius: 999px;
+  border: 1px solid rgba(245,242,237,0.25);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.25), inset 0 -2px 0 rgba(0,0,0,0.30);
 }
-.btn--on-ink:hover { background: var(--bone); color: var(--ink); border-color: var(--bone); opacity: 1; }
+.btn--on-ink:hover {
+  background: var(--bone);
+  color: var(--ink);
+  border-color: var(--bone);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.30), inset 0 -2px 0 rgba(0,0,0,0.08);
+  opacity: 1;
+}
 .btn .icon { width: 15px; height: 15px; stroke: currentColor; stroke-width: 1.5; fill: none; }
 
 /* ---------- Scroll reveal --------------------------------- */
@@ -210,20 +230,25 @@ button { font-family: inherit; cursor: pointer; border: 0; }
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 500;
-  padding: 10px 20px;
+  padding: 9px 18px;
   background: var(--signal);
   color: var(--ink);
-  border: none;
-  border-radius: 999px;
+  border: 1px solid rgba(1,14,30,0.14);
+  border-radius: 8px;
   display: inline-flex;
   align-items: center;
   gap: 7px;
   line-height: 1;
   letter-spacing: 0.01em;
-  transition: transform 180ms var(--ease), opacity 180ms var(--ease);
+  box-shadow: 0 2px 4px rgba(1,14,30,0.12), inset 0 -2px 0 rgba(1,14,30,0.18);
+  transition: box-shadow 150ms var(--ease), transform 150ms var(--ease);
   cursor: pointer;
 }
-.nav__cta:hover { transform: translateY(-1px); opacity: 0.88; }
+.nav__cta:hover {
+  box-shadow: 0 3px 8px rgba(1,14,30,0.16), inset 0 -2px 0 rgba(1,14,30,0.18);
+  transform: translateY(-1px);
+}
+.nav__cta:active { box-shadow: inset 0 2px 0 rgba(1,14,30,0.14); transform: translateY(0); }
 .nav__cta .icon { width: 13px; height: 13px; stroke: currentColor; stroke-width: 1.5; fill: none; }
 @media (max-width: 800px) { .nav__links { display: none; } }
 
