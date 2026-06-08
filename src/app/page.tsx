@@ -3,8 +3,6 @@ import Hero from "@/components/Hero";
 import ClientTypes from "@/components/ClientTypes";
 import Leak from "@/components/Leak";
 import ActivityLog from "@/components/ActivityLog";
-import CallDashboard from "@/components/CallDashboard";
-import FollowUpSystem from "@/components/FollowUpSystem";
 import Capabilities from "@/components/Capabilities";
 import HowItFits from "@/components/HowItFits";
 import ReportPreview from "@/components/ReportPreview";
@@ -22,8 +20,6 @@ export default function Home() {
       <ClientTypes />
       <Leak />
       <ActivityLog />
-      <CallDashboard />
-      <FollowUpSystem />
       <Capabilities />
       <HowItFits />
       <ReportPreview />
