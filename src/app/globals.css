@@ -90,7 +90,15 @@ button { font-family: inherit; cursor: pointer; border: 0; }
   padding: 120px 0;
   border-top: 1px solid var(--ink-08);
 }
-.section--alt { background: var(--surface-canvas-alt); }
+.section--alt {
+  background: linear-gradient(
+    to bottom,
+    var(--bone)               0,
+    var(--surface-canvas-alt) 88px,
+    var(--surface-canvas-alt) calc(100% - 88px),
+    var(--bone)               100%
+  );
+}
 
 
 /* ---------- Shared type tokens ---------------------------- */
@@ -888,7 +896,12 @@ button { font-family: inherit; cursor: pointer; border: 0; }
    FINAL CTA + FOOTER
    ========================================================= */
 .final {
-  background: linear-gradient(135deg, #010E1E 0%, #040f08 60%, #071a0d 100%);
+  background: linear-gradient(
+    to bottom,
+    var(--bone) 0,
+    #010E1E     88px,
+    #040f08     100%
+  );
   color: var(--bone);
   padding: 120px 0 0;
   border-top-color: transparent;
