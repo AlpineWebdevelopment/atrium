@@ -1,4 +1,5 @@
 import ArrowRight from "./ArrowRight";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Nav() {
   return (
@@ -14,10 +15,13 @@ export default function Nav() {
             <a href="#offer" className="nav__link">Csomagok</a>
             <a href="#contact" className="nav__link">Kapcsolat</a>
           </nav>
-          <button className="nav__cta">
-            Foglaljon időpontot
-            <ArrowRight />
-          </button>
+          <div className="nav__right">
+            <ThemeToggle />
+            <button className="nav__cta">
+              Foglaljon időpontot
+              <ArrowRight />
+            </button>
+          </div>
         </div>
       </div>
     </header>
