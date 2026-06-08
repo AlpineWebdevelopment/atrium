@@ -60,6 +60,10 @@ html.dark body {
 /* ---------- Reset ----------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html, body {
   background-color: var(--bone);
   /* Subtle dot grid — makes bone feel like paper rather than flat screen */
