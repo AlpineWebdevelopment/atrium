@@ -134,9 +134,9 @@ button { font-family: inherit; cursor: pointer; border: 0; }
   font-size: 14px;
   font-weight: 500;
   padding: 10px 20px;
-  background: var(--signal);
-  color: var(--ink);
-  border: 1px solid rgba(1,14,30,0.14);
+  background: var(--ink);
+  color: var(--bone);
+  border: 1px solid rgba(1,14,30,0.20);
   border-radius: 8px;
   display: inline-flex;
   align-items: center;
@@ -261,9 +261,9 @@ button { font-family: inherit; cursor: pointer; border: 0; }
   font-size: 13px;
   font-weight: 500;
   padding: 9px 18px;
-  background: var(--signal);
-  color: var(--ink);
-  border: 1px solid rgba(1,14,30,0.14);
+  background: var(--ink);
+  color: var(--bone);
+  border: 1px solid rgba(1,14,30,0.20);
   border-radius: 8px;
   display: inline-flex;
   align-items: center;
@@ -602,6 +602,20 @@ button { font-family: inherit; cursor: pointer; border: 0; }
   min-height: 0;
 }
 
+.caps__card-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  background: var(--ink-04);
+  border: 1px solid var(--ink-08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+  flex-shrink: 0;
+  margin-bottom: 12px;
+}
+
 .caps__card-num {
   font-family: var(--font-mono);
   font-size: 11px;
@@ -896,12 +910,7 @@ button { font-family: inherit; cursor: pointer; border: 0; }
    FINAL CTA + FOOTER
    ========================================================= */
 .final {
-  background: linear-gradient(
-    to bottom,
-    var(--bone) 0,
-    #010E1E     88px,
-    #040f08     100%
-  );
+  background: linear-gradient(160deg, #010E1E 0%, #040f08 60%, #071a0d 100%);
   color: var(--bone);
   padding: 120px 0 0;
   border-top-color: transparent;
