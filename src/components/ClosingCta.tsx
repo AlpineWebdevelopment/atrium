@@ -1,48 +1,48 @@
 import ArrowRight from "./ArrowRight";
 
-const PROOF = [
-  { num: "30 perc", label: "Az egyetlen befektetés a döntés előtt" },
-  { num: "2–3 hét", label: "Átlagos bevezetési idő" },
-  { num: "60 nap", label: "Jellemző megtérülési idő" },
-];
-
 export default function ClosingCta() {
   return (
-    <section className="section closing" id="closing" data-screen-label="Záró CTA">
+    <section className="closing" id="closing" data-screen-label="Záró CTA">
       <div className="container">
 
-        <div className="closing__body reveal">
-          <div className="closing__copy">
-            <span className="eyebrow">Következő lépés</span>
-            <h2 className="closing__h">
-              Az Ön számai alapján<br />
-              döntünk — együtt.
-            </h2>
-            <p className="closing__p">
-              30 perces megbeszélés. Megnézzük a hívásait, a beérkező leadjeit,
-              a no-show arányát. Megmondjuk, hol szivárog a bevétel és mit lehet
-              realisztikusan visszahozni — mielőtt bármiről dönt.
-            </p>
-            <p className="closing__p closing__p--small">
-              Nincs kötelezettség. Nincs sürgetés. Ha nem áll össze a döntés,
-              kap egy auditot a megbeszélés alapján.
-            </p>
+        <div className="closing__inner reveal">
+          <span className="closing__eyebrow">Következő lépés</span>
+
+          <h2 className="closing__h">
+            Az Ön számai<br />
+            alapján döntünk.
+          </h2>
+
+          <p className="closing__p">
+            30 perces megbeszélés. Megnézzük a hívásait, a beérkező
+            leadjeit, a no-show arányát. Megmondjuk, hol szivárog
+            a bevétel — mielőtt bármiről dönt.
+          </p>
+
+          <div className="closing__actions">
             <button className="btn closing__btn">
               Foglaljon 30 perces megbeszélést
               <ArrowRight />
             </button>
+            <span className="closing__note">
+              Nincs kötelezettség · Nincs sürgetés · Ha nem áll össze a döntés, kap egy auditot
+            </span>
           </div>
 
-          <div className="closing__proof">
-            {PROOF.map((p, i) => (
-              <div className="closing__proof-item" key={i}>
-                <div className="closing__proof-num">{p.num}</div>
-                <div className="closing__proof-label">{p.label}</div>
-              </div>
-            ))}
-            <div className="closing__proof-note">
-              Új márka vagyunk — az első esettanulmányok 2026 folyamán érkeznek.
-              Addig a saját számait nézzük meg a megbeszélésen.
+          <div className="closing__stats">
+            <div className="closing__stat">
+              <span className="closing__stat-num">30 perc</span>
+              <span className="closing__stat-label">az egyetlen befektetés a döntés előtt</span>
+            </div>
+            <div className="closing__stat-div" />
+            <div className="closing__stat">
+              <span className="closing__stat-num">2–3 hét</span>
+              <span className="closing__stat-label">átlagos bevezetési idő</span>
+            </div>
+            <div className="closing__stat-div" />
+            <div className="closing__stat">
+              <span className="closing__stat-num">60 nap</span>
+              <span className="closing__stat-label">jellemző megtérülési idő</span>
             </div>
           </div>
         </div>
