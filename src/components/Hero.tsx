@@ -1,5 +1,23 @@
 import ArrowRight from "./ArrowRight";
 
+const TABS = [
+  "Fogadja a hívást",
+  "Lefoglalja az időpontot",
+  "Visszahívja az elmaradtakat",
+  "Utánköveti az érdeklődőt",
+  "Kéri az értékelést",
+  "Megmutatja, mi működik",
+];
+
+const STACK = [
+  "Magyar nyelvű",
+  "EU-ban hosztolt",
+  "GDPR-konform",
+  "Google Calendar",
+  "Microsoft 365",
+  "GoHighLevel",
+];
+
 export default function Hero() {
   return (
     <section className="hero" data-screen-label="01 Hero">
@@ -97,23 +115,24 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* ─── Manifest strip ─── */}
-        <div className="hero__manifest" aria-label="A rendszer alapjai">
-          <div>
-            <span className="k">Nyelv</span>
-            <span className="v">Magyar, formális Ön-megszólítás</span>
-          </div>
-          <div>
-            <span className="k">Motor</span>
-            <span className="v">AI-ügynökök, hangon és írásban</span>
-          </div>
-          <div>
-            <span className="k">Integráció</span>
-            <span className="v">Az Ön meglévő naptárába és CRM-jébe</span>
-          </div>
-          <div>
-            <span className="k">Adatkezelés</span>
-            <span className="v">EU-ban hosztolva, GDPR-konform</span>
+        {/* ─── Capability tab strip ─── */}
+        <div className="hero__tabs" role="list" aria-label="Mit csinál a rendszer">
+          {TABS.map((t, i) => (
+            <span className={"hero__tab" + (i === 0 ? " hero__tab--active" : "")} role="listitem" key={i}>
+              {t}
+            </span>
+          ))}
+        </div>
+
+        {/* ─── Compatibility strip (the brand-safe "logo wall") ─── */}
+        <div className="hero__trust">
+          <span className="hero__trust-label">
+            Illeszkedik a meglévő eszközeihez — nincs adatmigráció, nincs csapatképzés
+          </span>
+          <div className="hero__trust-row">
+            {STACK.map((s, i) => (
+              <span className="hero__trust-item" key={i}>{s}</span>
+            ))}
           </div>
         </div>
       </div>
