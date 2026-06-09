@@ -1,7 +1,7 @@
 /* Atrium — Chronicle-style landing, Atrium colors + fonts only.
    Bone / Ink / Signal / Stone. Onest (display) + Geist (body) + Geist Mono.
    Full rebuild: faithful Chronicle layout, Atrium palette + type.
-   + colorful data-viz dashboard & packages sections. */
+   + colorful data-viz dashboard (tabbed) & packages sections. */
 
 @import url("https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Geist:wght@400;500&family=Geist+Mono:wght@400;500&display=swap");
 
@@ -776,14 +776,14 @@ html.dark { --viz-purple-soft: #1d1b33; }
    REALTIME DASHBOARD
    ========================================================= */
 .dash {
-  padding: 92px 0;
+  padding: 64px 0;
   background:
-    radial-gradient(1200px 480px at 12% -10%, rgba(124,92,255,0.30), transparent 60%),
-    radial-gradient(1100px 520px at 100% 10%, rgba(74,163,255,0.28), transparent 58%),
-    radial-gradient(900px 600px at 60% 120%, rgba(84,207,192,0.26), transparent 60%),
+    radial-gradient(1000px 420px at 12% -10%, rgba(124,92,255,0.26), transparent 60%),
+    radial-gradient(900px 460px at 100% 10%, rgba(74,163,255,0.24), transparent 58%),
+    radial-gradient(800px 520px at 60% 120%, rgba(84,207,192,0.22), transparent 60%),
     var(--bone);
 }
-.dash__intro { text-align: center; max-width: 640px; margin: 0 auto 44px; }
+.dash__intro { text-align: center; max-width: 620px; margin: 0 auto 30px; }
 .dash__eyebrow { color: var(--viz-purple); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.10em; text-transform: uppercase; }
 .dash__h {
   font-family: var(--font-display); font-weight: 500;
@@ -795,15 +795,32 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .dash__card {
   background: var(--bone);
   border: 1px solid var(--line);
-  border-radius: 22px;
-  padding: 26px 28px 30px;
-  box-shadow: 0 40px 90px -40px rgba(20,16,60,0.55), 0 6px 24px -12px rgba(20,16,60,0.20);
+  border-radius: 20px;
+  padding: 18px 22px 22px;
+  box-shadow: 0 36px 80px -42px rgba(20,16,60,0.5), 0 6px 22px -14px rgba(20,16,60,0.18);
 }
+
+/* tab pills */
+.dash__tabs {
+  display: flex; justify-content: center; flex-wrap: wrap; gap: 4px;
+  background: var(--panel); border-radius: 999px; padding: 4px;
+  width: fit-content; margin: 0 auto 22px;
+}
+.dash__tab {
+  font-family: var(--font-body); font-size: 13px; font-weight: 500;
+  color: var(--ink-50); padding: 8px 16px; border-radius: 999px;
+  transition: background 160ms var(--ease), color 160ms var(--ease);
+}
+.dash__tab:hover { color: var(--ink); }
+.dash__tab--active { background: var(--bone); color: var(--ink); box-shadow: 0 2px 6px -2px rgba(1,14,30,0.18); }
+
+/* panel — fixed-ish height so tab switches don't jump */
+.dash__panel { min-height: 360px; }
 
 /* metric row */
 .dash__metrics {
-  display: grid; grid-template-columns: repeat(6, 1fr); gap: 18px;
-  padding-bottom: 22px; border-bottom: 1px solid var(--line-2);
+  display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px;
+  padding-bottom: 18px; border-bottom: 1px solid var(--line-2);
 }
 .dash__metric-k { display: flex; align-items: center; gap: 6px; font-family: var(--font-body); font-size: 12.5px; color: var(--ink-50); }
 .dash__metric-dot { width: 7px; height: 7px; border-radius: 50%; }
@@ -814,8 +831,8 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .flat { color: var(--ink-35); }
 
 /* chart */
-.dash__chart { position: relative; height: 300px; margin-top: 18px; }
-.dash__svg { width: 100%; height: 260px; display: block; overflow: visible; }
+.dash__chart { position: relative; height: 230px; margin-top: 16px; }
+.dash__svg { width: 100%; height: 190px; display: block; overflow: visible; }
 .dash__axis { position: absolute; left: 0; right: 0; bottom: 0; display: flex; justify-content: space-between; }
 .dash__axis span { font-family: var(--font-mono); font-size: 10px; color: var(--ink-35); }
 .dash__axis i { width: 4px; height: 4px; border-radius: 50%; background: var(--line); align-self: center; }
@@ -867,6 +884,64 @@ html.dark { --viz-purple-soft: #1d1b33; }
 @media (max-width: 860px) {
   .dash__metrics { grid-template-columns: repeat(3, 1fr); gap: 22px 14px; }
   .dash__cards { grid-template-columns: 1fr; }
+}
+
+/* --- Panel: Profiles --- */
+.prof { display: flex; flex-direction: column; }
+.prof__row {
+  display: grid; grid-template-columns: 40px 1fr auto auto; gap: 16px; align-items: center;
+  padding: 14px 6px; border-bottom: 1px solid var(--line-2);
+}
+.prof__row:last-child { border-bottom: 0; }
+.prof__av {
+  width: 40px; height: 40px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-weight: 500; font-size: 14px; color: #fff;
+}
+.prof__name { font-family: var(--font-display); font-weight: 500; font-size: 14.5px; color: var(--ink); }
+.prof__meta { font-family: var(--font-body); font-size: 12px; color: var(--ink-50); margin-top: 2px; }
+.prof__chan {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.04em;
+  padding: 4px 9px; border-radius: 6px; background: var(--viz-purple-soft); color: var(--viz-purple);
+}
+.prof__status { font-family: var(--font-body); font-size: 12.5px; font-weight: 500; color: var(--viz-green); white-space: nowrap; }
+.prof__status.warn { color: var(--viz-amber); }
+
+/* --- Panel: Funnel --- */
+.funnel__top { display: flex; gap: 40px; margin-bottom: 8px; }
+.funnel__kpi-k { font-family: var(--font-body); font-size: 12px; color: var(--ink-50); }
+.funnel__kpi-v { font-family: var(--font-display); font-weight: 500; font-size: 20px; letter-spacing: -0.02em; color: var(--ink); margin-top: 4px; }
+.funnel__kpi-d { font-family: var(--font-mono); font-size: 11px; margin-top: 2px; }
+.funnel__chart { position: relative; margin-top: 6px; }
+.funnel__svg { width: 100%; height: 250px; display: block; }
+.funnel__stage {
+  position: absolute; transform: translate(-50%, -50%);
+  display: inline-flex; align-items: baseline; gap: 7px;
+  background: var(--bone); border: 1px solid var(--line); border-radius: 999px;
+  padding: 6px 13px; box-shadow: 0 6px 16px -8px rgba(1,14,30,0.3);
+  white-space: nowrap;
+}
+.funnel__stage b { font-family: var(--font-display); font-weight: 500; font-size: 14px; color: var(--ink); }
+.funnel__stage span { font-family: var(--font-mono); font-size: 11px; color: var(--ink-50); }
+.funnel__labels { display: flex; justify-content: space-between; margin-top: 14px; }
+.funnel__labels span { font-family: var(--font-body); font-size: 12px; color: var(--ink-50); }
+
+/* --- Panel: Performance --- */
+.perf { display: grid; grid-template-columns: 240px 1fr; gap: 32px; align-items: center; }
+.perf__ring-wrap { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
+.perf__ring { width: 150px; height: 150px; }
+.perf__ring-num { font-family: var(--font-display); font-weight: 500; font-size: 34px; fill: var(--ink); }
+.perf__perfect { font-family: var(--font-display); font-weight: 500; font-size: 17px; color: var(--ink); }
+.perf__perfect-sub { font-family: var(--font-body); font-size: 12.5px; color: var(--ink-70); max-width: 200px; }
+.perf__bars { display: flex; flex-direction: column; gap: 18px; }
+.perf__bar-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+.perf__bar-k { font-family: var(--font-body); font-size: 13px; color: var(--ink); }
+.perf__bar-v { font-family: var(--font-mono); font-size: 12px; color: var(--ink-50); }
+.perf__bar-track { height: 8px; border-radius: 5px; background: var(--line); overflow: hidden; }
+.perf__bar-fill { height: 100%; border-radius: 5px; }
+@media (max-width: 700px) {
+  .perf { grid-template-columns: 1fr; gap: 24px; }
+  .funnel__top { gap: 28px; }
 }
 
 /* =========================================================
