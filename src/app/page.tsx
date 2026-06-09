@@ -3,7 +3,6 @@ import Hero from "@/components/Hero";
 import Leak from "@/components/Leak";
 import ActivityLog from "@/components/ActivityLog";
 import Services from "@/components/Services";
-import Results from "@/components/Results";
 import Capabilities from "@/components/Capabilities";
 import HowItFits from "@/components/HowItFits";
 import Integrations from "@/components/Integrations";
@@ -25,7 +24,6 @@ export default function Home() {
       <ActivityLog />
       <Services />
       <Capabilities />
-      <Results />
       <HowItFits />
       <Integrations />
       <ReportPreview />

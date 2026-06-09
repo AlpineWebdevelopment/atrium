@@ -2,7 +2,7 @@ import CountUp from "./CountUp";
 
 export default function Leak() {
   return (
-    <section className="section section--dark" id="leak" data-screen-label="02 A szivárgás">
+    <section className="section section--alt" id="leak" data-screen-label="02 A szivárgás">
       <div className="container">
 
         <div className="leak__intro reveal">
