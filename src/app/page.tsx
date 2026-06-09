@@ -1,17 +1,13 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import Leak from "@/components/Leak";
-import FeatureHero from "@/components/FeatureHero";
-import Capabilities from "@/components/Capabilities";
-import HowItFits from "@/components/HowItFits";
-import FeatureDuo from "@/components/FeatureDuo";
-import FeatureQuad from "@/components/FeatureQuad";
-import OfferLadder from "@/components/OfferLadder";
-import Statement from "@/components/Statement";
-import Defense from "@/components/Defense";
+import StartAnywhere from "@/components/StartAnywhere";
+import SeriousBusiness from "@/components/SeriousBusiness";
+import Showcase from "@/components/Showcase";
+import Reputation from "@/components/Reputation";
+import Band from "@/components/Band";
 import Faq from "@/components/Faq";
-import ClosingCta from "@/components/ClosingCta";
-import FinalFooter from "@/components/FinalFooter";
+import FinalCta from "@/components/FinalCta";
+import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export default function Home() {
@@ -20,18 +16,14 @@ export default function Home() {
       <ScrollReveal />
       <Nav />
       <Hero />
-      <Leak />
-      <FeatureHero />
-      <Capabilities />
-      <HowItFits />
-      <FeatureDuo />
-      <FeatureQuad />
-      <OfferLadder />
-      <Statement />
-      <Defense />
+      <StartAnywhere />
+      <SeriousBusiness />
+      <Showcase />
+      <Reputation />
+      <Band />
       <Faq />
-      <ClosingCta />
-      <FinalFooter />
+      <FinalCta />
+      <Footer />
     </div>
   );
 }
