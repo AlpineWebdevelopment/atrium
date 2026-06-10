@@ -777,9 +777,16 @@ html.dark { --viz-purple-soft: #1d1b33; }
 /* panel — fixed-ish height so tab switches don't jump */
 .dash__panel { min-height: 360px; }
 
+/* per-tab problem line */
+.dash__desc {
+  font-family: var(--font-body); font-size: 13.5px; line-height: 1.6;
+  color: var(--ink-70); text-align: center;
+  max-width: 560px; margin: 0 auto 22px;
+}
+
 /* metric row */
 .dash__metrics {
-  display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
   padding-bottom: 18px; border-bottom: 1px solid var(--line-2);
 }
 .dash__metric-k { display: flex; align-items: center; gap: 6px; font-family: var(--font-body); font-size: 12.5px; color: var(--ink-50); }
@@ -842,7 +849,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .dcard__x b { color: var(--viz-amber); font-size: 1.2em; }
 
 @media (max-width: 860px) {
-  .dash__metrics { grid-template-columns: repeat(3, 1fr); gap: 22px 14px; }
+  .dash__metrics { grid-template-columns: repeat(2, 1fr); gap: 22px 14px; }
   .dash__cards { grid-template-columns: 1fr; }
 }
 
