@@ -21,7 +21,7 @@ const PINS = [
 
 export default function Packages() {
   return (
-    <section className="pkg" id="komponensek">
+    <section className="pkg" id="csomagok">
       <div className="wrap">
         <div className="pkg__grid reveal">
           {/* Left — pricing card */}

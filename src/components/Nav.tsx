@@ -17,7 +17,6 @@ export default function Nav() {
           </nav>
           <div className="nav__right">
             <ThemeToggle />
-            <a href="#kapcsolat" className="nav__login">Bejelentkezés</a>
             <button className="btn nav__cta">Foglaljon időpontot</button>
           </div>
         </div>

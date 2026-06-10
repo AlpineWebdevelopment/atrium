@@ -1,23 +1,5 @@
 import ArrowRight from "./ArrowRight";
 
-const TABS = [
-  "Hívásfogadás",
-  "Időpontfoglalás",
-  "No-show visszahívás",
-  "Lead-utánkövetés",
-  "Értékelések",
-  "Riportálás",
-];
-
-const TRUST = [
-  "Google Calendar",
-  "Microsoft 365",
-  "GoHighLevel",
-  "Make / Zapier",
-  "VoIP / SIP",
-  "EU Hosting",
-];
-
 /* small floating nodes around the canvas — pos in % */
 const NODES = [
   { x: 22, y: 26, s: 34, t: "01", k: "" },
@@ -93,24 +75,6 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Tab strip */}
-        <div className="tabs" role="list" aria-label="Mit csinál a rendszer">
-          {TABS.map((t, i) => (
-            <span className={"tab" + (i === 0 ? " tab--active" : "")} role="listitem" key={i}>{t}</span>
-          ))}
-        </div>
-
-        {/* Trust bar */}
-        <div className="trust">
-          <span className="trust__label">
-            Illeszkedik a meglévő eszközeihez — nincs adatmigráció, nincs csapatképzés
-          </span>
-          <div className="trust__row">
-            {TRUST.map((t, i) => (
-              <span className="trust__item" key={i}>{t}</span>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );

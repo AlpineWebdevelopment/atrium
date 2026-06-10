@@ -23,10 +23,10 @@ const PROFILES = [
 ];
 
 const FUNNEL = [
-  { name: "Bejövő hívás", n: "412", p: "100%", x: 6 },
+  { name: "Bejövő hívás", n: "412", p: "100%", x: 9 },
   { name: "Érdeklődő", n: "198", p: "48%", x: 37 },
-  { name: "Foglalás", n: "87", p: "21%", x: 67 },
-  { name: "Megjelent", n: "79", p: "19%", x: 94 },
+  { name: "Foglalás", n: "87", p: "21%", x: 66 },
+  { name: "Megjelent", n: "79", p: "19%", x: 91 },
 ];
 
 const PERF_BARS = [

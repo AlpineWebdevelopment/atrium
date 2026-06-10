@@ -25,9 +25,9 @@ export default function Footer() {
           <div>
             <h4>Csomagok</h4>
             <ul>
-              <li><a href="#kapcsolat">Atrium Pilot</a></li>
-              <li><a href="#kapcsolat">Teljes Rendszer</a></li>
-              <li><a href="#kapcsolat">Atrium Modular</a></li>
+              <li><a href="#csomagok">Atrium Pilot</a></li>
+              <li><a href="#csomagok">Teljes Rendszer</a></li>
+              <li><a href="#csomagok">Atrium Modular</a></li>
               <li><a href="#kapcsolat">Egyedi munka</a></li>
             </ul>
           </div>
