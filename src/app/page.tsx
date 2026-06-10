@@ -1,7 +1,7 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import RealtimeDashboard from "@/components/RealtimeDashboard";
-import StartAnywhere from "@/components/StartAnywhere";
+import FullSystem from "@/components/FullSystem";
 import SeriousBusiness from "@/components/SeriousBusiness";
 import Showcase from "@/components/Showcase";
 import Reputation from "@/components/Reputation";
@@ -18,7 +18,7 @@ export default function Home() {
       <Nav />
       <Hero />
       <RealtimeDashboard />
-      <StartAnywhere />
+      <FullSystem />
       <SeriousBusiness />
       <Showcase />
       <Reputation />

@@ -874,6 +874,28 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .prof__status { font-family: var(--font-body); font-size: 12.5px; font-weight: 500; color: var(--viz-green); white-space: nowrap; }
 .prof__status.warn { color: var(--viz-amber); }
 
+/* =========================================================
+   FULL SYSTEM — seven-stage journey graph
+   ========================================================= */
+.sys {
+  padding: 64px 0;
+  background:
+    radial-gradient(900px 420px at 88% -10%, rgba(84,207,192,0.20), transparent 60%),
+    radial-gradient(900px 460px at 0% 110%, rgba(124,92,255,0.16), transparent 58%),
+    var(--bone);
+}
+.sys__chart { position: relative; height: 300px; margin: 14px 0 10px; }
+.sys__svg { width: 100%; height: 260px; display: block; overflow: visible; }
+@media (max-width: 700px) {
+  .sys__chart { height: auto; margin: 6px 0 0; }
+  .sys__svg, .sys .dash__axis { display: none; }
+  .sys__chart .funnel__stage {
+    position: static; transform: none;
+    display: flex; justify-content: space-between; align-items: baseline;
+    width: 100%; margin-bottom: 8px;
+  }
+}
+
 /* --- Panel: No-show calendar --- */
 .cal {
   display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px;
