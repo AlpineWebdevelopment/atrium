@@ -902,6 +902,48 @@ html.dark { --viz-purple-soft: #1d1b33; }
   .sys__chart .funnel__stage b { font-size: 14.5px; }
 }
 
+/* =========================================================
+   CUSTOM SOLUTIONS — dark highlight card, system trunk + branches
+   ========================================================= */
+.cux {
+  padding: 64px 0;
+  background:
+    radial-gradient(900px 460px at 50% -20%, rgba(109,188,97,0.10), transparent 60%),
+    var(--bone);
+}
+.cux__card {
+  background: linear-gradient(160deg, #0a1422 0%, #0d1d12 100%);
+  border-color: rgba(245,242,237,0.10);
+}
+.cux__chart { position: relative; height: 320px; margin: 6px 0 4px; }
+.cux__svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.cux .funnel__stage {
+  background: rgba(245,242,237,0.07);
+  border-color: rgba(245,242,237,0.16);
+  box-shadow: none;
+}
+.cux .funnel__stage b { color: #F5F2ED; }
+.cux .funnel__stage span { color: rgba(245,242,237,0.55); }
+.cux .funnel__stage--sig {
+  background: rgba(109,188,97,0.10);
+  border-color: rgba(109,188,97,0.55);
+}
+.cux .funnel__stage--sig b { color: #6DBC61; }
+.cux__base { opacity: 0.75; }
+@media (max-width: 700px) {
+  .cux__chart { height: auto; margin: 0; }
+  .cux__svg, .cux .funnel__stage.cux__base { display: none; }
+  .cux .funnel__stage {
+    position: static; transform: none;
+    display: flex; flex-direction: column; align-items: flex-start; gap: 3px;
+    width: 100%; margin-bottom: 8px;
+    padding: 11px 14px;
+    border-radius: 12px;
+    white-space: normal;
+  }
+  .cux .funnel__stage b { font-size: 14.5px; }
+}
+
 /* --- Panel: No-show calendar --- */
 .cal {
   display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px;

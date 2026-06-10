@@ -2,6 +2,7 @@ import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import RealtimeDashboard from "@/components/RealtimeDashboard";
 import FullSystem from "@/components/FullSystem";
+import CustomSolutions from "@/components/CustomSolutions";
 import SeriousBusiness from "@/components/SeriousBusiness";
 import Showcase from "@/components/Showcase";
 import Reputation from "@/components/Reputation";
@@ -19,6 +20,7 @@ export default function Home() {
       <Hero />
       <RealtimeDashboard />
       <FullSystem />
+      <CustomSolutions />
       <SeriousBusiness />
       <Showcase />
       <Reputation />
