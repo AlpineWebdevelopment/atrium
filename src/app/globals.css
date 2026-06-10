@@ -193,7 +193,15 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
 /* =========================================================
    HERO
    ========================================================= */
-.hero { padding: 76px 0 88px; }
+.hero {
+  position: relative;
+  padding: 76px 0 88px;
+  /* colourful glow welling up at the bottom edge, mirroring the dash's
+     top-left purple / top-right blue so bone blends into the next section */
+  background:
+    radial-gradient(1000px 360px at 12% 118%, rgba(124,92,255,0.22), transparent 62%),
+    radial-gradient(900px 380px at 100% 110%, rgba(74,163,255,0.20), transparent 60%);
+}
 .hero__grid {
   display: grid;
   grid-template-columns: 1fr 1.05fr;
