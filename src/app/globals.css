@@ -891,9 +891,15 @@ html.dark { --viz-purple-soft: #1d1b33; }
   .sys__svg, .sys .dash__axis { display: none; }
   .sys__chart .funnel__stage {
     position: static; transform: none;
-    display: flex; justify-content: space-between; align-items: baseline;
+    display: flex; flex-direction: column; align-items: flex-start; gap: 3px;
     width: 100%; margin-bottom: 8px;
+    padding: 11px 14px;
+    border-radius: 12px;
+    border-left: 3px solid var(--stc, var(--viz-blue));
+    box-shadow: none;
+    white-space: normal;
   }
+  .sys__chart .funnel__stage b { font-size: 14.5px; }
 }
 
 /* --- Panel: No-show calendar --- */
@@ -924,6 +930,15 @@ html.dark { --viz-purple-soft: #1d1b33; }
 @media (max-width: 700px) {
   .cal { grid-template-columns: repeat(3, 1fr); }
   .cal__col:nth-child(n+4) { display: none; }
+}
+
+@media (max-width: 700px) {
+  .funnel__chart { text-align: center; }
+  .funnel__chart .funnel__svg { height: 110px; }
+  .funnel__chart .funnel__stage {
+    position: static; transform: none;
+    margin: 10px 4px 0;
+  }
 }
 
 /* --- Panel: Funnel --- */

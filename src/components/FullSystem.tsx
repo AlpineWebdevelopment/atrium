@@ -61,7 +61,8 @@ export default function FullSystem() {
                 style={{
                   left: `${st.x}%`,
                   top: `${(st.ny / 260) * 100 + (i % 2 === 0 ? 24 : -24)}%`,
-                }}
+                  ["--stc" as string]: st.c,
+                } as React.CSSProperties}
               >
                 <b>{st.b}</b>
                 <span>{st.s}</span>
