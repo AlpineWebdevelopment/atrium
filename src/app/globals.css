@@ -196,11 +196,13 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
 .hero {
   position: relative;
   padding: 76px 0 88px;
-  /* colourful glow welling up at the bottom edge, mirroring the dash's
-     top-left purple / top-right blue so bone blends into the next section */
+  /* colourful glow welling up at the bottom edge. Anchored 60px BELOW the
+     hero edge in px (not %), exactly mirroring the dash's top radials which
+     sit 60px ABOVE its edge — so at the shared seam both gradients evaluate
+     to the same colour and the section boundary becomes invisible. */
   background:
-    radial-gradient(1000px 420px at 12% 110%, rgba(124,92,255,0.26), transparent 60%),
-    radial-gradient(900px 460px at 100% 90%, rgba(74,163,255,0.24), transparent 58%);
+    radial-gradient(1000px 440px at 12% calc(100% + 60px), rgba(124,92,255,0.26), transparent 62%),
+    radial-gradient(900px 440px at 100% calc(100% + 60px), rgba(74,163,255,0.24), transparent 62%);
 }
 .hero__grid {
   display: grid;
@@ -746,8 +748,8 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .dash {
   padding: 64px 0;
   background:
-    radial-gradient(1000px 420px at 12% -10%, rgba(124,92,255,0.26), transparent 60%),
-    radial-gradient(900px 460px at 100% 10%, rgba(74,163,255,0.24), transparent 58%),
+    radial-gradient(1000px 440px at 12% -60px, rgba(124,92,255,0.26), transparent 62%),
+    radial-gradient(900px 440px at 100% -60px, rgba(74,163,255,0.24), transparent 62%),
     radial-gradient(800px 520px at 60% 120%, rgba(84,207,192,0.22), transparent 60%),
     var(--bone);
 }
