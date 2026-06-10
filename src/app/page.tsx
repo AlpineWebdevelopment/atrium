@@ -4,7 +4,7 @@ import RealtimeDashboard from "@/components/RealtimeDashboard";
 import FullSystem from "@/components/FullSystem";
 import CustomSolutions from "@/components/CustomSolutions";
 import HowWeStart from "@/components/HowWeStart";
-import Showcase from "@/components/Showcase";
+import QualifierCrm from "@/components/QualifierCrm";
 import Reputation from "@/components/Reputation";
 import Packages from "@/components/Packages";
 import Faq from "@/components/Faq";
@@ -22,7 +22,7 @@ export default function Home() {
       <FullSystem />
       <CustomSolutions />
       <HowWeStart />
-      <Showcase />
+      <QualifierCrm />
       <Reputation />
       <Packages />
       <Faq />
