@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import RealtimeDashboard from "@/components/RealtimeDashboard";
 import FullSystem from "@/components/FullSystem";
 import CustomSolutions from "@/components/CustomSolutions";
-import SeriousBusiness from "@/components/SeriousBusiness";
+import HowWeStart from "@/components/HowWeStart";
 import Showcase from "@/components/Showcase";
 import Reputation from "@/components/Reputation";
 import Packages from "@/components/Packages";
@@ -21,7 +21,7 @@ export default function Home() {
       <RealtimeDashboard />
       <FullSystem />
       <CustomSolutions />
-      <SeriousBusiness />
+      <HowWeStart />
       <Showcase />
       <Reputation />
       <Packages />

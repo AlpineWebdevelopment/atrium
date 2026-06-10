@@ -10,7 +10,7 @@ export default function Nav() {
           </a>
           <nav className="nav__links" aria-label="primary">
             <a href="#rendszer" className="nav__link">A rendszer</a>
-            <a href="#illeszkedik" className="nav__link">Hogyan illeszkedik</a>
+            <a href="#indulas" className="nav__link">Hogyan indulunk</a>
             <a href="#komponensek" className="nav__link">Komponensek</a>
             <a href="#gyik" className="nav__link">GYIK</a>
             <a href="#kapcsolat" className="nav__link">Kapcsolat</a>

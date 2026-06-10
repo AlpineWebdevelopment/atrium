@@ -903,6 +903,34 @@ html.dark { --viz-purple-soft: #1d1b33; }
 }
 
 /* =========================================================
+   HOW WE START — three numbered steps
+   ========================================================= */
+.how { padding: 96px 0; }
+.how__grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 44px;
+  margin-top: 48px;
+}
+.how__step { border-top: 1px solid var(--line); padding-top: 20px; }
+.how__num {
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em;
+  color: var(--stone);
+}
+.how__title {
+  font-family: var(--font-display); font-weight: 500;
+  font-size: 20px; letter-spacing: -0.015em; color: var(--ink);
+  margin: 12px 0 10px;
+}
+.how__desc {
+  font-family: var(--font-body); font-size: 14px; line-height: 1.62;
+  color: var(--ink-70);
+}
+.how__cta { margin-top: 52px; text-align: center; }
+@media (max-width: 800px) {
+  .how { padding: 72px 0; }
+  .how__grid { grid-template-columns: 1fr; gap: 28px; }
+}
+
+/* =========================================================
    CUSTOM SOLUTIONS — dark highlight card, system trunk + branches
    ========================================================= */
 .cux {
