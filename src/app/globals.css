@@ -63,7 +63,22 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 img { max-width: 100%; display: block; }
 
 /* ---------- Layout ---------- */
-.page { width: 100%; overflow-x: clip; }
+.page {
+  width: 100%;
+  overflow-x: clip;
+  /* One continuous gradient for the lower half of the page. The sections
+     below the colourful top band (how, qcrm, rep, pkg, faq, cta, footer) are
+     transparent and show this through, so colour flows between them with no
+     possible seams. Blobs live below ~43% so they never reach the hero and
+     sit hidden behind the opaque dash/sys/cux backgrounds above. */
+  background:
+    radial-gradient(1300px 800px at 85% 44%, rgba(74,163,255,0.17), transparent 60%),
+    radial-gradient(1400px 880px at 8% 54%, rgba(124,92,255,0.17), transparent 60%),
+    radial-gradient(1300px 820px at 92% 63%, rgba(84,207,192,0.17), transparent 60%),
+    radial-gradient(1400px 880px at 10% 73%, rgba(124,92,255,0.16), transparent 60%),
+    radial-gradient(1300px 820px at 90% 83%, rgba(74,163,255,0.16), transparent 60%),
+    radial-gradient(1300px 820px at 22% 93%, rgba(84,207,192,0.15), transparent 60%);
+}
 .wrap {
   width: 100%;
   max-width: var(--maxw);
