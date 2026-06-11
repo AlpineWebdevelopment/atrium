@@ -1275,8 +1275,14 @@ html.dark { --viz-purple-soft: #1d1b33; }
   .nav__cta { font-size: 12.5px; padding: 8px 13px; }
   .theme-toggle { width: 30px; height: 30px; }
 
-  /* Hero */
-  .hero { padding: 52px 0 60px; }
+  /* Hero — softer, more spread seam glow on the narrow viewport so it
+     doesn't pile into an intense band at the boundary (matches .dash below) */
+  .hero {
+    padding: 52px 0 60px;
+    background:
+      radial-gradient(760px 540px at 12% calc(100% + 90px), rgba(124,92,255,0.16), transparent 68%),
+      radial-gradient(760px 540px at 100% calc(100% + 90px), rgba(74,163,255,0.15), transparent 68%);
+  }
   .hero__sub { font-size: 15.5px; margin: 18px 0 26px; }
   .hero__actions .btn { font-size: 13.5px; padding: 11px 16px; }
   .canvas__stage { height: 290px; }
@@ -1288,7 +1294,17 @@ html.dark { --viz-purple-soft: #1d1b33; }
   }
   .canvas__pill { font-size: 9px; gap: 8px; padding: 7px 11px; }
 
-  /* Dashboard */
+  /* Dashboard — mirror the hero's softened seam glow, and lift the body
+     wash so the section stays colourful away from the boundary on mobile */
+  .dash {
+    background:
+      radial-gradient(760px 540px at 12% -90px, rgba(124,92,255,0.16), transparent 68%),
+      radial-gradient(760px 540px at 100% -90px, rgba(74,163,255,0.15), transparent 68%),
+      radial-gradient(820px 760px at 14% 84%, rgba(124,92,255,0.20), transparent 66%),
+      radial-gradient(820px 780px at 92% 92%, rgba(74,163,255,0.20), transparent 66%),
+      radial-gradient(900px 820px at 52% 56%, rgba(84,207,192,0.18), transparent 66%),
+      var(--bone);
+  }
   .dash__card { padding: 14px 14px 18px; }
   .dash__tabs { border-radius: 16px; width: 100%; justify-content: center; }
   .dash__panel { min-height: 0; }
