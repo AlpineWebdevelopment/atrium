@@ -925,20 +925,43 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .sys__chart { position: relative; height: 300px; margin: 14px 0 10px; }
 .sys__svg { width: 100%; height: 260px; display: block; overflow: visible; }
 @media (max-width: 700px) {
-  /* Keep the graph itself visible — just give it a shorter, denser height —
-     and let the labels flow underneath as a colour-matched legend. */
-  .sys__chart { height: auto; margin: 6px 0 0; display: flex; flex-direction: column; }
-  .sys .dash__axis { display: none; }
-  .sys__svg { display: block; height: 150px; margin-bottom: 6px; }
+  /* A horizontal 7-point curve can't fit on a phone, so render the journey as
+     a VERTICAL graph: one continuous gradient spine with each service as a
+     colour-matched node sitting on the line. */
+  .sys__chart {
+    position: relative;
+    height: auto; margin: 12px 0 0;
+    display: flex; flex-direction: column;
+    padding-left: 4px;
+  }
+  .sys__svg, .sys .dash__axis { display: none; }
+  /* the gradient spine running down through every node */
+  .sys__chart::before {
+    content: '';
+    position: absolute; left: 13px; top: 16px; bottom: 16px;
+    width: 2.5px; border-radius: 2px;
+    background: linear-gradient(to bottom,
+      #7C5CFF, #9B7BFF, #4AA3FF, #54CFC0, #34C759, #E8A33D, #010E1E);
+  }
   .sys__chart .funnel__stage {
-    position: static; transform: none;
-    display: flex; flex-direction: column; align-items: flex-start; gap: 3px;
-    width: 100%; margin-bottom: 8px;
-    padding: 11px 14px;
-    border-radius: 12px;
-    border-left: 3px solid var(--stc, var(--viz-blue));
-    box-shadow: none;
+    position: relative;
+    /* cancel the desktop floating coordinates (set inline) so each node sits
+       in normal vertical flow on the spine */
+    left: auto !important; top: auto !important; transform: none;
+    display: flex; flex-direction: column; align-items: flex-start; gap: 2px;
+    width: 100%; margin: 0;
+    padding: 10px 6px 10px 40px;
+    border: 0; border-radius: 0; background: none; box-shadow: none;
     white-space: normal;
+  }
+  /* the colour-matched node dot, centred on the spine */
+  .sys__chart .funnel__stage::before {
+    content: '';
+    position: absolute; left: 7px; top: 13px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--stc, var(--viz-blue));
+    border: 3px solid var(--bone);
+    box-shadow: 0 0 0 1px var(--line);
   }
   .sys__chart .funnel__stage b { font-size: 14.5px; }
 }
