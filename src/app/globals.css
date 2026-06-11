@@ -766,12 +766,14 @@ html.dark { --viz-purple-soft: #1d1b33; }
     /* top seam radials — keep in px to stay continuous with the hero glow */
     radial-gradient(1000px 440px at 12% -60px, rgba(124,92,255,0.26), transparent 62%),
     radial-gradient(900px 440px at 100% -60px, rgba(74,163,255,0.24), transparent 62%),
-    /* body wash — fills the middle/lower area so the section reads as a
-       colourful gradient throughout, not plain bone. Centred low enough that
-       these fade to zero before the top seam. */
-    radial-gradient(1000px 640px at 16% 90%, rgba(124,92,255,0.16), transparent 64%),
-    radial-gradient(1000px 660px at 90% 96%, rgba(74,163,255,0.16), transparent 64%),
-    radial-gradient(1200px 720px at 56% 66%, rgba(84,207,192,0.15), transparent 66%),
+    /* bottom seam edge glow — mirrored by .sys's top so dash flows into sys */
+    radial-gradient(1100px 480px at 14% calc(100% + 60px), rgba(124,92,255,0.20), transparent 62%),
+    radial-gradient(1000px 480px at 88% calc(100% + 60px), rgba(84,207,192,0.18), transparent 62%),
+    /* body wash — lifted so it fades before the bottom seam (which is now
+       carried by the edge glow above), keeping the boundary continuous. */
+    radial-gradient(1000px 600px at 16% 70%, rgba(124,92,255,0.15), transparent 64%),
+    radial-gradient(1000px 600px at 90% 76%, rgba(74,163,255,0.15), transparent 64%),
+    radial-gradient(1200px 680px at 56% 54%, rgba(84,207,192,0.14), transparent 66%),
     var(--bone);
 }
 .dash__intro { text-align: center; max-width: 620px; margin: 0 auto 30px; }
@@ -911,8 +913,13 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .sys {
   padding: 64px 0;
   background:
-    radial-gradient(900px 420px at 88% -10%, rgba(84,207,192,0.20), transparent 60%),
-    radial-gradient(900px 460px at 0% 110%, rgba(124,92,255,0.16), transparent 58%),
+    /* top seam — mirrors dash's bottom edge glow (purple-left / teal-right)
+       at the same px offset, so the dash→sys boundary is continuous */
+    radial-gradient(1100px 480px at 14% -60px, rgba(124,92,255,0.20), transparent 62%),
+    radial-gradient(1000px 480px at 88% -60px, rgba(84,207,192,0.18), transparent 62%),
+    /* bottom seam — mirrored by cux's top edge glow */
+    radial-gradient(1100px 480px at 8% calc(100% + 60px), rgba(124,92,255,0.16), transparent 62%),
+    radial-gradient(1000px 480px at 92% calc(100% + 60px), rgba(74,163,255,0.14), transparent 62%),
     var(--bone);
 }
 .sys__chart { position: relative; height: 300px; margin: 14px 0 10px; }
@@ -1087,6 +1094,9 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .cux {
   padding: 64px 0;
   background:
+    /* top seam — mirrors sys's bottom edge glow so sys→cux is continuous */
+    radial-gradient(1100px 480px at 8% -60px, rgba(124,92,255,0.16), transparent 62%),
+    radial-gradient(1000px 480px at 92% -60px, rgba(74,163,255,0.14), transparent 62%),
     radial-gradient(900px 460px at 50% -20%, rgba(109,188,97,0.10), transparent 60%),
     var(--bone);
 }
@@ -1315,9 +1325,12 @@ html.dark { --viz-purple-soft: #1d1b33; }
     background:
       radial-gradient(760px 540px at 12% -90px, rgba(124,92,255,0.16), transparent 68%),
       radial-gradient(760px 540px at 100% -90px, rgba(74,163,255,0.15), transparent 68%),
-      radial-gradient(820px 760px at 14% 84%, rgba(124,92,255,0.20), transparent 66%),
-      radial-gradient(820px 780px at 92% 92%, rgba(74,163,255,0.20), transparent 66%),
-      radial-gradient(900px 820px at 52% 56%, rgba(84,207,192,0.18), transparent 66%),
+      /* bottom seam edge glow — matches .sys top so dash→sys flows on mobile */
+      radial-gradient(820px 560px at 14% calc(100% + 60px), rgba(124,92,255,0.18), transparent 66%),
+      radial-gradient(820px 560px at 88% calc(100% + 60px), rgba(84,207,192,0.16), transparent 66%),
+      radial-gradient(820px 720px at 16% 70%, rgba(124,92,255,0.18), transparent 66%),
+      radial-gradient(820px 740px at 92% 76%, rgba(74,163,255,0.18), transparent 66%),
+      radial-gradient(900px 780px at 52% 52%, rgba(84,207,192,0.16), transparent 66%),
       var(--bone);
   }
   .dash__card { padding: 14px 14px 18px; }
