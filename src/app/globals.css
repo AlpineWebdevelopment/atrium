@@ -748,9 +748,15 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .dash {
   padding: 64px 0;
   background:
+    /* top seam radials — keep in px to stay continuous with the hero glow */
     radial-gradient(1000px 440px at 12% -60px, rgba(124,92,255,0.26), transparent 62%),
     radial-gradient(900px 440px at 100% -60px, rgba(74,163,255,0.24), transparent 62%),
-    radial-gradient(800px 520px at 60% 120%, rgba(84,207,192,0.22), transparent 60%),
+    /* body wash — fills the middle/lower area so the section reads as a
+       colourful gradient throughout, not plain bone. Centred low enough that
+       these fade to zero before the top seam. */
+    radial-gradient(1000px 640px at 16% 90%, rgba(124,92,255,0.16), transparent 64%),
+    radial-gradient(1000px 660px at 90% 96%, rgba(74,163,255,0.16), transparent 64%),
+    radial-gradient(1200px 720px at 56% 66%, rgba(84,207,192,0.15), transparent 66%),
     var(--bone);
 }
 .dash__intro { text-align: center; max-width: 620px; margin: 0 auto 30px; }
