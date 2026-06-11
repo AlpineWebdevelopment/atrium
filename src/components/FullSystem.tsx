@@ -2,8 +2,7 @@
 
 /* The full system — seven capabilities as stations along one customer journey.
    Custom solutions live in their own section; deliberately not mentioned here.
-   Desktop: horizontal journey path. Mobile: the same journey as a vertical
-   winding graph — nodes alternate sides, labels sit beside them. */
+   Desktop: horizontal journey path. Mobile: two-column grid of icon cells. */
 
 const STAGES = [
   { b: "Hívásfogadás", s: "minden hívást felvesz", x: 13, nx: 60, ny: 190, c: "#7C5CFF" },
@@ -20,24 +19,22 @@ const PATH =
   "C410,172 460,130 510,120 C560,110 610,140 660,140 " +
   "C710,140 760,98 810,90 C860,82 910,105 950,110";
 
-/* mobile snake — viewBox 0 0 360 560 */
-const M_NODES: { mx: number; my: number; side: string; dy?: number }[] = [
-  { mx: 70, my: 40, side: "r", dy: -16 },
-  { mx: 290, my: 125, side: "l" },
-  { mx: 70, my: 210, side: "r" },
-  { mx: 290, my: 295, side: "l" },
-  { mx: 70, my: 380, side: "r" },
-  { mx: 290, my: 465, side: "l" },
-  { mx: 180, my: 535, side: "l" },
+const ICONS = [
+  /* phone */
+  <path key="0" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />,
+  /* message bubble */
+  <path key="1" d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />,
+  /* calendar */
+  <g key="2"><rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" /></g>,
+  /* phone outgoing */
+  <g key="3"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" /><path d="M16 8 22 2M22 8V2h-6" /></g>,
+  /* star */
+  <polygon key="4" points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26" />,
+  /* rotate-ccw (bring back) */
+  <g key="5"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></g>,
+  /* bar chart */
+  <g key="6"><path d="M12 20v-9M18 20V4M6 20v-5" /></g>,
 ];
-
-const M_PATH =
-  "M70,40 C200,40 290,62 290,125 " +
-  "C290,190 70,147 70,210 " +
-  "C70,275 290,232 290,295 " +
-  "C290,360 70,317 70,380 " +
-  "C70,445 290,402 290,465 " +
-  "C290,522 225,535 180,535";
 
 export default function FullSystem() {
   return (
@@ -99,41 +96,19 @@ export default function FullSystem() {
             </div>
           </div>
 
-          {/* mobile journey — vertical winding graph */}
+          {/* mobile: two-column icon grid */}
           <div className="sys__mob">
-            <svg className="sys__mob-svg" viewBox="0 0 360 560" preserveAspectRatio="none">
-              <defs>
-                <linearGradient id="gSysM" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#7C5CFF" />
-                  <stop offset="40%" stopColor="#4AA3FF" />
-                  <stop offset="75%" stopColor="#54CFC0" />
-                  <stop offset="100%" stopColor="#34C759" />
-                </linearGradient>
-              </defs>
-              <path d={M_PATH} fill="none" stroke="url(#gSysM)" strokeWidth="2.5" strokeLinecap="round" />
-              {STAGES.map((st, i) => (
-                <circle key={i} cx={M_NODES[i].mx} cy={M_NODES[i].my} r="7" fill={st.c} stroke="var(--bone)" strokeWidth="3" />
-              ))}
-            </svg>
-
-            {STAGES.map((st, i) => {
-              const n = M_NODES[i];
-              const top = `calc(${(n.my / 560) * 100}% + ${n.dy ?? 0}px)`;
-              const pos =
-                n.side === "r"
-                  ? { left: `calc(${(n.mx / 360) * 100}% + 22px)`, top }
-                  : { right: `calc(${100 - (n.mx / 360) * 100}% + 22px)`, top };
-              return (
-                <div
-                  className={"sys__mob-label" + (n.side === "l" ? " sys__mob-label--r" : "")}
-                  key={i}
-                  style={pos}
-                >
+            {STAGES.map((st, i) => (
+              <div className="sys__cell" key={i}>
+                <div className="sys__cell-h" style={{ color: i === STAGES.length - 1 ? "var(--ink)" : st.c }}>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    {ICONS[i]}
+                  </svg>
                   <b>{st.b}</b>
-                  <span>{st.s}</span>
                 </div>
-              );
-            })}
+                <span className="sys__cell-d">{st.s}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
