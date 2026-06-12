@@ -1110,55 +1110,133 @@ html.dark { --viz-purple-soft: #1d1b33; }
     radial-gradient(900px 460px at 50% -20%, rgba(109,188,97,0.10), transparent 60%),
     var(--bone);
 }
-/* --- Custom scale graph: light card, subtly highlighted like the others --- */
-.cux__card {
-  /* faint colour wash tying to the graph (green near the "teljes rendszer"
-     end, purple near "egy folyamat") — highlighted, but still light & on-brand */
-  background:
-    radial-gradient(560px 280px at 100% 0%, rgba(109,188,97,0.10), transparent 62%),
-    radial-gradient(620px 320px at 0% 100%, rgba(124,92,255,0.07), transparent 62%),
-    var(--bone);
+/* --- Custom solutions: detailed, light, engaging --- */
+.cux__sec { margin-top: 44px; }
+.cux__sec-h {
+  position: relative; text-align: center; margin-bottom: 26px;
 }
-.cux__chart { position: relative; height: 300px; margin: 8px 0 4px; }
-.cux__svg { width: 100%; height: 100%; display: block; overflow: visible; }
-.cux__foot {
-  margin-top: 6px; padding-top: 16px; border-top: 1px solid var(--line);
-  font-family: var(--font-body); font-size: 13px; line-height: 1.55;
-  color: var(--ink-70); text-align: center;
+.cux__sec-h::before {
+  content: ''; position: absolute; left: 0; right: 0; top: 50%;
+  height: 1px; background: var(--line);
+}
+.cux__sec-h span {
+  position: relative; display: inline-block; padding: 0 16px;
+  background: var(--bone);
+  font-family: var(--font-display); font-weight: 500;
+  font-size: clamp(18px, 2.2vw, 24px); letter-spacing: -0.02em; color: var(--ink);
 }
 
-@media (max-width: 700px) {
-  /* vertical scale graph (matches the system journey on mobile): gradient
-     spine, one colour-matched node per tier, label beside it */
-  .cux__chart {
-    position: relative; height: auto; margin: 6px 0 0;
-    display: flex; flex-direction: column; padding-left: 4px;
-  }
-  .cux__svg { display: none; }
-  .cux__chart::before {
-    content: '';
-    position: absolute; left: 13px; top: 16px; bottom: 16px;
-    width: 2.5px; border-radius: 2px;
-    background: linear-gradient(to bottom, #7C5CFF, #4AA3FF, #6DBC61);
-  }
-  .cux .funnel__stage {
-    position: relative;
-    left: auto !important; top: auto !important; transform: none;
-    display: flex; flex-direction: column; align-items: flex-start; gap: 2px;
-    width: 100%; margin: 0;
-    padding: 10px 6px 10px 40px;
-    border: 0; border-radius: 0; background: none; box-shadow: none;
-    white-space: normal;
-  }
-  .cux .funnel__stage::before {
-    content: '';
-    position: absolute; left: 7px; top: 13px;
-    width: 14px; height: 14px; border-radius: 50%;
-    background: var(--stc, var(--viz-blue));
-    border: 3px solid var(--bone);
-    box-shadow: 0 0 0 1px var(--line);
-  }
-  .cux .funnel__stage b { font-size: 14.5px; }
+/* Example projects */
+.cux__projects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.cux__proj {
+  position: relative;
+  background: var(--bone); border: 1px solid var(--line);
+  border-top: 2px solid var(--pc, var(--viz-blue));
+  border-radius: 14px; padding: 20px 20px 18px;
+  display: flex; flex-direction: column; gap: 10px;
+  transition: border-color 160ms var(--ease);
+}
+.cux__proj:hover { border-color: var(--pc, var(--viz-blue)); }
+.cux__proj-ico {
+  width: 38px; height: 38px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--pc, var(--viz-blue));
+  background: color-mix(in srgb, var(--pc, var(--viz-blue)) 12%, transparent);
+}
+.cux__proj-ico svg { width: 20px; height: 20px; }
+.cux__proj-t {
+  font-family: var(--font-display); font-weight: 500; font-size: 15.5px;
+  letter-spacing: -0.01em; color: var(--ink);
+}
+.cux__proj-d {
+  font-family: var(--font-body); font-size: 13px; line-height: 1.55;
+  color: var(--ink-70); flex: 1;
+}
+.cux__proj-who {
+  align-self: flex-start;
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.03em;
+  color: var(--pc, var(--viz-blue));
+  background: color-mix(in srgb, var(--pc, var(--viz-blue)) 13%, transparent);
+  padding: 4px 10px; border-radius: 999px;
+}
+.cux__proj--more {
+  border: 1px dashed var(--line); border-top: 1px dashed var(--line);
+  background: transparent; justify-content: center; align-items: flex-start;
+}
+.cux__proj-plus {
+  width: 38px; height: 38px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 22px; color: var(--signal);
+  background: rgba(109,188,97,0.10);
+}
+
+/* What we can build */
+.cux__cats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.cux__cat {
+  background: var(--bone); border: 1px solid var(--line);
+  border-radius: 14px; padding: 18px 18px 20px;
+}
+.cux__cat-h {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--font-display); font-weight: 500; font-size: 14.5px;
+  letter-spacing: -0.01em; color: var(--ink); margin-bottom: 14px;
+}
+.cux__cat-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--pc, var(--viz-blue)); flex-shrink: 0; }
+.cux__cat ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.cux__cat li {
+  position: relative; padding-left: 15px;
+  font-family: var(--font-body); font-size: 12.5px; line-height: 1.45; color: var(--ink-70);
+}
+.cux__cat li::before {
+  content: ''; position: absolute; left: 0; top: 8px;
+  width: 5px; height: 5px; border-radius: 50%; background: var(--pc, var(--viz-blue)); opacity: 0.5;
+}
+
+/* Fit / not fit */
+.cux__fit {
+  margin-top: 44px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+}
+.cux__fit-col { border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; background: var(--bone); }
+.cux__fit-col--yes { border-color: rgba(52,199,89,0.35); }
+.cux__fit-col--no { border-color: rgba(224,82,78,0.30); }
+.cux__fit-h {
+  font-family: var(--font-display); font-weight: 500; font-size: 16px;
+  letter-spacing: -0.01em; color: var(--ink); margin-bottom: 14px;
+}
+.cux__fit-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+.cux__fit-col li {
+  position: relative; padding-left: 26px;
+  font-family: var(--font-body); font-size: 13.5px; line-height: 1.5; color: var(--ink-70);
+}
+.cux__fit-col li::before {
+  position: absolute; left: 0; top: -1px;
+  font-family: var(--font-display); font-weight: 600; font-size: 14px;
+}
+.cux__fit-col--yes li::before { content: '✓'; color: var(--viz-green); }
+.cux__fit-col--no li::before { content: '✕'; color: var(--viz-red); }
+
+/* Guarantees */
+.cux__guar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.cux__g {
+  background: var(--bone); border: 1px solid var(--line);
+  border-radius: 14px; padding: 22px 22px 24px;
+}
+.cux__g-ico { width: 26px; height: 26px; color: var(--signal); margin-bottom: 12px; }
+.cux__g-t {
+  font-family: var(--font-display); font-weight: 500; font-size: 15.5px;
+  letter-spacing: -0.01em; color: var(--ink); margin-bottom: 8px;
+}
+.cux__g-d { font-family: var(--font-body); font-size: 13.5px; line-height: 1.55; color: var(--ink-70); }
+
+@media (max-width: 860px) {
+  .cux__projects { grid-template-columns: repeat(2, 1fr); }
+  .cux__cats { grid-template-columns: repeat(2, 1fr); }
+  .cux__guar { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .cux__projects { grid-template-columns: 1fr; }
+  .cux__cats { grid-template-columns: 1fr; }
+  .cux__fit { grid-template-columns: 1fr; }
 }
 
 /* --- Panel: No-show calendar --- */
