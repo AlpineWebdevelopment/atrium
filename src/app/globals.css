@@ -1130,16 +1130,38 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .cux .funnel__stage--sig b { color: #6DBC61; }
 .cux__base { opacity: 0.75; }
 @media (max-width: 700px) {
-  .cux__chart { height: auto; margin: 0; }
+  /* Same vertical node-graph as the system journey: a gradient spine with
+     each custom build as a colour-matched node on the line. */
+  .cux__chart {
+    position: relative; height: auto; margin: 10px 0 0;
+    display: flex; flex-direction: column; padding-left: 4px;
+  }
   .cux__svg, .cux .funnel__stage.cux__base { display: none; }
+  .cux__chart::before {
+    content: '';
+    position: absolute; left: 13px; top: 16px; bottom: 16px;
+    width: 2.5px; border-radius: 2px;
+    background: linear-gradient(to bottom,
+      #7C5CFF, #4AA3FF, #54CFC0, #E8A33D, #9B7BFF, #6DBC61);
+  }
   .cux .funnel__stage {
-    position: static; transform: none;
-    display: flex; flex-direction: column; align-items: flex-start; gap: 3px;
-    width: 100%; margin-bottom: 8px;
-    padding: 11px 14px;
-    border-radius: 12px;
+    position: relative;
+    left: auto !important; top: auto !important; transform: none;
+    display: flex; flex-direction: column; align-items: flex-start; gap: 2px;
+    width: 100%; margin: 0;
+    padding: 10px 6px 10px 40px;
+    border: 0; border-radius: 0; background: none; box-shadow: none;
     white-space: normal;
   }
+  .cux .funnel__stage::before {
+    content: '';
+    position: absolute; left: 7px; top: 13px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--stc, var(--viz-blue));
+    border: 3px solid #0a1422;
+    box-shadow: 0 0 0 1px rgba(245,242,237,0.18);
+  }
+  .cux .funnel__stage--sig { background: none; border: 0; }
   .cux .funnel__stage b { font-size: 14.5px; }
 }
 

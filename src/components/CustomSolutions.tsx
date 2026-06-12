@@ -1,7 +1,9 @@
 "use client";
 
-/* Custom builds — branches grafted onto the full-system trunk.
+/* Custom builds — colourful branches grafted onto the full-system trunk.
    Dark card = the page's one restrained highlight for this section. */
+
+const TRUNK_Y = 170;
 
 const ITEMS = [
   { b: "Árajánlat-utánkövetés", s: "kiküldve még nem eladva", x: 18, y: 70, c: "#7C5CFF" },
@@ -12,6 +14,9 @@ const ITEMS = [
   { b: "+ az Ön folyamata", s: "ezt együtt találjuk ki", x: 84, y: 170, c: "#6DBC61", sig: true },
 ];
 
+/* node centre x in viewBox units */
+const ncx = (it: (typeof ITEMS)[number]) => it.x * 10 + (it.sig ? 20 : 0);
+
 const BRANCHES = [
   "M130,170 C160,170 165,100 180,70",
   "M280,170 C310,170 315,215 330,250",
@@ -21,6 +26,7 @@ const BRANCHES = [
 ];
 
 export default function CustomSolutions() {
+  const branched = ITEMS.filter((it) => !it.sig);
   return (
     <section className="cux" id="egyedi">
       <div className="wrap">
@@ -40,24 +46,68 @@ export default function CustomSolutions() {
             <svg className="cux__svg" viewBox="0 0 1000 320" preserveAspectRatio="none">
               <defs>
                 <linearGradient id="gTrunk" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stopColor="rgba(245,242,237,0.25)" />
-                  <stop offset="78%" stopColor="rgba(245,242,237,0.25)" />
+                  <stop offset="0%" stopColor="rgba(245,242,237,0.35)" />
+                  <stop offset="72%" stopColor="rgba(245,242,237,0.30)" />
                   <stop offset="100%" stopColor="#6DBC61" />
                 </linearGradient>
+                {/* one gradient per branch: trunk → that branch's colour */}
+                {branched.map((it, i) => {
+                  const nx = ncx(it);
+                  return (
+                    <linearGradient
+                      key={i}
+                      id={`gBranch${i}`}
+                      gradientUnits="userSpaceOnUse"
+                      x1={nx - 50}
+                      y1={TRUNK_Y}
+                      x2={nx}
+                      y2={it.y}
+                    >
+                      <stop offset="0%" stopColor="rgba(245,242,237,0.22)" />
+                      <stop offset="100%" stopColor={it.c} />
+                    </linearGradient>
+                  );
+                })}
+                <filter id="cuxGlow" x="-60%" y="-60%" width="220%" height="220%">
+                  <feGaussianBlur stdDeviation="3.2" result="b" />
+                  <feMerge>
+                    <feMergeNode in="b" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
               </defs>
 
-              {/* trunk — the full system */}
-              <path d="M120,170 L860,170" fill="none" stroke="url(#gTrunk)" strokeWidth="2.5" strokeLinecap="round" />
+              {/* trunk — the full system, flowing into your custom process */}
+              <path d={`M120,${TRUNK_Y} L860,${TRUNK_Y}`} fill="none" stroke="url(#gTrunk)" strokeWidth="3" strokeLinecap="round" filter="url(#cuxGlow)" />
+              {/* flowing pulse-dots travelling along the trunk toward the green node */}
+              <path d={`M120,${TRUNK_Y} L860,${TRUNK_Y}`} fill="none" stroke="#6DBC61" strokeWidth="3" strokeLinecap="round" strokeDasharray="5 151" opacity="0.85">
+                <animate attributeName="stroke-dashoffset" from="156" to="0" dur="2.6s" repeatCount="indefinite" />
+              </path>
 
-              {/* custom branches */}
-              {BRANCHES.map((d, i) => (
-                <path key={i} d={d} fill="none" stroke="rgba(245,242,237,0.18)" strokeWidth="1.5" />
+              {/* colourful custom branches */}
+              {branched.map((it, i) => (
+                <path key={i} d={BRANCHES[i]} fill="none" stroke={`url(#gBranch${i})`} strokeWidth="2.5" strokeLinecap="round" filter="url(#cuxGlow)" />
               ))}
 
-              {/* nodes */}
-              {ITEMS.map((it, i) => (
-                <circle key={i} cx={it.x * 10 + (it.sig ? 20 : 0)} cy={it.y} r="6" fill={it.c} stroke="#0a1422" strokeWidth="3" />
-              ))}
+              {/* trunk anchor for the "A teljes rendszer" label */}
+              <circle cx="120" cy={TRUNK_Y} r="5" fill="rgba(245,242,237,0.85)" />
+
+              {/* nodes — colour halo + glowing dot */}
+              {ITEMS.map((it, i) => {
+                const x = ncx(it);
+                return (
+                  <g key={i}>
+                    <circle cx={x} cy={it.y} r={it.sig ? 17 : 13} fill={it.c} opacity="0.16" />
+                    <circle cx={x} cy={it.y} r={it.sig ? 9 : 7} fill={it.c} stroke="#0a1422" strokeWidth="3" filter="url(#cuxGlow)" />
+                    {it.sig && (
+                      <circle cx={x} cy={it.y} r="9" fill="none" stroke="#6DBC61" strokeWidth="2">
+                        <animate attributeName="r" from="9" to="22" dur="2.2s" repeatCount="indefinite" />
+                        <animate attributeName="opacity" from="0.6" to="0" dur="2.2s" repeatCount="indefinite" />
+                      </circle>
+                    )}
+                  </g>
+                );
+              })}
             </svg>
 
             {/* base label on the trunk */}
@@ -69,7 +119,11 @@ export default function CustomSolutions() {
               <div
                 className={"funnel__stage" + (it.sig ? " funnel__stage--sig" : "")}
                 key={i}
-                style={{ left: `${it.x}%`, top: `${(it.y / 320) * 100}%` }}
+                style={{
+                  left: `${it.x}%`,
+                  top: `${(it.y / 320) * 100}%`,
+                  ["--stc" as string]: it.c,
+                } as React.CSSProperties}
               >
                 <b>{it.b}</b>
                 <span>{it.s}</span>
