@@ -1110,126 +1110,119 @@ html.dark { --viz-purple-soft: #1d1b33; }
     radial-gradient(900px 460px at 50% -20%, rgba(109,188,97,0.10), transparent 60%),
     var(--bone);
 }
-/* --- Showcase: example projects on the dark highlight panel --- */
-.cux__showcase {
+/* --- Custom build: dark highlight card (the page's one dramatic surface) --- */
+.cux__build {
   margin-top: 36px;
-  background: linear-gradient(160deg, #0a1422 0%, #0d1d12 100%);
+  background: #0a1422;
   border: 1px solid rgba(245,242,237,0.10);
   border-radius: 18px;
-  padding: 28px 28px 30px;
+  padding: 30px 30px 32px;
+  color: #F5F2ED;
 }
-.cux__kicker {
-  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.10em;
-  text-transform: uppercase; color: #6DBC61;
+.cux__panel-h {
+  display: block; margin-bottom: 14px;
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.08em;
+  text-transform: uppercase; color: rgba(245,242,237,0.45);
 }
-.cux__projects {
-  margin-top: 18px;
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+.cux__panel-h--sig { color: #6DBC61; }
+
+/* architecture row: core system + custom module */
+.cux__arch {
+  display: grid; grid-template-columns: 1fr auto 1fr;
+  align-items: stretch; gap: 18px;
 }
-.cux__proj {
-  background: rgba(245,242,237,0.04);
+.cux__core {
   border: 1px solid rgba(245,242,237,0.10);
-  border-top: 2px solid var(--pc, var(--viz-blue));
-  border-radius: 12px;
-  padding: 16px 16px 14px;
-  display: flex; flex-direction: column; gap: 8px;
+  border-radius: 14px; padding: 18px 18px 20px;
+  background: rgba(245,242,237,0.03);
 }
-.cux__proj-t {
-  font-family: var(--font-display); font-weight: 500; font-size: 15.5px;
+.cux__core-list {
+  list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px;
+}
+.cux__core-list li {
+  display: flex; align-items: center; gap: 9px;
+  font-family: var(--font-body); font-size: 12.5px; line-height: 1.3;
+  color: rgba(245,242,237,0.78);
+}
+.cux__dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+.cux__link { position: relative; display: flex; align-items: center; justify-content: center; width: 60px; }
+.cux__link::before {
+  content: ''; position: absolute; left: 0; right: 0; top: 50%;
+  height: 1.5px; background: rgba(245,242,237,0.16);
+}
+.cux__link-plus {
+  position: relative; z-index: 1;
+  width: 30px; height: 30px; border-radius: 50%;
+  background: #0a1422; border: 1px solid rgba(245,242,237,0.22);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 17px; color: rgba(245,242,237,0.7);
+}
+
+.cux__custom {
+  border: 1px solid rgba(109,188,97,0.5);
+  border-radius: 14px; padding: 18px 18px 20px;
+  background: rgba(109,188,97,0.07);
+}
+.cux__custom-dot {
+  display: inline-block; width: 10px; height: 10px; border-radius: 50%;
+  background: #6DBC61; margin-bottom: 12px;
+  animation: cuxPulse 1.2s ease-in-out infinite;
+}
+@keyframes cuxPulse { 0%, 100% { opacity: 0.7; } 50% { opacity: 1; } }
+.cux__custom-k {
+  display: block; font-family: var(--font-display); font-weight: 500;
+  font-size: 16px; letter-spacing: -0.01em; color: #6DBC61;
+}
+.cux__custom-d {
+  display: block; margin-top: 6px;
+  font-family: var(--font-body); font-size: 13px; line-height: 1.55;
+  color: rgba(245,242,237,0.7);
+}
+
+/* how a custom build runs */
+.cux__steps {
+  margin-top: 26px; padding-top: 24px;
+  border-top: 1px solid rgba(245,242,237,0.10);
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+}
+.cux__step-n {
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.05em;
+  color: var(--stone);
+}
+.cux__step-t {
+  display: block; margin: 8px 0 5px;
+  font-family: var(--font-display); font-weight: 500; font-size: 14.5px;
   letter-spacing: -0.01em; color: #F5F2ED;
 }
-.cux__proj-d {
-  font-family: var(--font-body); font-size: 13px; line-height: 1.55;
-  color: rgba(245,242,237,0.62); flex: 1;
-}
-.cux__proj-who {
-  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.03em;
-  color: var(--pc, var(--viz-blue));
-  background: color-mix(in srgb, var(--pc, var(--viz-blue)) 14%, transparent);
-  align-self: flex-start;
-  padding: 4px 9px; border-radius: 999px;
+.cux__step-d {
+  display: block;
+  font-family: var(--font-body); font-size: 12.5px; line-height: 1.5;
+  color: rgba(245,242,237,0.6);
 }
 
-/* --- Shared block heading --- */
-.cux__block { margin-top: 44px; }
-.cux__block-h {
-  font-family: var(--font-display); font-weight: 500;
-  font-size: clamp(20px, 2.4vw, 26px); letter-spacing: -0.02em;
-  color: var(--ink); text-align: center; margin-bottom: 24px;
+.cux__eg {
+  margin-top: 24px; padding-top: 20px;
+  border-top: 1px solid rgba(245,242,237,0.10);
+  font-family: var(--font-body); font-size: 12.5px; line-height: 1.7;
+  color: rgba(245,242,237,0.55);
 }
+.cux__eg b {
+  font-family: var(--font-mono); font-weight: 400; font-size: 10.5px;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: rgba(245,242,237,0.8); margin-right: 4px;
+}
+.cux__eg-item:not(:last-child)::after { content: ' · '; color: rgba(245,242,237,0.3); }
 
-/* --- What we can build --- */
-.cux__cats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
-.cux__cat {
-  background: var(--bone); border: 1px solid var(--line);
-  border-radius: 14px; padding: 18px 18px 20px;
+@media (max-width: 760px) {
+  .cux__build { padding: 22px 18px 24px; }
+  .cux__arch { grid-template-columns: 1fr; gap: 0; }
+  .cux__link { width: 100%; height: 42px; }
+  .cux__link::before { left: 50%; right: auto; top: 0; bottom: 0; width: 1.5px; height: auto; transform: translateX(-50%); }
+  .cux__steps { grid-template-columns: 1fr; gap: 18px; }
 }
-.cux__cat-h {
-  font-family: var(--font-display); font-weight: 500; font-size: 14.5px;
-  letter-spacing: -0.01em; color: var(--ink); margin-bottom: 12px;
-}
-.cux__cat ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
-.cux__cat li {
-  position: relative; padding-left: 16px;
-  font-family: var(--font-body); font-size: 13px; line-height: 1.45; color: var(--ink-70);
-}
-.cux__cat li::before {
-  content: ''; position: absolute; left: 0; top: 7px;
-  width: 6px; height: 6px; border-radius: 50%; background: var(--viz-blue);
-}
-
-/* --- Who it's for / not for --- */
-.cux__fit {
-  margin-top: 44px;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
-}
-.cux__fit-col {
-  border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px;
-  background: var(--bone);
-}
-.cux__fit-col--yes { border-color: rgba(52,199,89,0.35); }
-.cux__fit-col--no { border-color: rgba(224,82,78,0.30); }
-.cux__fit-h {
-  font-family: var(--font-display); font-weight: 500; font-size: 16px;
-  letter-spacing: -0.01em; color: var(--ink); margin-bottom: 14px;
-}
-.cux__fit-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
-.cux__fit-col li {
-  position: relative; padding-left: 26px;
-  font-family: var(--font-body); font-size: 13.5px; line-height: 1.5; color: var(--ink-70);
-}
-.cux__fit-col li::before {
-  position: absolute; left: 0; top: -1px;
-  font-family: var(--font-display); font-weight: 600; font-size: 14px;
-}
-.cux__fit-col--yes li::before { content: '✓'; color: var(--viz-green); }
-.cux__fit-col--no li::before { content: '✕'; color: var(--viz-red); }
-
-/* --- Guarantees --- */
-.cux__guarantees { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-.cux__g {
-  background: var(--bone); border: 1px solid var(--line);
-  border-radius: 14px; padding: 22px 22px 24px;
-}
-.cux__g-ico { width: 26px; height: 26px; color: var(--viz-green); margin-bottom: 12px; }
-.cux__g-t {
-  font-family: var(--font-display); font-weight: 500; font-size: 15.5px;
-  letter-spacing: -0.01em; color: var(--ink); margin-bottom: 8px;
-}
-.cux__g-d {
-  font-family: var(--font-body); font-size: 13.5px; line-height: 1.55; color: var(--ink-70);
-}
-
-@media (max-width: 860px) {
-  .cux__projects { grid-template-columns: repeat(2, 1fr); }
-  .cux__cats { grid-template-columns: repeat(2, 1fr); }
-  .cux__guarantees { grid-template-columns: 1fr; }
-}
-@media (max-width: 560px) {
-  .cux__showcase { padding: 20px 16px 22px; }
-  .cux__projects { grid-template-columns: 1fr; }
-  .cux__cats { grid-template-columns: 1fr; }
-  .cux__fit { grid-template-columns: 1fr; }
+@media (max-width: 460px) {
+  .cux__core-list { grid-template-columns: 1fr; }
 }
 
 /* --- Panel: No-show calendar --- */
