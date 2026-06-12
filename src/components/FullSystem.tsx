@@ -36,6 +36,14 @@ const ICONS = [
   <g key="6"><path d="M12 20v-9M18 20V4M6 20v-5" /></g>,
 ];
 
+/* What sets the system apart — distilled, professional, on-brand. */
+const POINTS = [
+  { t: "Egységes memória", d: "Minden csatornán emlékszik a korábbi beszélgetésekre." },
+  { t: "Proaktív megkeresés", d: "Nem csak válaszol — magától kezdeményez és újraaktivál." },
+  { t: "Teljes CRM-szinkron", d: "Minden beszélgetés automatikusan a helyére kerül." },
+  { t: "Kiszámítható, 24/7", d: "Emberi kiesés nélkül, egy csapat költségének töredékéért." },
+];
+
 export default function FullSystem() {
   return (
     <section className="sys" id="rendszer-teljes">
@@ -44,9 +52,11 @@ export default function FullSystem() {
           <span className="dash__eyebrow">A teljes rendszer</span>
           <h2 className="dash__h">Hét lépés. Egyetlen rendszer.</h2>
           <p className="dash__p">
-            Az érdeklődő első hívásától a visszatérő ügyfélig minden lépést
-            ugyanaz az összehangolt rendszer visz — magyarul, a háttérben,
-            az Ön meglévő naptárához és eszközeihez kapcsolva.
+            Nem különálló eszközök, és nem alapszintű automatizálás. Egy
+            összehangolt, AI-alapú értékesítési rendszer, amely egyetlen közös
+            memóriával viszi végig az érdeklődőt az első hívástól a visszatérő
+            ügyfélig — magyarul, a háttérben, az Ön meglévő naptárához és
+            eszközeihez kötve.
           </p>
         </div>
 
@@ -110,6 +120,15 @@ export default function FullSystem() {
               </div>
             ))}
           </div>
+        </div>
+
+        <div className="sys__points reveal" data-delay="2">
+          {POINTS.map((p, i) => (
+            <div className="sys__point" key={i}>
+              <b className="sys__point-t">{p.t}</b>
+              <span className="sys__point-d">{p.d}</span>
+            </div>
+          ))}
         </div>
       </div>
     </section>
