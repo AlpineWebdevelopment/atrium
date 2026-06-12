@@ -1170,12 +1170,22 @@ html.dark { --viz-purple-soft: #1d1b33; }
   background: rgba(109,188,97,0.10);
 }
 
-/* What we can build */
-.cux__cats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.cux__cat {
-  background: var(--bone); border: 1px solid var(--line);
-  border-radius: 14px; padding: 18px 18px 20px;
+/* What we can build — one tinted panel, columns divided by rules (distinct
+   from the bordered project cards above) */
+.cux__cats-panel {
+  background:
+    radial-gradient(720px 320px at 0% 0%, rgba(124,92,255,0.06), transparent 60%),
+    radial-gradient(720px 320px at 100% 100%, rgba(84,207,192,0.06), transparent 60%),
+    var(--panel);
+  border: 1px solid var(--line); border-radius: 16px;
+  padding: 26px 10px;
 }
+.cux__cats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+.cux__cat {
+  padding: 2px 22px;
+  border-left: 1px solid var(--line);
+}
+.cux__cat:first-child { border-left: 0; }
 .cux__cat-h {
   display: flex; align-items: center; gap: 8px;
   font-family: var(--font-display); font-weight: 500; font-size: 14.5px;
@@ -1215,12 +1225,19 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .cux__fit-col--yes li::before { content: '✓'; color: var(--viz-green); }
 .cux__fit-col--no li::before { content: '✕'; color: var(--viz-red); }
 
-/* Guarantees */
-.cux__guar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.cux__g {
-  background: var(--bone); border: 1px solid var(--line);
-  border-radius: 14px; padding: 22px 22px 24px;
+/* Guarantees — one green-tinted band, columns divided by rules (distinct
+   again from the cards and the categories panel) */
+.cux__guar {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+  background: rgba(109,188,97,0.05);
+  border: 1px solid rgba(109,188,97,0.22); border-radius: 16px;
+  padding: 6px 6px;
 }
+.cux__g {
+  padding: 22px 26px 24px;
+  border-left: 1px solid rgba(109,188,97,0.18);
+}
+.cux__g:first-child { border-left: 0; }
 .cux__g-ico { width: 26px; height: 26px; color: var(--signal); margin-bottom: 12px; }
 .cux__g-t {
   font-family: var(--font-display); font-weight: 500; font-size: 15.5px;
@@ -1230,13 +1247,22 @@ html.dark { --viz-purple-soft: #1d1b33; }
 
 @media (max-width: 860px) {
   .cux__projects { grid-template-columns: repeat(2, 1fr); }
-  .cux__cats { grid-template-columns: repeat(2, 1fr); }
+  /* categories: 2 cols, swap left-dividers for row gaps + top rules */
+  .cux__cats { grid-template-columns: 1fr 1fr; gap: 4px 0; }
+  .cux__cat { border-left: 0; }
+  .cux__cat:nth-child(even) { border-left: 1px solid var(--line); }
+  .cux__cat:nth-child(n+3) { border-top: 1px solid var(--line); padding-top: 18px; margin-top: 4px; }
+  /* guarantees: stack, swap left-dividers for top rules */
   .cux__guar { grid-template-columns: 1fr; }
+  .cux__g { border-left: 0; }
+  .cux__g + .cux__g { border-top: 1px solid rgba(109,188,97,0.18); }
 }
 @media (max-width: 560px) {
   .cux__projects { grid-template-columns: 1fr; }
-  .cux__cats { grid-template-columns: 1fr; }
   .cux__fit { grid-template-columns: 1fr; }
+  .cux__cats { grid-template-columns: 1fr; }
+  .cux__cat { border-left: 0 !important; }
+  .cux__cat + .cux__cat { border-top: 1px solid var(--line); padding-top: 18px; margin-top: 4px; }
 }
 
 /* --- Panel: No-show calendar --- */

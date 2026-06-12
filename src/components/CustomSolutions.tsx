@@ -183,17 +183,19 @@ export default function CustomSolutions() {
         {/* What we can build */}
         <div className="cux__sec reveal">
           <h3 className="cux__sec-h"><span>Amit tudunk építeni</span></h3>
-          <div className="cux__cats">
-            {CATEGORIES.map((cat, i) => (
-              <div className="cux__cat" key={i} style={{ ["--pc" as string]: cat.c } as React.CSSProperties}>
-                <h4 className="cux__cat-h"><span className="cux__cat-dot" />{cat.h}</h4>
-                <ul>
-                  {cat.items.map((it, j) => (
-                    <li key={j}>{it}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          <div className="cux__cats-panel">
+            <div className="cux__cats">
+              {CATEGORIES.map((cat, i) => (
+                <div className="cux__cat" key={i} style={{ ["--pc" as string]: cat.c } as React.CSSProperties}>
+                  <h4 className="cux__cat-h"><span className="cux__cat-dot" />{cat.h}</h4>
+                  <ul>
+                    {cat.items.map((it, j) => (
+                      <li key={j}>{it}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
