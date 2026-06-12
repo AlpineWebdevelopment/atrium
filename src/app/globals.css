@@ -1110,59 +1110,126 @@ html.dark { --viz-purple-soft: #1d1b33; }
     radial-gradient(900px 460px at 50% -20%, rgba(109,188,97,0.10), transparent 60%),
     var(--bone);
 }
-.cux__card {
+/* --- Showcase: example projects on the dark highlight panel --- */
+.cux__showcase {
+  margin-top: 36px;
   background: linear-gradient(160deg, #0a1422 0%, #0d1d12 100%);
-  border-color: rgba(245,242,237,0.10);
+  border: 1px solid rgba(245,242,237,0.10);
+  border-radius: 18px;
+  padding: 28px 28px 30px;
 }
-.cux__chart { position: relative; height: 320px; margin: 6px 0 4px; }
-.cux__svg { width: 100%; height: 100%; display: block; overflow: visible; }
-.cux .funnel__stage {
-  background: rgba(245,242,237,0.07);
-  border-color: rgba(245,242,237,0.16);
-  box-shadow: none;
+.cux__kicker {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.10em;
+  text-transform: uppercase; color: #6DBC61;
 }
-.cux .funnel__stage b { color: #F5F2ED; }
-.cux .funnel__stage span { color: rgba(245,242,237,0.55); }
-.cux .funnel__stage--sig {
-  background: rgba(109,188,97,0.10);
-  border-color: rgba(109,188,97,0.55);
+.cux__projects {
+  margin-top: 18px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
 }
-.cux .funnel__stage--sig b { color: #6DBC61; }
-.cux__base { opacity: 0.75; }
-@media (max-width: 700px) {
-  /* Same vertical node-graph as the system journey: a gradient spine with
-     each custom build as a colour-matched node on the line. */
-  .cux__chart {
-    position: relative; height: auto; margin: 10px 0 0;
-    display: flex; flex-direction: column; padding-left: 4px;
-  }
-  .cux__svg, .cux .funnel__stage.cux__base { display: none; }
-  .cux__chart::before {
-    content: '';
-    position: absolute; left: 13px; top: 16px; bottom: 16px;
-    width: 2.5px; border-radius: 2px;
-    background: linear-gradient(to bottom,
-      #7C5CFF, #4AA3FF, #54CFC0, #E8A33D, #9B7BFF, #6DBC61);
-  }
-  .cux .funnel__stage {
-    position: relative;
-    left: auto !important; top: auto !important; transform: none;
-    display: flex; flex-direction: column; align-items: flex-start; gap: 2px;
-    width: 100%; margin: 0;
-    padding: 10px 6px 10px 40px;
-    border: 0; border-radius: 0; background: none; box-shadow: none;
-    white-space: normal;
-  }
-  .cux .funnel__stage::before {
-    content: '';
-    position: absolute; left: 7px; top: 13px;
-    width: 14px; height: 14px; border-radius: 50%;
-    background: var(--stc, var(--viz-blue));
-    border: 3px solid #0a1422;
-    box-shadow: 0 0 0 1px rgba(245,242,237,0.18);
-  }
-  .cux .funnel__stage--sig { background: none; border: 0; }
-  .cux .funnel__stage b { font-size: 14.5px; }
+.cux__proj {
+  background: rgba(245,242,237,0.04);
+  border: 1px solid rgba(245,242,237,0.10);
+  border-top: 2px solid var(--pc, var(--viz-blue));
+  border-radius: 12px;
+  padding: 16px 16px 14px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.cux__proj-t {
+  font-family: var(--font-display); font-weight: 500; font-size: 15.5px;
+  letter-spacing: -0.01em; color: #F5F2ED;
+}
+.cux__proj-d {
+  font-family: var(--font-body); font-size: 13px; line-height: 1.55;
+  color: rgba(245,242,237,0.62); flex: 1;
+}
+.cux__proj-who {
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.03em;
+  color: var(--pc, var(--viz-blue));
+  background: color-mix(in srgb, var(--pc, var(--viz-blue)) 14%, transparent);
+  align-self: flex-start;
+  padding: 4px 9px; border-radius: 999px;
+}
+
+/* --- Shared block heading --- */
+.cux__block { margin-top: 44px; }
+.cux__block-h {
+  font-family: var(--font-display); font-weight: 500;
+  font-size: clamp(20px, 2.4vw, 26px); letter-spacing: -0.02em;
+  color: var(--ink); text-align: center; margin-bottom: 24px;
+}
+
+/* --- What we can build --- */
+.cux__cats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.cux__cat {
+  background: var(--bone); border: 1px solid var(--line);
+  border-radius: 14px; padding: 18px 18px 20px;
+}
+.cux__cat-h {
+  font-family: var(--font-display); font-weight: 500; font-size: 14.5px;
+  letter-spacing: -0.01em; color: var(--ink); margin-bottom: 12px;
+}
+.cux__cat ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.cux__cat li {
+  position: relative; padding-left: 16px;
+  font-family: var(--font-body); font-size: 13px; line-height: 1.45; color: var(--ink-70);
+}
+.cux__cat li::before {
+  content: ''; position: absolute; left: 0; top: 7px;
+  width: 6px; height: 6px; border-radius: 50%; background: var(--viz-blue);
+}
+
+/* --- Who it's for / not for --- */
+.cux__fit {
+  margin-top: 44px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
+}
+.cux__fit-col {
+  border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px;
+  background: var(--bone);
+}
+.cux__fit-col--yes { border-color: rgba(52,199,89,0.35); }
+.cux__fit-col--no { border-color: rgba(224,82,78,0.30); }
+.cux__fit-h {
+  font-family: var(--font-display); font-weight: 500; font-size: 16px;
+  letter-spacing: -0.01em; color: var(--ink); margin-bottom: 14px;
+}
+.cux__fit-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+.cux__fit-col li {
+  position: relative; padding-left: 26px;
+  font-family: var(--font-body); font-size: 13.5px; line-height: 1.5; color: var(--ink-70);
+}
+.cux__fit-col li::before {
+  position: absolute; left: 0; top: -1px;
+  font-family: var(--font-display); font-weight: 600; font-size: 14px;
+}
+.cux__fit-col--yes li::before { content: '✓'; color: var(--viz-green); }
+.cux__fit-col--no li::before { content: '✕'; color: var(--viz-red); }
+
+/* --- Guarantees --- */
+.cux__guarantees { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.cux__g {
+  background: var(--bone); border: 1px solid var(--line);
+  border-radius: 14px; padding: 22px 22px 24px;
+}
+.cux__g-ico { width: 26px; height: 26px; color: var(--viz-green); margin-bottom: 12px; }
+.cux__g-t {
+  font-family: var(--font-display); font-weight: 500; font-size: 15.5px;
+  letter-spacing: -0.01em; color: var(--ink); margin-bottom: 8px;
+}
+.cux__g-d {
+  font-family: var(--font-body); font-size: 13.5px; line-height: 1.55; color: var(--ink-70);
+}
+
+@media (max-width: 860px) {
+  .cux__projects { grid-template-columns: repeat(2, 1fr); }
+  .cux__cats { grid-template-columns: repeat(2, 1fr); }
+  .cux__guarantees { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .cux__showcase { padding: 20px 16px 22px; }
+  .cux__projects { grid-template-columns: 1fr; }
+  .cux__cats { grid-template-columns: 1fr; }
+  .cux__fit { grid-template-columns: 1fr; }
 }
 
 /* --- Panel: No-show calendar --- */

@@ -1,132 +1,185 @@
-"use client";
+/* Custom AI builds — concrete solutions for concrete business problems.
+   Replaces the abstract trunk graph with the actual offering. */
 
-/* Custom builds — colourful branches grafted onto the full-system trunk.
-   Dark card = the page's one restrained highlight for this section. */
-
-const TRUNK_Y = 170;
-
-const ITEMS = [
-  { b: "Árajánlat-utánkövetés", s: "kiküldve még nem eladva", x: 18, y: 70, c: "#7C5CFF" },
-  { b: "Lejárt számlák", s: "udvariasan, következetesen", x: 33, y: 250, c: "#4AA3FF" },
-  { b: "Várólista-feltöltés", s: "lemondás után azonnal", x: 48, y: 60, c: "#54CFC0" },
-  { b: "Előzetes adatbekérés", s: "még az időpont előtt", x: 63, y: 255, c: "#E8A33D" },
-  { b: "Idegen nyelvű ügyfelek", s: "németül és angolul", x: 78, y: 75, c: "#9B7BFF" },
-  { b: "+ az Ön folyamata", s: "ezt együtt találjuk ki", x: 84, y: 170, c: "#6DBC61", sig: true },
+const PROJECTS = [
+  {
+    t: "AI lead-generálás & minősítés",
+    d: "Proaktívan keresi és minősíti a leadeket LinkedIn, weboldal-látogatók és adatbázisok alapján, majd személyre szabott kampányt indít — emberi beavatkozás nélkül.",
+    who: "Ügynökségeknek & B2B",
+    c: "#7C5CFF",
+  },
+  {
+    t: "AI SEO-platform ügynökségeknek",
+    d: "Elemzi a kliensoldalakat, feltárja a hibákat, tartalom- és meta-javaslatokat generál, automata riportot küld. 50 kliens 2 ember helyett.",
+    who: "Ügynökségeknek",
+    c: "#4AA3FF",
+  },
+  {
+    t: "Dokumentum-kinyerő ügynök",
+    d: "Nagy archívumokból másodpercek alatt megtalálja és kivonja a kért adatot — ahol ma órákba telik a keresés.",
+    who: "Jogi cégeknek, könyvelőknek, kórházaknak",
+    c: "#54CFC0",
+  },
+  {
+    t: "Többnyelvű ügyfélszolgálati AI",
+    d: "10+ nyelven, a belső rendszerekkel folyamatos szinkronban: ticket-nyitás, státusz-ellenőrzés, gyakori problémák — automatikusan.",
+    who: "Multinacionális cégeknek",
+    c: "#E8A33D",
+  },
+  {
+    t: "Kimenő értékesítési AI",
+    d: "Cold call és LinkedIn outreach: személyre szabott megkeresés, válaszkövetés, és csak az érett leadet adja át az értékesítőnek.",
+    who: "B2B pipeline-építésre",
+    c: "#6DBC61",
+  },
 ];
 
-/* node centre x in viewBox units */
-const ncx = (it: (typeof ITEMS)[number]) => it.x * 10 + (it.sig ? 20 : 0);
+const CATEGORIES = [
+  {
+    h: "Értékesítés & marketing",
+    items: [
+      "Lead-nurturing rendszerek",
+      "Személyre szabott email-kampány AI",
+      "Dinamikus ajánlat-generátor",
+      "Prospect-research & minősítés",
+    ],
+  },
+  {
+    h: "Ügyfélszolgálat & támogatás",
+    items: [
+      "Többnyelvű support több csatornán",
+      "Ticket-routing & prioritizálás",
+      "Tudásbázis-keresés & válaszgenerálás",
+      "Proaktív probléma-észlelés",
+    ],
+  },
+  {
+    h: "Operációs automatizálás",
+    items: [
+      "Dokumentum-feldolgozás & kategorizálás",
+      "Adatkinyerés nagy adatbázisokból",
+      "Automata jelentés-generálás",
+      "Folyamat-monitorozás & anomália-észlelés",
+    ],
+  },
+  {
+    h: "Iparág-specifikus",
+    items: [
+      "Egészségügy — beteg-kommunikáció",
+      "Jogi — contract review & compliance",
+      "Pénzügy — fraud-detection & kockázat",
+      "E-commerce — dinamikus árazás, HR — CV-screening",
+    ],
+  },
+];
 
-const BRANCHES = [
-  "M130,170 C160,170 165,100 180,70",
-  "M280,170 C310,170 315,215 330,250",
-  "M430,170 C460,170 465,95 480,60",
-  "M580,170 C610,170 615,222 630,255",
-  "M730,170 C760,170 765,110 780,75",
+const FIT = [
+  "Konkrét folyamatot akar automatizálni",
+  "Elégedetlen az általános megoldásokkal",
+  "Komoly üzleti problémát old meg AI-val",
+  "Befektet, ha az ROI egyértelmű",
+  "Partnert keres, nem csak szolgáltatót",
+];
+
+const NOFIT = [
+  "Csak „kipróbálná” az AI-t minimális költséggel",
+  "Nincs konkrét probléma, csak divatkövetés",
+  "Türelmetlen, nem érti a fejlesztési folyamatot",
+  "Gyors fixet keres, nem stratégiai megoldást",
+];
+
+const GUARANTEES = [
+  {
+    t: "Teljesítmény-garancia",
+    d: "Ha az AI nem éri el a közösen kitűzött KPI-okat, extra költség nélkül optimalizálunk, amíg eléri.",
+  },
+  {
+    t: "Átláthatóság-garancia",
+    d: "Kétheti demók, nyílt kódbázis-hozzáférés, részletes dokumentáció. Mindig tudja, mire megy a pénze.",
+  },
+  {
+    t: "Exit-garancia",
+    d: "Ha 3 hónap után nem elégedett, átveszi a teljes kódbázist és dokumentációt, és bárkivel folytathatja.",
+  },
 ];
 
 export default function CustomSolutions() {
-  const branched = ITEMS.filter((it) => !it.sig);
   return (
     <section className="cux" id="egyedi">
       <div className="wrap">
         <div className="dash__intro reveal">
           <span className="dash__eyebrow">Egyedi fejlesztés</span>
-          <h2 className="dash__h">Amit a hét lépés nem fed le, megépítjük.</h2>
+          <h2 className="dash__h">Ha a csomag nem elég, megépítjük az Ön rendszerét.</h2>
           <p className="dash__p">
-            Minden cégnek van olyan folyamata, amire nincs kész recept.
-            Ilyenkor nem a céget igazítjuk a rendszerhez — a rendszert
-            építjük a cég köré. Ön elmondja, hol veszít időt vagy bevételt;
-            mi megépítjük, ami azt bezárja.
+            Nem általános AI-ról és próbálgatásról beszélünk. Konkrét üzleti
+            problémára tervezünk és fejlesztünk konkrét AI-megoldást — pontosan
+            arra, amire szüksége van.
           </p>
         </div>
 
-        <div className="dash__card cux__card reveal" data-delay="1">
-          <div className="cux__chart">
-            <svg className="cux__svg" viewBox="0 0 1000 320" preserveAspectRatio="none">
-              <defs>
-                <linearGradient id="gTrunk" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stopColor="rgba(245,242,237,0.35)" />
-                  <stop offset="72%" stopColor="rgba(245,242,237,0.30)" />
-                  <stop offset="100%" stopColor="#6DBC61" />
-                </linearGradient>
-                {/* one gradient per branch: trunk → that branch's colour */}
-                {branched.map((it, i) => {
-                  const nx = ncx(it);
-                  return (
-                    <linearGradient
-                      key={i}
-                      id={`gBranch${i}`}
-                      gradientUnits="userSpaceOnUse"
-                      x1={nx - 50}
-                      y1={TRUNK_Y}
-                      x2={nx}
-                      y2={it.y}
-                    >
-                      <stop offset="0%" stopColor="rgba(245,242,237,0.22)" />
-                      <stop offset="100%" stopColor={it.c} />
-                    </linearGradient>
-                  );
-                })}
-                <filter id="cuxGlow" x="-60%" y="-60%" width="220%" height="220%">
-                  <feGaussianBlur stdDeviation="3.2" result="b" />
-                  <feMerge>
-                    <feMergeNode in="b" />
-                    <feMergeNode in="SourceGraphic" />
-                  </feMerge>
-                </filter>
-              </defs>
+        {/* Showcase — example projects on the dark highlight panel */}
+        <div className="cux__showcase reveal" data-delay="1">
+          <span className="cux__kicker">Példa projektek</span>
+          <div className="cux__projects">
+            {PROJECTS.map((p, i) => (
+              <div className="cux__proj" key={i} style={{ ["--pc" as string]: p.c } as React.CSSProperties}>
+                <h3 className="cux__proj-t">{p.t}</h3>
+                <p className="cux__proj-d">{p.d}</p>
+                <span className="cux__proj-who">{p.who}</span>
+              </div>
+            ))}
+          </div>
+        </div>
 
-              {/* trunk — the full system, flowing into your custom process */}
-              <path d={`M120,${TRUNK_Y} L860,${TRUNK_Y}`} fill="none" stroke="url(#gTrunk)" strokeWidth="3" strokeLinecap="round" filter="url(#cuxGlow)" />
-              {/* flowing pulse-dots travelling along the trunk toward the green node */}
-              <path d={`M120,${TRUNK_Y} L860,${TRUNK_Y}`} fill="none" stroke="#6DBC61" strokeWidth="3" strokeLinecap="round" strokeDasharray="5 151" opacity="0.85">
-                <animate attributeName="stroke-dashoffset" from="156" to="0" dur="2.6s" repeatCount="indefinite" />
-              </path>
+        {/* What we can build */}
+        <div className="cux__block reveal">
+          <h3 className="cux__block-h">Amit tudunk építeni</h3>
+          <div className="cux__cats">
+            {CATEGORIES.map((cat, i) => (
+              <div className="cux__cat" key={i}>
+                <h4 className="cux__cat-h">{cat.h}</h4>
+                <ul>
+                  {cat.items.map((it, j) => (
+                    <li key={j}>{it}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
 
-              {/* colourful custom branches */}
-              {branched.map((it, i) => (
-                <path key={i} d={BRANCHES[i]} fill="none" stroke={`url(#gBranch${i})`} strokeWidth="2.5" strokeLinecap="round" filter="url(#cuxGlow)" />
+        {/* Who it's for / not for */}
+        <div className="cux__fit reveal">
+          <div className="cux__fit-col cux__fit-col--yes">
+            <h3 className="cux__fit-h">Önnek való, ha…</h3>
+            <ul>
+              {FIT.map((f, i) => (
+                <li key={i}>{f}</li>
               ))}
+            </ul>
+          </div>
+          <div className="cux__fit-col cux__fit-col--no">
+            <h3 className="cux__fit-h">Nem Önnek való, ha…</h3>
+            <ul>
+              {NOFIT.map((f, i) => (
+                <li key={i}>{f}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
 
-              {/* trunk anchor for the "A teljes rendszer" label */}
-              <circle cx="120" cy={TRUNK_Y} r="5" fill="rgba(245,242,237,0.85)" />
-
-              {/* nodes — colour halo + glowing dot */}
-              {ITEMS.map((it, i) => {
-                const x = ncx(it);
-                return (
-                  <g key={i}>
-                    <circle cx={x} cy={it.y} r={it.sig ? 17 : 13} fill={it.c} opacity="0.16" />
-                    <circle cx={x} cy={it.y} r={it.sig ? 9 : 7} fill={it.c} stroke="#0a1422" strokeWidth="3" filter="url(#cuxGlow)" />
-                    {it.sig && (
-                      <circle cx={x} cy={it.y} r="9" fill="none" stroke="#6DBC61" strokeWidth="2">
-                        <animate attributeName="r" from="9" to="22" dur="2.2s" repeatCount="indefinite" />
-                        <animate attributeName="opacity" from="0.6" to="0" dur="2.2s" repeatCount="indefinite" />
-                      </circle>
-                    )}
-                  </g>
-                );
-              })}
-            </svg>
-
-            {/* base label on the trunk */}
-            <div className="funnel__stage cux__base" style={{ left: "7%", top: "53%" }}>
-              <b>A teljes rendszer</b>
-            </div>
-
-            {ITEMS.map((it, i) => (
-              <div
-                className={"funnel__stage" + (it.sig ? " funnel__stage--sig" : "")}
-                key={i}
-                style={{
-                  left: `${it.x}%`,
-                  top: `${(it.y / 320) * 100}%`,
-                  ["--stc" as string]: it.c,
-                } as React.CSSProperties}
-              >
-                <b>{it.b}</b>
-                <span>{it.s}</span>
+        {/* Guarantees */}
+        <div className="cux__block reveal">
+          <h3 className="cux__block-h">Garancia</h3>
+          <div className="cux__guarantees">
+            {GUARANTEES.map((g, i) => (
+              <div className="cux__g" key={i}>
+                <svg className="cux__g-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 2l8 3v6c0 5-3.4 8.5-8 11-4.6-2.5-8-6-8-11V5l8-3z" />
+                  <path d="M9 12l2 2 4-4" />
+                </svg>
+                <h4 className="cux__g-t">{g.t}</h4>
+                <p className="cux__g-d">{g.d}</p>
               </div>
             ))}
           </div>
