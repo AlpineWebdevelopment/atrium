@@ -1,27 +1,15 @@
-/* Custom-scoped work — the bespoke logic that falls outside the seven core
-   components. Operator language, no productized "AI projects" menu (per spec). */
+"use client";
 
-const CORE = [
-  { t: "Fogadja a hívást", c: "#7C5CFF" },
-  { t: "Lefoglalja az időpontot", c: "#9B7BFF" },
-  { t: "Visszahívja az elmaradtakat", c: "#4AA3FF" },
-  { t: "Visszahozza a régieket", c: "#54CFC0" },
-  { t: "Utánköveti az érdeklődőt", c: "#34C759" },
-  { t: "Kéri az értékelést", c: "#E8A33D" },
-  { t: "Megmutatja, mi működik", c: "#8C8579" },
+/* Custom-scoped work — communicates SCALE: from a single process automation
+   up to a whole bespoke system. The operator chooses how far it goes. */
+
+const TIERS = [
+  { b: "Egy folyamat", s: "egy konkrét probléma", x: 17, y: 200, c: "#7C5CFF" },
+  { b: "Több folyamat", s: "összekötve, egy rendszerben", x: 50, y: 140, c: "#4AA3FF" },
+  { b: "Teljes rendszer", s: "az egész működését átfogja", x: 84, y: 80, c: "#6DBC61" },
 ];
 
-const STEPS = [
-  { n: "01", t: "Ön elmondja, hol akad el", d: "Egy folyamat, amire nincs kész recept a hét komponensben." },
-  { n: "02", t: "Megtervezzük a logikát", d: "Pontosan az Ön működésére — nem általános sablonra." },
-  { n: "03", t: "Megépítjük és bekötjük", d: "Az Ön meglévő eszközeihez, az Ön számai mellett mérve." },
-];
-
-const EXAMPLES = [
-  "egyedi minősítési szabály a beérkező érdeklődőkre",
-  "két rendszer összekötése, amelyek ma nem beszélnek egymással",
-  "visszatérő riport, amit a könyvelője kér",
-];
+const PATH = "M170,200 C300,192 380,150 500,140 C620,130 720,92 840,80";
 
 export default function CustomSolutions() {
   return (
@@ -29,62 +17,54 @@ export default function CustomSolutions() {
       <div className="wrap">
         <div className="dash__intro reveal">
           <span className="dash__eyebrow">Egyedi fejlesztés</span>
-          <h2 className="dash__h">Amit a hét komponens nem fed le, megépítjük.</h2>
+          <h2 className="dash__h">Egy folyamattól a teljes rendszerig.</h2>
           <p className="dash__p">
-            Nem a céget igazítjuk a rendszerhez — a rendszert építjük a cég köré.
-            Ha az Ön folyamata kívül esik a hét komponensen, megépítjük rá az
-            egyedi logikát: pontosan arra, amire szüksége van, az Ön számai mellett.
+            Nem csak egyetlen automatizálás. Megépítünk egy konkrét folyamatot —
+            vagy az egész működését átfogó egyedi rendszert. Ön választja meg a
+            léptéket; amit AI-val meg lehet oldani, azt megépítjük.
           </p>
         </div>
 
-        <div className="cux__build reveal" data-delay="1">
-          {/* Architecture: the productized core + the one bespoke module */}
-          <div className="cux__arch">
-            <div className="cux__core">
-              <span className="cux__panel-h">A teljes rendszer · 7 komponens</span>
-              <ul className="cux__core-list">
-                {CORE.map((it, i) => (
-                  <li key={i}>
-                    <span className="cux__dot" style={{ background: it.c }} />
-                    {it.t}
-                  </li>
-                ))}
-              </ul>
-            </div>
+        <div className="dash__card cux__card reveal" data-delay="1">
+          <div className="cux__chart">
+            <svg className="cux__svg" viewBox="0 0 1000 300" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="gScale" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stopColor="#7C5CFF" />
+                  <stop offset="55%" stopColor="#4AA3FF" />
+                  <stop offset="100%" stopColor="#6DBC61" />
+                </linearGradient>
+                <linearGradient id="gScaleFill" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="rgba(74,163,255,0.16)" />
+                  <stop offset="100%" stopColor="rgba(74,163,255,0)" />
+                </linearGradient>
+              </defs>
+              <path d={`${PATH} L840,300 L170,300 Z`} fill="url(#gScaleFill)" />
+              <path d={PATH} fill="none" stroke="url(#gScale)" strokeWidth="3" strokeLinecap="round" />
+              {TIERS.map((t, i) => (
+                <circle key={i} cx={t.x * 10} cy={t.y} r="7" fill={t.c} stroke="var(--bone)" strokeWidth="3" />
+              ))}
+            </svg>
 
-            <div className="cux__link" aria-hidden="true">
-              <span className="cux__link-plus">+</span>
-            </div>
-
-            <div className="cux__custom">
-              <span className="cux__panel-h cux__panel-h--sig">Egyedi modul</span>
-              <span className="cux__custom-dot" />
-              <span className="cux__custom-k">Az Ön egyedi folyamata</span>
-              <span className="cux__custom-d">
-                Egyedi logika, amit csak az Ön cége igényel — a hét komponensen túl,
-                a meglévő eszközeihez kötve.
-              </span>
-            </div>
-          </div>
-
-          {/* How a custom build runs */}
-          <div className="cux__steps">
-            {STEPS.map((s, i) => (
-              <div className="cux__step" key={i}>
-                <span className="cux__step-n">{s.n}</span>
-                <b className="cux__step-t">{s.t}</b>
-                <span className="cux__step-d">{s.d}</span>
+            {TIERS.map((t, i) => (
+              <div
+                className="funnel__stage"
+                key={i}
+                style={{
+                  left: `${t.x}%`,
+                  top: `${(t.y / 300) * 100 + (i === 1 ? -22 : 24)}%`,
+                  ["--stc" as string]: t.c,
+                } as React.CSSProperties}
+              >
+                <b>{t.b}</b>
+                <span>{t.s}</span>
               </div>
             ))}
           </div>
 
-          <p className="cux__eg">
-            <b>Például</b>
-            {EXAMPLES.map((e, i) => (
-              <span key={i} className="cux__eg-item">
-                {e}
-              </span>
-            ))}
+          <p className="cux__foot">
+            Ön választ: egy automatizálás, néhány összekötött folyamat, vagy a
+            teljes rendszer — ahogy a cégének a legjobb.
           </p>
         </div>
       </div>

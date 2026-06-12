@@ -1110,119 +1110,55 @@ html.dark { --viz-purple-soft: #1d1b33; }
     radial-gradient(900px 460px at 50% -20%, rgba(109,188,97,0.10), transparent 60%),
     var(--bone);
 }
-/* --- Custom build: dark highlight card (the page's one dramatic surface) --- */
-.cux__build {
-  margin-top: 36px;
-  background: #0a1422;
-  border: 1px solid rgba(245,242,237,0.10);
-  border-radius: 18px;
-  padding: 30px 30px 32px;
-  color: #F5F2ED;
+/* --- Custom scale graph: light card, subtly highlighted like the others --- */
+.cux__card {
+  /* faint colour wash tying to the graph (green near the "teljes rendszer"
+     end, purple near "egy folyamat") — highlighted, but still light & on-brand */
+  background:
+    radial-gradient(560px 280px at 100% 0%, rgba(109,188,97,0.10), transparent 62%),
+    radial-gradient(620px 320px at 0% 100%, rgba(124,92,255,0.07), transparent 62%),
+    var(--bone);
 }
-.cux__panel-h {
-  display: block; margin-bottom: 14px;
-  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.08em;
-  text-transform: uppercase; color: rgba(245,242,237,0.45);
-}
-.cux__panel-h--sig { color: #6DBC61; }
-
-/* architecture row: core system + custom module */
-.cux__arch {
-  display: grid; grid-template-columns: 1fr auto 1fr;
-  align-items: stretch; gap: 18px;
-}
-.cux__core {
-  border: 1px solid rgba(245,242,237,0.10);
-  border-radius: 14px; padding: 18px 18px 20px;
-  background: rgba(245,242,237,0.03);
-}
-.cux__core-list {
-  list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px;
-}
-.cux__core-list li {
-  display: flex; align-items: center; gap: 9px;
-  font-family: var(--font-body); font-size: 12.5px; line-height: 1.3;
-  color: rgba(245,242,237,0.78);
-}
-.cux__dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-
-.cux__link { position: relative; display: flex; align-items: center; justify-content: center; width: 60px; }
-.cux__link::before {
-  content: ''; position: absolute; left: 0; right: 0; top: 50%;
-  height: 1.5px; background: rgba(245,242,237,0.16);
-}
-.cux__link-plus {
-  position: relative; z-index: 1;
-  width: 30px; height: 30px; border-radius: 50%;
-  background: #0a1422; border: 1px solid rgba(245,242,237,0.22);
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-display); font-size: 17px; color: rgba(245,242,237,0.7);
-}
-
-.cux__custom {
-  border: 1px solid rgba(109,188,97,0.5);
-  border-radius: 14px; padding: 18px 18px 20px;
-  background: rgba(109,188,97,0.07);
-}
-.cux__custom-dot {
-  display: inline-block; width: 10px; height: 10px; border-radius: 50%;
-  background: #6DBC61; margin-bottom: 12px;
-  animation: cuxPulse 1.2s ease-in-out infinite;
-}
-@keyframes cuxPulse { 0%, 100% { opacity: 0.7; } 50% { opacity: 1; } }
-.cux__custom-k {
-  display: block; font-family: var(--font-display); font-weight: 500;
-  font-size: 16px; letter-spacing: -0.01em; color: #6DBC61;
-}
-.cux__custom-d {
-  display: block; margin-top: 6px;
+.cux__chart { position: relative; height: 300px; margin: 8px 0 4px; }
+.cux__svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.cux__foot {
+  margin-top: 6px; padding-top: 16px; border-top: 1px solid var(--line);
   font-family: var(--font-body); font-size: 13px; line-height: 1.55;
-  color: rgba(245,242,237,0.7);
+  color: var(--ink-70); text-align: center;
 }
 
-/* how a custom build runs */
-.cux__steps {
-  margin-top: 26px; padding-top: 24px;
-  border-top: 1px solid rgba(245,242,237,0.10);
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
-}
-.cux__step-n {
-  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.05em;
-  color: var(--stone);
-}
-.cux__step-t {
-  display: block; margin: 8px 0 5px;
-  font-family: var(--font-display); font-weight: 500; font-size: 14.5px;
-  letter-spacing: -0.01em; color: #F5F2ED;
-}
-.cux__step-d {
-  display: block;
-  font-family: var(--font-body); font-size: 12.5px; line-height: 1.5;
-  color: rgba(245,242,237,0.6);
-}
-
-.cux__eg {
-  margin-top: 24px; padding-top: 20px;
-  border-top: 1px solid rgba(245,242,237,0.10);
-  font-family: var(--font-body); font-size: 12.5px; line-height: 1.7;
-  color: rgba(245,242,237,0.55);
-}
-.cux__eg b {
-  font-family: var(--font-mono); font-weight: 400; font-size: 10.5px;
-  letter-spacing: 0.06em; text-transform: uppercase;
-  color: rgba(245,242,237,0.8); margin-right: 4px;
-}
-.cux__eg-item:not(:last-child)::after { content: ' · '; color: rgba(245,242,237,0.3); }
-
-@media (max-width: 760px) {
-  .cux__build { padding: 22px 18px 24px; }
-  .cux__arch { grid-template-columns: 1fr; gap: 0; }
-  .cux__link { width: 100%; height: 42px; }
-  .cux__link::before { left: 50%; right: auto; top: 0; bottom: 0; width: 1.5px; height: auto; transform: translateX(-50%); }
-  .cux__steps { grid-template-columns: 1fr; gap: 18px; }
-}
-@media (max-width: 460px) {
-  .cux__core-list { grid-template-columns: 1fr; }
+@media (max-width: 700px) {
+  /* vertical scale graph (matches the system journey on mobile): gradient
+     spine, one colour-matched node per tier, label beside it */
+  .cux__chart {
+    position: relative; height: auto; margin: 6px 0 0;
+    display: flex; flex-direction: column; padding-left: 4px;
+  }
+  .cux__svg { display: none; }
+  .cux__chart::before {
+    content: '';
+    position: absolute; left: 13px; top: 16px; bottom: 16px;
+    width: 2.5px; border-radius: 2px;
+    background: linear-gradient(to bottom, #7C5CFF, #4AA3FF, #6DBC61);
+  }
+  .cux .funnel__stage {
+    position: relative;
+    left: auto !important; top: auto !important; transform: none;
+    display: flex; flex-direction: column; align-items: flex-start; gap: 2px;
+    width: 100%; margin: 0;
+    padding: 10px 6px 10px 40px;
+    border: 0; border-radius: 0; background: none; box-shadow: none;
+    white-space: normal;
+  }
+  .cux .funnel__stage::before {
+    content: '';
+    position: absolute; left: 7px; top: 13px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--stc, var(--viz-blue));
+    border: 3px solid var(--bone);
+    box-shadow: 0 0 0 1px var(--line);
+  }
+  .cux .funnel__stage b { font-size: 14.5px; }
 }
 
 /* --- Panel: No-show calendar --- */
