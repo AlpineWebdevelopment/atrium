@@ -934,6 +934,9 @@ html.dark { --viz-purple-soft: #1d1b33; }
   font-family: var(--font-display); font-weight: 500; font-size: 13px;
   letter-spacing: -0.01em; fill: var(--ink);
 }
+.sys__hub-sub {
+  font-family: var(--font-mono); font-size: 10.5px; fill: var(--stone);
+}
 
 /* mobile: two-column icon grid */
 .sys__mob { display: none; }

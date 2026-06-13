@@ -1,8 +1,9 @@
 "use client";
 
-/* The full system as a unified hub: one shared-memory core, seven functions
-   orbiting it, all connected — "egy rendszer, egy memória, minden összhangban".
-   Desktop: radial hub graph. Mobile: two-column icon grid. */
+/* The full system as a unified hub: one shared-memory core, seven function
+   modules orbiting it, with conversation-data flowing into the core.
+   "egy rendszer, egy memória, minden összhangban".
+   Desktop: detailed radial hub. Mobile: two-column icon grid. */
 
 const STAGES = [
   { b: "Hívásfogadás", s: "minden hívást felvesz", c: "#7C5CFF" },
@@ -14,28 +15,6 @@ const STAGES = [
   { b: "Riportálás", s: "látja, mi működik", c: "#010E1E" },
 ];
 
-/* radial geometry */
-const CX = 550, CY = 230, R = 175;
-const HUB = STAGES.map((st, i) => {
-  const a = (-90 + i * (360 / 7)) * (Math.PI / 180);
-  const x = CX + R * Math.cos(a);
-  const y = CY + R * Math.sin(a);
-  const cos = Math.cos(a);
-  const side = cos > 0.2 ? "r" : cos < -0.2 ? "l" : "c";
-  const lx = side === "r" ? x + 15 : side === "l" ? x - 15 : x;
-  const ly = side === "c" ? y - 18 : y + 5;
-  const anchor: "start" | "end" | "middle" =
-    side === "r" ? "start" : side === "l" ? "end" : "middle";
-  return { ...st, x, y, lx, ly, anchor };
-});
-
-const POINTS = [
-  { t: "Egységes memória", d: "Minden csatornán emlékszik a korábbi beszélgetésekre." },
-  { t: "Proaktív megkeresés", d: "Nem csak válaszol — magától kezdeményez és újraaktivál." },
-  { t: "Teljes CRM-szinkron", d: "Minden beszélgetés automatikusan a helyére kerül." },
-  { t: "Kiszámítható, 24/7", d: "Emberi kiesés nélkül, egy csapat költségének töredékéért." },
-];
-
 const ICONS = [
   <path key="0" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />,
   <path key="1" d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />,
@@ -44,6 +23,29 @@ const ICONS = [
   <polygon key="4" points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26" />,
   <g key="5"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></g>,
   <g key="6"><path d="M12 20v-9M18 20V4M6 20v-5" /></g>,
+];
+
+/* radial geometry */
+const CX = 560, CY = 275, R = 195;
+const HUB = STAGES.map((st, i) => {
+  const a = (-90 + i * (360 / 7)) * (Math.PI / 180);
+  const x = CX + R * Math.cos(a);
+  const y = CY + R * Math.sin(a);
+  const cos = Math.cos(a);
+  const side = cos > 0.2 ? "r" : cos < -0.2 ? "l" : "c";
+  const lx = side === "r" ? x + 33 : side === "l" ? x - 33 : x;
+  const titleY = side === "c" ? y - 46 : y + 1;
+  const subY = side === "c" ? y - 31 : y + 16;
+  const anchor: "start" | "end" | "middle" =
+    side === "r" ? "start" : side === "l" ? "end" : "middle";
+  return { ...st, x, y, lx, titleY, subY, anchor };
+});
+
+const POINTS = [
+  { t: "Egységes memória", d: "Minden csatornán emlékszik a korábbi beszélgetésekre." },
+  { t: "Proaktív megkeresés", d: "Nem csak válaszol — magától kezdeményez és újraaktivál." },
+  { t: "Teljes CRM-szinkron", d: "Minden beszélgetés automatikusan a helyére kerül." },
+  { t: "Kiszámítható, 24/7", d: "Emberi kiesés nélkül, egy csapat költségének töredékéért." },
 ];
 
 export default function FullSystem() {
@@ -64,26 +66,45 @@ export default function FullSystem() {
         <div className="dash__card reveal" data-delay="1">
           {/* desktop: unified-memory hub */}
           <div className="sys__desk">
-            <svg className="sys__hub" viewBox="0 0 1100 460" role="img" aria-label="Egységes memória, hét funkcióval összekötve">
-              {/* orbit ring */}
-              <circle cx={CX} cy={CY} r={R} fill="none" stroke="var(--line)" strokeWidth="1" strokeDasharray="2 7" />
-              {/* spokes */}
+            <svg className="sys__hub" viewBox="0 0 1120 600" role="img" aria-label="Egységes memória, hét funkcióval összekötve">
+              {/* depth rings */}
+              <circle cx={CX} cy={CY} r={R} fill="none" stroke="var(--line)" strokeWidth="1" strokeDasharray="2 8" />
+              <circle cx={CX} cy={CY} r={R - 64} fill="none" stroke="var(--line)" strokeWidth="1" strokeOpacity="0.6" />
+
+              {/* spokes + conversation-data flowing into the core */}
               {HUB.map((n, i) => (
-                <line key={`s${i}`} x1={CX} y1={CY} x2={n.x} y2={n.y} stroke={n.c} strokeWidth="1.5" strokeOpacity="0.45" />
+                <g key={`sp${i}`}>
+                  <line x1={CX} y1={CY} x2={n.x} y2={n.y} stroke={n.c} strokeWidth="1.5" strokeOpacity="0.38" />
+                  <circle r="2.6" fill={n.c}>
+                    <animateMotion dur="2.8s" begin={`${i * 0.34}s`} repeatCount="indefinite" path={`M${n.x},${n.y} L${CX},${CY}`} keyPoints="0;1" keyTimes="0;1" calcMode="linear" />
+                    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.8;1" dur="2.8s" begin={`${i * 0.34}s`} repeatCount="indefinite" />
+                  </circle>
+                </g>
               ))}
-              {/* core */}
-              <circle cx={CX} cy={CY} r="46" fill="var(--bone)" stroke="#6DBC61" strokeWidth="2" />
+
+              {/* core: layered + staggered pulse */}
+              <circle cx={CX} cy={CY} r="58" fill="var(--bone)" stroke="rgba(109,188,97,0.30)" strokeWidth="1" />
+              <circle cx={CX} cy={CY} r="46" fill="rgba(109,188,97,0.07)" stroke="#6DBC61" strokeWidth="2" />
               <circle cx={CX} cy={CY} r="46" fill="none" stroke="#6DBC61" strokeWidth="2">
-                <animate attributeName="r" values="46;66" dur="2.4s" repeatCount="indefinite" />
-                <animate attributeName="opacity" values="0.5;0" dur="2.4s" repeatCount="indefinite" />
+                <animate attributeName="r" values="46;80" dur="2.6s" repeatCount="indefinite" />
+                <animate attributeName="opacity" values="0.5;0" dur="2.6s" repeatCount="indefinite" />
               </circle>
-              <text className="sys__hub-core" x={CX} y={CY - 3} textAnchor="middle">Egységes</text>
-              <text className="sys__hub-core" x={CX} y={CY + 14} textAnchor="middle">memória</text>
-              {/* nodes + labels */}
+              <circle cx={CX} cy={CY} r="46" fill="none" stroke="#6DBC61" strokeWidth="1.5">
+                <animate attributeName="r" values="46;80" dur="2.6s" begin="1.3s" repeatCount="indefinite" />
+                <animate attributeName="opacity" values="0.4;0" dur="2.6s" begin="1.3s" repeatCount="indefinite" />
+              </circle>
+              <text className="sys__hub-core" x={CX} y={CY - 4} textAnchor="middle">Egységes</text>
+              <text className="sys__hub-core" x={CX} y={CY + 13} textAnchor="middle">memória</text>
+
+              {/* function modules: icon + title + subtitle */}
               {HUB.map((n, i) => (
                 <g key={`n${i}`}>
-                  <circle cx={n.x} cy={n.y} r="9" fill={n.c} stroke="var(--bone)" strokeWidth="3" />
-                  <text className="sys__hub-label" x={n.lx} y={n.ly} textAnchor={n.anchor}>{n.b}</text>
+                  <circle cx={n.x} cy={n.y} r="22" fill="var(--bone)" stroke={n.c} strokeWidth="2" />
+                  <g transform={`translate(${n.x - 11} ${n.y - 11}) scale(0.92)`} fill="none" stroke={n.c} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    {ICONS[i]}
+                  </g>
+                  <text className="sys__hub-label" x={n.lx} y={n.titleY} textAnchor={n.anchor}>{n.b}</text>
+                  <text className="sys__hub-sub" x={n.lx} y={n.subY} textAnchor={n.anchor}>{n.s}</text>
                 </g>
               ))}
             </svg>
