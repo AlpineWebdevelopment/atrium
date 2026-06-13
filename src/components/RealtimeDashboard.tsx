@@ -51,30 +51,43 @@ const PAINS = [
 
 /* ---- Graphic 1: who's in the queue — dot grid ---- */
 function GfxFunnel() {
-  // 25 inquiries per week: 21 just browsing, 3 serious, 1 buyer
-  const types = [
-    ...Array(20).fill("n"),
-    "n", "s", "s", "s", "b",
-  ] as const;
+  // 25 dots: 21 gray (browsing), 3 blue (serious), 1 green (buyer)
+  const types = [...Array(21).fill("n"), "s", "s", "s", "b"] as const;
+  // 5×5 grid in a 500×200 viewBox
+  const cols = 5, r = 26;
+  const xs = [50, 150, 250, 350, 450];
+  const ys = [26, 68, 110, 152, 194];
 
   return (
-    <div className="qual__wrap">
-      <p className="qual__caption">25 megkeresés érkezik — szűrés nélkül mindenki sorra kerül</p>
-      <div className="qual__grid">
-        {types.map((t, i) => (
-          <span key={i} className={`qual__dot qual__dot--${t}`} />
-        ))}
-      </div>
-      <div className="qual__insight">
-        <span className="qual__insight-num">24</span>
-        <span className="qual__insight-label">nem lesz vevő, de ugyanannyi időbe kerül</span>
-        <span className="qual__insight-num qual__insight-num--buy">1</span>
-        <span className="qual__insight-label">lesz vevő</span>
-      </div>
-      <div className="qual__legend">
-        <span><i className="qual__dot qual__dot--n" />Csak nézelődik</span>
-        <span><i className="qual__dot qual__dot--s" />Komoly szándék</span>
-        <span><i className="qual__dot qual__dot--b" />Vevő lesz</span>
+    <div className="funnel__chart">
+      <svg className="funnel__svg" viewBox="0 0 500 220" preserveAspectRatio="xMidYMid meet">
+        {types.map((t, i) => {
+          const cx = xs[i % cols];
+          const cy = ys[Math.floor(i / cols)];
+          const fill =
+            t === "b" ? "var(--signal)"
+            : t === "s" ? "rgba(74,163,255,0.55)"
+            : "rgba(1,14,30,0.09)";
+          return <circle key={i} cx={cx} cy={cy} r={r} fill={fill} />;
+        })}
+        {/* pulse ring on the one buyer dot */}
+        <circle cx={450} cy={194} r={r} fill="none" stroke="var(--signal)" strokeWidth="2.5" opacity="0">
+          <animate attributeName="r" values={`${r};${r + 14}`} dur="1.8s" repeatCount="indefinite" />
+          <animate attributeName="opacity" values="0.6;0" dur="1.8s" repeatCount="indefinite" />
+        </circle>
+      </svg>
+
+      {/* bottom: counts + legend */}
+      <div className="qual__bar">
+        <span className="qual__bar-item">
+          <i className="qual__pip qual__pip--n" /><b>21</b> nézelődő
+        </span>
+        <span className="qual__bar-item">
+          <i className="qual__pip qual__pip--s" /><b>3</b> komoly
+        </span>
+        <span className="qual__bar-item qual__bar-item--buy">
+          <i className="qual__pip qual__pip--b" /><b>1</b> vevő lesz
+        </span>
       </div>
     </div>
   );
