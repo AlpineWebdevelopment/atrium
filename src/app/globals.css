@@ -924,6 +924,16 @@ html.dark { --viz-purple-soft: #1d1b33; }
 }
 .sys__chart { position: relative; height: 300px; margin: 14px 0 10px; }
 .sys__svg { width: 100%; height: 260px; display: block; overflow: visible; }
+/* unified-memory hub graph (desktop) */
+.sys__hub { width: 100%; height: auto; display: block; margin: 6px 0; overflow: visible; }
+.sys__hub-label {
+  font-family: var(--font-display); font-weight: 500; font-size: 16px;
+  letter-spacing: -0.01em; fill: var(--ink);
+}
+.sys__hub-core {
+  font-family: var(--font-display); font-weight: 500; font-size: 13px;
+  letter-spacing: -0.01em; fill: var(--ink);
+}
 
 /* mobile: two-column icon grid */
 .sys__mob { display: none; }
