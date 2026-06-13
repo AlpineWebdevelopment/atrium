@@ -51,53 +51,71 @@ const PAINS = [
 
 /* ---- Graphic 1: qualification funnel ---- */
 function GfxFunnel() {
-  const stages = [
-    { b: "Beérkező", x: 8, y: 50, p: "100%" },
-    { b: "Nézelődők", x: 36, y: 50, p: "~84%" },
-    { b: "Komoly szándék", x: 64, y: 50, p: "~12%" },
-    { b: "Vevő", x: 91, y: 50, p: "~4%" },
-  ];
-  const flow = [
-    { d: "M-20,116 L1020,118", dur: 3.4, b: 0, drop: false },
-    { d: "M-20,125 L1020,126", dur: 3.0, b: 1.1, drop: false },
-    { d: "M-20,134 L1020,124", dur: 3.7, b: 2.0, drop: false },
-    { d: "M-20,120 L300,126 C334,150 350,212 358,252", dur: 2.4, b: 0.4, drop: true },
-    { d: "M-20,128 L300,121 C334,150 352,216 362,252", dur: 2.7, b: 1.5, drop: true },
-    { d: "M-20,132 L300,130 C334,152 348,210 356,252", dur: 2.5, b: 2.4, drop: true },
-    { d: "M-20,122 L632,110 C664,136 676,206 684,252", dur: 3.1, b: 0.8, drop: true },
-    { d: "M-20,130 L632,118 C664,140 678,210 686,252", dur: 3.3, b: 1.9, drop: true },
-  ];
+  /*
+   * Vertical pyramid funnel: wide top (100%) → narrow middle (~12%) → tiny bottom (~4%)
+   * ViewBox 640×200 with preserveAspectRatio="none" so CSS px = viewBox units at any width.
+   * hw = half-widths; y = vertical boundaries.
+   */
+  const cx = 320;
+  const hw = { s1: 310, s2: 78, s3: 26 };
+  const y  = { s1t: 6, s1b: 62, c1b: 112, s2b: 152, c2b: 168, s3b: 200 };
+
   return (
-    <div className="funnel__chart">
-      <svg className="funnel__svg" viewBox="0 0 1000 250" preserveAspectRatio="none">
+    <div className="funnel__chart" style={{ paddingTop: 0 }}>
+      <svg className="funnel__svg" viewBox="0 0 640 200" preserveAspectRatio="none" style={{ height: 200 }}>
         <defs>
-          <linearGradient id="gFunnel" x1="0" y1="0" x2="1" y2="0">
+          <linearGradient id="gFV" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#7C5CFF" />
-            <stop offset="50%" stopColor="#4AA3FF" />
+            <stop offset="65%" stopColor="#4AA3FF" />
             <stop offset="100%" stopColor="#54CFC0" />
           </linearGradient>
         </defs>
-        <line x1="333" y1="20" x2="333" y2="230" stroke="rgba(1,14,30,0.10)" strokeWidth="1" strokeDasharray="3 6" />
-        <line x1="666" y1="20" x2="666" y2="230" stroke="rgba(1,14,30,0.10)" strokeWidth="1" strokeDasharray="3 6" />
-        <path d="M0,26 C180,26 250,63 333,63 C480,63 540,86 666,86 C820,86 880,94 1000,94 L1000,156 C880,156 820,164 666,164 C540,164 480,187 333,187 C250,187 180,224 0,224 Z" fill="rgba(124,92,255,0.16)" />
-        <path d="M0,40 C180,40 250,77 333,77 C480,77 540,100 666,100 C820,100 880,108 1000,108 L1000,142 C880,142 820,150 666,150 C540,150 480,173 333,173 C250,173 180,210 0,210 Z" fill="url(#gFunnel)" />
-        {/* label in the wide zone: most are browsers */}
-        <text x="166" y="136" textAnchor="middle" fontFamily="var(--font-mono)" fontSize="28" fill="rgba(1,14,30,0.22)">nézelődő</text>
-        {flow.map((f, i) => (
-          <circle key={i} r="3.4" fill="rgba(245,242,237,0.92)">
-            <animateMotion dur={`${f.dur}s`} begin={`${f.b}s`} repeatCount="indefinite" path={f.d} />
-            <animate attributeName="opacity" values="0;1;1;0" keyTimes={f.drop ? "0;0.12;0.62;1" : "0;0.08;0.9;1"} dur={`${f.dur}s`} begin={`${f.b}s`} repeatCount="indefinite" />
-          </circle>
-        ))}
+
+        {/* Stage 1: Beérkező — full-width bar (square bottom to join connector) */}
+        <rect x={cx - hw.s1} y={y.s1t} width={hw.s1 * 2} height={y.s1b - y.s1t} rx="10" fill="#7C5CFF" />
+        <rect x={cx - hw.s1} y={y.s1b - 10} width={hw.s1 * 2} height={10} fill="#7C5CFF" />
+
+        {/* Connector 1→2: dramatic narrowing trapezoid */}
+        <path d={`M${cx-hw.s1},${y.s1b} L${cx+hw.s1},${y.s1b} L${cx+hw.s2},${y.c1b} L${cx-hw.s2},${y.c1b} Z`} fill="url(#gFV)" />
+        {/* Waste triangles (red tint on sides) */}
+        <path d={`M${cx-hw.s1},${y.s1b} L${cx-hw.s2},${y.c1b} L${cx-hw.s1},${y.c1b} Z`} fill="rgba(215,55,55,0.13)" />
+        <path d={`M${cx+hw.s1},${y.s1b} L${cx+hw.s2},${y.c1b} L${cx+hw.s1},${y.c1b} Z`} fill="rgba(215,55,55,0.13)" />
+        {/* "84% elvész" annotation in left waste area */}
+        <text x={cx - hw.s1 + 12} y={(y.s1b + y.c1b) / 2 + 4}
+          fill="rgba(210,55,55,0.72)" fontSize="11" fontFamily="system-ui,sans-serif" fontWeight="600">
+          84% elvész
+        </text>
+
+        {/* Stage 2: Komoly szándék */}
+        <rect x={cx - hw.s2} y={y.c1b} width={hw.s2 * 2} height={y.s2b - y.c1b} fill="#4AA3FF" />
+
+        {/* Connector 2→3 */}
+        <path d={`M${cx-hw.s2},${y.s2b} L${cx+hw.s2},${y.s2b} L${cx+hw.s3},${y.c2b} L${cx-hw.s3},${y.c2b} Z`} fill="#54CFC0" />
+        <path d={`M${cx-hw.s2},${y.s2b} L${cx-hw.s3},${y.c2b} L${cx-hw.s2},${y.c2b} Z`} fill="rgba(215,55,55,0.07)" />
+        <path d={`M${cx+hw.s2},${y.s2b} L${cx+hw.s3},${y.c2b} L${cx+hw.s2},${y.c2b} Z`} fill="rgba(215,55,55,0.07)" />
+
+        {/* Stage 3: Vevő — rounded bottom */}
+        <rect x={cx - hw.s3} y={y.c2b} width={hw.s3 * 2} height={y.s3b - y.c2b} rx="6" fill="#54CFC0" />
+
+        {/* Pulse ring on vevő */}
+        <circle cx={cx} cy={(y.c2b + y.s3b) / 2} r="0" fill="none" stroke="#54CFC0" strokeWidth="2" opacity="0">
+          <animate attributeName="r" values="0;22" dur="2.2s" repeatCount="indefinite" />
+          <animate attributeName="opacity" values="0.6;0" dur="2.2s" repeatCount="indefinite" />
+        </circle>
       </svg>
-      {stages.map((s, i) => (
-        <div className="funnel__pct" key={`p${i}`} style={{ left: `${s.x}%` }}>{s.p}</div>
-      ))}
-      {stages.map((s, i) => (
-        <div className="funnel__stage" key={i} style={{ left: `${s.x}%`, top: `${s.y}%` }}>
-          <b>{s.b}</b>
-        </div>
-      ))}
+
+      {/* Centered pill labels on each stage */}
+      <div className="funnel__stage" style={{ left: "50%", top: 34 }}>
+        <b>Beérkező megkeresés</b><span>100%</span>
+      </div>
+      <div className="funnel__stage" style={{ left: "50%", top: 132 }}>
+        <b>Komoly szándék</b><span>~12%</span>
+      </div>
+      <div className="funnel__stage" style={{ left: "50%", top: 184 }}>
+        <b>Vevő lesz</b><span>~4%</span>
+      </div>
+
+      {/* Waste stats row */}
       <div className="funnel__waste">
         <div className="funnel__waste-stat">
           <span className="funnel__waste-val">~13 óra</span>
