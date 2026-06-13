@@ -98,6 +98,20 @@ function GfxFunnel() {
           <b>{s.b}</b>
         </div>
       ))}
+      <div className="funnel__waste">
+        <div className="funnel__waste-stat">
+          <span className="funnel__waste-val">~13 óra</span>
+          <span className="funnel__waste-lbl">elveszett vezető idő / hó</span>
+        </div>
+        <div className="funnel__waste-stat funnel__waste-stat--cost">
+          <span className="funnel__waste-val">120 000 Ft</span>
+          <span className="funnel__waste-lbl">rejtett bérköltség / hó</span>
+        </div>
+        <div className="funnel__waste-stat">
+          <span className="funnel__waste-val">~1,4M Ft</span>
+          <span className="funnel__waste-lbl">éves szintű veszteség</span>
+        </div>
+      </div>
     </div>
   );
 }
