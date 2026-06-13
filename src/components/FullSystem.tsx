@@ -24,7 +24,8 @@ const HUB = STAGES.map((st, i) => {
   const side = cos > 0.2 ? "r" : cos < -0.2 ? "l" : "c";
   const lx = side === "r" ? x + 15 : side === "l" ? x - 15 : x;
   const ly = side === "c" ? y - 18 : y + 5;
-  const anchor = side === "r" ? "start" : side === "l" ? "end" : "middle";
+  const anchor: "start" | "end" | "middle" =
+    side === "r" ? "start" : side === "l" ? "end" : "middle";
   return { ...st, x, y, lx, ly, anchor };
 });
 
