@@ -1621,7 +1621,9 @@ html.dark { --viz-purple-soft: #1d1b33; }
   .dash__tabs { border-radius: 16px; width: 100%; justify-content: center; }
   .dash__panel { min-height: 0; }
   .dash__metrics { grid-template-columns: repeat(2, 1fr); }
+  .dash__metric-k { font-size: 10.5px; }
   .dash__metric-v { font-size: 19px; }
+  .dash__metric-d { font-size: 9.5px; }
   .dash__chart { height: 200px; }
   .dash__svg { height: 160px; }
   .prof__row { grid-template-columns: 36px 1fr auto; gap: 12px; }
@@ -1629,8 +1631,9 @@ html.dark { --viz-purple-soft: #1d1b33; }
   .funnel__top { gap: 24px; }
   .funnel__svg { height: 190px; }
   .funnel__stage { padding: 4px 9px; }
-  .funnel__stage b { font-size: 12px; }
-  .funnel__stage span { font-size: 10px; }
+  .funnel__stage b { font-size: 11px; }
+  .funnel__stage span { font-size: 9.5px; }
+  .funnel__stage--r { left: auto; right: 2%; transform: translateY(-50%); }
   .funnel__labels span { font-size: 10.5px; }
 
   /* Sections */

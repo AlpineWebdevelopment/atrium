@@ -194,7 +194,7 @@ function GfxCooling() {
       <div className="funnel__stage" style={{ left: "50%", top: "56%" }}>
         <b>Kihűlőben</b><span>válasz nélkül</span>
       </div>
-      <div className="funnel__stage" style={{ left: "82%", top: "88%" }}>
+      <div className="funnel__stage funnel__stage--r" style={{ top: "88%" }}>
         <b>Első válasz</b><span>másnap</span>
       </div>
       <div className="dash__axis">
