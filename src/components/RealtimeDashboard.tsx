@@ -138,7 +138,7 @@ function GfxCalls() {
         <path d="M36,95 C90,58 150,40 215,52 C285,64 320,108 385,108 C450,108 480,86 545,90 C610,94 650,74 690,84" fill="none" stroke="url(#gAns)" strokeWidth="3" strokeLinecap="round" />
         <circle cx="690" cy="84" r="5" fill="#54CFC0" stroke="var(--bone)" strokeWidth="2.5" />
       </svg>
-      <div className="funnel__stage" style={{ left: "86%", top: "16%" }}>
+      <div className="funnel__stage funnel__stage--tr">
         <b>Zárás után</b><span>hangposta, nincs válasz</span>
       </div>
       <div className="dash__marker dash__marker--amber dash__marker--pulse" style={{ left: "85%", top: "60%" }}>
