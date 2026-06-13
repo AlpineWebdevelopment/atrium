@@ -203,6 +203,7 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
 .theme-toggle:hover { color: var(--ink); border-color: var(--line); }
 @media (max-width: 860px) {
   .nav__links, .nav__login { display: none; }
+  .nav__in { grid-template-columns: 1fr auto !important; }
 }
 
 /* =========================================================
