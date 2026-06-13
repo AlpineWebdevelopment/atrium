@@ -49,56 +49,33 @@ const PAINS = [
   },
 ];
 
-/* ---- Graphic 1: qualification funnel ---- */
+/* ---- Graphic 1: who's in the queue — dot grid ---- */
 function GfxFunnel() {
-  const stages = [
-    { b: "Minden megkeresés", x: 10, y: 50, p: "100%" },
-    { b: "Időt visz el", x: 38, y: 50, p: "~35%" },
-    { b: "Komoly szándék", x: 66, y: 50, p: "~12%" },
-    { b: "Vevő", x: 91, y: 50, p: "~4%" },
-  ];
-  /* leads flowing in; most peel off at the narrowings, a few reach the end */
-  const flow = [
-    { d: "M-20,116 L1020,118", dur: 3.4, b: 0, drop: false },
-    { d: "M-20,125 L1020,126", dur: 3.0, b: 1.1, drop: false },
-    { d: "M-20,134 L1020,124", dur: 3.7, b: 2.0, drop: false },
-    { d: "M-20,120 L300,126 C334,150 350,212 358,252", dur: 2.4, b: 0.4, drop: true },
-    { d: "M-20,128 L300,121 C334,150 352,216 362,252", dur: 2.7, b: 1.5, drop: true },
-    { d: "M-20,132 L300,130 C334,152 348,210 356,252", dur: 2.5, b: 2.4, drop: true },
-    { d: "M-20,122 L632,110 C664,136 676,206 684,252", dur: 3.1, b: 0.8, drop: true },
-    { d: "M-20,130 L632,118 C664,140 678,210 686,252", dur: 3.3, b: 1.9, drop: true },
-  ];
+  // 25 inquiries per week: 21 just browsing, 3 serious, 1 buyer
+  const types = [
+    ...Array(20).fill("n"),
+    "n", "s", "s", "s", "b",
+  ] as const;
+
   return (
-    <div className="funnel__chart">
-      <svg className="funnel__svg" viewBox="0 0 1000 250" preserveAspectRatio="none">
-        <defs>
-          <linearGradient id="gFunnel" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#7C5CFF" />
-            <stop offset="50%" stopColor="#4AA3FF" />
-            <stop offset="100%" stopColor="#54CFC0" />
-          </linearGradient>
-        </defs>
-        {/* stage dividers */}
-        <line x1="333" y1="20" x2="333" y2="230" stroke="rgba(1,14,30,0.10)" strokeWidth="1" strokeDasharray="3 6" />
-        <line x1="666" y1="20" x2="666" y2="230" stroke="rgba(1,14,30,0.10)" strokeWidth="1" strokeDasharray="3 6" />
-        <path d="M0,26 C180,26 250,63 333,63 C480,63 540,86 666,86 C820,86 880,94 1000,94 L1000,156 C880,156 820,164 666,164 C540,164 480,187 333,187 C250,187 180,224 0,224 Z" fill="rgba(124,92,255,0.16)" />
-        <path d="M0,40 C180,40 250,77 333,77 C480,77 540,100 666,100 C820,100 880,108 1000,108 L1000,142 C880,142 820,150 666,150 C540,150 480,173 333,173 C250,173 180,210 0,210 Z" fill="url(#gFunnel)" />
-        {/* flowing leads */}
-        {flow.map((f, i) => (
-          <circle key={i} r="3.4" fill="rgba(245,242,237,0.92)">
-            <animateMotion dur={`${f.dur}s`} begin={`${f.b}s`} repeatCount="indefinite" path={f.d} />
-            <animate attributeName="opacity" values={f.drop ? "0;1;1;0" : "0;1;1;0"} keyTimes={f.drop ? "0;0.12;0.62;1" : "0;0.08;0.9;1"} dur={`${f.dur}s`} begin={`${f.b}s`} repeatCount="indefinite" />
-          </circle>
+    <div className="qual__wrap">
+      <p className="qual__caption">25 megkeresés érkezik — szűrés nélkül mindenki sorra kerül</p>
+      <div className="qual__grid">
+        {types.map((t, i) => (
+          <span key={i} className={`qual__dot qual__dot--${t}`} />
         ))}
-      </svg>
-      {stages.map((s, i) => (
-        <div className="funnel__pct" key={`p${i}`} style={{ left: `${s.x}%` }}>{s.p}</div>
-      ))}
-      {stages.map((s, i) => (
-        <div className="funnel__stage" key={i} style={{ left: `${s.x}%`, top: `${s.y}%` }}>
-          <b>{s.b}</b>
-        </div>
-      ))}
+      </div>
+      <div className="qual__insight">
+        <span className="qual__insight-num">24</span>
+        <span className="qual__insight-label">nem lesz vevő, de ugyanannyi időbe kerül</span>
+        <span className="qual__insight-num qual__insight-num--buy">1</span>
+        <span className="qual__insight-label">lesz vevő</span>
+      </div>
+      <div className="qual__legend">
+        <span><i className="qual__dot qual__dot--n" />Csak nézelődik</span>
+        <span><i className="qual__dot qual__dot--s" />Komoly szándék</span>
+        <span><i className="qual__dot qual__dot--b" />Vevő lesz</span>
+      </div>
     </div>
   );
 }
