@@ -3,7 +3,8 @@
 /* The full system as a unified hub: one shared-memory core, seven function
    modules orbiting it, with conversation-data flowing into the core.
    "egy rendszer, egy memória, minden összhangban".
-   Desktop: detailed radial hub. Mobile: two-column icon grid. */
+   Desktop: full hub with labels. Mobile: same hub, compact (icons only) +
+   a named icon-grid legend below it. */
 
 const STAGES = [
   { b: "Hívásfogadás", s: "minden hívást felvesz", c: "#7C5CFF" },
@@ -48,6 +49,64 @@ const POINTS = [
   { t: "Kiszámítható, 24/7", d: "Emberi kiesés nélkül, egy csapat költségének töredékéért." },
 ];
 
+/* The hub graph. `compact` crops to the core+nodes square and drops the
+   side text labels, so it stays legible on a phone. */
+function Hub({ compact = false }: { compact?: boolean }) {
+  return (
+    <svg
+      className={`sys__hub ${compact ? "sys__hub--mob" : "sys__hub--desk"}`}
+      viewBox={compact ? "340 50 440 455" : "0 0 1120 600"}
+      role="img"
+      aria-label="Egységes memória, hét funkcióval összekötve"
+    >
+      {/* depth rings */}
+      <circle cx={CX} cy={CY} r={R} fill="none" stroke="var(--line)" strokeWidth="1" strokeDasharray="2 8" />
+      <circle cx={CX} cy={CY} r={R - 64} fill="none" stroke="var(--line)" strokeWidth="1" strokeOpacity="0.6" />
+
+      {/* spokes + conversation-data flowing into the core */}
+      {HUB.map((n, i) => (
+        <g key={`sp${i}`}>
+          <line x1={CX} y1={CY} x2={n.x} y2={n.y} stroke={n.c} strokeWidth="1.5" strokeOpacity="0.38" />
+          <circle r="2.6" fill={n.c}>
+            <animateMotion dur="2.8s" begin={`${i * 0.34}s`} repeatCount="indefinite" path={`M${n.x},${n.y} L${CX},${CY}`} />
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.8;1" dur="2.8s" begin={`${i * 0.34}s`} repeatCount="indefinite" />
+          </circle>
+        </g>
+      ))}
+
+      {/* core: layered + staggered pulse */}
+      <circle cx={CX} cy={CY} r="58" fill="var(--bone)" stroke="rgba(109,188,97,0.30)" strokeWidth="1" />
+      <circle cx={CX} cy={CY} r="46" fill="rgba(109,188,97,0.07)" stroke="#6DBC61" strokeWidth="2" />
+      <circle cx={CX} cy={CY} r="46" fill="none" stroke="#6DBC61" strokeWidth="2">
+        <animate attributeName="r" values="46;80" dur="2.6s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.5;0" dur="2.6s" repeatCount="indefinite" />
+      </circle>
+      <circle cx={CX} cy={CY} r="46" fill="none" stroke="#6DBC61" strokeWidth="1.5">
+        <animate attributeName="r" values="46;80" dur="2.6s" begin="1.3s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.4;0" dur="2.6s" begin="1.3s" repeatCount="indefinite" />
+      </circle>
+      <text className="sys__hub-core" x={CX} y={CY - 4} textAnchor="middle">Egységes</text>
+      <text className="sys__hub-core" x={CX} y={CY + 13} textAnchor="middle">memória</text>
+
+      {/* function modules: icon + (desktop) title + subtitle */}
+      {HUB.map((n, i) => (
+        <g key={`n${i}`}>
+          <circle cx={n.x} cy={n.y} r="22" fill="var(--bone)" stroke={n.c} strokeWidth="2" />
+          <g transform={`translate(${n.x - 11} ${n.y - 11}) scale(0.92)`} fill="none" stroke={n.c} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            {ICONS[i]}
+          </g>
+          {!compact && (
+            <>
+              <text className="sys__hub-label" x={n.lx} y={n.titleY} textAnchor={n.anchor}>{n.b}</text>
+              <text className="sys__hub-sub" x={n.lx} y={n.subY} textAnchor={n.anchor}>{n.s}</text>
+            </>
+          )}
+        </g>
+      ))}
+    </svg>
+  );
+}
+
 export default function FullSystem() {
   return (
     <section className="sys" id="rendszer-teljes">
@@ -64,53 +123,12 @@ export default function FullSystem() {
         </div>
 
         <div className="dash__card reveal" data-delay="1">
-          {/* desktop: unified-memory hub */}
           <div className="sys__desk">
-            <svg className="sys__hub" viewBox="0 0 1120 600" role="img" aria-label="Egységes memória, hét funkcióval összekötve">
-              {/* depth rings */}
-              <circle cx={CX} cy={CY} r={R} fill="none" stroke="var(--line)" strokeWidth="1" strokeDasharray="2 8" />
-              <circle cx={CX} cy={CY} r={R - 64} fill="none" stroke="var(--line)" strokeWidth="1" strokeOpacity="0.6" />
-
-              {/* spokes + conversation-data flowing into the core */}
-              {HUB.map((n, i) => (
-                <g key={`sp${i}`}>
-                  <line x1={CX} y1={CY} x2={n.x} y2={n.y} stroke={n.c} strokeWidth="1.5" strokeOpacity="0.38" />
-                  <circle r="2.6" fill={n.c}>
-                    <animateMotion dur="2.8s" begin={`${i * 0.34}s`} repeatCount="indefinite" path={`M${n.x},${n.y} L${CX},${CY}`} keyPoints="0;1" keyTimes="0;1" calcMode="linear" />
-                    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.8;1" dur="2.8s" begin={`${i * 0.34}s`} repeatCount="indefinite" />
-                  </circle>
-                </g>
-              ))}
-
-              {/* core: layered + staggered pulse */}
-              <circle cx={CX} cy={CY} r="58" fill="var(--bone)" stroke="rgba(109,188,97,0.30)" strokeWidth="1" />
-              <circle cx={CX} cy={CY} r="46" fill="rgba(109,188,97,0.07)" stroke="#6DBC61" strokeWidth="2" />
-              <circle cx={CX} cy={CY} r="46" fill="none" stroke="#6DBC61" strokeWidth="2">
-                <animate attributeName="r" values="46;80" dur="2.6s" repeatCount="indefinite" />
-                <animate attributeName="opacity" values="0.5;0" dur="2.6s" repeatCount="indefinite" />
-              </circle>
-              <circle cx={CX} cy={CY} r="46" fill="none" stroke="#6DBC61" strokeWidth="1.5">
-                <animate attributeName="r" values="46;80" dur="2.6s" begin="1.3s" repeatCount="indefinite" />
-                <animate attributeName="opacity" values="0.4;0" dur="2.6s" begin="1.3s" repeatCount="indefinite" />
-              </circle>
-              <text className="sys__hub-core" x={CX} y={CY - 4} textAnchor="middle">Egységes</text>
-              <text className="sys__hub-core" x={CX} y={CY + 13} textAnchor="middle">memória</text>
-
-              {/* function modules: icon + title + subtitle */}
-              {HUB.map((n, i) => (
-                <g key={`n${i}`}>
-                  <circle cx={n.x} cy={n.y} r="22" fill="var(--bone)" stroke={n.c} strokeWidth="2" />
-                  <g transform={`translate(${n.x - 11} ${n.y - 11}) scale(0.92)`} fill="none" stroke={n.c} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    {ICONS[i]}
-                  </g>
-                  <text className="sys__hub-label" x={n.lx} y={n.titleY} textAnchor={n.anchor}>{n.b}</text>
-                  <text className="sys__hub-sub" x={n.lx} y={n.subY} textAnchor={n.anchor}>{n.s}</text>
-                </g>
-              ))}
-            </svg>
+            <Hub />
           </div>
 
-          {/* mobile: two-column icon grid */}
+          {/* mobile: same hub, compact, then the named legend */}
+          <Hub compact />
           <div className="sys__mob">
             {STAGES.map((st, i) => (
               <div className="sys__cell" key={i}>

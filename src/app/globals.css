@@ -937,6 +937,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .sys__hub-sub {
   font-family: var(--font-mono); font-size: 10.5px; fill: var(--stone);
 }
+.sys__hub--mob { display: none; }
 
 /* mobile: two-column icon grid */
 .sys__mob { display: none; }
@@ -960,7 +961,8 @@ html.dark { --viz-purple-soft: #1d1b33; }
 }
 @media (max-width: 700px) {
   .sys__desk { display: none; }
-  .sys__mob { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 6px; }
+  .sys__hub--mob { display: block; width: 100%; max-width: 360px; margin: 4px auto 0; }
+  .sys__mob { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
 }
 
 /* differentiators strip beneath the journey */
