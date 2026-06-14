@@ -258,10 +258,12 @@ export default function CustomSolutions() {
           <div className="cux__guar">
             {GUARANTEES.map((g, i) => (
               <div className="cux__g" key={i}>
-                <svg className="cux__g-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 2l8 3v6c0 5-3.4 8.5-8 11-4.6-2.5-8-6-8-11V5l8-3z" />
-                  <path d="M9 12l2 2 4-4" />
-                </svg>
+                <span className="cux__g-node">
+                  <svg className="cux__g-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 2l8 3v6c0 5-3.4 8.5-8 11-4.6-2.5-8-6-8-11V5l8-3z" />
+                    <path d="M9 12l2 2 4-4" />
+                  </svg>
+                </span>
                 <h4 className="cux__g-t">{g.t}</h4>
                 <p className="cux__g-d">{g.d}</p>
               </div>
