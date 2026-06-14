@@ -1260,44 +1260,41 @@ html.dark { --viz-purple-soft: #1d1b33; }
 }
 
 /* Example projects */
-/* Example projects — editorial ruled list (no boxes), two columns on desktop */
-.cux__projects { display: grid; grid-template-columns: 1fr 1fr; column-gap: 48px; }
-.cux__proj {
-  position: relative;
-  display: grid; grid-template-columns: 44px 1fr; gap: 16px; align-items: start;
-  padding: 22px 4px;
-  border-top: 1px solid var(--line);
-}
-/* hide the rule on the first row's items (top edge) */
-.cux__proj:nth-child(1), .cux__proj:nth-child(2) { border-top: 0; }
-.cux__proj-ico {
-  width: 44px; height: 44px; border-radius: 12px;
-  display: flex; align-items: center; justify-content: center;
-  color: var(--pc, var(--viz-blue));
-  background: color-mix(in srgb, var(--pc, var(--viz-blue)) 12%, transparent);
-}
-.cux__proj-ico svg { width: 21px; height: 21px; }
-.cux__proj-body { min-width: 0; }
-.cux__proj-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 7px; }
-.cux__proj-t {
-  font-family: var(--font-display); font-weight: 500; font-size: 16px;
-  letter-spacing: -0.01em; color: var(--ink);
-}
-.cux__proj-d {
-  font-family: var(--font-body); font-size: 13px; line-height: 1.55;
-  color: var(--ink-70); margin: 0;
-}
-.cux__proj-who {
-  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.03em;
-  color: var(--pc, var(--viz-blue));
-  background: color-mix(in srgb, var(--pc, var(--viz-blue)) 13%, transparent);
-  padding: 3px 9px; border-radius: 999px;
-}
-.cux__proj-plus {
-  width: 44px; height: 44px; border-radius: 12px;
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-display); font-size: 22px; color: var(--signal);
-  background: rgba(109,188,97,0.10);
+/* Example projects — mind-map: one root fanning to the projects */
+.cux__map { width: 100%; max-width: 900px; height: auto; display: block; margin: 6px auto 0; }
+.cux__map-root { font-family: var(--font-display); font-weight: 500; font-size: 14px; letter-spacing: -0.01em; fill: var(--ink); }
+.cux__map-t { font-family: var(--font-display); font-weight: 500; font-size: 15px; letter-spacing: -0.01em; fill: var(--ink); }
+.cux__map-sub { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.02em; }
+
+/* mobile: same map as a vertical gradient spine */
+.cux__maplist { display: none; }
+.cux__mapitem-dot { display: none; }
+@media (max-width: 700px) {
+  .cux__map { display: none; }
+  .cux__maplist {
+    position: relative; display: flex; flex-direction: column;
+    padding-left: 6px; margin-top: 6px;
+  }
+  .cux__maplist::before {
+    content: ''; position: absolute; left: 13px; top: 16px; bottom: 16px;
+    width: 2.5px; border-radius: 2px;
+    background: linear-gradient(to bottom, #7C5CFF, #4AA3FF, #54CFC0, #E8A33D, #6DBC61);
+  }
+  .cux__mapitem { position: relative; padding: 11px 4px 11px 40px; }
+  .cux__mapitem-dot {
+    display: block; position: absolute; left: 7px; top: 15px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--pc, var(--viz-blue));
+    border: 3px solid var(--bone); box-shadow: 0 0 0 1px var(--line);
+  }
+  .cux__mapitem-t {
+    display: block; font-family: var(--font-display); font-weight: 500;
+    font-size: 14.5px; letter-spacing: -0.01em; color: var(--ink);
+  }
+  .cux__mapitem-sub {
+    display: block; margin-top: 3px;
+    font-family: var(--font-mono); font-size: 10.5px; color: var(--pc, var(--viz-blue));
+  }
 }
 
 /* What we can build — one tinted panel, columns divided by rules (distinct
@@ -1376,7 +1373,6 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .cux__g-d { font-family: var(--font-body); font-size: 13.5px; line-height: 1.55; color: var(--ink-70); }
 
 @media (max-width: 860px) {
-  .cux__projects { grid-template-columns: repeat(2, 1fr); }
   /* categories: 2 cols, swap left-dividers for row gaps + top rules */
   .cux__cats { grid-template-columns: 1fr 1fr; gap: 4px 0; }
   .cux__cat { border-left: 0; }
@@ -1392,13 +1388,6 @@ html.dark { --viz-purple-soft: #1d1b33; }
   .cux__cats { grid-template-columns: 1fr; }
   .cux__cat { border-left: 0 !important; }
   .cux__cat + .cux__cat { border-top: 1px solid var(--line); padding-top: 18px; margin-top: 4px; }
-}
-/* project list collapses to one column on narrow screens */
-@media (max-width: 620px) {
-  .cux__projects { grid-template-columns: 1fr; }
-  .cux__proj { border-top: 1px solid var(--line); }
-  .cux__proj:first-child { border-top: 0; }
-  .cux__proj:nth-child(2) { border-top: 1px solid var(--line); }
 }
 
 /* --- Panel: No-show calendar --- */
