@@ -1174,9 +1174,65 @@ html.dark { --viz-purple-soft: #1d1b33; }
    CUSTOM SOLUTIONS — dark highlight card, system trunk + branches
    ========================================================= */
 .cux {
-  padding: 64px 0;
+  padding: 96px 0;
   background: transparent;
 }
+
+/* Four pillars as alternating graph rows */
+.cux__rows { display: flex; flex-direction: column; gap: 24px; margin-top: 48px; }
+.cxr {
+  display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 44px; align-items: center;
+  padding: 34px 40px;
+  border-radius: 18px;
+  border: 1px solid color-mix(in srgb, var(--acc) 24%, var(--line));
+  background: color-mix(in srgb, var(--acc) 4%, var(--bone));
+  transition: border-color 160ms var(--ease), box-shadow 160ms var(--ease);
+}
+.cxr:hover {
+  border-color: color-mix(in srgb, var(--acc) 48%, var(--line));
+  box-shadow: 0 12px 30px -20px color-mix(in srgb, var(--acc) 70%, transparent);
+}
+.cxr:nth-child(even) .cxr__gfx { order: 2; }
+.cxr__gfx { display: flex; align-items: center; justify-content: center; min-height: 200px; }
+.cxr__gfx svg { width: 100%; height: auto; max-width: 430px; display: block; }
+.cxr__lbl { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.04em; fill: var(--ink-50); }
+.cxr__num { font-family: var(--font-display); font-weight: 500; }
+.cxr__eyebrow {
+  display: block; margin-bottom: 12px;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--acc);
+}
+.cxr__h {
+  font-family: var(--font-display); font-weight: 500; font-size: clamp(22px, 2.4vw, 27px);
+  letter-spacing: -0.02em; line-height: 1.15; color: var(--ink); margin: 0 0 12px;
+}
+.cxr__d {
+  font-family: var(--font-body); font-size: 15px; line-height: 1.6; color: var(--ink-70);
+  margin: 0 0 20px; max-width: 460px;
+}
+.cxr__list { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+.cxr__list li {
+  position: relative; padding-left: 28px;
+  font-family: var(--font-body); font-size: 14px; line-height: 1.5; color: var(--ink-90);
+}
+.cxr__list li::before {
+  content: ""; position: absolute; left: 0; top: 2px; width: 17px; height: 17px; border-radius: 50%;
+  background: color-mix(in srgb, var(--acc) 16%, transparent);
+  border: 1px solid color-mix(in srgb, var(--acc) 52%, transparent);
+}
+.cxr__list li::after {
+  content: ""; position: absolute; left: 5px; top: 7px; width: 6px; height: 3.5px;
+  border-left: 1.7px solid var(--acc); border-bottom: 1.7px solid var(--acc);
+  transform: rotate(-45deg);
+}
+@media (max-width: 860px) {
+  .cux { padding: 64px 0; }
+  .cxr { grid-template-columns: 1fr; gap: 22px; padding: 26px 22px; }
+  .cxr:nth-child(even) .cxr__gfx { order: 0; }
+  .cxr__gfx { min-height: 0; }
+  .cxr__d { max-width: none; }
+}
+
 /* --- Custom solutions: detailed, light, engaging --- */
 /* Lead highlight: custom-from-your-idea message + an ascending scope scale */
 .cux__lead {
