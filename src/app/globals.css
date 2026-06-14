@@ -1193,8 +1193,8 @@ html.dark { --viz-purple-soft: #1d1b33; }
   transform: translateY(-2px);
   box-shadow: 0 12px 30px -20px color-mix(in srgb, var(--acc) 70%, transparent);
 }
-.cxr__gfx { display: flex; align-items: center; justify-content: center; min-height: 0; margin-bottom: 16px; }
-.cxr__gfx svg { width: 100%; height: auto; max-width: 296px; display: block; }
+.cxr__gfx { display: flex; align-items: center; justify-content: center; min-height: 0; margin-bottom: 14px; }
+.cxr__gfx svg { width: 100%; height: auto; max-width: 208px; display: block; }
 .cxr__lbl { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.04em; fill: var(--ink-50); }
 .cxr__num { font-family: var(--font-display); font-weight: 500; }
 .cxr__body { border-top: 1px solid color-mix(in srgb, var(--acc) 18%, var(--line)); padding-top: 16px; }
@@ -1226,16 +1226,23 @@ html.dark { --viz-purple-soft: #1d1b33; }
   border-left: 1.7px solid var(--acc); border-bottom: 1.7px solid var(--acc);
   transform: rotate(-45deg);
 }
+/* desktop: graph beside the text, so card height = taller side, not the sum */
+@media (min-width: 761px) {
+  .cxr { display: grid; grid-template-columns: 184px 1fr; column-gap: 26px; align-items: center; }
+  .cxr__gfx { margin-bottom: 0; }
+  .cxr__gfx svg { max-width: 184px; }
+  .cxr__body { border-top: 0; padding-top: 0; }
+}
 @media (max-width: 760px) {
   .cux { padding: 56px 0; }
   .cux__rows { gap: 10px; margin-top: 30px; }
   .cxr { padding: 13px 13px 14px; border-radius: 13px; }
-  .cxr__gfx { min-height: 0; margin-bottom: 10px; }
-  .cxr__gfx svg { max-width: 150px; }
-  .cxr__body { padding-top: 11px; }
+  .cxr__gfx { min-height: 0; margin-bottom: 8px; }
+  .cxr__gfx svg { max-width: 104px; }
+  .cxr__body { padding-top: 10px; }
   .cxr__eyebrow { font-size: 9px; letter-spacing: 0.07em; margin-bottom: 5px; }
-  .cxr__h { font-size: 15px; line-height: 1.14; margin-bottom: 6px; }
-  .cxr__d { font-size: 12px; line-height: 1.45; margin-bottom: 11px; }
+  .cxr__h { font-size: 15px; line-height: 1.14; margin-bottom: 7px; }
+  .cxr__d { display: none; }
   .cxr__list { gap: 7px; }
   .cxr__list li { padding-left: 20px; font-size: 11.5px; line-height: 1.4; }
   .cxr__list li::before { width: 13px; height: 13px; top: 1px; }
