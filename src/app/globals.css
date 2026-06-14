@@ -1480,8 +1480,9 @@ html.dark { --viz-purple-soft: #1d1b33; }
 
 /* --- Estimated revenue-loss callout (per tab) --- */
 .dash__loss {
-  display: flex; align-items: center; justify-content: space-between; gap: 16px;
-  margin: 20px 0 4px; padding: 14px 18px;
+  display: flex; align-items: center; gap: 28px;
+  width: fit-content; max-width: 100%; margin: 20px auto 4px;
+  padding: 14px 20px;
   background: rgba(224,82,78,0.05);
   border: 1px solid rgba(224,82,78,0.22); border-radius: 14px;
 }
