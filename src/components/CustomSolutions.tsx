@@ -165,19 +165,26 @@ export default function CustomSolutions() {
 
         {/* The point: it starts from the operator's own idea, any scale */}
         <div className="cux__lead reveal" data-delay="1">
-          <div className="cux__lead-body">
-            <span className="cux__lead-kicker">Az Ön ötlete a kiindulópont</span>
-            <p className="cux__lead-txt">
-              Mondja el, mire van szüksége — a többit ránk bízhatja. Ön szabja
-              meg a léptéket: lehet <b>egyetlen automatizálás</b>, néhány
-              összekötött folyamat, vagy az egész cégét átfogó, testre szabott
-              rendszer — <b>akár egy teljes ERP</b>.
-            </p>
-          </div>
+          <span className="cux__lead-kicker">Az Ön ötlete a kiindulópont</span>
+          <p className="cux__lead-txt">
+            Mondja el, mire van szüksége — a többit ránk bízhatja. Ön szabja meg
+            a léptéket: lehet <b>egyetlen automatizálás</b>, néhány összekötött
+            folyamat, vagy az egész cégét átfogó, testre szabott rendszer —{" "}
+            <b>akár egy teljes ERP</b>.
+          </p>
           <div className="cux__scale" aria-hidden="true">
-            <span className="cux__scale-step">Egy automatizálás</span>
-            <span className="cux__scale-step">Több folyamat</span>
-            <span className="cux__scale-step cux__scale-step--full">Teljes rendszer · ERP</span>
+            <div className="cux__scale-step">
+              <span className="cux__scale-bar" style={{ height: "44px" }} />
+              <span className="cux__scale-lbl">Egy automatizálás</span>
+            </div>
+            <div className="cux__scale-step">
+              <span className="cux__scale-bar" style={{ height: "66px" }} />
+              <span className="cux__scale-lbl">Több folyamat</span>
+            </div>
+            <div className="cux__scale-step cux__scale-step--full">
+              <span className="cux__scale-bar" style={{ height: "90px" }} />
+              <span className="cux__scale-lbl">Teljes rendszer · ERP</span>
+            </div>
           </div>
         </div>
 
