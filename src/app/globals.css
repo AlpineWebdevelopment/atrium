@@ -1039,6 +1039,19 @@ html.dark { --viz-purple-soft: #1d1b33; }
   .sys__mob { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
 }
 
+/* system attributes: language / hosting / compliance */
+.sys__badges {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 14px;
+  margin-top: 26px;
+}
+.sys__badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 14px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--bone);
+  font-family: var(--font-body); font-size: 13px; color: var(--ink);
+}
+.sys__badge svg { width: 16px; height: 16px; color: var(--signal); flex-shrink: 0; }
+
 /* differentiators strip beneath the journey */
 .sys__points {
   margin-top: 22px;
