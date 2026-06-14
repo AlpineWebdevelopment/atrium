@@ -23,35 +23,35 @@ const PROJECTS: { ico: IconKey; t: string; d: string; who: string; c: string }[]
   {
     ico: "target",
     t: "AI érdeklődő-szerzés és minősítés",
-    d: "Proaktívan keresi a potenciális ügyfeleket LinkedIn, weboldal-látogatók és adatbázisok alapján. Automatikusan minősít, szegmentál és személyre szabott kampányt indít — emberi beavatkozás nélkül.",
+    d: "Magától megtalálja a lehetséges ügyfeleket — LinkedInen, a weboldal látogatói és a meglévő adatbázisok alapján. Minősíti, csoportokba rendezi, és személyre szabott megkeresést indít. Ember nélkül.",
     who: "Ügynökségeknek és B2B-cégeknek",
     c: "#7C5CFF",
   },
   {
     ico: "search",
     t: "AI SEO-automatizálás",
-    d: "Elemzi az ügyféloldalakat, feltárja a hibákat, tartalom-ajánlásokat generál, optimalizálja a meta-adatokat és automata jelentést küld. 50 ügyfél 2 ember helyett.",
+    d: "Átnézi az ügyféloldalakat, megmutatja a hibákat, tartalmat javasol és rendbe teszi a meta-adatokat. A jelentés magától megy ki. Egy csapat 50 ügyfelet visz két ember helyett.",
     who: "Ügynökségeknek",
     c: "#4AA3FF",
   },
   {
     ico: "doc",
     t: "Dokumentum-kinyerő ügynök",
-    d: "Nagy adatbázisokból és archívumokból pontosan megtalálja és kivonja a kért adatot — ott, ahol ma órákba telik a keresés.",
+    d: "Több ezer dokumentum közül is másodpercek alatt megtalálja és kiemeli a kért adatot. Ott segít, ahol ma órákba telik a keresés.",
     who: "Jogi cégeknek, könyvelőknek, kórházaknak",
     c: "#54CFC0",
   },
   {
     ico: "globe",
     t: "Többnyelvű ügyfélszolgálati AI",
-    d: "10+ nyelven, a belső rendszerekkel folyamatos szinkronban: megkeresés rögzítése, státusz-ellenőrzés, gyakori kérdések kezelése — automatikusan.",
+    d: "Tíznél több nyelven válaszol, és folyamatosan együtt mozog a belső rendszereivel. Rögzíti a megkeresést, megnézi a státuszt, kezeli a gyakori kérdéseket — magától.",
     who: "Multinacionális cégeknek",
     c: "#E8A33D",
   },
   {
     ico: "send",
     t: "Kimenő értékesítési AI",
-    d: "Hideghívás és LinkedIn-megkeresés: személyre szabott megkereséseket generál, követi a válaszokat, és csak az érett érdeklődőt adja át az értékesítőnek.",
+    d: "Hideghívásban és LinkedInen is személyre szabottan keresi meg a célpontokat. Figyeli a válaszokat, és csak az érett érdeklődőt adja tovább az értékesítőnek.",
     who: "B2B értékesítési csatorna építésére",
     c: "#6DBC61",
   },
@@ -136,15 +136,15 @@ const NOFIT = [
 const GUARANTEES = [
   {
     t: "Teljesítmény-garancia",
-    d: "Ha az AI nem éri el az előre megbeszélt KPI-okat, extra költség nélkül optimalizálunk, amíg eléri.",
+    d: "Ha a rendszer nem hozza a közösen kitűzött számokat, addig finomítjuk, amíg eléri — felár nélkül.",
   },
   {
     t: "Átláthatóság-garancia",
-    d: "Kétheti demók, nyílt kódbázis-hozzáférés, részletes dokumentáció. Mindig tudja, min dolgozunk és mire megy a pénze.",
+    d: "Kéthetente megmutatjuk, hol tartunk. A kódbázis nyitott, a dokumentáció részletes. Mindig látja, mire megy a pénze.",
   },
   {
     t: "Exit-garancia",
-    d: "Ha 3 hónap után nem elégedett, átveszi a teljes kódbázist és a dokumentációt, és bárkivel folytathatja.",
+    d: "Ha három hónap után nem elégedett, átadjuk a teljes kódbázist és a dokumentációt. Onnan bárkivel folytathatja.",
   },
 ];
 
@@ -154,12 +154,12 @@ export default function CustomSolutions() {
       <div className="wrap">
         <div className="dash__intro reveal">
           <span className="dash__eyebrow">Egyedi fejlesztés</span>
-          <h2 className="dash__h">Ha a csomag nem elég, megépítjük az Ön rendszerét.</h2>
+          <h2 className="dash__h">Amit a kész csomagok nem fednek le, azt megépítjük.</h2>
           <p className="dash__p">
-            Ha az előre gyártott csomagok nem illenek az Ön igényeihez, egyedi,
-            AI-alapú rendszert építünk — pontosan arra, amire szüksége van. Nem
-            általános AI-ról és próbálgatásról beszélünk: konkrét üzleti
-            problémára konkrét, AI-alapú rendszert tervezünk és fejlesztünk.
+            Néha a meglévő csomagok nem fedik le, amire Önnek szüksége van.
+            Ilyenkor a saját folyamatára építünk AI-alapú rendszert — nem
+            általánosságban, hanem egy konkrét üzleti problémára. Ön elmondja,
+            hol akad el a működés; mi pontosan arra tervezzük és fejlesztjük meg.
           </p>
         </div>
 
