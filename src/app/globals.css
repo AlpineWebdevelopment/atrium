@@ -1297,33 +1297,36 @@ html.dark { --viz-purple-soft: #1d1b33; }
   }
 }
 
-/* What we can build — four icon cards, each with its own accent colour */
-.cux__cats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.cux__cat {
-  background: var(--bone); border: 1px solid var(--line);
-  border-top: 2px solid var(--pc, var(--viz-blue));
-  border-radius: 14px; padding: 18px 18px 20px;
-}
-.cux__cat-h {
-  display: flex; align-items: center; gap: 11px;
-  font-family: var(--font-display); font-weight: 500; font-size: 14.5px;
-  letter-spacing: -0.01em; color: var(--ink); margin-bottom: 16px;
-}
-.cux__cat-ico {
-  width: 34px; height: 34px; border-radius: 9px; flex-shrink: 0;
+/* What we can build — four branch trees: a category node with a colour-matched
+   spine dropping through its capability nodes (a graph, not cards) */
+.cux__cats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+.cux__catcol-head { display: flex; align-items: center; gap: 11px; }
+.cux__catcol-ico {
+  width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
   color: var(--pc, var(--viz-blue));
-  background: color-mix(in srgb, var(--pc, var(--viz-blue)) 12%, transparent);
+  background: color-mix(in srgb, var(--pc, var(--viz-blue)) 13%, transparent);
+  border: 1.5px solid color-mix(in srgb, var(--pc, var(--viz-blue)) 45%, transparent);
 }
-.cux__cat-ico svg { width: 18px; height: 18px; }
-.cux__cat ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.cux__cat li {
-  position: relative; padding-left: 15px;
-  font-family: var(--font-body); font-size: 12.5px; line-height: 1.45; color: var(--ink-70);
+.cux__catcol-ico svg { width: 18px; height: 18px; }
+.cux__catcol-t {
+  font-family: var(--font-display); font-weight: 500; font-size: 14.5px;
+  letter-spacing: -0.01em; color: var(--ink);
 }
-.cux__cat li::before {
-  content: ''; position: absolute; left: 0; top: 7px;
-  width: 5px; height: 5px; border-radius: 50%; background: var(--pc, var(--viz-blue)); opacity: 0.55;
+.cux__catcol-branch { position: relative; margin: 2px 0 0 18px; padding-left: 20px; }
+.cux__catcol-branch::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 16px; width: 2px; border-radius: 2px;
+  background: linear-gradient(to bottom, var(--pc, var(--viz-blue)), color-mix(in srgb, var(--pc, var(--viz-blue)) 12%, transparent));
+}
+.cux__catcol-item {
+  position: relative; padding: 9px 0 9px 4px;
+  font-family: var(--font-body); font-size: 12.5px; line-height: 1.4; color: var(--ink-70);
+}
+.cux__catcol-item::before {
+  content: ''; position: absolute; left: -25px; top: 12px;
+  width: 11px; height: 11px; border-radius: 50%;
+  background: var(--pc, var(--viz-blue)); border: 2.5px solid var(--bone);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--pc, var(--viz-blue)) 35%, transparent);
 }
 
 /* Fit / not fit */

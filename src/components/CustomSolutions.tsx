@@ -219,18 +219,18 @@ export default function CustomSolutions() {
           <h3 className="cux__sec-h"><span>Amit tudunk építeni</span></h3>
           <div className="cux__cats">
             {CATEGORIES.map((cat, i) => (
-              <div className="cux__cat" key={i} style={{ ["--pc" as string]: cat.c } as React.CSSProperties}>
-                <div className="cux__cat-h">
-                  <span className="cux__cat-ico">
+              <div className="cux__catcol" key={i} style={{ ["--pc" as string]: cat.c } as React.CSSProperties}>
+                <div className="cux__catcol-head">
+                  <span className="cux__catcol-ico">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{ICON_PATHS[cat.ico]}</svg>
                   </span>
-                  {cat.h}
+                  <b className="cux__catcol-t">{cat.h}</b>
                 </div>
-                <ul>
+                <div className="cux__catcol-branch">
                   {cat.items.map((it, j) => (
-                    <li key={j}>{it}</li>
+                    <div className="cux__catcol-item" key={j}>{it}</div>
                   ))}
-                </ul>
+                </div>
               </div>
             ))}
           </div>
