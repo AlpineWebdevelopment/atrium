@@ -49,53 +49,55 @@ const PAINS = [
   },
 ];
 
-/* ---- Graphic 1: qualification funnel ---- */
+/* ---- Graphic 1: qualification as a pre-screening dot matrix ----
+   Every inquiry is a dot; most are just browsing (grey), a few are serious
+   (blue) or a customer (green). An AI scan sweeps across and flags the
+   serious ones — so you only ever talk to those. */
 function GfxFunnel() {
-  const stages = [
-    { b: "Minden megkeresés", x: 10, y: 50, p: "100%" },
-    { b: "Időt visz el", x: 38, y: 50, p: "~35%" },
-    { b: "Komoly szándék", x: 66, y: 50, p: "~12%" },
-    { b: "Vevő", x: 91, y: 50, p: "~4%" },
-  ];
-  const flow = [
-    { d: "M-20,116 L1020,118", dur: 3.4, b: 0, drop: false },
-    { d: "M-20,125 L1020,126", dur: 3.0, b: 1.1, drop: false },
-    { d: "M-20,134 L1020,124", dur: 3.7, b: 2.0, drop: false },
-    { d: "M-20,120 L300,126 C334,150 350,212 358,252", dur: 2.4, b: 0.4, drop: true },
-    { d: "M-20,128 L300,121 C334,150 352,216 362,252", dur: 2.7, b: 1.5, drop: true },
-    { d: "M-20,132 L300,130 C334,152 348,210 356,252", dur: 2.5, b: 2.4, drop: true },
-    { d: "M-20,122 L632,110 C664,136 676,206 684,252", dur: 3.1, b: 0.8, drop: true },
-    { d: "M-20,130 L632,118 C664,140 678,210 686,252", dur: 3.3, b: 1.9, drop: true },
-  ];
+  const COLS = 13, ROWS = 3, W = 800, H = 200, MX = 38, MY = 36;
+  const gx = (W - 2 * MX) / (COLS - 1);
+  const gy = (H - 2 * MY) / (ROWS - 1);
+  const D = 3.8; // sweep period
+  const serious: Record<string, "k" | "v"> = {
+    "2,0": "k", "7,0": "k", "9,1": "v", "5,2": "k", "11,2": "k",
+  };
+  const color = (st: string) => (st === "v" ? "#6DBC61" : st === "k" ? "#4AA3FF" : "rgba(1,14,30,0.13)");
+  const dots: { x: number; y: number; st: string }[] = [];
+  for (let r = 0; r < ROWS; r++) {
+    for (let c = 0; c < COLS; c++) {
+      dots.push({ x: MX + c * gx, y: MY + r * gy, st: serious[`${c},${r}`] || "n" });
+    }
+  }
+  const flagged = dots.filter((d) => d.st !== "n");
   return (
-    <div className="funnel__chart">
-      <svg className="funnel__svg" viewBox="0 0 1000 250" preserveAspectRatio="none">
+    <div className="qual">
+      <svg className="qual__svg" viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Minden megkeresésből csak néhány komoly">
         <defs>
-          <linearGradient id="gFunnel" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#7C5CFF" />
-            <stop offset="50%" stopColor="#4AA3FF" />
-            <stop offset="100%" stopColor="#54CFC0" />
+          <linearGradient id="qScan" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="rgba(74,163,255,0)" />
+            <stop offset="50%" stopColor="rgba(74,163,255,0.16)" />
+            <stop offset="100%" stopColor="rgba(74,163,255,0)" />
           </linearGradient>
         </defs>
-        <line x1="333" y1="20" x2="333" y2="230" stroke="rgba(1,14,30,0.10)" strokeWidth="1" strokeDasharray="3 6" />
-        <line x1="666" y1="20" x2="666" y2="230" stroke="rgba(1,14,30,0.10)" strokeWidth="1" strokeDasharray="3 6" />
-        <path d="M0,26 C180,26 250,63 333,63 C480,63 540,86 666,86 C820,86 880,94 1000,94 L1000,156 C880,156 820,164 666,164 C540,164 480,187 333,187 C250,187 180,224 0,224 Z" fill="rgba(124,92,255,0.16)" />
-        <path d="M0,40 C180,40 250,77 333,77 C480,77 540,100 666,100 C820,100 880,108 1000,108 L1000,142 C880,142 820,150 666,150 C540,150 480,173 333,173 C250,173 180,210 0,210 Z" fill="url(#gFunnel)" />
-        {flow.map((f, i) => (
-          <circle key={i} r="3.4" fill="rgba(245,242,237,0.92)">
-            <animateMotion dur={`${f.dur}s`} begin={`${f.b}s`} repeatCount="indefinite" path={f.d} />
-            <animate attributeName="opacity" values="0;1;1;0" keyTimes={f.drop ? "0;0.12;0.62;1" : "0;0.08;0.9;1"} dur={`${f.dur}s`} begin={`${f.b}s`} repeatCount="indefinite" />
+        <rect x="-90" y="0" width="90" height={H} fill="url(#qScan)">
+          <animate attributeName="x" values={`-90;${W}`} dur={`${D}s`} repeatCount="indefinite" />
+        </rect>
+        {dots.map((d, i) => (
+          <circle key={i} cx={d.x} cy={d.y} r={d.st === "n" ? 6 : 7.5} fill={color(d.st)} />
+        ))}
+        {flagged.map((d, i) => (
+          <circle key={`f${i}`} cx={d.x} cy={d.y} r="7.5" fill="none" stroke={color(d.st)} strokeWidth="2">
+            <animate attributeName="r" values="7.5;19;19" keyTimes="0;0.12;1" dur={`${D}s`} begin={`${((d.x / W) * D).toFixed(2)}s`} repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0.85;0;0" keyTimes="0;0.12;1" dur={`${D}s`} begin={`${((d.x / W) * D).toFixed(2)}s`} repeatCount="indefinite" />
           </circle>
         ))}
       </svg>
-      {stages.map((s, i) => (
-        <div className="funnel__pct" key={`p${i}`} style={{ left: `${s.x}%` }}>{s.p}</div>
-      ))}
-      {stages.map((s, i) => (
-        <div className="funnel__stage" key={i} style={{ left: `${s.x}%`, top: `${s.y}%` }}>
-          <b>{s.b}</b>
-        </div>
-      ))}
+      <div className="qual__legend">
+        <span className="qual__leg"><i className="qual__leg-dot" style={{ background: "rgba(1,14,30,0.2)" }} />Nézelődő</span>
+        <span className="qual__leg"><i className="qual__leg-dot" style={{ background: "#4AA3FF" }} />Komoly szándék</span>
+        <span className="qual__leg"><i className="qual__leg-dot" style={{ background: "#6DBC61" }} />Vevő</span>
+        <span className="qual__note">Az előszűrés kiemeli a komolyakat — Ön már csak velük beszél.</span>
+      </div>
     </div>
   );
 }
