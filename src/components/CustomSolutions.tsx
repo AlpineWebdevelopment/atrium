@@ -22,15 +22,15 @@ const ICON_PATHS: Record<IconKey, React.ReactNode> = {
 const PROJECTS: { ico: IconKey; t: string; d: string; who: string; c: string }[] = [
   {
     ico: "target",
-    t: "AI lead-generálás & minősítés",
+    t: "AI érdeklődő-szerzés és minősítés",
     d: "Proaktívan keresi a potenciális ügyfeleket LinkedIn, weboldal-látogatók és adatbázisok alapján. Automatikusan minősít, szegmentál és személyre szabott kampányt indít — emberi beavatkozás nélkül.",
-    who: "Ügynökségeknek & B2B",
+    who: "Ügynökségeknek és B2B-cégeknek",
     c: "#7C5CFF",
   },
   {
     ico: "search",
-    t: "AI SEO delivery platform",
-    d: "Elemzi a kliensoldalakat, feltárja a hibákat, tartalom-ajánlásokat generál, optimalizálja a meta-adatokat és automata riportot küld. 50 kliens 2 ember helyett.",
+    t: "AI SEO-automatizálás",
+    d: "Elemzi az ügyféloldalakat, feltárja a hibákat, tartalom-ajánlásokat generál, optimalizálja a meta-adatokat és automata jelentést küld. 50 ügyfél 2 ember helyett.",
     who: "Ügynökségeknek",
     c: "#4AA3FF",
   },
@@ -44,15 +44,15 @@ const PROJECTS: { ico: IconKey; t: string; d: string; who: string; c: string }[]
   {
     ico: "globe",
     t: "Többnyelvű ügyfélszolgálati AI",
-    d: "10+ nyelven, a belső rendszerekkel folyamatos szinkronban: ticket-létrehozás, státusz-ellenőrzés, gyakori kérdések kezelése — automatikusan.",
+    d: "10+ nyelven, a belső rendszerekkel folyamatos szinkronban: megkeresés rögzítése, státusz-ellenőrzés, gyakori kérdések kezelése — automatikusan.",
     who: "Multinacionális cégeknek",
     c: "#E8A33D",
   },
   {
     ico: "send",
     t: "Kimenő értékesítési AI",
-    d: "Cold call és LinkedIn outreach: személyre szabott megkereséseket generál, követi a válaszokat, és csak az érett leadet adja át az értékesítőnek.",
-    who: "B2B pipeline-építésre",
+    d: "Hideghívás és LinkedIn-megkeresés: személyre szabott megkereséseket generál, követi a válaszokat, és csak az érett érdeklődőt adja át az értékesítőnek.",
+    who: "B2B értékesítési csatorna építésére",
     c: "#6DBC61",
   },
 ];
@@ -69,25 +69,25 @@ const nodeY = (i: number) => 46 + i * ((MAP_H - 92) / (MAP_NODES.length - 1));
 
 const CATEGORIES = [
   {
-    h: "Értékesítés & marketing",
+    h: "Értékesítés és marketing",
     c: "#7C5CFF",
     ico: "trend" as IconKey,
     items: [
-      "Automatikus lead-nurturing",
-      "Személyre szabott email-kampány AI",
+      "Automatikus érdeklődő-gondozás",
+      "Személyre szabott e-mail-kampányok",
       "Dinamikus ajánlat-generátor",
       "Ár-kalkulátor és ajánlatküldő",
-      "Prospect-research és minősítés",
+      "Érdeklődő-kutatás és minősítés",
     ],
   },
   {
-    h: "Ügyfélszolgálat & támogatás",
+    h: "Ügyfélszolgálat és támogatás",
     c: "#4AA3FF",
     ico: "chat" as IconKey,
     items: [
-      "Többnyelvű support több csatornán",
-      "Ticket-routing és prioritizálás",
-      "Tudásbázis-keresés és válaszgenerálás",
+      "Többnyelvű ügyfélszolgálat több csatornán",
+      "Megkeresések irányítása és rangsorolása",
+      "Tudásbázis-keresés és válaszadás",
       "Proaktív probléma-észlelés",
       "Automatikus eszkaláció",
     ],
@@ -110,10 +110,10 @@ const CATEGORIES = [
     ico: "layers" as IconKey,
     items: [
       "Egészségügy — beteg-kommunikáció",
-      "Jogi — contract review & compliance",
-      "Pénzügy — fraud-detection és kockázat",
-      "E-commerce — dinamikus árazás, ajánló",
-      "HR — CV-screening és előszűrés",
+      "Jogi — szerződés-ellenőrzés és megfelelőség",
+      "Pénzügy — csalásfelderítés és kockázatértékelés",
+      "Webshop — dinamikus árazás és termékajánló",
+      "HR — önéletrajz-szűrés és jelölt-előszűrés",
     ],
   },
 ];
@@ -130,7 +130,7 @@ const NOFIT = [
   "Csak „kipróbálná” az AI-t minimális költséggel",
   "Nincs konkrét problémája, csak a divatot követi",
   "Türelmetlen, és nem érti a fejlesztési folyamatot",
-  "Gyors fixet keres, nem stratégiai fejlesztést",
+  "Gyors javítást keres, nem stratégiai fejlesztést",
 ];
 
 const GUARANTEES = [
@@ -156,10 +156,10 @@ export default function CustomSolutions() {
           <span className="dash__eyebrow">Egyedi fejlesztés</span>
           <h2 className="dash__h">Ha a csomag nem elég, megépítjük az Ön rendszerét.</h2>
           <p className="dash__p">
-            Ha az előre gyártott csomagok nem illenek az Ön igényeihez, egyedi AI
-            rendszert építünk — pontosan arra, amire szüksége van. Nem általános
-            AI-ról és próbálgatásról beszélünk: konkrét üzleti problémára konkrét
-            AI rendszert tervezünk és fejlesztünk.
+            Ha az előre gyártott csomagok nem illenek az Ön igényeihez, egyedi,
+            AI-alapú rendszert építünk — pontosan arra, amire szüksége van. Nem
+            általános AI-ról és próbálgatásról beszélünk: konkrét üzleti
+            problémára konkrét, AI-alapú rendszert tervezünk és fejlesztünk.
           </p>
         </div>
 
