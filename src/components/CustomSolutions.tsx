@@ -164,18 +164,26 @@ export default function CustomSolutions() {
             {PROJECTS.map((p, i) => (
               <div className="cux__proj" key={i} style={{ ["--pc" as string]: p.c } as React.CSSProperties}>
                 <span className="cux__proj-ico"><Icon k={p.ico} /></span>
-                <h4 className="cux__proj-t">{p.t}</h4>
-                <p className="cux__proj-d">{p.d}</p>
-                <span className="cux__proj-who">{p.who}</span>
+                <div className="cux__proj-body">
+                  <div className="cux__proj-head">
+                    <h4 className="cux__proj-t">{p.t}</h4>
+                    <span className="cux__proj-who">{p.who}</span>
+                  </div>
+                  <p className="cux__proj-d">{p.d}</p>
+                </div>
               </div>
             ))}
             <div className="cux__proj cux__proj--more">
               <span className="cux__proj-plus">+</span>
-              <h4 className="cux__proj-t">Az Ön ötlete</h4>
-              <p className="cux__proj-d">
-                Bármilyen folyamat, amit AI-val meg lehet építeni — egyetlen
-                automatizálástól az egész működését átfogó rendszerig.
-              </p>
+              <div className="cux__proj-body">
+                <div className="cux__proj-head">
+                  <h4 className="cux__proj-t">Az Ön ötlete</h4>
+                </div>
+                <p className="cux__proj-d">
+                  Bármilyen folyamat, amit AI-val meg lehet építeni — egyetlen
+                  automatizálástól az egész működését átfogó rendszerig.
+                </p>
+              </div>
             </div>
           </div>
         </div>
