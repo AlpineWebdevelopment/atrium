@@ -66,17 +66,15 @@ img { max-width: 100%; display: block; }
 .page {
   width: 100%;
   overflow-x: clip;
-  /* one continuous wash for the whole page — smooth top-to-bottom colour flow,
-     no per-section shifts, and full-width (even on mobile). Sections below are
-     transparent so this shows through behind everything. */
+  /* subtle wash confined to the top of the page (hero → dashboard), fading to
+     clean Bone for the rest. One vertical gradient = smooth, full-width, even
+     on mobile; px stops keep the colour in the top band, not everywhere. */
   background: linear-gradient(
     180deg,
-    var(--bone) 0%,
-    color-mix(in srgb, #7C5CFF 10%, var(--bone)) 16%,
-    color-mix(in srgb, #4AA3FF 12%, var(--bone)) 40%,
-    color-mix(in srgb, #54CFC0 11%, var(--bone)) 64%,
-    color-mix(in srgb, #6DBC61 8%, var(--bone)) 85%,
-    var(--bone) 100%
+    var(--bone) 0,
+    color-mix(in srgb, #7C5CFF 7%, var(--bone)) 460px,
+    color-mix(in srgb, #4AA3FF 7%, var(--bone)) 980px,
+    var(--bone) 1480px
   );
 }
 .wrap {
