@@ -1180,26 +1180,36 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .how { padding: 96px 0; }
 .how__grid {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 44px;
-  margin-top: 48px;
+  margin-top: 52px;
 }
-.how__step { border-top: 1px solid var(--line); padding-top: 20px; }
-.how__num {
-  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em;
-  color: var(--stone);
+.how__step { text-align: center; }
+.how__node {
+  position: relative; z-index: 1; width: 56px; height: 56px; border-radius: 50%;
+  margin: 0 auto 18px; display: flex; align-items: center; justify-content: center;
+  background: var(--bone); border: 1.5px solid var(--line); color: var(--ink);
+}
+.how__node svg { width: 23px; height: 23px; }
+.how__node-num {
+  position: absolute; top: -4px; right: -4px;
+  width: 21px; height: 21px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--ink); color: var(--bone);
+  font-family: var(--font-mono); font-size: 9.5px; font-weight: 500;
 }
 .how__title {
   font-family: var(--font-display); font-weight: 500;
-  font-size: 20px; letter-spacing: -0.015em; color: var(--ink);
-  margin: 12px 0 10px;
+  font-size: 19px; letter-spacing: -0.015em; color: var(--ink);
+  margin: 0 0 10px;
 }
 .how__desc {
   font-family: var(--font-body); font-size: 14px; line-height: 1.62;
-  color: var(--ink-70);
+  color: var(--ink-70); max-width: 320px; margin: 0 auto;
 }
 .how__cta { margin-top: 52px; text-align: center; }
 @media (max-width: 800px) {
   .how { padding: 72px 0; }
-  .how__grid { grid-template-columns: 1fr; gap: 28px; }
+  .how__grid { grid-template-columns: 1fr; gap: 30px; }
+  .how__grid::before { display: none; }
 }
 
 /* =========================================================
