@@ -1083,123 +1083,53 @@ html.dark { --viz-purple-soft: #1d1b33; }
 }
 
 /* =========================================================
-   QUALIFIER CRM — tabbed product card + benefit list
+   QUALIFIER CRM — four reasons, each its own graph panel
    ========================================================= */
 .qcrm { padding: 96px 0; }
-.qcrm__grid {
-  display: grid; grid-template-columns: 1.55fr 1fr; gap: 48px;
-  align-items: center;
-  margin-top: 8px;
+.qben {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  margin-top: 46px;
 }
-.qcrm__card { border-color: rgba(109,188,97,0.45); padding: 26px 28px 28px; }
-.qcrm__panel { min-height: 330px; display: flex; flex-direction: column; }
-.qcrm__panel .dash__desc { margin-bottom: 6px; }
-.qcrm__cal { margin-top: 22px; }
-
-/* benefit selector list */
-.qcrm__list { display: flex; flex-direction: column; gap: 6px; }
-.qcrm__item {
-  text-align: left;
-  padding: 14px 16px;
-  border-radius: 12px;
-  border-left: 2px solid transparent;
-  transition: background 160ms var(--ease), border-color 160ms var(--ease), opacity 160ms var(--ease);
-  opacity: 0.55;
+.qben__cell {
+  display: flex; flex-direction: column;
+  padding: 26px 28px 24px;
+  border-radius: 16px;
+  border: 1px solid color-mix(in srgb, var(--acc) 26%, var(--line));
+  background: color-mix(in srgb, var(--acc) 4%, var(--bone));
+  transition: border-color 160ms var(--ease), transform 160ms var(--ease), box-shadow 160ms var(--ease);
 }
-.qcrm__item:hover { opacity: 0.85; }
-.qcrm__item--active {
-  opacity: 1;
-  background: var(--panel);
-  border-left-color: var(--signal);
-  border-radius: 4px 12px 12px 4px;
+.qben__cell:hover {
+  border-color: color-mix(in srgb, var(--acc) 50%, var(--line));
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px -16px color-mix(in srgb, var(--acc) 60%, transparent);
 }
-.qcrm__item b {
-  display: block;
-  font-family: var(--font-display); font-weight: 500; font-size: 17px;
-  letter-spacing: -0.01em; color: var(--ink);
+.qben__gfx {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  min-height: 172px; margin-bottom: 22px;
 }
-.qcrm__item span {
-  font-family: var(--font-body); font-size: 13px; line-height: 1.5;
-  color: var(--ink-70); margin-top: 3px; display: block;
-}
-
-/* graph 2: own CRM vs rented */
-.qcrm__own { display: grid; grid-template-columns: 1.15fr 1fr; gap: 14px; margin-top: 26px; }
-.qcrm__own-box {
-  border: 1px solid rgba(109,188,97,0.5);
-  border-radius: 14px;
-  padding: 18px;
-}
-.qcrm__own-box--dim { border: 1.5px dashed var(--line); opacity: 0.75; }
-.qcrm__own-box b {
-  display: block;
-  font-family: var(--font-display); font-weight: 500; font-size: 15px; color: var(--ink);
-}
-.qcrm__own-box span {
-  display: block;
+.qben__gfx svg { width: 100%; height: auto; max-width: 300px; display: block; }
+.qben__lbl {
   font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.04em;
-  color: var(--ink-50); margin-top: 3px;
+  fill: var(--ink-50);
 }
-.qcrm__dots { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
-.qcrm__dots i { width: 11px; height: 11px; border-radius: 50%; background: var(--viz-blue); }
-.qcrm__dots--dim i { background: var(--line); }
-
-/* graph 3: conversion lanes */
-.qcrm__conv { margin-top: 26px; }
-.qcrm__lane {
-  display: flex; align-items: center; gap: 14px;
-  padding: 16px 4px;
-  border-bottom: 1px solid var(--line-2);
+.qben__num { font-family: var(--font-display); font-weight: 500; }
+.qben__txt { border-top: 1px solid color-mix(in srgb, var(--acc) 18%, var(--line)); padding-top: 16px; }
+.qben__txt b {
+  display: block;
+  font-family: var(--font-display); font-weight: 500; font-size: 20px;
+  letter-spacing: -0.015em; color: var(--ink);
 }
-.qcrm__lane:last-of-type { border-bottom: 0; }
-.qcrm__lane-k {
-  flex-shrink: 0; width: 124px;
-  font-family: var(--font-body); font-size: 13px; color: var(--ink-70);
-}
-.qcrm__lane-dots { display: flex; gap: 8px; flex: 1; }
-.qcrm__lane-dots i { width: 12px; height: 12px; border-radius: 50%; background: var(--viz-blue); }
-.qcrm__lane-dots i.lost { background: var(--line); }
-.qcrm__lane-end {
-  flex-shrink: 0;
-  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.04em;
-  color: var(--ink-50);
-  border: 1px solid var(--line); border-radius: 999px;
-  padding: 5px 11px;
-}
-.qcrm__lane-end--sig { color: #3d8f34; border-color: rgba(109,188,97,0.5); background: rgba(109,188,97,0.10); }
-.qcrm__note {
-  margin-top: 18px;
-  font-family: var(--font-body); font-size: 13px; line-height: 1.5; color: var(--ink-70);
+.qben__txt span {
+  display: block; margin-top: 6px;
+  font-family: var(--font-body); font-size: 14px; line-height: 1.55; color: var(--ink-70);
 }
 
-/* graph 4: vs an employee */
-.qcrm__cmp { margin-top: 26px; display: flex; flex-direction: column; gap: 18px; }
-.qcrm__cmp-row { display: grid; grid-template-columns: 110px 1fr; gap: 14px; align-items: center; }
-.qcrm__cmp-k { font-family: var(--font-body); font-size: 13px; color: var(--ink); }
-.qcrm__cmp-bars { display: flex; flex-direction: column; gap: 7px; }
-.qcrm__cmp-bar { position: relative; height: 22px; border-radius: 6px; background: var(--panel); overflow: hidden; }
-.qcrm__cmp-bar i { position: absolute; inset: 0 auto 0 0; border-radius: 6px; opacity: 0.5; }
-.qcrm__cmp-bar em {
-  position: absolute; inset: 0; display: flex; align-items: center;
-  padding: 0 10px;
-  font-style: normal;
-  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.03em;
-  color: var(--ink-90);
-  white-space: nowrap;
-}
-
-@media (max-width: 900px) {
-  .qcrm { padding: 72px 0; }
-  .qcrm__grid { grid-template-columns: 1fr; gap: 26px; }
-  .qcrm__panel { min-height: 0; }
-  .qcrm__item { opacity: 0.7; }
-}
-@media (max-width: 700px) {
-  .qcrm__card { padding: 18px 16px 20px; }
-  .qcrm__own { grid-template-columns: 1fr; }
-  .qcrm__lane { flex-wrap: wrap; gap: 10px; }
-  .qcrm__lane-k { width: auto; }
-  .qcrm__cmp-row { grid-template-columns: 1fr; gap: 8px; }
+@media (max-width: 900px) { .qcrm { padding: 72px 0; } }
+@media (max-width: 760px) {
+  .qcrm { padding: 64px 0; }
+  .qben { grid-template-columns: 1fr; gap: 16px; }
+  .qben__cell { padding: 22px 20px 20px; }
+  .qben__gfx { min-height: 150px; }
 }
 
 /* =========================================================

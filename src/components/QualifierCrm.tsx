@@ -1,145 +1,143 @@
-"use client";
-import { useState } from "react";
-
 /* The one named product: the AI qualifier CRM.
-   The benefit list on the right drives the graph in the card. */
+   Four reasons it fits — each its own panel with a bespoke graph. */
 
-/* ---- 1: sized to the company ---- */
-function GfxSized() {
-  const cols: { d: string; slots: string[] }[] = [
-    { d: "Kis cég", slots: ["kvalifikáció", "időpont"] },
-    { d: "Közepes cég", slots: ["kvalifikáció", "időpont", "utánkövetés"] },
-    { d: "Nagy cég", slots: ["kvalifikáció", "időpont", "utánkövetés", "riportálás", "több telephely"] },
+/* ---- 1: tuned to you — equalizer sliders ---- */
+function GfxTuned() {
+  const sliders = [
+    { lbl: "méret", v: 0.72 },
+    { lbl: "folyamat", v: 0.42 },
+    { lbl: "kérdések", v: 0.88 },
+    { lbl: "hangnem", v: 0.6 },
   ];
   return (
-    <div className="cal qcrm__cal" style={{ gridTemplateColumns: "repeat(3, 1fr)", alignItems: "end" }}>
-      {cols.map((c, i) => (
-        <div className="cal__col" key={i}>
-          <div className="cal__day">{c.d}</div>
-          {c.slots.map((s, j) => (
-            <div className="cal__slot cal__slot--book" key={j}>{s}</div>
-          ))}
-        </div>
+    <svg viewBox="0 0 260 160" role="img" aria-label="A rendszer az Ön paramétereire hangolva">
+      {sliders.map((d, i) => {
+        const x = 40 + i * 60;
+        const ky = 120 - d.v * 92;
+        return (
+          <g key={i}>
+            <line x1={x} y1={24} x2={x} y2={120} stroke="var(--line)" strokeWidth="4" strokeLinecap="round" />
+            <line x1={x} y1={120} x2={x} y2={ky} stroke="var(--acc)" strokeWidth="4" strokeLinecap="round" />
+            <circle cx={x} cy={ky} r="8" fill="var(--bone)" stroke="var(--acc)" strokeWidth="3" />
+            <circle cx={x} cy={ky} r="2.4" fill="var(--acc)" />
+            <text className="qben__lbl" x={x} y={142} textAnchor="middle">{d.lbl}</text>
+          </g>
+        );
+      })}
+    </svg>
+  );
+}
+
+/* ---- 2: your own CRM — a database that keeps the data ---- */
+function GfxOwn() {
+  return (
+    <svg viewBox="0 0 260 170" role="img" aria-label="Az adatok az Ön saját CRM-jében maradnak">
+      {/* data flowing in and staying */}
+      {[0, 1, 2].map((i) => (
+        <circle key={i} r="3.2" fill="var(--acc)">
+          <animateMotion dur="2.6s" begin={`${i * 0.7}s`} repeatCount="indefinite" path={`M${64 + i * 14},6 L${64 + i * 14},40`} />
+          <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.2;0.7;1" dur="2.6s" begin={`${i * 0.7}s`} repeatCount="indefinite" />
+        </circle>
       ))}
-    </div>
+
+      {/* database cylinder */}
+      <g stroke="var(--acc)" strokeWidth="2.5" fill="none">
+        <path d="M36 50 V122 A42 13 0 0 0 120 122 V50" fill="var(--acc)" fillOpacity="0.07" />
+        <ellipse cx="78" cy="50" rx="42" ry="13" fill="var(--bone)" />
+        <path d="M36 74 A42 13 0 0 0 120 74" strokeOpacity="0.45" />
+        <path d="M36 98 A42 13 0 0 0 120 98" strokeOpacity="0.45" />
+      </g>
+      {/* lock badge */}
+      <g transform="translate(70 30)" fill="none" stroke="var(--acc)" strokeWidth="2" strokeLinecap="round">
+        <rect x="0" y="7" width="16" height="11" rx="2.5" fill="var(--bone)" />
+        <path d="M3 7V5a5 5 0 0 1 10 0v2" />
+      </g>
+      <text className="qben__lbl" x="78" y="150" textAnchor="middle" style={{ fill: "var(--acc)" }}>az Ön CRM-je</text>
+
+      {/* the rented alternative — dimmed, kept at arm's length */}
+      <g opacity="0.5">
+        <rect x="158" y="62" width="80" height="48" rx="10" fill="none" stroke="var(--ink-35)" strokeWidth="1.5" strokeDasharray="5 5" />
+        <path d="M174 80h48M174 92h32" stroke="var(--ink-35)" strokeWidth="2" strokeLinecap="round" />
+        <text className="qben__lbl" x="198" y="128" textAnchor="middle">bérelt felület</text>
+      </g>
+    </svg>
   );
 }
 
-/* ---- 2: your own CRM, not a rented platform ---- */
-function GfxOwnCrm() {
+/* ---- 3: more bookings — two funnels, same leads in ---- */
+function GfxFunnels() {
+  const Funnel = ({ cx, acc, out, leak }: { cx: number; acc: string; out: number; leak: boolean }) => (
+    <g>
+      {/* incoming leads — same count for both */}
+      {[0, 1, 2, 3].map((i) => (
+        <circle key={i} cx={cx - 21 + i * 14} cy={18} r="3.6" fill="var(--ink-35)" />
+      ))}
+      {/* funnel body */}
+      <path
+        d={`M${cx - 30} 32 L${cx + 30} 32 L${cx + 8} 84 L${cx + 8} 96 L${cx - 8} 96 L${cx - 8} 84 Z`}
+        fill={acc}
+        fillOpacity="0.07"
+        stroke={acc}
+        strokeWidth="2"
+        strokeDasharray={leak ? "4 5" : undefined}
+      />
+      {/* leaked leads (only the leaky funnel) */}
+      {leak && (
+        <g fill="var(--ink-35)" opacity="0.6">
+          <circle cx={cx - 34} cy={64} r="3" />
+          <circle cx={cx + 36} cy={72} r="3" />
+          <circle cx={cx - 38} cy={80} r="3" />
+        </g>
+      )}
+      {/* result */}
+      <text className="qben__num" x={cx} y={134} textAnchor="middle" style={{ fill: acc, fontSize: "30px" }}>{out}</text>
+      <text className="qben__lbl" x={cx} y={150} textAnchor="middle">időpont</text>
+    </g>
+  );
   return (
-    <div className="qcrm__own">
-      <div className="qcrm__own-box">
-        <b>Az Ön CRM-je</b>
-        <span>minden adat itt marad</span>
-        <div className="qcrm__dots">
-          {Array.from({ length: 21 }).map((_, i) => (
-            <i key={i} />
-          ))}
-        </div>
-      </div>
-      <div className="qcrm__own-box qcrm__own-box--dim">
-        <b>Bérelt felület</b>
-        <span>havidíj, az adat máshol</span>
-        <div className="qcrm__dots qcrm__dots--dim">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <i key={i} />
-          ))}
-        </div>
-      </div>
-    </div>
+    <svg viewBox="0 0 260 160" role="img" aria-label="Ugyanannyi érdeklődőből több időpont">
+      <text className="qben__lbl" x={70} y={10} textAnchor="middle">rendszer nélkül</text>
+      <text className="qben__lbl" x={190} y={10} textAnchor="middle" style={{ fill: "var(--acc)" }}>a rendszerrel</text>
+      <Funnel cx={70} acc="var(--ink-35)" out={3} leak />
+      <Funnel cx={190} acc="var(--acc)" out={8} leak={false} />
+    </svg>
   );
 }
 
-/* ---- 3: more bookings from the same leads ---- */
-function GfxConversion() {
-  const without = [true, false, true, false, false, true, false, false];
-  const withSys = [true, true, true, true, true, true, true, true];
-  return (
-    <div className="qcrm__conv">
-      <div className="qcrm__lane">
-        <span className="qcrm__lane-k">Rendszer nélkül</span>
-        <span className="qcrm__lane-dots">
-          {without.map((ok, i) => (
-            <i key={i} className={ok ? "" : "lost"} />
-          ))}
-        </span>
-        <span className="qcrm__lane-end">foghíjas naptár</span>
-      </div>
-      <div className="qcrm__lane">
-        <span className="qcrm__lane-k">A rendszerrel</span>
-        <span className="qcrm__lane-dots">
-          {withSys.map((ok, i) => (
-            <i key={i} className={ok ? "" : "lost"} />
-          ))}
-        </span>
-        <span className="qcrm__lane-end qcrm__lane-end--sig">tele naptár</span>
-      </div>
-      <p className="qcrm__note">Ugyanannyi érdeklődő. A különbség az, hány ér célba.</p>
-    </div>
-  );
-}
-
-/* ---- 4: cost-effective vs an employee ---- */
+/* ---- 4: cost-effective — 24h coverage + lower cost ---- */
 function GfxCost() {
-  const rows = [
-    { k: "Elérhetőség", a: "munkatárs · 8 óra", aw: "33%", b: "a rendszer · 0–24", bw: "100%" },
-    { k: "Türelem", a: "a nap végére fogy", aw: "44%", b: "az ezredik kérdésnél is ugyanaz", bw: "100%" },
-    { k: "Utánkövetés", a: "néha kimarad", aw: "55%", b: "soha nem felejt el visszahívni", bw: "100%" },
-  ];
   return (
-    <div className="qcrm__cmp">
-      {rows.map((r, i) => (
-        <div className="qcrm__cmp-row" key={i}>
-          <span className="qcrm__cmp-k">{r.k}</span>
-          <div className="qcrm__cmp-bars">
-            <div className="qcrm__cmp-bar">
-              <i style={{ width: r.aw, background: "var(--ink-35)" }} />
-              <em>{r.a}</em>
-            </div>
-            <div className="qcrm__cmp-bar">
-              <i style={{ width: r.bw, background: "var(--signal)" }} />
-              <em>{r.b}</em>
-            </div>
-          </div>
-        </div>
-      ))}
-      <p className="qcrm__note">És összességében kevesebbe kerül, mint egy munkatárs.</p>
-    </div>
+    <svg viewBox="0 0 260 160" role="img" aria-label="A nap minden órájában, egy munkatársnál olcsóbban">
+      {/* 24/7 ring */}
+      <g transform="translate(72 80)">
+        <circle r="46" fill="none" stroke="var(--line)" strokeWidth="11" />
+        <circle r="46" fill="none" stroke="var(--acc)" strokeWidth="11" strokeLinecap="round" />
+        {/* employee — 8h of the day */}
+        <circle r="30" fill="none" stroke="var(--ink-35)" strokeWidth="7" pathLength={24} strokeDasharray="8 24" transform="rotate(-90)" strokeLinecap="round" />
+        <text className="qben__num" x="0" y="2" textAnchor="middle" style={{ fill: "var(--ink)", fontSize: "20px" }}>0–24</text>
+        <text className="qben__lbl" x="0" y="18" textAnchor="middle">óra</text>
+      </g>
+
+      {/* cost: an employee vs the system */}
+      <text className="qben__lbl" x={188} y={20} textAnchor="middle">havi költség</text>
+      <g>
+        <rect x={150} y={42} width="32" height="82" rx="4" fill="var(--ink-35)" fillOpacity="0.55" />
+        <rect x={196} y={88} width="32" height="36" rx="4" fill="var(--acc)" />
+        <text className="qben__lbl" x={166} y={138} textAnchor="middle">munkatárs</text>
+        <text className="qben__lbl" x={212} y={138} textAnchor="middle" style={{ fill: "var(--acc)" }}>rendszer</text>
+      </g>
+    </svg>
   );
 }
 
 const BENEFITS = [
-  {
-    b: "Személyre szabva",
-    s: "az Ön cégméretére, folyamatára és kérdéseire építve",
-    desc: "Kis rendelő vagy többtelephelyes cég — a rendszer az Ön méretére épül, az Ön kérdéseivel kvalifikál.",
-    Gfx: GfxSized,
-  },
-  {
-    b: "Saját CRM",
-    s: "az adatok az Ön rendszerében, nem egy bérelt felületen",
-    desc: "Minden érdeklődő, minden beszélgetés, minden időpont az Ön CRM-jében marad — nem egy felületen, amit bérel.",
-    Gfx: GfxOwnCrm,
-  },
-  {
-    b: "Több időpont",
-    s: "ugyanannyi érdeklődőből — mert egy sem vész el útközben",
-    desc: "A konverzió ott nő, ahol eddig veszett el: minden érdeklődő választ kap, kvalifikálva ér Önhöz, és időpontig jut.",
-    Gfx: GfxConversion,
-  },
-  {
-    b: "Költséghatékony",
-    s: "a nap minden órájában dolgozik, és kevesebbe kerül, mint egy munkatárs",
-    desc: "Nem fárad, nem felejt, éjjel is felveszi — ugyanazt a munkát többet bírja, és kevesebbe kerül.",
-    Gfx: GfxCost,
-  },
+  { b: "Személyre szabva", s: "az Ön cégméretére, folyamatára és kérdéseire építve", c: "#7C5CFF", Gfx: GfxTuned },
+  { b: "Saját CRM", s: "az adatok az Ön rendszerében, nem egy bérelt felületen", c: "#4AA3FF", Gfx: GfxOwn },
+  { b: "Több időpont", s: "ugyanannyi érdeklődőből — mert egy sem vész el útközben", c: "#54CFC0", Gfx: GfxFunnels },
+  { b: "Költséghatékony", s: "a nap minden órájában dolgozik, és kevesebbe kerül, mint egy munkatárs", c: "#34C759", Gfx: GfxCost },
 ];
 
 export default function QualifierCrm() {
-  const [idx, setIdx] = useState(0);
-  const { desc, Gfx } = BENEFITS[idx];
-
   return (
     <section className="qcrm" id="crm">
       <div className="wrap">
@@ -153,28 +151,18 @@ export default function QualifierCrm() {
           </p>
         </div>
 
-        <div className="qcrm__grid reveal" data-delay="1">
-          <div className="dash__card qcrm__card">
-            <div className="qcrm__panel">
-              <p className="dash__desc">{desc}</p>
-              <Gfx />
-            </div>
-          </div>
-
-          <div className="qcrm__list" role="tablist" aria-label="Miért ez a CRM">
-            {BENEFITS.map((f, i) => (
-              <button
-                key={i}
-                role="tab"
-                aria-selected={idx === i}
-                className={"qcrm__item" + (idx === i ? " qcrm__item--active" : "")}
-                onClick={() => setIdx(i)}
-              >
+        <div className="qben reveal" data-delay="1">
+          {BENEFITS.map((f, i) => (
+            <article className="qben__cell" key={i} style={{ ["--acc" as string]: f.c }}>
+              <div className="qben__gfx">
+                <f.Gfx />
+              </div>
+              <div className="qben__txt">
                 <b>{f.b}</b>
                 <span>{f.s}</span>
-              </button>
-            ))}
-          </div>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>
