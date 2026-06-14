@@ -1178,59 +1178,67 @@ html.dark { --viz-purple-soft: #1d1b33; }
   background: transparent;
 }
 
-/* Four pillars as alternating graph rows */
-.cux__rows { display: flex; flex-direction: column; gap: 24px; margin-top: 48px; }
+/* Four pillars — a 2-col grid of vertical graph cards (stays 2 cols on mobile) */
+.cux__rows { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 48px; }
 .cxr {
-  display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 44px; align-items: center;
-  padding: 34px 40px;
+  display: flex; flex-direction: column;
+  padding: 28px 30px 26px;
   border-radius: 18px;
   border: 1px solid color-mix(in srgb, var(--acc) 24%, var(--line));
   background: color-mix(in srgb, var(--acc) 4%, var(--bone));
-  transition: border-color 160ms var(--ease), box-shadow 160ms var(--ease);
+  transition: border-color 160ms var(--ease), transform 160ms var(--ease), box-shadow 160ms var(--ease);
 }
 .cxr:hover {
   border-color: color-mix(in srgb, var(--acc) 48%, var(--line));
+  transform: translateY(-2px);
   box-shadow: 0 12px 30px -20px color-mix(in srgb, var(--acc) 70%, transparent);
 }
-.cxr:nth-child(even) .cxr__gfx { order: 2; }
-.cxr__gfx { display: flex; align-items: center; justify-content: center; min-height: 200px; }
-.cxr__gfx svg { width: 100%; height: auto; max-width: 430px; display: block; }
+.cxr__gfx { display: flex; align-items: center; justify-content: center; min-height: 168px; margin-bottom: 22px; }
+.cxr__gfx svg { width: 100%; height: auto; max-width: 360px; display: block; }
 .cxr__lbl { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.04em; fill: var(--ink-50); }
 .cxr__num { font-family: var(--font-display); font-weight: 500; }
+.cxr__body { border-top: 1px solid color-mix(in srgb, var(--acc) 18%, var(--line)); padding-top: 18px; }
 .cxr__eyebrow {
-  display: block; margin-bottom: 12px;
+  display: block; margin-bottom: 10px;
   font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
   color: var(--acc);
 }
 .cxr__h {
-  font-family: var(--font-display); font-weight: 500; font-size: clamp(22px, 2.4vw, 27px);
-  letter-spacing: -0.02em; line-height: 1.15; color: var(--ink); margin: 0 0 12px;
+  font-family: var(--font-display); font-weight: 500; font-size: 21px;
+  letter-spacing: -0.02em; line-height: 1.18; color: var(--ink); margin: 0 0 10px;
 }
 .cxr__d {
-  font-family: var(--font-body); font-size: 15px; line-height: 1.6; color: var(--ink-70);
-  margin: 0 0 20px; max-width: 460px;
+  font-family: var(--font-body); font-size: 14px; line-height: 1.58; color: var(--ink-70);
+  margin: 0 0 18px;
 }
-.cxr__list { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+.cxr__list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .cxr__list li {
-  position: relative; padding-left: 28px;
-  font-family: var(--font-body); font-size: 14px; line-height: 1.5; color: var(--ink-90);
+  position: relative; padding-left: 26px;
+  font-family: var(--font-body); font-size: 13.5px; line-height: 1.5; color: var(--ink-90);
 }
 .cxr__list li::before {
-  content: ""; position: absolute; left: 0; top: 2px; width: 17px; height: 17px; border-radius: 50%;
+  content: ""; position: absolute; left: 0; top: 2px; width: 16px; height: 16px; border-radius: 50%;
   background: color-mix(in srgb, var(--acc) 16%, transparent);
   border: 1px solid color-mix(in srgb, var(--acc) 52%, transparent);
 }
 .cxr__list li::after {
-  content: ""; position: absolute; left: 5px; top: 7px; width: 6px; height: 3.5px;
+  content: ""; position: absolute; left: 4.5px; top: 7px; width: 6px; height: 3.5px;
   border-left: 1.7px solid var(--acc); border-bottom: 1.7px solid var(--acc);
   transform: rotate(-45deg);
 }
-@media (max-width: 860px) {
+@media (max-width: 760px) {
   .cux { padding: 64px 0; }
-  .cxr { grid-template-columns: 1fr; gap: 22px; padding: 26px 22px; }
-  .cxr:nth-child(even) .cxr__gfx { order: 0; }
-  .cxr__gfx { min-height: 0; }
-  .cxr__d { max-width: none; }
+  .cux__rows { gap: 12px; margin-top: 34px; }
+  .cxr { padding: 16px 15px 16px; border-radius: 14px; }
+  .cxr__gfx { min-height: 96px; margin-bottom: 14px; }
+  .cxr__body { padding-top: 13px; }
+  .cxr__eyebrow { font-size: 9.5px; letter-spacing: 0.08em; margin-bottom: 7px; }
+  .cxr__h { font-size: 16px; margin-bottom: 7px; }
+  .cxr__d { font-size: 12.5px; margin-bottom: 13px; }
+  .cxr__list { gap: 8px; }
+  .cxr__list li { padding-left: 21px; font-size: 12px; }
+  .cxr__list li::before { width: 14px; height: 14px; }
+  .cxr__list li::after { left: 4px; top: 6px; }
 }
 
 /* --- Custom solutions: detailed, light, engaging --- */
