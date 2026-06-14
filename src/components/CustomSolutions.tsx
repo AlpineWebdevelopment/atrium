@@ -2,7 +2,9 @@
    Example projects, capability categories, fit, and guarantees.
    Copy paraphrased to avoid banned vocab (megoldás, AI ügynökség, …). */
 
-type IconKey = "target" | "search" | "doc" | "globe" | "send" | "plus";
+type IconKey =
+  | "target" | "search" | "doc" | "globe" | "send" | "plus"
+  | "trend" | "chat" | "refresh" | "layers";
 
 const ICON_PATHS: Record<IconKey, React.ReactNode> = {
   target: (<><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="4.5" /><circle cx="12" cy="12" r="0.6" fill="currentColor" /></>),
@@ -11,6 +13,10 @@ const ICON_PATHS: Record<IconKey, React.ReactNode> = {
   globe: (<><circle cx="12" cy="12" r="9" /><path d="M3 12h18" /><path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18" /></>),
   send: (<><path d="M22 2L11 13" /><path d="M22 2l-7 20-4-9-9-4z" /></>),
   plus: (<><path d="M12 5v14M5 12h14" /></>),
+  trend: (<><polyline points="3 17 9 11 13 15 21 7" /><polyline points="15 7 21 7 21 13" /></>),
+  chat: (<><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></>),
+  refresh: (<><path d="M3 12a9 9 0 0 1 15-6.7L21 8" /><path d="M21 3v5h-5" /><path d="M21 12a9 9 0 0 1-15 6.7L3 16" /><path d="M3 21v-5h5" /></>),
+  layers: (<><path d="M12 2 2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" /></>),
 };
 
 const PROJECTS: { ico: IconKey; t: string; d: string; who: string; c: string }[] = [
@@ -65,6 +71,7 @@ const CATEGORIES = [
   {
     h: "Értékesítés & marketing",
     c: "#7C5CFF",
+    ico: "trend" as IconKey,
     items: [
       "Automatikus lead-nurturing",
       "Személyre szabott email-kampány AI",
@@ -76,6 +83,7 @@ const CATEGORIES = [
   {
     h: "Ügyfélszolgálat & támogatás",
     c: "#4AA3FF",
+    ico: "chat" as IconKey,
     items: [
       "Többnyelvű support több csatornán",
       "Ticket-routing és prioritizálás",
@@ -87,6 +95,7 @@ const CATEGORIES = [
   {
     h: "Operációs automatizálás",
     c: "#54CFC0",
+    ico: "refresh" as IconKey,
     items: [
       "Dokumentum-feldolgozás és kategorizálás",
       "Adatkinyerés és elemzés",
@@ -98,6 +107,7 @@ const CATEGORIES = [
   {
     h: "Iparág-specifikus",
     c: "#E8A33D",
+    ico: "layers" as IconKey,
     items: [
       "Egészségügy — beteg-kommunikáció",
       "Jogi — contract review & compliance",
@@ -207,32 +217,35 @@ export default function CustomSolutions() {
         {/* What we can build */}
         <div className="cux__sec reveal">
           <h3 className="cux__sec-h"><span>Amit tudunk építeni</span></h3>
-          <div className="cux__cats-panel">
-            <div className="cux__cats">
-              {CATEGORIES.map((cat, i) => (
-                <div className="cux__cat" key={i} style={{ ["--pc" as string]: cat.c } as React.CSSProperties}>
-                  <h4 className="cux__cat-h"><span className="cux__cat-dot" />{cat.h}</h4>
-                  <ul>
-                    {cat.items.map((it, j) => (
-                      <li key={j}>{it}</li>
-                    ))}
-                  </ul>
+          <div className="cux__cats">
+            {CATEGORIES.map((cat, i) => (
+              <div className="cux__cat" key={i} style={{ ["--pc" as string]: cat.c } as React.CSSProperties}>
+                <div className="cux__cat-h">
+                  <span className="cux__cat-ico">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{ICON_PATHS[cat.ico]}</svg>
+                  </span>
+                  {cat.h}
                 </div>
-              ))}
-            </div>
+                <ul>
+                  {cat.items.map((it, j) => (
+                    <li key={j}>{it}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
 
         {/* Fit / not fit */}
         <div className="cux__fit reveal">
           <div className="cux__fit-col cux__fit-col--yes">
-            <h3 className="cux__fit-h">Önnek való, ha…</h3>
+            <div className="cux__fit-h"><span className="cux__fit-badge">✓</span>Önnek való, ha…</div>
             <ul>
               {FIT.map((f, i) => (<li key={i}>{f}</li>))}
             </ul>
           </div>
           <div className="cux__fit-col cux__fit-col--no">
-            <h3 className="cux__fit-h">Nem Önnek való, ha…</h3>
+            <div className="cux__fit-h"><span className="cux__fit-badge">✕</span>Nem Önnek való, ha…</div>
             <ul>
               {NOFIT.map((f, i) => (<li key={i}>{f}</li>))}
             </ul>
