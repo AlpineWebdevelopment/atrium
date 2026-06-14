@@ -1193,8 +1193,8 @@ html.dark { --viz-purple-soft: #1d1b33; }
   transform: translateY(-2px);
   box-shadow: 0 12px 30px -20px color-mix(in srgb, var(--acc) 70%, transparent);
 }
-.cxr__gfx { display: flex; align-items: center; justify-content: center; min-height: 0; margin-bottom: 20px; }
-.cxr__gfx svg { width: 100%; height: auto; max-width: 340px; display: block; }
+.cxr__gfx { display: flex; align-items: center; justify-content: center; min-height: 0; margin-bottom: 22px; }
+.cxr__gfx svg { width: 100%; height: auto; max-width: 400px; display: block; }
 .cxr__lbl { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.04em; fill: var(--ink-50); }
 .cxr__num { font-family: var(--font-display); font-weight: 500; }
 .cxr__body { border-top: 1px solid color-mix(in srgb, var(--acc) 18%, var(--line)); padding-top: 16px; }
@@ -1231,7 +1231,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
   .cux__rows { gap: 10px; margin-top: 30px; }
   .cxr { padding: 13px 13px 14px; border-radius: 13px; }
   .cxr__gfx { min-height: 0; margin-bottom: 12px; }
-  .cxr__gfx svg { max-width: 168px; }
+  .cxr__gfx svg { max-width: 220px; }
   .cxr__body { padding-top: 11px; }
   .cxr__eyebrow { font-size: 9px; letter-spacing: 0.07em; margin-bottom: 5px; }
   .cxr__h { font-size: 15px; line-height: 1.14; margin-bottom: 7px; }
