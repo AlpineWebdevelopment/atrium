@@ -1473,6 +1473,31 @@ html.dark { --viz-purple-soft: #1d1b33; }
   max-width: 100%;
 }
 
+/* --- Estimated revenue-loss callout (per tab) --- */
+.dash__loss {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  margin: 20px 0 4px; padding: 14px 18px;
+  background: rgba(224,82,78,0.05);
+  border: 1px solid rgba(224,82,78,0.22); border-radius: 14px;
+}
+.dash__loss-l { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.dash__loss-head { display: flex; align-items: center; gap: 8px; }
+.dash__loss-ico { width: 16px; height: 16px; color: var(--viz-red); flex-shrink: 0; }
+.dash__loss-label {
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--viz-red);
+}
+.dash__loss-math { font-family: var(--font-body); font-size: 12.5px; line-height: 1.4; color: var(--ink-70); }
+.dash__loss-v {
+  font-family: var(--font-display); font-weight: 500;
+  font-size: clamp(22px, 3vw, 30px); letter-spacing: -0.02em;
+  color: var(--viz-red); white-space: nowrap;
+}
+.dash__loss-v span { font-family: var(--font-body); font-size: 13px; color: var(--ink-50); margin-left: 4px; }
+@media (max-width: 560px) {
+  .dash__loss { flex-direction: column; align-items: flex-start; gap: 8px; }
+}
+
 /* --- Qualification: pre-screening dot matrix --- */
 .qual { margin-top: 10px; }
 .qual__svg { width: 100%; max-width: 760px; height: auto; display: block; margin: 0 auto; }

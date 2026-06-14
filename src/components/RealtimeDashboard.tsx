@@ -13,6 +13,7 @@ const PAINS = [
       { k: "Az Ön ideje", c: "var(--viz-amber)", v: "Órák", d: "ugyanazokra a kérdésekre" },
       { k: "Előszűrés", c: "var(--viz-red)", v: "Nincs", d: "mindenki sorra kerül" },
     ],
+    loss: { v: "≈ 240 000 Ft", per: "/ hó", math: "~20 óra havonta előszűretlen beszélgetésre — a komoly vevők helyett" },
   },
   {
     tab: "Elszalasztott hívások",
@@ -24,6 +25,7 @@ const PAINS = [
       { k: "Üzenet", c: "var(--stone)", v: "Nincs", d: "a hívó nem hagy" },
       { k: "A hívó", c: "var(--viz-red)", v: "Továbblép", d: "a következőt hívja" },
     ],
+    loss: { v: "≈ 680 000 Ft", per: "/ hó", math: "~8 elszalasztott hívás × ~85 000 Ft átlagos munka" },
   },
   {
     tab: "Lassú utánkövetés",
@@ -35,6 +37,7 @@ const PAINS = [
       { k: "Az érdeklődő", c: "var(--stone)", v: "Kihűlt", d: "már mással tárgyal" },
       { k: "A hirdetési költség", c: "var(--viz-red)", v: "Elment", d: "bevétel nem lett belőle" },
     ],
+    loss: { v: "≈ 520 000 Ft", per: "/ hó", math: "~12 kihűlt érdeklődő × ~43 000 Ft + elment hirdetési költség" },
   },
   {
     tab: "No-show-k",
@@ -46,6 +49,7 @@ const PAINS = [
       { k: "A naptárban", c: "var(--stone)", v: "Üres óra", d: "senki nem tölti fel" },
       { k: "Visszahívás", c: "var(--viz-red)", v: "Nincs", d: "nincs rá kapacitás" },
     ],
+    loss: { v: "≈ 360 000 Ft", per: "/ hó", math: "~12 no-show × ~30 000 Ft kezelés" },
   },
 ];
 
@@ -294,6 +298,20 @@ export default function RealtimeDashboard() {
                   <div className="dash__metric-d flat">{m.d}</div>
                 </div>
               ))}
+            </div>
+
+            <div className="dash__loss">
+              <div className="dash__loss-l">
+                <div className="dash__loss-head">
+                  <svg className="dash__loss-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="22 17 13.5 8.5 8.5 13.5 2 7" />
+                    <polyline points="16 17 22 17 22 11" />
+                  </svg>
+                  <span className="dash__loss-label">Becsült kieső bevétel</span>
+                </div>
+                <span className="dash__loss-math">{pain.loss.math}</span>
+              </div>
+              <div className="dash__loss-v">{pain.loss.v}<span>{pain.loss.per}</span></div>
             </div>
 
             <Gfx />
