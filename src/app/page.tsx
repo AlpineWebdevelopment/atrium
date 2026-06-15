@@ -6,7 +6,7 @@ import CustomSolutions from "@/components/CustomSolutions";
 import HowWeStart from "@/components/HowWeStart";
 import QualifierCrm from "@/components/QualifierCrm";
 // import Reputation from "@/components/Reputation"; // hidden for now — re-enable to bring it back
-import Packages from "@/components/Packages";
+// import Packages from "@/components/Packages"; // hidden for now — re-enable to bring back the offer-ladder section
 import Faq from "@/components/Faq";
 import FinalCta from "@/components/FinalCta";
 import Footer from "@/components/Footer";
@@ -24,7 +24,7 @@ export default function Home() {
       <HowWeStart />
       <QualifierCrm />
       {/* <Reputation /> hidden for now — ask to bring it back */}
-      <Packages />
+      {/* <Packages /> hidden for now — ask to bring it back */}
       <Faq />
       <FinalCta />
       <Footer />
