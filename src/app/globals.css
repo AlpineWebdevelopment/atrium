@@ -997,51 +997,69 @@ html.dark { --viz-purple-soft: #1d1b33; }
   padding: 64px 0;
   background: transparent;
 }
-.sys__chart { position: relative; height: 300px; margin: 14px 0 10px; }
-.sys__svg { width: 100%; height: 260px; display: block; overflow: visible; }
-/* unified-memory hub graph (desktop) */
-.sys__hub { width: 100%; height: auto; display: block; margin: 6px 0; overflow: visible; }
-.sys__hub-label {
-  font-family: var(--font-display); font-weight: 500; font-size: 16px;
-  letter-spacing: -0.01em; fill: var(--ink);
+/* ONE lead's journey — horizontal timeline (desktop), vertical (mobile) */
+.jrn { position: relative; margin: 12px 0 6px; }
+.jrn__steps {
+  list-style: none; display: grid; grid-template-columns: repeat(7, 1fr);
+  gap: 6px; position: relative; z-index: 1;
 }
-.sys__hub-core {
-  font-family: var(--font-display); font-weight: 500; font-size: 13px;
-  letter-spacing: -0.01em; fill: var(--ink);
+.jrn__step { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.jrn__node {
+  width: 50px; height: 50px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bone); border: 2px solid var(--c); color: var(--c);
+  position: relative; z-index: 1;
 }
-.sys__hub-sub {
-  font-family: var(--font-mono); font-size: 10.5px; fill: var(--stone);
-}
-.sys__hub-memlbl {
-  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.04em;
-  fill: #3d8f34;
-}
-.sys__hub--mob { display: none; }
-
-/* mobile: two-column icon grid */
-.sys__mob { display: none; }
-.sys__cell {
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 13px 14px;
-}
-.sys__cell:last-child { grid-column: span 2; }
-.sys__cell-h { display: flex; align-items: center; gap: 8px; }
-.sys__cell-h svg { width: 17px; height: 17px; flex-shrink: 0; }
-.sys__cell-h b {
-  font-family: var(--font-display); font-weight: 500;
-  font-size: 13.5px; letter-spacing: -0.01em; line-height: 1.2;
-  color: var(--ink);
-}
-.sys__cell-d {
+.jrn__node svg { width: 22px; height: 22px; }
+.jrn__node--result { background: var(--c); border-color: var(--c); color: #fff; }
+.jrn__txt { margin-top: 12px; }
+.jrn__time {
   display: block;
-  font-family: var(--font-body); font-size: 11.5px; line-height: 1.45;
-  color: var(--ink-70); margin-top: 6px;
+  font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.05em;
+  text-transform: uppercase; color: var(--c);
 }
-@media (max-width: 700px) {
-  .sys__desk { display: none; }
-  .sys__hub--mob { display: block; width: 100%; max-width: 360px; margin: 4px auto 0; }
-  .sys__mob { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
+.jrn__title {
+  display: block; margin-top: 5px;
+  font-family: var(--font-display); font-weight: 500; font-size: 13.5px;
+  letter-spacing: -0.01em; line-height: 1.2; color: var(--ink);
+}
+.jrn__sub {
+  display: block; margin-top: 5px;
+  font-family: var(--font-mono); font-size: 9.5px; line-height: 1.45; color: var(--stone);
+}
+/* connecting line through the node centres + the travelling lead */
+.jrn__line {
+  position: absolute; height: 2px; top: 25px;
+  left: calc(100% / 14); right: calc(100% / 14);
+  background: var(--line); z-index: 0;
+}
+.jrn__pulse {
+  position: absolute; top: 21px; width: 9px; height: 9px; border-radius: 50%;
+  background: var(--signal); box-shadow: 0 0 0 4px rgba(109,188,97,0.18);
+  z-index: 2; left: calc(100% / 14);
+  animation: jrnTravel 7s cubic-bezier(0.65,0,0.35,1) infinite;
+}
+@keyframes jrnTravel {
+  0%   { left: calc(100% / 14); opacity: 0; }
+  6%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { left: calc(100% - 100% / 14); opacity: 0; }
+}
+@media (max-width: 760px) {
+  .jrn__line, .jrn__pulse { display: none; }
+  .jrn__steps { grid-template-columns: 1fr; gap: 0; }
+  .jrn__step {
+    flex-direction: row; align-items: flex-start; text-align: left;
+    gap: 16px; padding-bottom: 22px; position: relative;
+  }
+  .jrn__step:last-child { padding-bottom: 0; }
+  .jrn__step:not(:last-child)::after {
+    content: ""; position: absolute; left: 24px; top: 52px; bottom: -2px; width: 2px;
+    background: var(--line); z-index: 0;
+  }
+  .jrn__txt { margin-top: 4px; }
+  .jrn__title { font-size: 15px; margin-top: 4px; }
+  .jrn__sub { font-size: 11px; margin-top: 4px; }
 }
 
 /* system attributes: language / hosting / compliance */
