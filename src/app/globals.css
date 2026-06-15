@@ -1062,6 +1062,39 @@ html.dark { --viz-purple-soft: #1d1b33; }
 }
 /* The full system — Meridian-style alternating rows (big graphic + steps) */
 .jrn { margin: 16px 0 4px; }
+/* labelled frame that makes the phases read as ONE system */
+.sysframe {
+  margin-top: 44px; padding: 24px;
+  border: 1px solid var(--line); border-radius: 26px;
+  background: color-mix(in srgb, var(--ink) 2%, var(--bone));
+  box-shadow: 0 1px 2px rgba(1,14,30,0.04), 0 30px 64px -46px rgba(1,14,30,0.28);
+}
+.sysframe__bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  padding: 4px 6px 20px; border-bottom: 1px solid var(--line);
+}
+.sysframe__label {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--ink);
+}
+.sysframe__dot {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--signal);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--signal) 20%, transparent);
+  animation: sysPulse 1.6s ease-in-out infinite;
+}
+@keyframes sysPulse { 0%, 100% { opacity: 0.7; } 50% { opacity: 1; } }
+.sysframe__channels { display: flex; flex-wrap: wrap; gap: 7px; }
+.sysframe__chan {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.03em; color: var(--ink-70);
+  padding: 5px 11px; border-radius: 999px; border: 1px solid var(--line); background: var(--bone);
+}
+.sysframe .tsr { margin-top: 22px; }
+.sysframe .jrn__result { margin-top: 22px; }
+@media (max-width: 600px) {
+  .sysframe { padding: 16px; border-radius: 20px; }
+  .sysframe__bar { padding-bottom: 16px; }
+}
 .tsr { display: flex; flex-direction: column; gap: 28px; margin-top: 50px; }
 .tsr__row {
   display: grid; grid-template-columns: 0.92fr 1.08fr; gap: 48px; align-items: center;

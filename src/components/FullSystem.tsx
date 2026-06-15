@@ -129,6 +129,8 @@ const PHASES = [
   },
 ];
 
+const CHANNELS = ["Telefon", "SMS", "WhatsApp", "Messenger", "Instagram", "E-mail", "Webchat"];
+
 const POINTS = [
   { t: "Egységes memória", d: "Minden csatornán emlékszik a korábbi beszélgetésekre." },
   { t: "Proaktív megkeresés", d: "Nem csak válaszol — magától kezdeményez és újraaktivál." },
@@ -142,17 +144,30 @@ export default function FullSystem() {
       <div className="wrap">
         <div className="dash__intro reveal">
           <span className="dash__eyebrow">A teljes rendszer</span>
-          <h2 className="dash__h">Egy érdeklődő útja, az első hívástól a bevételig.</h2>
+          <h2 className="dash__h">Nem hét eszköz — egyetlen rendszer.</h2>
           <p className="dash__p">
-            Nem különálló eszközök, és nem alapszintű automatizálás. Egy
-            összehangolt, AI-alapú értékesítési rendszer: minden funkció egyetlen
-            közös memóriával végigkíséri az érdeklődőt — magyarul, a háttérben,
-            az Ön meglévő naptárához és eszközeihez kötve.
+            Az Atrium egy magyar nyelvű, AI-alapú értékesítési rendszer: minden
+            csatornán ugyanaz a közös memória dolgozik, és végigkíséri az
+            érdeklődőt a hívástól a foglaláson át a visszatérő ügyfélig — a
+            háttérben, az Ön meglévő naptárához és eszközeihez kötve.
           </p>
         </div>
 
-        <div className="tsr">
-          {PHASES.map((p, i) => (
+        <div className="sysframe reveal" data-delay="1">
+          <div className="sysframe__bar">
+            <span className="sysframe__label">
+              <span className="sysframe__dot" aria-hidden="true" />
+              Az Atrium rendszer · egységes memória
+            </span>
+            <div className="sysframe__channels">
+              {CHANNELS.map((c) => (
+                <span className="sysframe__chan" key={c}>{c}</span>
+              ))}
+            </div>
+          </div>
+
+          <div className="tsr">
+            {PHASES.map((p, i) => (
             <div className={"tsr__row reveal" + (i % 2 ? " tsr__row--flip" : "")} key={i} style={{ ["--c" as string]: p.c } as React.CSSProperties}>
               <div className="tsr__viz">
                 <p.Viz />
@@ -191,6 +206,7 @@ export default function FullSystem() {
             <b className="jrn__result-t">Több foglalás, több bevétel</b>
             <span className="jrn__result-s">és minden lépés mérve — riportálás</span>
           </div>
+        </div>
         </div>
 
         <div className="sys__points reveal" data-delay="2">
