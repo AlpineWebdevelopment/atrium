@@ -47,10 +47,10 @@ export default function Nav() {
         <div className="nav__mobile-inner">
           <div className="wrap">
             <nav className="nav__mobile-links" aria-label="mobile">
-              <a href="#" className="nav__mobile-link" onClick={() => setOpen(false)}>Főoldal</a>
-              <a href="#szolgaltatasok" className="nav__mobile-link" onClick={() => setOpen(false)}>Szolgáltatások</a>
-              <a href="#rolunk" className="nav__mobile-link" onClick={() => setOpen(false)}>Rólunk</a>
-              <a href="#blog" className="nav__mobile-link" onClick={() => setOpen(false)}>Blog</a>
+              <a href="#rendszer-teljes" className="nav__mobile-link" onClick={() => setOpen(false)}>A rendszer</a>
+              <a href="#indulas" className="nav__mobile-link" onClick={() => setOpen(false)}>Hogyan indulunk</a>
+              <a href="#crm" className="nav__mobile-link" onClick={() => setOpen(false)}>AI CRM</a>
+              <a href="#gyik" className="nav__mobile-link" onClick={() => setOpen(false)}>GYIK</a>
               <a href="#kapcsolat" className="nav__mobile-link" onClick={() => setOpen(false)}>Kapcsolat</a>
             </nav>
             <button className="btn nav__mobile-cta" onClick={() => setOpen(false)}>

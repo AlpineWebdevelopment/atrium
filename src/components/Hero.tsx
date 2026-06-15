@@ -27,7 +27,7 @@ export default function Hero() {
             </p>
             <div className="hero__actions">
               <button className="btn">Foglaljon időpontot</button>
-              <a className="btn btn--ghost" href="#komponensek">
+              <a className="btn btn--ghost" href="#rendszer-teljes">
                 <svg className="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><polygon points="5 3 19 12 5 21 5 3" /></svg>
                 A rendszerről
               </a>

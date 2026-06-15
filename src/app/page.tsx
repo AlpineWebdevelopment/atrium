@@ -1,7 +1,9 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
+import Benefits from "@/components/Benefits";
 import RealtimeDashboard from "@/components/RealtimeDashboard";
 import FullSystem from "@/components/FullSystem";
+import CtaBand from "@/components/CtaBand";
 import CustomSolutions from "@/components/CustomSolutions";
 import HowWeStart from "@/components/HowWeStart";
 import QualifierCrm from "@/components/QualifierCrm";
@@ -18,8 +20,10 @@ export default function Home() {
       <ScrollReveal />
       <Nav />
       <Hero />
+      <Benefits />
       <RealtimeDashboard />
       <FullSystem />
+      <CtaBand />
       <CustomSolutions />
       <HowWeStart />
       <QualifierCrm />
