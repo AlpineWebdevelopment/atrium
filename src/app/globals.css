@@ -1010,6 +1010,10 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .sys__hub-sub {
   font-family: var(--font-mono); font-size: 10.5px; fill: var(--stone);
 }
+.sys__hub-memlbl {
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.04em;
+  fill: #3d8f34;
+}
 .sys__hub--mob { display: none; }
 
 /* mobile: two-column icon grid */

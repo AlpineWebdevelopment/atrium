@@ -1,10 +1,9 @@
 "use client";
 
-/* The full system as a unified hub: one shared-memory core powering seven
-   function modules. The primary flow runs OUTWARD — the shared memory drives
-   every function with full context — with a subtler return flow inward, since
-   each interaction also updates the memory. "egy rendszer, egy memória,
-   minden összhangban".
+/* The full system centred on the RESULT: seven functions, threaded on one
+   shared-memory ring, each delivering its outcome inward to "több foglalás,
+   több bevétel". Memory is the connective ring (with context circulating
+   around it), not the destination — the value the client gets is the hero.
    Desktop: full hub with labels. Mobile: same hub, compact (icons only) +
    a named icon-grid legend below it. */
 
@@ -59,26 +58,28 @@ function Hub({ compact = false }: { compact?: boolean }) {
       className={`sys__hub ${compact ? "sys__hub--mob" : "sys__hub--desk"}`}
       viewBox={compact ? "340 50 440 455" : "0 0 1120 600"}
       role="img"
-      aria-label="Egységes memória, hét funkcióval összekötve"
+      aria-label="Hét funkció egy közös memóriával, egyetlen eredménybe futva: több foglalás, több bevétel"
     >
-      {/* depth rings */}
-      <circle cx={CX} cy={CY} r={R} fill="none" stroke="var(--line)" strokeWidth="1" strokeDasharray="2 8" />
-      <circle cx={CX} cy={CY} r={R - 64} fill="none" stroke="var(--line)" strokeWidth="1" strokeOpacity="0.6" />
+      {/* the shared-memory ring that threads every function together */}
+      <circle cx={CX} cy={CY} r={R - 64} fill="none" stroke="var(--line)" strokeWidth="1" strokeOpacity="0.5" />
+      <circle cx={CX} cy={CY} r={R} fill="none" stroke="rgba(109,188,97,0.32)" strokeWidth="1.5" />
+      {/* shared context circulating around the ring */}
+      {[0, 1, 2].map((k) => (
+        <circle key={`mem${k}`} r="2.4" fill="#6DBC61" opacity="0.75">
+          <animateMotion dur="10s" begin={`${k * 3.33}s`} repeatCount="indefinite" path={`M${CX},${CY - R} A ${R},${R} 0 1 1 ${CX - 0.1},${CY - R}`} />
+        </circle>
+      ))}
+      {/* label tag sitting on the memory ring */}
+      <rect x={CX - 64} y={CY + R - 13} width="128" height="26" rx="13" fill="var(--bone)" stroke="rgba(109,188,97,0.4)" />
+      <text className="sys__hub-memlbl" x={CX} y={CY + R + 4} textAnchor="middle">egységes memória</text>
 
-      {/* spokes — primary flow OUT from the shared memory to each function,
-          with a subtler return flow back in */}
+      {/* spokes — every function delivers its result inward */}
       {HUB.map((n, i) => (
         <g key={`sp${i}`}>
           <line x1={CX} y1={CY} x2={n.x} y2={n.y} stroke={n.c} strokeWidth="1.5" strokeOpacity="0.38" />
-          {/* memory → function: shared context drives every function */}
           <circle r="2.8" fill={n.c}>
-            <animateMotion dur="2.8s" begin={`${i * 0.34}s`} repeatCount="indefinite" path={`M${CX},${CY} L${n.x},${n.y}`} />
+            <animateMotion dur="2.8s" begin={`${i * 0.34}s`} repeatCount="indefinite" path={`M${n.x},${n.y} L${CX},${CY}`} />
             <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.8;1" dur="2.8s" begin={`${i * 0.34}s`} repeatCount="indefinite" />
-          </circle>
-          {/* function → memory: each interaction updates the memory */}
-          <circle r="1.9" fill={n.c} fillOpacity="0.55">
-            <animateMotion dur="2.8s" begin={`${i * 0.34 + 1.4}s`} repeatCount="indefinite" path={`M${n.x},${n.y} L${CX},${CY}`} />
-            <animate attributeName="opacity" values="0;0.6;0.6;0" keyTimes="0;0.15;0.8;1" dur="2.8s" begin={`${i * 0.34 + 1.4}s`} repeatCount="indefinite" />
           </circle>
         </g>
       ))}
@@ -94,8 +95,8 @@ function Hub({ compact = false }: { compact?: boolean }) {
         <animate attributeName="r" values="46;80" dur="2.6s" begin="1.3s" repeatCount="indefinite" />
         <animate attributeName="opacity" values="0.4;0" dur="2.6s" begin="1.3s" repeatCount="indefinite" />
       </circle>
-      <text className="sys__hub-core" x={CX} y={CY - 4} textAnchor="middle">Egységes</text>
-      <text className="sys__hub-core" x={CX} y={CY + 13} textAnchor="middle">memória</text>
+      <text className="sys__hub-core" x={CX} y={CY - 4} textAnchor="middle">Több foglalás</text>
+      <text className="sys__hub-core" x={CX} y={CY + 13} textAnchor="middle">több bevétel</text>
 
       {/* function modules: icon + (desktop) title + subtitle */}
       {HUB.map((n, i) => (
