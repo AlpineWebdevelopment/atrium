@@ -1,6 +1,7 @@
 /* The system as ONE lead's journey, grouped into three phases so it breathes:
    Megkeresés → Foglalás → Megtartás, flowing into the result. Each phase is a
-   roomy card holding its steps. Riportálás folds into the result node. */
+   card with a gradient header banner and a mini-timeline of colourful step
+   nodes. Riportálás folds into the result bar. */
 
 const ICONS: Record<string, React.ReactNode> = {
   phone: <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />,
@@ -17,27 +18,27 @@ const ICONS: Record<string, React.ReactNode> = {
 
 const PHASES = [
   {
-    n: "01", name: "Megkeresés", cap: "az első érintéstől a minősítésig", c: "#7C5CFF",
+    n: "01", name: "Megkeresés", cap: "az első érintéstől a minősítésig", c: "#7C5CFF", g1: "#7C5CFF", g2: "#6E84FF",
     steps: [
-      { ic: "phone", t: "Hívásfogadás", s: "minden hívást felvesz, éjjel és hétvégén is" },
-      { ic: "chat", t: "Utánkövetés", s: "a webes érdeklődőt is percek alatt visszahívja" },
-      { ic: "qualify", t: "Kvalifikáció", s: "felteszi a fontos kérdéseket, és minősíti az érdeklődőt" },
+      { ic: "phone", c: "#7C5CFF", t: "Hívásfogadás", s: "minden hívást felvesz, éjjel és hétvégén is" },
+      { ic: "chat", c: "#8A6BFF", t: "Utánkövetés", s: "a webes érdeklődőt is percek alatt visszahívja" },
+      { ic: "qualify", c: "#6E84FF", t: "Kvalifikáció", s: "felteszi a fontos kérdéseket, és minősíti az érdeklődőt" },
     ],
   },
   {
-    n: "02", name: "Foglalás", cap: "időpont, megerősítve", c: "#4AA3FF",
+    n: "02", name: "Foglalás", cap: "időpont, megerősítve", c: "#4AA3FF", g1: "#4AA3FF", g2: "#54CFC0",
     steps: [
-      { ic: "calendar", t: "Időpontfoglalás", s: "egyenesen a naptárba, ütközés nélkül" },
-      { ic: "confirm", t: "Visszaigazolás", s: "azonnal visszaigazolja a foglalást" },
-      { ic: "bell", t: "Emlékeztető", s: "emlékeztet, hogy ne maradjon el a látogatás" },
+      { ic: "calendar", c: "#4AA3FF", t: "Időpontfoglalás", s: "egyenesen a naptárba, ütközés nélkül" },
+      { ic: "confirm", c: "#41B6D8", t: "Visszaigazolás", s: "azonnal visszaigazolja a foglalást" },
+      { ic: "bell", c: "#54CFC0", t: "Emlékeztető", s: "emlékeztet, hogy ne maradjon el a látogatás" },
     ],
   },
   {
-    n: "03", name: "Megtartás", cap: "vissza, és újra", c: "#34C759",
+    n: "03", name: "Megtartás", cap: "vissza, és újra", c: "#34C759", g1: "#34C759", g2: "#E8A33D",
     steps: [
-      { ic: "callback", t: "No-show visszahívás", s: "visszaszerzi az elmaradt időpontot" },
-      { ic: "star", t: "Értékelés", s: "elégedett ügyféltől értékelést kér" },
-      { ic: "refresh", t: "Reaktiválás", s: "hónapokkal később visszahozza a régit" },
+      { ic: "callback", c: "#46C79A", t: "No-show visszahívás", s: "visszaszerzi az elmaradt időpontot" },
+      { ic: "star", c: "#34C759", t: "Értékelés", s: "elégedett ügyféltől értékelést kér" },
+      { ic: "refresh", c: "#E8A33D", t: "Reaktiválás", s: "hónapokkal később visszahozza a régit" },
     ],
   },
 ];
@@ -67,15 +68,17 @@ export default function FullSystem() {
         <div className="jrn reveal" data-delay="1">
           <div className="jrn__phases">
             {PHASES.map((p, i) => (
-              <div className="jph" key={i} style={{ ["--c" as string]: p.c } as React.CSSProperties}>
+              <div className="jph" key={i} style={{ ["--c" as string]: p.c, ["--g1" as string]: p.g1, ["--g2" as string]: p.g2 } as React.CSSProperties}>
                 <div className="jph__head">
                   <span className="jph__num">{p.n}</span>
-                  <b className="jph__name">{p.name}</b>
-                  <span className="jph__cap">{p.cap}</span>
+                  <span className="jph__headtxt">
+                    <b className="jph__name">{p.name}</b>
+                    <span className="jph__cap">{p.cap}</span>
+                  </span>
                 </div>
                 <ul className="jph__steps">
                   {p.steps.map((st, j) => (
-                    <li className="jph__step" key={j}>
+                    <li className="jph__step" key={j} style={{ ["--sc" as string]: st.c } as React.CSSProperties}>
                       <span className="jph__ico">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           {ICONS[st.ic]}
