@@ -1,8 +1,10 @@
 "use client";
 
-/* The full system as a unified hub: one shared-memory core, seven function
-   modules orbiting it, with conversation-data flowing into the core.
-   "egy rendszer, egy memória, minden összhangban".
+/* The full system as a unified hub: one shared-memory core powering seven
+   function modules. The primary flow runs OUTWARD — the shared memory drives
+   every function with full context — with a subtler return flow inward, since
+   each interaction also updates the memory. "egy rendszer, egy memória,
+   minden összhangban".
    Desktop: full hub with labels. Mobile: same hub, compact (icons only) +
    a named icon-grid legend below it. */
 
@@ -63,13 +65,20 @@ function Hub({ compact = false }: { compact?: boolean }) {
       <circle cx={CX} cy={CY} r={R} fill="none" stroke="var(--line)" strokeWidth="1" strokeDasharray="2 8" />
       <circle cx={CX} cy={CY} r={R - 64} fill="none" stroke="var(--line)" strokeWidth="1" strokeOpacity="0.6" />
 
-      {/* spokes + conversation-data flowing into the core */}
+      {/* spokes — primary flow OUT from the shared memory to each function,
+          with a subtler return flow back in */}
       {HUB.map((n, i) => (
         <g key={`sp${i}`}>
           <line x1={CX} y1={CY} x2={n.x} y2={n.y} stroke={n.c} strokeWidth="1.5" strokeOpacity="0.38" />
-          <circle r="2.6" fill={n.c}>
-            <animateMotion dur="2.8s" begin={`${i * 0.34}s`} repeatCount="indefinite" path={`M${n.x},${n.y} L${CX},${CY}`} />
+          {/* memory → function: shared context drives every function */}
+          <circle r="2.8" fill={n.c}>
+            <animateMotion dur="2.8s" begin={`${i * 0.34}s`} repeatCount="indefinite" path={`M${CX},${CY} L${n.x},${n.y}`} />
             <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.8;1" dur="2.8s" begin={`${i * 0.34}s`} repeatCount="indefinite" />
+          </circle>
+          {/* function → memory: each interaction updates the memory */}
+          <circle r="1.9" fill={n.c} fillOpacity="0.55">
+            <animateMotion dur="2.8s" begin={`${i * 0.34 + 1.4}s`} repeatCount="indefinite" path={`M${n.x},${n.y} L${CX},${CY}`} />
+            <animate attributeName="opacity" values="0;0.6;0.6;0" keyTimes="0;0.15;0.8;1" dur="2.8s" begin={`${i * 0.34 + 1.4}s`} repeatCount="indefinite" />
           </circle>
         </g>
       ))}
