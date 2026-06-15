@@ -1651,63 +1651,101 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .lad { padding: 96px 0; }
 .lad__grid {
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
-  margin-top: 48px; align-items: start;
+  margin-top: 52px; align-items: stretch;
 }
 .lad__card {
+  position: relative;
   display: flex; flex-direction: column;
-  padding: 26px 24px 24px;
-  border: 1px solid var(--line); border-radius: 16px;
-  background: var(--bone);
-  transition: transform 160ms var(--ease), box-shadow 160ms var(--ease);
+  padding: 26px 24px 26px;
+  border: 1px solid color-mix(in srgb, var(--acc) 26%, var(--line));
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--acc) 4%, var(--bone));
+  transition: transform 160ms var(--ease), box-shadow 160ms var(--ease), border-color 160ms var(--ease);
 }
-.lad__card:hover { transform: translateY(-2px); box-shadow: 0 14px 32px -22px rgba(1,14,30,0.28); }
+.lad__card:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--acc) 50%, var(--line));
+  box-shadow: 0 16px 34px -22px color-mix(in srgb, var(--acc) 65%, transparent);
+}
 .lad__card--focus {
-  border-color: var(--signal);
-  box-shadow: 0 1px 2px rgba(1,14,30,0.04), 0 16px 36px -24px rgba(109,188,97,0.55);
+  border-width: 2px; border-color: var(--acc);
+  background: color-mix(in srgb, var(--acc) 7%, var(--bone));
+  box-shadow: 0 1px 2px rgba(1,14,30,0.04), 0 20px 40px -24px color-mix(in srgb, var(--acc) 70%, transparent);
 }
-.lad__card--focus:hover { box-shadow: 0 18px 40px -22px rgba(109,188,97,0.6); }
-/* the single Signal-green moment on this surface */
-.lad__badge {
-  align-self: flex-start; margin-bottom: 14px;
-  padding: 4px 11px; border-radius: 999px;
+.lad__ribbon {
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  padding: 5px 14px; border-radius: 999px; white-space: nowrap;
+  background: var(--acc); color: #fff;
   font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
-  color: #3d8f34; background: rgba(109,188,97,0.12); border: 1px solid rgba(109,188,97,0.42);
+  box-shadow: 0 6px 16px -6px color-mix(in srgb, var(--acc) 70%, transparent);
 }
+.lad__ico {
+  width: 42px; height: 42px; border-radius: 12px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
+  background: color-mix(in srgb, var(--acc) 13%, var(--bone));
+  border: 1px solid color-mix(in srgb, var(--acc) 32%, transparent);
+  color: var(--acc);
+}
+.lad__ico svg { width: 21px; height: 21px; }
 .lad__rung {
-  display: block; margin-bottom: 14px;
+  display: block; margin-bottom: 8px;
   font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--stone);
+  color: var(--acc);
 }
+.lad__card--focus .lad__name { margin-top: 0; }
 .lad__name {
   font-family: var(--font-display); font-weight: 500; font-size: 21px;
   letter-spacing: -0.02em; color: var(--ink);
 }
 .lad__for {
-  margin-top: 8px; min-height: 60px;
+  margin-top: 8px; min-height: 58px;
   font-family: var(--font-body); font-size: 13.5px; line-height: 1.5; color: var(--ink-70);
 }
 .lad__price {
-  margin: 14px 0; padding-top: 14px;
-  border-top: 1px solid var(--line);
-  font-family: var(--font-display); font-weight: 500; font-size: 15px; color: var(--ink);
+  margin: 14px 0 16px; padding-top: 14px;
+  border-top: 1px solid color-mix(in srgb, var(--acc) 18%, var(--line));
+  font-family: var(--font-display); font-weight: 500; font-size: 16px; color: var(--ink);
 }
-.lad__list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 2px; }
+.lad__list { list-style: none; display: flex; flex-direction: column; gap: 10px; flex: 1; }
 .lad__list li {
-  position: relative; padding-left: 18px;
+  position: relative; padding-left: 24px;
   font-family: var(--font-body); font-size: 13px; line-height: 1.5; color: var(--ink-90);
 }
 .lad__list li::before {
-  content: ""; position: absolute; left: 2px; top: 8px;
-  width: 5px; height: 5px; border-radius: 50%; background: var(--stone);
+  content: ""; position: absolute; left: 0; top: 1px; width: 16px; height: 16px; border-radius: 50%;
+  background: color-mix(in srgb, var(--acc) 16%, transparent);
+  border: 1px solid color-mix(in srgb, var(--acc) 50%, transparent);
 }
-.lad__foot {
-  margin-top: 40px; display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center;
+.lad__list li::after {
+  content: ""; position: absolute; left: 4.5px; top: 6px; width: 6px; height: 3.5px;
+  border-left: 1.7px solid var(--acc); border-bottom: 1.7px solid var(--acc);
+  transform: rotate(-45deg);
 }
+.lad__cta {
+  display: block; margin-top: 22px; text-align: center;
+  padding: 11px 14px; border-radius: 10px;
+  border: 1px solid var(--acc); color: var(--acc);
+  font-family: var(--font-display); font-weight: 500; font-size: 14px;
+  transition: background 150ms var(--ease), transform 150ms var(--ease);
+}
+.lad__cta:hover { background: color-mix(in srgb, var(--acc) 10%, transparent); }
+.lad__card--focus .lad__cta {
+  background: var(--acc); color: #fff; border-color: var(--acc);
+  box-shadow: 0 8px 18px -8px color-mix(in srgb, var(--acc) 75%, transparent);
+}
+.lad__card--focus .lad__cta:hover { filter: brightness(1.05); background: var(--acc); }
 .lad__note {
-  font-family: var(--font-body); font-size: 13px; line-height: 1.5; color: var(--stone); max-width: 520px;
+  margin: 30px auto 0; text-align: center; max-width: 520px;
+  font-family: var(--font-body); font-size: 13px; line-height: 1.5; color: var(--stone);
 }
-@media (max-width: 980px) { .lad__grid { grid-template-columns: 1fr 1fr; } .lad__for { min-height: 0; } }
-@media (max-width: 560px) { .lad { padding: 64px 0; } .lad__grid { grid-template-columns: 1fr; gap: 14px; } }
+@media (max-width: 980px) {
+  .lad__grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .lad__for { min-height: 0; }
+}
+@media (max-width: 560px) {
+  .lad { padding: 64px 0; }
+  .lad__grid { grid-template-columns: 1fr; gap: 16px; }
+}
 
 /* =========================================================
    PACKAGES + COVERAGE
