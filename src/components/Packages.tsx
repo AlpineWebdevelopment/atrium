@@ -78,7 +78,6 @@ export default function Packages() {
             <article
               className={"lad__card" + (r.focus ? " lad__card--focus" : "")}
               key={i}
-              style={{ ["--acc" as string]: r.acc } as React.CSSProperties}
             >
               {r.focus && <span className="lad__ribbon">{r.rung}</span>}
               <span className="lad__ico">

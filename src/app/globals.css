@@ -1657,42 +1657,46 @@ html.dark { --viz-purple-soft: #1d1b33; }
   position: relative;
   display: flex; flex-direction: column;
   padding: 26px 24px 26px;
-  border: 1px solid color-mix(in srgb, var(--acc) 26%, var(--line));
+  border: 1px solid var(--line);
   border-radius: 16px;
-  background: color-mix(in srgb, var(--acc) 4%, var(--bone));
+  background: var(--bone);
   transition: transform 160ms var(--ease), box-shadow 160ms var(--ease), border-color 160ms var(--ease);
 }
 .lad__card:hover {
   transform: translateY(-3px);
-  border-color: color-mix(in srgb, var(--acc) 50%, var(--line));
-  box-shadow: 0 16px 34px -22px color-mix(in srgb, var(--acc) 65%, transparent);
+  border-color: var(--line-2);
+  box-shadow: 0 16px 34px -24px rgba(1,14,30,0.3);
 }
+/* the one accented (Signal) card — the focus */
 .lad__card--focus {
-  border-width: 2px; border-color: var(--acc);
-  background: color-mix(in srgb, var(--acc) 7%, var(--bone));
-  box-shadow: 0 1px 2px rgba(1,14,30,0.04), 0 20px 40px -24px color-mix(in srgb, var(--acc) 70%, transparent);
+  border-width: 2px; border-color: var(--signal);
+  background: color-mix(in srgb, var(--signal) 6%, var(--bone));
+  box-shadow: 0 1px 2px rgba(1,14,30,0.04), 0 20px 42px -24px rgba(109,188,97,0.55);
 }
+.lad__card--focus:hover { box-shadow: 0 22px 44px -22px rgba(109,188,97,0.6); }
 .lad__ribbon {
   position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
   padding: 5px 14px; border-radius: 999px; white-space: nowrap;
-  background: var(--acc); color: #fff;
+  background: var(--signal); color: #fff;
   font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
-  box-shadow: 0 6px 16px -6px color-mix(in srgb, var(--acc) 70%, transparent);
+  box-shadow: 0 6px 16px -6px rgba(109,188,97,0.6);
 }
 .lad__ico {
   width: 42px; height: 42px; border-radius: 12px; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
-  background: color-mix(in srgb, var(--acc) 13%, var(--bone));
-  border: 1px solid color-mix(in srgb, var(--acc) 32%, transparent);
-  color: var(--acc);
+  background: var(--panel); border: 1px solid var(--line); color: var(--ink);
 }
 .lad__ico svg { width: 21px; height: 21px; }
+.lad__card--focus .lad__ico {
+  background: color-mix(in srgb, var(--signal) 13%, var(--bone));
+  border-color: color-mix(in srgb, var(--signal) 34%, transparent);
+  color: #3d8f34;
+}
 .lad__rung {
   display: block; margin-bottom: 8px;
   font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--acc);
+  color: var(--stone);
 }
-.lad__card--focus .lad__name { margin-top: 0; }
 .lad__name {
   font-family: var(--font-display); font-weight: 500; font-size: 21px;
   letter-spacing: -0.02em; color: var(--ink);
@@ -1703,9 +1707,10 @@ html.dark { --viz-purple-soft: #1d1b33; }
 }
 .lad__price {
   margin: 14px 0 16px; padding-top: 14px;
-  border-top: 1px solid color-mix(in srgb, var(--acc) 18%, var(--line));
+  border-top: 1px solid var(--line);
   font-family: var(--font-display); font-weight: 500; font-size: 16px; color: var(--ink);
 }
+.lad__card--focus .lad__price { border-top-color: color-mix(in srgb, var(--signal) 30%, var(--line)); }
 .lad__list { list-style: none; display: flex; flex-direction: column; gap: 10px; flex: 1; }
 .lad__list li {
   position: relative; padding-left: 24px;
@@ -1713,27 +1718,31 @@ html.dark { --viz-purple-soft: #1d1b33; }
 }
 .lad__list li::before {
   content: ""; position: absolute; left: 0; top: 1px; width: 16px; height: 16px; border-radius: 50%;
-  background: color-mix(in srgb, var(--acc) 16%, transparent);
-  border: 1px solid color-mix(in srgb, var(--acc) 50%, transparent);
+  background: var(--panel); border: 1px solid var(--line);
 }
 .lad__list li::after {
   content: ""; position: absolute; left: 4.5px; top: 6px; width: 6px; height: 3.5px;
-  border-left: 1.7px solid var(--acc); border-bottom: 1.7px solid var(--acc);
+  border-left: 1.7px solid var(--stone); border-bottom: 1.7px solid var(--stone);
   transform: rotate(-45deg);
 }
+.lad__card--focus .lad__list li::before {
+  background: color-mix(in srgb, var(--signal) 14%, transparent);
+  border-color: color-mix(in srgb, var(--signal) 45%, transparent);
+}
+.lad__card--focus .lad__list li::after { border-color: #3d8f34; }
 .lad__cta {
   display: block; margin-top: 22px; text-align: center;
   padding: 11px 14px; border-radius: 10px;
-  border: 1px solid var(--acc); color: var(--acc);
+  border: 1px solid var(--line); color: var(--ink);
   font-family: var(--font-display); font-weight: 500; font-size: 14px;
-  transition: background 150ms var(--ease), transform 150ms var(--ease);
+  transition: background 150ms var(--ease), border-color 150ms var(--ease);
 }
-.lad__cta:hover { background: color-mix(in srgb, var(--acc) 10%, transparent); }
+.lad__cta:hover { background: var(--panel); border-color: var(--line-2); }
 .lad__card--focus .lad__cta {
-  background: var(--acc); color: #fff; border-color: var(--acc);
-  box-shadow: 0 8px 18px -8px color-mix(in srgb, var(--acc) 75%, transparent);
+  background: var(--signal); color: #fff; border-color: var(--signal);
+  box-shadow: 0 8px 18px -8px rgba(109,188,97,0.7);
 }
-.lad__card--focus .lad__cta:hover { filter: brightness(1.05); background: var(--acc); }
+.lad__card--focus .lad__cta:hover { filter: brightness(1.04); background: var(--signal); }
 .lad__note {
   margin: 30px auto 0; text-align: center; max-width: 520px;
   font-family: var(--font-body); font-size: 13px; line-height: 1.5; color: var(--stone);
