@@ -805,7 +805,9 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
 .footer__grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 48px; }
 .footer__brand { font-family: var(--font-display); font-weight: 600; font-size: 22px; letter-spacing: -0.02em; display: inline-flex; align-items: baseline; }
 .footer__brand .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--signal); margin-left: 2px; display: inline-block; }
-.footer__sub { font-family: var(--font-body); font-size: 13px; color: var(--stone); margin-top: 10px; max-width: 240px; line-height: 1.5; }
+.footer__sub { font-family: var(--font-body); font-size: 13px; color: var(--stone); margin-top: 10px; max-width: 260px; line-height: 1.5; }
+.footer__badges { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.05em; color: var(--signal); margin-top: 14px; }
+.footer__cta { margin-top: 20px; }
 .footer h4 { font-family: var(--font-mono); font-weight: 400; font-size: 10px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--stone); margin-bottom: 16px; }
 .footer ul { list-style: none; }
 .footer li { padding: 5px 0; }

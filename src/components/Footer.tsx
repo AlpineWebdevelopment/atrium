@@ -8,27 +8,30 @@ export default function Footer() {
               Atrium<span className="dot" aria-hidden="true" />
             </span>
             <p className="footer__sub">
-              Értékesítési rendszerek, operátori szemmel. atriumscaling.com
+              Magyar nyelvű, AI-alapú értékesítési rendszer — minden hívás
+              fogadva, minden időpont a naptárban.
             </p>
+            <p className="footer__badges">Magyar nyelvű · EU hosting · GDPR-konform</p>
+            <a href="#kapcsolat" className="btn footer__cta">Foglaljon időpontot</a>
           </div>
 
           <div>
             <h4>A rendszer</h4>
             <ul>
-              <li><a href="#komponensek">Hét komponens</a></li>
-              <li><a href="#illeszkedik">Hogyan illeszkedik</a></li>
-              <li><a href="#komponensek">Havi jelentés</a></li>
-              <li><a href="#gyik">GYIK</a></li>
+              <li><a href="#rendszer-teljes">A teljes rendszer</a></li>
+              <li><a href="#crm">AI kvalifikáló CRM</a></li>
+              <li><a href="#egyedi">Egyedi rendszerek</a></li>
+              <li><a href="#indulas">Hogyan indulunk</a></li>
             </ul>
           </div>
 
           <div>
-            <h4>Csomagok</h4>
+            <h4>Információ</h4>
             <ul>
-              <li><a href="#csomagok">Atrium Pilot</a></li>
-              <li><a href="#csomagok">Teljes Rendszer</a></li>
-              <li><a href="#csomagok">Atrium Modular</a></li>
-              <li><a href="#kapcsolat">Egyedi munka</a></li>
+              <li><a href="#gyik">GYIK</a></li>
+              <li><a href="#kapcsolat">Kapcsolat</a></li>
+              <li><a href="#">Adatkezelés</a></li>
+              <li><a href="#">ÁSZF</a></li>
             </ul>
           </div>
 
@@ -36,9 +39,8 @@ export default function Footer() {
             <h4>Kapcsolat</h4>
             <ul>
               <li><a href="mailto:hello@atriumscaling.com">hello@atriumscaling.com</a></li>
-              <li><a href="#">+36 30 ___ ____</a></li>
+              <li><a href="#kapcsolat">Időpontfoglalás</a></li>
               <li><a href="#">LinkedIn</a></li>
-              <li><a href="#">Adatkezelés</a></li>
             </ul>
           </div>
         </div>
