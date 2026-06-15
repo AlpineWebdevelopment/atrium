@@ -151,14 +151,27 @@ export default function FullSystem() {
             érdeklődőt a hívástól a foglaláson át a visszatérő ügyfélig — a
             háttérben, az Ön meglévő naptárához és eszközeihez kötve.
           </p>
+          <p className="sys__howline">
+            <span className="newtag">új · C</span>
+            Hogyan működik? AI-ügynökök kezelik a hang- és szöveges
+            beszélgetést, természetes magyar nyelven — a csapatának semmit nem
+            kell lecserélnie.
+          </p>
         </div>
 
         <div className="sysframe reveal" data-delay="1">
           <div className="sysframe__bar">
-            <span className="sysframe__label">
-              <span className="sysframe__dot" aria-hidden="true" />
-              Az Atrium rendszer · egységes memória
-            </span>
+            <div className="sysframe__bar-top">
+              <span className="sysframe__label">
+                <span className="sysframe__dot" aria-hidden="true" />
+                Az Atrium rendszer · egységes memória
+              </span>
+              <span className="sysframe__live">
+                <span className="newtag">új · A</span>
+                <span className="sysframe__live-dot" aria-hidden="true" />
+                412 hívás fogadva · 0 kihagyva
+              </span>
+            </div>
             <div className="sysframe__channels">
               {CHANNELS.map((c) => (
                 <span className="sysframe__chan" key={c}>{c}</span>
@@ -207,6 +220,10 @@ export default function FullSystem() {
             <span className="jrn__result-s">és minden lépés mérve — riportálás</span>
           </div>
         </div>
+          <div className="sysframe__integ">
+            <span className="newtag">új · B</span>
+            Csatlakozik a meglévő eszközeihez: <b>Google Calendar</b> · <b>Microsoft 365</b> · <b>iCal</b> · <b>GoHighLevel</b>
+          </div>
         </div>
 
         <div className="sys__points reveal" data-delay="2">
