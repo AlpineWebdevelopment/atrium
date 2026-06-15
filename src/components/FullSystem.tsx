@@ -1,28 +1,31 @@
 /* The system told as ONE lead's journey: a single contact travels through the
    functions and comes out as revenue. Desktop: horizontal timeline. Mobile: the
    same steps as a vertical timeline. Riportálás folds into the result node
-   ("minden lépés mérve"), so all seven functions are represented. */
+   ("minden lépés mérve"), so every function is represented. */
 
-const ICONS: Record<number, React.ReactNode> = {
-  0: <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />,
-  1: <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />,
-  2: <g><rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" /></g>,
-  3: <g><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" /><path d="M16 8 22 2M22 8V2h-6" /></g>,
-  4: <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26" />,
-  5: <g><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></g>,
+const ICONS: Record<string, React.ReactNode> = {
+  phone: <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />,
+  chat: <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />,
+  qualify: <g><rect x="5" y="4" width="14" height="18" rx="2" /><path d="M9 4V2.5h6V4" /><path d="M8.5 13l2 2 4-4.5" /></g>,
+  calendar: <g><rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" /></g>,
+  confirm: <g><circle cx="12" cy="12" r="9" /><path d="M8 12l3 3 5-6" /></g>,
+  bell: <g><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9" /><path d="M13.7 21a2 2 0 0 1-3.4 0" /></g>,
+  callback: <g><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" /><path d="M16 8 22 2M22 8V2h-6" /></g>,
+  star: <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26" />,
+  refresh: <g><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></g>,
+  result: <g><polyline points="3 17 9 11 13 15 21 7" /><polyline points="15 7 21 7 21 13" /></g>,
 };
 
-const RESULT_ICON = (
-  <g><polyline points="3 17 9 11 13 15 21 7" /><polyline points="15 7 21 7 21 13" /></g>
-);
-
 const JOURNEY = [
-  { ic: 0, c: "#7C5CFF", time: "azonnal", t: "Hívásfogadás", s: "minden hívást felvesz, éjjel is" },
-  { ic: 1, c: "#9B7BFF", time: "2 perc", t: "Lead-utánkövetés", s: "pár percen belül válaszol" },
-  { ic: 2, c: "#4AA3FF", time: "aznap", t: "Időpontfoglalás", s: "egyenesen a naptárba" },
-  { ic: 3, c: "#54CFC0", time: "ha nem jön", t: "No-show visszahívás", s: "visszaszerzi az elmaradtat" },
-  { ic: 4, c: "#34C759", time: "utána", t: "Értékelés", s: "elégedett ügyféltől kéri" },
-  { ic: 5, c: "#E8A33D", time: "30–90 nap", t: "Reaktiválás", s: "később visszahozza a régit" },
+  { ic: "phone", c: "#7C5CFF", time: "azonnal", t: "Hívásfogadás", s: "minden hívást felvesz, éjjel is" },
+  { ic: "chat", c: "#9B7BFF", time: "2 perc", t: "Utánkövetés", s: "a webes érdeklődőt is visszahívja" },
+  { ic: "qualify", c: "#6D8BFF", time: "pár kérdés", t: "Kvalifikáció", s: "felteszi a fontos kérdéseket, minősít" },
+  { ic: "calendar", c: "#4AA3FF", time: "aznap", t: "Időpontfoglalás", s: "egyenesen a naptárba, ütközés nélkül" },
+  { ic: "confirm", c: "#45B5D6", time: "rögtön", t: "Visszaigazolás", s: "visszaigazolja a foglalást" },
+  { ic: "bell", c: "#54CFC0", time: "előtte", t: "Emlékeztető", s: "emlékeztet, hogy ne maradjon el" },
+  { ic: "callback", c: "#46C79A", time: "ha mégis", t: "No-show visszahívás", s: "visszaszerzi az elmaradt időpontot" },
+  { ic: "star", c: "#34C759", time: "utána", t: "Értékelés", s: "elégedett ügyféltől értékelést kér" },
+  { ic: "refresh", c: "#E8A33D", time: "30–90 nap", t: "Reaktiválás", s: "később visszahozza a régit" },
 ];
 
 const POINTS = [
@@ -32,17 +35,18 @@ const POINTS = [
   { t: "Kiszámítható, 24/7", d: "Emberi kiesés nélkül, egy csapat költségének töredékéért." },
 ];
 
-function StepNode({ ic, result = false }: { ic?: number; result?: boolean }) {
+function StepNode({ icon, result = false }: { icon: React.ReactNode; result?: boolean }) {
   return (
     <span className={`jrn__node${result ? " jrn__node--result" : ""}`}>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        {result ? RESULT_ICON : ICONS[ic as number]}
+        {icon}
       </svg>
     </span>
   );
 }
 
 export default function FullSystem() {
+  const total = JOURNEY.length + 1;
   return (
     <section className="sys" id="rendszer-teljes">
       <div className="wrap">
@@ -51,20 +55,20 @@ export default function FullSystem() {
           <h2 className="dash__h">Egy érdeklődő útja, az első hívástól a bevételig.</h2>
           <p className="dash__p">
             Nem különálló eszközök, és nem alapszintű automatizálás. Egy
-            összehangolt, AI-alapú értékesítési rendszer: hét funkció egyetlen
+            összehangolt, AI-alapú értékesítési rendszer: minden funkció egyetlen
             közös memóriával végigkíséri az érdeklődőt — magyarul, a háttérben,
             az Ön meglévő naptárához és eszközeihez kötve.
           </p>
         </div>
 
         <div className="dash__card reveal" data-delay="1">
-          <div className="jrn">
+          <div className="jrn" style={{ ["--n" as string]: total } as React.CSSProperties}>
             <span className="jrn__line" aria-hidden="true" />
             <span className="jrn__pulse" aria-hidden="true" />
             <ol className="jrn__steps">
               {JOURNEY.map((st, i) => (
                 <li className="jrn__step" key={i} style={{ ["--c" as string]: st.c } as React.CSSProperties}>
-                  <StepNode ic={st.ic} />
+                  <StepNode icon={ICONS[st.ic]} />
                   <div className="jrn__txt">
                     <span className="jrn__time">{st.time}</span>
                     <b className="jrn__title">{st.t}</b>
@@ -73,7 +77,7 @@ export default function FullSystem() {
                 </li>
               ))}
               <li className="jrn__step jrn__step--result" style={{ ["--c" as string]: "#34C759" } as React.CSSProperties}>
-                <StepNode result />
+                <StepNode icon={ICONS.result} result />
                 <div className="jrn__txt">
                   <span className="jrn__time">eredmény</span>
                   <b className="jrn__title">Több foglalás, több bevétel</b>

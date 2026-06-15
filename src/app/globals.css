@@ -998,52 +998,52 @@ html.dark { --viz-purple-soft: #1d1b33; }
   background: transparent;
 }
 /* ONE lead's journey — horizontal timeline (desktop), vertical (mobile) */
-.jrn { position: relative; margin: 12px 0 6px; }
+.jrn { position: relative; margin: 12px 0 6px; --n: 7; }
 .jrn__steps {
-  list-style: none; display: grid; grid-template-columns: repeat(7, 1fr);
-  gap: 6px; position: relative; z-index: 1;
+  list-style: none; display: grid; grid-template-columns: repeat(var(--n), 1fr);
+  gap: 4px; position: relative; z-index: 1;
 }
 .jrn__step { display: flex; flex-direction: column; align-items: center; text-align: center; }
 .jrn__node {
-  width: 50px; height: 50px; border-radius: 50%; flex-shrink: 0;
+  width: 46px; height: 46px; border-radius: 50%; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
   background: var(--bone); border: 2px solid var(--c); color: var(--c);
   position: relative; z-index: 1;
 }
-.jrn__node svg { width: 22px; height: 22px; }
+.jrn__node svg { width: 21px; height: 21px; }
 .jrn__node--result { background: var(--c); border-color: var(--c); color: #fff; }
-.jrn__txt { margin-top: 12px; }
+.jrn__txt { margin-top: 11px; }
 .jrn__time {
   display: block;
-  font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.05em;
+  font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.04em;
   text-transform: uppercase; color: var(--c);
 }
 .jrn__title {
   display: block; margin-top: 5px;
-  font-family: var(--font-display); font-weight: 500; font-size: 13.5px;
+  font-family: var(--font-display); font-weight: 500; font-size: 12.5px;
   letter-spacing: -0.01em; line-height: 1.2; color: var(--ink);
 }
 .jrn__sub {
   display: block; margin-top: 5px;
-  font-family: var(--font-mono); font-size: 9.5px; line-height: 1.45; color: var(--stone);
+  font-family: var(--font-mono); font-size: 9px; line-height: 1.4; color: var(--stone);
 }
 /* connecting line through the node centres + the travelling lead */
 .jrn__line {
-  position: absolute; height: 2px; top: 25px;
-  left: calc(100% / 14); right: calc(100% / 14);
+  position: absolute; height: 2px; top: 23px;
+  left: calc(100% / (var(--n) * 2)); right: calc(100% / (var(--n) * 2));
   background: var(--line); z-index: 0;
 }
 .jrn__pulse {
-  position: absolute; top: 21px; width: 9px; height: 9px; border-radius: 50%;
+  position: absolute; top: 19px; width: 9px; height: 9px; border-radius: 50%;
   background: var(--signal); box-shadow: 0 0 0 4px rgba(109,188,97,0.18);
-  z-index: 2; left: calc(100% / 14);
-  animation: jrnTravel 7s cubic-bezier(0.65,0,0.35,1) infinite;
+  z-index: 2; left: calc(100% / (var(--n) * 2));
+  animation: jrnTravel 8s cubic-bezier(0.65,0,0.35,1) infinite;
 }
 @keyframes jrnTravel {
-  0%   { left: calc(100% / 14); opacity: 0; }
+  0%   { left: calc(100% / (var(--n) * 2)); opacity: 0; }
   6%   { opacity: 1; }
   92%  { opacity: 1; }
-  100% { left: calc(100% - 100% / 14); opacity: 0; }
+  100% { left: calc(100% - 100% / (var(--n) * 2)); opacity: 0; }
 }
 @media (max-width: 760px) {
   .jrn__line, .jrn__pulse { display: none; }
@@ -1054,7 +1054,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
   }
   .jrn__step:last-child { padding-bottom: 0; }
   .jrn__step:not(:last-child)::after {
-    content: ""; position: absolute; left: 24px; top: 52px; bottom: -2px; width: 2px;
+    content: ""; position: absolute; left: 22px; top: 48px; bottom: -2px; width: 2px;
     background: var(--line); z-index: 0;
   }
   .jrn__txt { margin-top: 4px; }
