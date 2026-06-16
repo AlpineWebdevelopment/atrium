@@ -50,22 +50,16 @@ export default function Hero() {
               <span className="canvas__dot" /><span className="canvas__dot" /><span className="canvas__dot" />
               <span className="canvas__bar-label">atrium · élő rendszer</span>
             </div>
-            <div className="canvas__stage canvas__stage--leak">
-              <div className="hlk">
-                <span className="hlk__k">Bevételszivárgás · befogva</span>
-                {PAINS.map((p, i) => {
-                  const done = i <= idx;
-                  const active = i === idx;
-                  return (
-                    <div className={"hlk__row" + (done ? " hlk__row--done" : "") + (active ? " hlk__row--active" : "")} key={i}>
-                      <span className="hlk__check">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12l5 5L20 6" /></svg>
-                      </span>
-                      <span className="hlk__txt">{p.item}</span>
-                      <span className="hlk__tag">{done ? "befogva" : "szivárog"}</span>
-                    </div>
-                  );
-                })}
+            <div className="canvas__stage canvas__stage--cyc">
+              <div className="hcyc">
+                <span className="hcyc__k">Bevételszivárgás · élőben</span>
+                <div className="hcyc__stage">
+                  <span className="hcyc__txt" key={idx}>{PAINS[idx].item}</span>
+                </div>
+                <span className="hcyc__tag">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12l5 5L20 6" /></svg>
+                  befogva
+                </span>
               </div>
             </div>
           </div>
