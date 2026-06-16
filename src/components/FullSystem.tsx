@@ -19,7 +19,13 @@ const ICONS: Record<string, React.ReactNode> = {
   mic: <g><rect x="9" y="2" width="6" height="12" rx="3" /><path d="M5 10a7 7 0 0 0 14 0M12 19v3" /></g>,
   db: <g><ellipse cx="12" cy="5" rx="8" ry="3" /><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5" /><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" /></g>,
   bars: <path d="M12 20V10M18 20V4M6 20v-6" />,
+  handoff: <g><path d="M14 3h7v7" /><path d="M21 3l-8 8" /><circle cx="7" cy="9" r="3" /><path d="M2 21v-1a5 5 0 0 1 5-5h1a5 5 0 0 1 4 2" /></g>,
+  reschedule: <g><rect x="3" y="4" width="18" height="17" rx="2" /><path d="M3 9h18M8 2v4M16 2v4" /><path d="M15 13.5l2.5 2.5L15 18.5" /><path d="M17.5 16H12a2 2 0 0 1-2-2" /></g>,
+  users: <g><circle cx="9" cy="8" r="3.2" /><path d="M2.5 20v-1a5 5 0 0 1 5-5h3a5 5 0 0 1 5 5v1" /><circle cx="17.5" cy="9" r="2.4" /><path d="M21.5 20v-.5a4 4 0 0 0-3-3.6" /></g>,
 };
+
+/* steps recommended as additions — flagged for review */
+const NEW_STEPS = new Set(["Élő átadás", "Átütemezés", "Ajánláskérés"]);
 
 /* recommended system services — labelled for review */
 const CAPS = [
@@ -122,6 +128,7 @@ const PHASES = [
       { ic: "phone", t: "Hívásfogadás", s: "minden hívást felvesz, éjjel és hétvégén is" },
       { ic: "chat", t: "Utánkövetés", s: "a webes érdeklődőt is percek alatt visszahívja" },
       { ic: "qualify", t: "Kvalifikáció", s: "felteszi a fontos kérdéseket, és minősíti az érdeklődőt" },
+      { ic: "handoff", t: "Élő átadás", s: "ha emberi segítség kell, a megfelelő kollégához kapcsol" },
     ],
   },
   {
@@ -130,6 +137,7 @@ const PHASES = [
       { ic: "calendar", t: "Időpontfoglalás", s: "egyenesen a naptárba, ütközés nélkül" },
       { ic: "confirm", t: "Visszaigazolás", s: "azonnal visszaigazolja a foglalást" },
       { ic: "bell", t: "Emlékeztető", s: "emlékeztet, hogy ne maradjon el a látogatás" },
+      { ic: "reschedule", t: "Átütemezés", s: "ha változik a terv, átteszi vagy lemondja az időpontot" },
     ],
   },
   {
@@ -138,6 +146,7 @@ const PHASES = [
       { ic: "callback", t: "No-show visszahívás", s: "visszaszerzi az elmaradt időpontot" },
       { ic: "star", t: "Értékelés", s: "elégedett ügyféltől értékelést kér" },
       { ic: "refresh", t: "Reaktiválás", s: "hónapokkal később visszahozza a régit" },
+      { ic: "users", t: "Ajánláskérés", s: "az elégedett ügyféltől ajánlást is kér — új ügyfél a meglévőből" },
     ],
   },
 ];
@@ -211,7 +220,7 @@ export default function FullSystem() {
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">{ICONS[st.ic]}</svg>
                       </span>
                       <span className="tsr__step-txt">
-                        <b>{st.t}</b>
+                        <b>{NEW_STEPS.has(st.t) && <span className="newtag">új</span>} {st.t}</b>
                         <span>{st.s}</span>
                       </span>
                     </li>
