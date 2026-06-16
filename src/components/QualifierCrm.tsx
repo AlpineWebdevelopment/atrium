@@ -164,10 +164,6 @@ export default function QualifierCrm() {
             </article>
           ))}
         </div>
-
-        <div className="sec-cta reveal">
-          <a href="#kapcsolat" className="btn btn--lg">Foglaljon időpontot</a>
-        </div>
       </div>
     </section>
   );

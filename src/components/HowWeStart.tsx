@@ -52,9 +52,6 @@ export default function HowWeStart() {
           ))}
         </div>
 
-        <div className="how__cta reveal" data-delay="3">
-          <button className="btn btn--lg">Foglaljon időpontot</button>
-        </div>
       </div>
     </section>
   );

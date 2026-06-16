@@ -77,11 +77,6 @@ export default function Faq() {
             );
           })}
         </div>
-
-        <div className="sec-cta reveal">
-          <p className="faq__more">Nem találja a kérdését?</p>
-          <a href="#kapcsolat" className="btn btn--lg">Foglaljon időpontot</a>
-        </div>
       </div>
     </section>
   );
