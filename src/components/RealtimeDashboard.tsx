@@ -266,8 +266,7 @@ export default function RealtimeDashboard() {
             működésére szabjuk, és azt a lyukat zárja be, amelyik Önnél a
             legnagyobb.
           </p>
-          <p className="newnote">
-            <span className="newtag">új</span>
+          <p className="dash__exnote">
             Az alábbi számok példák — élesben az Ön valós adataira szabva.
           </p>
         </div>

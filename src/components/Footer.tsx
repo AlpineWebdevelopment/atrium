@@ -45,12 +45,6 @@ export default function Footer() {
           </div>
         </div>
 
-        <p className="newnote">
-          <span className="newtag">új</span>
-          Megjegyzés: az Adatkezelés, ÁSZF és LinkedIn linkek még üresek (#) —
-          valódi URL-ek vagy aloldalak kellenek élesítés előtt.
-        </p>
-
         <div className="footer__bottom">
           <span>© 2026 Atrium · atriumscaling.com</span>
           <span>Adatkezelés · ÁSZF · GDPR</span>
