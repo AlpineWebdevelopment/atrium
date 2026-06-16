@@ -1,16 +1,14 @@
 "use client";
 import { useEffect, useState } from "react";
 
-/* Hero — omnifusion-style rotating pain headline ("Ne veszítse el a bevételt
-   ~az elszalasztott hívások~ miatt."), and a live graph that cycles through the
-   same revenue leaks, checking each one off (befogva). Headline + graph share
-   one index so they stay in sync. */
+/* Hero — static brand tagline on the left; on the right, a live graph that
+   cycles through the revenue leaks and checks each one off (szivárog → befogva). */
 
 const PAINS = [
-  { strike: "az elszalasztott hívások", item: "Elszalasztott hívás" },
-  { strike: "a lassú visszahívás", item: "Lassan kezelt érdeklődő" },
-  { strike: "az elmaradt időpontok", item: "Elmaradt időpont" },
-  { strike: "a rég elfeledett ügyfelek", item: "Rég elfeledett ügyfél" },
+  { item: "Elszalasztott hívás" },
+  { item: "Lassan kezelt érdeklődő" },
+  { item: "Elmaradt időpont" },
+  { item: "Rég elfeledett ügyfél" },
 ];
 
 export default function Hero() {
@@ -27,9 +25,7 @@ export default function Hero() {
           {/* Left — copy */}
           <div className="hero__content reveal reveal--instant visible">
             <h1 className="hero__title">
-              Ne veszítse el a bevételt{" "}
-              <span className="hero__rot" key={idx}>{PAINS[idx].strike}</span>{" "}
-              miatt.
+              A bevétel,<br />ami eddig elveszett.
             </h1>
             <p className="hero__sub">
               Az Atrium egy magyar nyelvű AI-alapú értékesítési rendszer
