@@ -1,33 +1,39 @@
 "use client";
 import { useEffect, useState } from "react";
 
-/* Hero — static brand tagline on the left. On the right, a live revenue-recovery
-   graph: the green line climbs as each leak is caught; the cycling callout names
-   the angle just caught and the matching point on the curve pulses. */
+/* Hero — static brand tagline on the left. On the right, a stacked-area chart:
+   recovered revenue by source over six months. The total climbs month over
+   month; the cycling highlight names each source, brightens its band and pulses
+   its latest point — so the "changing text" is built into a real data-viz. */
 
-const REASONS = [
-  "Meg nem válaszolt hívás",
-  "Lassú visszahívás",
-  "Elmaradt időpont",
-  "Kihűlt érdeklődő",
-  "Rég elfeledett ügyfél",
+const SOURCES = [
+  { t: "Hívásfogadás", c: "#7C5CFF", v: [3, 4, 5, 6, 7, 8] },
+  { t: "Lead-utánkövetés", c: "#4AA3FF", v: [2, 3, 3, 4, 5, 6] },
+  { t: "No-show visszahívás", c: "#54CFC0", v: [1, 2, 3, 3, 4, 5] },
+  { t: "Reaktiválás", c: "#E8A33D", v: [1, 1, 2, 3, 4, 4] },
+  { t: "Értékelések", c: "#34C759", v: [1, 1, 2, 2, 3, 4] },
 ];
 
-/* one point per reason, climbing left→right (520×360 viewBox) */
-const P = [
-  { x: 64, y: 250 },
-  { x: 166, y: 214 },
-  { x: 268, y: 170 },
-  { x: 370, y: 126 },
-  { x: 470, y: 88 },
-];
-const RISE = P.map((p) => `${p.x},${p.y}`).join(" ");
-const AREA = `64,262 ${RISE} 470,262`;
+const M = 6, X0 = 60, X1 = 482, YB = 250, YT = 66;
+const xAt = (m: number) => X0 + (m * (X1 - X0)) / (M - 1);
+const totals = Array.from({ length: M }, (_, m) => SOURCES.reduce((s, src) => s + src.v[m], 0));
+const MAX = Math.max(...totals);
+const yFor = (cum: number) => YB - (cum / MAX) * (YB - YT);
+
+const BANDS = SOURCES.map((src, si) => {
+  const top: string[] = [], bot: string[] = [];
+  for (let m = 0; m < M; m++) {
+    const below = SOURCES.slice(0, si).reduce((s, s2) => s + s2.v[m], 0);
+    top.push(`${xAt(m)},${yFor(below + src.v[m])}`);
+    bot.push(`${xAt(m)},${yFor(below)}`);
+  }
+  return { ...src, path: `M ${top.join(" L ")} L ${[...bot].reverse().join(" L ")} Z`, topY: yFor(SOURCES.slice(0, si + 1).reduce((s, s2) => s + s2.v[M - 1], 0)) };
+});
 
 export default function Hero() {
   const [idx, setIdx] = useState(0);
   useEffect(() => {
-    const t = setInterval(() => setIdx((i) => (i + 1) % REASONS.length), 2400);
+    const t = setInterval(() => setIdx((i) => (i + 1) % SOURCES.length), 2300);
     return () => clearInterval(t);
   }, []);
 
@@ -57,47 +63,50 @@ export default function Hero() {
             </p>
           </div>
 
-          {/* Right — revenue-recovery graph */}
+          {/* Right — recovered-revenue-by-source stacked area chart */}
           <div className="canvas reveal reveal--instant visible" aria-hidden="true">
             <div className="canvas__bar">
               <span className="canvas__dot" /><span className="canvas__dot" /><span className="canvas__dot" />
-              <span className="canvas__bar-label">atrium · visszaszerzett bevétel</span>
+              <span className="canvas__bar-label">atrium · visszaszerzett bevétel / forrás</span>
             </div>
             <div className="canvas__stage canvas__stage--rev">
               <svg className="hrev" viewBox="0 0 520 360" preserveAspectRatio="xMidYMid meet">
-                {/* gridlines + baseline */}
-                {[120, 170, 220].map((y) => (
-                  <line key={y} x1="64" y1={y} x2="478" y2={y} stroke="var(--line)" strokeWidth="1" strokeDasharray="2 7" />
+                {/* gridlines + axes */}
+                {[110, 150, 190, 230].map((y) => (
+                  <line key={y} x1={X0} y1={y} x2={X1} y2={y} stroke="var(--line)" strokeWidth="1" strokeDasharray="2 7" />
                 ))}
-                <line x1="64" y1="262" x2="478" y2="262" stroke="var(--line)" strokeWidth="1" />
+                <line x1={X0} y1={YB} x2={X1} y2={YB} stroke="var(--line)" strokeWidth="1" />
 
-                {/* recovered area + the two lines */}
-                <polygon points={AREA} fill="rgba(52,199,89,0.13)" />
-                <polyline points="64,252 478,246" fill="none" stroke="var(--ink-35)" strokeWidth="1.5" strokeDasharray="5 5" />
-                <polyline className="hrev__rise" points={RISE} fill="none" stroke="#34C759" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-
-                {/* a point per leak; caught ones fill green */}
-                {P.map((p, i) => (
-                  <circle key={i} cx={p.x} cy={p.y} r={i === idx ? 6 : 4.5}
-                    fill={i <= idx ? "#34C759" : "var(--bone)"} stroke="#34C759" strokeWidth="2" />
+                {/* stacked bands — active one full, others dimmed */}
+                {BANDS.map((b, i) => (
+                  <path key={i} d={b.path} fill={b.c} fillOpacity={i === idx ? 0.9 : 0.32}
+                    stroke={i === idx ? b.c : "transparent"} strokeWidth="1.5"
+                    style={{ transition: "fill-opacity 400ms ease" }} />
                 ))}
-                {/* pulse on the active point */}
-                <circle key={`p${idx}`} cx={P[idx].x} cy={P[idx].y} r="6" fill="none" stroke="#34C759" strokeWidth="2">
-                  <animate attributeName="r" values="6;18" dur="1.8s" repeatCount="indefinite" />
-                  <animate attributeName="opacity" values="0.55;0" dur="1.8s" repeatCount="indefinite" />
+
+                {/* total line + live pulse at the latest month */}
+                <polyline points={Array.from({ length: M }, (_, m) => `${xAt(m)},${yFor(totals[m])}`).join(" ")} fill="none" stroke="var(--ink)" strokeWidth="2" />
+                <circle cx={xAt(M - 1)} cy={yFor(MAX)} r="4.5" fill="var(--ink)" />
+                <circle cx={xAt(M - 1)} cy={yFor(MAX)} r="4.5" fill="none" stroke="var(--ink)" strokeWidth="1.5">
+                  <animate attributeName="r" values="4.5;13" dur="2s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0.4;0" dur="2s" repeatCount="indefinite" />
                 </circle>
 
-                {/* labels */}
-                <text className="hrev__lbl hrev__lbl--sig" x="470" y="78" textAnchor="end">az Atriummal</text>
-                <text className="hrev__lbl" x="300" y="240" textAnchor="middle">rendszer nélkül</text>
-                <text className="hrev__ax" x="478" y="282" textAnchor="end">idő →</text>
+                {/* month axis */}
+                {Array.from({ length: M }, (_, m) => (
+                  <text key={m} className="hrev__ax" x={xAt(m)} y={YB + 18} textAnchor="middle">{m + 1}.</text>
+                ))}
+                <text className="hrev__ax" x={X1} y={YB + 34} textAnchor="end">hónap →</text>
               </svg>
 
-              <div className="hrev__call">
-                <span className="hrev__call-k">
-                  <span className="hrev__live" /> Most befogva
-                </span>
-                <b className="hrev__call-r" key={idx}>{REASONS[idx]}</b>
+              {/* legend — active source cycles */}
+              <div className="hrev__legend">
+                {SOURCES.map((s, i) => (
+                  <div className={"hrev__leg" + (i === idx ? " hrev__leg--on" : "")} key={i}>
+                    <span className="hrev__leg-dot" style={{ background: s.c }} />
+                    {s.t}
+                  </div>
+                ))}
               </div>
             </div>
           </div>

@@ -346,40 +346,28 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
 }
 .hero__actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
-/* revenue-recovery graph in the hero canvas */
+/* recovered-revenue-by-source stacked area chart in the hero canvas */
 .canvas__stage--rev { position: relative; height: 360px; overflow: hidden; }
 .hrev { position: absolute; inset: 0; width: 100%; height: 100%; }
-.hrev__rise { stroke-dasharray: 680; stroke-dashoffset: 680; animation: hrevDraw 1.7s var(--ease) 0.15s forwards; }
-@keyframes hrevDraw { to { stroke-dashoffset: 0; } }
-.hrev__lbl { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.02em; fill: var(--stone); }
-.hrev__lbl--sig { fill: #3d8f34; }
 .hrev__ax { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.04em; fill: var(--stone); }
-.hrev__call {
-  position: absolute; top: 18px; left: 18px;
-  padding: 11px 15px; border-radius: 13px;
-  background: var(--bone); border: 1px solid color-mix(in srgb, var(--signal) 38%, var(--line));
-  box-shadow: 0 14px 34px -20px rgba(1,14,30,0.28);
+.hrev__legend {
+  position: absolute; top: 16px; left: 16px;
+  display: flex; flex-direction: column; gap: 4px;
+  padding: 12px 14px; border-radius: 13px;
+  background: color-mix(in srgb, var(--bone) 86%, transparent);
+  border: 1px solid var(--line);
+  box-shadow: 0 14px 34px -22px rgba(1,14,30,0.26);
+  backdrop-filter: blur(3px);
 }
-.hrev__call-k {
-  display: inline-flex; align-items: center; gap: 7px;
-  font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.08em;
-  text-transform: uppercase; color: var(--stone);
+.hrev__leg {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--font-body); font-size: 12px; color: var(--ink-50);
+  padding: 3px 7px; border-radius: 7px;
+  transition: color 350ms var(--ease), background 350ms var(--ease);
 }
-.hrev__live {
-  width: 7px; height: 7px; border-radius: 50%; background: var(--signal);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--signal) 22%, transparent);
-  animation: atr-pulse 1.4s ease-in-out infinite;
-}
-.hrev__call-r {
-  display: block; margin-top: 5px;
-  font-family: var(--font-display); font-weight: 500; font-size: 18px;
-  letter-spacing: -0.015em; line-height: 1.15; color: #34C759;
-  animation: hrevIn 440ms var(--ease);
-}
-@keyframes hrevIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: none; }
-}
+.hrev__leg--on { color: var(--ink); font-weight: 500; background: color-mix(in srgb, var(--ink) 5%, transparent); }
+.hrev__leg-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; opacity: 0.55; transition: opacity 350ms var(--ease); }
+.hrev__leg--on .hrev__leg-dot { opacity: 1; }
 
 /* --- Hero canvas mockup (network diagram) --- */
 .canvas {
