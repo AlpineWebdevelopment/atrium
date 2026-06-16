@@ -16,7 +16,20 @@ const ICONS: Record<string, React.ReactNode> = {
   refresh: <g><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></g>,
   user: <g><circle cx="12" cy="8" r="4" /><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1" /></g>,
   result: <g><polyline points="3 17 9 11 13 15 21 7" /><polyline points="15 7 21 7 21 13" /></g>,
+  mic: <g><rect x="9" y="2" width="6" height="12" rx="3" /><path d="M5 10a7 7 0 0 0 14 0M12 19v3" /></g>,
+  db: <g><ellipse cx="12" cy="5" rx="8" ry="3" /><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5" /><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" /></g>,
+  bars: <path d="M12 20V10M18 20V4M6 20v-6" />,
 };
+
+/* recommended system services — labelled for review */
+const CAPS = [
+  { ic: "mic", t: "Hang-AI", d: "Természetes magyar beszéd — fogadja és indítja a hívásokat." },
+  { ic: "chat", t: "Szöveges AI", d: "SMS, WhatsApp, Messenger, Instagram, e-mail és webchat — egy helyen." },
+  { ic: "db", t: "Egységes memória", d: "Minden csatornán emlékszik a korábbi beszélgetésre." },
+  { ic: "qualify", t: "Kvalifikáció", d: "Felteszi a fontos kérdéseket, és pontozza az érdeklődőt." },
+  { ic: "refresh", t: "Naptár- és CRM-szinkron", d: "A meglévő eszközeihez kötve, valós időben." },
+  { ic: "bars", t: "Riport", d: "Havi kimutatás: mi működik, és hol szivárog a bevétel." },
+];
 
 function Ico({ k, x, y, s = 18 }: { k: string; x: number; y: number; s?: number }) {
   return (
@@ -223,7 +236,27 @@ export default function FullSystem() {
           </div>
         </div>
 
-        <div className="sys__points reveal" data-delay="2">
+        <div className="caps reveal" data-delay="2">
+          <div className="caps__head">
+            <span className="newtag">új</span>
+            <h3 className="caps__h">Mit tud a rendszer?</h3>
+          </div>
+          <div className="caps__grid">
+            {CAPS.map((c, i) => (
+              <div className="caps__item" key={i}>
+                <span className="caps__ico">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{ICONS[c.ic]}</svg>
+                </span>
+                <span>
+                  <b className="caps__t">{c.t}</b>
+                  <span className="caps__d">{c.d}</span>
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="sys__points reveal" data-delay="3">
           {POINTS.map((p, i) => (
             <div className="sys__point" key={i}>
               <b className="sys__point-t">{p.t}</b>

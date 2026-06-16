@@ -1069,6 +1069,46 @@ html.dark { --viz-purple-soft: #1d1b33; }
   font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.03em; color: var(--stone);
 }
 .sec-cta { text-align: center; margin-top: 44px; }
+
+/* temporary review marker (amber = recommended add) */
+.newtag {
+  display: inline-flex; align-items: center;
+  padding: 2px 7px; border-radius: 999px; vertical-align: middle;
+  background: #E8A33D; color: #fff;
+  font-family: var(--font-mono); font-size: 9px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+}
+
+/* system capabilities / services grid */
+.caps { margin-top: 44px; }
+.caps__head { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 28px; }
+.caps__h {
+  font-family: var(--font-display); font-weight: 500; font-size: clamp(21px, 2.4vw, 27px);
+  letter-spacing: -0.02em; color: var(--ink); text-align: center;
+}
+.caps__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.caps__item {
+  display: flex; gap: 14px; align-items: flex-start;
+  padding: 18px 20px; border: 1px solid var(--line); border-radius: 14px; background: var(--bone);
+  transition: border-color 160ms var(--ease), transform 160ms var(--ease);
+}
+.caps__item:hover { border-color: var(--line-2); transform: translateY(-2px); }
+.caps__ico {
+  width: 42px; height: 42px; border-radius: 11px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--panel); border: 1px solid var(--line); color: var(--ink);
+}
+.caps__ico svg { width: 21px; height: 21px; }
+.caps__t {
+  display: block;
+  font-family: var(--font-display); font-weight: 500; font-size: 16px;
+  letter-spacing: -0.01em; line-height: 1.2; color: var(--ink);
+}
+.caps__d {
+  display: block; margin-top: 4px;
+  font-family: var(--font-body); font-size: 12.5px; line-height: 1.5; color: var(--ink-70);
+}
+@media (max-width: 860px) { .caps__grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .caps__grid { grid-template-columns: 1fr; } }
 .sec-cta .faq__more { font-family: var(--font-body); font-size: 15px; color: var(--ink-70); margin-bottom: 14px; }
 .hero__trust {
   margin-top: 16px;
