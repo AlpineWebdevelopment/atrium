@@ -99,14 +99,10 @@ export default function Hero() {
                 <text className="hrev__ax" x={X1} y={YB + 34} textAnchor="end">hónap →</text>
               </svg>
 
-              {/* legend — active source cycles */}
-              <div className="hrev__legend">
-                {SOURCES.map((s, i) => (
-                  <div className={"hrev__leg" + (i === idx ? " hrev__leg--on" : "")} key={i}>
-                    <span className="hrev__leg-dot" style={{ background: s.c }} />
-                    {s.t}
-                  </div>
-                ))}
+              {/* prominent cycling callout — the changing angle, in its band colour */}
+              <div className="hrev__call">
+                <span className="hrev__call-k"><span className="hrev__live" /> Most visszaszerezve</span>
+                <b className="hrev__call-r" key={idx} style={{ color: SOURCES[idx].c }}>{SOURCES[idx].t}</b>
               </div>
             </div>
           </div>
