@@ -2,9 +2,9 @@
 import { useEffect, useState } from "react";
 
 /* Hero — static brand tagline on the left. On the right: omnifusion-style
-   headline (static line + rotating accent phrase with a blinking cursor,
-   cycling the leak angles) sitting above a compact recovered-revenue chart,
-   whose matching band brightens in sync. */
+   rotating headline (static line + blue rotating angle + cursor) above a
+   detailed recovered-revenue chart (stacked bands, gridlines, month axis,
+   total line, legend). The active source stays in sync with the headline. */
 
 const REASONS = [
   "a meg nem válaszolt hívások miatt",
@@ -15,14 +15,14 @@ const REASONS = [
 ];
 
 const SOURCES = [
-  { c: "#7C5CFF", v: [3, 4, 5, 6, 7, 8] },
-  { c: "#4AA3FF", v: [2, 3, 3, 4, 5, 6] },
-  { c: "#54CFC0", v: [1, 2, 3, 3, 4, 5] },
-  { c: "#E8A33D", v: [1, 1, 2, 3, 4, 4] },
-  { c: "#34C759", v: [1, 1, 2, 2, 3, 4] },
+  { t: "Hívásfogadás", c: "#7C5CFF", v: [3, 4, 5, 6, 7, 8] },
+  { t: "Utánkövetés", c: "#4AA3FF", v: [2, 3, 3, 4, 5, 6] },
+  { t: "No-show", c: "#54CFC0", v: [1, 2, 3, 3, 4, 5] },
+  { t: "Reaktiválás", c: "#E8A33D", v: [1, 1, 2, 3, 4, 4] },
+  { t: "Értékelés", c: "#34C759", v: [1, 1, 2, 2, 3, 4] },
 ];
 
-const M = 6, X0 = 24, X1 = 496, YB = 150, YT = 22;
+const M = 6, X0 = 22, X1 = 498, YB = 150, YT = 18;
 const xAt = (m: number) => X0 + (m * (X1 - X0)) / (M - 1);
 const totals = Array.from({ length: M }, (_, m) => SOURCES.reduce((s, src) => s + src.v[m], 0));
 const MAX = Math.max(...totals);
@@ -70,11 +70,11 @@ export default function Hero() {
             </p>
           </div>
 
-          {/* Right — rotating headline + compact recovered-revenue chart */}
+          {/* Right — rotating headline + detailed recovered-revenue chart */}
           <div className="canvas reveal reveal--instant visible" aria-hidden="true">
             <div className="canvas__bar">
               <span className="canvas__dot" /><span className="canvas__dot" /><span className="canvas__dot" />
-              <span className="canvas__bar-label">atrium · visszaszerzett bevétel</span>
+              <span className="canvas__bar-label">atrium · visszaszerzett bevétel / forrás</span>
             </div>
             <div className="canvas__stage canvas__stage--h2">
               <div className="hh__text">
@@ -85,23 +85,37 @@ export default function Hero() {
                 </span>
               </div>
 
-              <svg className="hh__chart" viewBox="0 0 520 170" preserveAspectRatio="none">
-                {[60, 100, 140].map((y) => (
-                  <line key={y} x1={X0} y1={y} x2={X1} y2={y} stroke="var(--line)" strokeWidth="1" strokeDasharray="2 7" />
-                ))}
-                <line x1={X0} y1={YB} x2={X1} y2={YB} stroke="var(--line)" strokeWidth="1" />
-                {BANDS.map((b, i) => (
-                  <path key={i} d={b.path} fill={b.c} fillOpacity={i === idx ? 0.92 : 0.3}
-                    stroke={i === idx ? b.c : "transparent"} strokeWidth="1.3"
-                    style={{ transition: "fill-opacity 400ms ease" }} />
-                ))}
-                <polyline points={Array.from({ length: M }, (_, m) => `${xAt(m)},${yFor(totals[m])}`).join(" ")} fill="none" stroke="var(--ink)" strokeWidth="1.8" />
-                <circle cx={xAt(M - 1)} cy={yFor(MAX)} r="4" fill="var(--ink)" />
-                <circle cx={xAt(M - 1)} cy={yFor(MAX)} r="4" fill="none" stroke="var(--ink)" strokeWidth="1.4">
-                  <animate attributeName="r" values="4;12" dur="2s" repeatCount="indefinite" />
-                  <animate attributeName="opacity" values="0.4;0" dur="2s" repeatCount="indefinite" />
-                </circle>
-              </svg>
+              <div className="hh__chartwrap">
+                <svg className="hh__chart" viewBox="0 0 520 178" preserveAspectRatio="none">
+                  {[55, 95, 135].map((y) => (
+                    <line key={y} x1={X0} y1={y} x2={X1} y2={y} stroke="var(--line)" strokeWidth="1" strokeDasharray="2 7" />
+                  ))}
+                  <line x1={X0} y1={YB} x2={X1} y2={YB} stroke="var(--line)" strokeWidth="1" />
+                  {BANDS.map((b, i) => (
+                    <path key={i} d={b.path} fill={b.c} fillOpacity={i === idx ? 0.92 : 0.28}
+                      stroke={i === idx ? b.c : "transparent"} strokeWidth="1.3"
+                      style={{ transition: "fill-opacity 400ms ease" }} />
+                  ))}
+                  <polyline points={Array.from({ length: M }, (_, m) => `${xAt(m)},${yFor(totals[m])}`).join(" ")} fill="none" stroke="var(--ink)" strokeWidth="1.8" />
+                  <circle cx={xAt(M - 1)} cy={yFor(MAX)} r="4" fill="var(--ink)" />
+                  <circle cx={xAt(M - 1)} cy={yFor(MAX)} r="4" fill="none" stroke="var(--ink)" strokeWidth="1.4">
+                    <animate attributeName="r" values="4;12" dur="2s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="0.4;0" dur="2s" repeatCount="indefinite" />
+                  </circle>
+                  {Array.from({ length: M }, (_, m) => (
+                    <text key={m} className="hh__ax" x={xAt(m)} y={YB + 16} textAnchor="middle">{m + 1}.</text>
+                  ))}
+                </svg>
+
+                <div className="hh__legend">
+                  {SOURCES.map((s, i) => (
+                    <span className={"hh__leg" + (i === idx ? " hh__leg--on" : "")} key={i}>
+                      <span className="hh__leg-dot" style={{ background: s.c }} />
+                      {s.t}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>

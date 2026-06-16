@@ -346,16 +346,16 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
 }
 .hero__actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
-/* rotating headline + compact recovered-revenue chart in the hero canvas */
-.canvas__stage--h2 { display: flex; flex-direction: column; height: 360px; padding: 26px 26px 0; }
-.hh__text { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+/* rotating headline + detailed recovered-revenue chart in the hero canvas */
+.canvas__stage--h2 { display: flex; flex-direction: column; height: 360px; padding: 22px 22px 16px; gap: 14px; }
+.hh__text { display: flex; flex-direction: column; }
 .hh__static {
-  font-family: var(--font-display); font-weight: 500; font-size: clamp(22px, 2.5vw, 30px);
+  font-family: var(--font-display); font-weight: 500; font-size: clamp(20px, 2.3vw, 27px);
   line-height: 1.1; letter-spacing: -0.02em; color: var(--ink);
 }
-.hh__rotline { display: flex; align-items: baseline; flex-wrap: wrap; margin-top: 4px; }
+.hh__rotline { display: flex; align-items: baseline; flex-wrap: wrap; margin-top: 3px; }
 .hh__rot {
-  font-family: var(--font-display); font-weight: 500; font-size: clamp(22px, 2.5vw, 30px);
+  font-family: var(--font-display); font-weight: 500; font-size: clamp(20px, 2.3vw, 27px);
   line-height: 1.1; letter-spacing: -0.02em; color: #4AA3FF;
   animation: hhRot 420ms var(--ease);
 }
@@ -366,7 +366,18 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
   animation: hhBlink 1s steps(1) infinite;
 }
 @keyframes hhBlink { 50% { opacity: 0; } }
-.hh__chart { width: 100%; height: 168px; display: block; }
+.hh__chartwrap { display: flex; flex-direction: column; gap: 10px; }
+.hh__chart { width: 100%; height: 158px; display: block; }
+.hh__ax { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.04em; fill: var(--stone); }
+.hh__legend { display: flex; flex-wrap: wrap; gap: 6px 12px; }
+.hh__leg {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-body); font-size: 11.5px; color: var(--ink-50);
+  transition: color 350ms var(--ease);
+}
+.hh__leg--on { color: var(--ink); font-weight: 500; }
+.hh__leg-dot { width: 9px; height: 9px; border-radius: 3px; flex-shrink: 0; opacity: 0.5; transition: opacity 350ms var(--ease); }
+.hh__leg--on .hh__leg-dot { opacity: 1; }
 
 /* --- Hero canvas mockup (network diagram) --- */
 .canvas {
