@@ -22,17 +22,20 @@ const ICONS: Record<string, React.ReactNode> = {
   handoff: <g><path d="M14 3h7v7" /><path d="M21 3l-8 8" /><circle cx="7" cy="9" r="3" /><path d="M2 21v-1a5 5 0 0 1 5-5h1a5 5 0 0 1 4 2" /></g>,
   reschedule: <g><rect x="3" y="4" width="18" height="17" rx="2" /><path d="M3 9h18M8 2v4M16 2v4" /><path d="M15 13.5l2.5 2.5L15 18.5" /><path d="M17.5 16H12a2 2 0 0 1-2-2" /></g>,
   users: <g><circle cx="9" cy="8" r="3.2" /><path d="M2.5 20v-1a5 5 0 0 1 5-5h3a5 5 0 0 1 5 5v1" /><circle cx="17.5" cy="9" r="2.4" /><path d="M21.5 20v-.5a4 4 0 0 0-3-3.6" /></g>,
+  send: <g><path d="M22 2 11 13" /><path d="M22 2l-7 20-4-9-9-4z" /></g>,
+  clock: <g><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3.5 2" /></g>,
 };
 
-
-/* recommended system services — labelled for review */
+/* what the system can do — the services */
 const CAPS = [
-  { ic: "mic", t: "Hang-AI", d: "Természetes magyar beszéd — fogadja és indítja a hívásokat." },
-  { ic: "chat", t: "Szöveges AI", d: "SMS, WhatsApp, Messenger, Instagram, e-mail és webchat — egy helyen." },
-  { ic: "db", t: "Egységes memória", d: "Minden csatornán emlékszik a korábbi beszélgetésre." },
-  { ic: "qualify", t: "Kvalifikáció", d: "Felteszi a fontos kérdéseket, és pontozza az érdeklődőt." },
-  { ic: "refresh", t: "Naptár- és CRM-szinkron", d: "A meglévő eszközeihez kötve, valós időben." },
-  { ic: "bars", t: "Riport", d: "Havi kimutatás: mi működik, és hol szivárog a bevétel." },
+  { ic: "mic", c: "#7C5CFF", t: "Hang-AI", d: "Természetes magyar beszéd — fogadja és indítja a hívásokat." },
+  { ic: "chat", c: "#4AA3FF", t: "Szöveges AI", d: "SMS, WhatsApp, Messenger, Instagram, e-mail és webchat — egy helyen." },
+  { ic: "send", c: "#9B7BFF", t: "Proaktív megkeresés", d: "Nem csak válaszol — magától keresi meg az érdeklődőt és a régi ügyfelet." },
+  { ic: "db", c: "#54CFC0", t: "Egységes memória", d: "Minden csatornán emlékszik a korábbi beszélgetésre." },
+  { ic: "qualify", c: "#45B5D6", t: "Kvalifikáció", d: "Felteszi a fontos kérdéseket, és pontozza az érdeklődőt." },
+  { ic: "refresh", c: "#34C759", t: "Naptár- és CRM-szinkron", d: "A meglévő eszközeihez kötve, valós időben." },
+  { ic: "bars", c: "#E8A33D", t: "Riport", d: "Havi kimutatás: mi működik, és hol szivárog a bevétel." },
+  { ic: "clock", c: "#46C79A", t: "0–24 elérhetőség", d: "A nap minden órájában dolgozik, emberi kiesés nélkül." },
 ];
 
 function Ico({ k, x, y, s = 18 }: { k: string; x: number; y: number; s?: number }) {
@@ -151,13 +154,6 @@ const PHASES = [
 
 const CHANNELS = ["Telefon", "SMS", "WhatsApp", "Messenger", "Instagram", "E-mail", "Webchat"];
 
-const POINTS = [
-  { t: "Egységes memória", d: "Minden csatornán emlékszik a korábbi beszélgetésekre." },
-  { t: "Proaktív megkeresés", d: "Nem csak válaszol — magától kezdeményez és újraaktivál." },
-  { t: "Teljes CRM-szinkron", d: "Minden beszélgetés automatikusan a helyére kerül." },
-  { t: "Kiszámítható, 24/7", d: "Emberi kiesés nélkül, egy csapat költségének töredékéért." },
-];
-
 export default function FullSystem() {
   return (
     <section className="sys" id="rendszer-teljes">
@@ -249,29 +245,15 @@ export default function FullSystem() {
           </div>
           <div className="caps__grid">
             {CAPS.map((c, i) => (
-              <div className="caps__item" key={i}>
+              <div className="caps__item" key={i} style={{ ["--ca" as string]: c.c } as React.CSSProperties}>
                 <span className="caps__ico">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{ICONS[c.ic]}</svg>
                 </span>
-                <span>
-                  <b className="caps__t">{c.t}</b>
-                  <span className="caps__d">{c.d}</span>
-                </span>
+                <b className="caps__t">{c.t}</b>
+                <span className="caps__d">{c.d}</span>
               </div>
             ))}
           </div>
-        </div>
-
-        <div className="sys__pointsflag reveal" data-delay="3">
-          <span className="cuttag">törölném — átfedés a „Mit tud a rendszer?” ráccsal</span>
-        </div>
-        <div className="sys__points cut">
-          {POINTS.map((p, i) => (
-            <div className="sys__point" key={i}>
-              <b className="sys__point-t">{p.t}</b>
-              <span className="sys__point-d">{p.d}</span>
-            </div>
-          ))}
         </div>
 
         <div className="sys__badges reveal" data-delay="3">
