@@ -245,7 +245,7 @@ export default function FullSystem() {
           </div>
           <div className="caps__grid">
             {CAPS.map((c, i) => (
-              <div className="caps__item" key={i} style={{ ["--ca" as string]: c.c } as React.CSSProperties}>
+              <div className="caps__item" key={i}>
                 <span className="caps__ico">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{ICONS[c.ic]}</svg>
                 </span>

@@ -126,6 +126,13 @@ const FIT = [
   "Partnert keres, nem csak szolgáltatót",
 ];
 
+const NOFIT = [
+  "Csak „kipróbálná” az AI-t minimális költséggel",
+  "Nincs konkrét problémája, csak a divatot követi",
+  "Türelmetlen, és nem érti a fejlesztési folyamatot",
+  "Gyors javítást keres, nem stratégiai fejlesztést",
+];
+
 const GUARANTEES = [
   {
     t: "Teljesítmény-garancia",
@@ -254,12 +261,18 @@ export default function CustomSolutions() {
           </div>
         </div>
 
-        {/* Fit */}
+        {/* Fit / not fit */}
         <div className="cux__fit reveal">
           <div className="cux__fit-col cux__fit-col--yes">
             <div className="cux__fit-h"><span className="cux__fit-badge">✓</span>Önnek való, ha…</div>
             <ul>
               {FIT.map((f, i) => (<li key={i}>{f}</li>))}
+            </ul>
+          </div>
+          <div className="cux__fit-col cux__fit-col--no">
+            <div className="cux__fit-h"><span className="cux__fit-badge">✕</span>Nem Önnek való, ha…</div>
+            <ul>
+              {NOFIT.map((f, i) => (<li key={i}>{f}</li>))}
             </ul>
           </div>
         </div>
