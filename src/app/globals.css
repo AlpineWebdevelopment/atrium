@@ -305,6 +305,52 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
   margin: 24px 0 32px;
 }
 .hero__actions { display: flex; gap: 12px; flex-wrap: wrap; }
+/* rotating struck-through pain phrase in the headline */
+.hero__rot {
+  display: inline-block;
+  color: var(--ink-50);
+  text-decoration: line-through;
+  text-decoration-color: var(--signal);
+  text-decoration-thickness: 4px;
+  animation: heroRot 520ms var(--ease);
+}
+@keyframes heroRot {
+  from { opacity: 0; transform: translateY(0.16em); }
+  to { opacity: 1; transform: none; }
+}
+
+/* live "leaks caught" graph in the hero canvas */
+.canvas__stage--leak { display: flex; align-items: center; padding: 22px; height: 360px; }
+.hlk { width: 100%; display: flex; flex-direction: column; gap: 10px; }
+.hlk__k {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--stone); margin-bottom: 4px;
+}
+.hlk__row {
+  display: flex; align-items: center; gap: 12px;
+  padding: 13px 15px; border-radius: 12px;
+  border: 1px solid var(--line); background: var(--bone);
+  transition: background 450ms var(--ease), border-color 450ms var(--ease), transform 450ms var(--ease), box-shadow 450ms var(--ease);
+}
+.hlk__row--done {
+  border-color: color-mix(in srgb, var(--signal) 42%, var(--line));
+  background: color-mix(in srgb, var(--signal) 7%, var(--bone));
+}
+.hlk__row--active { transform: translateX(4px); box-shadow: 0 10px 24px -16px rgba(1,14,30,0.3); }
+.hlk__check {
+  width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  border: 1.5px solid var(--line); color: transparent;
+  transition: background 450ms var(--ease), border-color 450ms var(--ease), color 450ms var(--ease);
+}
+.hlk__check svg { width: 13px; height: 13px; }
+.hlk__row--done .hlk__check { background: var(--signal); border-color: var(--signal); color: #fff; }
+.hlk__txt {
+  flex: 1; font-family: var(--font-display); font-weight: 500; font-size: 15px;
+  letter-spacing: -0.01em; color: var(--ink);
+}
+.hlk__tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.04em; color: var(--stone); }
+.hlk__row--done .hlk__tag { color: #3d8f34; }
 
 /* --- Hero canvas mockup (network diagram) --- */
 .canvas {
