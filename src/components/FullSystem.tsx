@@ -152,7 +152,15 @@ const PHASES = [
   },
 ];
 
-const CHANNELS = ["Telefon", "SMS", "WhatsApp", "Messenger", "Instagram", "E-mail", "Webchat"];
+const CHANNELS: { n: string; ic: React.ReactNode }[] = [
+  { n: "Telefon", ic: <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" /> },
+  { n: "SMS", ic: <g><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.6L3 20.5l1.4-5.1A8.5 8.5 0 1 1 21 11.5z" /><path d="M8.5 11.5h.01M12 11.5h.01M15.5 11.5h.01" /></g> },
+  { n: "WhatsApp", ic: <g><path d="M3.2 20.8l1.4-3.7A8 8 0 1 1 7.7 19.8z" /><path d="M9 9c.2 2.4 3.4 5.6 5.8 5.8.5 0 1.2-.5 1.4-1" /></g> },
+  { n: "Messenger", ic: <g><path d="M12 2C6.5 2 2 6.1 2 11.1c0 2.8 1.4 5.3 3.6 7v3.4l3.3-1.8c1 .3 2 .4 3.1.4 5.5 0 10-4.1 10-9.1S17.5 2 12 2z" /><path d="M6.9 13.6l3-3.2 2 2 2.9-2.2-3 3.2-2-2z" /></g> },
+  { n: "Instagram", ic: <g><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><path d="M17.5 6.5h.01" /></g> },
+  { n: "E-mail", ic: <g><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3 7l9 6 9-6" /></g> },
+  { n: "Webchat", ic: <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /> },
+];
 
 export default function FullSystem() {
   return (
@@ -188,7 +196,10 @@ export default function FullSystem() {
             </div>
             <div className="sysframe__channels">
               {CHANNELS.map((c) => (
-                <span className="sysframe__chan" key={c}>{c}</span>
+                <span className="sysframe__chan" key={c.n}>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">{c.ic}</svg>
+                  {c.n}
+                </span>
               ))}
             </div>
           </div>
