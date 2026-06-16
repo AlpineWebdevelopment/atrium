@@ -36,17 +36,14 @@ export default function Hero() {
         <div className="hero__grid">
           {/* Left — copy */}
           <div className="hero__content reveal reveal--instant visible">
-            <span className="hero__eyebrow">
-              <span className="newtag">új</span>
-              Értékesítési rendszer szolgáltató cégeknek
-            </span>
+            <span className="hero__eyebrow">Értékesítési rendszerek, operátori szemmel</span>
             <h1 className="hero__title">
-              A bevétel,<br />ami eddig elveszett.
+              A bevétel, ami eddig elszivárgott, mostantól Önnél marad.
             </h1>
             <p className="hero__sub">
-              Az Atrium egy magyar nyelvű AI-alapú értékesítési rendszer —
+              Az Atrium egy magyar nyelvű, AI-alapú értékesítési rendszer:
               minden hívást fogad, minden időpontot lefoglal, minden érdeklődőt
-              utánkövet. Magyarul, a háttérben.
+              utánkövet — a háttérben, az Ön eszközeivel.
             </p>
             <div className="hero__actions">
               <button className="btn">Foglaljon időpontot</button>
@@ -56,7 +53,6 @@ export default function Hero() {
               </a>
             </div>
             <div className="hero__trust2">
-              <span className="newtag">új</span>
               <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12l5 5L20 6" /></svg> Magyar nyelvű</span>
               <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12l5 5L20 6" /></svg> EU hosting</span>
               <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12l5 5L20 6" /></svg> GDPR-konform</span>
@@ -68,7 +64,6 @@ export default function Hero() {
             <div className="canvas__bar">
               <span className="canvas__dot" /><span className="canvas__dot" /><span className="canvas__dot" />
               <span className="canvas__bar-label">atrium · élő rendszer</span>
-              <span className="newtag" style={{ marginLeft: "auto" }}>új</span>
             </div>
             <div className="canvas__stage canvas__stage--con">
               <div className="hcon__head">
