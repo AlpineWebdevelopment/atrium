@@ -1070,13 +1070,21 @@ html.dark { --viz-purple-soft: #1d1b33; }
 }
 .sec-cta { text-align: center; margin-top: 44px; }
 
-/* temporary review marker (amber = recommended add) */
+/* temporary review markers (amber = recommended add, red = would-cut) */
 .newtag {
   display: inline-flex; align-items: center;
   padding: 2px 7px; border-radius: 999px; vertical-align: middle;
   background: #E8A33D; color: #fff;
   font-family: var(--font-mono); font-size: 9px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
 }
+.cuttag {
+  display: inline-flex; align-items: center; margin-bottom: 12px;
+  padding: 3px 9px; border-radius: 999px;
+  background: #d9534f; color: #fff;
+  font-family: var(--font-mono); font-size: 9px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+}
+.cut { outline: 2px dashed #d9534f; outline-offset: 6px; border-radius: 4px; }
+.sys__pointsflag { text-align: center; margin-top: 44px; }
 
 /* system capabilities / services grid */
 .caps { margin-top: 44px; }

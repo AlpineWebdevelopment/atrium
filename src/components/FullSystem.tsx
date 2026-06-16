@@ -24,8 +24,6 @@ const ICONS: Record<string, React.ReactNode> = {
   users: <g><circle cx="9" cy="8" r="3.2" /><path d="M2.5 20v-1a5 5 0 0 1 5-5h3a5 5 0 0 1 5 5v1" /><circle cx="17.5" cy="9" r="2.4" /><path d="M21.5 20v-.5a4 4 0 0 0-3-3.6" /></g>,
 };
 
-/* steps recommended as additions — flagged for review */
-const NEW_STEPS = new Set(["Élő átadás", "Átütemezés", "Ajánláskérés"]);
 
 /* recommended system services — labelled for review */
 const CAPS = [
@@ -220,7 +218,7 @@ export default function FullSystem() {
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">{ICONS[st.ic]}</svg>
                       </span>
                       <span className="tsr__step-txt">
-                        <b>{NEW_STEPS.has(st.t) && <span className="newtag">új</span>} {st.t}</b>
+                        <b>{st.t}</b>
                         <span>{st.s}</span>
                       </span>
                     </li>
@@ -247,7 +245,6 @@ export default function FullSystem() {
 
         <div className="caps reveal" data-delay="2">
           <div className="caps__head">
-            <span className="newtag">új</span>
             <h3 className="caps__h">Mit tud a rendszer?</h3>
           </div>
           <div className="caps__grid">
@@ -265,7 +262,10 @@ export default function FullSystem() {
           </div>
         </div>
 
-        <div className="sys__points reveal" data-delay="3">
+        <div className="sys__pointsflag reveal" data-delay="3">
+          <span className="cuttag">törölném — átfedés a „Mit tud a rendszer?” ráccsal</span>
+        </div>
+        <div className="sys__points cut">
           {POINTS.map((p, i) => (
             <div className="sys__point" key={i}>
               <b className="sys__point-t">{p.t}</b>
