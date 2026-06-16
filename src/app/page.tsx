@@ -1,4 +1,3 @@
-import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import RealtimeDashboard from "@/components/RealtimeDashboard";
 import FullSystem from "@/components/FullSystem";
@@ -16,7 +15,6 @@ export default function Home() {
   return (
     <div className="page" data-screen-label="atriumscaling.com /">
       <ScrollReveal />
-      <Nav />
       <Hero />
       <RealtimeDashboard />
       <FullSystem />

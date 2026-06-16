@@ -18,15 +18,16 @@ export default function Nav() {
     <header className="nav">
       <div className="wrap">
         <div className="nav__in">
-          <a href="#" className="nav__brand" aria-label="Atrium">
+          <a href="/" className="nav__brand" aria-label="Atrium">
             Atrium<span className="dot" aria-hidden="true" />
           </a>
           <nav className="nav__links" aria-label="primary">
-            <a href="#rendszer" className="nav__link">A rendszer</a>
-            <a href="#indulas" className="nav__link">Hogyan indulunk</a>
-            <a href="#crm" className="nav__link">AI CRM</a>
-            <a href="#gyik" className="nav__link">GYIK</a>
-            <a href="#kapcsolat" className="nav__link">Kapcsolat</a>
+            <a href="/#rendszer" className="nav__link">A rendszer</a>
+            <a href="/#indulas" className="nav__link">Hogyan indulunk</a>
+            <a href="/#crm" className="nav__link">AI CRM</a>
+            <a href="/#gyik" className="nav__link">GYIK</a>
+            <a href="/#kapcsolat" className="nav__link">Kapcsolat</a>
+            <a href="/blog" className="nav__link">Blog</a>
           </nav>
           <div className="nav__right">
             <ThemeToggle />
@@ -47,11 +48,12 @@ export default function Nav() {
         <div className="nav__mobile-inner">
           <div className="wrap">
             <nav className="nav__mobile-links" aria-label="mobile">
-              <a href="#rendszer-teljes" className="nav__mobile-link" onClick={() => setOpen(false)}>A rendszer</a>
-              <a href="#indulas" className="nav__mobile-link" onClick={() => setOpen(false)}>Hogyan indulunk</a>
-              <a href="#crm" className="nav__mobile-link" onClick={() => setOpen(false)}>AI CRM</a>
-              <a href="#gyik" className="nav__mobile-link" onClick={() => setOpen(false)}>GYIK</a>
-              <a href="#kapcsolat" className="nav__mobile-link" onClick={() => setOpen(false)}>Kapcsolat</a>
+              <a href="/#rendszer-teljes" className="nav__mobile-link" onClick={() => setOpen(false)}>A rendszer</a>
+              <a href="/#indulas" className="nav__mobile-link" onClick={() => setOpen(false)}>Hogyan indulunk</a>
+              <a href="/#crm" className="nav__mobile-link" onClick={() => setOpen(false)}>AI CRM</a>
+              <a href="/#gyik" className="nav__mobile-link" onClick={() => setOpen(false)}>GYIK</a>
+              <a href="/#kapcsolat" className="nav__mobile-link" onClick={() => setOpen(false)}>Kapcsolat</a>
+              <a href="/blog" className="nav__mobile-link" onClick={() => setOpen(false)}>Blog</a>
             </nav>
             <button className="btn nav__mobile-cta" onClick={() => setOpen(false)}>
               Foglaljon időpontot

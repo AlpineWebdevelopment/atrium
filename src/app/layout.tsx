@@ -1,28 +1,73 @@
 import type { Metadata } from "next";
+import { Onest, Geist, Geist_Mono } from "next/font/google";
+import Nav from "@/components/Nav";
 import "./globals.css";
 
-export const metadata: Metadata = {
-  title: "Atrium — Értékesítési rendszerek szolgáltató cégeknek",
-  description:
-    "Az Atrium egy magyar nyelvű AI-alapú értékesítési rendszer — minden hívást fogad, minden időpontot lefoglal, minden érdeklődőt utánkövet.",
+const onest = Onest({
+  subsets: ["latin", "latin-ext"], // latin-ext required for Hungarian glyphs (ő, ű, etc.)
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-onest-src",
+  display: "swap",
+});
+const geist = Geist({
+  subsets: ["latin", "latin-ext"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-geist-src",
+  display: "swap",
+});
+const geistMono = Geist_Mono({
+  subsets: ["latin", "latin-ext"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-geist-mono-src",
+  display: "swap",
+});
+
+export const SITE = {
+  name: "Atrium",
+  url: "https://atriumscaling.com",
+  logo: "https://atriumscaling.com/logo.png",
+  locale: "hu_HU",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE.url),
+  title: { default: "Atrium — Értékesítési rendszerek szolgáltató cégeknek", template: "%s · Atrium" },
+  description:
+    "Az Atrium egy magyar nyelvű AI-alapú értékesítési rendszer — minden hívást fogad, minden időpontot lefoglal, minden érdeklődőt utánkövet.",
+  alternates: { canonical: "/" },
+  openGraph: { type: "website", locale: SITE.locale, siteName: SITE.name },
+  robots: { index: true, follow: true },
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const orgLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: SITE.name,
+    url: SITE.url,
+    logo: SITE.logo,
+  };
   return (
-    <html lang="hu" suppressHydrationWarning>
-      <head>
+    <html
+      lang="hu"
+      className={`${onest.variable} ${geist.variable} ${geistMono.variable}`}
+      suppressHydrationWarning
+      data-scroll-behavior="smooth"
+    >
+      <body className="bg-bone text-ink">
         {/* Runs before paint — prevents flash of wrong theme */}
         <script
           dangerouslySetInnerHTML={{
             __html: `try{if(localStorage.getItem('theme')==='dark')document.documentElement.classList.add('dark')}catch(e){}`,
           }}
         />
-      </head>
-      <body>{children}</body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd) }}
+        />
+        <Nav />
+        {children}
+      </body>
     </html>
   );
 }
