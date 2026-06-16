@@ -32,6 +32,10 @@ export default function Hero() {
                 A rendszerről
               </a>
             </div>
+            <p className="hero__trust">
+              <span className="newtag">új</span>
+              Az Ön számaiból árazva · 30 perc · kötelezettség nélkül
+            </p>
           </div>
 
           {/* Right — canvas / network diagram */}
@@ -68,7 +72,8 @@ export default function Hero() {
                 AI értékesítési rendszer <span className="sig">✦</span> magyarul
               </div>
 
-              <div className="canvas__pill">
+              <div className="canvas__pill cut">
+                <span className="cuttag">törölném</span>
                 <span className="sig" /> 412 hívás fogadva · 0 kihagyva
               </div>
             </div>

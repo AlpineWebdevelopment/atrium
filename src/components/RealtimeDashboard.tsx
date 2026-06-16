@@ -266,6 +266,10 @@ export default function RealtimeDashboard() {
             működésére szabjuk, és azt a lyukat zárja be, amelyik Önnél a
             legnagyobb.
           </p>
+          <p className="newnote">
+            <span className="newtag">új</span>
+            Az alábbi számok példák — élesben az Ön valós adataira szabva.
+          </p>
         </div>
 
         <div className="dash__card reveal" data-delay="1">

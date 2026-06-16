@@ -269,8 +269,8 @@ export default function CustomSolutions() {
               {FIT.map((f, i) => (<li key={i}>{f}</li>))}
             </ul>
           </div>
-          <div className="cux__fit-col cux__fit-col--no">
-            <div className="cux__fit-h"><span className="cux__fit-badge">✕</span>Nem Önnek való, ha…</div>
+          <div className="cux__fit-col cux__fit-col--no cut">
+            <div className="cux__fit-h"><span className="cuttag">törölném?</span><span className="cux__fit-badge">✕</span>Nem Önnek való, ha…</div>
             <ul>
               {NOFIT.map((f, i) => (<li key={i}>{f}</li>))}
             </ul>
@@ -282,19 +282,31 @@ export default function CustomSolutions() {
           <h3 className="cux__sec-h"><span>Garancia</span></h3>
           <div className="cux__guar">
             {GUARANTEES.map((g, i) => (
-              <div className="cux__g" key={i}>
+              <div className={"cux__g" + (i === 2 ? " cut" : "")} key={i}>
                 <span className="cux__g-node">
                   <svg className="cux__g-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M12 2l8 3v6c0 5-3.4 8.5-8 11-4.6-2.5-8-6-8-11V5l8-3z" />
                     <path d="M9 12l2 2 4-4" />
                   </svg>
                 </span>
-                <h4 className="cux__g-t">{g.t}</h4>
+                <h4 className="cux__g-t">{i === 2 && <span className="cuttag">törölném?</span>}{g.t}</h4>
                 <p className="cux__g-d">{g.d}</p>
               </div>
             ))}
           </div>
         </div>
+
+        <div className="sec-cta reveal">
+          <span className="newtag">új</span>
+          <a href="#kapcsolat" className="btn btn--lg">Mondja el az ötletét</a>
+        </div>
+
+        <p className="newnote">
+          <span className="newtag">új</span>
+          Javaslat: ide (vagy a záró szakasz fölé) kerülhet egy valódi
+          ügyfél-idézet vagy konkrét eredmény, amint van aláírt referencia —
+          most a spec szerint nem teszünk ki kitalált számot vagy logót.
+        </p>
       </div>
     </section>
   );
