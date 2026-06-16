@@ -1,48 +1,34 @@
 "use client";
 import { useEffect, useState } from "react";
 
-/* Hero — static brand tagline on the left. On the right: omnifusion-style
-   rotating headline (static line + blue rotating angle + cursor) above a
-   detailed recovered-revenue chart (stacked bands, gridlines, month axis,
-   total line, legend). The active source stays in sync with the headline. */
+/* Hero — left: category eyebrow, static brand tagline, subhead, CTAs, trust row.
+   Right: a live "activity console" — a product mock streaming the events the
+   system handles in real time (the changing content lives here). All newly
+   proposed pieces are tagged `új` for review. */
 
-const REASONS = [
-  "a meg nem válaszolt hívások miatt",
-  "a lassú visszahívás miatt",
-  "az elmaradt időpontok miatt",
-  "a kihűlt érdeklődők miatt",
-  "a rég elfeledett ügyfelek miatt",
+const ICONS: Record<string, React.ReactNode> = {
+  phone: <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />,
+  chat: <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />,
+  calendar: <g><rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" /></g>,
+  callback: <g><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" /><path d="M16 8 22 2M22 8V2h-6" /></g>,
+  refresh: <g><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></g>,
+};
+
+const FEED = [
+  { k: "phone", c: "#34C759", t: "Hívás fogadva", d: "időpont egyeztetve", time: "21:42" },
+  { k: "chat", c: "#4AA3FF", t: "Webes érdeklődő", d: "2 percen belül visszahíva", time: "21:39" },
+  { k: "calendar", c: "#7C5CFF", t: "Időpont foglalva", d: "egyenesen a naptárba", time: "21:31" },
+  { k: "callback", c: "#54CFC0", t: "No-show visszahívva", d: "új időpont egyeztetve", time: "20:58" },
+  { k: "refresh", c: "#E8A33D", t: "Régi ügyfél", d: "magától újraaktiválva", time: "20:30" },
 ];
-
-const SOURCES = [
-  { t: "Hívásfogadás", c: "#7C5CFF", v: [3, 4, 5, 6, 7, 8] },
-  { t: "Utánkövetés", c: "#4AA3FF", v: [2, 3, 3, 4, 5, 6] },
-  { t: "No-show", c: "#54CFC0", v: [1, 2, 3, 3, 4, 5] },
-  { t: "Reaktiválás", c: "#E8A33D", v: [1, 1, 2, 3, 4, 4] },
-  { t: "Értékelés", c: "#34C759", v: [1, 1, 2, 2, 3, 4] },
-];
-
-const M = 6, X0 = 22, X1 = 498, YB = 150, YT = 18;
-const xAt = (m: number) => X0 + (m * (X1 - X0)) / (M - 1);
-const totals = Array.from({ length: M }, (_, m) => SOURCES.reduce((s, src) => s + src.v[m], 0));
-const MAX = Math.max(...totals);
-const yFor = (cum: number) => YB - (cum / MAX) * (YB - YT);
-const BANDS = SOURCES.map((src, si) => {
-  const top: string[] = [], bot: string[] = [];
-  for (let m = 0; m < M; m++) {
-    const below = SOURCES.slice(0, si).reduce((s, s2) => s + s2.v[m], 0);
-    top.push(`${xAt(m)},${yFor(below + src.v[m])}`);
-    bot.push(`${xAt(m)},${yFor(below)}`);
-  }
-  return { c: src.c, path: `M ${top.join(" L ")} L ${[...bot].reverse().join(" L ")} Z` };
-});
 
 export default function Hero() {
-  const [idx, setIdx] = useState(0);
+  const [off, setOff] = useState(0);
   useEffect(() => {
-    const t = setInterval(() => setIdx((i) => (i + 1) % REASONS.length), 2400);
+    const t = setInterval(() => setOff((o) => (o + 1) % FEED.length), 2200);
     return () => clearInterval(t);
   }, []);
+  const rows = Array.from({ length: 4 }, (_, i) => FEED[(off + i) % FEED.length]);
 
   return (
     <section className="hero" id="rendszer">
@@ -50,13 +36,17 @@ export default function Hero() {
         <div className="hero__grid">
           {/* Left — copy */}
           <div className="hero__content reveal reveal--instant visible">
+            <span className="hero__eyebrow">
+              <span className="newtag">új</span>
+              Értékesítési rendszer szolgáltató cégeknek
+            </span>
             <h1 className="hero__title">
               A bevétel,<br />ami eddig elveszett.
             </h1>
             <p className="hero__sub">
-              Az Atrium egy magyar nyelvű AI-alapú értékesítési rendszer
-              szolgáltató cégeknek — minden hívást fogad, minden időpontot
-              lefoglal, minden érdeklődőt utánkövet.
+              Az Atrium egy magyar nyelvű AI-alapú értékesítési rendszer —
+              minden hívást fogad, minden időpontot lefoglal, minden érdeklődőt
+              utánkövet. Magyarul, a háttérben.
             </p>
             <div className="hero__actions">
               <button className="btn">Foglaljon időpontot</button>
@@ -65,56 +55,44 @@ export default function Hero() {
                 A rendszerről
               </a>
             </div>
-            <p className="hero__trust">
-              Az Ön számaiból árazva · 30 perc · kötelezettség nélkül
-            </p>
+            <div className="hero__trust2">
+              <span className="newtag">új</span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12l5 5L20 6" /></svg> Magyar nyelvű</span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12l5 5L20 6" /></svg> EU hosting</span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12l5 5L20 6" /></svg> GDPR-konform</span>
+            </div>
           </div>
 
-          {/* Right — rotating headline + detailed recovered-revenue chart */}
+          {/* Right — live activity console (új) */}
           <div className="canvas reveal reveal--instant visible" aria-hidden="true">
             <div className="canvas__bar">
               <span className="canvas__dot" /><span className="canvas__dot" /><span className="canvas__dot" />
-              <span className="canvas__bar-label">atrium · visszaszerzett bevétel / forrás</span>
+              <span className="canvas__bar-label">atrium · élő rendszer</span>
+              <span className="newtag" style={{ marginLeft: "auto" }}>új</span>
             </div>
-            <div className="canvas__stage canvas__stage--h2">
-              <div className="hh__text">
-                <span className="hh__static">Ne veszítsen több bevételt</span>
-                <span className="hh__rotline">
-                  <span className="hh__rot" key={idx}>{REASONS[idx]}</span>
-                  <span className="hh__cursor" />
-                </span>
-              </div>
-
-              <div className="hh__chartwrap">
-                <svg className="hh__chart" viewBox="0 0 520 178" preserveAspectRatio="none">
-                  {[55, 95, 135].map((y) => (
-                    <line key={y} x1={X0} y1={y} x2={X1} y2={y} stroke="var(--line)" strokeWidth="1" strokeDasharray="2 7" />
-                  ))}
-                  <line x1={X0} y1={YB} x2={X1} y2={YB} stroke="var(--line)" strokeWidth="1" />
-                  {BANDS.map((b, i) => (
-                    <path key={i} d={b.path} fill={b.c} fillOpacity={i === idx ? 0.92 : 0.28}
-                      stroke={i === idx ? b.c : "transparent"} strokeWidth="1.3"
-                      style={{ transition: "fill-opacity 400ms ease" }} />
-                  ))}
-                  <polyline points={Array.from({ length: M }, (_, m) => `${xAt(m)},${yFor(totals[m])}`).join(" ")} fill="none" stroke="var(--ink)" strokeWidth="1.8" />
-                  <circle cx={xAt(M - 1)} cy={yFor(MAX)} r="4" fill="var(--ink)" />
-                  <circle cx={xAt(M - 1)} cy={yFor(MAX)} r="4" fill="none" stroke="var(--ink)" strokeWidth="1.4">
-                    <animate attributeName="r" values="4;12" dur="2s" repeatCount="indefinite" />
-                    <animate attributeName="opacity" values="0.4;0" dur="2s" repeatCount="indefinite" />
-                  </circle>
-                  {Array.from({ length: M }, (_, m) => (
-                    <text key={m} className="hh__ax" x={xAt(m)} y={YB + 16} textAnchor="middle">{m + 1}.</text>
-                  ))}
+            <div className="canvas__stage canvas__stage--con">
+              <div className="hcon__head">
+                <span className="hcon__live"><i /> Élőben</span>
+                <svg className="hcon__spark" viewBox="0 0 96 26" preserveAspectRatio="none">
+                  <polyline points="2,22 18,18 34,19 50,12 66,13 82,5 94,3" fill="none" stroke="#34C759" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-
-                <div className="hh__legend">
-                  {SOURCES.map((s, i) => (
-                    <span className={"hh__leg" + (i === idx ? " hh__leg--on" : "")} key={i}>
-                      <span className="hh__leg-dot" style={{ background: s.c }} />
-                      {s.t}
+              </div>
+              <div className="hcon__feed">
+                {rows.map((r, i) => (
+                  <div className={"hcon__row" + (i === 0 ? " hcon__row--new" : "")} key={i === 0 ? `n${off}` : i}>
+                    <span className="hcon__ico" style={{ background: `color-mix(in srgb, ${r.c} 13%, var(--bone))`, color: r.c, border: `1px solid color-mix(in srgb, ${r.c} 30%, transparent)` }}>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">{ICONS[r.k]}</svg>
                     </span>
-                  ))}
-                </div>
+                    <span className="hcon__txt">
+                      <b className="hcon__t">{r.t}</b>
+                      <span className="hcon__d">{r.d}</span>
+                    </span>
+                    <span className="hcon__meta">
+                      <span className="hcon__time">{r.time}</span>
+                      <span className="hcon__done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12l5 5L20 6" /></svg> kész</span>
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

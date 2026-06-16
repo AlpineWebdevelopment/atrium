@@ -346,38 +346,65 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
 }
 .hero__actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
-/* rotating headline + detailed recovered-revenue chart in the hero canvas */
-.canvas__stage--h2 { display: flex; flex-direction: column; height: 360px; padding: 22px 22px 16px; gap: 14px; }
-.hh__text { display: flex; flex-direction: column; }
-.hh__static {
-  font-family: var(--font-display); font-weight: 500; font-size: clamp(20px, 2.3vw, 27px);
-  line-height: 1.1; letter-spacing: -0.02em; color: var(--ink);
+/* temporary review marker (amber = recommended) */
+.newtag {
+  display: inline-flex; align-items: center; margin-right: 7px;
+  padding: 2px 7px; border-radius: 999px; vertical-align: middle;
+  background: #E8A33D; color: #fff;
+  font-family: var(--font-mono); font-size: 9px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
 }
-.hh__rotline { display: flex; align-items: baseline; flex-wrap: wrap; margin-top: 3px; }
-.hh__rot {
-  font-family: var(--font-display); font-weight: 500; font-size: clamp(20px, 2.3vw, 27px);
-  line-height: 1.1; letter-spacing: -0.02em; color: #4AA3FF;
-  animation: hhRot 420ms var(--ease);
+
+/* hero eyebrow + trust row (left) */
+.hero__eyebrow {
+  display: inline-flex; align-items: center; gap: 8px; margin-bottom: 18px;
+  padding: 6px 13px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--bone);
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em; color: var(--ink-70);
 }
-@keyframes hhRot { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-.hh__cursor {
-  display: inline-block; width: 3px; height: 0.95em; margin-left: 5px;
-  background: #4AA3FF; transform: translateY(2px);
-  animation: hhBlink 1s steps(1) infinite;
+.hero__trust2 { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 22px; }
+.hero__trust2 span {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: var(--font-body); font-size: 13px; color: var(--ink-70);
 }
-@keyframes hhBlink { 50% { opacity: 0; } }
-.hh__chartwrap { display: flex; flex-direction: column; gap: 10px; }
-.hh__chart { width: 100%; height: 158px; display: block; }
-.hh__ax { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.04em; fill: var(--stone); }
-.hh__legend { display: flex; flex-wrap: wrap; gap: 6px 12px; }
-.hh__leg {
-  display: inline-flex; align-items: center; gap: 6px;
-  font-family: var(--font-body); font-size: 11.5px; color: var(--ink-50);
-  transition: color 350ms var(--ease);
+.hero__trust2 svg { width: 15px; height: 15px; color: var(--signal); }
+
+/* hero live activity console (right) */
+.canvas__stage--con { display: flex; flex-direction: column; height: 360px; padding: 16px; gap: 12px; }
+.hcon__head {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 4px 6px;
 }
-.hh__leg--on { color: var(--ink); font-weight: 500; }
-.hh__leg-dot { width: 9px; height: 9px; border-radius: 3px; flex-shrink: 0; opacity: 0.5; transition: opacity 350ms var(--ease); }
-.hh__leg--on .hh__leg-dot { opacity: 1; }
+.hcon__live {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--stone);
+}
+.hcon__live i {
+  width: 7px; height: 7px; border-radius: 50%; background: var(--signal);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--signal) 22%, transparent);
+  animation: atr-pulse 1.4s ease-in-out infinite;
+}
+.hcon__spark { width: 96px; height: 26px; display: block; }
+.hcon__feed { display: flex; flex-direction: column; gap: 8px; }
+.hcon__row {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 14px; border-radius: 12px;
+  border: 1px solid var(--line); background: var(--bone);
+}
+.hcon__row--new { border-color: color-mix(in srgb, var(--signal) 40%, var(--line)); box-shadow: 0 10px 24px -16px rgba(1,14,30,0.22); animation: hconIn 460ms var(--ease); }
+@keyframes hconIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+.hcon__ico {
+  width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.hcon__ico svg { width: 19px; height: 19px; }
+.hcon__txt { flex: 1; min-width: 0; }
+.hcon__t { display: block; font-family: var(--font-display); font-weight: 500; font-size: 14px; letter-spacing: -0.01em; color: var(--ink); }
+.hcon__d { display: block; font-family: var(--font-body); font-size: 12px; line-height: 1.3; color: var(--ink-70); }
+.hcon__meta { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0; }
+.hcon__time { font-family: var(--font-mono); font-size: 10px; color: var(--stone); }
+.hcon__done { display: inline-flex; align-items: center; gap: 4px; font-family: var(--font-mono); font-size: 9.5px; color: #3d8f34; }
+.hcon__done svg { width: 12px; height: 12px; }
+
 
 /* --- Hero canvas mockup (network diagram) --- */
 .canvas {
