@@ -1580,45 +1580,43 @@ html.dark { --viz-purple-soft: #1d1b33; }
   font-size: clamp(18px, 2.2vw, 24px); letter-spacing: -0.02em; color: var(--ink);
 }
 
-/* Example projects — even card grid that fills the full width, no dead space */
-.cux__grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 22px;
+/* Example projects */
+/* Example projects — mind-map: one root fanning to the projects */
+.cux__map { width: 100%; max-width: 900px; height: auto; display: block; margin: 6px auto 0; }
+.cux__map-root { font-family: var(--font-display); font-weight: 500; font-size: 14px; letter-spacing: -0.01em; fill: var(--ink); }
+.cux__map-t { font-family: var(--font-display); font-weight: 500; font-size: 15px; letter-spacing: -0.01em; fill: var(--ink); }
+.cux__map-sub { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.02em; }
+
+/* mobile: same map as a vertical gradient spine */
+.cux__maplist { display: none; }
+.cux__mapitem-dot { display: none; }
+@media (max-width: 700px) {
+  .cux__map { display: none; }
+  .cux__maplist {
+    position: relative; display: flex; flex-direction: column;
+    padding-left: 6px; margin-top: 6px;
+  }
+  .cux__maplist::before {
+    content: ''; position: absolute; left: 13px; top: 16px; bottom: 16px;
+    width: 2.5px; border-radius: 2px;
+    background: linear-gradient(to bottom, #7C5CFF, #4AA3FF, #54CFC0, #E8A33D, #6DBC61);
+  }
+  .cux__mapitem { position: relative; padding: 11px 4px 11px 40px; }
+  .cux__mapitem-dot {
+    display: block; position: absolute; left: 7px; top: 15px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--pc, var(--viz-blue));
+    border: 3px solid var(--bone); box-shadow: 0 0 0 1px var(--line);
+  }
+  .cux__mapitem-t {
+    display: block; font-family: var(--font-display); font-weight: 500;
+    font-size: 14.5px; letter-spacing: -0.01em; color: var(--ink);
+  }
+  .cux__mapitem-sub {
+    display: block; margin-top: 3px;
+    font-family: var(--font-mono); font-size: 10.5px; color: var(--pc, var(--viz-blue));
+  }
 }
-.cux__pcard {
-  display: flex; flex-direction: column; gap: 11px;
-  padding: 22px 22px 24px; border-radius: 16px;
-  border: 1px solid var(--line); background: var(--bone);
-  transition: transform 240ms var(--ease), box-shadow 240ms var(--ease), border-color 240ms var(--ease);
-}
-.cux__pcard:hover {
-  transform: translateY(-3px);
-  border-color: color-mix(in srgb, var(--pc, var(--viz-blue)) 45%, var(--line));
-  box-shadow: 0 16px 34px -20px rgba(1,14,30,0.32);
-}
-.cux__pcard-ico {
-  width: 46px; height: 46px; border-radius: 13px; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-  color: var(--pc, var(--viz-blue));
-  background: color-mix(in srgb, var(--pc, var(--viz-blue)) 12%, transparent);
-  border: 1.5px solid color-mix(in srgb, var(--pc, var(--viz-blue)) 40%, transparent);
-}
-.cux__pcard-ico svg { width: 22px; height: 22px; }
-.cux__pcard-t {
-  font-family: var(--font-display); font-weight: 500; font-size: 16px;
-  letter-spacing: -0.015em; line-height: 1.25; color: var(--ink);
-}
-.cux__pcard-sub {
-  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.02em;
-  color: var(--pc, var(--viz-blue));
-}
-/* the open-ended "your idea" card — dashed, set apart */
-.cux__pcard--open {
-  border-style: dashed;
-  border-color: color-mix(in srgb, var(--pc, var(--viz-blue)) 45%, var(--line));
-  background: color-mix(in srgb, var(--pc, var(--viz-blue)) 4%, var(--bone));
-}
-@media (max-width: 900px) { .cux__grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 560px) { .cux__grid { grid-template-columns: 1fr; } }
 
 /* What we can build — four branch trees: a category node with a colour-matched
    spine dropping through its capability nodes (a graph, not cards) */
