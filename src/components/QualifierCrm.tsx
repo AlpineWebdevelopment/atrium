@@ -1,13 +1,13 @@
 /* The one named product: the AI qualifier CRM.
    Four reasons it fits — each its own panel with a bespoke graph. */
 
-/* ---- 1: Személyre szabva — industry picker → tailored questions ---- */
+/* ---- 1: Személyre szabva — company size picker → tailored process ---- */
 function GfxTuned() {
-  const types = ["Fogászat", "Ügyvéd", "Fitness"];
-  const qs = ["Mióta fáj?", "Mikor ér rá?", "Hány fogat érint?"];
+  const sizes = ["1–5 fős", "5–20 fős", "20+ fős"];
+  const qs = ["Ki fogad hívást?", "Hány időpont fér el?", "Mikor tud visszahívni?"];
   return (
-    <svg viewBox="0 0 260 160" role="img" aria-label="Személyre szabva az Ön iparágára">
-      {types.map((t, i) => {
+    <svg viewBox="0 0 260 160" role="img" aria-label="Személyre szabva az Ön cégméretére">
+      {sizes.map((t, i) => {
         const x = 10 + i * 82;
         const sel = i === 0;
         return (
@@ -26,7 +26,7 @@ function GfxTuned() {
       <rect x={8} y={53} width={244} height={100} rx={10}
         fill="var(--acc)" fillOpacity="0.07" stroke="var(--acc)" strokeWidth="1.4" />
       <text className="qben__lbl" x={22} y={70}
-        style={{ fill: "var(--acc)", fontSize: "9px", letterSpacing: "0.08em" }}>FOGÁSZAT · EGYEDI KÉRDÉSEK</text>
+        style={{ fill: "var(--acc)", fontSize: "9px", letterSpacing: "0.08em" }}>1–5 FŐS CÉG · SAJÁT FOLYAMAT</text>
       {qs.map((q, i) => (
         <g key={i}>
           <circle cx={22} cy={88 + i * 26} r={3.2} fill="none" stroke="var(--acc)" strokeWidth="1.5" />
