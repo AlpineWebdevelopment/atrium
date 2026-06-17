@@ -45,6 +45,10 @@ export default function Hero() {
               minden hívást fogad, minden időpontot lefoglal, minden érdeklődőt
               utánkövet — a háttérben, az Ön eszközeivel.
             </p>
+            <p className="hero__diff">
+              <span className="newtag">új</span>
+              Operátori szemmel építjük és üzemeltetjük — az Ön számai mellett, nem egy újabb eszköz.
+            </p>
             <div className="hero__actions">
               <button className="btn">Foglaljon időpontot</button>
               <a className="btn btn--ghost" href="#rendszer-teljes">

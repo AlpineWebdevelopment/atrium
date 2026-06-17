@@ -404,6 +404,10 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
   border: 1px solid var(--line); background: var(--bone);
   font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em; color: var(--ink-70);
 }
+.hero__diff {
+  margin-top: 18px; max-width: 460px;
+  font-family: var(--font-body); font-size: 14px; line-height: 1.55; color: var(--ink-90);
+}
 .hero__trust2 { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 22px; }
 .hero__trust2 span {
   display: inline-flex; align-items: center; gap: 7px;
