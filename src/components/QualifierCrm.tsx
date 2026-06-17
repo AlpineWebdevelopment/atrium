@@ -1,41 +1,36 @@
 /* The one named product: the AI qualifier CRM.
    Four reasons it fits — each its own panel with a bespoke graph. */
 
-/* ---- 1: Személyre szabva — company size picker → tailored process ---- */
+/* ---- 1: Személyre szabva — staircase: all company sizes, each with a solution ---- */
 function GfxTuned() {
-  const sizes = ["1–5 fős", "5–20 fős", "20+ fős"];
-  const qs = ["Ki fogad hívást?", "Hány időpont fér el?", "Mikor tud visszahívni?"];
+  const tiers = [
+    { lbl: "1–5 fős", h: 32 },
+    { lbl: "5–20 fős", h: 56 },
+    { lbl: "20+ fős", h: 80 },
+  ];
+  const BAR_W = 60, BASE_Y = 112;
+  const centers = [48, 130, 212];
   return (
-    <svg viewBox="0 0 260 160" role="img" aria-label="Személyre szabva az Ön cégméretére">
-      {sizes.map((t, i) => {
-        const x = 10 + i * 82;
-        const sel = i === 0;
+    <svg viewBox="0 0 260 160" role="img" aria-label="Minden cégméretre van megoldásunk">
+      <text className="qben__lbl" x={130} y={16} textAnchor="middle"
+        style={{ fill: "var(--acc)", fontSize: "9.5px", letterSpacing: "0.06em" }}>MINDEN CÉGMÉRETRE</text>
+      {tiers.map((t, i) => {
+        const cx = centers[i];
+        const topY = BASE_Y - t.h;
+        const ckY = topY + 16;
         return (
           <g key={i}>
-            <rect x={x} y={6} width={72} height={24} rx={12}
-              fill={sel ? "var(--acc)" : "none"}
-              stroke={sel ? "var(--acc)" : "var(--line)"}
-              strokeWidth="1.5" />
-            <text className="qben__lbl" x={x + 36} y={22} textAnchor="middle"
-              style={{ fill: sel ? "#fff" : undefined, fontSize: "10.5px" }}>{t}</text>
+            <rect x={cx - BAR_W / 2} y={topY} width={BAR_W} height={t.h} rx={6}
+              fill="var(--acc)" fillOpacity={0.18 + i * 0.22} />
+            <circle cx={cx} cy={ckY} r={10} fill="var(--bone)" stroke="var(--acc)" strokeWidth="1.8" />
+            <path d={`M${cx - 5} ${ckY} L${cx - 1} ${ckY + 4} L${cx + 6} ${ckY - 5}`}
+              fill="none" stroke="var(--acc)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+            <text className="qben__lbl" x={cx} y={129} textAnchor="middle">{t.lbl}</text>
           </g>
         );
       })}
-      <line x1={46} y1={31} x2={46} y2={44} stroke="var(--acc)" strokeWidth="1.8" strokeLinecap="round" />
-      <path d="M42 41 L46 48 L50 41" fill="none" stroke="var(--acc)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-      <rect x={8} y={53} width={244} height={100} rx={10}
-        fill="var(--acc)" fillOpacity="0.07" stroke="var(--acc)" strokeWidth="1.4" />
-      <text className="qben__lbl" x={22} y={70}
-        style={{ fill: "var(--acc)", fontSize: "9px", letterSpacing: "0.08em" }}>1–5 FŐS CÉG · SAJÁT FOLYAMAT</text>
-      {qs.map((q, i) => (
-        <g key={i}>
-          <circle cx={22} cy={88 + i * 26} r={3.2} fill="none" stroke="var(--acc)" strokeWidth="1.5" />
-          <text className="qben__lbl" x={33} y={92 + i * 26}
-            style={{ fontSize: "11px", fill: "var(--ink)" }}>{q}</text>
-          <path d={`M${232} ${85 + i * 26} L${237} ${90 + i * 26} L${245} ${81 + i * 26}`}
-            fill="none" stroke="var(--acc)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-        </g>
-      ))}
+      <text className="qben__lbl" x={130} y={148} textAnchor="middle"
+        style={{ fontSize: "9.5px" }}>mindegyikre egyedi megoldás</text>
     </svg>
   );
 }
