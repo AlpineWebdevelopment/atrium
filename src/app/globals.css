@@ -353,6 +353,49 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
   background: #E8A33D; color: #fff;
   font-family: var(--font-mono); font-size: 9px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
 }
+.newnote {
+  display: block; margin: 20px auto 0; max-width: 580px; text-align: center;
+  padding: 12px 16px; border-radius: 12px;
+  border: 1px dashed #E8A33D; background: color-mix(in srgb, #E8A33D 7%, var(--bone));
+  font-family: var(--font-body); font-size: 13px; line-height: 1.5; color: var(--ink-70);
+}
+
+/* ÚJ — benefits payoff row */
+.benr { padding: 84px 0 24px; }
+.benr__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-top: 42px; }
+.benr__item { display: flex; flex-direction: column; }
+.benr__ico {
+  width: 46px; height: 46px; border-radius: 13px; margin-bottom: 15px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--panel); border: 1px solid var(--line); color: var(--ink);
+}
+.benr__ico svg { width: 22px; height: 22px; }
+.benr__t { font-family: var(--font-display); font-weight: 500; font-size: 17px; letter-spacing: -0.015em; color: var(--ink); line-height: 1.25; }
+.benr__d { margin-top: 7px; font-family: var(--font-body); font-size: 13.5px; line-height: 1.55; color: var(--ink-70); }
+@media (max-width: 860px) { .benr__grid { grid-template-columns: 1fr 1fr; gap: 24px; } }
+@media (max-width: 460px) { .benr { padding: 56px 0 12px; } .benr__grid { grid-template-columns: 1fr; gap: 22px; } }
+
+/* ÚJ — anti-AI-agency positioning band */
+.pos { padding: 90px 0; }
+.pos__inner {
+  max-width: 760px; margin: 0 auto; text-align: center;
+  padding: 44px 40px; border-radius: 22px;
+  border: 1px solid color-mix(in srgb, var(--signal) 30%, var(--line));
+  background: color-mix(in srgb, var(--signal) 4%, var(--bone));
+}
+.pos__h { font-family: var(--font-display); font-weight: 500; font-size: clamp(26px, 3.2vw, 38px); letter-spacing: -0.025em; line-height: 1.1; color: var(--ink); }
+.pos__p { margin: 16px auto 0; max-width: 560px; font-family: var(--font-body); font-size: 16px; line-height: 1.6; color: var(--ink-70); }
+.pos__niche { margin: 18px auto 0; max-width: 580px; font-family: var(--font-body); font-size: 13.5px; line-height: 1.55; color: var(--stone); }
+@media (max-width: 560px) { .pos { padding: 64px 0; } .pos__inner { padding: 32px 22px; } }
+
+/* ÚJ — how we work + pricing logic */
+.wpr { padding: 90px 0; }
+.wpr__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 44px; }
+.wpr__item { padding: 22px 22px 24px; border: 1px solid var(--line); border-radius: 14px; background: var(--bone); }
+.wpr__n { font-family: var(--font-mono); font-size: 13px; font-weight: 500; color: var(--signal); }
+.wpr__t { display: block; margin-top: 12px; font-family: var(--font-body); font-size: 14px; line-height: 1.55; color: var(--ink-90); }
+@media (max-width: 860px) { .wpr__grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .wpr { padding: 64px 0; } .wpr__grid { grid-template-columns: 1fr; } }
 
 /* hero eyebrow + trust row (left) */
 .hero__eyebrow {
