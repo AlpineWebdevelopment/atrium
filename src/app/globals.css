@@ -1039,6 +1039,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
 }
 .dash__intro { text-align: center; max-width: 620px; margin: 0 auto 30px; }
 .dash__eyebrow { color: var(--viz-purple); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.10em; text-transform: uppercase; }
+.dash .dash__eyebrow { color: var(--ink); }
 .dash__h {
   font-family: var(--font-display); font-weight: 500;
   font-size: clamp(28px, 3.6vw, 44px); letter-spacing: -0.028em; line-height: 1.05;
@@ -1114,12 +1115,12 @@ html.dark { --viz-purple-soft: #1d1b33; }
   border: 2px solid var(--bone);
   box-shadow: 0 4px 12px -3px rgba(1,14,30,0.4);
 }
-.dash__marker--amber { background: var(--viz-amber); }
+.dash__marker--amber { background: var(--stone); }
 .dash__marker .ico { width: 12px; height: 12px; }
 .dash__marker--pulse { animation: dashMarkerPulse 1.9s ease-in-out infinite; }
 @keyframes dashMarkerPulse {
-  0%, 100% { box-shadow: 0 4px 12px -3px rgba(1,14,30,0.4), 0 0 0 0 rgba(232,163,61,0.5); }
-  50% { box-shadow: 0 4px 12px -3px rgba(1,14,30,0.4), 0 0 0 9px rgba(232,163,61,0); }
+  0%, 100% { box-shadow: 0 4px 12px -3px rgba(1,14,30,0.4), 0 0 0 0 rgba(140,133,121,0.5); }
+  50% { box-shadow: 0 4px 12px -3px rgba(1,14,30,0.4), 0 0 0 9px rgba(140,133,121,0); }
 }
 .dash__gbar {
   position: absolute; transform: translate(-50%, -50%);
@@ -1740,13 +1741,13 @@ html.dark { --viz-purple-soft: #1d1b33; }
 }
 .cal__time { font-family: var(--font-mono); font-size: 10px; color: var(--ink-50); }
 .cal__tag { font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.04em; }
-.cal__slot--book { background: rgba(74,163,255,0.13); border-color: rgba(74,163,255,0.32); }
-.cal__slot--book .cal__time { color: var(--viz-blue); }
+.cal__slot--book { background: rgba(1,14,30,0.07); border-color: rgba(1,14,30,0.18); }
+.cal__slot--book .cal__time { color: var(--ink); }
 .cal__slot--noshow {
-  background: rgba(232,163,61,0.12); border: 1.5px dashed rgba(232,163,61,0.75);
+  background: rgba(140,133,121,0.14); border: 1.5px dashed rgba(140,133,121,0.7);
   animation: calPulse 2.4s ease-in-out infinite;
 }
-.cal__slot--noshow .cal__time, .cal__slot--noshow .cal__tag { color: var(--viz-amber); }
+.cal__slot--noshow .cal__time, .cal__slot--noshow .cal__tag { color: var(--stone); }
 .cal__slot--lost {
   background: rgba(224,82,78,0.07); border: 1.5px dashed rgba(224,82,78,0.55);
   animation: calPulse 2.4s ease-in-out infinite;
@@ -1762,7 +1763,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
   font-family: var(--font-display); font-weight: 500; font-size: 13.5px; color: var(--ink);
 }
 .cal__sum-dot { width: 9px; height: 9px; border-radius: 50%; }
-.cal__sum-dot--amber { background: var(--viz-amber); }
+.cal__sum-dot--amber { background: var(--stone); }
 .cal__sum-dot--red { background: var(--viz-red); }
 .cal__sum-note { font-family: var(--font-body); font-size: 12.5px; color: var(--ink-70); }
 @media (max-width: 700px) {

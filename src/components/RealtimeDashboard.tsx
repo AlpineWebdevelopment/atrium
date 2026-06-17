@@ -8,9 +8,9 @@ const PAINS = [
     desc:
       "Megkeresés van — de a nagy része sosem lesz vevő. Aki mindenkivel végigbeszéli ugyanazt, az a komoly vevőktől veszi el az időt. A rendszer előszűr: mire Ön beszél valakivel, az már komoly.",
     metrics: [
-      { k: "Megkeresés", c: "var(--viz-purple)", v: "Minden nap", d: "hívás, űrlap, üzenet" },
-      { k: "Ebből komoly", c: "var(--viz-blue)", v: "A töredéke", d: "a többi csak nézelődik" },
-      { k: "Az Ön ideje", c: "var(--viz-amber)", v: "Órák", d: "ugyanazokra a kérdésekre" },
+      { k: "Megkeresés", c: "var(--ink)", v: "Minden nap", d: "hívás, űrlap, üzenet" },
+      { k: "Ebből komoly", c: "var(--ink)", v: "A töredéke", d: "a többi csak nézelődik" },
+      { k: "Az Ön ideje", c: "var(--stone)", v: "Órák", d: "ugyanazokra a kérdésekre" },
       { k: "Előszűrés", c: "var(--viz-red)", v: "Nincs", d: "mindenki sorra kerül" },
     ],
     loss: { v: "≈ 240 000 Ft", per: "/ hó", math: "~20 óra havonta előszűretlen beszélgetésre — a komoly vevők helyett" },
@@ -20,8 +20,8 @@ const PAINS = [
     desc:
       "A hívások jó része munkaidő után, hétvégén vagy foglalt vonal mellett érkezik. Aki hangpostát kap, nem vár — a következő számot hívja.",
     metrics: [
-      { k: "Hívás érkezik", c: "var(--viz-purple)", v: "20:14", d: "munkaidő után" },
-      { k: "A vonal", c: "var(--viz-amber)", v: "Hangposta", d: "senki nem veszi fel" },
+      { k: "Hívás érkezik", c: "var(--ink)", v: "20:14", d: "munkaidő után" },
+      { k: "A vonal", c: "var(--stone)", v: "Hangposta", d: "senki nem veszi fel" },
       { k: "Üzenet", c: "var(--stone)", v: "Nincs", d: "a hívó nem hagy" },
       { k: "A hívó", c: "var(--viz-red)", v: "Továbblép", d: "a következőt hívja" },
     ],
@@ -32,8 +32,8 @@ const PAINS = [
     desc:
       "A hirdetésből érkező érdeklődő órákon belül dönt. Ha az első válasz másnap érkezik, addigra már mással egyeztetett.",
     metrics: [
-      { k: "Űrlap kitöltve", c: "var(--viz-blue)", v: "14:30", d: "hirdetésből érkezett" },
-      { k: "Első válasz", c: "var(--viz-amber)", v: "Másnap", d: "amikor épp jut rá idő" },
+      { k: "Űrlap kitöltve", c: "var(--ink)", v: "14:30", d: "hirdetésből érkezett" },
+      { k: "Első válasz", c: "var(--stone)", v: "Másnap", d: "amikor épp jut rá idő" },
       { k: "Az érdeklődő", c: "var(--stone)", v: "Kihűlt", d: "már mással tárgyal" },
       { k: "A hirdetési költség", c: "var(--viz-red)", v: "Elment", d: "bevétel nem lett belőle" },
     ],
@@ -44,8 +44,8 @@ const PAINS = [
     desc:
       "Az elfelejtett időpont lyukat üt a naptárba. Emlékeztető és visszahívás nélkül a kieső óra bevétele végleg elveszik.",
     metrics: [
-      { k: "Időpont", c: "var(--viz-cyan)", v: "9:00", d: "megerősítés nélkül" },
-      { k: "A vendég", c: "var(--viz-amber)", v: "Nem jön el", d: "el is felejtette" },
+      { k: "Időpont", c: "var(--ink)", v: "9:00", d: "megerősítés nélkül" },
+      { k: "A vendég", c: "var(--stone)", v: "Nem jön el", d: "el is felejtette" },
       { k: "A naptárban", c: "var(--stone)", v: "Üres óra", d: "senki nem tölti fel" },
       { k: "Visszahívás", c: "var(--viz-red)", v: "Nincs", d: "nincs rá kapacitás" },
     ],
@@ -65,7 +65,7 @@ function GfxFunnel() {
   const serious: Record<string, "k" | "v"> = {
     "2,0": "k", "7,0": "k", "9,1": "v", "5,2": "k", "11,2": "k",
   };
-  const color = (st: string) => (st === "v" ? "#6DBC61" : st === "k" ? "#4AA3FF" : "rgba(1,14,30,0.13)");
+  const color = (st: string) => (st === "v" ? "#6DBC61" : st === "k" ? "#010E1E" : "rgba(1,14,30,0.13)");
   const dots: { x: number; y: number; st: string }[] = [];
   for (let r = 0; r < ROWS; r++) {
     for (let c = 0; c < COLS; c++) {
@@ -78,9 +78,9 @@ function GfxFunnel() {
       <svg className="qual__svg" viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Minden megkeresésből csak néhány komoly">
         <defs>
           <linearGradient id="qScan" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="rgba(74,163,255,0)" />
-            <stop offset="50%" stopColor="rgba(74,163,255,0.16)" />
-            <stop offset="100%" stopColor="rgba(74,163,255,0)" />
+            <stop offset="0%" stopColor="rgba(1,14,30,0)" />
+            <stop offset="50%" stopColor="rgba(1,14,30,0.12)" />
+            <stop offset="100%" stopColor="rgba(1,14,30,0)" />
           </linearGradient>
         </defs>
         <rect x="-90" y="0" width="90" height={H} fill="url(#qScan)">
@@ -98,7 +98,7 @@ function GfxFunnel() {
       </svg>
       <div className="qual__legend">
         <span className="qual__leg"><i className="qual__leg-dot" style={{ background: "rgba(1,14,30,0.2)" }} />Nézelődő</span>
-        <span className="qual__leg"><i className="qual__leg-dot" style={{ background: "#4AA3FF" }} />Komoly szándék</span>
+        <span className="qual__leg"><i className="qual__leg-dot" style={{ background: "#010E1E" }} />Komoly szándék</span>
         <span className="qual__leg"><i className="qual__leg-dot" style={{ background: "#6DBC61" }} />Vevő</span>
         <span className="qual__note">Az előszűrés kiemeli a komolyakat — Ön már csak velük beszél.</span>
       </div>
@@ -118,9 +118,9 @@ function GfxCalls() {
       <svg className="dash__svg" viewBox="0 0 1000 190" preserveAspectRatio="none">
         <defs>
           <linearGradient id="gAns" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#7C5CFF" />
-            <stop offset="55%" stopColor="#4AA3FF" />
-            <stop offset="100%" stopColor="#54CFC0" />
+            <stop offset="0%" stopColor="#010E1E" />
+            <stop offset="55%" stopColor="#010E1E" />
+            <stop offset="100%" stopColor="#6DBC61" />
           </linearGradient>
         </defs>
         {/* gridlines */}
@@ -135,11 +135,11 @@ function GfxCalls() {
           const x = i * bw + bw * 0.18;
           const w = bw * 0.64;
           const after = i * bw + bw / 2 >= closeX;
-          return <rect key={i} x={x} y={baseY - h} width={w} height={h} rx="3" fill={after ? "rgba(224,82,78,0.55)" : "rgba(124,92,255,0.30)"} />;
+          return <rect key={i} x={x} y={baseY - h} width={w} height={h} rx="3" fill={after ? "rgba(224,82,78,0.55)" : "rgba(1,14,30,0.18)"} />;
         })}
         {/* answered line — drops to zero after close */}
         <path d="M36,95 C90,58 150,40 215,52 C285,64 320,108 385,108 C450,108 480,86 545,90 C610,94 650,74 690,84" fill="none" stroke="url(#gAns)" strokeWidth="3" strokeLinecap="round" />
-        <circle cx="690" cy="84" r="5" fill="#54CFC0" stroke="var(--bone)" strokeWidth="2.5" />
+        <circle cx="690" cy="84" r="5" fill="#6DBC61" stroke="var(--bone)" strokeWidth="2.5" />
       </svg>
       <div className="funnel__stage funnel__stage--tr">
         <b>Zárás után</b><span>hangposta, nincs válasz</span>
@@ -161,13 +161,13 @@ function GfxCooling() {
       <svg className="dash__svg" viewBox="0 0 1000 190" preserveAspectRatio="none">
         <defs>
           <linearGradient id="gCool" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#4AA3FF" />
+            <stop offset="0%" stopColor="#010E1E" />
             <stop offset="55%" stopColor="#8C8579" />
             <stop offset="100%" stopColor="#E0524E" />
           </linearGradient>
           <linearGradient id="gCoolFill" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="rgba(74,163,255,0.20)" />
-            <stop offset="100%" stopColor="rgba(74,163,255,0)" />
+            <stop offset="0%" stopColor="rgba(1,14,30,0.16)" />
+            <stop offset="100%" stopColor="rgba(1,14,30,0)" />
           </linearGradient>
         </defs>
         {/* gridlines */}
@@ -178,14 +178,14 @@ function GfxCooling() {
         <path d="M60,35 C220,42 380,85 560,125 C720,158 850,168 950,172 L950,190 L60,190 Z" fill="url(#gCoolFill)" />
         <path id="coolPath" d="M60,35 C220,42 380,85 560,125 C720,158 850,168 950,172" fill="none" stroke="url(#gCool)" strokeWidth="3" strokeLinecap="round" />
         {/* the lead, sliding down the curve as time passes */}
-        <circle r="6" fill="#E8A33D" stroke="var(--bone)" strokeWidth="2.5">
+        <circle r="6" fill="#010E1E" stroke="var(--bone)" strokeWidth="2.5">
           <animateMotion dur="5s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.82;1" calcMode="linear">
             <mpath href="#coolPath" />
           </animateMotion>
-          <animate attributeName="fill" values="#4AA3FF;#8C8579;#E0524E;#E0524E" keyTimes="0;0.5;0.82;1" dur="5s" repeatCount="indefinite" />
+          <animate attributeName="fill" values="#010E1E;#8C8579;#E0524E;#E0524E" keyTimes="0;0.5;0.82;1" dur="5s" repeatCount="indefinite" />
         </circle>
-        <circle cx="60" cy="35" r="7" fill="#4AA3FF" stroke="var(--bone)" strokeWidth="3" />
-        <circle cx="60" cy="35" r="7" fill="none" stroke="#4AA3FF" strokeWidth="2">
+        <circle cx="60" cy="35" r="7" fill="#010E1E" stroke="var(--bone)" strokeWidth="3" />
+        <circle cx="60" cy="35" r="7" fill="none" stroke="#010E1E" strokeWidth="2">
           <animate attributeName="r" values="7;15" dur="2.2s" repeatCount="indefinite" />
           <animate attributeName="opacity" values="0.5;0" dur="2.2s" repeatCount="indefinite" />
         </circle>
