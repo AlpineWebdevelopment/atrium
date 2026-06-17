@@ -416,45 +416,45 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
 .hero__trust2 svg { width: 15px; height: 15px; color: var(--signal); }
 
 /* hero live activity console (right) */
-.canvas__stage--con { display: flex; flex-direction: column; height: 360px; padding: 14px; gap: 10px; }
-.hcon__head {
-  display: flex; align-items: center; justify-content: space-between; gap: 12px;
-  padding: 2px 4px;
+.canvas__stage--con { display: flex; flex-direction: column; height: 360px; padding: 16px 18px; }
+.hday { display: flex; flex-direction: column; height: 100%; }
+.hday__h {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 12px;
+  font-family: var(--font-display); font-weight: 500; font-size: 16px; letter-spacing: -0.01em; color: var(--ink);
 }
-.hcon__live {
-  display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;
-  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--stone);
-}
-.hcon__live i {
-  width: 7px; height: 7px; border-radius: 50%; background: var(--signal);
+.hday__live {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--signal);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--signal) 22%, transparent);
   animation: atr-pulse 1.4s ease-in-out infinite;
 }
-.hcon__chans { display: inline-flex; align-items: center; gap: 8px; }
-.hcon__chans svg { width: 16px; height: 16px; flex-shrink: 0; }
-.hcon__feed { display: flex; flex-direction: column; gap: 7px; }
-.hcon__row {
-  display: flex; align-items: center; gap: 11px;
-  padding: 9px 12px; border-radius: 11px;
-  border: 1px solid var(--line); background: var(--bone);
+.hday__list { position: relative; display: flex; flex-direction: column; gap: 2px; }
+.hday__list::before {
+  content: ""; position: absolute; left: 25px; top: 16px; bottom: 16px; width: 2px;
+  background: var(--line);
 }
-.hcon__row--new { border-color: color-mix(in srgb, var(--signal) 40%, var(--line)); box-shadow: 0 10px 24px -16px rgba(1,14,30,0.22); animation: hconIn 460ms var(--ease); }
-@keyframes hconIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
-.hcon__ico {
-  width: 34px; height: 34px; border-radius: 10px; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
+.hday__row {
+  display: grid; grid-template-columns: 50px 1fr 18px; gap: 12px; align-items: center;
+  padding: 7px 0;
 }
-.hcon__ico svg { width: 18px; height: 18px; }
-.hcon__txt { flex: 1; min-width: 0; }
-.hcon__t { display: block; font-family: var(--font-display); font-weight: 500; font-size: 13.5px; letter-spacing: -0.01em; color: var(--ink); }
-.hcon__d { display: block; font-family: var(--font-body); font-size: 11.5px; line-height: 1.3; color: var(--ink-70); }
-.hcon__done {
-  width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-  background: color-mix(in srgb, var(--signal) 14%, var(--bone)); color: #3d8f34;
+.hday__time {
+  position: relative; z-index: 1; text-align: center;
+  font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.02em;
+  padding: 4px 0; border-radius: 6px;
+  background: var(--panel); border: 1px solid var(--line); color: var(--ink-70);
 }
-.hcon__done svg { width: 13px; height: 13px; }
-@media (max-width: 420px) { .hcon__chans svg:nth-child(n+6) { display: none; } }
+.hday__txt {
+  font-family: var(--font-body); font-size: 12.5px; line-height: 1.35; color: var(--ink-70);
+}
+.hday__dot { color: var(--line); display: flex; }
+.hday__dot svg { width: 16px; height: 16px; }
+/* states as the day progresses */
+.hday__row--done .hday__dot { color: #3d8f34; }
+.hday__row--done .hday__txt { color: var(--ink); }
+.hday__row--up { opacity: 0.5; }
+.hday__row--now .hday__time { background: var(--signal); border-color: var(--signal); color: #fff; }
+.hday__row--now .hday__txt { color: var(--ink); font-weight: 500; }
+.hday__row--now { background: color-mix(in srgb, var(--signal) 7%, transparent); border-radius: 10px; }
+.hday__row--now .hday__dot { color: #3d8f34; animation: atr-pulse 1.4s ease-in-out infinite; }
 
 
 /* --- Hero canvas mockup (network diagram) --- */
