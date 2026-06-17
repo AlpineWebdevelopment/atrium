@@ -102,21 +102,26 @@ export default function Hero() {
                   ))}
                 </span>
               </div>
-              <div className="hcon__day2">
-                {DAY.map((d, i) => {
-                  const state = i < cur ? "done" : i === cur ? "now" : "up";
-                  return (
-                    <div className={"hcon__row hcon__row--" + state} key={i}>
-                      <span className="hcon__ico" style={{ background: `color-mix(in srgb, ${d.c} 13%, var(--bone))`, color: d.c, border: `1px solid color-mix(in srgb, ${d.c} 30%, transparent)` }}>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">{ICONS[d.k]}</svg>
-                      </span>
-                      <span className="hcon__txt">
-                        <span className="hcon__time">{d.time}</span>
-                        <span className="hcon__ev">{d.t}</span>
-                      </span>
-                    </div>
-                  );
-                })}
+              <div className="hcon__cols">
+                {[DAY.slice(0, 6), DAY.slice(6)].map((col, ci) => (
+                  <div className="hcon__col" key={ci}>
+                    {col.map((d, ri) => {
+                      const gi = ci * 6 + ri;
+                      const state = gi < cur ? "done" : gi === cur ? "now" : "up";
+                      return (
+                        <div className={"hcon__row hcon__row--" + state} key={gi}>
+                          <span className="hcon__ico" style={{ background: `color-mix(in srgb, ${d.c} 13%, var(--bone))`, color: d.c, border: `1px solid color-mix(in srgb, ${d.c} 32%, transparent)` }}>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">{ICONS[d.k]}</svg>
+                          </span>
+                          <span className="hcon__txt">
+                            <span className="hcon__time">{d.time}</span>
+                            <span className="hcon__ev">{d.t}</span>
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                ))}
               </div>
               <div className="hcon__foot">Ön a cégét vezeti — a rendszer közben mindenre figyel.</div>
             </div>
