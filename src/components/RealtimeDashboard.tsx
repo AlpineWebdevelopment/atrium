@@ -191,7 +191,7 @@ function GfxCooling() {
         </circle>
         <circle cx="950" cy="172" r="7" fill="#C46C64" stroke="var(--bone)" strokeWidth="3" />
       </svg>
-      <div className="funnel__stage" style={{ left: "16%", top: "15%" }}>
+      <div className="funnel__stage" style={{ left: "2%", top: "15%", transform: "translateY(-50%)" }}>
         <b>Érdeklődés beérkezik</b><span>14:30</span>
       </div>
       <div className="funnel__stage" style={{ left: "50%", top: "49%" }}>
