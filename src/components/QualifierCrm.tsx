@@ -131,10 +131,10 @@ function GfxCost() {
 }
 
 const BENEFITS = [
-  { b: "Személyre szabva", s: "az Ön cégméretére, folyamatára és kérdéseire építve", c: "#7C5CFF", Gfx: GfxTuned },
-  { b: "Saját CRM", s: "az adatok az Ön rendszerében, nem egy bérelt felületen", c: "#4AA3FF", Gfx: GfxOwn },
-  { b: "Több időpont", s: "ugyanannyi érdeklődőből — mert egy sem vész el útközben", c: "#54CFC0", Gfx: GfxFunnels },
-  { b: "Költséghatékony", s: "a nap minden órájában dolgozik, és kevesebbe kerül, mint egy munkatárs", c: "#34C759", Gfx: GfxCost },
+  { b: "Személyre szabva", s: "az Ön cégméretére, folyamatára és kérdéseire építve", c: "#9662BC", Gfx: GfxTuned },
+  { b: "Saját CRM", s: "az adatok az Ön rendszerében, nem egy bérelt felületen", c: "#628FBC", Gfx: GfxOwn },
+  { b: "Több időpont", s: "ugyanannyi érdeklődőből — mert egy sem vész el útközben", c: "#62BCAC", Gfx: GfxFunnels },
+  { b: "Költséghatékony", s: "a nap minden órájában dolgozik, és kevesebbe kerül, mint egy munkatárs", c: "#6DBC61", Gfx: GfxCost },
 ];
 
 export default function QualifierCrm() {

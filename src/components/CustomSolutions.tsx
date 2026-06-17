@@ -25,28 +25,28 @@ const PROJECTS: { ico: IconKey; t: string; d: string; who: string; c: string }[]
     t: "AI érdeklődő-szerzés és minősítés",
     d: "Magától megtalálja a lehetséges ügyfeleket — LinkedInen, a weboldal látogatói és a meglévő adatbázisok alapján. Minősíti, csoportokba rendezi, és személyre szabott megkeresést indít. Ember nélkül.",
     who: "Ügynökségeknek és B2B-cégeknek",
-    c: "#7C5CFF",
+    c: "#9662BC",
   },
   {
     ico: "search",
     t: "AI SEO-automatizálás",
     d: "Átnézi az ügyféloldalakat, megmutatja a hibákat, tartalmat javasol és rendbe teszi a meta-adatokat. A jelentés magától megy ki. Egy csapat 50 ügyfelet visz két ember helyett.",
     who: "Ügynökségeknek",
-    c: "#4AA3FF",
+    c: "#628FBC",
   },
   {
     ico: "doc",
     t: "Dokumentum-kinyerő ügynök",
     d: "Több ezer dokumentum közül is másodpercek alatt megtalálja és kiemeli a kért adatot. Ott segít, ahol ma órákba telik a keresés.",
     who: "Jogi cégeknek, könyvelőknek, kórházaknak",
-    c: "#54CFC0",
+    c: "#62BCAC",
   },
   {
     ico: "globe",
     t: "Többnyelvű ügyfélszolgálati AI",
     d: "Tíznél több nyelven válaszol, és folyamatosan együtt mozog a belső rendszereivel. Rögzíti a megkeresést, megnézi a státuszt, kezeli a gyakori kérdéseket — magától.",
     who: "Multinacionális cégeknek",
-    c: "#E8A33D",
+    c: "#BCA162",
   },
   {
     ico: "send",
@@ -70,7 +70,7 @@ const nodeY = (i: number) => 46 + i * ((MAP_H - 92) / (MAP_NODES.length - 1));
 const CATEGORIES = [
   {
     h: "Értékesítés és marketing",
-    c: "#7C5CFF",
+    c: "#9662BC",
     ico: "trend" as IconKey,
     items: [
       "Automatikus érdeklődő-gondozás",
@@ -82,7 +82,7 @@ const CATEGORIES = [
   },
   {
     h: "Ügyfélszolgálat és támogatás",
-    c: "#4AA3FF",
+    c: "#628FBC",
     ico: "chat" as IconKey,
     items: [
       "Többnyelvű ügyfélszolgálat több csatornán",
@@ -94,7 +94,7 @@ const CATEGORIES = [
   },
   {
     h: "Operációs automatizálás",
-    c: "#54CFC0",
+    c: "#62BCAC",
     ico: "refresh" as IconKey,
     items: [
       "Dokumentum-feldolgozás és kategorizálás",
@@ -106,7 +106,7 @@ const CATEGORIES = [
   },
   {
     h: "Iparág-specifikus",
-    c: "#E8A33D",
+    c: "#BCA162",
     ico: "layers" as IconKey,
     items: [
       "Egészségügy — beteg-kommunikáció",

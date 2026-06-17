@@ -28,14 +28,14 @@ const ICONS: Record<string, React.ReactNode> = {
 
 /* what the system can do — the services */
 const CAPS = [
-  { ic: "mic", c: "#7C5CFF", t: "Hang-AI", d: "Természetes magyar beszéd — fogadja és indítja a hívásokat." },
-  { ic: "chat", c: "#4AA3FF", t: "Szöveges AI", d: "SMS, WhatsApp, Messenger, Instagram, e-mail és webchat — egy helyen." },
-  { ic: "send", c: "#9B7BFF", t: "Proaktív megkeresés", d: "Nem csak válaszol — magától keresi meg az érdeklődőt és a régi ügyfelet." },
-  { ic: "db", c: "#54CFC0", t: "Egységes memória", d: "Minden csatornán emlékszik a korábbi beszélgetésre." },
-  { ic: "qualify", c: "#45B5D6", t: "Kvalifikáció", d: "Felteszi a fontos kérdéseket, és pontozza az érdeklődőt." },
-  { ic: "refresh", c: "#34C759", t: "Naptár- és CRM-szinkron", d: "A meglévő eszközeihez kötve, valós időben." },
-  { ic: "bars", c: "#E8A33D", t: "Riport", d: "Havi kimutatás: mi működik, és hol szivárog a bevétel." },
-  { ic: "clock", c: "#46C79A", t: "0–24 elérhetőség", d: "A nap minden órájában dolgozik, emberi kiesés nélkül." },
+  { ic: "mic", c: "#9662BC", t: "Hang-AI", d: "Természetes magyar beszéd — fogadja és indítja a hívásokat." },
+  { ic: "chat", c: "#628FBC", t: "Szöveges AI", d: "SMS, WhatsApp, Messenger, Instagram, e-mail és webchat — egy helyen." },
+  { ic: "send", c: "#AD83CC", t: "Proaktív megkeresés", d: "Nem csak válaszol — magától keresi meg az érdeklődőt és a régi ügyfelet." },
+  { ic: "db", c: "#62BCAC", t: "Egységes memória", d: "Minden csatornán emlékszik a korábbi beszélgetésre." },
+  { ic: "qualify", c: "#628FBC", t: "Kvalifikáció", d: "Felteszi a fontos kérdéseket, és pontozza az érdeklődőt." },
+  { ic: "refresh", c: "#6DBC61", t: "Naptár- és CRM-szinkron", d: "A meglévő eszközeihez kötve, valós időben." },
+  { ic: "bars", c: "#BCA162", t: "Riport", d: "Havi kimutatás: mi működik, és hol szivárog a bevétel." },
+  { ic: "clock", c: "#62BCAC", t: "0–24 elérhetőség", d: "A nap minden órájában dolgozik, emberi kiesés nélkül." },
 ];
 
 function Ico({ k, x, y, s = 18 }: { k: string; x: number; y: number; s?: number }) {
@@ -124,7 +124,7 @@ function VizMegtartas() {
 
 const PHASES = [
   {
-    n: "01", name: "Megkeresés", cap: "az első érintéstől a minősítésig", c: "#7C5CFF", Viz: VizMegkereses,
+    n: "01", name: "Megkeresés", cap: "az első érintéstől a minősítésig", c: "#9662BC", Viz: VizMegkereses,
     steps: [
       { ic: "phone", t: "Hívásfogadás", s: "minden hívást felvesz, éjjel és hétvégén is" },
       { ic: "chat", t: "Utánkövetés", s: "a webes érdeklődőt is percek alatt visszahívja" },
@@ -133,7 +133,7 @@ const PHASES = [
     ],
   },
   {
-    n: "02", name: "Foglalás", cap: "időpont, megerősítve", c: "#4AA3FF", Viz: VizFoglalas,
+    n: "02", name: "Foglalás", cap: "időpont, megerősítve", c: "#628FBC", Viz: VizFoglalas,
     steps: [
       { ic: "calendar", t: "Időpontfoglalás", s: "egyenesen a naptárba, ütközés nélkül" },
       { ic: "confirm", t: "Visszaigazolás", s: "azonnal visszaigazolja a foglalást" },
@@ -142,7 +142,7 @@ const PHASES = [
     ],
   },
   {
-    n: "03", name: "Megtartás", cap: "vissza, és újra", c: "#34C759", Viz: VizMegtartas,
+    n: "03", name: "Megtartás", cap: "vissza, és újra", c: "#6DBC61", Viz: VizMegtartas,
     steps: [
       { ic: "callback", t: "No-show visszahívás", s: "visszaszerzi az elmaradt időpontot" },
       { ic: "star", t: "Értékelés", s: "elégedett ügyféltől értékelést kér" },
@@ -153,14 +153,14 @@ const PHASES = [
 ];
 
 const CHANNELS: { n: string; c: string; ic: React.ReactNode }[] = [
-  { n: "Telefon", c: "#34C759", ic: <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" /> },
-  { n: "SMS", c: "#4AA3FF", ic: <g><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.6L3 20.5l1.4-5.1A8.5 8.5 0 1 1 21 11.5z" /><path d="M8.5 11.5h.01M12 11.5h.01M15.5 11.5h.01" /></g> },
-  { n: "WhatsApp", c: "#25D366", ic: <g><path d="M3.2 20.8l1.4-3.7A8 8 0 1 1 7.7 19.8z" /><path d="M9 9c.2 2.4 3.4 5.6 5.8 5.8.5 0 1.2-.5 1.4-1" /></g> },
-  { n: "Messenger", c: "#0084FF", ic: <g><path d="M12 2C6.5 2 2 6.1 2 11.1c0 2.8 1.4 5.3 3.6 7v3.4l3.3-1.8c1 .3 2 .4 3.1.4 5.5 0 10-4.1 10-9.1S17.5 2 12 2z" /><path d="M6.9 13.6l3-3.2 2 2 2.9-2.2-3 3.2-2-2z" /></g> },
-  { n: "Instagram", c: "#E4405F", ic: <g><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><path d="M17.5 6.5h.01" /></g> },
-  { n: "Viber", c: "#7360F2", ic: <g><path d="M12 2C6.8 2 2.5 5.9 2.5 10.7c0 2.6 1.3 5 3.4 6.6V21l3.2-1.8c.9.2 1.9.3 2.9.3 5.2 0 9.5-3.9 9.5-8.8S17.2 2 12 2z" /><path d="M9 8c.2 2.4 3.4 5.6 5.8 5.8.5 0 1.2-.5 1.4-1" /></g> },
-  { n: "E-mail", c: "#D9534F", ic: <g><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3 7l9 6 9-6" /></g> },
-  { n: "Webchat", c: "#54CFC0", ic: <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /> },
+  { n: "Telefon", c: "#6DBC61", ic: <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" /> },
+  { n: "SMS", c: "#628FBC", ic: <g><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.6L3 20.5l1.4-5.1A8.5 8.5 0 1 1 21 11.5z" /><path d="M8.5 11.5h.01M12 11.5h.01M15.5 11.5h.01" /></g> },
+  { n: "WhatsApp", c: "#6DBC61", ic: <g><path d="M3.2 20.8l1.4-3.7A8 8 0 1 1 7.7 19.8z" /><path d="M9 9c.2 2.4 3.4 5.6 5.8 5.8.5 0 1.2-.5 1.4-1" /></g> },
+  { n: "Messenger", c: "#628FBC", ic: <g><path d="M12 2C6.5 2 2 6.1 2 11.1c0 2.8 1.4 5.3 3.6 7v3.4l3.3-1.8c1 .3 2 .4 3.1.4 5.5 0 10-4.1 10-9.1S17.5 2 12 2z" /><path d="M6.9 13.6l3-3.2 2 2 2.9-2.2-3 3.2-2-2z" /></g> },
+  { n: "Instagram", c: "#C46C64", ic: <g><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><path d="M17.5 6.5h.01" /></g> },
+  { n: "Viber", c: "#9662BC", ic: <g><path d="M12 2C6.8 2 2.5 5.9 2.5 10.7c0 2.6 1.3 5 3.4 6.6V21l3.2-1.8c.9.2 1.9.3 2.9.3 5.2 0 9.5-3.9 9.5-8.8S17.2 2 12 2z" /><path d="M9 8c.2 2.4 3.4 5.6 5.8 5.8.5 0 1.2-.5 1.4-1" /></g> },
+  { n: "E-mail", c: "#C46C64", ic: <g><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3 7l9 6 9-6" /></g> },
+  { n: "Webchat", c: "#62BCAC", ic: <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /> },
 ];
 
 export default function FullSystem() {

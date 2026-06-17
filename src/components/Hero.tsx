@@ -28,23 +28,23 @@ const ICONS: Record<string, React.ReactNode> = {
 };
 
 const CHANNELS = [
-  { k: "phone", c: "#34C759" }, { k: "sms", c: "#4AA3FF" }, { k: "whatsapp", c: "#25D366" }, { k: "viber", c: "#7360F2" },
-  { k: "messenger", c: "#0084FF" }, { k: "instagram", c: "#E4405F" }, { k: "email", c: "#D9534F" }, { k: "webchat", c: "#54CFC0" },
+  { k: "phone", c: "#6DBC61" }, { k: "sms", c: "#628FBC" }, { k: "whatsapp", c: "#6DBC61" }, { k: "viber", c: "#9662BC" },
+  { k: "messenger", c: "#628FBC" }, { k: "instagram", c: "#C46C64" }, { k: "email", c: "#C46C64" }, { k: "webchat", c: "#62BCAC" },
 ];
 
 const DAY = [
-  { time: "06:50", k: "callback", c: "#34C759", t: "Még alszik — a 4 éjjeli hívás már vissza van híva." },
-  { time: "07:30", k: "calendar", c: "#7C5CFF", t: "Reggeli közben 3 új foglalás futott a naptárba." },
-  { time: "08:15", k: "webchat", c: "#54CFC0", t: "Egy webchat-érdeklődő 30 mp alatt választ kapott." },
-  { time: "09:40", k: "phone", c: "#4AA3FF", t: "Ön ügyféllel van — közben 2 hívást is felvett a rendszer." },
-  { time: "11:00", k: "qualify", c: "#9B7BFF", t: "Csak árat kérdeztek — kvalifikálva, nem foglal felesleg helyet." },
-  { time: "12:20", k: "users", c: "#45B5D6", t: "Lemondás 1 perc alatt a várólistának — nem marad üres a szék." },
-  { time: "13:30", k: "refresh", c: "#E8A33D", t: "Egy 8 hónapja nem látott ügyfél finoman visszahíva." },
-  { time: "15:10", k: "bell", c: "#46C79A", t: "A holnapi időpontok emlékeztetőt kaptak — kevesebb no-show." },
-  { time: "16:45", k: "star", c: "#E8A33D", t: "Egy elégedett ügyféltől a rendszer értékelést kért." },
-  { time: "18:00", k: "phone", c: "#34C759", t: "Zárás után is csörög a telefon — egy hívás se vész el." },
-  { time: "20:15", k: "home", c: "#7C5CFF", t: "Ön otthon, a családdal — a rendszer dolgozik tovább." },
-  { time: "21:30", k: "moon", c: "#4AA3FF", t: "Tele naptár, 0 elszalasztott hívás. Nyugodtan alszik." },
+  { time: "06:50", k: "callback", c: "#6DBC61", t: "Még alszik — a 4 éjjeli hívás már vissza van híva." },
+  { time: "07:30", k: "calendar", c: "#9662BC", t: "Reggeli közben 3 új foglalás futott a naptárba." },
+  { time: "08:15", k: "webchat", c: "#62BCAC", t: "Egy webchat-érdeklődő 30 mp alatt választ kapott." },
+  { time: "09:40", k: "phone", c: "#628FBC", t: "Ön ügyféllel van — közben 2 hívást is felvett a rendszer." },
+  { time: "11:00", k: "qualify", c: "#AD83CC", t: "Csak árat kérdeztek — kvalifikálva, nem foglal felesleg helyet." },
+  { time: "12:20", k: "users", c: "#628FBC", t: "Lemondás 1 perc alatt a várólistának — nem marad üres a szék." },
+  { time: "13:30", k: "refresh", c: "#BCA162", t: "Egy 8 hónapja nem látott ügyfél finoman visszahíva." },
+  { time: "15:10", k: "bell", c: "#62BCAC", t: "A holnapi időpontok emlékeztetőt kaptak — kevesebb no-show." },
+  { time: "16:45", k: "star", c: "#BCA162", t: "Egy elégedett ügyféltől a rendszer értékelést kért." },
+  { time: "18:00", k: "phone", c: "#6DBC61", t: "Zárás után is csörög a telefon — egy hívás se vész el." },
+  { time: "20:15", k: "home", c: "#9662BC", t: "Ön otthon, a családdal — a rendszer dolgozik tovább." },
+  { time: "21:30", k: "moon", c: "#628FBC", t: "Tele naptár, 0 elszalasztott hívás. Nyugodtan alszik." },
 ];
 
 const PHRASES = [
