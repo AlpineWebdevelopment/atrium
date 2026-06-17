@@ -142,8 +142,8 @@ export default function QualifierCrm() {
     <section className="qcrm" id="crm">
       <div className="wrap">
         <div className="dash__intro reveal">
-          <span className="dash__eyebrow">Az AI kvalifikáló CRM</span>
-          <h2 className="dash__h">Mire Önhöz ér, már komoly.</h2>
+          <span className="dash__eyebrow"><span className="newtag">új</span> Miért éri meg</span>
+          <h2 className="dash__h">Amit a rendszer Önnek hoz.</h2>
           <p className="dash__p">
             Minden megkeresés egy helyre fut be. A rendszer felteszi a megfelelő
             kérdéseket, pontozza az érdeklődőt, és csak azzal foglal időpontot,

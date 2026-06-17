@@ -1,5 +1,4 @@
 import Hero from "@/components/Hero";
-import Benefits from "@/components/Benefits";
 import RealtimeDashboard from "@/components/RealtimeDashboard";
 import FullSystem from "@/components/FullSystem";
 import Positioning from "@/components/Positioning";
@@ -19,14 +18,13 @@ export default function Home() {
     <div className="page" data-screen-label="atriumscaling.com /">
       <ScrollReveal />
       <Hero />
-      <Benefits />
+      <QualifierCrm />
       <RealtimeDashboard />
       <FullSystem />
       <Positioning />
       <CustomSolutions />
       <HowWeStart />
       <WorkPricing />
-      <QualifierCrm />
       {/* <Reputation /> hidden for now — ask to bring it back */}
       {/* <Packages /> hidden for now — ask to bring it back */}
       <Faq />
