@@ -191,13 +191,13 @@ function GfxCooling() {
         </circle>
         <circle cx="950" cy="172" r="7" fill="#C46C64" stroke="var(--bone)" strokeWidth="3" />
       </svg>
-      <div className="funnel__stage" style={{ left: "16%", top: "14%" }}>
+      <div className="funnel__stage" style={{ left: "16%", top: "15%" }}>
         <b>Érdeklődés beérkezik</b><span>14:30</span>
       </div>
-      <div className="funnel__stage" style={{ left: "50%", top: "56%" }}>
+      <div className="funnel__stage" style={{ left: "50%", top: "49%" }}>
         <b>Kihűlőben</b><span>válasz nélkül</span>
       </div>
-      <div className="funnel__stage" style={{ right: "2%", left: "auto", top: "88%", transform: "translateY(-50%)" }}>
+      <div className="funnel__stage" style={{ right: "2%", left: "auto", top: "75%", transform: "translateY(-50%)" }}>
         <b>Első válasz</b><span>másnap</span>
       </div>
       <div className="dash__axis">
