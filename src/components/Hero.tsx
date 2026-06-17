@@ -47,11 +47,21 @@ const DAY = [
   { time: "21:30", k: "moon", c: "#4AA3FF", t: "Tele naptár, 0 elszalasztott hívás. Nyugodtan alszik." },
 ];
 
+const REASONS = [
+  "a meg nem válaszolt hívások",
+  "a lassú visszahívás",
+  "az elmaradt időpontok",
+  "a kihűlt érdeklődők",
+  "a rég elfeledett ügyfelek",
+];
+
 export default function Hero() {
   const [cur, setCur] = useState(DAY.length - 1);
+  const [ridx, setRidx] = useState(0);
   useEffect(() => {
     const t = setInterval(() => setCur((c) => (c + 1) % DAY.length), 1800);
-    return () => clearInterval(t);
+    const r = setInterval(() => setRidx((i) => (i + 1) % REASONS.length), 2400);
+    return () => { clearInterval(t); clearInterval(r); };
   }, []);
 
   return (
@@ -62,16 +72,16 @@ export default function Hero() {
           <div className="hero__content reveal reveal--instant visible">
             <span className="hero__eyebrow">Értékesítési rendszerek, operátori szemmel</span>
             <h1 className="hero__title">
-              A bevétel, ami eddig elszivárgott, mostantól Önnél marad.
+              Ne veszítsen több bevételt
+              <span className="hero__rotline">
+                <span className="hero__rot" key={ridx}>{REASONS[ridx]} miatt</span>
+                <span className="hero__cursor" aria-hidden="true" />
+              </span>
             </h1>
             <p className="hero__sub">
               Az Atrium egy magyar nyelvű, AI-alapú értékesítési rendszer:
               minden hívást fogad, minden időpontot lefoglal, minden érdeklődőt
               utánkövet — a háttérben, az Ön eszközeivel.
-            </p>
-            <p className="hero__diff">
-              <span className="newtag">új</span>
-              Operátori szemmel építjük és üzemeltetjük — az Ön számai mellett, nem egy újabb eszköz.
             </p>
             <div className="hero__actions">
               <button className="btn">Foglaljon időpontot</button>
