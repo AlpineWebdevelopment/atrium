@@ -122,7 +122,7 @@ export default function Hero() {
                 <span className="hcon__title"><i /> Amíg Ön a cégét vezeti</span>
                 <span className="hcon__chans">
                   {CHANNELS.map((c) => (
-                    <svg key={c.k} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" style={{ color: c.c }}>{ICONS[c.k]}</svg>
+                    <svg key={c.k} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" style={{ color: "var(--signal)" }}>{ICONS[c.k]}</svg>
                   ))}
                 </span>
               </div>
@@ -134,7 +134,7 @@ export default function Hero() {
                       const state = gi < cur ? "done" : gi === cur ? "now" : "up";
                       return (
                         <div className={"hcon__row hcon__row--" + state} key={gi}>
-                          <span className="hcon__ico" style={{ background: `color-mix(in srgb, ${d.c} 13%, var(--bone))`, color: d.c, border: `1px solid color-mix(in srgb, ${d.c} 32%, transparent)` }}>
+                          <span className="hcon__ico" style={{ background: "color-mix(in srgb, var(--signal) 13%, var(--bone))", color: "var(--signal)", border: "1px solid color-mix(in srgb, var(--signal) 32%, transparent)" }}>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">{ICONS[d.k]}</svg>
                           </span>
                           <span className="hcon__txt">

@@ -112,8 +112,8 @@ html.dark {
   background: linear-gradient(
     180deg,
     var(--bone) 0,
-    color-mix(in srgb, #7C5CFF 7%, var(--bone)) 460px,
-    color-mix(in srgb, #4AA3FF 7%, var(--bone)) 980px,
+    color-mix(in srgb, var(--signal) 6%, var(--bone)) 460px,
+    color-mix(in srgb, var(--signal) 5%, var(--bone)) 980px,
     var(--bone) 1480px
   );
 }
@@ -323,10 +323,19 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
   padding: 76px 0 88px;
 }
 .hero__grid {
-  display: grid;
-  grid-template-columns: 1.2fr 0.9fr;
-  gap: 52px;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+}
+/* centered copy block at the top */
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 760px;
+  width: 100%;
 }
 .hero__title {
   font-family: var(--font-display);
@@ -341,10 +350,10 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
   font-size: 17px;
   line-height: 1.6;
   color: var(--ink-70);
-  max-width: 440px;
-  margin: 24px 0 32px;
+  max-width: 580px;
+  margin: 24px auto 32px;
 }
-.hero__actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.hero__actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
 
 /* temporary review marker (amber = recommended) */
 .newtag {
@@ -410,14 +419,14 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
 }
 /* typewriter rotating-reason headline (left) */
 .hero__rotline { display: block; margin-top: 2px; min-height: 1.25em; }
-.hero__rot { color: #4AA3FF; }
+.hero__rot { color: var(--signal); } /* brand signal green */
 .hero__cursor {
   display: inline-block; width: 4px; height: 0.78em; margin-left: 2px;
-  background: #4AA3FF; transform: translateY(3px);
+  background: var(--signal); transform: translateY(3px);
   animation: heroBlink 1s steps(1) infinite;
 }
 @keyframes heroBlink { 50% { opacity: 0; } }
-.hero__trust2 { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 22px; }
+.hero__trust2 { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 22px; justify-content: center; }
 .hero__trust2 span {
   display: inline-flex; align-items: center; gap: 7px;
   font-family: var(--font-body); font-size: 13px; color: var(--ink-70);
@@ -476,9 +485,12 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
 /* --- Hero canvas mockup (network diagram) --- */
 .canvas {
   position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
   background: var(--panel);
   border: 1px solid var(--line);
-  border-radius: 16px 16px 0 0;
+  border-radius: 16px;
   box-shadow: 0 24px 60px -28px rgba(1,14,30,0.30);
   overflow: hidden;
 }
@@ -547,8 +559,7 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
 .canvas__pill .sig { width: 7px; height: 7px; border-radius: 50%; background: var(--signal); display: inline-block; animation: atr-pulse 1.4s ease-in-out infinite; }
 
 @media (max-width: 900px) {
-  .hero__grid { grid-template-columns: 1fr; gap: 40px; }
-  .hero__sub { max-width: none; }
+  .hero__grid { gap: 40px; }
 }
 
 /* =========================================================
