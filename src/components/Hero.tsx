@@ -48,11 +48,11 @@ const DAY = [
 ];
 
 const PHRASES = [
-  "a meg nem válaszolt hívások miatt",
-  "a lassú visszahívás miatt",
-  "az elmaradt időpontok miatt",
-  "a kihűlt érdeklődők miatt",
-  "a rég elfeledett ügyfelek miatt",
+  "elszalasztott hívások miatt",
+  "lassú visszahívás miatt",
+  "elmaradt időpontok miatt",
+  "kihűlt érdeklődők miatt",
+  "elfeledett ügyfelek miatt",
 ];
 
 export default function Hero() {
