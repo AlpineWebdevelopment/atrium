@@ -47,22 +47,37 @@ const DAY = [
   { time: "21:30", k: "moon", c: "#4AA3FF", t: "Tele naptár, 0 elszalasztott hívás. Nyugodtan alszik." },
 ];
 
-const REASONS = [
-  "a meg nem válaszolt hívások",
-  "a lassú visszahívás",
-  "az elmaradt időpontok",
-  "a kihűlt érdeklődők",
-  "a rég elfeledett ügyfelek",
+const PHRASES = [
+  "a meg nem válaszolt hívások miatt",
+  "a lassú visszahívás miatt",
+  "az elmaradt időpontok miatt",
+  "a kihűlt érdeklődők miatt",
+  "a rég elfeledett ügyfelek miatt",
 ];
 
 export default function Hero() {
   const [cur, setCur] = useState(DAY.length - 1);
-  const [ridx, setRidx] = useState(0);
   useEffect(() => {
     const t = setInterval(() => setCur((c) => (c + 1) % DAY.length), 1800);
-    const r = setInterval(() => setRidx((i) => (i + 1) % REASONS.length), 2400);
-    return () => { clearInterval(t); clearInterval(r); };
+    return () => clearInterval(t);
   }, []);
+
+  /* typewriter: type the phrase, hold, delete, move to next */
+  const [pi, setPi] = useState(0);
+  const [text, setText] = useState("");
+  const [del, setDel] = useState(false);
+  useEffect(() => {
+    const full = PHRASES[pi];
+    let delay = del ? 32 : 62;
+    if (!del && text === full) delay = 1500;
+    else if (del && text === "") delay = 220;
+    const id = setTimeout(() => {
+      if (!del && text === full) setDel(true);
+      else if (del && text === "") { setDel(false); setPi((p) => (p + 1) % PHRASES.length); }
+      else setText(full.slice(0, text.length + (del ? -1 : 1)));
+    }, delay);
+    return () => clearTimeout(id);
+  }, [text, del, pi]);
 
   return (
     <section className="hero" id="rendszer">
@@ -74,8 +89,7 @@ export default function Hero() {
             <h1 className="hero__title">
               Ne veszítsen több bevételt
               <span className="hero__rotline">
-                <span className="hero__rot" key={ridx}>{REASONS[ridx]} miatt</span>
-                <span className="hero__cursor" aria-hidden="true" />
+                <span className="hero__rot">{text}</span><span className="hero__cursor" aria-hidden="true" />
               </span>
             </h1>
             <p className="hero__sub">

@@ -324,7 +324,7 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
 }
 .hero__grid {
   display: grid;
-  grid-template-columns: 1fr 1.05fr;
+  grid-template-columns: 1.25fr 0.9fr;
   gap: 56px;
   align-items: center;
 }
@@ -408,12 +408,11 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
   margin-top: 18px; max-width: 460px;
   font-family: var(--font-body); font-size: 14px; line-height: 1.55; color: var(--ink-90);
 }
-/* rotating-reason headline (left) */
-.hero__rotline { display: block; margin-top: 4px; }
-.hero__rot { color: #4AA3FF; animation: heroRotIn 460ms var(--ease); }
-@keyframes heroRotIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+/* typewriter rotating-reason headline (left) */
+.hero__rotline { display: block; margin-top: 4px; min-height: 2.1em; }
+.hero__rot { color: #4AA3FF; }
 .hero__cursor {
-  display: inline-block; width: 4px; height: 0.78em; margin-left: 6px;
+  display: inline-block; width: 4px; height: 0.78em; margin-left: 2px;
   background: #4AA3FF; transform: translateY(3px);
   animation: heroBlink 1s steps(1) infinite;
 }
