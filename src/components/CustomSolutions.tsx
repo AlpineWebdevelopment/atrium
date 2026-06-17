@@ -57,23 +57,11 @@ const PROJECTS: { ico: IconKey; t: string; d: string; who: string; c: string }[]
   },
 ];
 
-/* mind-map: the projects + an open-ended node, fanning from one root */
+/* the example projects + an open-ended "your idea" card */
 const MAP_NODES = [
   ...PROJECTS,
   { ico: "plus" as IconKey, t: "Az Ön ötlete", d: "", who: "bármi, amit AI megold", c: "#6DBC61" },
 ];
-/* Balanced two-sided radial map: the root sits in the centre and branches
-   fan out symmetrically — three to the right, three to the left — so the
-   graphic fills the section's width instead of floating in the middle. */
-const MAP_W = 1200, MAP_H = 460;
-const ROOT = { x: MAP_W / 2, y: MAP_H / 2, r: 46 };
-const NODE_R = 19;
-const COL_R = 902, COL_L = MAP_W - COL_R;
-const ROWS_Y = [78, MAP_H / 2, MAP_H - 78];
-const MAP_LAYOUT = MAP_NODES.map((n, i) => {
-  const side = i < 3 ? "r" : "l";
-  return { ...n, side, x: side === "r" ? COL_R : COL_L, y: ROWS_Y[i % 3] };
-});
 
 const CATEGORIES = [
   {
@@ -199,57 +187,20 @@ export default function CustomSolutions() {
         {/* Example projects */}
         <div className="cux__sec reveal" data-delay="2">
           <h3 className="cux__sec-h"><span>Példa projektek</span></h3>
-          {/* desktop: mind-map — centred root fanning out to both sides */}
-          <svg className="cux__map" viewBox={`0 0 ${MAP_W} ${MAP_H}`} role="img" aria-label="Egyedi AI — példa projektek">
-            <defs>
-              {MAP_LAYOUT.map((n, i) => (
-                <linearGradient key={i} id={`gmap${i}`} gradientUnits="userSpaceOnUse" x1={ROOT.x} y1={ROOT.y} x2={n.x} y2={n.y}>
-                  <stop offset="0%" stopColor="rgba(1,14,30,0.16)" />
-                  <stop offset="100%" stopColor={n.c} />
-                </linearGradient>
-              ))}
-            </defs>
-            {MAP_LAYOUT.map((n, i) => {
-              const right = n.side === "r";
-              const sx = ROOT.x + (right ? ROOT.r : -ROOT.r);
-              const ex = n.x + (right ? -NODE_R : NODE_R);
-              const c1x = ROOT.x + (right ? 150 : -150);
-              const c2x = n.x + (right ? -150 : 150);
-              return <path key={i} d={`M${sx},${ROOT.y} C ${c1x},${ROOT.y} ${c2x},${n.y} ${ex},${n.y}`} fill="none" stroke={`url(#gmap${i})`} strokeWidth="2" />;
-            })}
-            <circle cx={ROOT.x} cy={ROOT.y} r={ROOT.r} fill="var(--bone)" stroke="#6DBC61" strokeWidth="2" />
-            <circle cx={ROOT.x} cy={ROOT.y} r={ROOT.r} fill="none" stroke="#6DBC61" strokeWidth="2">
-              <animate attributeName="r" values={`${ROOT.r};${ROOT.r + 20}`} dur="2.6s" repeatCount="indefinite" />
-              <animate attributeName="opacity" values="0.45;0" dur="2.6s" repeatCount="indefinite" />
-            </circle>
-            <text className="cux__map-root" x={ROOT.x} y={ROOT.y - 4} textAnchor="middle">Egyedi</text>
-            <text className="cux__map-root" x={ROOT.x} y={ROOT.y + 14} textAnchor="middle">AI</text>
-            {MAP_LAYOUT.map((n, i) => {
-              const right = n.side === "r";
-              const tx = n.x + (right ? 30 : -30);
-              const anchor = right ? "start" : "end";
+          {/* even grid of project cards — fills the full width, no dead space */}
+          <div className="cux__grid">
+            {MAP_NODES.map((n, i) => {
+              const open = n.ico === "plus";
               return (
-                <g key={i}>
-                  <circle cx={n.x} cy={n.y} r={NODE_R} fill="var(--bone)" stroke={n.c} strokeWidth="2" />
-                  <svg x={n.x - 11} y={n.y - 11} width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={n.c} strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" style={{ color: n.c }}>
-                    {ICON_PATHS[n.ico]}
-                  </svg>
-                  <text className="cux__map-t" x={tx} y={n.y - 2} textAnchor={anchor}>{n.t}</text>
-                  <text className="cux__map-sub" x={tx} y={n.y + 15} fill={n.c} textAnchor={anchor}>{n.who}</text>
-                </g>
+                <div className={"cux__pcard" + (open ? " cux__pcard--open" : "")} key={i} style={{ ["--pc" as string]: n.c } as React.CSSProperties}>
+                  <span className="cux__pcard-ico">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{ICON_PATHS[n.ico]}</svg>
+                  </span>
+                  <b className="cux__pcard-t">{n.t}</b>
+                  <span className="cux__pcard-sub">{n.who}</span>
+                </div>
               );
             })}
-          </svg>
-
-          {/* mobile: vertical spine version of the same map */}
-          <div className="cux__maplist">
-            {MAP_NODES.map((n, i) => (
-              <div className="cux__mapitem" key={i} style={{ ["--pc" as string]: n.c } as React.CSSProperties}>
-                <span className="cux__mapitem-dot" />
-                <b className="cux__mapitem-t">{n.t}</b>
-                <span className="cux__mapitem-sub">{n.who}</span>
-              </div>
-            ))}
           </div>
         </div>
 
