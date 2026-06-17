@@ -112,8 +112,8 @@ html.dark {
   background: linear-gradient(
     180deg,
     var(--bone) 0,
-    color-mix(in srgb, var(--signal) 6%, var(--bone)) 460px,
-    color-mix(in srgb, var(--signal) 5%, var(--bone)) 980px,
+    color-mix(in srgb, #7C5CFF 7%, var(--bone)) 460px,
+    color-mix(in srgb, #4AA3FF 7%, var(--bone)) 980px,
     var(--bone) 1480px
   );
 }
