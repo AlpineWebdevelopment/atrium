@@ -1,131 +1,158 @@
 /* The one named product: the AI qualifier CRM.
    Four reasons it fits — each its own panel with a bespoke graph. */
 
-/* ---- 1: tuned to you — equalizer sliders ---- */
+/* ---- 1: Személyre szabva — industry picker → tailored questions ---- */
 function GfxTuned() {
-  const sliders = [
-    { lbl: "méret", v: 0.72 },
-    { lbl: "folyamat", v: 0.42 },
-    { lbl: "kérdések", v: 0.88 },
-    { lbl: "hangnem", v: 0.6 },
-  ];
+  const types = ["Fogászat", "Ügyvéd", "Fitness"];
+  const qs = ["Mióta fáj?", "Mikor ér rá?", "Hány fogat érint?"];
   return (
-    <svg viewBox="0 0 260 160" role="img" aria-label="A rendszer az Ön paramétereire hangolva">
-      {sliders.map((d, i) => {
-        const x = 40 + i * 60;
-        const ky = 120 - d.v * 92;
+    <svg viewBox="0 0 260 160" role="img" aria-label="Személyre szabva az Ön iparágára">
+      {types.map((t, i) => {
+        const x = 10 + i * 82;
+        const sel = i === 0;
         return (
           <g key={i}>
-            <line x1={x} y1={24} x2={x} y2={120} stroke="var(--line)" strokeWidth="4" strokeLinecap="round" />
-            <line x1={x} y1={120} x2={x} y2={ky} stroke="var(--acc)" strokeWidth="4" strokeLinecap="round" />
-            <circle cx={x} cy={ky} r="8" fill="var(--bone)" stroke="var(--acc)" strokeWidth="3" />
-            <circle cx={x} cy={ky} r="2.4" fill="var(--acc)" />
-            <text className="qben__lbl" x={x} y={142} textAnchor="middle">{d.lbl}</text>
+            <rect x={x} y={6} width={72} height={24} rx={12}
+              fill={sel ? "var(--acc)" : "none"}
+              stroke={sel ? "var(--acc)" : "var(--line)"}
+              strokeWidth="1.5" />
+            <text className="qben__lbl" x={x + 36} y={22} textAnchor="middle"
+              style={{ fill: sel ? "#fff" : undefined, fontSize: "10.5px" }}>{t}</text>
           </g>
         );
       })}
+      <line x1={46} y1={31} x2={46} y2={44} stroke="var(--acc)" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M42 41 L46 48 L50 41" fill="none" stroke="var(--acc)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      <rect x={8} y={53} width={244} height={100} rx={10}
+        fill="var(--acc)" fillOpacity="0.07" stroke="var(--acc)" strokeWidth="1.4" />
+      <text className="qben__lbl" x={22} y={70}
+        style={{ fill: "var(--acc)", fontSize: "9px", letterSpacing: "0.08em" }}>FOGÁSZAT · EGYEDI KÉRDÉSEK</text>
+      {qs.map((q, i) => (
+        <g key={i}>
+          <circle cx={22} cy={88 + i * 26} r={3.2} fill="none" stroke="var(--acc)" strokeWidth="1.5" />
+          <text className="qben__lbl" x={33} y={92 + i * 26}
+            style={{ fontSize: "11px", fill: "var(--ink)" }}>{q}</text>
+          <path d={`M${232} ${85 + i * 26} L${237} ${90 + i * 26} L${245} ${81 + i * 26}`}
+            fill="none" stroke="var(--acc)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+        </g>
+      ))}
     </svg>
   );
 }
 
-/* ---- 2: your own CRM — a database that keeps the data ---- */
+/* ---- 2: Saját CRM — data fork: rented (×) vs yours (✓) ---- */
 function GfxOwn() {
   return (
-    <svg viewBox="0 0 260 170" role="img" aria-label="Az adatok az Ön saját CRM-jében maradnak">
-      {/* data flowing in and staying */}
+    <svg viewBox="0 0 260 160" role="img" aria-label="Az adatok az Ön saját CRM-jében maradnak">
+      {/* incoming data dots at top center */}
       {[0, 1, 2].map((i) => (
-        <circle key={i} r="3.2" fill="var(--acc)">
-          <animateMotion dur="2.6s" begin={`${i * 0.7}s`} repeatCount="indefinite" path={`M${64 + i * 14},6 L${64 + i * 14},40`} />
-          <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.2;0.7;1" dur="2.6s" begin={`${i * 0.7}s`} repeatCount="indefinite" />
-        </circle>
+        <circle key={i} cx={112 + i * 18} cy={12} r={5} fill="var(--ink-35)" />
       ))}
+      {/* fork: left → rented (dashed, gray), right → yours (solid, accent) */}
+      <path d="M112 22 Q86 36 62 54" stroke="var(--ink-35)" strokeWidth="1.8" strokeDasharray="4 3" fill="none" strokeLinecap="round" />
+      <path d="M148 22 Q172 36 196 54" stroke="var(--acc)" strokeWidth="2" fill="none" strokeLinecap="round" />
 
-      {/* database cylinder */}
-      <g stroke="var(--acc)" strokeWidth="2.5" fill="none">
-        <path d="M36 50 V122 A42 13 0 0 0 120 122 V50" fill="var(--acc)" fillOpacity="0.07" />
-        <ellipse cx="78" cy="50" rx="42" ry="13" fill="var(--bone)" />
-        <path d="M36 74 A42 13 0 0 0 120 74" strokeOpacity="0.45" />
-        <path d="M36 98 A42 13 0 0 0 120 98" strokeOpacity="0.45" />
-      </g>
-      {/* lock badge */}
-      <g transform="translate(70 30)" fill="none" stroke="var(--acc)" strokeWidth="2" strokeLinecap="round">
-        <rect x="0" y="7" width="16" height="11" rx="2.5" fill="var(--bone)" />
-        <path d="M3 7V5a5 5 0 0 1 10 0v2" />
-      </g>
-      <text className="qben__lbl" x="78" y="150" textAnchor="middle" style={{ fill: "var(--acc)" }}>az Ön CRM-je</text>
+      {/* LEFT: rented — bad */}
+      <path d="M46 34 L58 46 M58 34 L46 46" stroke="#E05252" strokeWidth="2.5" strokeLinecap="round" />
+      <rect x={16} y={56} width={90} height={62} rx={10}
+        fill="none" stroke="var(--ink-35)" strokeWidth="1.5" strokeDasharray="5 4" />
+      {/* cloud icon inside rented box */}
+      <path d="M30 97 Q30 87 39 87 Q41 81 51 81 Q65 81 65 89 Q73 89 73 97"
+        fill="none" stroke="var(--ink-35)" strokeWidth="2" strokeLinecap="round" />
+      <text className="qben__lbl" x={61} y={132} textAnchor="middle">bérelt felület</text>
 
-      {/* the rented alternative — dimmed, kept at arm's length */}
-      <g opacity="0.5">
-        <rect x="158" y="62" width="80" height="48" rx="10" fill="none" stroke="var(--ink-35)" strokeWidth="1.5" strokeDasharray="5 5" />
-        <path d="M174 80h48M174 92h32" stroke="var(--ink-35)" strokeWidth="2" strokeLinecap="round" />
-        <text className="qben__lbl" x="198" y="128" textAnchor="middle">bérelt felület</text>
+      {/* RIGHT: yours — good */}
+      <circle cx={196} cy={42} r={10} fill="var(--acc)" fillOpacity="0.15" stroke="var(--acc)" strokeWidth="1.8" />
+      <path d="M190 42 L195 47 L203 36" stroke="var(--acc)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+      <rect x={152} y={56} width={92} height={62} rx={10}
+        fill="var(--acc)" fillOpacity="0.07" stroke="var(--acc)" strokeWidth="1.8" />
+      {/* database inside own box */}
+      <g stroke="var(--acc)" strokeWidth="2" fill="none">
+        <path d="M168 80 V102 A26 8 0 0 0 228 102 V80" fill="var(--acc)" fillOpacity="0.1" />
+        <ellipse cx={198} cy={80} rx={26} ry={8} fill="var(--bone)" />
+        <path d="M168 91 A26 8 0 0 0 228 91" strokeOpacity="0.45" />
       </g>
+      {/* lock badge on database */}
+      <g transform="translate(190 58)" fill="none" stroke="var(--acc)" strokeWidth="1.7" strokeLinecap="round">
+        <rect x="0" y="7" width="14" height="9" rx="2" fill="var(--bone)" />
+        <path d="M2.5 7V5a4.5 4.5 0 0 1 9 0v2" />
+      </g>
+      <text className="qben__lbl" x={198} y={132} textAnchor="middle" style={{ fill: "var(--acc)" }}>az Ön rendszere</text>
     </svg>
   );
 }
 
-/* ---- 3: more bookings — two funnels, same leads in ---- */
+/* ---- 3: Több időpont — same 8 leads, 3 vs 8 appointments ---- */
 function GfxFunnels() {
-  const Funnel = ({ cx, acc, out, leak }: { cx: number; acc: string; out: number; leak: boolean }) => (
-    <g>
-      {/* incoming leads — same count for both */}
-      {[0, 1, 2, 3].map((i) => (
-        <circle key={i} cx={cx - 21 + i * 14} cy={18} r="3.6" fill="var(--ink-35)" />
-      ))}
-      {/* funnel body */}
-      <path
-        d={`M${cx - 30} 32 L${cx + 30} 32 L${cx + 8} 84 L${cx + 8} 96 L${cx - 8} 96 L${cx - 8} 84 Z`}
-        fill={acc}
-        fillOpacity="0.07"
-        stroke={acc}
-        strokeWidth="2"
-        strokeDasharray={leak ? "4 5" : undefined}
-      />
-      {/* leaked leads (only the leaky funnel) */}
-      {leak && (
-        <g fill="var(--ink-35)" opacity="0.6">
-          <circle cx={cx - 34} cy={64} r="3" />
-          <circle cx={cx + 36} cy={72} r="3" />
-          <circle cx={cx - 38} cy={80} r="3" />
-        </g>
-      )}
-      {/* result */}
-      <text className="qben__num" x={cx} y={134} textAnchor="middle" style={{ fill: acc, fontSize: "30px" }}>{out}</text>
-      <text className="qben__lbl" x={cx} y={150} textAnchor="middle">időpont</text>
-    </g>
-  );
   return (
     <svg viewBox="0 0 260 160" role="img" aria-label="Ugyanannyi érdeklődőből több időpont">
-      <text className="qben__lbl" x={70} y={10} textAnchor="middle">rendszer nélkül</text>
-      <text className="qben__lbl" x={190} y={10} textAnchor="middle" style={{ fill: "var(--acc)" }}>a rendszerrel</text>
-      <Funnel cx={70} acc="var(--ink-35)" out={3} leak />
-      <Funnel cx={190} acc="var(--acc)" out={8} leak={false} />
+      <text className="qben__lbl" x={65} y={12} textAnchor="middle">rendszer nélkül</text>
+      <text className="qben__lbl" x={195} y={12} textAnchor="middle" style={{ fill: "var(--acc)" }}>a rendszerrel</text>
+
+      {/* 8 leads in — same for both */}
+      {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
+        <circle key={`la${i}`} cx={19 + i * 12} cy={24} r={3.8} fill="var(--ink-35)" />
+      ))}
+      {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
+        <circle key={`lb${i}`} cx={149 + i * 12} cy={24} r={3.8} fill="var(--acc)" />
+      ))}
+
+      {/* LEFT funnel: dashed = leaky */}
+      <path d="M12 32 L118 32 L94 78 L94 90 L36 90 L36 78 Z"
+        fill="none" stroke="var(--ink-35)" strokeWidth="2" strokeDasharray="5 4" />
+      {/* leaked dots escaping through the sides */}
+      <circle cx={7} cy={56} r={3.5} fill="var(--ink-35)" opacity="0.55" />
+      <circle cx={5} cy={70} r={3.5} fill="var(--ink-35)" opacity="0.45" />
+      <circle cx={123} cy={52} r={3.5} fill="var(--ink-35)" opacity="0.55" />
+      <circle cx={126} cy={66} r={3.5} fill="var(--ink-35)" opacity="0.45" />
+      <circle cx={6} cy={84} r={3} fill="var(--ink-35)" opacity="0.35" />
+      <text className="qben__num" x={65} y={128} textAnchor="middle" style={{ fill: "var(--ink-35)", fontSize: "36px" }}>3</text>
+      <text className="qben__lbl" x={65} y={148} textAnchor="middle">időpont</text>
+
+      {/* RIGHT funnel: solid = no leaks */}
+      <path d="M142 32 L248 32 L224 78 L224 90 L166 90 L166 78 Z"
+        fill="var(--acc)" fillOpacity="0.10" stroke="var(--acc)" strokeWidth="2" />
+      <text className="qben__num" x={195} y={128} textAnchor="middle" style={{ fill: "var(--acc)", fontSize: "36px" }}>8</text>
+      <text className="qben__lbl" x={195} y={148} textAnchor="middle" style={{ fill: "var(--acc)" }}>időpont</text>
     </svg>
   );
 }
 
-/* ---- 4: cost-effective — 24h coverage + lower cost ---- */
+/* ---- 4: Költséghatékony — 24h ring + cost bar comparison ---- */
 function GfxCost() {
+  const r24 = 46, r8 = 30;
+  const circum8 = 2 * Math.PI * r8;
   return (
     <svg viewBox="0 0 260 160" role="img" aria-label="A nap minden órájában, egy munkatársnál olcsóbban">
-      {/* 24/7 ring */}
-      <g transform="translate(72 80)">
-        <circle r="46" fill="none" stroke="var(--line)" strokeWidth="11" />
-        <circle r="46" fill="none" stroke="var(--acc)" strokeWidth="11" strokeLinecap="round" />
-        {/* employee — 8h of the day */}
-        <circle r="30" fill="none" stroke="var(--ink-35)" strokeWidth="7" pathLength={24} strokeDasharray="8 24" transform="rotate(-90)" strokeLinecap="round" />
-        <text className="qben__num" x="0" y="2" textAnchor="middle" style={{ fill: "var(--ink)", fontSize: "20px" }}>0–24</text>
-        <text className="qben__lbl" x="0" y="18" textAnchor="middle">óra</text>
-      </g>
+      {/* LEFT: availability rings */}
+      <text className="qben__lbl" x={70} y={14} textAnchor="middle">elérhetőség</text>
+      {/* outer ring = system (full 24h, accent) */}
+      <circle cx={70} cy={83} r={r24} fill="none" stroke="var(--line)" strokeWidth="10" />
+      <circle cx={70} cy={83} r={r24} fill="none" stroke="var(--acc)" strokeWidth="10"
+        strokeLinecap="round" transform="rotate(-90 70 83)" />
+      {/* inner ring = employee (8/24h, gray) */}
+      <circle cx={70} cy={83} r={r8} fill="none" stroke="var(--line)" strokeWidth="7" />
+      <circle cx={70} cy={83} r={r8} fill="none" stroke="var(--ink-35)" strokeWidth="7"
+        strokeDasharray={`${(8 / 24) * circum8} ${circum8}`}
+        strokeLinecap="round" transform="rotate(-90 70 83)" />
+      {/* center labels */}
+      <text className="qben__num" x={70} y={80} textAnchor="middle"
+        style={{ fontSize: "14px", fill: "var(--acc)" }}>24 óra</text>
+      <text className="qben__lbl" x={70} y={96} textAnchor="middle"
+        style={{ fill: "var(--ink-35)", fontSize: "9.5px" }}>8 óra</text>
+      {/* legend */}
+      <text className="qben__lbl" x={70} y={148} textAnchor="middle"
+        style={{ fill: "var(--acc)" }}>rendszer · munkatárs</text>
 
-      {/* cost: an employee vs the system */}
-      <text className="qben__lbl" x={188} y={20} textAnchor="middle">havi költség</text>
-      <g>
-        <rect x={150} y={42} width="32" height="82" rx="4" fill="var(--ink-35)" fillOpacity="0.55" />
-        <rect x={196} y={88} width="32" height="36" rx="4" fill="var(--acc)" />
-        <text className="qben__lbl" x={166} y={138} textAnchor="middle">munkatárs</text>
-        <text className="qben__lbl" x={212} y={138} textAnchor="middle" style={{ fill: "var(--acc)" }}>rendszer</text>
-      </g>
+      {/* RIGHT: cost bars */}
+      <text className="qben__lbl" x={190} y={14} textAnchor="middle">havi költség</text>
+      {/* employee bar (tall, gray) */}
+      <rect x={152} y={30} width={38} height={86} rx={5} fill="var(--ink-35)" fillOpacity="0.45" />
+      {/* system bar (short, accent) */}
+      <rect x={202} y={80} width={38} height={36} rx={5} fill="var(--acc)" />
+      {/* labels */}
+      <text className="qben__lbl" x={171} y={130} textAnchor="middle">munkatárs</text>
+      <text className="qben__lbl" x={221} y={130} textAnchor="middle" style={{ fill: "var(--acc)" }}>rendszer</text>
     </svg>
   );
 }
