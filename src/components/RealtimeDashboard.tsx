@@ -175,8 +175,8 @@ function GfxCooling() {
           <line key={y} x1="60" y1={y} x2="950" y2={y} stroke="rgba(1,14,30,0.06)" strokeWidth="1" />
         ))}
         {/* interest decay curve */}
-        <path d="M60,35 C220,42 380,85 560,125 C720,158 850,168 950,172 L950,190 L60,190 Z" fill="url(#gCoolFill)" />
-        <path id="coolPath" d="M60,35 C220,42 380,85 560,125 C720,158 850,168 950,172" fill="none" stroke="url(#gCool)" strokeWidth="3" strokeLinecap="round" />
+        <path d="M60,52 C220,58 380,94 560,128 C720,158 850,168 950,172 L950,190 L60,190 Z" fill="url(#gCoolFill)" />
+        <path id="coolPath" d="M60,52 C220,58 380,94 560,128 C720,158 850,168 950,172" fill="none" stroke="url(#gCool)" strokeWidth="3" strokeLinecap="round" />
         {/* the lead, sliding down the curve as time passes */}
         <circle r="6" fill="#010E1E" stroke="var(--bone)" strokeWidth="2.5">
           <animateMotion dur="5s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.82;1" calcMode="linear">
@@ -184,20 +184,20 @@ function GfxCooling() {
           </animateMotion>
           <animate attributeName="fill" values="#010E1E;#8C8579;#C46C64;#C46C64" keyTimes="0;0.5;0.82;1" dur="5s" repeatCount="indefinite" />
         </circle>
-        <circle cx="60" cy="35" r="7" fill="#010E1E" stroke="var(--bone)" strokeWidth="3" />
-        <circle cx="60" cy="35" r="7" fill="none" stroke="#010E1E" strokeWidth="2">
+        <circle cx="60" cy="52" r="7" fill="#010E1E" stroke="var(--bone)" strokeWidth="3" />
+        <circle cx="60" cy="52" r="7" fill="none" stroke="#010E1E" strokeWidth="2">
           <animate attributeName="r" values="7;15" dur="2.2s" repeatCount="indefinite" />
           <animate attributeName="opacity" values="0.5;0" dur="2.2s" repeatCount="indefinite" />
         </circle>
         <circle cx="950" cy="172" r="7" fill="#C46C64" stroke="var(--bone)" strokeWidth="3" />
       </svg>
-      <div className="funnel__stage" style={{ left: "2%", top: "15%", transform: "translateY(-50%)" }}>
+      <div className="funnel__stage" style={{ left: "1%", top: "0", transform: "none" }}>
         <b>Érdeklődés beérkezik</b><span>14:30</span>
       </div>
-      <div className="funnel__stage" style={{ left: "50%", top: "49%" }}>
+      <div className="funnel__stage" style={{ left: "50%", top: "30%", transform: "translateX(-50%)" }}>
         <b>Kihűlőben</b><span>válasz nélkül</span>
       </div>
-      <div className="funnel__stage" style={{ right: "2%", left: "auto", top: "75%", transform: "translateY(-50%)" }}>
+      <div className="funnel__stage" style={{ right: "1%", left: "auto", top: "54%", transform: "none" }}>
         <b>Első válasz</b><span>másnap</span>
       </div>
       <div className="dash__axis">
