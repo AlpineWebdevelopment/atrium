@@ -62,10 +62,18 @@ const MAP_NODES = [
   ...PROJECTS,
   { ico: "plus" as IconKey, t: "Az Ön ötlete", d: "", who: "bármi, amit AI megold", c: "#6DBC61" },
 ];
-const MAP_W = 1000, MAP_H = 470;
-const ROOT = { x: 142, y: MAP_H / 2, r: 48 };
-const NODE_X = 500;
-const nodeY = (i: number) => 46 + i * ((MAP_H - 92) / (MAP_NODES.length - 1));
+/* Balanced two-sided radial map: the root sits in the centre and branches
+   fan out symmetrically — three to the right, three to the left — so the
+   graphic fills the section's width instead of floating in the middle. */
+const MAP_W = 1200, MAP_H = 460;
+const ROOT = { x: MAP_W / 2, y: MAP_H / 2, r: 46 };
+const NODE_R = 19;
+const COL_R = 902, COL_L = MAP_W - COL_R;
+const ROWS_Y = [78, MAP_H / 2, MAP_H - 78];
+const MAP_LAYOUT = MAP_NODES.map((n, i) => {
+  const side = i < 3 ? "r" : "l";
+  return { ...n, side, x: side === "r" ? COL_R : COL_L, y: ROWS_Y[i % 3] };
+});
 
 const CATEGORIES = [
   {
@@ -191,19 +199,23 @@ export default function CustomSolutions() {
         {/* Example projects */}
         <div className="cux__sec reveal" data-delay="2">
           <h3 className="cux__sec-h"><span>Példa projektek</span></h3>
-          {/* desktop: mind-map — one root fanning out to the projects */}
+          {/* desktop: mind-map — centred root fanning out to both sides */}
           <svg className="cux__map" viewBox={`0 0 ${MAP_W} ${MAP_H}`} role="img" aria-label="Egyedi AI — példa projektek">
             <defs>
-              {MAP_NODES.map((n, i) => (
-                <linearGradient key={i} id={`gmap${i}`} gradientUnits="userSpaceOnUse" x1={ROOT.x} y1={ROOT.y} x2={NODE_X} y2={nodeY(i)}>
+              {MAP_LAYOUT.map((n, i) => (
+                <linearGradient key={i} id={`gmap${i}`} gradientUnits="userSpaceOnUse" x1={ROOT.x} y1={ROOT.y} x2={n.x} y2={n.y}>
                   <stop offset="0%" stopColor="rgba(1,14,30,0.16)" />
                   <stop offset="100%" stopColor={n.c} />
                 </linearGradient>
               ))}
             </defs>
-            {MAP_NODES.map((n, i) => {
-              const y = nodeY(i);
-              return <path key={i} d={`M${ROOT.x + ROOT.r},${ROOT.y} C 330,${ROOT.y} 360,${y} ${NODE_X - 22},${y}`} fill="none" stroke={`url(#gmap${i})`} strokeWidth="2" />;
+            {MAP_LAYOUT.map((n, i) => {
+              const right = n.side === "r";
+              const sx = ROOT.x + (right ? ROOT.r : -ROOT.r);
+              const ex = n.x + (right ? -NODE_R : NODE_R);
+              const c1x = ROOT.x + (right ? 150 : -150);
+              const c2x = n.x + (right ? -150 : 150);
+              return <path key={i} d={`M${sx},${ROOT.y} C ${c1x},${ROOT.y} ${c2x},${n.y} ${ex},${n.y}`} fill="none" stroke={`url(#gmap${i})`} strokeWidth="2" />;
             })}
             <circle cx={ROOT.x} cy={ROOT.y} r={ROOT.r} fill="var(--bone)" stroke="#6DBC61" strokeWidth="2" />
             <circle cx={ROOT.x} cy={ROOT.y} r={ROOT.r} fill="none" stroke="#6DBC61" strokeWidth="2">
@@ -212,16 +224,18 @@ export default function CustomSolutions() {
             </circle>
             <text className="cux__map-root" x={ROOT.x} y={ROOT.y - 4} textAnchor="middle">Egyedi</text>
             <text className="cux__map-root" x={ROOT.x} y={ROOT.y + 14} textAnchor="middle">AI</text>
-            {MAP_NODES.map((n, i) => {
-              const y = nodeY(i);
+            {MAP_LAYOUT.map((n, i) => {
+              const right = n.side === "r";
+              const tx = n.x + (right ? 30 : -30);
+              const anchor = right ? "start" : "end";
               return (
                 <g key={i}>
-                  <circle cx={NODE_X} cy={y} r="19" fill="var(--bone)" stroke={n.c} strokeWidth="2" />
-                  <svg x={NODE_X - 11} y={y - 11} width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={n.c} strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" style={{ color: n.c }}>
+                  <circle cx={n.x} cy={n.y} r={NODE_R} fill="var(--bone)" stroke={n.c} strokeWidth="2" />
+                  <svg x={n.x - 11} y={n.y - 11} width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={n.c} strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" style={{ color: n.c }}>
                     {ICON_PATHS[n.ico]}
                   </svg>
-                  <text className="cux__map-t" x={NODE_X + 30} y={y - 2}>{n.t}</text>
-                  <text className="cux__map-sub" x={NODE_X + 30} y={y + 15} fill={n.c}>{n.who}</text>
+                  <text className="cux__map-t" x={tx} y={n.y - 2} textAnchor={anchor}>{n.t}</text>
+                  <text className="cux__map-sub" x={tx} y={n.y + 15} fill={n.c} textAnchor={anchor}>{n.who}</text>
                 </g>
               );
             })}

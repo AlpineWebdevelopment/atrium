@@ -1582,7 +1582,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
 
 /* Example projects */
 /* Example projects — mind-map: one root fanning to the projects */
-.cux__map { width: 100%; max-width: 900px; height: auto; display: block; margin: 6px auto 0; }
+.cux__map { width: 100%; max-width: 1180px; height: auto; display: block; margin: 6px auto 0; }
 .cux__map-root { font-family: var(--font-display); font-weight: 500; font-size: 14px; letter-spacing: -0.01em; fill: var(--ink); }
 .cux__map-t { font-family: var(--font-display); font-weight: 500; font-size: 15px; letter-spacing: -0.01em; fill: var(--ink); }
 .cux__map-sub { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.02em; }
