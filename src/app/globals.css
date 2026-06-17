@@ -438,7 +438,7 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
 .hcon__head2 { display: flex; flex-direction: column; gap: 9px; padding: 2px 2px 0; }
 .hcon__title {
   display: inline-flex; align-items: center; gap: 8px;
-  font-family: var(--font-display); font-weight: 500; font-size: 15px; letter-spacing: -0.01em; color: var(--ink);
+  font-family: var(--font-display); font-weight: 500; font-size: 17px; letter-spacing: -0.01em; color: var(--ink);
 }
 .hcon__title i {
   width: 8px; height: 8px; border-radius: 50%; background: var(--signal);
@@ -470,14 +470,14 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
 .hcon__ico svg { width: 16px; height: 16px; }
 .hcon__row--now .hcon__ico { animation: atr-pulse 1.5s ease-in-out infinite; }
 .hcon__txt { flex: 1; min-width: 0; display: flex; flex-direction: column; padding-top: 1px; }
-.hcon__time { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.05em; color: var(--stone); }
-.hcon__ev { font-family: var(--font-body); font-size: 11.5px; line-height: 1.32; color: var(--ink-70); margin-top: 2px; }
+.hcon__time { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.05em; color: var(--stone); }
+.hcon__ev { font-family: var(--font-body); font-size: 14px; line-height: 1.4; color: var(--ink-70); margin-top: 3px; }
 .hcon__row--done .hcon__ev, .hcon__row--now .hcon__ev { color: var(--ink); }
 .hcon__row--now .hcon__ev { font-weight: 500; }
 .hcon__foot {
   margin-top: 14px; padding-top: 12px; text-align: center;
   border-top: 1px solid var(--line);
-  font-family: var(--font-display); font-weight: 500; font-size: 13px; letter-spacing: -0.01em; color: var(--ink);
+  font-family: var(--font-display); font-weight: 500; font-size: 15px; letter-spacing: -0.01em; color: var(--ink);
 }
 @media (max-width: 560px) { .hcon__cols { grid-template-columns: 1fr; gap: 0; } }
 
