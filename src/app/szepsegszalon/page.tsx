@@ -4,7 +4,8 @@ import RealtimeDashboardSalon from "@/components/RealtimeDashboardSalon";
 import FullSystemSalon from "@/components/FullSystemSalon";
 import PositioningSalon from "@/components/PositioningSalon";
 import HowWeStart from "@/components/HowWeStart";
-import WorkPricing from "@/components/WorkPricing";
+/* ATRIUM-EDIT SS4 — replaced shared WorkPricing with salon-specific fixed-package section */
+import WorkPricingSalon from "@/components/WorkPricingSalon";
 import QualifierCrmSalon from "@/components/QualifierCrmSalon";
 import FaqSalon from "@/components/FaqSalon";
 import FinalCtaSalon from "@/components/FinalCtaSalon";
@@ -26,7 +27,7 @@ export default function SzepsegszalonPage() {
       <FullSystemSalon />
       <PositioningSalon />
       <HowWeStart />
-      <WorkPricing />
+      <WorkPricingSalon />
       <QualifierCrmSalon />
       <FaqSalon />
       <FinalCtaSalon />

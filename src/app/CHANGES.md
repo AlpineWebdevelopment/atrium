@@ -45,3 +45,24 @@
 | SD4b | *(new element)* | Reporting band above outcome line: `Mérés végig — havonta megmutatja, mit hozott a rendszer, és hol szivárog még a bevétel.` | Elevates the reporting capability from a dangling footer clause to a cross-cutting layer beneath the three stages. Reuses existing `sysframe__integ` class; no new colors. |
 | SD-C1 | SD5 — phase heading redesign | *(no edit)* | CONFIRM BEFORE APPLYING — structural layout change to the three-phase headings. Owner must confirm intent before editing. |
 | SD-C2 | SD6 — channel row reorder | *(no edit)* | CONFIRM BEFORE APPLYING — reordering the channel icon row. Owner must confirm intent before editing. |
+
+## Szépségszalon — text
+
+| ID | File | Before | After | Why |
+|----|------|--------|-------|-----|
+| SS1 | `HeroSalon.tsx` | `Ne veszítsen több vendéget` + rotating typewriter | `Ne veszítsen több vendéget lassú visszahívás miatt` (static) | Rotating headline is semantically incomplete on page load; static anchored phrase completes the thought on first render. `lassú visszahívás miatt` is the primary salon problem framing. |
+| SS2 | `HeroSalon.tsx` | `AI-alapú ügyfélkezelési rendszer szépségszalonoknak` | `AI-alapú értékesítési rendszer szépségszalonoknak` | Footer and brand spec use `értékesítési`; the page contradicted itself. |
+| SS3 | `PositioningSalon.tsx` | `Értékesítési és ügyfélkezelési rendszereket építünk szépségszalonoknak` | `Értékesítési rendszereket építünk szépségszalonoknak` | Single category term, consistent with SS2 and brand spec. |
+| SS4 | `WorkPricingSalon.tsx` (new) · `szepsegszalon/page.tsx` | Shared `WorkPricing` value-based pricing philosophy (`Nincs rögzített árlista…`) | New `WorkPricingSalon` component with three fixed packages (Próbahónap 39k · Alap 49k · Teljes szalon 99k) | Salon is a low-ticket, high-frequency niche: fixed visible prices reduce friction and match same-day decision behavior. Shared WorkPricing untouched. |
+| SS5 | `FaqSalon.tsx` | `Nincs egységes árlista — az árat az Ön szalonjának számaiból állítjuk össze…` | `Fix áraink vannak, meglepetés nélkül. A próbahónap 39 000 Ft egyszeri díj…` | FAQ answer must agree with published prices; "no fixed list" is now false. |
+| SS6a | `FinalCtaSalon.tsx` | `A szalonja számait nézzük meg.` | `Nézzük meg, melyik csomag illik a szalonjához.` | CTA heading must reflect that packages now exist; visitor can self-select, not just diagnose. |
+| SS6b | `FinalCtaSalon.tsx` | `Nincs kötelezettség · nincs sürgetés · ha nem áll össze, kap egy auditot` | `Nincs kötelezettség · nincs sürgetés` | Sales Leak Audit is a post-meeting save tool, not advertised to cold visitors (same rationale as root-page A7). |
+
+### Review rows
+
+| ID | Topic | Status | Note |
+|----|-------|--------|------|
+| SS-R1 | Prices unconfirmed | REVIEW | 39 000 / 49 000 / 99 000 Ft are starting anchors reasoned from ~300–450k/mo receptionist all-in cost, Meridian ~40k/mo floor, and spec ~20–30k small-package floor. Validate and sign off before publishing. |
+| SS-R2 | Waitlist build commitment | REVIEW | Teljes csomag promises `várólistáról` re-fill. Confirm feature will be built; add to brand spec as confirmed salon-config capability. |
+| SS-R3 | `Receptionnél olcsóbb` graph | REVIEW | With 49–99k prices vs ~300–450k receptionist, the cost comparison claim is now defensible. Handle in the Miért éri meg graph pass. |
+| SS-R4 | Sales motion | REVIEW | Prices are now displayed while CTA stays meeting-first (`Foglaljon időpontot`). Confirm this is the intended motion for the salon niche. |

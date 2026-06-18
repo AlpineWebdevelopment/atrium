@@ -4,7 +4,8 @@ import { useState } from "react";
 const FAQS = [
   {
     q: "Mennyibe kerül egy szépségszalonnak?",
-    a: "Nincs egységes árlista — az árat az Ön szalonjának számaiból állítjuk össze: mennyi hívás jön be, mennyi a no-show arány, és mennyit ér egy visszatérő vendég. A megbeszélésen kap egy konkrét összeget, meglepetés nélkül.",
+    /* ATRIUM-EDIT SS5 — updated FAQ answer to reflect the new fixed packages; removed "no fixed price list" framing now that prices are published */
+    a: "Fix áraink vannak, meglepetés nélkül. A próbahónap 39 000 Ft egyszeri díj, az Alap csomag 49 000 Ft / hó, a Teljes szalon csomag 99 000 Ft / hó. Nincs rejtett tétel, és bármikor válthat a csomagok között.",
   },
   {
     q: "Kezelés közben is felveszi a hívásokat?",

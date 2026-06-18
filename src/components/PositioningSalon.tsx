@@ -5,8 +5,9 @@ export default function PositioningSalon() {
         <div className="pos__inner reveal">
           <span className="dash__eyebrow"><span className="newtag">szépségszalonoknak</span> Miben vagyunk mások</span>
           <h2 className="pos__h">Nem AI ügynökség vagyunk.</h2>
+          {/* ATRIUM-EDIT SS3 — removed "és ügyfélkezelési"; single category term consistent with brand spec and hero */}
           <p className="pos__p">
-            Értékesítési és ügyfélkezelési rendszereket építünk
+            Értékesítési rendszereket építünk
             szépségszalonoknak — magyarul, az Ön vendégeire és
             munkarendjére szabva. Az AI csak az eszköz; a lényeg,
             hogy a szalon teli naptárral dolgozzon, kevesebb kézi

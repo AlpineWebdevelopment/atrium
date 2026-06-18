@@ -3,7 +3,8 @@ export default function FinalCtaSalon() {
     <section className="final-cta" id="kapcsolat">
       <div className="wrap">
         <div className="final-cta__panel reveal">
-          <h2 className="final-cta__h">A szalonja számait nézzük meg.</h2>
+          {/* ATRIUM-EDIT SS6a — heading updated to match fixed-offer CTA; diagnosis framing stays in body */}
+          <h2 className="final-cta__h">Nézzük meg, melyik csomag illik a szalonjához.</h2>
           <p className="final-cta__p">
             30 perces megbeszélés. Megnézzük a hívásait, az elfelejtett
             foglalásokat és a lemondásokat — és megmondjuk, hol szivárog
@@ -11,7 +12,8 @@ export default function FinalCtaSalon() {
           </p>
           <button className="btn btn--lg final-cta__btn">Foglaljon 30 perces megbeszélést</button>
           <span className="final-cta__note">
-            Nincs kötelezettség · nincs sürgetés · ha nem áll össze, kap egy auditot
+            {/* ATRIUM-EDIT SS6b — removed audit mention; Sales Leak Audit is post-meeting save tool, not advertised to cold visitors */}
+            Nincs kötelezettség · nincs sürgetés
           </span>
           <div className="final-cta__badges">
             <span className="sys__badge">
