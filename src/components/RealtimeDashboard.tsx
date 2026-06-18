@@ -78,10 +78,9 @@ function GfxFunnel() {
       <svg className="qual__svg" viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Minden megkeresésből csak néhány komoly">
         <defs>
           <linearGradient id="qScan" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="rgba(98,143,188,0)" />
-            <stop offset="35%" stopColor="rgba(98,143,188,0.22)" />
-            <stop offset="65%" stopColor="rgba(150,98,188,0.22)" />
-            <stop offset="100%" stopColor="rgba(150,98,188,0)" />
+            <stop offset="0%" stopColor="rgba(188,161,98,0)" />
+            <stop offset="50%" stopColor="rgba(188,161,98,0.28)" />
+            <stop offset="100%" stopColor="rgba(188,161,98,0)" />
           </linearGradient>
         </defs>
         <rect x="-90" y="0" width="90" height={H} fill="url(#qScan)">
