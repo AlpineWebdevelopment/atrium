@@ -65,7 +65,7 @@ function GfxFunnel() {
   const serious: Record<string, "k" | "v"> = {
     "2,0": "k", "7,0": "k", "9,1": "v", "5,2": "k", "11,2": "k",
   };
-  const color = (st: string) => (st === "v" ? "#6DBC61" : st === "k" ? "#010E1E" : "rgba(1,14,30,0.13)");
+  const color = (st: string) => (st === "v" ? "#6DBC61" : st === "k" ? "#628FBC" : "rgba(1,14,30,0.13)");
   const dots: { x: number; y: number; st: string }[] = [];
   for (let r = 0; r < ROWS; r++) {
     for (let c = 0; c < COLS; c++) {
@@ -78,9 +78,9 @@ function GfxFunnel() {
       <svg className="qual__svg" viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Minden megkeresésből csak néhány komoly">
         <defs>
           <linearGradient id="qScan" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="rgba(1,14,30,0)" />
-            <stop offset="50%" stopColor="rgba(1,14,30,0.12)" />
-            <stop offset="100%" stopColor="rgba(1,14,30,0)" />
+            <stop offset="0%" stopColor="rgba(98,143,188,0)" />
+            <stop offset="50%" stopColor="rgba(98,143,188,0.18)" />
+            <stop offset="100%" stopColor="rgba(98,143,188,0)" />
           </linearGradient>
         </defs>
         <rect x="-90" y="0" width="90" height={H} fill="url(#qScan)">
@@ -98,7 +98,7 @@ function GfxFunnel() {
       </svg>
       <div className="qual__legend">
         <span className="qual__leg"><i className="qual__leg-dot" style={{ background: "rgba(1,14,30,0.2)" }} />Nézelődő</span>
-        <span className="qual__leg"><i className="qual__leg-dot" style={{ background: "#010E1E" }} />Komoly szándék</span>
+        <span className="qual__leg"><i className="qual__leg-dot" style={{ background: "#628FBC" }} />Komoly szándék</span>
         <span className="qual__leg"><i className="qual__leg-dot" style={{ background: "#6DBC61" }} />Vevő</span>
         <span className="qual__note">Az előszűrés kiemeli a komolyakat — Ön már csak velük beszél.</span>
       </div>
@@ -249,6 +249,9 @@ function GfxCalendar() {
 
 const GRAPHICS = [GfxFunnel, GfxCalls, GfxCooling, GfxCalendar];
 
+/* harmonized colour per metric slot — keeps the row colourful and on-palette */
+const METRIC_COLORS = ["#9662BC", "#628FBC", "#62BCAC", "#BCA162"];
+
 export default function RealtimeDashboard() {
   const [tab, setTab] = useState(0);
   const pain = PAINS[tab];
@@ -294,7 +297,7 @@ export default function RealtimeDashboard() {
               {pain.metrics.map((m, i) => (
                 <div key={i}>
                   <div className="dash__metric-k">
-                    <span className="dash__metric-dot" style={{ background: m.c }} />
+                    <span className="dash__metric-dot" style={{ background: METRIC_COLORS[i] }} />
                     {m.k}
                   </div>
                   <div className="dash__metric-v">{m.v}</div>
