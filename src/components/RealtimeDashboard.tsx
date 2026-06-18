@@ -13,7 +13,8 @@ const PAINS = [
       { k: "Az Ön ideje", c: "var(--stone)", v: "Órák", d: "ugyanazokra a kérdésekre" },
       { k: "Előszűrés", c: "var(--viz-red)", v: "Nincs", d: "mindenki sorra kerül" },
     ],
-    loss: { v: "≈ 240 000 Ft", per: "/ hó", math: "~20 óra havonta előszűretlen beszélgetésre — a komoly vevők helyett" },
+    /* ATRIUM-EDIT LK1 — made math reconstructable: hours × hourly value = 240 000; old line had no visible bridge */
+    loss: { v: "≈ 240 000 Ft", per: "/ hó", math: "~20 óra havonta előszűretlen beszélgetésre × ~12 000 Ft munkaóra-érték" },
   },
   {
     tab: "Elszalasztott hívások",
@@ -25,7 +26,8 @@ const PAINS = [
       { k: "Üzenet", c: "var(--stone)", v: "Nincs", d: "a hívó nem hagy" },
       { k: "A hívó", c: "var(--viz-red)", v: "Továbblép", d: "a következőt hívja" },
     ],
-    loss: { v: "≈ 680 000 Ft", per: "/ hó", math: "~8 elszalasztott hívás × ~85 000 Ft átlagos munka" },
+    /* ATRIUM-EDIT LK2 — added ~40% close rate; old line implied 100% conversion (8 × 85 000 = 680 000 only if every call closes); new: 20 × 0,40 × 85 000 = 680 000 */
+    loss: { v: "≈ 680 000 Ft", per: "/ hó", math: "~20 elszalasztott hívás × ~40% záródás × ~85 000 Ft munka" },
   },
   {
     tab: "Lassú utánkövetés",
@@ -37,7 +39,8 @@ const PAINS = [
       { k: "Az érdeklődő", c: "var(--stone)", v: "Kihűlt", d: "már mással tárgyal" },
       { k: "A hirdetési költség", c: "var(--viz-red)", v: "Elment", d: "bevétel nem lett belőle" },
     ],
-    loss: { v: "≈ 520 000 Ft", per: "/ hó", math: "~12 kihűlt érdeklődő × ~43 000 Ft + elment hirdetési költség" },
+    /* ATRIUM-EDIT LK3 — added ~40% close rate; dropped dangling "+ elment hirdetési költség" not included in total; new: 30 × 0,40 × 43 000 ≈ 520 000 */
+    loss: { v: "≈ 520 000 Ft", per: "/ hó", math: "~30 lassan követett érdeklődő × ~40% záródás × ~43 000 Ft" },
   },
   {
     tab: "No-show-k",
@@ -49,7 +52,8 @@ const PAINS = [
       { k: "A naptárban", c: "var(--stone)", v: "Üres óra", d: "senki nem tölti fel" },
       { k: "Visszahívás", c: "var(--viz-red)", v: "Nincs", d: "nincs rá kapacitás" },
     ],
-    loss: { v: "≈ 360 000 Ft", per: "/ hó", math: "~12 no-show × ~30 000 Ft kezelés" },
+    /* ATRIUM-EDIT LK4 — de-medicalized "kezelés" → "elmaradt ügyfélérték"; math unchanged (booked slot = full value fair) */
+    loss: { v: "≈ 360 000 Ft", per: "/ hó", math: "~12 no-show × ~30 000 Ft elmaradt ügyfélérték" },
   },
 ];
 

@@ -23,3 +23,13 @@
 | TL3 | `A holnapi időpontok emlékeztetőt kaptak — kevesebb no-show.` | `A holnapi időpontok emlékeztetőt kaptak — kevesebben maradnak el.` | Replaces English jargon `no-show` with plain operator Hungarian. Icon: unchanged (bell). |
 | TL4 | `Zárás után is csörög a telefon — egy hívás se vész el.` · icon: `phone` | `Zárás után egy pillantás a telefonján — a rendszer megmutatja, mit hozott a mai nap.` · icon: `bars` | Timeline had three call-answering beats and zero reporting beat; reporting is a core capability. Converts redundant third reception beat into the end-of-day reporting moment. After-hours coverage still established by 06:50 entry. New `bars` glyph added to ICONS (same path as FullSystem.tsx). Circle tint unchanged. |
 | TL-R | Channels — written channels in TL2 | *(no edit)* | REVIEW — no edit made. TL2 now assumes the system handles written channels (not just phone). Confirm the written channels shown in the icon row are deliverable today; if not, trim that row and reconsider TL2. |
+
+## Leak diagram
+
+| ID | Before | After | Why |
+|----|--------|-------|-----|
+| LK1 | `~20 óra havonta előszűretlen beszélgetésre — a komoly vevők helyett` | `~20 óra havonta előszűretlen beszélgetésre × ~12 000 Ft munkaóra-érték` | Old line had no visible bridge from 20 hours to 240 000 Ft. Hourly value makes math reconstructable (20 × 12 000 = 240 000). Figure unchanged. |
+| LK2 | `~8 elszalasztott hívás × ~85 000 Ft átlagos munka` | `~20 elszalasztott hívás × ~40% záródás × ~85 000 Ft munka` | Old formula implied 100% close rate (8 × 85 000 = 680 000). New: 20 × 0,40 × 85 000 = 680 000 — same total, honest close rate. Figure unchanged. |
+| LK3 | `~12 kihűlt érdeklődő × ~43 000 Ft + elment hirdetési költség` | `~30 lassan követett érdeklődő × ~40% záródás × ~43 000 Ft` | Implied 100% close rate; `+ elment hirdetési költség` was named but not included in the total. New: 30 × 0,40 × 43 000 ≈ 520 000. Dangling ad-cost term removed. Figure unchanged. |
+| LK4 | `~12 no-show × ~30 000 Ft kezelés` | `~12 no-show × ~30 000 Ft elmaradt ügyfélérték` | Math is sound (booked slot = full value). Only change: de-medicalized `kezelés` → `elmaradt ügyfélérték` for operator-level page. Figure unchanged. |
+| LK-R | Close rate ~40% in LK2/LK3 | *(no edit)* | REVIEW — no edit made. The `~40%` close rate is an illustrative placeholder. Confirm against a realistic typical close rate before treating it as the default on-page example. |
