@@ -953,6 +953,38 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
 }
 
 /* =========================================================
+   SALON THEME — /szepsegszalon
+   Rose (#BC6285) + gold (#BCA162) gradient; signal → rose
+   ========================================================= */
+.page--salon {
+  --signal: #BC6285;
+  background: linear-gradient(
+    180deg,
+    var(--bone) 0,
+    color-mix(in srgb, #BC6285 7%, var(--bone)) 460px,
+    color-mix(in srgb, #BCA162 6%, var(--bone)) 980px,
+    var(--bone) 1480px
+  );
+}
+.page--salon .btn {
+  background: #BC6285;
+  border-color: #BC6285;
+  color: #fff;
+}
+.page--salon .btn:hover { opacity: 0.88; }
+.page--salon .btn--ghost {
+  background: var(--bone);
+  border-color: var(--line);
+  color: var(--ink);
+}
+.page--salon .btn--ghost:hover { background: var(--panel); opacity: 1; }
+.page--salon .dash__tab--active { border-color: #BC6285; color: #BC6285; }
+.page--salon .faq__item--open .faq__chev { color: #BC6285; }
+.page--salon .newtag { background: color-mix(in srgb, #BC6285 14%, var(--bone)); color: #BC6285; }
+.page--salon .sysframe__live-dot { background: #BC6285; }
+.page--salon .jrn__result-ico { color: #BC6285; }
+
+/* =========================================================
    VOICE DEMO
    ========================================================= */
 .vdemo { padding: 100px 0 80px; }
