@@ -985,6 +985,38 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
 .page--salon .jrn__result-ico { color: #BC6285; }
 
 /* =========================================================
+   PHYSIO THEME — /fizioterapia
+   Teal-blue (#4A9EB8) + healing green (#6B9E5E) gradient; signal → teal-blue
+   ========================================================= */
+.page--physio {
+  --signal: #4A9EB8;
+  background: linear-gradient(
+    180deg,
+    var(--bone) 0,
+    color-mix(in srgb, #4A9EB8 7%, var(--bone)) 460px,
+    color-mix(in srgb, #6B9E5E 6%, var(--bone)) 980px,
+    var(--bone) 1480px
+  );
+}
+.page--physio .btn {
+  background: #4A9EB8;
+  border-color: #4A9EB8;
+  color: #fff;
+}
+.page--physio .btn:hover { opacity: 0.88; }
+.page--physio .btn--ghost {
+  background: var(--bone);
+  border-color: var(--line);
+  color: var(--ink);
+}
+.page--physio .btn--ghost:hover { background: var(--panel); opacity: 1; }
+.page--physio .dash__tab--active { border-color: #4A9EB8; color: #4A9EB8; }
+.page--physio .faq__item--open .faq__chev { color: #4A9EB8; }
+.page--physio .newtag { background: color-mix(in srgb, #4A9EB8 14%, var(--bone)); color: #4A9EB8; }
+.page--physio .sysframe__live-dot { background: #4A9EB8; }
+.page--physio .jrn__result-ico { color: #4A9EB8; }
+
+/* =========================================================
    VOICE DEMO
    ========================================================= */
 .vdemo { padding: 100px 0 80px; }
