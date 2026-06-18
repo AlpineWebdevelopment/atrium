@@ -66,3 +66,26 @@
 | SS-R2 | Waitlist build commitment | REVIEW | Teljes csomag promises `várólistáról` re-fill. Confirm feature will be built; add to brand spec as confirmed salon-config capability. |
 | SS-R3 | `Receptionnél olcsóbb` graph | REVIEW | With 49–99k prices vs ~300–450k receptionist, the cost comparison claim is now defensible. Handle in the Miért éri meg graph pass. |
 | SS-R4 | Sales motion | REVIEW | Prices are now displayed while CTA stays meeting-first (`Foglaljon időpontot`). Confirm this is the intended motion for the salon niche. |
+
+## Fizioterápia — text
+
+| ID | File | Before | After | Why |
+|----|------|--------|-------|-----|
+| PS1 | `HeroPhysio.tsx` | `Ne veszítsen több pácienst` + rotating typewriter | `Ne veszítsen több pácienst lassú visszahívás miatt` (static) | Same rationale as SS1: rotating headline is semantically incomplete on page load. Static anchor completes the thought on first render. |
+| PS2 | `HeroPhysio.tsx` | `AI-alapú ügyfélkezelési rendszer gyógytornász és fizioterapeuta rendelőknek` | `AI-alapú értékesítési rendszer gyógytornász és fizioterapeuta rendelőknek` | Consistent with footer, brand spec, and salon page (SS2). |
+| PS3 | `PositioningPhysio.tsx` | `Értékesítési és ügyfélkezelési rendszereket építünk gyógytornász és fizioterapeuta rendelőknek` | `Értékesítési rendszereket építünk gyógytornász és fizioterapeuta rendelőknek` | Single category term; consistent with PS2 and brand spec. |
+| PS4 | `WorkPricingPhysio.tsx` (new) · `fizioterapia/page.tsx` | Shared `WorkPricing` value-based pricing philosophy | New `WorkPricingPhysio` component with three fixed packages (Próbahónap 39k · Alap 49k · Teljes rendelő 99k) | Mirrors salon approach; shared WorkPricing untouched. |
+| PS5 | `FaqPhysio.tsx` | `Nincs egységes árlista — az árat az Ön rendelőjének számaiból állítjuk össze…` | `Fix áraink vannak, meglepetés nélkül. A próbahónap 39 000 Ft egyszeri díj…` | FAQ answer must agree with published prices. |
+| PS6a | `FinalCtaPhysio.tsx` | `A rendelője számait nézzük meg.` | `Nézzük meg, melyik csomag illik a rendelőjéhez.` | CTA heading reflects that packages now exist. |
+| PS6b | `FinalCtaPhysio.tsx` | `Nincs kötelezettség · nincs sürgetés · ha nem áll össze, kap egy auditot` | `Nincs kötelezettség · nincs sürgetés` | Same rationale as SS6b / root-page A7: audit is a post-meeting save tool. |
+
+### Review rows
+
+| ID | Topic | Status | Note |
+|----|-------|--------|------|
+| PS-R1 | Prices unconfirmed | REVIEW | 39 000 / 49 000 / 99 000 Ft carried from salon. Physio patient value (treatment courses, not single visits) is plausibly higher — prices may warrant a notch up. Validate and sign off before publishing. |
+| PS-R2 | Waitlist build commitment | REVIEW | Teljes rendelő csomag promises `várólistáról` re-fill. Confirm feature will be built; add to brand spec as confirmed physio-config capability. |
+| PS-R3 | `értékesítési` vs patient-management framing | REVIEW | "Sales" reads differently for a healthcare niche. Decide at spec level whether medical niches (physio, dental, specialists) should use a softer patient-management frame — the footer follows whatever you choose. |
+| PS-R4 | New niche not in spec | REVIEW | Physio / fizioterapeuta is not in the brand spec's niche list or hero families. Add it to keep surface and spec in agreement. |
+| PS-R5 | Channel count | REVIEW | Five chips (`Telefon · SMS · WhatsApp · E-mail · Webchat`) — more honest than salon's eight. Verify all five are live before publishing. |
+| PS-R6 | `Receptionnél olcsóbb` graph | REVIEW | Defensible at 49–99k prices. Handle in the Miért éri meg graph pass. |

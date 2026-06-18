@@ -76,14 +76,13 @@ export default function HeroPhysio() {
         <div className="hero__grid">
           <div className="hero__content reveal reveal--instant visible">
             <span className="hero__eyebrow">Gyógytornászoknak, fizioterapeutáknak</span>
+            {/* ATRIUM-EDIT SS1 — static headline replaces rotating typewriter; "lassú visszahívás miatt" anchors the problem-led line */}
             <h1 className="hero__title">
-              Ne veszítsen több pácienst
-              <span className="hero__rotline">
-                <span className="hero__rot">{text}</span><span className="hero__cursor" aria-hidden="true" />
-              </span>
+              Ne veszítsen több pácienst lassú visszahívás miatt
             </h1>
             <p className="hero__sub">
-              Az Atrium egy magyar nyelvű, AI-alapú ügyfélkezelési rendszer gyógytornász és fizioterapeuta rendelőknek: minden hívást felvesz, minden foglalást megerősít, minden pácienst visszahoz — a háttérben, az Ön naptárához kötve.
+              {/* ATRIUM-EDIT SS2 — ügyfélkezelési → értékesítési; consistent with footer and brand spec category line */}
+              Az Atrium egy magyar nyelvű, AI-alapú értékesítési rendszer gyógytornász és fizioterapeuta rendelőknek: minden hívást felvesz, minden foglalást megerősít, minden pácienst visszahoz — a háttérben, az Ön naptárához kötve.
             </p>
             <div className="hero__actions">
               <button className="btn">Foglaljon időpontot</button>

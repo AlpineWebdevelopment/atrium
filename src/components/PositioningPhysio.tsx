@@ -5,8 +5,9 @@ export default function PositioningPhysio() {
         <div className="pos__inner reveal">
           <span className="dash__eyebrow"><span className="newtag">gyógytornászoknak</span> Miben vagyunk mások</span>
           <h2 className="pos__h">Nem AI ügynökség vagyunk.</h2>
+          {/* ATRIUM-EDIT SS3 — removed "és ügyfélkezelési"; single category term consistent with SS2 and brand spec */}
           <p className="pos__p">
-            Értékesítési és ügyfélkezelési rendszereket építünk
+            Értékesítési rendszereket építünk
             gyógytornász és fizioterapeuta rendelőknek — magyarul,
             az Ön pácienseire és kezelési protokolljára szabva.
             Az AI csak az eszköz; a lényeg, hogy a rendelő teli

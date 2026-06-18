@@ -4,7 +4,8 @@ import RealtimeDashboardPhysio from "@/components/RealtimeDashboardPhysio";
 import FullSystemPhysio from "@/components/FullSystemPhysio";
 import PositioningPhysio from "@/components/PositioningPhysio";
 import HowWeStart from "@/components/HowWeStart";
-import WorkPricing from "@/components/WorkPricing";
+/* ATRIUM-EDIT SS4 — replaced shared WorkPricing with physio-specific fixed-package section */
+import WorkPricingPhysio from "@/components/WorkPricingPhysio";
 import QualifierCrmPhysio from "@/components/QualifierCrmPhysio";
 import FaqPhysio from "@/components/FaqPhysio";
 import FinalCtaPhysio from "@/components/FinalCtaPhysio";
@@ -26,7 +27,7 @@ export default function FizioterapiaPage() {
       <FullSystemPhysio />
       <PositioningPhysio />
       <HowWeStart />
-      <WorkPricing />
+      <WorkPricingPhysio />
       <QualifierCrmPhysio />
       <FaqPhysio />
       <FinalCtaPhysio />

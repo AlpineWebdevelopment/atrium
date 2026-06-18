@@ -4,7 +4,8 @@ import { useState } from "react";
 const FAQS = [
   {
     q: "Mennyibe kerül egy gyógytornász vagy fizioterapeuta rendelőnek?",
-    a: "Nincs egységes árlista — az árat az Ön rendelőjének számaiból állítjuk össze: mennyi hívás jön be, mennyi a no-show arány, és mennyit ér egy visszatérő páciens. A megbeszélésen kap egy konkrét összeget, meglepetés nélkül.",
+    /* ATRIUM-EDIT SS5 — updated FAQ answer to reflect published fixed packages; removed "no fixed list" framing */
+    a: "Fix áraink vannak, meglepetés nélkül. A próbahónap 39 000 Ft egyszeri díj, az Alap csomag 49 000 Ft / hó, a Teljes rendelő csomag 99 000 Ft / hó. Nincs rejtett tétel, és bármikor válthat a csomagok között.",
   },
   {
     q: "Kezelés közben is felveszi a hívásokat?",
