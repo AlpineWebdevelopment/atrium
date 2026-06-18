@@ -144,7 +144,8 @@ const PHASES = [
   {
     n: "03", name: "Megtartás", cap: "vissza, és újra", c: "#6DBC61", Viz: VizMegtartas,
     steps: [
-      { ic: "callback", t: "No-show visszahívás", s: "visszaszerzi az elmaradt időpontot" },
+      /* ATRIUM-EDIT SD3 — de-jargoned "No-show visszahívás" → "Elmaradtak visszahívása"; consistent with operator-Hungarian voice rule */
+      { ic: "callback", t: "Elmaradtak visszahívása", s: "visszaszerzi az elmaradt időpontot" },
       { ic: "star", t: "Értékelés", s: "elégedett ügyféltől értékelést kér" },
       { ic: "refresh", t: "Reaktiválás", s: "hónapokkal később visszahozza a régit" },
       { ic: "users", t: "Ajánláskérés", s: "az elégedett ügyféltől ajánlást is kér — új ügyfél a meglévőből" },
@@ -190,10 +191,10 @@ export default function FullSystem() {
                 <span className="sysframe__dot" aria-hidden="true" />
                 Az Atrium rendszer · egységes memória
               </span>
-              {/* ATRIUM-EDIT A2 — removed invented "412 / 0" stat; replaced with honest framing */}
+              {/* ATRIUM-EDIT SD1 — "hívás" → "megkeresés"; channel chips show 8 channels, not just calls */}
               <span className="sysframe__live">
                 <span className="sysframe__live-dot" aria-hidden="true" />
-                Minden hívás egy helyen · egy sem vész el
+                Minden megkeresés egy helyen · egy sem vész el
               </span>
             </div>
             <div className="sysframe__channels">
@@ -238,17 +239,23 @@ export default function FullSystem() {
           ))}
         </div>
 
+        {/* ATRIUM-EDIT SD4b — reporting band elevated from footer clause to cross-cutting layer beneath stages; existing sysframe__integ class reused for consistent band styling; no new colors */}
+        <div className="sysframe__integ">
+          Mérés végig — havonta megmutatja, mit hozott a rendszer, és hol szivárog még a bevétel.
+        </div>
+
+        {/* ATRIUM-EDIT SD4a — removed jrn__result-s trailing clause "és minden lépés mérve — riportálás"; reporting is now a dedicated band above */}
         <div className="jrn__result reveal">
           <span className="jrn__result-ico">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">{ICONS.result}</svg>
           </span>
           <div className="jrn__result-txt">
             <b className="jrn__result-t">Több foglalás, több bevétel</b>
-            <span className="jrn__result-s">és minden lépés mérve — riportálás</span>
           </div>
         </div>
+          {/* ATRIUM-EDIT SD2 — removed GoHighLevel from public integrations line; brand spec §10 prohibits exposing internal stack; GHL is also being dropped from the stack */}
           <div className="sysframe__integ">
-            Csatlakozik a meglévő eszközeihez: <b>Google Calendar</b> · <b>Microsoft 365</b> · <b>iCal</b> · <b>GoHighLevel</b>
+            Csatlakozik a meglévő eszközeihez: <b>Google Calendar</b> · <b>Microsoft 365</b> · <b>iCal</b> · a meglévő CRM-jéhez
           </div>
         </div>
 

@@ -33,3 +33,15 @@
 | LK3 | `~12 kihűlt érdeklődő × ~43 000 Ft + elment hirdetési költség` | `~30 lassan követett érdeklődő × ~40% záródás × ~43 000 Ft` | Implied 100% close rate; `+ elment hirdetési költség` was named but not included in the total. New: 30 × 0,40 × 43 000 ≈ 520 000. Dangling ad-cost term removed. Figure unchanged. |
 | LK4 | `~12 no-show × ~30 000 Ft kezelés` | `~12 no-show × ~30 000 Ft elmaradt ügyfélérték` | Math is sound (booked slot = full value). Only change: de-medicalized `kezelés` → `elmaradt ügyfélérték` for operator-level page. Figure unchanged. |
 | LK-R | Close rate ~40% in LK2/LK3 | *(no edit)* | REVIEW — no edit made. The `~40%` close rate is an illustrative placeholder. Confirm against a realistic typical close rate before treating it as the default on-page example. |
+
+## System diagram
+
+| ID | Before | After | Why |
+|----|--------|-------|-----|
+| SD1 | `Minden hívás egy helyen · egy sem vész el` | `Minden megkeresés egy helyen · egy sem vész el` | The live-stat label read "hívás" (calls only) while the channel row shows 8 channels including SMS, webchat, Instagram. "megkeresés" (inquiry/contact) is channel-agnostic and honest. |
+| SD2 | `Csatlakozik a meglévő eszközeihez: … · GoHighLevel` | `… · a meglévő CRM-jéhez` | Brand spec §10 prohibits exposing internal stack on public surfaces. GoHighLevel is also being dropped from the product stack. Replaced with a generic "a meglévő CRM-jéhez" so the line remains accurate for all future CRM integrations. |
+| SD3 | Stage 03 step label: `No-show visszahívás` | `Elmaradtak visszahívása` | "No-show" is English jargon in operator copy; replaced with plain Hungarian. Description unchanged. |
+| SD4a | `<span className="jrn__result-s">és minden lépés mérve — riportálás</span>` | *(deleted)* | Footer clause was a throwaway; reporting is a core system capability that deserved its own dedicated band (SD4b), not a dangling trailing phrase. |
+| SD4b | *(new element)* | Reporting band above outcome line: `Mérés végig — havonta megmutatja, mit hozott a rendszer, és hol szivárog még a bevétel.` | Elevates the reporting capability from a dangling footer clause to a cross-cutting layer beneath the three stages. Reuses existing `sysframe__integ` class; no new colors. |
+| SD-C1 | SD5 — phase heading redesign | *(no edit)* | CONFIRM BEFORE APPLYING — structural layout change to the three-phase headings. Owner must confirm intent before editing. |
+| SD-C2 | SD6 — channel row reorder | *(no edit)* | CONFIRM BEFORE APPLYING — reordering the channel icon row. Owner must confirm intent before editing. |
