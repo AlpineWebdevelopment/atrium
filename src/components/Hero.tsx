@@ -25,6 +25,7 @@ const ICONS: Record<string, React.ReactNode> = {
   star: <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26" />,
   home: <g><path d="M3 11l9-7 9 7" /><path d="M5 10v10h14V10" /></g>,
   moon: <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z" />,
+  bars: <path d="M12 20V10M18 20V4M6 20v-6" />,
 };
 
 const CHANNELS = [
@@ -37,12 +38,16 @@ const DAY = [
   { time: "07:30", k: "calendar", c: "#9662BC", t: "Reggeli közben 3 új foglalás futott a naptárba." },
   { time: "08:15", k: "webchat", c: "#62BCAC", t: "Egy webchat-érdeklődő 30 mp alatt választ kapott." },
   { time: "09:40", k: "phone", c: "#628FBC", t: "Ön ügyféllel van — közben 2 hívást is felvett a rendszer." },
-  { time: "11:00", k: "qualify", c: "#AD83CC", t: "Csak árat kérdeztek — kvalifikálva, nem foglal felesleg helyet." },
-  { time: "12:20", k: "users", c: "#628FBC", t: "Lemondás 1 perc alatt a várólistának — nem marad üres a szék." },
+  /* ATRIUM-EDIT TL1 — removed slot/seat logic; benefit now points at owner (qualification / seriousness filter) */
+  { time: "11:00", k: "qualify", c: "#AD83CC", t: "Csak árat kérdezett valaki — a rendszer kvalifikálta, az Ön idejét nem vette el." },
+  /* ATRIUM-EDIT TL2 — replaced cancellation→waitlist beat (non-shipped candidate capability) with unified-memory-across-channels beat; icon users → webchat */
+  { time: "12:20", k: "webchat", c: "#628FBC", t: "Egy érdeklődő nem telefonált, hanem írt — a rendszer ott is felvette a fonalat." },
   { time: "13:30", k: "refresh", c: "#BCA162", t: "Egy 8 hónapja nem látott ügyfél finoman visszahíva." },
-  { time: "15:10", k: "bell", c: "#62BCAC", t: "A holnapi időpontok emlékeztetőt kaptak — kevesebb no-show." },
+  /* ATRIUM-EDIT TL3 — replaced English jargon "no-show" with plain operator Hungarian */
+  { time: "15:10", k: "bell", c: "#62BCAC", t: "A holnapi időpontok emlékeztetőt kaptak — kevesebben maradnak el." },
   { time: "16:45", k: "star", c: "#BCA162", t: "Egy elégedett ügyféltől a rendszer értékelést kért." },
-  { time: "18:00", k: "phone", c: "#6DBC61", t: "Zárás után is csörög a telefon — egy hívás se vész el." },
+  /* ATRIUM-EDIT TL4 — converted redundant 3rd reception beat into reporting moment; icon phone → bars */
+  { time: "18:00", k: "bars", c: "#6DBC61", t: "Zárás után egy pillantás a telefonján — a rendszer megmutatja, mit hozott a mai nap." },
   { time: "20:15", k: "home", c: "#9662BC", t: "Ön otthon, a családdal — a rendszer dolgozik tovább." },
   { time: "21:30", k: "moon", c: "#628FBC", t: "Tele naptár, 0 elszalasztott hívás. Nyugodtan alszik." },
 ];
