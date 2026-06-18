@@ -953,6 +953,60 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
 }
 
 /* =========================================================
+   VOICE DEMO
+   ========================================================= */
+.vdemo { padding: 100px 0 80px; }
+.vdemo__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.vdemo__h { font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: var(--ink); margin: 10px 0 16px; line-height: 1.2; }
+.vdemo__p { font-size: 16px; color: var(--ink-70); line-height: 1.65; max-width: 420px; }
+.vdemo__widget {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 48px 40px;
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--signal) 4%, var(--bone));
+}
+.vdemo__orb {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: color-mix(in srgb, var(--signal) 10%, var(--bone));
+  border: 1.5px solid color-mix(in srgb, var(--signal) 30%, var(--line));
+  color: var(--signal);
+  transition: background 0.3s, box-shadow 0.3s;
+}
+.vdemo__orb svg { width: 28px; height: 28px; }
+.vdemo__orb--active {
+  background: color-mix(in srgb, var(--signal) 14%, var(--bone));
+  border-color: color-mix(in srgb, var(--signal) 55%, transparent);
+  box-shadow: 0 0 0 8px color-mix(in srgb, var(--signal) 8%, transparent);
+}
+.vdemo__orb--talking {
+  animation: orbPulse 1.1s ease-in-out infinite;
+}
+@keyframes orbPulse {
+  0%, 100% { box-shadow: 0 0 0 8px color-mix(in srgb, var(--signal) 8%, transparent); }
+  50% { box-shadow: 0 0 0 18px color-mix(in srgb, var(--signal) 4%, transparent); }
+}
+.vdemo__btn { min-width: 220px; }
+.vdemo__btn--loading { opacity: 0.6; cursor: default; }
+.vdemo__live-label { font-size: 14px; color: var(--ink-70); font-family: var(--font-mono); letter-spacing: 0.03em; }
+.vdemo__note { font-size: 11px; font-family: var(--font-mono); color: var(--stone); letter-spacing: 0.04em; }
+.vdemo__err { font-size: 14px; color: var(--viz-red); }
+@media (max-width: 860px) {
+  .vdemo__inner { grid-template-columns: 1fr; gap: 40px; }
+  .vdemo { padding: 72px 0 60px; }
+}
+
+/* =========================================================
    FINAL CTA — centered
    ========================================================= */
 .final-cta { padding: 100px 0 110px; text-align: center; }
