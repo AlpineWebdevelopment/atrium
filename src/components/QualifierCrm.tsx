@@ -101,13 +101,14 @@ function GfxFunnels() {
       <circle cx={123} cy={52} r={3.5} fill="var(--ink-35)" opacity="0.55" />
       <circle cx={126} cy={66} r={3.5} fill="var(--ink-35)" opacity="0.45" />
       <circle cx={6} cy={84} r={3} fill="var(--ink-35)" opacity="0.35" />
-      <text className="qben__num" x={65} y={128} textAnchor="middle" style={{ fill: "var(--ink-35)", fontSize: "36px" }}>3</text>
+      {/* ATRIUM-EDIT A3 — replaced invented "3/8" before/after figures with "kevesebb/több"; invented conversion rates are unverifiable */}
+      <text className="qben__num" x={65} y={128} textAnchor="middle" style={{ fill: "var(--ink-35)", fontSize: "18px" }}>kevesebb</text>
       <text className="qben__lbl" x={65} y={148} textAnchor="middle">időpont</text>
 
       {/* RIGHT funnel: solid = no leaks */}
       <path d="M142 32 L248 32 L224 78 L224 90 L166 90 L166 78 Z"
         fill="var(--acc)" fillOpacity="0.10" stroke="var(--acc)" strokeWidth="2" />
-      <text className="qben__num" x={195} y={128} textAnchor="middle" style={{ fill: "var(--acc)", fontSize: "36px" }}>8</text>
+      <text className="qben__num" x={195} y={128} textAnchor="middle" style={{ fill: "var(--acc)", fontSize: "18px" }}>több</text>
       <text className="qben__lbl" x={195} y={148} textAnchor="middle" style={{ fill: "var(--acc)" }}>időpont</text>
     </svg>
   );
@@ -156,7 +157,8 @@ const BENEFITS = [
   { b: "Személyre szabva", s: "az Ön cégméretére, folyamatára és kérdéseire építve", c: "#9662BC", Gfx: GfxTuned },
   { b: "Saját CRM", s: "az adatok az Ön rendszerében, nem egy bérelt felületen", c: "#628FBC", Gfx: GfxOwn },
   { b: "Több időpont", s: "ugyanannyi érdeklődőből — mert egy sem vész el útközben", c: "#62BCAC", Gfx: GfxFunnels },
-  { b: "Költséghatékony", s: "a nap minden órájában dolgozik, és kevesebbe kerül, mint egy munkatárs", c: "#6DBC61", Gfx: GfxCost },
+  /* ATRIUM-EDIT A4 — heading "Költséghatékony" → "Kiszámítható"; sub-text removes "cheaper than employee" claim (plausibly false at Full System price); honest edge is always-on + no turnover */
+  { b: "Kiszámítható", s: "a nap minden órájában dolgozik — szabadnap, betegszabadság és kiesés nélkül", c: "#6DBC61", Gfx: GfxCost },
 ];
 
 export default function QualifierCrm() {

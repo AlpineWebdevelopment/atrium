@@ -190,9 +190,10 @@ export default function FullSystem() {
                 <span className="sysframe__dot" aria-hidden="true" />
                 Az Atrium rendszer · egységes memória
               </span>
+              {/* ATRIUM-EDIT A2 — removed invented "412 / 0" stat; replaced with honest framing */}
               <span className="sysframe__live">
                 <span className="sysframe__live-dot" aria-hidden="true" />
-                412 hívás fogadva · 0 kihagyva
+                Minden hívás egy helyen · egy sem vész el
               </span>
             </div>
             <div className="sysframe__channels">

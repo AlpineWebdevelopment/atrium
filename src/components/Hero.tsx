@@ -47,10 +47,11 @@ const DAY = [
   { time: "21:30", k: "moon", c: "#628FBC", t: "Tele naptár, 0 elszalasztott hívás. Nyugodtan alszik." },
 ];
 
+/* ATRIUM-EDIT A1 — "elmaradt időpontok" → "elszalasztott hívások és érdeklődők"; appointment-language is niche-specific, calls/inquiries are universal */
 const PHRASES = [
   "elszalasztott hívások miatt",
   "lassú visszahívás miatt",
-  "elmaradt időpontok miatt",
+  "elszalasztott hívások és érdeklődők miatt",
   "kihűlt érdeklődők miatt",
   "elfeledett ügyfelek miatt",
 ];

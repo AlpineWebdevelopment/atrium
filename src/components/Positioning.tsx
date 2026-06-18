@@ -13,15 +13,11 @@ export default function Positioning() {
             cégeknek — magyarul, az Ön számai mellett. Az AI csak az eszköz; a
             lényeg, hogy a cége több ügyfelet zárjon, kevesebb kézi munkával.
           </p>
+          {/* ATRIUM-EDIT A5 — removed niche list (fogorvos/kivitelező/szálloda/autószerelő); root page must not use the "logo-wall" horizontal pattern */}
           <p className="pos__niche">
-            Minden szakmának a saját rendszere — fogorvosi rendelő, kivitelező,
-            szálloda, autószerelő —, a folyamatához és a számaihoz szabva.
+            Minden cégnek a saját rendszere — a folyamatához és a számaihoz szabva.
           </p>
-          <p className="newnote">
-            Javaslat: amint van aláírt ügyfél, ide kerül egy névvel vállalt
-            referencia és az alapító arca — ez a legnagyobb hiányzó bizalmi elem
-            a versenytársakhoz (Meridian, AI Squad) képest.
-          </p>
+          {/* ATRIUM-EDIT A6 — deleted internal production note (Javaslat: amint van aláírt ügyfél…); not customer-facing copy */}
         </div>
       </div>
     </section>

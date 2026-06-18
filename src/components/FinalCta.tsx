@@ -10,8 +10,9 @@ export default function FinalCta() {
             bármiről dönt.
           </p>
           <button className="btn btn--lg final-cta__btn">Foglaljon 30 perces megbeszélést</button>
+          {/* ATRIUM-EDIT A7 — removed audit mention; Sales Leak Audit is a post-meeting save tool per spec, not advertised to cold visitors */}
           <span className="final-cta__note">
-            Nincs kötelezettség · nincs sürgetés · ha nem áll össze, kap egy auditot
+            Nincs kötelezettség · nincs sürgetés
           </span>
 
           <div className="final-cta__badges">
