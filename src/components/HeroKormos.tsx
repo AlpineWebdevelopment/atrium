@@ -54,11 +54,13 @@ export default function HeroKormos() {
         <div className="hero__grid">
           <div className="hero__content reveal reveal--instant visible">
             <span className="hero__eyebrow">Körmösöknek, műkörömépítőknek</span>
+            {/* ATRIUM-EDIT NR1-kormos — reframe hero headline to DM-booking admin problem */}
             <h1 className="hero__title">
-              Ne veszítsen több vendéget lassú visszahívás miatt
+              Ne töltse az estéit foglalási üzenetekkel.
             </h1>
+            {/* ATRIUM-EDIT NR2-kormos — reframe subhead to DM-booking assistant product */}
             <p className="hero__sub">
-              Az Atrium egy magyar nyelvű, AI-alapú értékesítési rendszer körmösöknek és műkörömépítőknek: minden hívást felvesz, minden foglalást megerősít, minden vendéget visszahoz — a háttérben, az Ön naptárához kötve.
+              Az Atrium egy magyar nyelvű, AI-alapú értékesítési rendszer körmösöknek és műkörömépítőknek — a foglalási üzeneteket Messengeren és Instagramon magától megválaszolja, szabad időpontot ajánl, és a naptárába írja. Ön közben a vendéggel van.
             </p>
             <div className="hero__actions">
               <button className="btn">Foglaljon időpontot</button>

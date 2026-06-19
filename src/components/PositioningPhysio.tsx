@@ -4,14 +4,14 @@ export default function PositioningPhysio() {
       <div className="wrap">
         <div className="pos__inner reveal">
           <span className="dash__eyebrow"><span className="newtag">gyógytornászoknak</span> Miben vagyunk mások</span>
-          <h2 className="pos__h">Nem AI ügynökség vagyunk.</h2>
-          {/* ATRIUM-EDIT SS3 — removed "és ügyfélkezelési"; single category term consistent with SS2 and brand spec */}
+          {/* ATRIUM-EDIT NR3-physio — problem reframe: course dropout and continuation */}
+          <h2 className="pos__h">A bevétel nem az új páciensből vész el, hanem a meglévőből.</h2>
           <p className="pos__p">
-            Értékesítési rendszereket építünk
-            gyógytornász és fizioterapeuta rendelőknek — magyarul,
-            az Ön pácienseire és kezelési protokolljára szabva.
-            Az AI csak az eszköz; a lényeg, hogy a rendelő teli
-            naptárral dolgozzon, kevesebb kézi munkával.
+            A páciens néhány alkalom után jobban lesz, és elmarad — a hátralévő
+            kezelések, és a hozzájuk tartozó bevétel, vele együtt. Nem új pácienst
+            kell szereznie; a meglévőt kell végigkísérnie a folyamaton. A rendszer
+            ezt teszi: észreveszi, ki nem foglalt új időpontot, és időben, magyarul
+            megkeresi.
           </p>
           <p className="pos__niche">
             Egyszemélyes gyógytornász rendelőtől a több terapeutás

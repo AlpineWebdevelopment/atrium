@@ -2,23 +2,24 @@
    Replaces the shared value-based WorkPricing component.
    Reuses .wpr section + .wpr__grid / .wpr__item layout; no new colors. */
 
+/* ATRIUM-EDIT NR4-physio — course-continuation descriptions replace call-answering framing */
 const PACKAGES = [
   {
     n: "Próbahónap",
     sub: "30 nap, fix díj",
-    d: "Az alap rendszer egy hónapra: minden hívást felvesz, foglal a naptárba, és emlékeztetőt küld. A végén a saját számaival dönt.",
+    d: "A folyamatkövető egy hónapra: figyeli, ki marad ki a kezelési sorból, és visszahívja a következő alkalomra. A hónap végén a saját számaival dönt.",
     p: "39 000 Ft · egyszeri",
   },
   {
     n: "Alap",
     sub: "havi fix díj",
-    d: "Hívásfogadás kezelés közben és zárás után, foglalás a megfelelő terapeutához, emlékeztető, és az elmaradt időpontok visszahívása.",
+    d: "A kezelési folyamatot megszakító páciensek visszahívása, időpontfoglalás a megfelelő terapeutához, és automatikus emlékeztető.",
     p: "49 000 Ft / hó",
   },
   {
     n: "Teljes rendelő",
     sub: "havi fix díj",
-    d: "Minden, ami az Alapban — plusz a kezelési folyamatot megszakító páciensek visszahívása, értékeléskérés, a lemondott időpontok újratöltése a várólistáról, és havi riport.",
+    d: "Minden, ami az Alapban — plusz a régen járt páciensek visszahívása, értékeléskérés, a lemondott időpontok újratöltése, és havi riport.",
     p: "99 000 Ft / hó",
   },
 ];

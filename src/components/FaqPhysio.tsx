@@ -9,7 +9,8 @@ const FAQS = [
   },
   {
     q: "Kezelés közben is felveszi a hívásokat?",
-    a: "Igen — pontosan erre terveztük. Manuálterápia, ultrahangos kezelés, gyógytorna közben a rendszer veszi fel a telefont, tájékoztatja a pácienst, és ha szükséges, foglalást is vesz fel. Ön kezel, a rendszer kommunikál.",
+    /* ATRIUM-EDIT NR5-physio-Q2 — reframe call-answering answer to course-continuation core */
+    a: "Igen — pontosan erre terveztük. Kezelés közben a rendszer figyeli, ki maradt ki a kezelési folyamatból, és időben megkeresi a következő alkalomra. Ön a páciensével foglalkozik, a rendszer a folytatásról gondoskodik.",
   },
   {
     q: "Mi van, ha a páciens személlyel akar beszélni?",
@@ -25,7 +26,8 @@ const FAQS = [
   },
   {
     q: "Hány hívást tud egyszerre kezelni?",
-    a: "Korlátlan mennyiséget, egyszerre. Hétvégén, ünnepnapon, zárás után is felveszi az összes hívást — soha nem foglalt, nincs sorban állás, nincs elveszett foglalás.",
+    /* ATRIUM-EDIT NR5-physio-Q6 — reframe call-volume answer to course-continuation core */
+    a: "Párhuzamosan több pácienst is nyomon követ. Hétvégén, ünnepnapon, zárás után is figyeli a kezelési folyamatból kimaradt pácienseket, és szükség esetén megkeresi — egyetlen páciens sem vész el útközben.",
   },
   {
     q: "Biztonságban vannak a páciensadatok? Megfelel a GDPR-nak?",

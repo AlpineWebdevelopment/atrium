@@ -1,23 +1,24 @@
 /* ATRIUM-EDIT NK4 — fixed-package pricing for the nail niche page.
    Duplicated from WorkPricingSalon; nail-specific descriptions applied. */
 
+/* ATRIUM-EDIT NR4-kormos — booking-assistant descriptions replace call-answering framing */
 const PACKAGES = [
   {
     n: "Próbahónap",
     sub: "30 nap, fix díj",
-    d: "Az alap rendszer egy hónapra: minden hívást felvesz, foglal a naptárba, és emlékeztetőt küld. A végén a saját számaival dönt.",
+    d: "A foglalási asszisztens egy hónapra: a Messengeren és Instagramon érkező foglalási kéréseket megválaszolja, időpontot ad a naptárába, és emlékeztetőt küld. A hónap végén a saját tapasztalatával dönt.",
     p: "39 000 Ft · egyszeri",
   },
   {
     n: "Alap",
     sub: "havi fix díj",
-    d: "Hívásfogadás munka közben és zárás után, foglalás a megfelelő körmöshöz, emlékeztető, és az elmaradt időpontok visszahívása.",
+    d: "Foglalás Messengeren, Instagramon és a weboldalon, a megfelelő körmöshöz, automatikus emlékeztetővel és a lemondások kezelésével.",
     p: "49 000 Ft / hó",
   },
   {
     n: "Teljes szalon",
     sub: "havi fix díj",
-    d: "Minden, ami az Alapban — plusz a régi vendégek visszahívása, értékeléskérés, a lemondott időpontok újratöltése a várólistáról, és havi riport.",
+    d: "Minden, ami az Alapban — plusz a törzsvendégek visszahívása új időpontra, értékeléskérés, a lemondott időpontok újratöltése, és havi riport arról, mi történt.",
     p: "99 000 Ft / hó",
   },
 ];
@@ -48,7 +49,7 @@ export default function WorkPricingKormos() {
           ))}
         </div>
         <p className="dash__p reveal" data-delay="2" style={{ marginTop: "1.5rem", textAlign: "center" }}>
-          Mindegyik a meglévő naptárához kötve indul — semmit nem kell lecserélnie.
+          Mindegyik a meglévő naptárához kötve indul — a csapatának semmit nem kell lecserélnie.
         </p>
       </div>
     </section>

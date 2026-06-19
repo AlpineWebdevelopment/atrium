@@ -9,7 +9,8 @@ const FAQS = [
   },
   {
     q: "Kezelés közben is felveszi a hívásokat?",
-    a: "Igen — pontosan erre terveztük. Festés, műköröm, masszázs közben a rendszer veszi fel a telefont, tájékoztatja a vendéget, és ha szükséges, foglalást is vesz fel. Ön dolgozik, a rendszer kommunikál.",
+    /* ATRIUM-EDIT NR5-salon-Q2 — reframe call-answering answer to DM-booking core */
+    a: "Igen — pontosan erre terveztük. Festés, műköröm, masszázs közben a rendszer megválaszolja a Messengeren és Instagramon érkező foglalási kéréseket, időpontot kínál a naptárából, és visszaigazolja a foglalást. Ön dolgozik, a rendszer foglal.",
   },
   {
     q: "Mi van, ha a vendég személlyel akar beszélni?",
@@ -25,7 +26,8 @@ const FAQS = [
   },
   {
     q: "Hány hívást tud egyszerre kezelni?",
-    a: "Korlátlan mennyiséget, egyszerre. Hétvégén, ünnepnapon, zárás után is felveszi az összes hívást — soha nem foglalt, nincs sorban állás, nincs elveszett foglalás.",
+    /* ATRIUM-EDIT NR5-salon-Q6 — reframe call-volume answer to DM-booking core */
+    a: "Korlátlan mennyiséget, párhuzamosan. Hétvégén, ünnepnapon, zárás után is megválaszolja az összes beérkező foglalási üzenetet — nincs késés, nincs elveszett foglalás.",
   },
   {
     q: "Biztonságban vannak a vendégadatok? Megfelel a GDPR-nak?",

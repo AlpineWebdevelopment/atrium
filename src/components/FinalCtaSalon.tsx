@@ -5,11 +5,10 @@ export default function FinalCtaSalon() {
         <div className="final-cta__panel reveal">
           {/* ATRIUM-EDIT SS6a — heading updated to match fixed-offer CTA; diagnosis framing stays in body */}
           <h2 className="final-cta__h">Nézzük meg, melyik csomag illik a szalonjához.</h2>
-          {/* ATRIUM-EDIT NCC-salon — tie leak to concrete package choice, not advisory pause */}
+          {/* ATRIUM-EDIT NR6-salon — reframe CTA body to booking-admin problem, not call/leak framing */}
           <p className="final-cta__p">
-            30 perces megbeszélés. Megnézzük a hívásait, az elfelejtett
-            foglalásokat és a lemondásokat — és megmondjuk, hol szivárog
-            a bevétel — és melyik csomag zárja be.
+            30 perces megbeszélés. Megnézzük, hogyan intézi most a foglalásokat,
+            és megmutatjuk, mit venne le Önről a rendszer — mielőtt bármiről dönt.
           </p>
           <button className="btn btn--lg final-cta__btn">Foglaljon 30 perces megbeszélést</button>
           <span className="final-cta__note">

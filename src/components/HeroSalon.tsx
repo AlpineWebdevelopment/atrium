@@ -80,13 +80,13 @@ export default function HeroSalon() {
         <div className="hero__grid">
           <div className="hero__content reveal reveal--instant visible">
             <span className="hero__eyebrow">Szépségszalonoknak</span>
-            {/* ATRIUM-EDIT SS1 — static headline replaces rotating typewriter; "lassú visszahívás miatt" anchors the problem-led line */}
+            {/* ATRIUM-EDIT NR1-salon — reframe hero headline to DM-booking admin problem */}
             <h1 className="hero__title">
-              Ne veszítsen több vendéget lassú visszahívás miatt
+              Ne töltse az estéit foglalási üzenetekkel.
             </h1>
+            {/* ATRIUM-EDIT NR2-salon — reframe subhead to DM-booking assistant product */}
             <p className="hero__sub">
-              {/* ATRIUM-EDIT SS2 — ügyfélkezelési → értékesítési; consistent with footer and brand spec category line */}
-              Az Atrium egy magyar nyelvű, AI-alapú értékesítési rendszer szépségszalonoknak: minden hívást felvesz, minden foglalást megerősít, minden vendéget visszahoz — a háttérben, az Ön naptárához kötve.
+              Az Atrium egy magyar nyelvű, AI-alapú értékesítési rendszer szépségszalonoknak — a foglalási üzeneteket Messengeren és Instagramon magától megválaszolja, szabad időpontot ajánl, és a naptárába írja. Ön közben a vendéggel van.
             </p>
             <div className="hero__actions">
               <button className="btn">Foglaljon időpontot</button>

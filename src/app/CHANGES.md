@@ -139,3 +139,68 @@ CSS theme added: `.page--kormos` (`--signal: #C4705A` coral + gold gradient grad
 | NK-R2 | Waitlist build commitment | REVIEW | Teljes szalon csomag promises `várólistáról` re-fill. Confirm feature will be built. |
 | NK-R3 | New niche not in spec | REVIEW | Add körmös / műkörömépítő (slug `/kormos`) to the brand spec niche list and architecture diagram. |
 | NK-R4 | Graphs inherited | REVIEW | Nail graphs mirror salon's exactly and must receive the same graph pass when salon's lands. |
+
+## Szépségszalon — core reframe
+
+Core problem: DM-booking admin (endless Messenger/Instagram back-and-forth). Product: AI foglalási asszisztens.
+
+| ID | File | Before | After | Why |
+|----|------|--------|-------|-----|
+| NR1-salon | `HeroSalon.tsx` | `Ne veszítsen több vendéget lassú visszahívás miatt` | `Ne töltse az estéit foglalási üzenetekkel.` | Missed-call framing was wrong for the product. The real operator pain is the DM-booking marathon, not unanswered calls. |
+| NR2-salon | `HeroSalon.tsx` | `…minden hívást felvesz, minden foglalást megerősít, minden vendéget visszahoz — a háttérben, az Ön naptárához kötve.` | `…a foglalási üzeneteket Messengeren és Instagramon magától megválaszolja, szabad időpontot ajánl, és a naptárába írja. Ön közben a vendéggel van.` | Subhead now names the channel (Messenger, Instagram), the action (message → slot → calendar), and the operator benefit (hands off). |
+| NR3-salon | `PositioningSalon.tsx` | Heading `Nem AI ügynökség vagyunk.` + Értékesítési rendszereket builder pitch | Heading `A foglalás ma üzenetben zajlik — és ez Önön csapódik le.` + DM-booking problem body | Positioning section now earns its place: names the concrete problem before pitching the product. |
+| NR4-salon | `WorkPricingSalon.tsx` | Próbahónap: minden hívást felvesz · Alap: hívásfogadás + visszahívás · Teljes: régi vendégek visszahívása | Próbahónap: foglalási asszisztens, Messenger/Instagram · Alap: foglalás Messenger/Instagram/web, lemondások · Teljes: törzsvendégek + értékelés + riport | Package descriptions now match what the product actually does; call-answering framing removed. |
+| NR5-salon-Q2 | `FaqSalon.tsx` | `…a rendszer veszi fel a telefont, tájékoztatja a vendéget…` | `…a rendszer megválaszolja a Messengeren és Instagramon érkező foglalási kéréseket, időpontot kínál a naptárából, és visszaigazolja a foglalást.` | Q2 answer described call answering as the primary capability — replaced with DM-booking. |
+| NR5-salon-Q6 | `FaqSalon.tsx` | `…felveszi az összes hívást — soha nem foglalt, nincs sorban állás…` | `…megválaszolja az összes beérkező foglalási üzenetet — nincs késés, nincs elveszett foglalás.` | Same rationale: call-volume framing replaced with message-volume. |
+| NR6-salon | `FinalCtaSalon.tsx` | `Megnézzük a hívásait, az elfelejtett foglalásokat és a lemondásokat…` | `Megnézzük, hogyan intézi most a foglalásokat, és megmutatjuk, mit venne le Önről a rendszer…` | CTA body now matches the booking-admin core; call/leak list removed. |
+
+### Review rows
+
+| ID | Topic | Status | Note |
+|----|-------|--------|------|
+| NR-S-R1 | `értékesítési` frame mismatch | REVIEW | Product is friction-removal (booking admin), not a revenue-leak fixer. `értékesítési rendszer` may overclaim against the product's promise. Decide: keep for footer/spec consistency, or give the low-ticket lane a time-saving frame instead. Physio exempt. |
+| NR-S-R2 | Messenger + Instagram deliverability | REVIEW | The salon/nail core claims Meta DM booking automation as the differentiator. Verify the Meta DM integration is deliverable before this page goes live. If not, the whole core problem/product statement needs revision. |
+| NR-S-R3 | Graphics contradiction | REVIEW | Timeline, leak diagram, system diagram, and Miért éri meg bars are still call/leak-themed. They need a graphics pass: re-theme to DM-booking context. Separate pass — not touched here. |
+
+## Körmös — core reframe
+
+Identical product and problem to salon; nail vocab applied (`mester` → `körmös`, `szépségszalon` → `körmös szalon`, examples: `műköröm`, `géllakk`).
+
+| ID | File | Before | After | Why |
+|----|------|--------|-------|-----|
+| NR1-kormos | `HeroKormos.tsx` | `Ne veszítsen több vendéget lassú visszahívás miatt` | `Ne töltse az estéit foglalási üzenetekkel.` | Same rationale as NR1-salon. |
+| NR2-kormos | `HeroKormos.tsx` | `…minden hívást felvesz, minden foglalást megerősít, minden vendéget visszahoz — a háttérben, az Ön naptárához kötve.` | `…a foglalási üzeneteket Messengeren és Instagramon magától megválaszolja, szabad időpontot ajánl, és a naptárába írja. Ön közben a vendéggel van.` | Same as NR2-salon; nail-specific eyebrow already in file. |
+| NR3-kormos | `PositioningKormos.tsx` | Heading `Nem AI ügynökség vagyunk.` + builder pitch body | Heading `A foglalás ma üzenetben zajlik — és ez Önön csapódik le.` + DM-booking problem body | Same as NR3-salon. |
+| NR4-kormos | `WorkPricingKormos.tsx` | Próbahónap: minden hívást felvesz · Alap: hívásfogadás + visszahívás | Próbahónap: foglalási asszisztens, Messenger/Instagram · Alap: `a megfelelő körmöshöz` | Same as NR4-salon; `mesterhez` → `körmöshöz` in Alap desc. Closing line: `a csapatának semmit nem kell lecserélnie` (was missing `a csapatának`). |
+| NR5-kormos-Q2 | `FaqKormos.tsx` | `…a rendszer veszi fel a telefont…` | `…a rendszer megválaszolja a Messengeren és Instagramon érkező foglalási kéréseket…` | Same as NR5-salon-Q2. |
+| NR5-kormos-Q6 | `FaqKormos.tsx` | `…felveszi az összes hívást…` | `…megválaszolja az összes beérkező foglalási üzenetet…` | Same as NR5-salon-Q6. |
+| NR6-kormos | `FinalCtaKormos.tsx` | `Megnézzük a hívásait, az elmaradt foglalásokat és a lemondásokat…` | `Megnézzük, hogyan intézi most a foglalásokat, és megmutatjuk, mit venne le Önről a rendszer…` | Same as NR6-salon. |
+
+### Review rows
+
+| ID | Topic | Status | Note |
+|----|-------|--------|------|
+| NR-K-R1 | Messenger + Instagram deliverability | REVIEW | Same as NR-S-R2 — load-bearing claim; must be verified before page goes live. |
+| NR-K-R2 | Graphics contradiction | REVIEW | Same as NR-S-R3 — graphics pass needed. |
+
+## Fizioterápia — core reframe
+
+Core problem: patients drop out of a treatment course partway. Product: AI folyamatkövető (course tracker).
+
+| ID | File | Before | After | Why |
+|----|------|--------|-------|-----|
+| NR1-physio | `HeroPhysio.tsx` | `Ne veszítsen több pácienst lassú visszahívás miatt` | `Hogy a megkezdett kezelést a páciens végig is járja.` | Missed-call framing was wrong. The physio revenue problem is course dropout, not unanswered calls. |
+| NR2-physio | `HeroPhysio.tsx` | `…minden hívást felvesz, minden foglalást megerősít, minden pácienst visszahoz — a háttérben, az Ön naptárához kötve.` | `…figyeli, ki marad ki a kezelési folyamatból, és magyarul, időben visszahívja a következő alkalomra.` | Subhead now names the single action the product takes: monitors and re-engages dropouts in time. |
+| NR3-physio | `PositioningPhysio.tsx` | Heading `Nem AI ügynökség vagyunk.` + builder pitch body | Heading `A bevétel nem az új páciensből vész el, hanem a meglévőből.` + course-dropout problem body | Naming the exact mechanism of revenue loss; reframes the operator's growth frame from acquisition to retention. |
+| NR4-physio | `WorkPricingPhysio.tsx` | Próbahónap: minden hívást felvesz · Alap: hívásfogadás + visszahívás · Teljes: kezelési folyamatot megszakító visszahívása + várólistáról | Próbahónap: folyamatkövető, kezelési sor · Alap: kimaradó páciensek visszahívása, megfelelő terapeuta · Teljes: régen járt páciensek + riport | Package descriptions match the course-continuation product, not call-answering. |
+| NR5-physio-Q2 | `FaqPhysio.tsx` | `…a rendszer veszi fel a telefont, tájékoztatja a pácienst…` | `…a rendszer figyeli, ki maradt ki a kezelési folyamatból, és időben megkeresi a következő alkalomra.` | Q2 answer described call answering; replaced with course-continuation core. |
+| NR5-physio-Q6 | `FaqPhysio.tsx` | `…felveszi az összes hívást — soha nem foglalt, nincs sorban állás…` | `Párhuzamosan több pácienst is nyomon követ…figyeli a kezelési folyamatból kimaradt pácienseket, és szükség esetén megkeresi — egyetlen páciens sem vész el útközben.` | Call-volume framing replaced with course-tracking core. |
+| NR6-physio | `FinalCtaPhysio.tsx` | `Megnézzük a hívásait, az elfelejtett időpontokat és a lemondásokat…` | `Megnézzük, hány páciens marad ki a kezelési folyamatból, és megmutatjuk, mit venne vissza a rendszer…` | CTA body now matches the course-continuation core. |
+
+### Review rows
+
+| ID | Topic | Status | Note |
+|----|-------|--------|------|
+| NR-P-R1 | `értékesítési` frame for physio | RECORD | Physio core is genuinely revenue-leak (dropped course = lost session fees), so the `értékesítési rendszer` frame holds here — no tension. |
+| NR-P-R2 | Graphics contradiction | REVIEW | Timeline, system diagram, and Miért éri meg bars are call/leak-themed. Need a graphics pass: re-theme to course-continuation context. Separate pass — not touched here. |
+| NR-P-R3 | New niche in spec | REVIEW | Fizioterápia (slug `/fizioterapia`) is not yet in the brand spec niche list or hero families. Add with confirmed slug. |
