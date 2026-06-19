@@ -89,3 +89,31 @@
 | PS-R4 | New niche not in spec | REVIEW | Physio / fizioterapeuta is not in the brand spec's niche list or hero families. Add it to keep surface and spec in agreement. |
 | PS-R5 | Channel count | REVIEW | Five chips (`Telefon · SMS · WhatsApp · E-mail · Webchat`) — more honest than salon's eight. Verify all five are live before publishing. |
 | PS-R6 | `Receptionnél olcsóbb` graph | REVIEW | Defensible at 49–99k prices. Handle in the Miért éri meg graph pass. |
+
+## Körmös — new page
+
+Structural template: `/szepsegszalon` (all layout, components, CSS architecture). Corrected copy applied from the start — no broken hero, no value-based pricing, no `ügyfélkezelési`, no audit-to-cold-visitor.
+
+New files: `src/app/kormos/page.tsx` · `src/components/HeroKormos.tsx` · `src/components/RealtimeDashboardKormos.tsx` · `src/components/FullSystemKormos.tsx` · `src/components/PositioningKormos.tsx` · `src/components/WorkPricingKormos.tsx` · `src/components/QualifierCrmKormos.tsx` · `src/components/FaqKormos.tsx` · `src/components/FinalCtaKormos.tsx`
+
+CSS theme added: `.page--kormos` (`--signal: #C4705A` coral + gold gradient gradient, same pattern as salon/physio).
+
+| ID | File | Copy applied | Note |
+|----|------|-------------|------|
+| NK1 | `HeroKormos.tsx` | Eyebrow `Körmösöknek, műkörömépítőknek` · static headline `Ne veszítsen több vendéget lassú visszahívás miatt` · nail subhead | Dead typewriter code not carried over. |
+| NK2 | `RealtimeDashboardKormos.tsx` | `Festés közben, műköröm alatt, masszázsnál` → `Manikűr, pedikűr, géllakkozás közben` · `szépségszalon` → `körmös szalon` · gradient IDs suffixed `K` | Loss numbers inherited from salon. |
+| NK3 | `FullSystemKormos.tsx` | De-fabbed live stat → `Minden megkeresés egy helyen · egy sem vész el` · GoHighLevel → `a meglévő CRM-jéhez` · `mester` → `körmös` throughout · `No-show visszahívás` → `Elmaradtak visszahívása` | Brand spec §10 governs GoHighLevel removal. |
+| NK4 | `WorkPricingKormos.tsx` | Fixed packages (39k/49k/99k) with nail vocab (`a megfelelő körmöshöz`) | |
+| NK5 | `PositioningKormos.tsx` | Specified category lead · `Egyszemélyes körmöstől a többszékes szalonig` | |
+| NK6 | `QualifierCrmKormos.tsx` | `1/2–5/6+ mester` → `körmös` · `kezelések, körmösök és kapacitás` · accent `#C4705A` | |
+| NK7 | `FaqKormos.tsx` | Pricing FAQ with specified answer · `kezelési típusok és körmösök` · `manikűr, pedikűr, géllakkozás, műköröm-építés` | |
+| NK8 | `FinalCtaKormos.tsx` | Specified heading, body, fine print, button | |
+
+### Review rows
+
+| ID | Topic | Status | Note |
+|----|-------|--------|------|
+| NK-R1 | Prices unconfirmed | REVIEW | 39 000 / 49 000 / 99 000 Ft carried from salon. Nail is high-frequency repeat (fills every 2–3 weeks) — value may support these or higher. Validate before publishing. |
+| NK-R2 | Waitlist build commitment | REVIEW | Teljes szalon csomag promises `várólistáról` re-fill. Confirm feature will be built. |
+| NK-R3 | New niche not in spec | REVIEW | Add körmös / műkörömépítő (slug `/kormos`) to the brand spec niche list and architecture diagram. |
+| NK-R4 | Graphs inherited | REVIEW | Nail graphs mirror salon's exactly and must receive the same graph pass when salon's lands. |

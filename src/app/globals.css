@@ -1037,6 +1037,38 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
 .page--physio .jrn__result-ico { color: #4A9EB8; }
 
 /* =========================================================
+   NAIL / KÖRMÖS THEME — /kormos
+   Coral (#C4705A) + gold (#BCA162) gradient; signal → coral
+   ========================================================= */
+.page--kormos {
+  --signal: #C4705A;
+  background: linear-gradient(
+    180deg,
+    var(--bone) 0,
+    color-mix(in srgb, #C4705A 7%, var(--bone)) 460px,
+    color-mix(in srgb, #BCA162 6%, var(--bone)) 980px,
+    var(--bone) 1480px
+  );
+}
+.page--kormos .btn {
+  background: #C4705A;
+  border-color: #C4705A;
+  color: #fff;
+}
+.page--kormos .btn:hover { opacity: 0.88; }
+.page--kormos .btn--ghost {
+  background: var(--bone);
+  border-color: var(--line);
+  color: var(--ink);
+}
+.page--kormos .btn--ghost:hover { background: var(--panel); opacity: 1; }
+.page--kormos .dash__tab--active { border-color: #C4705A; color: #C4705A; }
+.page--kormos .faq__item--open .faq__chev { color: #C4705A; }
+.page--kormos .newtag { background: color-mix(in srgb, #C4705A 14%, var(--bone)); color: #C4705A; }
+.page--kormos .sysframe__live-dot { background: #C4705A; }
+.page--kormos .jrn__result-ico { color: #C4705A; }
+
+/* =========================================================
    VOICE DEMO
    ========================================================= */
 .vdemo { padding: 100px 0 80px; }
