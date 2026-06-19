@@ -1143,6 +1143,31 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
 .page--allatorvos .jrn__result-ico { color: #2D9B7F; }
 
 /* =========================================================
+   GYORS LEAD-VÁLASZ THEME — /gyors-lead-valasz
+   Business blue (#2B64B8) — cross-niche service layer, distinct from all niche themes
+   ========================================================= */
+/* ATRIUM-EDIT LR11 — gyors-lead-valasz page theme */
+.page--gyors-lead-valasz {
+  --signal: #2B64B8;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, #2B64B8 8%, #F5F2ED) 0px,
+    color-mix(in srgb, #2B64B8 4%, #F5F2ED) 520px,
+    var(--bone) 1180px,
+    color-mix(in srgb, #1A4A8E 6%, #F5F2ED) 100%
+  );
+}
+.page--gyors-lead-valasz .btn { background: #2B64B8; border-color: #2B64B8; color: #fff; }
+.page--gyors-lead-valasz .btn:hover { opacity: 0.88; }
+.page--gyors-lead-valasz .btn--ghost { background: var(--bone); border-color: var(--line); color: var(--ink); }
+.page--gyors-lead-valasz .btn--ghost:hover { background: var(--panel); opacity: 1; }
+.page--gyors-lead-valasz .dash__tab--active { border-color: #2B64B8; color: #2B64B8; }
+.page--gyors-lead-valasz .faq__item--open .faq__chev { color: #2B64B8; }
+.page--gyors-lead-valasz .newtag { background: color-mix(in srgb, #2B64B8 14%, var(--bone)); color: #2B64B8; }
+.page--gyors-lead-valasz .sysframe__live-dot { background: #2B64B8; }
+.page--gyors-lead-valasz .jrn__result-ico { color: #2B64B8; }
+
+/* =========================================================
    VOICE DEMO
    ========================================================= */
 .vdemo { padding: 100px 0 80px; }

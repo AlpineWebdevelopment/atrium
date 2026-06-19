@@ -357,3 +357,34 @@ CSS theme added: `.page--szepsegipar` (`--signal: #9E6B9E` warm lavender-purple;
 | SZ-R6 | Build commitments in Teljes | REVIEW | Teljes promises: elmaradt vendégek visszahívása · régiek visszahozása · értékeléskérés · havi kimutatás. Confirm each is deliverable before the package goes live. |
 | SZ-R7 | `/szepsegszalon` and `/kormos` routes | RECORD | These routes still exist and still work. They are now superseded by `/szepsegipar` as the canonical beauty-lane page. Decide: redirect both to `/szepsegipar`, or keep them as narrower landing pages for specific ad audiences. No redirect added in this build — separate decision. |
 | SZ-R8 | `wpr__note` class | REVIEW | `WorkPricingAllatorvos` uses `wpr__note` which may not be defined in globals.css. `WorkPricingSzepsegipar` deliberately uses the confirmed `dash__p` pattern instead to avoid this. Resolve `wpr__note` separately. |
+
+## Gyors lead-válasz — build (/gyors-lead-valasz)
+
+**Third layer: cross-niche service page.** Sells one outcome (respond to every paid lead in minutes) to any business running Meta/Google ads. Not a niche page — no qualify-out language, no sector-specific framing.
+
+| ID | Component | File | Before | After | Why |
+|----|-----------|------|--------|-------|-----|
+| LR1 | Hero eyebrow | `HeroGyorsLead.tsx` | *(new)* | "Lead-kezelés Meta- és Google-hirdetésekhez." | Cross-niche frame; audience thinks in leads not érdeklődő. |
+| LR2 | Hero headline | `HeroGyorsLead.tsx` | *(new)* | "Minden leadre válasz. Perceken belül." | Static headline; speed is the single outcome. |
+| LR3 | Hero sub | `HeroGyorsLead.tsx` | *(new)* | "Az Atrium egy AI-alapú rendszer, amely azonnal megkeresi a beérkező leadeket — mielőtt a versenytárs megteszi." | Speed + competitive framing; appropriate for ads audience. |
+| LR4 | Problem section | `PositioningGyorsLead.tsx` | *(new)* | Three leaks: késői válasz / meg nem keresett lead / kimaradó utánkövetés | Problem-led, before the product. Heading: "Megfizeti a leadet. Aztán elengedi." |
+| LR5 | HBR stat callout | `PositioningGyorsLead.tsx` | *(new)* | 21x qualifying probability stat with full source line | Framed as meaningful contact / qualifying only — NOT closing rate. Source visible below the stat. |
+| LR6 | Product section | `ProductGyorsLead.tsx` | *(new)* | 5-cap grid: Percek alatt válaszol / Kvalifikál / Foglal vagy átad / Utánamegy / Riport | No quote follow-up (epitoipar lane only — cannibalisation risk). No channel chip row, no full-system tour. |
+| LR7 | Math line | `ProductGyorsLead.tsx` | *(new)* | "Ezekért a leadekért már fizet. A rendszer csak gondoskodik róla, hogy mind felvett legyen velük a kapcsolat." | Reframes spend already happening; no new cost invented. |
+| LR8 | Pricing | `WorkPricingGyorsLead.tsx` | *(new)* | `[Havidíj — beállítandó] Ft / hó` placeholder | Volume + channel-count drive price; confirmed at consultation. Visible placeholder — do NOT publish without setting. |
+| LR9 | FAQ | `FaqGyorsLead.tsx` | *(new)* | 5 Q&As: mit csinál / kvalifikál-e / platformok / ütemezés / ár | Honest ár answer: depends on volume — no fabricated anchor. No GoHighLevel on public surface. |
+| LR10 | Final CTA | `FinalCtaGyorsLead.tsx` | *(new)* | "Nézzük meg, hány lead veszett el az elmúlt hónapban." | Loss-frame hook matched to the page's loss-frame problem section. |
+| LR11 | CSS theme | `globals.css` | No `.page--gyors-lead-valasz` rule | Added: `--signal: #2B64B8` business blue | Distinct from all niche themes: amber/#A07C34, teal/#2D9B7F, lavender/#9E6B9E, rose/#BC6285, coral/#C4705A, physio-teal/#4A9EB8. |
+| LR-C1 | Page route | `gyors-lead-valasz/page.tsx` | *(new)* | HeroGyorsLead → PositioningGyorsLead → ProductGyorsLead → WorkPricingGyorsLead → HowWeStart → FaqGyorsLead → FinalCtaGyorsLead → Footer | Order: problem-led, then product, then process, then FAQ. |
+| LR-C2 | RealtimeDashboard | *(excluded)* | *(excluded)* | *(excluded)* | Fabricated stats; wrong frame for cross-niche service. |
+| LR-C3 | QualifierCrm | *(excluded)* | *(excluded)* | *(excluded)* | Cost-bar frame is niche-specific; not meaningful cross-niche. |
+
+### Review rows
+
+| ID | Topic | Status | Note |
+|----|-------|--------|------|
+| LR-R1 | **Price placeholder** | REQUIRED BEFORE PUBLISH | `[Havidíj — beállítandó] Ft / hó` is visibly unstyled. Set the actual price or confirm variable-price approach before any traffic hits this page. |
+| LR-R2 | HBR stat framing | CONFIRM | Stat framed as "21x érdemi kontakt valószínűsége" — NOT closing rate. Verify the 2011 HBR paper supports this exact framing; do not let ad creative quote the stat as close-rate. |
+| LR-R3 | Third-layer registration | RECORD | This is the first page in the cross-niche service layer (LR = lead response). Register this layer in the brand spec with its own lane rules: fixed framing around one specific service outcome, cross-niche, ads-first audience. |
+| LR-R4 | Cannibalisation guard — quote follow-up | RECORD | Quote follow-up intentionally excluded (epitoipar lane only). If a construction firm lands on this page, they should not see "quote follow-up" and conclude the epitoipar page adds nothing new. Guard this firewall as more service pages are added. |
+| LR-R5 | `/gyors-lead-valasz` in sitemap / nav | RECORD | Not linked from root nav in this build. Decide: add as a sub-item under a Services menu, or keep as a dark landing page for specific ad traffic only. |
