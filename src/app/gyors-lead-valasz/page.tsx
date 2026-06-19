@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import HeroGyorsLead from "@/components/HeroGyorsLead";
 import PositioningGyorsLead from "@/components/PositioningGyorsLead";
+import RealtimeDashboardGyorsLead from "@/components/RealtimeDashboardGyorsLead";
 /* LR6 — focused caps grid (5 capabilities); no full-system tour, no channel chip row */
 import ProductGyorsLead from "@/components/ProductGyorsLead";
 /* LR8 — placeholder price; confirm before publishing */
@@ -26,6 +27,7 @@ export default function GyorsLeadValaszPage() {
       <HeroGyorsLead />
       {/* LR — problem-led: three lead-loss patterns + HBR stat before the product */}
       <PositioningGyorsLead />
+      <RealtimeDashboardGyorsLead />
       <ProductGyorsLead />
       <WorkPricingGyorsLead />
       <HowWeStart />
