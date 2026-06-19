@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import HeroAllatorvos from "@/components/HeroAllatorvos";
-import RealtimeDashboard from "@/components/RealtimeDashboard";
+import RealtimeDashboardAllatorvos from "@/components/RealtimeDashboardAllatorvos";
 import FullSystemAllatorvos from "@/components/FullSystemAllatorvos";
 import PositioningAllatorvos from "@/components/PositioningAllatorvos";
 import HowWeStart from "@/components/HowWeStart";
@@ -25,7 +25,7 @@ export default function AllatorvosPage() {
       <HeroAllatorvos />
       {/* AV — problem-led order: two leaks before the system */}
       <PositioningAllatorvos />
-      <RealtimeDashboard />
+      <RealtimeDashboardAllatorvos />
       <FullSystemAllatorvos />
       <HowWeStart />
       <WorkPricingAllatorvos />
