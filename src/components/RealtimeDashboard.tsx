@@ -1,150 +1,81 @@
 "use client";
 import { useState } from "react";
 
-/* Four revenue leaks — each tab tells one problem's story, with its own graphic. */
-const PAINS = [
+const PANELS = [
   {
-    tab: "Kvalifikálatlan érdeklődők",
-    desc:
-      "Megkeresés van — de a nagy része sosem lesz vevő. Aki mindenkivel végigbeszéli ugyanazt, az a komoly vevőktől veszi el az időt. A rendszer előszűr: mire Ön beszél valakivel, az már komoly.",
+    tab: "Tökéletes minősítés",
+    desc: "A rendszer felteszi a megfelelő kérdéseket, és komoly érdeklőre szűr. Mire Ön leül tárgyalni, a másik fél már minősített — az ideje a valódi tárgyalásra megy.",
     metrics: [
-      { k: "Megkeresés",   c: "var(--ink)",     v: "Minden nap",  d: "hívás, űrlap, üzenet" },
-      { k: "Ebből komoly", c: "var(--ink)",     v: "A töredéke",  d: "a többi csak nézelődik" },
-      { k: "Az Ön ideje",  c: "var(--stone)",   v: "Órák",        d: "ugyanazokra a kérdésekre" },
-      { k: "Előszűrés",    c: "var(--viz-red)", v: "Nincs",       d: "mindenki sorra kerül" },
+      { k: "Beérkező megkeresések", c: "var(--ink)",     v: "Minden nap",  d: "hívás, űrlap, üzenet" },
+      { k: "Komoly érdeklők",       c: "var(--signal)",  v: "Kiemelve",    d: "az előszűrés után" },
+      { k: "Az Ön ideje",           c: "var(--signal)",  v: "Megvédve",    d: "csak minősített partnerekkel" },
+      { k: "Konverzió",             c: "var(--signal)",  v: "Magasabb",    d: "kevesebb felesleges egyeztetéssel" },
     ],
-    /* ATRIUM-EDIT LK1 */
-    loss: { v: "≈ 240 000 Ft", per: "/ hó", math: "~20 óra havonta előszűretlen beszélgetésre × ~12 000 Ft munkaóra-érték" },
+    gain: { label: "Az eredmény", note: "A rendszer szűri a nézelődőket — Ön csak azokkal tárgyal, akik tényleg vásárolnának.", v: "Csak komoly vásárlók jutnak el Önhöz." },
   },
   {
-    tab: "Elszalasztott hívások",
-    desc:
-      "A hívások jó része munkaidő után, hétvégén vagy foglalt vonal mellett érkezik. Aki hangpostát kap, nem vár — a következő számot hívja.",
+    tab: "24/7 híváskezelés",
+    desc: "Minden hívást fogad, munkaidő után és hétvégén is. Egyetlen érdeklő sem kerül hangpostára — mindenki azonnal visszaigazolást kap.",
     metrics: [
-      { k: "Hívás érkezik", c: "var(--ink)",     v: "20:14",      d: "munkaidő után" },
-      { k: "A vonal",        c: "var(--stone)",   v: "Hangposta",  d: "senki nem veszi fel" },
-      { k: "Üzenet",         c: "var(--stone)",   v: "Nincs",      d: "a hívó nem hagy" },
-      { k: "A hívó",         c: "var(--viz-red)", v: "Továbblép",  d: "a következőt hívja" },
+      { k: "Fogadott hívások",    c: "var(--signal)", v: "Minden",       d: "munkaidő után is" },
+      { k: "Munkaidő",            c: "var(--signal)", v: "Nincs hatása", d: "rendszer 24/7 aktív" },
+      { k: "Visszaigazolás",      c: "var(--signal)", v: "Azonnali",     d: "minden hívónak" },
+      { k: "Elszalasztott lead",  c: "var(--signal)", v: "Nulla",        d: "minden hívás feldolgozva" },
     ],
-    /* ATRIUM-EDIT LK2 */
-    loss: { v: "≈ 680 000 Ft", per: "/ hó", math: "~20 elszalasztott hívás × ~40% záródás × ~85 000 Ft munka" },
+    gain: { label: "Az eredmény", note: "Minden hívás egy lehetőség — egyik sem vész el attól, hogy épp nem ér rá felvenni.", v: "24 óra, 7 nap — egy hívás sem vész el." },
   },
   {
-    tab: "Lassú utánkövetés",
-    desc:
-      "A hirdetésből érkező érdeklődő órákon belül dönt. Ha az első válasz másnap érkezik, addigra már mással egyeztetett.",
+    tab: "Perceken belüli válasz",
+    desc: "A hirdetésből érkező érdeklők perceken belül választ kapnak — amikor még a döntés előtt vannak. Az első reagáló viszi a legtöbb ügyletet.",
     metrics: [
-      { k: "Űrlap kitöltve",     c: "var(--ink)",     v: "14:30",    d: "hirdetésből érkezett" },
-      { k: "Első válasz",        c: "var(--stone)",   v: "Másnap",   d: "amikor épp jut rá idő" },
-      { k: "Az érdeklődő",       c: "var(--stone)",   v: "Kihűlt",   d: "már mással tárgyal" },
-      { k: "A hirdetési költség", c: "var(--viz-red)", v: "Elment",  d: "bevétel nem lett belőle" },
+      { k: "Érdeklő érkezett",  c: "var(--ink)",    v: "14:30",        d: "hirdetésből" },
+      { k: "Első válasz",       c: "var(--signal)", v: "< 5 perc",     d: "a rendszertől" },
+      { k: "Az érdeklő",        c: "var(--signal)", v: "Aktív",        d: "döntés előtt van még" },
+      { k: "Utánkövetés",       c: "var(--signal)", v: "Automatikus",  d: "amíg választ ad" },
     ],
-    /* ATRIUM-EDIT LK3 */
-    loss: { v: "≈ 520 000 Ft", per: "/ hó", math: "~30 lassan követett érdeklődő × ~40% záródás × ~43 000 Ft" },
+    gain: { label: "Az eredmény", note: "A lead az első percekben a legfogékonyabb — a leggyorsabb reagáló viszi az ügyletet.", v: "Gyorsabb válasz, több zárt ügylet." },
   },
   {
-    tab: "No-show-k",
-    desc:
-      "Az elfelejtett időpont lyukat üt a naptárba. Emlékeztető és visszahívás nélkül a kieső óra bevétele végleg elveszik.",
+    tab: "No-show csökkentés",
+    desc: "Időpont előtt emlékeztet, utána visszahívja a no-show-t. A naptár lyukai bezárulnak — a kieső bevétel visszatér.",
     metrics: [
-      { k: "Időpont",     c: "var(--ink)",     v: "9:00",    d: "megerősítés nélkül" },
-      { k: "A vendég",    c: "var(--stone)",   v: "Nem jön el", d: "el is felejtette" },
-      { k: "A naptárban", c: "var(--stone)",   v: "Üres óra", d: "senki nem tölti fel" },
-      { k: "Visszahívás", c: "var(--viz-red)", v: "Nincs",   d: "nincs rá kapacitás" },
+      { k: "Emlékeztető",    c: "var(--signal)", v: "Automatikus", d: "minden időpont előtt" },
+      { k: "No-show arány",  c: "var(--signal)", v: "Csökken",     d: "visszaigazolással" },
+      { k: "Üres slot",      c: "var(--signal)", v: "Feltöltve",   d: "várólistáról" },
+      { k: "A naptár",       c: "var(--signal)", v: "Teli",        d: "kézi munka nélkül" },
     ],
-    /* ATRIUM-EDIT LK4 */
-    loss: { v: "≈ 360 000 Ft", per: "/ hó", math: "~12 no-show × ~30 000 Ft elmaradt ügyfélérték" },
+    gain: { label: "Az eredmény", note: "Az emlékeztető és a visszahívás együtt tartja teli a naptárt — manuális utánkövetés nélkül.", v: "Teli naptár. Kézi munka nélkül." },
   },
 ];
 
-/* ---- Graphic 1: before/after conversion funnel ----
-   Same leads in; without system: leaky funnel, few convert.
-   With system: qualification + follow-up → drastically more conversions.
-   Uses "kevesebb/több" — no invented conversion percentages. */
+/* ── Graphic 1: before / after conversion funnel ──────────────────────── */
 function GfxFunnel() {
-  const LEADS = [0, 1, 2, 3, 4, 5, 6, 7];
-  const lx = (i: number) => 104 + i * 20;
-  const rx = (i: number) => 504 + i * 20;
-
+  const leads = [0, 1, 2, 3, 4, 5, 6, 7];
   return (
     <div className="qual">
-      <svg className="qual__svg" viewBox="0 0 800 210" role="img" aria-label="A rendszerrel drasztikusan több érdeklőből lesz vevő">
+      <svg className="qual__svg" viewBox="0 0 800 210" role="img" aria-label="A rendszerrel több érdeklőből lesz vevő">
+        <line x1="400" y1="0" x2="400" y2="210" stroke="rgba(1,14,30,0.07)" strokeWidth="1" strokeDasharray="4 4" />
 
-        {/* centre divider */}
-        <line x1="400" y1="0" x2="400" y2="210" stroke="rgba(1,14,30,0.08)" strokeWidth="1" strokeDasharray="4 4" />
-
-        {/* ── LEFT: without system ── */}
-        <text x="196" y="13" textAnchor="middle"
-          style={{ fontFamily: "var(--font-mono)", fontSize: "9px", fill: "rgba(1,14,30,0.4)", letterSpacing: "0.07em" }}>
-          RENDSZER NÉLKÜL
-        </text>
-
-        {/* 8 lead dots */}
-        {LEADS.map((i) => (
-          <circle key={`la${i}`} cx={lx(i)} cy={26} r={5.5} fill="rgba(1,14,30,0.18)" />
-        ))}
-
-        {/* leaky funnel — dashed, open sides */}
-        <path d="M72 36 L320 36 L278 96 L272 110 L120 110 L114 96 Z"
-          fill="none" stroke="rgba(1,14,30,0.22)" strokeWidth="1.8" strokeDasharray="6 4" />
-
-        {/* leaking dots escaping through sides */}
-        {([[64, 62, 0.38], [60, 78, 0.28], [328, 58, 0.38], [332, 74, 0.28], [62, 96, 0.2]] as [number,number,number][]).map(([x, y, o], i) => (
+        {/* LEFT — without */}
+        <text x="196" y="13" textAnchor="middle" style={{ fontFamily: "var(--font-mono)", fontSize: "9px", fill: "rgba(1,14,30,0.38)", letterSpacing: "0.07em" }}>RENDSZER NÉLKÜL</text>
+        {leads.map((i) => <circle key={`la${i}`} cx={104 + i * 20} cy={26} r={5.5} fill="rgba(1,14,30,0.16)" />)}
+        <path d="M72 36 L320 36 L278 96 L272 110 L120 110 L114 96 Z" fill="none" stroke="rgba(1,14,30,0.2)" strokeWidth="1.8" strokeDasharray="6 4" />
+        {([[64,60,0.4],[60,76,0.28],[328,56,0.4],[332,72,0.28],[62,94,0.2]] as [number,number,number][]).map(([x,y,o],i) => (
           <circle key={`lk${i}`} cx={x} cy={y} r={4} fill="rgba(1,14,30,0.18)" opacity={o} />
         ))}
+        {[160, 232].map((x, i) => <circle key={`lo${i}`} cx={x} cy={148} r={7} fill="rgba(1,14,30,0.28)" />)}
+        <text x="196" y="174" textAnchor="middle" style={{ fontFamily: "var(--font-display)", fontSize: "20px", fontWeight: "500", fill: "rgba(1,14,30,0.35)" }}>kevesebb</text>
+        <text x="196" y="192" textAnchor="middle" style={{ fontSize: "10px", fill: "rgba(1,14,30,0.35)" }}>zárt ügylet</text>
 
-        {/* output: only 2 */}
-        {[160, 232].map((x, i) => (
-          <circle key={`lo${i}`} cx={x} cy={146} r={6.5} fill="rgba(1,14,30,0.32)" />
-        ))}
-
-        <text x="196" y="172"
-          style={{ fontFamily: "var(--font-display)", fontSize: "20px", fontWeight: "500", fill: "rgba(1,14,30,0.38)" }}
-          textAnchor="middle">
-          kevesebb
-        </text>
-        <text x="196" y="190" textAnchor="middle"
-          style={{ fontFamily: "var(--font-body)", fontSize: "10px", fill: "rgba(1,14,30,0.38)" }}>
-          zárt ügylet
-        </text>
-
-        {/* ── RIGHT: with system ── */}
-        <text x="604" y="13" textAnchor="middle"
-          style={{ fontFamily: "var(--font-mono)", fontSize: "9px", fill: "#6DBC61", letterSpacing: "0.07em" }}>
-          A RENDSZERREL
-        </text>
-
-        {/* same 8 lead dots */}
-        {LEADS.map((i) => (
-          <circle key={`rb${i}`} cx={rx(i)} cy={26} r={5.5} fill="#6DBC61" fillOpacity="0.65" />
-        ))}
-
-        {/* qualification step badge */}
-        <text x="604" y="50" textAnchor="middle"
-          style={{ fontFamily: "var(--font-mono)", fontSize: "8px", fill: "#6DBC61", letterSpacing: "0.06em" }}>
-          ▼  MINŐSÍTÉS · UTÁNKÖVETÉS
-        </text>
-
-        {/* solid funnel — no leaks */}
-        <path d="M472 56 L736 56 L700 106 L694 118 L514 118 L508 106 Z"
-          fill="rgba(109,188,97,0.10)" stroke="#6DBC61" strokeWidth="1.8" />
-
-        {/* output: 5 */}
-        {[516, 558, 604, 650, 692].map((x, i) => (
-          <circle key={`ro${i}`} cx={x} cy={148} r={6.5} fill="#6DBC61" />
-        ))}
-
-        <text x="604" y="172"
-          style={{ fontFamily: "var(--font-display)", fontSize: "20px", fontWeight: "500", fill: "#6DBC61" }}
-          textAnchor="middle">
-          több
-        </text>
-        <text x="604" y="190" textAnchor="middle"
-          style={{ fontFamily: "var(--font-body)", fontSize: "10px", fill: "#6DBC61" }}>
-          zárt ügylet
-        </text>
+        {/* RIGHT — with system */}
+        <text x="604" y="13" textAnchor="middle" style={{ fontFamily: "var(--font-mono)", fontSize: "9px", fill: "#6DBC61", letterSpacing: "0.07em" }}>A RENDSZERREL</text>
+        {leads.map((i) => <circle key={`rb${i}`} cx={504 + i * 20} cy={26} r={5.5} fill="#6DBC61" fillOpacity="0.65" />)}
+        <text x="604" y="50" textAnchor="middle" style={{ fontFamily: "var(--font-mono)", fontSize: "8px", fill: "#6DBC61", letterSpacing: "0.06em" }}>▼  MINŐSÍTÉS · UTÁNKÖVETÉS</text>
+        <path d="M472 56 L736 56 L700 106 L694 118 L514 118 L508 106 Z" fill="rgba(109,188,97,0.1)" stroke="#6DBC61" strokeWidth="1.8" />
+        {[516, 558, 604, 650, 692].map((x, i) => <circle key={`ro${i}`} cx={x} cy={150} r={7} fill="#6DBC61" />)}
+        <text x="604" y="174" textAnchor="middle" style={{ fontFamily: "var(--font-display)", fontSize: "20px", fontWeight: "500", fill: "#6DBC61" }}>több</text>
+        <text x="604" y="192" textAnchor="middle" style={{ fontSize: "10px", fill: "#6DBC61" }}>zárt ügylet</text>
       </svg>
-
       <div className="qual__legend">
         <span className="qual__leg"><i className="qual__leg-dot" style={{ background: "rgba(1,14,30,0.2)" }} />Rendszer nélkül</span>
         <span className="qual__leg"><i className="qual__leg-dot" style={{ background: "#6DBC61" }} />A rendszerrel</span>
@@ -154,183 +85,189 @@ function GfxFunnel() {
   );
 }
 
-/* ---- Graphic 2: call volume over the day, after-hours zone shaded ---- */
-function GfxCalls() {
-  const bars = [34, 58, 80, 52, 70, 96, 120, 104, 92, 116, 78, 100, 88, 112];
-  const bw = 1000 / bars.length;
-  const closeX = 720;
-  const baseY = 178;
+/* ── Graphic 2: 24h donut vs 8h donut ────────────────────────────────── */
+function GfxCoverage() {
+  const R = 66, SW = 14, CY = 105;
+  const circ = 2 * Math.PI * R;
+  const eight = (8 / 24) * circ;
   return (
-    <div className="dash__chart">
-      <svg className="dash__svg" viewBox="0 0 1000 190" preserveAspectRatio="none">
-        <defs>
-          <linearGradient id="gAns" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#010E1E" />
-            <stop offset="55%" stopColor="#010E1E" />
-            <stop offset="100%" stopColor="#6DBC61" />
-          </linearGradient>
-        </defs>
-        {[44, 92, 140].map((y) => (
-          <line key={y} x1="0" y1={y} x2="1000" y2={y} stroke="rgba(1,14,30,0.06)" strokeWidth="1" />
-        ))}
-        <rect x={closeX} y="0" width={1000 - closeX} height="190" fill="rgba(196,108,100,0.07)" />
-        <line x1={closeX} y1="0" x2={closeX} y2="190" stroke="rgba(196,108,100,0.45)" strokeWidth="1.5" strokeDasharray="5 5" />
-        {bars.map((h, i) => {
-          const x = i * bw + bw * 0.18;
-          const w = bw * 0.64;
-          const after = i * bw + bw / 2 >= closeX;
-          return <rect key={i} x={x} y={baseY - h} width={w} height={h} rx="3" fill={after ? "rgba(196,108,100,0.55)" : "rgba(1,14,30,0.18)"} />;
-        })}
-        <path d="M36,95 C90,58 150,40 215,52 C285,64 320,108 385,108 C450,108 480,86 545,90 C610,94 650,74 690,84" fill="none" stroke="url(#gAns)" strokeWidth="3" strokeLinecap="round" />
-        <circle cx="690" cy="84" r="5" fill="#6DBC61" stroke="var(--bone)" strokeWidth="2.5" />
+    <div className="qual">
+      <svg className="qual__svg" viewBox="0 0 800 210" role="img" aria-label="24 órás elérhetőség a rendszerrel">
+        <line x1="400" y1="0" x2="400" y2="210" stroke="rgba(1,14,30,0.07)" strokeWidth="1" strokeDasharray="4 4" />
+
+        {/* LEFT — 8h/day */}
+        <text x="196" y="16" textAnchor="middle" style={{ fontFamily: "var(--font-mono)", fontSize: "9px", fill: "rgba(1,14,30,0.38)", letterSpacing: "0.07em" }}>RENDSZER NÉLKÜL</text>
+        <circle cx="196" cy={CY} r={R} fill="none" stroke="rgba(1,14,30,0.08)" strokeWidth={SW} />
+        <circle cx="196" cy={CY} r={R} fill="none" stroke="rgba(1,14,30,0.25)" strokeWidth={SW}
+          strokeDasharray={`${eight} ${circ}`} strokeLinecap="round"
+          transform={`rotate(-90 196 ${CY})`} />
+        <text x="196" y={CY - 10} textAnchor="middle" style={{ fontFamily: "var(--font-display)", fontSize: "26px", fontWeight: "500", fill: "rgba(1,14,30,0.35)" }}>8</text>
+        <text x="196" y={CY + 14} textAnchor="middle" style={{ fontSize: "11px", fill: "rgba(1,14,30,0.35)" }}>óra / nap</text>
+        <text x="196" y="197" textAnchor="middle" style={{ fontSize: "10px", fill: "rgba(1,14,30,0.35)" }}>hétköznap, munkaidőben</text>
+
+        {/* RIGHT — 24/7 */}
+        <text x="604" y="16" textAnchor="middle" style={{ fontFamily: "var(--font-mono)", fontSize: "9px", fill: "#6DBC61", letterSpacing: "0.07em" }}>A RENDSZERREL</text>
+        <circle cx="604" cy={CY} r={R} fill="none" stroke="rgba(109,188,97,0.15)" strokeWidth={SW} />
+        <circle cx="604" cy={CY} r={R} fill="none" stroke="#6DBC61" strokeWidth={SW}
+          strokeLinecap="round" transform={`rotate(-90 604 ${CY})`} />
+        <text x="604" y={CY - 10} textAnchor="middle" style={{ fontFamily: "var(--font-display)", fontSize: "26px", fontWeight: "500", fill: "#6DBC61" }}>24/7</text>
+        <text x="604" y={CY + 14} textAnchor="middle" style={{ fontSize: "11px", fill: "#6DBC61" }}>minden órában</text>
+        <text x="604" y="197" textAnchor="middle" style={{ fontSize: "10px", fill: "#6DBC61" }}>éjjel-nappal, hétvégén is</text>
       </svg>
-      <div className="funnel__stage funnel__stage--tr">
-        <b>Zárás után</b><span>hangposta, nincs válasz</span>
-      </div>
-      <div className="dash__marker dash__marker--amber dash__marker--pulse" style={{ left: "85%", top: "60%" }}>
-        <svg className="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
-      </div>
-      <div className="dash__axis">
-        {["08:00", "", "", "", "", "", "", "", "", "18:00", "", "23:00"].map((a, i) => (a ? <span key={i}>{a}</span> : <i key={i} />))}
+      <div className="qual__legend">
+        <span className="qual__leg"><i className="qual__leg-dot" style={{ background: "rgba(1,14,30,0.2)" }} />Kézi fogadás</span>
+        <span className="qual__leg"><i className="qual__leg-dot" style={{ background: "#6DBC61" }} />A rendszerrel</span>
+        <span className="qual__note">Minden hívás fogadva — munkaidő, éjszaka és hétvége egyaránt.</span>
       </div>
     </div>
   );
 }
 
-/* ---- Graphic 3: interest cooling between inquiry and first reply ---- */
-function GfxCooling() {
+/* ── Graphic 3: response-time bar comparison ─────────────────────────── */
+function GfxSpeed() {
   return (
-    <div className="dash__chart">
-      <svg className="dash__svg" viewBox="0 0 1000 190" preserveAspectRatio="none">
-        <defs>
-          <linearGradient id="gCool" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#010E1E" />
-            <stop offset="55%" stopColor="#8C8579" />
-            <stop offset="100%" stopColor="#C46C64" />
-          </linearGradient>
-          <linearGradient id="gCoolFill" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="rgba(1,14,30,0.16)" />
-            <stop offset="100%" stopColor="rgba(1,14,30,0)" />
-          </linearGradient>
-        </defs>
-        {[40, 80, 120, 160].map((y) => (
-          <line key={y} x1="60" y1={y} x2="950" y2={y} stroke="rgba(1,14,30,0.06)" strokeWidth="1" />
-        ))}
-        <path d="M60,52 C220,58 380,94 560,128 C720,158 850,168 950,172 L950,190 L60,190 Z" fill="url(#gCoolFill)" />
-        <path id="coolPath" d="M60,52 C220,58 380,94 560,128 C720,158 850,168 950,172" fill="none" stroke="url(#gCool)" strokeWidth="3" strokeLinecap="round" />
-        <circle r="6" fill="#010E1E" stroke="var(--bone)" strokeWidth="2.5">
-          <animateMotion dur="5s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.82;1" calcMode="linear">
-            <mpath href="#coolPath" />
-          </animateMotion>
-          <animate attributeName="fill" values="#010E1E;#8C8579;#C46C64;#C46C64" keyTimes="0;0.5;0.82;1" dur="5s" repeatCount="indefinite" />
-        </circle>
-        <circle cx="60" cy="52" r="7" fill="#010E1E" stroke="var(--bone)" strokeWidth="3" />
-        <circle cx="60" cy="52" r="7" fill="none" stroke="#010E1E" strokeWidth="2">
-          <animate attributeName="r" values="7;15" dur="2.2s" repeatCount="indefinite" />
-          <animate attributeName="opacity" values="0.5;0" dur="2.2s" repeatCount="indefinite" />
-        </circle>
-        <circle cx="950" cy="172" r="7" fill="#C46C64" stroke="var(--bone)" strokeWidth="3" />
+    <div className="qual">
+      <svg className="qual__svg" viewBox="0 0 800 210" role="img" aria-label="A rendszer perceken belül válaszol">
+        <text x="16" y="18" style={{ fontFamily: "var(--font-mono)", fontSize: "9px", fill: "rgba(1,14,30,0.38)", letterSpacing: "0.07em" }}>ELSŐ VÁLASZ IDEJE</text>
+
+        {/* Manual — next day (wide bar) */}
+        <text x="16" y="56" style={{ fontSize: "11.5px", fill: "rgba(1,14,30,0.45)" }}>Kézi utánkövetés</text>
+        <rect x="16" y="64" width="660" height="28" rx="6" fill="rgba(1,14,30,0.09)" />
+        <rect x="16" y="64" width="660" height="28" rx="6" fill="none" stroke="rgba(1,14,30,0.12)" strokeWidth="1" />
+        <text x="684" y="83" style={{ fontFamily: "var(--font-display)", fontSize: "15px", fontWeight: "500", fill: "rgba(1,14,30,0.38)" }}>Másnap</text>
+
+        {/* System — < 5 min (narrow bar) */}
+        <text x="16" y="130" style={{ fontSize: "11.5px", fill: "#6DBC61" }}>A rendszerrel</text>
+        <rect x="16" y="138" width="72" height="28" rx="6" fill="#6DBC61" fillOpacity="0.85" />
+        <text x="96" y="157" style={{ fontFamily: "var(--font-display)", fontSize: "15px", fontWeight: "500", fill: "#6DBC61" }}>&lt; 5 perc</text>
+
+        {/* axis label */}
+        <line x1="16" y1="192" x2="784" y2="192" stroke="rgba(1,14,30,0.08)" strokeWidth="1" />
+        <text x="16" y="206" style={{ fontSize: "9.5px", fill: "rgba(1,14,30,0.3)" }}>Gyors</text>
+        <text x="784" y="206" textAnchor="end" style={{ fontSize: "9.5px", fill: "rgba(1,14,30,0.3)" }}>Lassú</text>
       </svg>
-      <div className="funnel__stage" style={{ left: "1%", top: "0", transform: "none" }}>
-        <b>Érdeklődés beérkezik</b><span>14:30</span>
-      </div>
-      <div className="funnel__stage" style={{ left: "50%", top: "30%", transform: "translateX(-50%)" }}>
-        <b>Kihűlőben</b><span>válasz nélkül</span>
-      </div>
-      <div className="funnel__stage" style={{ right: "1%", left: "auto", top: "54%", transform: "none" }}>
-        <b>Első válasz</b><span>másnap</span>
-      </div>
-      <div className="dash__axis">
-        {["14:30", "", "", "", "", "", "", "", "", "", "", "másnap"].map((a, i) => (a ? <span key={i}>{a}</span> : <i key={i} />))}
+      <div className="qual__legend">
+        <span className="qual__leg"><i className="qual__leg-dot" style={{ background: "rgba(1,14,30,0.2)" }} />Kézi utánkövetés</span>
+        <span className="qual__leg"><i className="qual__leg-dot" style={{ background: "#6DBC61" }} />A rendszerrel</span>
+        <span className="qual__note">Az első reagáló viszi a legtöbb ügyletet — a lead az első percekben a legfogékonyabb.</span>
       </div>
     </div>
   );
 }
 
-/* ---- Graphic 4: week calendar with no-show gaps ---- */
+/* ── Graphic 4: before/after calendar ────────────────────────────────── */
 function GfxCalendar() {
-  type Slot = { t: string; s: "book" | "noshow" | "lost" };
   const times = ["9:00", "11:00", "13:00", "15:00"];
-  const states: Slot["s"][][] = [
+  const days = ["H", "K", "Sze", "Cs", "P"];
+
+  type SlotState = "book" | "noshow" | "filled";
+  const before: SlotState[][] = [
     ["book", "book", "noshow", "book"],
-    ["book", "lost", "book", "book"],
+    ["book", "noshow", "book", "book"],
     ["book", "book", "book", "noshow"],
-    ["noshow", "book", "lost", "book"],
-    ["book", "book", "lost", "book"],
+    ["noshow", "book", "noshow", "book"],
+    ["book", "book", "noshow", "book"],
   ];
-  const days = ["Hétfő", "Kedd", "Szerda", "Csütörtök", "Péntek"];
-  const all = states.flat();
-  const noshow = all.filter((s) => s === "noshow").length;
-  const lost = all.filter((s) => s === "lost").length;
-  const label = (s: Slot["s"]) => (s === "noshow" ? "no-show" : s === "lost" ? "üres" : "");
+  const after: SlotState[][] = before.map((col) =>
+    col.map((s) => (s === "noshow" ? "filled" : s))
+  );
+
+  const slotColor = (s: SlotState) =>
+    s === "book" ? "rgba(1,14,30,0.08)" : s === "filled" ? "rgba(109,188,97,0.22)" : "rgba(196,108,100,0.18)";
+  const slotBorder = (s: SlotState) =>
+    s === "book" ? "rgba(1,14,30,0.1)" : s === "filled" ? "rgba(109,188,97,0.5)" : "rgba(196,108,100,0.4)";
+  const slotText = (s: SlotState) =>
+    s === "filled" ? "✓" : s === "noshow" ? "✗" : "";
+  const slotTextColor = (s: SlotState) =>
+    s === "filled" ? "#6DBC61" : "#C46C64";
+
+  const CAL_W = 340, CAL_H = 164, COL_W = 62, ROW_H = 34, HEAD_H = 22, MX = 12;
+
+  const renderCal = (data: SlotState[][], ox: number, label: string, labelColor: string) => (
+    <g transform={`translate(${ox}, 24)`}>
+      <text x={CAL_W / 2} y="-10" textAnchor="middle" style={{ fontFamily: "var(--font-mono)", fontSize: "9px", fill: labelColor, letterSpacing: "0.07em" }}>{label}</text>
+      {days.map((d, ci) => (
+        <text key={`h${ci}`} x={MX + ci * COL_W + COL_W / 2} y={HEAD_H - 6} textAnchor="middle"
+          style={{ fontSize: "9.5px", fill: "rgba(1,14,30,0.45)" }}>{d}</text>
+      ))}
+      {data.map((col, ci) =>
+        col.map((s, ri) => {
+          const x = MX + ci * COL_W;
+          const y = HEAD_H + ri * ROW_H;
+          return (
+            <g key={`${ci}-${ri}`}>
+              <rect x={x + 2} y={y + 2} width={COL_W - 6} height={ROW_H - 5} rx="5"
+                fill={slotColor(s)} stroke={slotBorder(s)} strokeWidth="1" />
+              <text x={x + COL_W / 2} y={y + ROW_H / 2 + 4} textAnchor="middle"
+                style={{ fontSize: "11px", fontWeight: "600", fill: slotTextColor(s) }}>
+                {slotText(s)}
+              </text>
+              {ri === 0 && ci === 0 && (
+                <text x={x + 4} y={y + 12} style={{ fontSize: "7px", fill: "rgba(1,14,30,0.3)" }}>
+                  {times[0]}
+                </text>
+              )}
+            </g>
+          );
+        })
+      )}
+    </g>
+  );
+
   return (
-    <div className="cal-wrap">
-      <div className="cal">
-        {states.map((col, i) => (
-          <div className="cal__col" key={i}>
-            <div className="cal__day">{days[i]}</div>
-            {col.map((s, j) => (
-              <div className={"cal__slot cal__slot--" + s} key={j}>
-                <span className="cal__time">{times[j]}</span>
-                {s !== "book" && <span className="cal__tag">{label(s)}</span>}
-              </div>
-            ))}
-          </div>
-        ))}
-      </div>
-      <div className="cal__sum">
-        <span className="cal__sum-item"><i className="cal__sum-dot cal__sum-dot--amber" />{noshow} no-show</span>
-        <span className="cal__sum-item"><i className="cal__sum-dot cal__sum-dot--red" />{lost} üres óra</span>
-        <span className="cal__sum-note">visszahívás nélkül a bevétel végleg elveszik</span>
+    <div className="qual">
+      <svg className="qual__svg" viewBox="0 0 800 210" role="img" aria-label="A rendszer emlékeztetőkkel teli tartja a naptárt">
+        <line x1="400" y1="0" x2="400" y2="210" stroke="rgba(1,14,30,0.07)" strokeWidth="1" strokeDasharray="4 4" />
+        {renderCal(before, 22, "RENDSZER NÉLKÜL", "rgba(1,14,30,0.38)")}
+        {renderCal(after, 428, "A RENDSZERREL", "#6DBC61")}
+      </svg>
+      <div className="qual__legend">
+        <span className="qual__leg"><i className="qual__leg-dot" style={{ background: "rgba(196,108,100,0.5)" }} />No-show (emlékeztető nélkül)</span>
+        <span className="qual__leg"><i className="qual__leg-dot" style={{ background: "#6DBC61" }} />Megjelent (emlékeztető után)</span>
+        <span className="qual__note">Az automatikus emlékeztető drasztikusan csökkenti az elmaradást — a naptár teli marad.</span>
       </div>
     </div>
   );
 }
 
-const GRAPHICS = [GfxFunnel, GfxCalls, GfxCooling, GfxCalendar];
+const GRAPHICS = [GfxFunnel, GfxCoverage, GfxSpeed, GfxCalendar];
 
 export default function RealtimeDashboard() {
   const [tab, setTab] = useState(0);
-  const pain = PAINS[tab];
+  const panel = PANELS[tab];
   const Gfx = GRAPHICS[tab];
 
   return (
     <section className="dash">
       <div className="wrap">
         <div className="dash__intro reveal">
-          <span className="dash__eyebrow">Hol szivárog a bevétel</span>
-          <h2 className="dash__h">Négy lyuk. Mindegyik bezárható.</h2>
+          <span className="dash__eyebrow">Miért tér meg</span>
+          <h2 className="dash__h">Drasztikusan magasabb konverzió.</h2>
           <p className="dash__p">
-            A legtöbb szolgáltató cég nem ügyfélhiánytól szenved — hanem attól,
-            hogy a megkeresések egy része elvész útközben. A rendszert az Ön
-            működésére szabjuk, és azt a lyukat zárja be, amelyik Önnél a
-            legnagyobb.
+            Több érdeklőből lesz ügyfél — tökéletes minősítéssel, soha el nem
+            felejtett utánkövetéssel. Csak a komoly vásárlók jutnak el Önhöz.
           </p>
           <p className="dash__exnote">
-            Az alábbi számok példák — élesben az Ön valós adataira szabva.
+            Az alábbi példák illusztrálják, hogyan működik a rendszer.
           </p>
         </div>
 
         <div className="dash__card reveal" data-delay="1">
           <div className="dash__tabs" role="tablist">
-            {PAINS.map((p, i) => (
-              <button
-                key={i}
-                role="tab"
-                aria-selected={tab === i}
+            {PANELS.map((p, i) => (
+              <button key={i} role="tab" aria-selected={tab === i}
                 className={"dash__tab" + (tab === i ? " dash__tab--active" : "")}
-                onClick={() => setTab(i)}
-              >
+                onClick={() => setTab(i)}>
                 {p.tab}
               </button>
             ))}
           </div>
 
           <div className="dash__panel">
-            <p className="dash__desc">{pain.desc}</p>
+            <p className="dash__desc">{panel.desc}</p>
 
             <div className="dash__metrics">
-              {pain.metrics.map((m, i) => (
+              {panel.metrics.map((m, i) => (
                 <div key={i}>
                   <div className="dash__metric-k">
                     <span className="dash__metric-dot" style={{ background: m.c }} />
@@ -342,18 +279,21 @@ export default function RealtimeDashboard() {
               ))}
             </div>
 
-            <div className="dash__loss">
+            {/* Outcome box — signal-tinted, replaces the red loss box */}
+            <div className="dash__loss" style={{ borderColor: "color-mix(in srgb, var(--signal) 35%, var(--line))", background: "color-mix(in srgb, var(--signal) 6%, var(--bone))" }}>
               <div className="dash__loss-l">
                 <div className="dash__loss-head">
-                  <svg className="dash__loss-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="22 17 13.5 8.5 8.5 13.5 2 7" />
-                    <polyline points="16 17 22 17 22 11" />
+                  <svg className="dash__loss-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: "var(--signal)" }}>
+                    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+                    <polyline points="16 7 22 7 22 13" />
                   </svg>
-                  <span className="dash__loss-label">Becsült kieső bevétel</span>
+                  <span className="dash__loss-label" style={{ color: "var(--signal)" }}>{panel.gain.label}</span>
                 </div>
-                <span className="dash__loss-math">{pain.loss.math}</span>
+                <span className="dash__loss-math">{panel.gain.note}</span>
               </div>
-              <div className="dash__loss-v">{pain.loss.v}<span>{pain.loss.per}</span></div>
+              <div className="dash__loss-v" style={{ color: "var(--signal)", fontSize: "clamp(13px, 1.6vw, 17px)", maxWidth: "240px", textAlign: "right", lineHeight: "1.3" }}>
+                {panel.gain.v}
+              </div>
             </div>
 
             <Gfx />
