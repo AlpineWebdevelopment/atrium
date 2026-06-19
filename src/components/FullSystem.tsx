@@ -27,16 +27,6 @@ const ICONS: Record<string, React.ReactNode> = {
 };
 
 /* what the system can do — the services */
-const CAPS = [
-  { ic: "mic", c: "#9662BC", t: "Hang-AI", d: "Természetes magyar beszéd — fogadja és indítja a hívásokat." },
-  { ic: "chat", c: "#628FBC", t: "Szöveges AI", d: "SMS, WhatsApp, Messenger, Instagram, e-mail és webchat — egy helyen." },
-  { ic: "send", c: "#AD83CC", t: "Proaktív megkeresés", d: "Nem csak válaszol — magától keresi meg az érdeklődőt és a régi ügyfelet." },
-  { ic: "db", c: "#62BCAC", t: "Egységes memória", d: "Minden csatornán emlékszik a korábbi beszélgetésre." },
-  { ic: "qualify", c: "#628FBC", t: "Kvalifikáció", d: "Felteszi a fontos kérdéseket, és pontozza az érdeklődőt." },
-  { ic: "refresh", c: "#6DBC61", t: "Naptár- és CRM-szinkron", d: "A meglévő eszközeihez kötve, valós időben." },
-  { ic: "bars", c: "#BCA162", t: "Riport", d: "Havi kimutatás: mi működik, és hol szivárog a bevétel." },
-  { ic: "clock", c: "#62BCAC", t: "0–24 elérhetőség", d: "A nap minden órájában dolgozik, emberi kiesés nélkül." },
-];
 
 function Ico({ k, x, y, s = 18 }: { k: string; x: number; y: number; s?: number }) {
   return (
@@ -256,23 +246,6 @@ export default function FullSystem() {
           {/* ATRIUM-EDIT SD2 — removed GoHighLevel from public integrations line; brand spec §10 prohibits exposing internal stack; GHL is also being dropped from the stack */}
           <div className="sysframe__integ">
             Csatlakozik a meglévő eszközeihez: <b>Google Calendar</b> · <b>Microsoft 365</b> · <b>iCal</b> · a meglévő CRM-jéhez
-          </div>
-        </div>
-
-        <div className="caps reveal" data-delay="2">
-          <div className="caps__head">
-            <h3 className="caps__h">Mit tud a rendszer?</h3>
-          </div>
-          <div className="caps__grid">
-            {CAPS.map((c, i) => (
-              <div className="caps__item" key={i}>
-                <span className="caps__ico">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{ICONS[c.ic]}</svg>
-                </span>
-                <b className="caps__t">{c.t}</b>
-                <span className="caps__d">{c.d}</span>
-              </div>
-            ))}
           </div>
         </div>
 

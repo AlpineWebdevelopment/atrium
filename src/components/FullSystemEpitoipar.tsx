@@ -26,14 +26,6 @@ const ICONS: Record<string, React.ReactNode> = {
 };
 
 /* KV5 — 6 construction capabilities */
-const CAPS = [
-  { ic: "mic",      c: "#9662BC", t: "Hívásfogadás",                    d: "Minden hívást fogad: csúcsterhelésen és munkaidőn túl is, professzionális magyar nyelven." },
-  { ic: "qualify",  c: "#628FBC", t: "Kvalifikálás és szűrés",           d: "Kikérdezi a projekt típusát, méretét, helyszínét és komolyságát — a nem releváns megkeresés nem ér el a kalkulátorokig." },
-  { ic: "send",     c: "#AD83CC", t: "Árajánlat-utánkövetés",            d: "Minden kiküldött ajánlatot szisztematikusan utánkövet, amíg az ügyfél nem válaszol vagy el nem utasít." },
-  { ic: "calendar", c: "#62BCAC", t: "Felmérés foglalása",               d: "Időpontot ad a helyszíni felmérésre, egyenesen a megfelelő ember naptárába." },
-  { ic: "callback", c: "#BCA162", t: "Túlcsordulás és munkaidőn túli",   d: "Amit az iroda elszalasztana — csúcsterhelésen vagy este — az sem vész el." },
-  { ic: "bars",     c: "#6DBC61", t: "Riport és rálátás",                d: "Ön látja: hány megkeresés jött be, milyen gyorsan válaszoltak, hány árajánlat van függőben, és mit hozott vissza az utánkövetés." },
-];
 
 function Ico({ k, x, y, s = 18 }: { k: string; x: number; y: number; s?: number }) {
   return (
@@ -248,24 +240,6 @@ export default function FullSystemEpitoipar() {
 
           <div className="sysframe__integ">
             Csatlakozik a meglévő eszközeihez: <b>Google Calendar</b> · <b>Microsoft 365</b> · <b>iCal</b> · a meglévő CRM-jéhez
-          </div>
-        </div>
-
-        {/* KV5 — capability grid */}
-        <div className="caps reveal" data-delay="2">
-          <div className="caps__head">
-            <h3 className="caps__h">Mit tud a rendszer?</h3>
-          </div>
-          <div className="caps__grid">
-            {CAPS.map((c, i) => (
-              <div className="caps__item" key={i}>
-                <span className="caps__ico">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{ICONS[c.ic]}</svg>
-                </span>
-                <b className="caps__t">{c.t}</b>
-                <span className="caps__d">{c.d}</span>
-              </div>
-            ))}
           </div>
         </div>
 

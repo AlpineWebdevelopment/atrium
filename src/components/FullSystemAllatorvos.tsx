@@ -145,14 +145,6 @@ const CHANNELS: { n: string; c: string; ic: React.ReactNode }[] = [
 ];
 
 /* AV6 — 6 vet-native capabilities */
-const CAPS = [
-  { ic: "mic",     c: "#9662BC", t: "Hívásfogadás",              d: "Minden hívást fogad, éjjel és hétvégén is — nyugodt, természetes magyar hangon, mert a hívó gazdi gyakran megijedt." },
-  { ic: "triage",  c: "#628FBC", t: "Sürgősségi rangsorolás",    d: "Vészhelyzet vagy rutin? A sürgőset eszkalálja, a rutint lefoglalja. Senkit nem szűr ki — mindenkit a helyére irányít." },
-  { ic: "calendar",c: "#62BCAC", t: "Foglalás és visszaigazolás", d: "A rendelő meglévő naptárába, az ügyfélnek azonnal visszaigazolva." },
-  { ic: "bell",    c: "#AD83CC", t: "Emlékeztető és visszahívás", d: "Az időpont előtt emlékeztet, az elmaradt vizitre visszahív." },
-  { ic: "refresh", c: "#2D9B7F", t: "Bázis-visszahívás",         d: "Figyeli, mikor esedékes az oltás vagy a szűrés, és értesíti a gazdit — saját bázis, nem új ügyfélszerzés." },
-  { ic: "bars",    c: "#6DBC61", t: "Riport",                     d: "Kezelt hívások, elkapott zárás utáni hívások, visszahívások, és a bázisból visszaszerzett bevétel — havonta." },
-];
 
 export default function FullSystemAllatorvos() {
   return (
@@ -247,24 +239,6 @@ export default function FullSystemAllatorvos() {
 
           <div className="sysframe__integ">
             Csatlakozik a meglévő eszközeihez: <b>Google Calendar</b> · <b>Microsoft 365</b> · <b>iCal</b> · a meglévő CRM-jéhez
-          </div>
-        </div>
-
-        {/* AV6 — capability grid */}
-        <div className="caps reveal" data-delay="2">
-          <div className="caps__head">
-            <h3 className="caps__h">Mit tud a rendszer?</h3>
-          </div>
-          <div className="caps__grid">
-            {CAPS.map((c, i) => (
-              <div className="caps__item" key={i}>
-                <span className="caps__ico">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{ICONS[c.ic]}</svg>
-                </span>
-                <b className="caps__t">{c.t}</b>
-                <span className="caps__d">{c.d}</span>
-              </div>
-            ))}
           </div>
         </div>
 
