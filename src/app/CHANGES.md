@@ -153,6 +153,7 @@ Core problem: DM-booking admin (endless Messenger/Instagram back-and-forth). Pro
 | NR5-salon-Q2 | `FaqSalon.tsx` | `…a rendszer veszi fel a telefont, tájékoztatja a vendéget…` | `…a rendszer megválaszolja a Messengeren és Instagramon érkező foglalási kéréseket, időpontot kínál a naptárából, és visszaigazolja a foglalást.` | Q2 answer described call answering as the primary capability — replaced with DM-booking. |
 | NR5-salon-Q6 | `FaqSalon.tsx` | `…felveszi az összes hívást — soha nem foglalt, nincs sorban állás…` | `…megválaszolja az összes beérkező foglalási üzenetet — nincs késés, nincs elveszett foglalás.` | Same rationale: call-volume framing replaced with message-volume. |
 | NR6-salon | `FinalCtaSalon.tsx` | `Megnézzük a hívásait, az elfelejtett foglalásokat és a lemondásokat…` | `Megnézzük, hogyan intézi most a foglalásokat, és megmutatjuk, mit venne le Önről a rendszer…` | CTA body now matches the booking-admin core; call/leak list removed. |
+| NR7-salon | `FullSystemSalon.tsx` | Full `A teljes rendszer` block: system-intro paragraph, `Hogyan működik?` line, channel chip row (8 channels), `01 Megkeresés / 02 Foglalás / 03 Megtartás` funnel diagram, `Teli naptár` result line, integrations line (was GoHighLevel), `Mit tud a rendszer?` capability grid (Hang-AI … 0–24), fabricated stat `412 hívás fogadva · 0 kihagyva`. | Focused `Mit csinál a foglalási asszisztens?` block: 4-item `wpr__grid` list (Válaszol · Időpontot ad · Visszaigazol · Kezeli a lemondást) + closing `Ennyi. Nincs új alkalmazás…` + `sys__badges` trust strip kept. | Multi-system overview contradicted the single-product reframe. Fabricated stat and GoHighLevel both removed. Section renders only what the product actually does. |
 
 ### Review rows
 
@@ -175,6 +176,7 @@ Identical product and problem to salon; nail vocab applied (`mester` → `körm�
 | NR5-kormos-Q2 | `FaqKormos.tsx` | `…a rendszer veszi fel a telefont…` | `…a rendszer megválaszolja a Messengeren és Instagramon érkező foglalási kéréseket…` | Same as NR5-salon-Q2. |
 | NR5-kormos-Q6 | `FaqKormos.tsx` | `…felveszi az összes hívást…` | `…megválaszolja az összes beérkező foglalási üzenetet…` | Same as NR5-salon-Q6. |
 | NR6-kormos | `FinalCtaKormos.tsx` | `Megnézzük a hívásait, az elmaradt foglalásokat és a lemondásokat…` | `Megnézzük, hogyan intézi most a foglalásokat, és megmutatjuk, mit venne le Önről a rendszer…` | Same as NR6-salon. |
+| NR7-kormos | `FullSystemKormos.tsx` | Full `A teljes rendszer` block (same structure as salon). | Focused `Mit csinál a foglalási asszisztens?` block: 4-item list with nail vocab (`körmöshöz` not `mesterhez`) + closing + `sys__badges` trust strip kept. | Same rationale as NR7-salon. Kormos had already de-fabbed the live stat and removed GoHighLevel (NK3); NR7 completes the removal of the full-system block. |
 
 ### Review rows
 
@@ -196,6 +198,7 @@ Core problem: patients drop out of a treatment course partway. Product: AI folya
 | NR5-physio-Q2 | `FaqPhysio.tsx` | `…a rendszer veszi fel a telefont, tájékoztatja a pácienst…` | `…a rendszer figyeli, ki maradt ki a kezelési folyamatból, és időben megkeresi a következő alkalomra.` | Q2 answer described call answering; replaced with course-continuation core. |
 | NR5-physio-Q6 | `FaqPhysio.tsx` | `…felveszi az összes hívást — soha nem foglalt, nincs sorban állás…` | `Párhuzamosan több pácienst is nyomon követ…figyeli a kezelési folyamatból kimaradt pácienseket, és szükség esetén megkeresi — egyetlen páciens sem vész el útközben.` | Call-volume framing replaced with course-tracking core. |
 | NR6-physio | `FinalCtaPhysio.tsx` | `Megnézzük a hívásait, az elfelejtett időpontokat és a lemondásokat…` | `Megnézzük, hány páciens marad ki a kezelési folyamatból, és megmutatjuk, mit venne vissza a rendszer…` | CTA body now matches the course-continuation core. |
+| NR7-physio | `FullSystemPhysio.tsx` | Full `A teljes rendszer` block: system-intro paragraph, `Hogyan működik?` line, channel chip row (5 channels), `01/02/03` funnel diagram, `Teli naptár` result line, GoHighLevel integrations line, capability grid, fabricated stat `386 hívás fogadva · 0 kihagyva`. | Focused `Mit csinál a folyamatkövető?` block: 3-item `wpr__grid` list (Figyeli · Visszahívja · Foglal és emlékeztet) + closing `Ennyi. Nincs új alkalmazás…` + `sys__badges` trust strip kept. | Same rationale as NR7-salon. Physio fabricated stat (`386 hívás fogadva · 0 kihagyva`) and GoHighLevel removed. |
 
 ### Review rows
 
