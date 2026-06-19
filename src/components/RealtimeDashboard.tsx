@@ -55,6 +55,18 @@ const PAINS = [
     /* ATRIUM-EDIT LK4 — de-medicalized "kezelés" → "elmaradt ügyfélérték"; math unchanged (booked slot = full value fair) */
     loss: { v: "≈ 360 000 Ft", per: "/ hó", math: "~12 no-show × ~30 000 Ft elmaradt ügyfélérték" },
   },
+  {
+    tab: "Lezáratlan árajánlat",
+    desc:
+      "Az árajánlat kiment — de senki nem kíséri végig. Az ügyfél halogat, aztán elfelejti, vagy mást választ. A majdnem-kész üzlet csendben elveszik. A rendszer utánkövet: emlékeztet, kérdez, lezár.",
+    metrics: [
+      { k: "Ajánlat kiküldve", c: "var(--ink)", v: "Rendszeresen", d: "de ott marad válasz nélkül" },
+      { k: "Utánkövetés", c: "var(--ink)", v: "Nincs", d: "senki nem kíséri végig" },
+      { k: "A döntés", c: "var(--stone)", v: "Halasztva", d: "az ügyfél vár, aztán felejt" },
+      { k: "A majdnem-kész üzlet", c: "var(--viz-red)", v: "Elveszik", d: "máshol köt ki" },
+    ],
+    loss: { v: "≈ 900 000 Ft", per: "/ hó", math: "~3 utánkövetetlen árajánlat havonta × a nyertes munka töredéke" },
+  },
 ];
 
 /* ---- Graphic 1: qualification as a pre-screening dot matrix ----
@@ -251,7 +263,44 @@ function GfxCalendar() {
   );
 }
 
-const GRAPHICS = [GfxFunnel, GfxCalls, GfxCooling, GfxCalendar];
+/* ---- Graphic 5: quotes sent that nobody chases — the nearly-won deal dies ---- */
+function GfxQuotes() {
+  type Row = { sub: string; val: string; s: "nema" | "won" };
+  const rows: Row[] = [
+    { sub: "3 napja — nincs utánkövetés", val: "1 200 000 Ft", s: "nema" },
+    { sub: "ma — a rendszer utánkövette", val: "850 000 Ft", s: "won" },
+    { sub: "6 napja — nincs utánkövetés", val: "480 000 Ft", s: "nema" },
+    { sub: "9 napja — nincs utánkövetés", val: "360 000 Ft", s: "nema" },
+  ];
+  const nema = rows.filter((r) => r.s === "nema").length;
+  return (
+    <div className="quo">
+      <div className="quo__list">
+        {rows.map((r, i) => (
+          <div className={"quo__row quo__row--" + r.s} key={i}>
+            <span className="quo__ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /><path d="M8 13h5M8 17h3" />
+              </svg>
+            </span>
+            <span className="quo__main">
+              <b>Árajánlat kiküldve</b>
+              <span>{r.sub}</span>
+            </span>
+            <span className="quo__val">{r.val}</span>
+            <span className="quo__tag">{r.s === "won" ? "Lezárva" : "Néma"}</span>
+          </div>
+        ))}
+      </div>
+      <div className="quo__sum">
+        <span className="quo__sum-item"><i className="quo__sum-dot quo__sum-dot--red" />{nema} árajánlat utánkövetés nélkül</span>
+        <span className="quo__sum-note">a majdnem-kész üzlet csendben elveszik</span>
+      </div>
+    </div>
+  );
+}
+
+const GRAPHICS = [GfxFunnel, GfxCalls, GfxCooling, GfxCalendar, GfxQuotes];
 
 export default function RealtimeDashboard() {
   const [tab, setTab] = useState(0);

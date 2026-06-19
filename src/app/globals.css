@@ -2038,6 +2038,54 @@ html.dark { --viz-purple-soft: #1d1b33; }
   .cal__col:nth-child(n+4) { display: none; }
 }
 
+/* Graphic 5 — unfollowed quotes: a list of offers that went silent */
+.quo { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+.quo__list { display: flex; flex-direction: column; gap: 8px; }
+.quo__row {
+  display: flex; align-items: center; gap: 13px;
+  padding: 11px 15px; border-radius: 12px;
+  border: 1px solid var(--line); background: var(--bone);
+}
+.quo__row--won {
+  border-color: color-mix(in srgb, var(--signal) 38%, var(--line));
+  background: color-mix(in srgb, var(--signal) 6%, var(--bone));
+}
+.quo__row--nema {
+  border: 1.5px dashed rgba(196,108,100,0.5); background: rgba(196,108,100,0.05);
+  animation: calPulse 2.4s ease-in-out infinite;
+}
+.quo__ico {
+  width: 32px; height: 32px; border-radius: 9px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--line); background: var(--panel); color: var(--stone);
+}
+.quo__ico svg { width: 16px; height: 16px; }
+.quo__row--won .quo__ico { color: var(--signal); border-color: color-mix(in srgb, var(--signal) 40%, transparent); background: color-mix(in srgb, var(--signal) 12%, transparent); }
+.quo__row--nema .quo__ico { color: var(--viz-red); border-color: rgba(196,108,100,0.4); background: rgba(196,108,100,0.08); }
+.quo__main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.quo__main b { font-family: var(--font-display); font-weight: 500; font-size: 14px; letter-spacing: -0.01em; color: var(--ink); }
+.quo__main span { font-family: var(--font-body); font-size: 11.5px; color: var(--ink-70); margin-top: 1px; }
+.quo__val { font-family: var(--font-display); font-weight: 500; font-size: 15px; letter-spacing: -0.02em; color: var(--ink); white-space: nowrap; }
+.quo__tag {
+  font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 3px 9px; border-radius: 999px; white-space: nowrap;
+}
+.quo__row--won .quo__tag { color: var(--signal); background: color-mix(in srgb, var(--signal) 14%, transparent); }
+.quo__row--nema .quo__tag { color: var(--viz-red); background: rgba(196,108,100,0.12); }
+.quo__sum {
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  margin-top: 8px; padding-top: 12px; border-top: 1px solid var(--line);
+}
+.quo__sum-item { display: inline-flex; align-items: center; gap: 7px; font-family: var(--font-display); font-weight: 500; font-size: 13.5px; color: var(--ink); }
+.quo__sum-dot { width: 9px; height: 9px; border-radius: 50%; }
+.quo__sum-dot--red { background: var(--viz-red); }
+.quo__sum-note { font-family: var(--font-body); font-size: 12.5px; color: var(--ink-70); }
+@media (max-width: 560px) {
+  .quo__row { gap: 10px; padding: 10px 12px; }
+  .quo__val { font-size: 13px; }
+  .quo__tag { display: none; }
+}
+
 @media (max-width: 700px) {
   .funnel__chart { text-align: center; }
   .funnel__chart .funnel__svg { height: 110px; }
