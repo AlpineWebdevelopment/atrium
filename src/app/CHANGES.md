@@ -207,3 +207,38 @@ Core problem: patients drop out of a treatment course partway. Product: AI folya
 | NR-P-R1 | `értékesítési` frame for physio | RECORD | Physio core is genuinely revenue-leak (dropped course = lost session fees), so the `értékesítési rendszer` frame holds here — no tension. |
 | NR-P-R2 | Graphics contradiction | REVIEW | Timeline, system diagram, and Miért éri meg bars are call/leak-themed. Need a graphics pass: re-theme to course-continuation context. Separate pass — not touched here. |
 | NR-P-R3 | New niche in spec | REVIEW | Fizioterápia (slug `/fizioterapia`) is not yet in the brand spec niche list or hero families. Add with confirmed slug. |
+
+## Építőipar — create
+
+Broad construction landing (`/epitoipar`). One shared problem across all trades. Full system kept (high job value justifies it). Value-based pricing — no price shown.
+
+New files: `src/app/epitoipar/page.tsx` · `src/components/HeroEpitoipar.tsx` · `src/components/PositioningEpitoipar.tsx` · `src/components/FullSystemEpitoipar.tsx` · `src/components/WorkPricingEpitoipar.tsx` · `src/components/FaqEpitoipar.tsx` · `src/components/FinalCtaEpitoipar.tsx`
+
+CSS theme added: `.page--epitoipar` (`--signal: #A07C34` warm amber, earthy gradient, same pattern as other niches).
+
+| ID | File | Before / Action | After | Why |
+|----|------|-----------------|-------|-----|
+| KV1 | `HeroEpitoipar.tsx` | *(new)* | `Értékesítési rendszer építőipari cégeknek.` eyebrow | Construction category line per spec. |
+| KV2 | `HeroEpitoipar.tsx` | *(new)* | `A rendszer, amely akkor is értékesít, amikor Ön az építkezésen van.` (static, no typewriter) | No rotating phrase needed; the single on-site problem is the hook. |
+| KV3 | `HeroEpitoipar.tsx` | *(new)* | `…minden hívást fogad, minden árajánlatot utánkövet, és minden érdeklődőt visszahív, amíg Ön a munkán van.` | Names the three actions the product takes; anchors the phone-in-hand moment. |
+| KV4 | `PositioningEpitoipar.tsx` | *(new)* | Heading `Ön a munkán van. A telefon meg csörög.` + on-site problem body | Names the specific mechanism of revenue loss before pitching the product. |
+| KV5 | `FullSystemEpitoipar.tsx` | Root `CAPS` array (8 generic items) | 6 construction capabilities: Hívásfogadás · Érdeklődő-utánkövetés · Árajánlat-utánkövetés · Helyszíni felmérés · Elmaradt felmérés visszaszerzése · Riport | Construction-native verbs; removes appointment-business capabilities not applicable here. |
+| KV6 | `FullSystemEpitoipar.tsx` | Root `sys__howline` ends `a csapatának semmit nem kell lecserélnie` | `AI-ügynökök kezelik a hang- és szöveges kommunikációt, természetes magyar nyelven — a meglévő eszközeihez kötve. A csapatának semmit nem kell lecserélnie.` | Split into two sentences; `kommunikáció` is more accurate than `beszélgetés` for the trade audience. |
+| KV7 | `WorkPricingEpitoipar.tsx` | *(new)* | ROI paragraph: `Egy építőipari munka több százezertől…` | No fabricated figures; ROI argument rests on job value, not a conversion rate. |
+| KV8 | `WorkPricingEpitoipar.tsx` | *(new)* | Heading `Az árat az Ön számaiból állítjuk össze.` + value-based body | No price shown; meeting-first motion. |
+| KV9 | `FaqEpitoipar.tsx` | *(new)* | 5 Q&As: Mit csinál · Eszköz-csere · Ár · Adattárolás · Magyar nyelvű | GoHighLevel not named (brand spec §10). No fabricated numbers. |
+| KV10 | `FinalCtaEpitoipar.tsx` | *(new)* | Heading `Nézzük meg, hol szivárog a bevétele.` · body: hívások + árajánlatok + érdeklődők · `Foglaljon időpontot` | Points at concrete inputs from a construction business; button consistent with hero. |
+| KV11 | `HeroEpitoipar.tsx`, `FinalCtaEpitoipar.tsx` | *(carried)* | Magyar nyelvű · EU hosting · GDPR-konform trust strip | Unchanged from root. |
+| KV-C1 | `epitoipar/page.tsx` | `CustomSolutions` included on root | *(excluded)* | Egyedi fejlesztés / Példa projektek / Amit tudunk építeni taxonomy is competitor-reskin material; off-strategy for a launch page. |
+| KV-C2 | `epitoipar/page.tsx` | `QualifierCrm` (contains `munkatárs vs rendszer` cost bar) | *(excluded)* | At full-system value-based pricing the "cheaper than an employee" bar is false. ROI argument is in KV7 instead. |
+| KV-C3 | `FullSystemEpitoipar.tsx` | Root had fabricated `412 hívás fogadva · 0 kihagyva` (already removed at root by NR7, but) | *(not carried)* | No fabricated stats on any surface. Live label: `Minden hívás egy helyen · egy sem vész el`. |
+
+### Review rows
+
+| ID | Topic | Status | Note |
+|----|-------|--------|------|
+| KV-R1 | Spec deviation — broad page | REVIEW | Spec lists construction sub-niches separately (`kivitelező`, `szigetelő`, `tetőfedő`…). `/epitoipar` is a deliberate collapse for launch speed. Register `/epitoipar` in spec as the broad construction landing. |
+| KV-R2 | Graphics re-theme | REVIEW | `RealtimeDashboard` and `QualifierCrm` are excluded; inherited hero DAY entries are already construction-themed. The `FullSystemEpitoipar` phase diagrams (VizMegkereses/VizFelmeres/VizMegtartas) are generic SVGs — acceptable for launch but a construction-specific graphics pass (on-site call, árajánlat follow-up) would strengthen it. |
+| KV-R3 | WhatsApp channel | REVIEW | `WhatsApp` included in channel row and CHANNELS array. Confirm deliverable before publishing; if not live, trim to Telefon · SMS · E-mail. |
+| KV-R4 | CTA button wording | REVIEW | `Foglaljon időpontot` (Hero + FinalCta) vs. root `FinalCta`'s `Foglaljon 30 perces megbeszélést`. Pick one site-wide and align. |
+| KV-R5 | `RealtimeDashboard` shared | REVIEW | Root `RealtimeDashboard` is reused; it uses appointment-business language internally. If the dashboard copy becomes visible to construction visitors, run a separate pass to re-theme it. |
