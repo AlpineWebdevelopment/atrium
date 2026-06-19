@@ -317,3 +317,43 @@ CSS theme added: `.page--allatorvos` (`--signal: #2D9B7F` medical teal-green, di
 | AV-R5 | Twin-to-dental port | RECORD | This page is ~80% portable to `/fogaszat`. Recall becomes "lapsed patients / abandoned treatment plans." Build dental from this, not from scratch. Key swaps: `gazdi` → `páciens`, `kedvenc` → `fogkezelés/implantátum`, `oltás` → `kontroll/fogpótlás esedékes`. |
 | AV-R6 | Lead follow-up scope | REVIEW | New-lead follow-up (ads traffic) is dormant unless the clinic runs paid acquisition. Page does not promise client acquisition (FAQ Q3 is explicit). If the clinic starts ads, the system earns this capability without a copy change. |
 | AV-R7 | Honest-limit sentence visibility | CONFIRM | `AV9` intentionally includes `nem minden elmaradt gazdi hozható vissza — aki költség miatt maradt el, azt nem ígérjük`. Confirm this line stays visible; it is the credibility differentiator vs Meridian. Do not remove in future copy passes. |
+
+## Szépségipar — build
+
+Broad low-ticket beauty landing (`/szepsegipar`). Collapses `/szepsegszalon` + `/kormos` (same DM-booking problem, same product). Physio is NOT included (different product: course-continuation). Template: `/szepsegszalon`.
+
+**Lane shape:** lightweight, fixed prices ON page (39/49/99k), DM-first, fill-don't-filter. No full system tour, no value-based pricing, no eight-channel chip row.
+
+New files: `src/app/szepsegipar/page.tsx` · `src/components/HeroSzepsegipar.tsx` · `src/components/PositioningSzepsegipar.tsx` · `src/components/ProductSzepsegipar.tsx` · `src/components/WorkPricingSzepsegipar.tsx` · `src/components/FaqSzepsegipar.tsx` · `src/components/FinalCtaSzepsegipar.tsx`
+
+CSS theme added: `.page--szepsegipar` (`--signal: #9E6B9E` warm lavender-purple; distinct from salon rose `#BC6285` and nail coral `#C4705A`).
+
+| ID | File | Before / Action | After | Why |
+|----|------|-----------------|-------|-----|
+| SZ1 | `HeroSzepsegipar.tsx` | *(new)* | `Szépségszalonoknak, körmösöknek, kozmetikusoknak.` eyebrow | Broad beauty lane; names all three operator types. |
+| SZ2 | `HeroSzepsegipar.tsx` | *(new)* | `Ne töltse az estéit foglalási üzenetekkel.` (static, no typewriter) | Carried from salon reframe (NR1-salon); correct for the whole DM-booking lane. |
+| SZ3 | `HeroSzepsegipar.tsx` | *(new)* | `…a foglalási üzeneteket Messengeren és Instagramon magától megválaszolja, időpontot ad, és emlékeztet. Ön közben a vendéggel van.` | DM-first subhead; names the channels and the operator benefit. |
+| SZ4 | `PositioningSzepsegipar.tsx` | *(new)* | Three leaks: A lassú válasz · A meg nem jelenés · Az elmaradt vendég. Heading: `Itt szivárog el a foglalás.` | Problem-led section before the product. No qualify-out language. |
+| SZ5 | `ProductSzepsegipar.tsx` | *(new)* | `Nem egy foglalási link.` heading + lead line + 6-capability caps grid (Válaszol · Foglal · Emlékeztet · Feltölti a lemondást · Visszahívja az elmaradt vendéget · Visszahozza a régieket) | Lightweight, no SVG phase diagrams, no channel chip row. Lead line is the core differentiator: the system sends/receives in the channel the customer is already in. |
+| SZ6 | `WorkPricingSzepsegipar.tsx` | *(new)* | Fixed packages: Próbahónap 39 000 Ft egyszeri · Alap 49 000 Ft/hó · Teljes 99 000 Ft/hó. Heading `Fix csomagok, fix árak.` | Prices ON page per low-ticket lane spec. No value-based / "az árat az Ön számaiból" language — that's the high-ticket lane. |
+| SZ7 | `FaqSzepsegipar.tsx` | *(new)* | 5 Q&As: Mit csinál · Ez csak egy foglalási link? (Nem) · Naptár-csere (Nem) · Mennyibe kerül (names fixed prices) · Adattárolás | `Ez csak egy foglalási link?` FAQ is doing core product-differentiation work — keep it in future passes. |
+| SZ8 | `FinalCtaSzepsegipar.tsx` | *(new)* | `Nézzük meg, melyik csomag illik a szalonjához.` heading; booking-admin diagnostic body; `Foglaljon időpontot` button | Points at package selection; consistent with site-wide CTA label. |
+| SZ9 | Hero + Product + FinalCta | *(new)* | Magyar nyelvű · EU hosting · GDPR-konform trust strip at three key points | Unchanged from other pages. |
+| SZ-CSS | `globals.css` | No `.page--szepsegipar` rule | Added `.page--szepsegipar` theme: `--signal: #9E6B9E` warm lavender-purple | Distinct from salon `#BC6285`, nail `#C4705A`, physio `#4A9EB8`. Gradient blends lavender → rose → bone. |
+| SZ-DAY | `HeroSzepsegipar.tsx` | Salon DAY 11:00 beat: `qualify` — "Csak az árat kérdezték — előszűrve, nem foglal felesleg helyet" | Instagram DM beat: "Instagramon írt be egy vendég — azonnali foglalás, kézzel nem kellett hozzányúlni." | Fill-don't-filter mandate. The qualify-out beat was the only filtering-language survivor from the salon template; replaced with a DM booking beat. |
+| SZ-C1 | `szepsegipar/page.tsx` | Salon page had `RealtimeDashboard` | *(excluded)* | Shared dashboard has appointment-business language and fabricated stat figures (`412 hívás fogadva · 0 kihagyva`). |
+| SZ-C2 | `szepsegipar/page.tsx` | Salon page had `QualifierCrmSalon` (cost-bar) | *(excluded)* | `munkatárs vs rendszer` cost-bar is false at 49–99k fixed pricing (same rationale as other niche pages). |
+| SZ-C3 | `szepsegipar/page.tsx` | Salon page had `FullSystemSalon` (even after NR7 reframe, still a system block) | Replaced by `ProductSzepsegipar` — lightweight 6-cap grid, no phase diagrams, no channel row | Low-ticket lane spec: no full-system capability grid. |
+
+### Review rows
+
+| ID | Topic | Status | Note |
+|----|-------|--------|------|
+| SZ-R1 | **HARD GATE — Messenger/Instagram DM integration** | CONFIRM BEFORE ADS | The entire pitch leads on DM handling. Confirm the integration is buildable AND handoverable before running a single ad. If undeliverable, the core product statement needs revision, not just the copy. |
+| SZ-R2 | Prices unconfirmed | REVIEW | 39 / 49 / 99 000 Ft are starting anchors. Sign off before the page goes live or any ad creative references a price. |
+| SZ-R3 | Lane firewall — beauty vs medical-aesthetic | RECORD | `/szepsegipar` is service salons (fixed price, DM-booking). Do NOT let this page bleed into szépészeti/plasztikai (medical-aesthetic, high-ticket, value-based). Register this split in the brand spec. |
+| SZ-R4 | Nail-targeted ad creative | RECORD | Per brief: körmös is the sharpest ad target (most Instagram-native, no incumbent tool). The broad page serves nail traffic without a separate `/kormos` page. Build `/kormos` only if `/szepsegipar` underperforms for nail. |
+| SZ-R5 | Audience wording | REVIEW | Eyebrow names all three (szalon/körmös/kozmetikus). Body copy defaults to `szalon` / `vendég` — the relatable broad term. If any specific beauty sub-niche reads as excluded, broaden that sentence. |
+| SZ-R6 | Build commitments in Teljes | REVIEW | Teljes promises: elmaradt vendégek visszahívása · régiek visszahozása · értékeléskérés · havi kimutatás. Confirm each is deliverable before the package goes live. |
+| SZ-R7 | `/szepsegszalon` and `/kormos` routes | RECORD | These routes still exist and still work. They are now superseded by `/szepsegipar` as the canonical beauty-lane page. Decide: redirect both to `/szepsegipar`, or keep them as narrower landing pages for specific ad audiences. No redirect added in this build — separate decision. |
+| SZ-R8 | `wpr__note` class | REVIEW | `WorkPricingAllatorvos` uses `wpr__note` which may not be defined in globals.css. `WorkPricingSzepsegipar` deliberately uses the confirmed `dash__p` pattern instead to avoid this. Resolve `wpr__note` separately. |

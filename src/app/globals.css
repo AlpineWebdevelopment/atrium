@@ -1096,6 +1096,31 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
    Medical teal-green (#2D9B7F); warm-neutral gradient; signal → teal-green
    Distinct from physio's teal-blue (#4A9EB8)
    ========================================================= */
+/* =========================================================
+   SZÉPSÉGIPAR THEME — /szepsegipar
+   Warm lavender (#9E6B9E) — broad beauty lane, distinct from salon rose (#BC6285)
+   ========================================================= */
+/* ATRIUM-EDIT SZ9 — szepsegipar page theme */
+.page--szepsegipar {
+  --signal: #9E6B9E;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, #9E6B9E 10%, #F5F2ED) 0px,
+    color-mix(in srgb, #BC6285 5%, #F5F2ED) 520px,
+    var(--bone) 1180px,
+    color-mix(in srgb, #7A4F7A 6%, #F5F2ED) 100%
+  );
+}
+.page--szepsegipar .btn { background: #9E6B9E; border-color: #9E6B9E; color: #fff; }
+.page--szepsegipar .btn:hover { opacity: 0.88; }
+.page--szepsegipar .btn--ghost { background: var(--bone); border-color: var(--line); color: var(--ink); }
+.page--szepsegipar .btn--ghost:hover { background: var(--panel); opacity: 1; }
+.page--szepsegipar .dash__tab--active { border-color: #9E6B9E; color: #9E6B9E; }
+.page--szepsegipar .faq__item--open .faq__chev { color: #9E6B9E; }
+.page--szepsegipar .newtag { background: color-mix(in srgb, #9E6B9E 14%, var(--bone)); color: #9E6B9E; }
+.page--szepsegipar .sysframe__live-dot { background: #9E6B9E; }
+.page--szepsegipar .jrn__result-ico { color: #9E6B9E; }
+
 /* ATRIUM-EDIT AV13 — allatorvos page theme */
 .page--allatorvos {
   --signal: #2D9B7F;
