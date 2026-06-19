@@ -33,7 +33,7 @@ const ICONS: Record<string, React.ReactNode> = {
 const CAPS = [
   { ic: "mic", c: "#9662BC", t: "Hívásfogadás", d: "Minden hívást felvesz: munka közben, este, hétvégén. Magyarul, természetes beszéddel." },
   { ic: "callback", c: "#628FBC", t: "Érdeklődő-utánkövetés", d: "A hirdetésből érkező érdeklődőt percek alatt visszahívja, nem napok múlva." },
-  { ic: "send", c: "#AD83CC", t: "Árajánlat-utánkövetés", d: "A kiküldött, de még el nem fogadott ajánlatokra rákérdez: „két hete küldtünk egy árajánlatot — van kérdése?"" },
+  { ic: "send", c: "#AD83CC", t: "Árajánlat-utánkövetés", d: "A kiküldött, de még el nem fogadott ajánlatokra rákérdez: „két hete küldtünk egy árajánlatot — van kérdése?”" },
   { ic: "calendar", c: "#62BCAC", t: "Helyszíni felmérés", d: "Időpontot ad a felmérésre, egyenesen a naptárába." },
   { ic: "refresh", c: "#BCA162", t: "Elmaradt felmérés visszaszerzése", d: "A lemondott vagy elmaradt helyszíni látogatást újraegyezteti." },
   { ic: "bars", c: "#6DBC61", t: "Riport", d: "Havonta megmutatja, honnan jött a munka, mi maradt ki, és mit hozott vissza a rendszer." },
