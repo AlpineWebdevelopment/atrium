@@ -1092,6 +1092,32 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
 .page--epitoipar .jrn__result-ico { color: #A07C34; }
 
 /* =========================================================
+   ÁLLATORVOS THEME — /allatorvos
+   Medical teal-green (#2D9B7F); warm-neutral gradient; signal → teal-green
+   Distinct from physio's teal-blue (#4A9EB8)
+   ========================================================= */
+/* ATRIUM-EDIT AV13 — allatorvos page theme */
+.page--allatorvos {
+  --signal: #2D9B7F;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, #2D9B7F 9%, #F5F2ED) 0px,
+    color-mix(in srgb, #2D9B7F 5%, #F5F2ED) 520px,
+    var(--bone) 1180px,
+    color-mix(in srgb, #3A6B5E 6%, #F5F2ED) 100%
+  );
+}
+.page--allatorvos .btn { background: #2D9B7F; border-color: #2D9B7F; color: #fff; }
+.page--allatorvos .btn:hover { opacity: 0.88; }
+.page--allatorvos .btn--ghost { background: var(--bone); border-color: var(--line); color: var(--ink); }
+.page--allatorvos .btn--ghost:hover { background: var(--panel); opacity: 1; }
+.page--allatorvos .dash__tab--active { border-color: #2D9B7F; color: #2D9B7F; }
+.page--allatorvos .faq__item--open .faq__chev { color: #2D9B7F; }
+.page--allatorvos .newtag { background: color-mix(in srgb, #2D9B7F 14%, var(--bone)); color: #2D9B7F; }
+.page--allatorvos .sysframe__live-dot { background: #2D9B7F; }
+.page--allatorvos .jrn__result-ico { color: #2D9B7F; }
+
+/* =========================================================
    VOICE DEMO
    ========================================================= */
 .vdemo { padding: 100px 0 80px; }
@@ -1534,6 +1560,9 @@ html.dark { --viz-purple-soft: #1d1b33; }
   display: block; margin-top: 3px;
   font-family: var(--font-body); font-size: 13.5px; line-height: 1.5; color: var(--ink-70);
 }
+/* lead step — extra visual weight for a key capability (e.g. Riport és rálátás) */
+.tsr__step--lead { border-left: 2.5px solid var(--c); padding-left: 12px; margin-left: -14px; }
+.tsr__step--lead .tsr__step-txt b { color: var(--c); }
 /* the result the journey produces */
 .jrn__result {
   margin-top: 18px;

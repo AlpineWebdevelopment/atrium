@@ -277,3 +277,43 @@ Files changed: `src/components/HeroEpitoipar.tsx` · `src/components/Positioning
 | KV-R3 | `HowWeStart` shared | REVIEW | Also reused; verify onboarding steps are firm-appropriate. |
 | KV-R4 | AI disclosure honesty | RECORD | The explicit AI disclosure in KV6 (`igen, ez egy AI-alapú rendszer`) is intentional brand-voice for the B2B cégvezető buyer. Do not remove in future copy passes; it builds rather than erodes trust with this persona. |
 | KV-R5 | Solo-operator pages | REVIEW | `/szepsegszalon`, `/kormos`, `/fizioterapia` all still use the personal frame. If those products are confirmed for the firm context, run a similar rebuild. For now they remain single-operator products. |
+
+## Állatorvos — build
+
+Owner-operator vet landing (`/allatorvos`). Template: root page. Full system kept (high recurring value justifies it). Value-based, no displayed prices. Route-not-filter is the hard differentiator vs the construction page. Recall/reactivation is the primary commercial lever; reporting shows the base recovery.
+
+New files: `src/app/allatorvos/page.tsx` (rewritten from stub) · `src/components/HeroAllatorvos.tsx` · `src/components/PositioningAllatorvos.tsx` · `src/components/FullSystemAllatorvos.tsx` · `src/components/WorkPricingAllatorvos.tsx` · `src/components/FaqAllatorvos.tsx` · `src/components/FinalCtaAllatorvos.tsx`
+
+CSS theme added: `.page--allatorvos` (`--signal: #2D9B7F` medical teal-green, distinct from physio's teal-blue `#4A9EB8`).
+
+| ID | File | Before / Action | After | Why |
+|----|------|-----------------|-------|-----|
+| AV1 | `HeroAllatorvos.tsx` | *(new)* | `Értékesítési rendszer állatorvosi rendelőknek.` eyebrow | Category line per spec. |
+| AV2 | `HeroAllatorvos.tsx` | *(new)* | `Minden gazdi. Minden hívás. Minden órában.` (static, no typewriter) | Static; the who/what/when is the whole hook. No rotating phrase needed. |
+| AV3 | `HeroAllatorvos.tsx` | *(new)* | `…minden hívást fogad, a sürgős eseteket rangsorolja, a rutin időpontokat lefoglalja, és visszahívja a pácienseket, mielőtt lemaradnának az oltásról.` | Names the four actions; ends on the hidden-lever (recall). |
+| AV4 | `PositioningAllatorvos.tsx` | *(new)* | Two leaks: `A meg nem válaszolt hívás.` (visible) + `A lemorzsolódó páciens.` (hidden base drift) | Problem-led: two leaks before the system. Heading: `Két helyen veszít — az egyiket látja, a másikat nem.` |
+| AV5 | `PositioningAllatorvos.tsx` | *(new)* | `Itt nem szűrünk. Minden gazdi egy évekig tartó kapcsolat…` framing line at section end | Route-not-filter guard — explicitly in copy, not just in code. Placed immediately after the two leaks so it lands before the system is introduced. |
+| AV6 | `FullSystemAllatorvos.tsx` | Root phases copied verbatim | 3 phases: 01 Fogadás és sürgősségi rangsorolás (3 steps) · 02 Foglalás és emlékeztetés (3 steps) · 03 A bázis megtartása (3 steps, Visszahívás esedékességkor + Riport use `.tsr__step--lead`). Channels trimmed to 3: Telefon · SMS · E-mail. | Vet is phone-led; rangsoorolás (triage) replaces kvalifikálás (screen-out). No filtering language anywhere in step copy. |
+| AV7 | `FullSystemAllatorvos.tsx` | Root `sys__howline` | `AI-ügynökök kezelik…a rendelő meglévő naptárához kötve…igen, ez egy AI-alapú rendszer — pontosan megmutatjuk, mit csinál.` | Same AI disclosure as construction (KV6): honesty builds trust with medical-adjacent owner. |
+| AV8 | `HeroAllatorvos.tsx` | Root "egy nap a rendszerrel" 12-step day timeline | `Egy gazdi útja` 6-step owner lifecycle (Hívás → Fogadva → Rangsorolva → Lefoglalva → Emlékeztetve → Visszahívva). 3/3 col split. Last step uses signal color `#2D9B7F`. | Replaces generic day narrative with the specific vet lifecycle; last step (recall) is the hook. ILLUSZTRATÍV label present. |
+| AV9 | `WorkPricingAllatorvos.tsx` | *(new)* | `A nagyobb pénz a meglévő bázisban van.` ROI paragraph; honest limit included: `nem minden elmaradt gazdi hozható vissza` | The honest-limit sentence is intentionally on the page — credibility move vs Meridian's invented ROI. Vet buyer is sceptical of inflated promises. |
+| AV10 | `WorkPricingAllatorvos.tsx` | *(new)* | Heading `Az árat az Ön számaiból állítjuk össze.` + value-based body (aktív páciensek száma / egy kedvencre jutó éves érték / lecsúszott páciensek aránya). 4 process steps with title + description. | No price shown; meeting-first. |
+| AV11 | `FaqAllatorvos.tsx` | *(new)* | 6 Q&As: Mit csinál · Kiszűri a kisebb ügyfeleket? (Nem) · Új gazdikat is szerez? (Nem) · Naptár-csere (Nem) · Ár · Adattárolás | `Kiszűri?` + `Új gazdikat?` FAQs are doing explicit route-not-filter guard work — keep both in future copy passes. |
+| AV12 | `FinalCtaAllatorvos.tsx` | *(new)* | `Tudja, hány páciense csúszott le az oltási rendről?` heading; pending-vaccination body; `Foglaljon időpontot` button | Opens on the hidden lever (base drift); body names the concrete diagnostic the vet can verify themselves. |
+| AV13 | Hero + FullSystem + FinalCta | Trust strip carried | Magyar nyelvű · EU hosting · GDPR-konform — unchanged, repeated at three key points | GDPR is doubly relevant for pet-owner data (sensitive client data + emotional context). |
+| AV-C1 | `allatorvos/page.tsx` | `CustomSolutions` would have been included if copied from root | *(excluded)* | Custom-dev taxonomy is off-strategy for a niche launch page. |
+| AV-C2 | `allatorvos/page.tsx` | Stub had `QualifierCrmVet` (cost-bar component) | *(excluded; removed from page)* | Cost-comparison bar is false at value-based pricing. ROI argument lives in AV9 instead. |
+| AV-C3 | `FullSystemAllatorvos.tsx` / `PositioningAllatorvos.tsx` | No filtering / qualify-out language from construction template carried over | *(verified clean)* | Route-not-filter is the hard differentiator. `Sürgősségi rangsorolás` step copy explicitly ends: `senkit nem szűr ki — mindenkit a helyére irányít`. FAQ Q2 adds explicit `Nem` answer. |
+| AV-CSS | `globals.css` | No `.page--allatorvos` rule | Added `.page--allatorvos` theme: `--signal: #2D9B7F`; warm teal-green gradient; btn/chev/badge/newtag accented | Distinct from physio `#4A9EB8` (teal-blue) and construction `#A07C34` (amber). |
+
+### Review rows
+
+| ID | Topic | Status | Note |
+|----|-------|--------|------|
+| AV-R1 | Stub components (`HeroVet`, `FaqVet`, etc.) | REVIEW | The old stub `page.tsx` imported `HeroVet`, `RealtimeDashboardVet`, `FullSystemVet`, `PositioningVet`, `QualifierCrmVet`, `FaqVet`, `FinalCtaVet` — none of these files exist. The page now imports the correct `Allatorvos` components. Confirm the stub component files were never created; if they were, delete them. |
+| AV-R2 | `RealtimeDashboard` shared | REVIEW | Root `RealtimeDashboard` is reused; it uses appointment-business language internally. Run a vet-specific pass if dashboard copy surfaces to visitors. |
+| AV-R3 | Rabies-compliance angle | FLAG — DO NOT ADD | Dog rabies vaccination being legally required in Hungary is a strong recall angle but is a legal claim. Deliberately kept OFF the page. Do not add any schedule or compliance statement until verified against current Hungarian regulation. |
+| AV-R4 | `wpr__note` class | REVIEW | `WorkPricingAllatorvos` uses `wpr__note` for the fine-print line. Verify this CSS class exists in globals.css (it was added for the construction page); if not, fall back to a `dash__p` with reduced opacity. |
+| AV-R5 | Twin-to-dental port | RECORD | This page is ~80% portable to `/fogaszat`. Recall becomes "lapsed patients / abandoned treatment plans." Build dental from this, not from scratch. Key swaps: `gazdi` → `páciens`, `kedvenc` → `fogkezelés/implantátum`, `oltás` → `kontroll/fogpótlás esedékes`. |
+| AV-R6 | Lead follow-up scope | REVIEW | New-lead follow-up (ads traffic) is dormant unless the clinic runs paid acquisition. Page does not promise client acquisition (FAQ Q3 is explicit). If the clinic starts ads, the system earns this capability without a copy change. |
+| AV-R7 | Honest-limit sentence visibility | CONFIRM | `AV9` intentionally includes `nem minden elmaradt gazdi hozható vissza — aki költség miatt maradt el, azt nem ígérjük`. Confirm this line stays visible; it is the credibility differentiator vs Meridian. Do not remove in future copy passes. |

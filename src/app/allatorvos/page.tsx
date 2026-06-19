@@ -1,36 +1,37 @@
 import type { Metadata } from "next";
-import HeroVet from "@/components/HeroVet";
-import RealtimeDashboardVet from "@/components/RealtimeDashboardVet";
-import FullSystemVet from "@/components/FullSystemVet";
-import PositioningVet from "@/components/PositioningVet";
+import HeroAllatorvos from "@/components/HeroAllatorvos";
+import RealtimeDashboard from "@/components/RealtimeDashboard";
+import FullSystemAllatorvos from "@/components/FullSystemAllatorvos";
+import PositioningAllatorvos from "@/components/PositioningAllatorvos";
 import HowWeStart from "@/components/HowWeStart";
-import WorkPricing from "@/components/WorkPricing";
-import QualifierCrmVet from "@/components/QualifierCrmVet";
-import FaqVet from "@/components/FaqVet";
-import FinalCtaVet from "@/components/FinalCtaVet";
+/* ATRIUM-EDIT AV10 — value-based pricing; AV-C2: QualifierCrm excluded (cost-bar false at value-based pricing) */
+import WorkPricingAllatorvos from "@/components/WorkPricingAllatorvos";
+import FaqAllatorvos from "@/components/FaqAllatorvos";
+import FinalCtaAllatorvos from "@/components/FinalCtaAllatorvos";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+/* AV-C1: CustomSolutions excluded — custom-dev taxonomy is off-strategy for a niche launch page */
 
 export const metadata: Metadata = {
-  title: "Atrium — Állatorvosi rendelők AI-alapú ügyfélkezelési rendszere",
+  title: "Atrium — Állatorvosi rendelők AI-alapú értékesítési rendszere",
   description:
-    "Magyar nyelvű AI-rendszer állatorvosi rendelőknek: minden hívást felvesz, minden vizsgálati időpontot lefoglal, minden gazdát utánkövet — a háttérben.",
+    "Magyar nyelvű AI-rendszer állatorvosi rendelőknek: minden hívást fogad, a sürgős eseteket rangsorolja, a rutin időpontokat lefoglalja, és visszahívja a pácienseket az oltás és szűrés esedékességekor.",
 };
 
 export default function AllatorvosPage() {
   return (
-    <>
-      <HeroVet />
-      <RealtimeDashboardVet />
-      <FullSystemVet />
-      <PositioningVet />
-      <HowWeStart />
-      <WorkPricing />
-      <QualifierCrmVet />
-      <FaqVet />
-      <FinalCtaVet />
-      <Footer />
+    <div className="page page--allatorvos" data-screen-label="atriumscaling.com /allatorvos">
       <ScrollReveal />
-    </>
+      <HeroAllatorvos />
+      {/* AV — problem-led order: two leaks before the system */}
+      <PositioningAllatorvos />
+      <RealtimeDashboard />
+      <FullSystemAllatorvos />
+      <HowWeStart />
+      <WorkPricingAllatorvos />
+      <FaqAllatorvos />
+      <FinalCtaAllatorvos />
+      <Footer />
+    </div>
   );
 }
