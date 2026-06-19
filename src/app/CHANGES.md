@@ -90,6 +90,19 @@
 | PS-R5 | Channel count | REVIEW | Five chips (`Telefon · SMS · WhatsApp · E-mail · Webchat`) — more honest than salon's eight. Verify all five are live before publishing. |
 | PS-R6 | `Receptionnél olcsóbb` graph | REVIEW | Defensible at 49–99k prices. Handle in the Miért éri meg graph pass. |
 
+## Root — product confidence
+
+| ID | File | Before | After | Why |
+|----|------|--------|-------|-----|
+| PC1 | `WorkPricing.tsx` | `Nem kész terméket árulunk, hanem az Ön működésére építünk — és az árat is az Ön számaiból számoljuk ki.` | `Kész rendszert kap, az Ön működésére építve — nem sablonból. Az árat is az Ön számaiból számoljuk ki.` | "We don't sell a finished product" makes Atrium read as an advisor. Buyer should expect to *get a system*. New line affirms the system exists and is bespoke — the differentiation Meridian can't claim. |
+| PC2 | `FinalCta.tsx` | `és megmondjuk, hol szivárog a bevétel, mielőtt bármiről dönt.` | `és megmutatjuk, hol szivárog a bevétel — és hogyan zárja be a rendszer.` | "Before you decide anything" reads passive/advisory. New ending points at the system as the answer, not at a diagnostic pause. |
+
+### Review row
+
+| ID | Topic | Status | Note |
+|----|-------|--------|------|
+| PC-R1 | Brand-voice rule | RECORD IN SPEC | Lead with the concrete system and outcome; keep "built for you, diagnosed, not a template" as the differentiator on top. Never let the consultative motion dilute the promise that the buyer gets a system. `diagnózis, nem értékesítés` in the process steps is fine — the process ends with `A rendszer élesedik`. |
+
 ## Körmös — new page
 
 Structural template: `/szepsegszalon` (all layout, components, CSS architecture). Corrected copy applied from the start — no broken hero, no value-based pricing, no `ügyfélkezelési`, no audit-to-cold-visitor.

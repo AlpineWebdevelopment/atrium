@@ -15,8 +15,9 @@ export default function WorkPricing() {
         <div className="dash__intro reveal">
           <span className="dash__eyebrow"><span className="newtag">új</span> Hogyan dolgozunk</span>
           <h2 className="dash__h">Beszélgetés, nem prezentáció.</h2>
+          {/* ATRIUM-EDIT PC1 — stop denying the product; affirm buyer gets a system, bespoke is the differentiator */}
           <p className="dash__p">
-            Nem kész terméket árulunk, hanem az Ön működésére építünk — és az árat
+            Kész rendszert kap, az Ön működésére építve — nem sablonból. Az árat
             is az Ön számaiból számoljuk ki.
           </p>
         </div>
