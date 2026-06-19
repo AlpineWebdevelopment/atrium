@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import HeroSzepsegipar from "@/components/HeroSzepsegipar";
 import PositioningSzepsegipar from "@/components/PositioningSzepsegipar";
+import RealtimeDashboardSzepsegipar from "@/components/RealtimeDashboardSzepsegipar";
 /* SZ5 — focused product section (not full system); SZ CUTS: FullSystem, channel row, value-based grid all excluded */
 import ProductSzepsegipar from "@/components/ProductSzepsegipar";
 /* SZ6 — fixed packages (39/49/99k); NO value-based WorkPricing block */
@@ -26,6 +27,7 @@ export default function SzepsegiparPage() {
       <HeroSzepsegipar />
       {/* SZ — problem-led: three leaks before the product */}
       <PositioningSzepsegipar />
+      <RealtimeDashboardSzepsegipar />
       <ProductSzepsegipar />
       <WorkPricingSzepsegipar />
       <HowWeStart />
