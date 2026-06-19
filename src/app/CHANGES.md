@@ -103,6 +103,15 @@
 |----|-------|--------|------|
 | PC-R1 | Brand-voice rule | RECORD IN SPEC | Lead with the concrete system and outcome; keep "built for you, diagnosed, not a template" as the differentiator on top. Never let the consultative motion dilute the promise that the buyer gets a system. `diagnózis, nem értékesítés` in the process steps is fine — the process ends with `A rendszer élesedik`. |
 
+## Niche CTA — product confidence
+
+| ID | Page | File | Before | After | Why |
+|----|------|------|--------|-------|-----|
+| NCC-salon | Szépségszalon | `FinalCtaSalon.tsx` | `…és megmondjuk, hol szivárog a bevétel, mielőtt bármiről dönt.` | `…és megmondjuk, hol szivárog a bevétel — és melyik csomag zárja be.` | "Before you decide" reads advisory; tying the leak to "which package closes it" points the buyer at the fixed offer they're choosing between. |
+| NCC-physio | Fizioterápia | `FinalCtaPhysio.tsx` | `…és megmondjuk, hol szivárog a bevétel, mielőtt bármiről dönt.` | `…és megmondjuk, hol szivárog a bevétel — és melyik csomag zárja be.` | Same rationale as NCC-salon. |
+| NCC-kormos | Körmös | `FinalCtaKormos.tsx` | `…és megmondjuk, hol szivárog a bevétel, mielőtt bármiről dönt.` | `…és megmondjuk, hol szivárog a bevétel — és melyik csomag zárja be.` | Same rationale as NCC-salon. |
+| NCC-vet | Állatorvos | `FinalCtaVet.tsx` | `…és megmondjuk, hol szivárog a bevétel, mielőtt bármiről dönt.` | `…és megmondjuk, hol szivárog a bevétel — és melyik csomag zárja be.` | Same rationale as NCC-salon. Applied to vet page as it matched the same pattern. |
+
 ## Körmös — new page
 
 Structural template: `/szepsegszalon` (all layout, components, CSS architecture). Corrected copy applied from the start — no broken hero, no value-based pricing, no `ügyfélkezelési`, no audit-to-cold-visitor.
