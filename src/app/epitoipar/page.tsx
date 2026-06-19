@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import HeroEpitoipar from "@/components/HeroEpitoipar";
-import RealtimeDashboard from "@/components/RealtimeDashboard";
+import RealtimeDashboardEpitoipar from "@/components/RealtimeDashboardEpitoipar";
 import FullSystemEpitoipar from "@/components/FullSystemEpitoipar";
 import PositioningEpitoipar from "@/components/PositioningEpitoipar";
 import HowWeStart from "@/components/HowWeStart";
@@ -25,7 +25,7 @@ export default function EpitoiparPage() {
       {/* ATRIUM-EDIT KV-C3 — problem-led order: leaks (Positioning) before solution (FullSystem) */}
       <HeroEpitoipar />
       <PositioningEpitoipar />
-      <RealtimeDashboard />
+      <RealtimeDashboardEpitoipar />
       <FullSystemEpitoipar />
       <HowWeStart />
       <WorkPricingEpitoipar />
