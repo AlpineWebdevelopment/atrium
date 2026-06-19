@@ -1,23 +1,29 @@
-/* ATRIUM-EDIT KV10 — construction final CTA.
-   Heading, body, fine print per spec. Button: Foglaljon időpontot (consistent with Hero). */
+/* ATRIUM-EDIT KV11 — cégvezető construction final CTA rebuild.
+   KV11 heading: "Mennyi árajánlat vár most válaszra — és ki követi utánuk?"
+   Body: 30 perces megbeszélés framing; pending quotes as the hook.
+   Button: Foglaljon időpontot (consistent with Hero).
+   KV12 trust strip repeated here. */
 
 export default function FinalCtaEpitoipar() {
   return (
     <section className="final-cta" id="kapcsolat">
       <div className="wrap">
         <div className="final-cta__panel reveal">
-          {/* ATRIUM-EDIT KV10 — construction CTA heading */}
-          <h2 className="final-cta__h">Nézzük meg, hol szivárog a bevétele.</h2>
+          {/* ATRIUM-EDIT KV11 */}
+          <h2 className="final-cta__h">
+            Mennyi árajánlat vár most válaszra — és ki követi utánuk?
+          </h2>
           <p className="final-cta__p">
-            30 perces megbeszélés. Megnézzük a hívásait, a kiküldött
-            árajánlatait és az elmaradt érdeklődőit — és megmondjuk, mennyit hoz
-            vissza a rendszer, mielőtt bármiről dönt.
+            30 perces megbeszélés. Megnézzük, hány megkeresés jön be, mennyire
+            válaszolnak rájuk időben, és hány árajánlat van most függőben —
+            mielőtt bármiről dönt.
           </p>
           <button className="btn btn--lg final-cta__btn">Foglaljon időpontot</button>
           <span className="final-cta__note">
             Nincs kötelezettség · nincs sürgetés
           </span>
 
+          {/* KV12 — trust strip */}
           <div className="final-cta__badges">
             <span className="sys__badge">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9" /><path d="M3 12h18" /><path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18" /></svg>

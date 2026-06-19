@@ -1,5 +1,6 @@
-/* ATRIUM-EDIT KV9 — 5 construction-specific FAQ items.
-   No GoHighLevel on any public surface (brand spec §10).
+/* ATRIUM-EDIT KV10 — 5 Q&As rebuilt for cégvezető construction buyer.
+   Key change: "Szerez új ügyfeleket?" → honest "Nem." answer about existing demand.
+   No GoHighLevel on public surface (brand spec §10).
    No fabricated figures. Value-based pricing answer. */
 "use client";
 import { useState } from "react";
@@ -7,23 +8,23 @@ import { useState } from "react";
 const FAQS = [
   {
     q: "Mit csinál a rendszer?",
-    a: "Felveszi a hívásokat munka közben, visszahívja a hirdetésből érkező érdeklődőket, utánakérdez a kiküldött árajánlatoknak, és időpontot ad a helyszíni felmérésre — magyarul, a meglévő naptárához kötve.",
+    a: "Minden megkeresést azonnal fogad — hívás, webűrlap, e-mail — és kvalifikálja a projektet, majd a megfelelő emberhez irányítja a részletekkel együtt. A kiküldött árajánlatokat szisztematikusan utánköveti. Minden lépésről riportot ad Önnek.",
   },
   {
-    q: "Le kell cserélnem a mostani eszközeimet?",
-    a: "Nem. A meglévő naptárához és eszközeihez kötjük, a csapatának nem kell új rendszert tanulnia.",
+    q: "Új ügyfeleket is szerez?",
+    a: "Nem. A rendszer a meglévő keresletet hozza vissza — azokat a megkereséseket, amelyek eddig elvesztek, és azokat az árajánlatokat, amelyek eddig elhaltak utánkövetés nélkül. A hirdetési büdzsét nem növeljük, de jobban kiaknázzuk azt, amit már most is költ.",
+  },
+  {
+    q: "Le kell cserélnünk a mostani rendszereinket?",
+    a: "Nem. Az Atrium a meglévő naptárához, CRM-jéhez és eszközeihez kötve dolgozik. A csapatnak nem kell új szoftvert megtanulnia — a rendszer a háttérben fut.",
   },
   {
     q: "Mennyibe kerül?",
-    a: "Az árat az Ön számaiból állítjuk össze a megbeszélésen — a hívásaiból, az átlagos munkaértékből és az elmaradt érdeklődőkből. Egy általános ár félrevinné.",
+    a: "Az árat az Ön számaiból állítjuk össze a megbeszélésen — a beérkező megkeresések számából, a jellemző munkaértékből és az elvárt hatásból. Egy standard ár félrevinné. Az első megbeszélés nem kötelezi Önt semmire.",
   },
   {
     q: "Hol tárolják az adatokat?",
     a: "Az Európai Unióban, frankfurti szervereken, GDPR-konform módon.",
-  },
-  {
-    q: "Tényleg magyarul beszél?",
-    a: "Igen — természetes magyar beszéddel fogadja a hívásokat és hív vissza. Nem rejtjük el, hogy automatizált rendszer; ha valaki rákérdez, nyíltan megmondja.",
   },
 ];
 

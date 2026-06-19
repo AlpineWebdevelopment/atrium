@@ -242,3 +242,38 @@ CSS theme added: `.page--epitoipar` (`--signal: #A07C34` warm amber, earthy grad
 | KV-R3 | WhatsApp channel | REVIEW | `WhatsApp` included in channel row and CHANNELS array. Confirm deliverable before publishing; if not live, trim to Telefon · SMS · E-mail. |
 | KV-R4 | CTA button wording | REVIEW | `Foglaljon időpontot` (Hero + FinalCta) vs. root `FinalCta`'s `Foglaljon 30 perces megbeszélést`. Pick one site-wide and align. |
 | KV-R5 | `RealtimeDashboard` shared | REVIEW | Root `RealtimeDashboard` is reused; it uses appointment-business language internally. If the dashboard copy becomes visible to construction visitors, run a separate pass to re-theme it. |
+
+## Építőipar — build (cégvezető)
+
+Full rebuild of all 6 epitoipar components for the **head of an established construction firm** (staff, office, project managers). The solo-tradesman frame ("you miss calls while on scaffolding") is replaced throughout with a structural-organisational revenue-leak frame.
+
+Files changed: `src/components/HeroEpitoipar.tsx` · `src/components/PositioningEpitoipar.tsx` · `src/components/FullSystemEpitoipar.tsx` · `src/components/WorkPricingEpitoipar.tsx` · `src/components/FaqEpitoipar.tsx` · `src/components/FinalCtaEpitoipar.tsx` · `src/app/epitoipar/page.tsx` · `src/app/globals.css`
+
+| ID | File | Before | After | Why |
+|----|------|--------|-------|-----|
+| KV1 | `HeroEpitoipar.tsx` | `Értékesítési rendszer építőipari cégeknek.` eyebrow | unchanged | Correct; carried. |
+| KV2 | `HeroEpitoipar.tsx` | `A rendszer, amely akkor is értékesít, amikor Ön az építkezésen van.` | `Egyetlen megkeresés és egyetlen árajánlat sem vész el.` | Old headline was solo-operator ("you're on-site"). New: organisational zero-loss promise. |
+| KV3 | `HeroEpitoipar.tsx` | `…minden hívást fogad…amíg Ön a munkán van.` | `…minden megkeresést azonnal fogad és kvalifikál, a megfelelő emberhez irányít, és minden árajánlatot utánkövet, amíg le nem zárul. Ön pedig először látja át az egészet.` | Three concrete actions + reporting hook. Removes "you're on the job site" frame; correct for a firm with office staff. |
+| KV4 | `PositioningEpitoipar.tsx` | Heading `Ön a munkán van. A telefon meg csörög.` + solo-operator body | `A bevétel az értékesítés tetején szivárog — ott, ahova Ön nem lát.` heading + 4 structural leaks grid (lassú fogadás / nincs utánkövetés / drága szakemberek szűretlen megkereséseken / nincs rálátás) | Reframe: organisational leaks, not personal missed calls. Uses `wpr__grid` layout. |
+| KV5 | `FullSystemEpitoipar.tsx` | Root phases copied verbatim | 3 phases: 01 Fogadás és kvalifikálás (4 steps) · 02 Irányítás és foglalás (4 steps) · 03 Lezárás és rálátás (3 steps, Riport step uses `.tsr__step--lead`). Channels trimmed from 8 → 3: Telefon · Webűrlap · E-mail. | Phases and steps match construction buyer journey, not salon appointment flow. Channels: construction is phone-led. |
+| KV6 | `FullSystemEpitoipar.tsx` | `AI-ügynökök…a meglévő eszközeihez kötve. A csapatának semmit nem kell lecserélnie.` | Added CRM mention and AI disclosure sentence: `…igen, ez egy AI-alapú rendszer — pontosan megmutatjuk, mit csinál, és hol adja vissza az embereinek a döntést.` | Cégvezető buyer is more sceptical; explicit AI disclosure builds trust rather than eroding it. |
+| KV7 | `HeroEpitoipar.tsx` | `Egy nap a rendszerrel` 12-step solo-operator day timeline | `Egy megkeresés útja` 7-step inquiry journey (Megkeresés → Fogadva → Kvalifikálva → Irányítva → Felmérés foglalva → Árajánlat utánkövetve → Látható). 4/3 column split. Last step (`bars`, `#A07C34`) uses signal color for natural emphasis. | Replaces personal day narrative with a process-level illustration appropriate for a firm buyer. |
+| KV8 | `WorkPricingEpitoipar.tsx` | `Egy építőipari munka több százezertől…havonta egyetlen elszalasztott munkát visszahoz` | `A megtérülés az Önök munkaértékén a legnagyobb. Néhány visszahozott árajánlat negyedévente…önmagában megtérítik a rendszer költségét.` | ROI argument shifted from call-rescue to quote-recovery (árajánlat-utánkövetés is the primary ROI hook for a firm). No fabricated figures. |
+| KV9 | `WorkPricingEpitoipar.tsx` | 3 generic steps (single-line desc) | 4 process steps with title + description (Megbeszélés · Diagnózis · Ajánlat az Önök számaiból · Elindítás). Value-based heading `Az árat az Ön számaiból állítjuk össze.` kept; body re-written for firm buyer. | Steps now describe the firm-buyer onboarding journey; not the solo-operator audit. |
+| KV10 | `FaqEpitoipar.tsx` | 5 Q&As (solo-operator: call-answering focus, `Tényleg magyarul beszél?`) | 5 Q&As rebuilt for cégvezető: `Mit csinál a rendszer?` · `Új ügyfeleket is szerez?` (honest `Nem. A rendszer a meglévő keresletet hozza vissza…`) · `Le kell cserélnünk a mostani rendszereinket?` · `Mennyibe kerül?` · `Hol tárolják az adatokat?` | Removes `Tényleg magyarul?` (not the cégvezető's concern); adds honest "no new leads" disclosure which builds credibility. |
+| KV11 | `FinalCtaEpitoipar.tsx` | `Nézzük meg, hol szivárog a bevétele.` | `Mennyi árajánlat vár most válaszra — és ki követi utánuk?` | Pending quotes are the sharpest hook for a firm that sends many proposals. |
+| KV12 | `HeroEpitoipar.tsx`, `FullSystemEpitoipar.tsx`, `FinalCtaEpitoipar.tsx` | Trust strip carried from root | Magyar nyelvű · EU hosting · GDPR-konform — unchanged, repeated at three key points | Unchanged; cégvezető needs data-residency assurance. |
+| KV-C1 | `epitoipar/page.tsx` | `CustomSolutions` excluded | *(still excluded)* | Same rationale as original build. |
+| KV-C2 | `epitoipar/page.tsx` | `QualifierCrm` excluded | *(still excluded)* | Same rationale as original build; cost-bar is false at value-based pricing. |
+| KV-C3 | `epitoipar/page.tsx` | `FullSystemEpitoipar` came before `PositioningEpitoipar` | Swapped: `PositioningEpitoipar` (problem) now comes before `FullSystemEpitoipar` (solution) | Problem-led order: name the four organisational leaks before showing the system that closes them. |
+| KV-CSS | `globals.css` | `.tsr__step--lead` not defined | Added `.tsr__step--lead { border-left: 2.5px solid var(--c); padding-left: 12px; margin-left: -14px; }` + `.tsr__step--lead .tsr__step-txt b { color: var(--c); }` | Visual emphasis on the Riport step using the phase color variable (`var(--c)`) — works automatically for any phase color. |
+
+### Review rows
+
+| ID | Topic | Status | Note |
+|----|-------|--------|------|
+| KV-R1 | Page-level metadata | REVIEW | `description` updated to cégvezető framing; `title` unchanged. If a cégvezető-specific title is needed, update separately. |
+| KV-R2 | `RealtimeDashboard` shared | REVIEW | Reused from root; appointment-business language may surface. Consider a construction-native pass if the dashboard copy is visible to visitors. |
+| KV-R3 | `HowWeStart` shared | REVIEW | Also reused; verify onboarding steps are firm-appropriate. |
+| KV-R4 | AI disclosure honesty | RECORD | The explicit AI disclosure in KV6 (`igen, ez egy AI-alapú rendszer`) is intentional brand-voice for the B2B cégvezető buyer. Do not remove in future copy passes; it builds rather than erodes trust with this persona. |
+| KV-R5 | Solo-operator pages | REVIEW | `/szepsegszalon`, `/kormos`, `/fizioterapia` all still use the personal frame. If those products are confirmed for the firm context, run a similar rebuild. For now they remain single-operator products. |

@@ -15,17 +15,18 @@ import ScrollReveal from "@/components/ScrollReveal";
 export const metadata: Metadata = {
   title: "Atrium — Építőipari cégek AI-alapú értékesítési rendszere",
   description:
-    "Magyar nyelvű AI-rendszer építőipari cégeknek: minden hívást fogad, minden érdeklődőt visszahív, és minden árajánlatot utánkövet — amíg Ön a munkán van.",
+    "Magyar nyelvű AI-alapú értékesítési rendszer építőipari cégeknek: minden megkeresést fogad és kvalifikál, a megfelelő emberhez irányít, és minden árajánlatot utánkövet — az egészet Ön látja.",
 };
 
 export default function EpitoiparPage() {
   return (
     <div className="page page--epitoipar" data-screen-label="atriumscaling.com /epitoipar">
       <ScrollReveal />
+      {/* ATRIUM-EDIT KV-C3 — problem-led order: leaks (Positioning) before solution (FullSystem) */}
       <HeroEpitoipar />
+      <PositioningEpitoipar />
       <RealtimeDashboard />
       <FullSystemEpitoipar />
-      <PositioningEpitoipar />
       <HowWeStart />
       <WorkPricingEpitoipar />
       <FaqEpitoipar />
