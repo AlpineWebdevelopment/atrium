@@ -124,7 +124,7 @@ const FIT = [
   "Egy feladatot ma emberek csinálnak kézzel, újra meg újra",
   "A piacon kapható eszközök nem tudják azt, amire szüksége van",
   "Számít a megbízhatóság — nem elég, hogy „valahogy működjön”",
-  "Hosszú távon gondolkodik, nem egyszeri gyorsjavításban",
+  "Kész befektetni egy tartós eredménybe",
   "Szeretne részt venni a fejlesztésben, nem csak átvenni egy kész dobozt",
 ];
 
@@ -132,7 +132,7 @@ const NOFIT = [
   "A legolcsóbb lehetőséget keresi, nem a jól működőt",
   "Még nincs konkrét probléma, csak az AI érdekli önmagában",
   "Kész terméket vár holnapra, fejlesztési idő nélkül",
-  "A feladat annyira egyszerű, hogy egy kész eszköz is megoldja",
+  "Nem akar időt szánni rá, hogy közösen pontosítsuk a feladatot",
 ];
 
 const GUARANTEES = [
