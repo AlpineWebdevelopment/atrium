@@ -1905,16 +1905,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
 
 /* What we can build — four branch trees: a category node with a colour-matched
    spine dropping through its capability nodes (a graph, not cards) */
-.cux__cats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-.cux__cats-lead {
-  margin: 4px auto 30px; max-width: 560px; text-align: center;
-  font-family: var(--font-body); font-size: 15px; line-height: 1.55; color: var(--ink-70);
-}
-.cux__cats-note {
-  margin: 30px auto 0; text-align: center;
-  font-family: var(--font-display); font-weight: 500; font-size: 15px;
-  letter-spacing: -0.01em; color: var(--ink);
-}
+.cux__cats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
 .cux__catcol-head { display: flex; align-items: center; gap: 11px; }
 .cux__catcol-ico {
   width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
