@@ -8,7 +8,7 @@ const FAQS = [
   },
   {
     q: "Észreveszik az ügyfelek, hogy AI-val beszélnek?",
-    a: "Nem titkoljuk, hogy a rendszer AI — és nem állítjuk, hogy senki nem veszi észre. Amit vállalunk: természetes, magyar nyelvű beszélgetés, menürendszer és robothang nélkül. A cél nem a megtévesztés, hanem hogy az ügyfél gyorsan és érthetően választ kapjon.",
+    a: "Nem titkoljuk, hogy a rendszer AI — de a legtöbb hívó bele sem gondol. Természetes ütemben beszél, valódi szünetekkel és élő beszédfordulatokkal, magyarul, menü és robothang nélkül. Nem a megtévesztés a cél, hanem hogy az ügyfél gyorsan és érthetően választ kapjon.",
   },
   {
     q: "Mi történik, ha a rendszer hibázik?",
