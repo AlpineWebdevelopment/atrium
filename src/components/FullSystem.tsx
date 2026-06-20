@@ -171,8 +171,10 @@ export default function FullSystem() {
           </p>
           <p className="sys__howline">
             Hogyan működik? AI-ügynökök kezelik a hang- és szöveges
-            beszélgetést, természetes magyar nyelven — a csapatának semmit nem
-            kell lecserélnie.
+            beszélgetést, természetes magyar nyelven — a hívó nem merev
+            menüvel találkozik, hanem egy gördülékeny beszélgetéssel. Nyíltan
+            AI, de a vendége egy rendes beszélgetést kap. A csapatának semmit
+            nem kell lecserélnie.
           </p>
         </div>
 
