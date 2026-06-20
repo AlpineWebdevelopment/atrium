@@ -159,22 +159,16 @@ export default function FullSystem() {
           <span className="dash__eyebrow">A teljes rendszer</span>
           <h2 className="dash__h">Nem hét eszköz — egyetlen rendszer.</h2>
           <p className="sys__scale">
-            Minden cégmérethez a saját rendszere — a kis műhelytől a
-            nagyvállalatig, automatikusan az Ön folyamataihoz és igényeihez
-            szabva.
+            A kis műhelytől a nagyvállalatig — mindenki a saját méretére
+            szabott rendszert kapja.
           </p>
           <p className="dash__p">
-            Az Atrium egy magyar nyelvű, AI-alapú értékesítési rendszer: minden
-            csatornán ugyanaz a közös memória dolgozik, és végigkíséri az
-            érdeklődőt a hívástól a foglaláson át a visszatérő ügyfélig — a
-            háttérben, az Ön meglévő naptárához és eszközeihez kötve.
+            Egy közös memória minden csatornán. Végigkíséri az érdeklődőt a
+            hívástól a foglaláson át a visszatérő ügyfélig.
           </p>
           <p className="sys__howline">
-            Hogyan működik? AI-ügynökök kezelik a hang- és szöveges
-            beszélgetést, természetes magyar nyelven — a hívó nem merev
-            menüvel találkozik, hanem egy gördülékeny beszélgetéssel. Nyíltan
-            AI, de a vendége egy rendes beszélgetést kap. A csapatának semmit
-            nem kell lecserélnie.
+            AI-ügynökök kezelik a hang- és szöveges beszélgetést, természetes
+            magyarul. A meglévő eszközeit nem kell lecserélnie.
           </p>
         </div>
 
