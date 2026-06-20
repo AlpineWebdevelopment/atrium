@@ -67,53 +67,55 @@ const ROOT = { x: 142, y: MAP_H / 2, r: 48 };
 const NODE_X = 500;
 const nodeY = (i: number) => 46 + i * ((MAP_H - 92) / (MAP_NODES.length - 1));
 
+/* ATRIUM-EDIT — taxonomy regrouped into bespoke, outside-the-core categories
+   (no industry menu, no overlap with the standard system). */
 const CATEGORIES = [
   {
-    h: "Értékesítés és marketing",
+    h: "Dokumentumok és papírmunka",
     c: "#9662BC",
+    ico: "doc" as IconKey,
+    items: [
+      "Hosszú szerződésből vagy kiírásból kiszedi a határidőket és feltételeket",
+      "A bejövő számlákat összeveti a megrendelésekkel, és jelzi az eltérést",
+      "A papíralapú nyilvántartást kereshető adatbázisba viszi át",
+      "A beérkező űrlapokból és e-mailekből egységes táblázatot épít",
+      "A szállítóleveleket beolvassa és a megrendelésekhez párosítja",
+    ],
+  },
+  {
+    h: "Működés és előrejelzés",
+    c: "#628FBC",
     ico: "trend" as IconKey,
     items: [
-      "Automatikus érdeklődő-gondozás",
-      "Személyre szabott e-mail-kampányok",
-      "Dinamikus ajánlat-generátor",
-      "Ár-kalkulátor és ajánlatküldő",
-      "Érdeklődő-kutatás és minősítés",
+      "A beszállítói árlistákat összeveti, és tételenként jelzi a legolcsóbbat",
+      "Korábbi adatokból jelzi, mikor fogy ki egy alapanyag",
+      "A megrendelések alapján előrejelzi, melyik határidő csúszhat",
+      "A visszatérő heti adminisztrációt magától elvégzi",
+      "Figyeli a versenytársak árait, és szól, ha változás van",
     ],
   },
   {
-    h: "Ügyfélszolgálat és támogatás",
-    c: "#628FBC",
+    h: "Belső tudás és csapat",
+    c: "#62BCAC",
     ico: "chat" as IconKey,
     items: [
-      "Többnyelvű ügyfélszolgálat több csatornán",
-      "Megkeresések irányítása és rangsorolása",
-      "Tudásbázis-keresés és válaszadás",
-      "Proaktív probléma-észlelés",
-      "Automatikus eszkaláció",
+      "A cég saját szabályzataiból válaszol a csapat kérdéseire",
+      "A betanító anyagokból kereshető belső kézikönyvet készít",
+      "Az értekezletekből összefoglalót és teendőlistát ír",
+      "Egy új belépőt végigvezet az első hetek lépésein",
+      "A telefonos egyeztetésekből kigyűjti a teendőket",
     ],
   },
   {
-    h: "Operációs automatizálás",
-    c: "#62BCAC",
+    h: "Adat és rendszerek",
+    c: "#BCA162",
     ico: "refresh" as IconKey,
     items: [
-      "Dokumentum-feldolgozás és kategorizálás",
-      "Adatkinyerés és elemzés",
-      "Automata jelentés-generálás",
-      "Folyamat-monitorozás és anomália-észlelés",
-      "Készletkezelés és előrejelzés",
-    ],
-  },
-  {
-    h: "Iparág-specifikus",
-    c: "#BCA162",
-    ico: "layers" as IconKey,
-    items: [
-      "Egészségügy — beteg-kommunikáció",
-      "Jogi — szerződés-ellenőrzés és megfelelőség",
-      "Pénzügy — csalásfelderítés és kockázatértékelés",
-      "Webshop — dinamikus árazás és termékajánló",
-      "HR — önéletrajz-szűrés és jelölt-előszűrés",
+      "Két rendszert összeköt, amelyek eddig nem beszéltek egymással",
+      "Két nyilvántartást összevet, és megtalálja az eltéréseket",
+      "Egy adatbázisból kiszűri a duplikátumokat és a hibás sorokat",
+      "A webshop termékadatait a gyártói adatlapból tölti fel",
+      "Jelez, ha egy fontos érték a megszokottól eltér",
     ],
   },
 ];
