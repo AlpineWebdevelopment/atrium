@@ -1514,6 +1514,11 @@ html.dark { --viz-purple-soft: #1d1b33; }
   margin: 14px auto 0; max-width: 640px;
   font-family: var(--font-body); font-size: 14px; line-height: 1.55; color: var(--ink-70);
 }
+.sys__scale {
+  margin: 14px auto 0; max-width: 620px;
+  font-family: var(--font-display); font-weight: 500; font-size: 17px;
+  letter-spacing: -0.015em; line-height: 1.4; color: var(--ink);
+}
 .dash__exnote {
   margin: 14px auto 0; max-width: 560px; text-align: center;
   font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.03em; color: var(--stone);

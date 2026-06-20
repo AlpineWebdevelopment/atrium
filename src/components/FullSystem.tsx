@@ -161,6 +161,11 @@ export default function FullSystem() {
         <div className="dash__intro reveal">
           <span className="dash__eyebrow">A teljes rendszer</span>
           <h2 className="dash__h">Nem hét eszköz — egyetlen rendszer.</h2>
+          <p className="sys__scale">
+            Minden cégmérethez a saját rendszere — a kis műhelytől a
+            nagyvállalatig, automatikusan az Ön folyamataihoz és igényeihez
+            szabva.
+          </p>
           <p className="dash__p">
             Az Atrium egy magyar nyelvű, AI-alapú értékesítési rendszer: minden
             csatornán ugyanaz a közös memória dolgozik, és végigkíséri az
