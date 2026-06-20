@@ -1774,9 +1774,22 @@ html.dark { --viz-purple-soft: #1d1b33; }
   color: var(--ink-70); max-width: 320px; margin: 0 auto;
 }
 .how__cta { margin-top: 52px; text-align: center; }
+/* 4-step variant (merged work-flow + pricing logic) */
+.how__grid.how__grid--4 { grid-template-columns: repeat(4, 1fr); gap: 32px; }
+.how__note {
+  margin: 34px auto 0; max-width: 620px; text-align: center;
+  padding: 14px 20px; border-radius: 12px;
+  border: 1px dashed var(--line); background: var(--bone);
+  font-family: var(--font-body); font-size: 14px; line-height: 1.55; color: var(--ink-70);
+}
+.how__note b { color: var(--ink); font-weight: 500; }
+@media (max-width: 920px) {
+  .how__grid--4 { grid-template-columns: 1fr 1fr; gap: 36px 28px; }
+}
 @media (max-width: 800px) {
   .how { padding: 72px 0; }
   .how__grid { grid-template-columns: 1fr; gap: 30px; }
+  .how__grid--4 { grid-template-columns: 1fr; gap: 30px; }
   .how__grid::before { display: none; }
 }
 
