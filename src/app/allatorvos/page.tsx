@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import HeroAllatorvos from "@/components/HeroAllatorvos";
+import VoiceDemo from "@/components/VoiceDemo";
 import RealtimeDashboardAllatorvos from "@/components/RealtimeDashboardAllatorvos";
 import FullSystemAllatorvos from "@/components/FullSystemAllatorvos";
 import PositioningAllatorvos from "@/components/PositioningAllatorvos";
@@ -23,6 +24,7 @@ export default function AllatorvosPage() {
     <div className="page page--allatorvos" data-screen-label="atriumscaling.com /allatorvos">
       <ScrollReveal />
       <HeroAllatorvos />
+      <VoiceDemo />
       {/* AV — problem-led order: two leaks before the system */}
       <PositioningAllatorvos />
       <RealtimeDashboardAllatorvos />

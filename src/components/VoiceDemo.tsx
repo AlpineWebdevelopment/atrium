@@ -1,46 +1,38 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
-import { RetellWebClient } from "retell-client-js-sdk";
+import { useState } from "react";
+import { ConversationProvider, useConversation } from "@elevenlabs/react";
 
 type Status = "idle" | "connecting" | "active" | "error";
 
-export default function VoiceDemo() {
+function VoiceDemoInner() {
   const [status, setStatus] = useState<Status>("idle");
-  const [agentTalking, setAgentTalking] = useState(false);
-  const clientRef = useRef<RetellWebClient | null>(null);
+  const conversation = useConversation({
+    onConnect: () => setStatus("active"),
+    onDisconnect: () => setStatus("idle"),
+    onError: () => setStatus("error"),
+  });
 
-  useEffect(() => {
-    return () => {
-      clientRef.current?.stopCall();
-    };
-  }, []);
+  const agentTalking = status === "active" && conversation.isSpeaking;
 
   async function startCall() {
     setStatus("connecting");
     try {
-      const res = await fetch("/api/retell", { method: "POST" });
-      const { accessToken, error } = await res.json();
-      if (error || !accessToken) throw new Error(error);
+      // The browser must grant mic access before the session opens.
+      await navigator.mediaDevices.getUserMedia({ audio: true });
 
-      const client = new RetellWebClient();
-      clientRef.current = client;
+      const res = await fetch("/api/elevenlabs");
+      const { signedUrl, error } = await res.json();
+      if (error || !signedUrl) throw new Error(error);
 
-      client.on("call_started", () => setStatus("active"));
-      client.on("call_ended", () => { setStatus("idle"); setAgentTalking(false); });
-      client.on("error", () => { setStatus("error"); setAgentTalking(false); });
-      client.on("agent_start_talking", () => setAgentTalking(true));
-      client.on("agent_stop_talking", () => setAgentTalking(false));
-
-      await client.startCall({ accessToken });
+      await conversation.startSession({ signedUrl });
     } catch {
       setStatus("error");
     }
   }
 
   function stopCall() {
-    clientRef.current?.stopCall();
+    conversation.endSession();
     setStatus("idle");
-    setAgentTalking(false);
   }
 
   return (
@@ -58,12 +50,23 @@ export default function VoiceDemo() {
           </div>
 
           <div className="vdemo__widget">
-            <div className={"vdemo__orb" + (agentTalking ? " vdemo__orb--talking" : "") + (status === "active" ? " vdemo__orb--active" : "")}>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-                {status === "active"
-                  ? <><path d="M9 2h6v12H9z" /><path d="M5 10a7 7 0 0 0 14 0M12 19v3" /></>
-                  : <><path d="M9 2h6v12H9z" /><path d="M5 10a7 7 0 0 0 14 0M12 19v3" /></>
-                }
+            <div
+              className={
+                "vdemo__orb" +
+                (agentTalking ? " vdemo__orb--talking" : "") +
+                (status === "active" ? " vdemo__orb--active" : "")
+              }
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M9 2h6v12H9z" />
+                <path d="M5 10a7 7 0 0 0 14 0M12 19v3" />
               </svg>
             </div>
 
@@ -89,19 +92,25 @@ export default function VoiceDemo() {
             )}
             {status === "error" && (
               <>
-                <p className="vdemo__err">Hiba — próbálja újra.</p>
+                <p className="vdemo__err">Hiba — engedélyezze a mikrofont, és próbálja újra.</p>
                 <button className="btn vdemo__btn" onClick={() => setStatus("idle")}>
                   Újra
                 </button>
               </>
             )}
 
-            <span className="vdemo__note">
-              Magyar nyelvű · kb. 2 perc · ingyenes
-            </span>
+            <span className="vdemo__note">Magyar nyelvű · kb. 2 perc · ingyenes</span>
           </div>
         </div>
       </div>
     </section>
+  );
+}
+
+export default function VoiceDemo() {
+  return (
+    <ConversationProvider>
+      <VoiceDemoInner />
+    </ConversationProvider>
   );
 }
