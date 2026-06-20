@@ -19,101 +19,39 @@ const ICON_PATHS: Record<IconKey, React.ReactNode> = {
   layers: (<><path d="M12 2 2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" /></>),
 };
 
-const PROJECTS: { ico: IconKey; t: string; d: string; who: string; c: string }[] = [
-  {
-    ico: "target",
-    t: "AI érdeklődő-szerzés és minősítés",
-    d: "Magától megtalálja a lehetséges ügyfeleket — LinkedInen, a weboldal látogatói és a meglévő adatbázisok alapján. Minősíti, csoportokba rendezi, és személyre szabott megkeresést indít. Ember nélkül.",
-    who: "Ügynökségeknek és B2B-cégeknek",
-    c: "#9662BC",
-  },
-  {
-    ico: "search",
-    t: "AI SEO-automatizálás",
-    d: "Átnézi az ügyféloldalakat, megmutatja a hibákat, tartalmat javasol és rendbe teszi a meta-adatokat. A jelentés magától megy ki. Egy csapat 50 ügyfelet visz két ember helyett.",
-    who: "Ügynökségeknek",
-    c: "#628FBC",
-  },
-  {
-    ico: "doc",
-    t: "Dokumentum-kinyerő ügynök",
-    d: "Több ezer dokumentum közül is másodpercek alatt megtalálja és kiemeli a kért adatot. Ott segít, ahol ma órákba telik a keresés.",
-    who: "Jogi cégeknek, könyvelőknek, kórházaknak",
-    c: "#62BCAC",
-  },
-  {
-    ico: "globe",
-    t: "Többnyelvű ügyfélszolgálati AI",
-    d: "Tíznél több nyelven válaszol, és folyamatosan együtt mozog a belső rendszereivel. Rögzíti a megkeresést, megnézi a státuszt, kezeli a gyakori kérdéseket — magától.",
-    who: "Multinacionális cégeknek",
-    c: "#BCA162",
-  },
-  {
-    ico: "send",
-    t: "Kimenő értékesítési AI",
-    d: "Hideghívásban és LinkedInen is személyre szabottan keresi meg a célpontokat. Figyeli a válaszokat, és csak az érett érdeklődőt adja tovább az értékesítőnek.",
-    who: "B2B értékesítési csatorna építésére",
-    c: "#6DBC61",
-  },
-];
-
-/* mind-map: the projects + an open-ended node, fanning from one root */
-const MAP_NODES = [
-  ...PROJECTS,
-  { ico: "plus" as IconKey, t: "Az Ön ötlete", d: "", who: "bármi, amit AI megold", c: "#6DBC61" },
-];
-const MAP_W = 1000, MAP_H = 470;
-const ROOT = { x: 142, y: MAP_H / 2, r: 48 };
-const NODE_X = 500;
-const nodeY = (i: number) => 46 + i * ((MAP_H - 92) / (MAP_NODES.length - 1));
-
+/* ATRIUM-EDIT EF1 — dropped the redundant radial "Példa projektek" diagram and
+   folded the bespoke examples into the regrouped "Amit tudunk építeni" columns
+   (data / operations / internal), so the shape no longer mirrors Meridian's
+   sales/support/ops/industry menu and the industry column is gone. */
 const CATEGORIES = [
   {
-    h: "Értékesítés és marketing",
+    h: "Dokumentum és adat",
     c: "#9662BC",
+    ico: "doc" as IconKey,
+    items: [
+      "Dokumentumokból adatkinyerés és rendezés",
+      "Adatok összefésülése több forrásból",
+      "Egyedi vezetői kimutatás",
+    ],
+  },
+  {
+    h: "Működés és előrejelzés",
+    c: "#628FBC",
     ico: "trend" as IconKey,
     items: [
-      "Automatikus érdeklődő-gondozás",
-      "Személyre szabott e-mail-kampányok",
-      "Dinamikus ajánlat-generátor",
-      "Ár-kalkulátor és ajánlatküldő",
-      "Érdeklődő-kutatás és minősítés",
+      "Beszállítói és alvállalkozói egyeztetés",
+      "Készlet- és kapacitás-előrejelzés",
+      "Ismétlődő feladatok automatizálása",
     ],
   },
   {
-    h: "Ügyfélszolgálat és támogatás",
-    c: "#628FBC",
-    ico: "chat" as IconKey,
-    items: [
-      "Többnyelvű ügyfélszolgálat több csatornán",
-      "Megkeresések irányítása és rangsorolása",
-      "Tudásbázis-keresés és válaszadás",
-      "Proaktív probléma-észlelés",
-      "Automatikus eszkaláció",
-    ],
-  },
-  {
-    h: "Operációs automatizálás",
+    h: "Belső munka és integráció",
     c: "#62BCAC",
-    ico: "refresh" as IconKey,
-    items: [
-      "Dokumentum-feldolgozás és kategorizálás",
-      "Adatkinyerés és elemzés",
-      "Automata jelentés-generálás",
-      "Folyamat-monitorozás és anomália-észlelés",
-      "Készletkezelés és előrejelzés",
-    ],
-  },
-  {
-    h: "Iparág-specifikus",
-    c: "#BCA162",
     ico: "layers" as IconKey,
     items: [
-      "Egészségügy — beteg-kommunikáció",
-      "Jogi — szerződés-ellenőrzés és megfelelőség",
-      "Pénzügy — csalásfelderítés és kockázatértékelés",
-      "Webshop — dinamikus árazás és termékajánló",
-      "HR — önéletrajz-szűrés és jelölt-előszűrés",
+      "Belső csapat-asszisztens a saját anyagaikból",
+      "Két rendszer összekötése, adatátvitel",
+      "Folyamat-monitorozás és jelzés, ha valami elakad",
     ],
   },
 ];
@@ -188,60 +126,10 @@ export default function CustomSolutions() {
           </div>
         </div>
 
-        {/* Example projects */}
+        {/* What we can build — bespoke work outside the core system */}
         <div className="cux__sec reveal" data-delay="2">
-          <h3 className="cux__sec-h"><span>Példa projektek</span></h3>
-          {/* desktop: mind-map — one root fanning out to the projects */}
-          <svg className="cux__map" viewBox={`0 0 ${MAP_W} ${MAP_H}`} role="img" aria-label="Egyedi AI — példa projektek">
-            <defs>
-              {MAP_NODES.map((n, i) => (
-                <linearGradient key={i} id={`gmap${i}`} gradientUnits="userSpaceOnUse" x1={ROOT.x} y1={ROOT.y} x2={NODE_X} y2={nodeY(i)}>
-                  <stop offset="0%" stopColor="rgba(1,14,30,0.16)" />
-                  <stop offset="100%" stopColor={n.c} />
-                </linearGradient>
-              ))}
-            </defs>
-            {MAP_NODES.map((n, i) => {
-              const y = nodeY(i);
-              return <path key={i} d={`M${ROOT.x + ROOT.r},${ROOT.y} C 330,${ROOT.y} 360,${y} ${NODE_X - 22},${y}`} fill="none" stroke={`url(#gmap${i})`} strokeWidth="2" />;
-            })}
-            <circle cx={ROOT.x} cy={ROOT.y} r={ROOT.r} fill="var(--bone)" stroke="#6DBC61" strokeWidth="2" />
-            <circle cx={ROOT.x} cy={ROOT.y} r={ROOT.r} fill="none" stroke="#6DBC61" strokeWidth="2">
-              <animate attributeName="r" values={`${ROOT.r};${ROOT.r + 20}`} dur="2.6s" repeatCount="indefinite" />
-              <animate attributeName="opacity" values="0.45;0" dur="2.6s" repeatCount="indefinite" />
-            </circle>
-            <text className="cux__map-root" x={ROOT.x} y={ROOT.y - 4} textAnchor="middle">Egyedi</text>
-            <text className="cux__map-root" x={ROOT.x} y={ROOT.y + 14} textAnchor="middle">AI</text>
-            {MAP_NODES.map((n, i) => {
-              const y = nodeY(i);
-              return (
-                <g key={i}>
-                  <circle cx={NODE_X} cy={y} r="19" fill="var(--bone)" stroke={n.c} strokeWidth="2" />
-                  <svg x={NODE_X - 11} y={y - 11} width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={n.c} strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" style={{ color: n.c }}>
-                    {ICON_PATHS[n.ico]}
-                  </svg>
-                  <text className="cux__map-t" x={NODE_X + 30} y={y - 2}>{n.t}</text>
-                  <text className="cux__map-sub" x={NODE_X + 30} y={y + 15} fill={n.c}>{n.who}</text>
-                </g>
-              );
-            })}
-          </svg>
-
-          {/* mobile: vertical spine version of the same map */}
-          <div className="cux__maplist">
-            {MAP_NODES.map((n, i) => (
-              <div className="cux__mapitem" key={i} style={{ ["--pc" as string]: n.c } as React.CSSProperties}>
-                <span className="cux__mapitem-dot" />
-                <b className="cux__mapitem-t">{n.t}</b>
-                <span className="cux__mapitem-sub">{n.who}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* What we can build */}
-        <div className="cux__sec reveal">
           <h3 className="cux__sec-h"><span>Amit tudunk építeni</span></h3>
+          <p className="cux__cats-lead">A kész rendszeren túl — a működése többi pontjára.</p>
           <div className="cux__cats">
             {CATEGORIES.map((cat, i) => (
               <div className="cux__catcol" key={i} style={{ ["--pc" as string]: cat.c } as React.CSSProperties}>
@@ -259,6 +147,7 @@ export default function CustomSolutions() {
               </div>
             ))}
           </div>
+          <p className="cux__cats-note">+ Az Ön ötlete — amit a működésében automatizálna.</p>
         </div>
 
         {/* Fit / not fit */}
