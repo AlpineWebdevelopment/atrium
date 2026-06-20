@@ -391,6 +391,8 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
 /* ÚJ — benefits payoff row */
 .benr { padding: 84px 0 24px; }
 .benr__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-top: 42px; }
+.benr__grid--2 { grid-template-columns: repeat(2, 1fr); max-width: 760px; margin-left: auto; margin-right: auto; gap: 36px; }
+@media (max-width: 560px) { .benr__grid--2 { grid-template-columns: 1fr; gap: 24px; } }
 .benr__item { display: flex; flex-direction: column; }
 .benr__ico {
   width: 46px; height: 46px; border-radius: 13px; margin-bottom: 15px;

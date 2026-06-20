@@ -388,3 +388,17 @@ CSS theme added: `.page--szepsegipar` (`--signal: #9E6B9E` warm lavender-purple;
 | LR-R3 | Third-layer registration | RECORD | This is the first page in the cross-niche service layer (LR = lead response). Register this layer in the brand spec with its own lane rules: fixed framing around one specific service outcome, cross-niche, ads-first audience. |
 | LR-R4 | Cannibalisation guard — quote follow-up | RECORD | Quote follow-up intentionally excluded (epitoipar lane only). If a construction firm lands on this page, they should not see "quote follow-up" and conclude the epitoipar page adds nothing new. Guard this firewall as more service pages are added. |
 | LR-R5 | `/gyors-lead-valasz` in sitemap / nav | RECORD | Not linked from root nav in this build. Decide: add as a sub-item under a Services menu, or keep as a dark landing page for specific ad traffic only. |
+
+## Root — Miért éri meg törlés + mentés
+
+| ID | Before | After | Why |
+|----|--------|-------|-----|
+| MEG1 | `QualifierCrm` block: `Miért éri meg` / `Amit a rendszer Önnek hoz`, lead-scoring intro, MINDEN CÉGMÉRETRE, Személyre szabva, Saját CRM, rendszer nélkül/a rendszerrel, elérhetőség/havi költség rendszer·munkatárs table | Whole block removed; component file deleted | Core-system value in the wrong place; off-brand spine (lead-scoring filter + rendszer vs. munkatárs cost table). |
+| MEG2 | — | 2-point value strip (`ValueStrip`) above WorkFlow: "Mindig elérhető", "Több időpont, ugyanannyi érdeklődőből" | Salvaged the two non-duplicated points. |
+
+Dedup (MEG2): **skipped** "A méretére szabva" (dup of FullSystem `A rendszert mindig a cége méretéhez igazítjuk…`) and "A saját rendszerét használja tovább" (dup of FullSystem `A meglévő eszközeit nem kell lecserélnie.`).
+
+Section C — review flags:
+- **Placement (confirm):** ValueStrip placed directly above the WorkFlow ("Hogyan dolgozunk" pricing/decision) section — best-guess insertion point, needs human confirmation.
+- **Saját CRM reword:** the "az adatok… nem egy bérelt felületen" claim was dropped on purpose (Atrium ships a GoHighLevel instance, so a "never rented surface" claim half-contradicts the stack). No other "own platform / not rented" claim found on the root page that needs the same treatment.
+- **Dropped on purpose:** the lead-scoring/filter line and the `rendszer vs. munkatárs` cost table — not reintroduced anywhere.
