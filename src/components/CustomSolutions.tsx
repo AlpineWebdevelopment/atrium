@@ -19,40 +19,42 @@ const ICON_PATHS: Record<IconKey, React.ReactNode> = {
   layers: (<><path d="M12 2 2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" /></>),
 };
 
+/* ATRIUM-EDIT EF1 — swapped the five example projects for bespoke work that sits
+   outside the standard system (and the candidate capabilities). */
 const PROJECTS: { ico: IconKey; t: string; d: string; who: string; c: string }[] = [
   {
-    ico: "target",
-    t: "AI érdeklődő-szerzés és minősítés",
-    d: "Magától megtalálja a lehetséges ügyfeleket — LinkedInen, a weboldal látogatói és a meglévő adatbázisok alapján. Minősíti, csoportokba rendezi, és személyre szabott megkeresést indít. Ember nélkül.",
-    who: "Ügynökségeknek és B2B-cégeknek",
+    ico: "refresh",
+    t: "Beszállítói és alvállalkozói egyeztetés",
+    d: "Az anyagrendeléseket és az alvállalkozói időpontokat egyezteti és nyomon követi.",
+    who: "Kivitelező cégeknek",
     c: "#9662BC",
   },
   {
-    ico: "search",
-    t: "AI SEO-automatizálás",
-    d: "Átnézi az ügyféloldalakat, megmutatja a hibákat, tartalmat javasol és rendbe teszi a meta-adatokat. A jelentés magától megy ki. Egy csapat 50 ügyfelet visz két ember helyett.",
-    who: "Ügynökségeknek",
+    ico: "doc",
+    t: "Dokumentum- és adatfeldolgozás",
+    d: "A beérkező dokumentumokból (űrlapok, számlák, szerződések) kinyeri és a rendszerbe rendezi a fontos adatokat.",
+    who: "Sok papírral dolgozó cégeknek",
     c: "#628FBC",
   },
   {
-    ico: "doc",
-    t: "Dokumentum-kinyerő ügynök",
-    d: "Több ezer dokumentum közül is másodpercek alatt megtalálja és kiemeli a kért adatot. Ott segít, ahol ma órákba telik a keresés.",
-    who: "Jogi cégeknek, könyvelőknek, kórházaknak",
+    ico: "chat",
+    t: "Belső csapat-asszisztens",
+    d: "A csapat kérdéseire a cég saját szabályzataiból válaszol, hogy ne kelljen mindenért vezetőt keresni.",
+    who: "Nagyobb csapatoknak",
     c: "#62BCAC",
   },
   {
-    ico: "globe",
-    t: "Többnyelvű ügyfélszolgálati AI",
-    d: "Tíznél több nyelven válaszol, és folyamatosan együtt mozog a belső rendszereivel. Rögzíti a megkeresést, megnézi a státuszt, kezeli a gyakori kérdéseket — magától.",
-    who: "Multinacionális cégeknek",
+    ico: "trend",
+    t: "Készlet- és kapacitás-előrejelzés",
+    d: "A korábbi adatokból előrejelzi a keresletet, a készletet vagy a szabad kapacitást.",
+    who: "Webshopoknak és gyártó cégeknek",
     c: "#BCA162",
   },
   {
-    ico: "send",
-    t: "Kimenő értékesítési AI",
-    d: "Hideghívásban és LinkedInen is személyre szabottan keresi meg a célpontokat. Figyeli a válaszokat, és csak az érett érdeklődőt adja tovább az értékesítőnek.",
-    who: "B2B értékesítési csatorna építésére",
+    ico: "layers",
+    t: "Folyamat-automatizálás két rendszer között",
+    d: "Összeköt két eszközt, ami eddig nem beszélt egymással, és automatikusan átviszi az adatot.",
+    who: "Több külön rendszert használó cégeknek",
     c: "#6DBC61",
   },
 ];

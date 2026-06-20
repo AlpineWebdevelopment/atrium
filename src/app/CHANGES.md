@@ -388,3 +388,9 @@ CSS theme added: `.page--szepsegipar` (`--signal: #9E6B9E` warm lavender-purple;
 | LR-R3 | Third-layer registration | RECORD | This is the first page in the cross-niche service layer (LR = lead response). Register this layer in the brand spec with its own lane rules: fixed framing around one specific service outcome, cross-niche, ads-first audience. |
 | LR-R4 | Cannibalisation guard — quote follow-up | RECORD | Quote follow-up intentionally excluded (epitoipar lane only). If a construction firm lands on this page, they should not see "quote follow-up" and conclude the epitoipar page adds nothing new. Guard this firewall as more service pages are added. |
 | LR-R5 | `/gyors-lead-valasz` in sitemap / nav | RECORD | Not linked from root nav in this build. Decide: add as a sub-item under a Services menu, or keep as a dark landing page for specific ad traffic only. |
+
+## Root — Egyedi fejlesztés példák
+
+| ID | Before | After | Why |
+|----|--------|-------|-----|
+| EF1 | Példa projektek: AI érdeklődő-szerzés és minősítés, AI SEO-automatizálás, Dokumentum-kinyerő ügynök, Többnyelvű ügyfélszolgálati AI, Kimenő értékesítési AI | Beszállítói és alvállalkozói egyeztetés, Dokumentum- és adatfeldolgozás, Belső csapat-asszisztens, Készlet- és kapacitás-előrejelzés, Folyamat-automatizálás két rendszer között | The five examples should sit outside the standard system and candidate capabilities — bespoke work the core product doesn't cover. |
