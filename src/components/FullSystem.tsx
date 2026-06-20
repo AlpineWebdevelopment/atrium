@@ -159,8 +159,9 @@ export default function FullSystem() {
           <span className="dash__eyebrow">A teljes rendszer</span>
           <h2 className="dash__h">Nem hét eszköz — egyetlen rendszer.</h2>
           <p className="sys__scale">
-            A kis műhelytől a nagyvállalatig — mindenki a saját méretére
-            szabott rendszert kapja.
+            Minden vállalkozás méretére szabott rendszer. Automatikusan az Ön
+            üzleti igényeihez igazítva — a legkisebb vállalkozástól a
+            nagyvállalati szintig.
           </p>
           <p className="dash__p">
             Egy közös memória minden csatornán. Végigkíséri az érdeklődőt a
