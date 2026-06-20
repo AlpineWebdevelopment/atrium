@@ -1,7 +1,6 @@
 import Hero from "@/components/Hero";
 import RealtimeDashboard from "@/components/RealtimeDashboard";
 import FullSystem from "@/components/FullSystem";
-import Positioning from "@/components/Positioning";
 import CustomSolutions from "@/components/CustomSolutions";
 import WorkFlow from "@/components/WorkFlow";
 import QualifierCrm from "@/components/QualifierCrm";
@@ -18,7 +17,6 @@ export default function Home() {
       <Hero />
       <RealtimeDashboard />
       <FullSystem />
-      <Positioning />
       <CustomSolutions />
       <WorkFlow />
       <QualifierCrm />
