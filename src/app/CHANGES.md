@@ -388,3 +388,16 @@ CSS theme added: `.page--szepsegipar` (`--signal: #9E6B9E` warm lavender-purple;
 | LR-R3 | Third-layer registration | RECORD | This is the first page in the cross-niche service layer (LR = lead response). Register this layer in the brand spec with its own lane rules: fixed framing around one specific service outcome, cross-niche, ads-first audience. |
 | LR-R4 | Cannibalisation guard — quote follow-up | RECORD | Quote follow-up intentionally excluded (epitoipar lane only). If a construction firm lands on this page, they should not see "quote follow-up" and conclude the epitoipar page adds nothing new. Guard this firewall as more service pages are added. |
 | LR-R5 | `/gyors-lead-valasz` in sitemap / nav | RECORD | Not linked from root nav in this build. Decide: add as a sub-item under a Services menu, or keep as a dark landing page for specific ad traffic only. |
+
+## Root — Egyedi fejlesztés rewrite
+
+| ID | Before | After | Why |
+|----|--------|-------|-----|
+| EF0 | Subhead `Amit a kész csomagok nem fednek le, azt megépítjük.`; scale chip `Teljes rendszer · ERP` | Subhead `Amit a kész rendszer nem fed le, megépítjük.`; chip `Teljes rendszer` | Tighter subhead; ERP overclaims for a launch-stage offer. |
+| EF1 | Generic custom-AI intro | Rewritten: builds on your own operation, a concrete business problem, not general AI. | On-brand, problem-led, no hype. |
+| EF2 | Scale line ending `akár egy teljes ERP` | `…vagy egy egész működést átfogó rendszer.` | Drop ERP overclaim; keep the scale ladder. |
+| EF3 | `Példa projektek` — 5 fabricated agency examples + `Az Ön ötlete` tile | `Mit építhetünk` — 5 niche examples (quote follow-up, recall engine, multi-site routing, pre-visit intake, bilingual booking) | No fabricated portfolio; framed as what *can* be built, per real niches. |
+| EF4 | `Amit tudunk építeni` — 4-category capability taxonomy | Removed entirely | Redundant with EF3; read as a horizontal AI-agency menu. |
+| EF5 | `Önnek való / Nem Önnek való` — full bullet lists (incl. ROI / impatience lines) | `Kinek való` — one condensed sentence each | Softer, shorter; drops the ROI-promise and condescending lines. |
+| EF6 | `Garancia` — Teljesítmény / Átláthatóság / Exit | `Ahogy dolgozunk` — value-based pricing, open process, you own the build | Removes unbackable pre-revenue KPI promise and competitor-lifted exit wording. |
+| EF7 | CTA `Mondja el az ötletét` | unchanged | — |
