@@ -1969,7 +1969,6 @@ html.dark { --viz-purple-soft: #1d1b33; }
 }
 .cux__fit-col--yes li::before { content: '✓'; background: rgba(109,188,97,0.16); color: var(--viz-green); }
 .cux__fit-col--no li::before { content: '✕'; background: rgba(196,108,100,0.14); color: var(--viz-red); }
-.cux__fit-txt { font-family: var(--font-body); font-size: 14px; line-height: 1.6; color: var(--ink-70); }
 
 /* Guarantees — three shield nodes connected on one "promise line" */
 .cux__guar {

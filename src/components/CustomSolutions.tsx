@@ -1,80 +1,150 @@
-/* Custom AI builds — honest, on-brand version (root only).
-   ATRIUM-EDIT EF0–EF7: replaced the Meridian-cloned skeleton (fabricated example
-   portfolio, capability taxonomy, three guarantees) with: what we *can* build
-   (niche examples), who it's for, and how we work. No banned vocab; AI named
-   flatly; nothing framed as a delivered project. */
+/* Custom AI builds — detailed, light, engaging.
+   Example projects, capability categories, fit, and guarantees.
+   Copy paraphrased to avoid banned vocab (megoldás, AI ügynökség, …). */
 
-type IconKey = "doc" | "refresh" | "layers" | "search" | "globe";
+type IconKey =
+  | "target" | "search" | "doc" | "globe" | "send" | "plus"
+  | "trend" | "chat" | "refresh" | "layers";
 
 const ICON_PATHS: Record<IconKey, React.ReactNode> = {
+  target: (<><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="4.5" /><circle cx="12" cy="12" r="0.6" fill="currentColor" /></>),
+  search: (<><circle cx="11" cy="11" r="7" /><path d="M21 21l-4.3-4.3" /><path d="M8 11h6M11 8v6" /></>),
   doc: (<><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /><path d="M8 13h6M8 17h4" /></>),
+  globe: (<><circle cx="12" cy="12" r="9" /><path d="M3 12h18" /><path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18" /></>),
+  send: (<><path d="M22 2L11 13" /><path d="M22 2l-7 20-4-9-9-4z" /></>),
+  plus: (<><path d="M12 5v14M5 12h14" /></>),
+  trend: (<><polyline points="3 17 9 11 13 15 21 7" /><polyline points="15 7 21 7 21 13" /></>),
+  chat: (<><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></>),
   refresh: (<><path d="M3 12a9 9 0 0 1 15-6.7L21 8" /><path d="M21 3v5h-5" /><path d="M21 12a9 9 0 0 1-15 6.7L3 16" /><path d="M3 21v-5h5" /></>),
   layers: (<><path d="M12 2 2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" /></>),
-  search: (<><circle cx="11" cy="11" r="7" /><path d="M21 21l-4.3-4.3" /><path d="M8 11h6M11 8v6" /></>),
-  globe: (<><circle cx="12" cy="12" r="9" /><path d="M3 12h18" /><path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18" /></>),
 };
 
-/* ATRIUM-EDIT EF3 — "Példa projektek" (fabricated agency portfolio) → "Mit
-   építhetünk": what *can* be built, framed per niche, never as delivered work. */
-const BUILDS: { ico: IconKey; t: string; d: string; who: string; c: string }[] = [
+const PROJECTS: { ico: IconKey; t: string; d: string; who: string; c: string }[] = [
   {
-    ico: "doc",
-    t: "Árajánlat-utánkövető rendszer",
-    d: "A kiküldött árajánlatokat utánköveti, amíg az ügyfél nem válaszol vagy el nem utasít.",
-    who: "Kivitelező és gyártó cégeknek",
+    ico: "target",
+    t: "AI érdeklődő-szerzés és minősítés",
+    d: "Magától megtalálja a lehetséges ügyfeleket — LinkedInen, a weboldal látogatói és a meglévő adatbázisok alapján. Minősíti, csoportokba rendezi, és személyre szabott megkeresést indít. Ember nélkül.",
+    who: "Ügynökségeknek és B2B-cégeknek",
     c: "#9662BC",
   },
   {
-    ico: "refresh",
-    t: "Visszahívó motor a páciensbázisra",
-    d: "Figyeli, ki esett ki az oltási vagy kontroll-rendből, és időben visszahívja.",
-    who: "Állatorvosi és orvosi rendelőknek",
+    ico: "search",
+    t: "AI SEO-automatizálás",
+    d: "Átnézi az ügyféloldalakat, megmutatja a hibákat, tartalmat javasol és rendbe teszi a meta-adatokat. A jelentés magától megy ki. Egy csapat 50 ügyfelet visz két ember helyett.",
+    who: "Ügynökségeknek",
     c: "#628FBC",
   },
   {
-    ico: "layers",
-    t: "Több telephelyes irányítás",
-    d: "A beérkező megkeresést a megfelelő telephelyhez, naptárhoz és csapathoz irányítja.",
-    who: "Több fiókkal működő szolgáltatóknak",
+    ico: "doc",
+    t: "Dokumentum-kinyerő ügynök",
+    d: "Több ezer dokumentum közül is másodpercek alatt megtalálja és kiemeli a kért adatot. Ott segít, ahol ma órákba telik a keresés.",
+    who: "Jogi cégeknek, könyvelőknek, kórházaknak",
     c: "#62BCAC",
   },
   {
-    ico: "search",
-    t: "Időpont előtti adatfelvétel",
-    d: "A látogatás előtt összegyűjti a szükséges adatokat, hogy a rendelés felkészülten induljon.",
-    who: "Szakorvosi rendelőknek",
+    ico: "globe",
+    t: "Többnyelvű ügyfélszolgálati AI",
+    d: "Tíznél több nyelven válaszol, és folyamatosan együtt mozog a belső rendszereivel. Rögzíti a megkeresést, megnézi a státuszt, kezeli a gyakori kérdéseket — magától.",
+    who: "Multinacionális cégeknek",
     c: "#BCA162",
   },
   {
-    ico: "globe",
-    t: "Kétnyelvű foglalás",
-    d: "A foglalási beszélgetést németül vagy angolul viszi, és magyarul adja át a csapatnak.",
-    who: "Wellness szállodáknak és fogászati turizmusra",
+    ico: "send",
+    t: "Kimenő értékesítési AI",
+    d: "Hideghívásban és LinkedInen is személyre szabottan keresi meg a célpontokat. Figyeli a válaszokat, és csak az érett érdeklődőt adja tovább az értékesítőnek.",
+    who: "B2B értékesítési csatorna építésére",
     c: "#6DBC61",
   },
 ];
 
-const MAP_NODES = BUILDS;
+/* mind-map: the projects + an open-ended node, fanning from one root */
+const MAP_NODES = [
+  ...PROJECTS,
+  { ico: "plus" as IconKey, t: "Az Ön ötlete", d: "", who: "bármi, amit AI megold", c: "#6DBC61" },
+];
 const MAP_W = 1000, MAP_H = 470;
 const ROOT = { x: 142, y: MAP_H / 2, r: 48 };
 const NODE_X = 500;
 const nodeY = (i: number) => 46 + i * ((MAP_H - 92) / (MAP_NODES.length - 1));
 
-/* ATRIUM-EDIT EF6 — "Garancia" (perf/transparency/exit, lifted from competitor)
-   → "Ahogy dolgozunk": value-based pricing, open process, you own the build.
-   The unbackable pre-revenue KPI promise is removed. */
-const HOWWEWORK = [
+const CATEGORIES = [
   {
-    t: "Az Ön számaiból árazunk.",
-    d: "Az árat ahhoz kötjük, amit a fejlesztés valóban ér Önnek — nem egy átláthatatlan fejlesztői számlához.",
+    h: "Értékesítés és marketing",
+    c: "#9662BC",
+    ico: "trend" as IconKey,
+    items: [
+      "Automatikus érdeklődő-gondozás",
+      "Személyre szabott e-mail-kampányok",
+      "Dinamikus ajánlat-generátor",
+      "Ár-kalkulátor és ajánlatküldő",
+      "Érdeklődő-kutatás és minősítés",
+    ],
   },
   {
-    t: "Kéthetente látja, hol tartunk.",
-    d: "Nyitott folyamat, részletes dokumentáció. Mindig tudja, mire megy a pénze.",
+    h: "Ügyfélszolgálat és támogatás",
+    c: "#628FBC",
+    ico: "chat" as IconKey,
+    items: [
+      "Többnyelvű ügyfélszolgálat több csatornán",
+      "Megkeresések irányítása és rangsorolása",
+      "Tudásbázis-keresés és válaszadás",
+      "Proaktív probléma-észlelés",
+      "Automatikus eszkaláció",
+    ],
   },
   {
-    t: "Amit megépítünk, az az Öné.",
-    d: "Nincs bezárva — a rendszer és a dokumentáció Önnél marad.",
+    h: "Operációs automatizálás",
+    c: "#62BCAC",
+    ico: "refresh" as IconKey,
+    items: [
+      "Dokumentum-feldolgozás és kategorizálás",
+      "Adatkinyerés és elemzés",
+      "Automata jelentés-generálás",
+      "Folyamat-monitorozás és anomália-észlelés",
+      "Készletkezelés és előrejelzés",
+    ],
+  },
+  {
+    h: "Iparág-specifikus",
+    c: "#BCA162",
+    ico: "layers" as IconKey,
+    items: [
+      "Egészségügy — beteg-kommunikáció",
+      "Jogi — szerződés-ellenőrzés és megfelelőség",
+      "Pénzügy — csalásfelderítés és kockázatértékelés",
+      "Webshop — dinamikus árazás és termékajánló",
+      "HR — önéletrajz-szűrés és jelölt-előszűrés",
+    ],
+  },
+];
+
+const FIT = [
+  "Specifikus folyamatot szeretne automatizálni",
+  "Elégedetlen az általános rendszerekkel",
+  "Komoly üzleti problémát akar AI-val kezelni",
+  "Nyitott a befektetésre, ha az ROI egyértelmű",
+  "Partnert keres, nem csak szolgáltatót",
+];
+
+const NOFIT = [
+  "Csak „kipróbálná” az AI-t minimális költséggel",
+  "Nincs konkrét problémája, csak a divatot követi",
+  "Türelmetlen, és nem érti a fejlesztési folyamatot",
+  "Gyors javítást keres, nem stratégiai fejlesztést",
+];
+
+const GUARANTEES = [
+  {
+    t: "Teljesítmény-garancia",
+    d: "Ha a rendszer nem hozza a közösen kitűzött számokat, addig finomítjuk, amíg eléri — felár nélkül.",
+  },
+  {
+    t: "Átláthatóság-garancia",
+    d: "Kéthetente megmutatjuk, hol tartunk. A kódbázis nyitott, a dokumentáció részletes. Mindig látja, mire megy a pénze.",
+  },
+  {
+    t: "Exit-garancia",
+    d: "Ha három hónap után nem elégedett, átadjuk a teljes kódbázist és a dokumentációt. Onnan bárkivel folytathatja.",
   },
 ];
 
@@ -84,26 +154,24 @@ export default function CustomSolutions() {
       <div className="wrap">
         <div className="dash__intro reveal">
           <span className="dash__eyebrow">Egyedi fejlesztés</span>
-          {/* ATRIUM-EDIT EF0 — subhead */}
-          <h2 className="dash__h">Amit a kész rendszer nem fed le, megépítjük.</h2>
-          {/* ATRIUM-EDIT EF1 — intro paragraph */}
+          <h2 className="dash__h">Amit a kész csomagok nem fednek le, azt megépítjük.</h2>
           <p className="dash__p">
-            Néha a kész rendszer nem fedi le, amire Önnek szüksége van. Ilyenkor
-            a saját működésére építünk rá — egy konkrét üzleti problémára, nem
-            általános AI-ról. Ön elmondja, hol akad el; mi pontosan arra
-            tervezzük és építjük meg.
+            Néha a meglévő csomagok nem fedik le, amire Önnek szüksége van.
+            Ilyenkor a saját folyamatára építünk AI-alapú rendszert — nem
+            általánosságban, hanem egy konkrét üzleti problémára. Ön elmondja,
+            hol akad el a működés; mi pontosan arra tervezzük és fejlesztjük meg.
           </p>
         </div>
 
         {/* The point: it starts from the operator's own idea, any scale */}
         <div className="cux__lead reveal" data-delay="1">
           <span className="cux__lead-kicker">Az Ön ötlete a kiindulópont</span>
-          {/* ATRIUM-EDIT EF2 — scale line */}
           <p className="cux__lead-txt">
-            A léptéket Ön szabja meg: lehet <b>egyetlen automatizálás</b>, néhány
-            összekötött folyamat, vagy egy egész működést átfogó <b>rendszer</b>.
+            Mondja el, mire van szüksége — a többit ránk bízhatja. Ön szabja meg
+            a léptéket: lehet <b>egyetlen automatizálás</b>, néhány összekötött
+            folyamat, vagy az egész cégét átfogó, testre szabott rendszer —{" "}
+            <b>akár egy teljes ERP</b>.
           </p>
-          {/* ATRIUM-EDIT EF0 — scale chips: dropped "· ERP" */}
           <div className="cux__scale" aria-hidden="true">
             <div className="cux__scale-step">
               <span className="cux__scale-bar" style={{ height: "44px" }} />
@@ -115,16 +183,16 @@ export default function CustomSolutions() {
             </div>
             <div className="cux__scale-step cux__scale-step--full">
               <span className="cux__scale-bar" style={{ height: "90px" }} />
-              <span className="cux__scale-lbl">Teljes rendszer</span>
+              <span className="cux__scale-lbl">Teljes rendszer · ERP</span>
             </div>
           </div>
         </div>
 
-        {/* ATRIUM-EDIT EF3 — "Mit építhetünk" */}
+        {/* Example projects */}
         <div className="cux__sec reveal" data-delay="2">
-          <h3 className="cux__sec-h"><span>Mit építhetünk</span></h3>
-          {/* desktop: mind-map — one root fanning out to the builds */}
-          <svg className="cux__map" viewBox={`0 0 ${MAP_W} ${MAP_H}`} role="img" aria-label="Egyedi AI — amit építhetünk">
+          <h3 className="cux__sec-h"><span>Példa projektek</span></h3>
+          {/* desktop: mind-map — one root fanning out to the projects */}
+          <svg className="cux__map" viewBox={`0 0 ${MAP_W} ${MAP_H}`} role="img" aria-label="Egyedi AI — példa projektek">
             <defs>
               {MAP_NODES.map((n, i) => (
                 <linearGradient key={i} id={`gmap${i}`} gradientUnits="userSpaceOnUse" x1={ROOT.x} y1={ROOT.y} x2={NODE_X} y2={nodeY(i)}>
@@ -171,37 +239,49 @@ export default function CustomSolutions() {
           </div>
         </div>
 
-        {/* ATRIUM-EDIT EF4 — removed the "Amit tudunk építeni" capability taxonomy
-            (redundant with EF3, read as a horizontal AI-agency menu). */}
-
-        {/* ATRIUM-EDIT EF5 — condensed fit lists */}
+        {/* What we can build */}
         <div className="cux__sec reveal">
-          <h3 className="cux__sec-h"><span>Kinek való</span></h3>
-          <div className="cux__fit">
-            <div className="cux__fit-col cux__fit-col--yes">
-              <div className="cux__fit-h"><span className="cux__fit-badge">✓</span>Önnek való</div>
-              <p className="cux__fit-txt">
-                Ha egy konkrét folyamatot szeretne automatizálni, a kész
-                rendszereknél többre van szüksége, valós üzleti problémát akar
-                megoldani — és partnert keres, nem csak szolgáltatót.
-              </p>
-            </div>
-            <div className="cux__fit-col cux__fit-col--no">
-              <div className="cux__fit-h"><span className="cux__fit-badge">✕</span>Nem Önnek való</div>
-              <p className="cux__fit-txt">
-                Ha terv nélkül, csak kíváncsiságból kísérletezne, ha nincs
-                konkrét problémája, vagy ha azonnali gyors javítást vár, nem
-                épített rendszert.
-              </p>
-            </div>
+          <h3 className="cux__sec-h"><span>Amit tudunk építeni</span></h3>
+          <div className="cux__cats">
+            {CATEGORIES.map((cat, i) => (
+              <div className="cux__catcol" key={i} style={{ ["--pc" as string]: cat.c } as React.CSSProperties}>
+                <div className="cux__catcol-head">
+                  <span className="cux__catcol-ico">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{ICON_PATHS[cat.ico]}</svg>
+                  </span>
+                  <b className="cux__catcol-t">{cat.h}</b>
+                </div>
+                <div className="cux__catcol-branch">
+                  {cat.items.map((it, j) => (
+                    <div className="cux__catcol-item" key={j}>{it}</div>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* ATRIUM-EDIT EF6 — "Ahogy dolgozunk" */}
+        {/* Fit / not fit */}
+        <div className="cux__fit reveal">
+          <div className="cux__fit-col cux__fit-col--yes">
+            <div className="cux__fit-h"><span className="cux__fit-badge">✓</span>Önnek való, ha…</div>
+            <ul>
+              {FIT.map((f, i) => (<li key={i}>{f}</li>))}
+            </ul>
+          </div>
+          <div className="cux__fit-col cux__fit-col--no">
+            <div className="cux__fit-h"><span className="cux__fit-badge">✕</span>Nem Önnek való, ha…</div>
+            <ul>
+              {NOFIT.map((f, i) => (<li key={i}>{f}</li>))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Guarantees */}
         <div className="cux__sec reveal">
-          <h3 className="cux__sec-h"><span>Ahogy dolgozunk</span></h3>
+          <h3 className="cux__sec-h"><span>Garancia</span></h3>
           <div className="cux__guar">
-            {HOWWEWORK.map((g, i) => (
+            {GUARANTEES.map((g, i) => (
               <div className="cux__g" key={i}>
                 <span className="cux__g-node">
                   <svg className="cux__g-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
@@ -216,7 +296,6 @@ export default function CustomSolutions() {
           </div>
         </div>
 
-        {/* ATRIUM-EDIT EF7 — CTA kept */}
         <div className="sec-cta reveal">
           <a href="#kapcsolat" className="btn btn--lg">Mondja el az ötletét</a>
         </div>
