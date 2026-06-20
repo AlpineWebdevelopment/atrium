@@ -58,10 +58,6 @@ export default function WorkFlow() {
           ))}
         </div>
 
-        <p className="how__note reveal">
-          <b>Indulhat egy 30 napos, fix díjas belépővel is</b> — előbb a számok,
-          aztán a döntés.
-        </p>
       </div>
     </section>
   );
