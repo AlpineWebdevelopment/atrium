@@ -121,32 +121,32 @@ const CATEGORIES = [
 ];
 
 const FIT = [
-  "Specifikus folyamatot szeretne automatizálni",
-  "Elégedetlen az általános rendszerekkel",
-  "Komoly üzleti problémát akar AI-val kezelni",
-  "Nyitott a befektetésre, ha az ROI egyértelmű",
-  "Partnert keres, nem csak szolgáltatót",
+  "Egy feladatot ma emberek csinálnak kézzel, újra meg újra",
+  "A piacon kapható eszközök nem tudják azt, amire szüksége van",
+  "Számít a megbízhatóság — nem elég, hogy „valahogy működjön”",
+  "Hosszú távon gondolkodik, nem egyszeri gyorsjavításban",
+  "Szeretne részt venni a fejlesztésben, nem csak átvenni egy kész dobozt",
 ];
 
 const NOFIT = [
-  "Csak „kipróbálná” az AI-t minimális költséggel",
-  "Nincs konkrét problémája, csak a divatot követi",
-  "Türelmetlen, és nem érti a fejlesztési folyamatot",
-  "Gyors javítást keres, nem stratégiai fejlesztést",
+  "A legolcsóbb lehetőséget keresi, nem a jól működőt",
+  "Még nincs konkrét probléma, csak az AI érdekli önmagában",
+  "Kész terméket vár holnapra, fejlesztési idő nélkül",
+  "A feladat annyira egyszerű, hogy egy kész eszköz is megoldja",
 ];
 
 const GUARANTEES = [
   {
-    t: "Teljesítmény-garancia",
-    d: "Ha a rendszer nem hozza a közösen kitűzött számokat, addig finomítjuk, amíg eléri — felár nélkül.",
+    t: "Fix ár, működő eredmény",
+    d: "A fejlesztést fix áron és egy közösen meghatározott, működő eredményre vállaljuk. Ha a megbeszélt működéshez több körre van szükség, az a mi dolgunk — nem kerül többe.",
   },
   {
-    t: "Átláthatóság-garancia",
-    d: "Kéthetente megmutatjuk, hol tartunk. A kódbázis nyitott, a dokumentáció részletes. Mindig látja, mire megy a pénze.",
+    t: "Folyamatos rálátás",
+    d: "Nem egy fekete doboz épül. Rendszeresen megmutatjuk, hol tartunk, és bármikor kérdezhet. A kész rendszert részletes dokumentációval adjuk át.",
   },
   {
-    t: "Exit-garancia",
-    d: "Ha három hónap után nem elégedett, átadjuk a teljes kódbázist és a dokumentációt. Onnan bárkivel folytathatja.",
+    t: "Az Öné marad",
+    d: "Amit megépítünk, az az Öné. A kész rendszert és a teljes dokumentációt átadjuk, így a működése soha nem függ kizárólag tőlünk.",
   },
 ];
 
