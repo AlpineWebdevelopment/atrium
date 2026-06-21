@@ -110,8 +110,9 @@ html.dark {
   overflow-x: clip;
   background: linear-gradient(
     180deg,
-    color-mix(in srgb, #7C5CFF 7%, var(--bone)) 0%,
-    color-mix(in srgb, #4AA3FF 6%, var(--bone)) 100%
+    var(--bone) 0%,
+    color-mix(in srgb, #7C5CFF 3%, var(--bone)) 50%,
+    var(--bone) 100%
   );
 }
 .wrap {
