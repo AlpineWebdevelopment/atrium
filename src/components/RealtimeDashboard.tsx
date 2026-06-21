@@ -4,19 +4,7 @@ import { useState } from "react";
 /* Four revenue leaks — each tab tells one problem's story, with its own graphic. */
 const PAINS = [
   {
-    tab: "Kvalifikálatlan érdeklődők",
-    desc: "",
-    metrics: [
-      { k: "Megkeresés", c: "var(--stone)", v: "Minden nap", d: "hívás, űrlap, üzenet" },
-      { k: "Ebből komoly", c: "#6DBC61", v: "A töredéke", d: "a többi csak nézelődik" },
-      { k: "Az Ön ideje", c: "var(--stone)", v: "Órák", d: "ugyanazokra a kérdésekre" },
-      { k: "Előszűrés", c: "var(--viz-amber)", v: "Nincs", d: "mindenki sorra kerül" },
-    ],
-    /* ATRIUM-EDIT LK1 — made math reconstructable: hours × hourly value = 240 000; old line had no visible bridge */
-    loss: { v: "≈ 240 000 Ft", per: "/ hó", math: "~20 óra havonta előszűretlen beszélgetésre × ~12 000 Ft munkaóra-érték" },
-  },
-  {
-    tab: "Elszalasztott hívások",
+    tab: "Elmaradt hívás",
     desc: "",
     metrics: [
       { k: "Hívás érkezik", c: "var(--ink)", v: "20:14", d: "munkaidő után" },
@@ -315,7 +303,7 @@ function GfxQuotes() {
   );
 }
 
-const GRAPHICS = [GfxFunnel, GfxCalls, GfxCooling, GfxCalendar, GfxQuotes];
+const GRAPHICS = [GfxCalls, GfxCooling, GfxCalendar, GfxQuotes];
 
 export default function RealtimeDashboard() {
   const [tab, setTab] = useState(0);
