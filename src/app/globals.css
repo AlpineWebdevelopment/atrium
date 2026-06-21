@@ -2078,6 +2078,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
 }
 @media (max-width: 560px) {
   .cux__cats { grid-template-columns: 1fr; }
+  .cux__cats--3 { grid-template-columns: 1fr 1fr; }
   .cux__fit-col { padding: 22px 20px 18px; }
   .cux__fit-h { font-size: 16px; }
   .cux__fit-col li { font-size: 13.5px; }
