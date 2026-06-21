@@ -2236,6 +2236,13 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .qual__note {
   font-family: var(--font-body); font-size: 12.5px; line-height: 1.5; color: var(--ink-70);
 }
+.qual__clarify {
+  margin-top: 14px; padding: 13px 16px; border-radius: 12px; /* serious != big callout */
+  background: color-mix(in srgb, var(--signal) 7%, var(--bone));
+  border: 1px solid color-mix(in srgb, var(--signal) 26%, var(--line));
+  font-family: var(--font-body); font-size: 13.5px; line-height: 1.55; color: var(--ink);
+}
+.qual__clarify b { font-weight: 500; }
 @media (max-width: 560px) {
   .qual__note { width: 100%; }
 }

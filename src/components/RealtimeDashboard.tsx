@@ -118,6 +118,10 @@ function GfxFunnel() {
         <span className="qual__leg"><i className="qual__leg-dot" style={{ background: "#6DBC61" }} />Vevő</span>
         <span className="qual__note">Az előszűrés kiemeli a komolyakat — Ön már csak velük beszél.</span>
       </div>
+      <p className="qual__clarify">
+        <b>Komoly nem egyenlő nagy.</b> A rendszer a valódi szándékot nézi, nem a
+        munka méretét — a nézelődőt szűri ki, nem a kisebb, de komoly vevőt.
+      </p>
     </div>
   );
 }
