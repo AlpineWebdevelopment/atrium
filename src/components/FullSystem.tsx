@@ -114,7 +114,7 @@ function VizMegtartas() {
 
 const PHASES = [
   {
-    n: "01", name: "Megkeresés", cap: "az első érintéstől a minősítésig", c: "#9662BC", Viz: VizMegkereses,
+    n: "01", name: "Megkeresés", cap: "az első érintéstől a minősítésig", c: "#010E1E", Viz: VizMegkereses,
     steps: [
       { ic: "phone", t: "Hívásfogadás", s: "minden hívást felvesz, éjjel és hétvégén is" },
       { ic: "chat", t: "Utánkövetés", s: "a webes érdeklődőt is percek alatt visszahívja" },
@@ -125,7 +125,7 @@ const PHASES = [
     ],
   },
   {
-    n: "02", name: "Foglalás", cap: "időpont, megerősítve", c: "#010E1E", Viz: VizFoglalas,
+    n: "02", name: "Foglalás", cap: "időpont, megerősítve", c: "#6DBC61", Viz: VizFoglalas,
     steps: [
       { ic: "calendar", t: "Időpontfoglalás", s: "egyenesen a naptárba, ütközés nélkül" },
       { ic: "confirm", t: "Visszaigazolás", s: "azonnal visszaigazolja a foglalást" },
@@ -135,7 +135,7 @@ const PHASES = [
     ],
   },
   {
-    n: "03", name: "Megtartás", cap: "vissza, és újra", c: "#6DBC61", Viz: VizMegtartas,
+    n: "03", name: "Megtartás", cap: "vissza, és újra", c: "#9662BC", Viz: VizMegtartas,
     steps: [
       /* ATRIUM-EDIT SD3 — de-jargoned "No-show visszahívás" → "Elmaradtak visszahívása"; consistent with operator-Hungarian voice rule */
       { ic: "callback", t: "Elmaradtak visszahívása", s: "visszaszerzi az elmaradt időpontot" },
