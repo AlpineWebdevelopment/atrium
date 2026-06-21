@@ -229,7 +229,7 @@ export default function FullSystem() {
 
         {/* ATRIUM-EDIT SD4b — reporting band elevated from footer clause to cross-cutting layer beneath stages; existing sysframe__integ class reused for consistent band styling; no new colors */}
         <div className="sysframe__integ">
-          Mérés végig — havonta megmutatja, mit hozott a rendszer, és hol szivárog még a bevétel.
+          Mérhető, végig — havonta megmutatja, mit hozott a rendszer, és hol szivárog még a bevétel.
         </div>
 
         {/* ATRIUM-EDIT SD4a — removed jrn__result-s trailing clause "és minden lépés mérve — riportálás"; reporting is now a dedicated band above */}
@@ -238,12 +238,12 @@ export default function FullSystem() {
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">{ICONS.result}</svg>
           </span>
           <div className="jrn__result-txt">
-            <b className="jrn__result-t">Több foglalás, több bevétel</b>
+            <b className="jrn__result-t">Több lezárt ajánlat, kevesebb kiesett megkeresés.</b>
           </div>
         </div>
           {/* ATRIUM-EDIT SD2 — removed GoHighLevel from public integrations line; brand spec §10 prohibits exposing internal stack; GHL is also being dropped from the stack */}
           <div className="sysframe__integ">
-            Csatlakozik a meglévő eszközeihez: <b>Google Calendar</b> · <b>Microsoft 365</b> · <b>iCal</b> · a meglévő CRM-jéhez
+            Csatlakozik a meglévő eszközeihez — a naptárához és a CRM-jéhez, amit ma is használ. Nem kell átköltöznie.
           </div>
         </div>
 
@@ -254,11 +254,11 @@ export default function FullSystem() {
           </span>
           <span className="sys__badge">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="8" rx="2" /><rect x="3" y="14" width="18" height="6" rx="2" /><path d="M7 8h.01M7 17h.01" /></svg>
-            EU hosting
+            EU-s adattárolás
           </span>
           <span className="sys__badge">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2l8 3v6c0 5-3.4 8.5-8 11-4.6-2.5-8-6-8-11V5z" /><path d="M9 12l2 2 4-4" /></svg>
-            GDPR-konform
+            GDPR-megfelelő
           </span>
         </div>
       </div>
