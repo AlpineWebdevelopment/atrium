@@ -1333,11 +1333,11 @@ html.dark { --viz-purple-soft: #1d1b33; }
 }
 .dash__tab {
   font-family: var(--font-body); font-size: 13px; font-weight: 500;
-  color: var(--ink-50); padding: 8px 16px; border-radius: 8px;
+  color: var(--ink-50); padding: 6px 16px; border-radius: 8px;
   transition: background 160ms var(--ease), color 160ms var(--ease);
 }
 .dash__tab:hover { color: var(--ink); }
-.dash__tab--active { background: var(--bone); color: var(--ink); box-shadow: 0 4px 16px -2px rgba(1,14,30,0.22); }
+.dash__tab--active { background: var(--bone); color: var(--ink); box-shadow: 0 3px 10px -2px rgba(1,14,30,0.18); }
 /* below the width where all four fit on one line, lay them out as a balanced
    2x2 grid instead of wrapping into an awkward 3 + 1 */
 @media (max-width: 880px) {
@@ -1346,7 +1346,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
     width: 100%; max-width: 440px; padding: 5px; border-radius: 14px;
     margin: 0 auto 24px; background: transparent;
   }
-  .dash__tab { text-align: center; padding: 10px 12px; color: var(--ink-70); }
+  .dash__tab { text-align: center; padding: 7px 12px; color: var(--ink-70); }
   .dash__tab:last-child:nth-child(odd) { grid-column: 1 / -1; }
 }
 
