@@ -77,7 +77,8 @@ function GfxFunnel() {
   const gx = (W - 2 * MX) / (COLS - 1);
   const gy = (H - 2 * MY) / (ROWS - 1);
   const serious: Record<string, "k" | "v"> = {
-    "1,2": "k", "4,0": "k", "6,3": "k", "8,1": "k", "10,2": "k", "2,3": "k", "5,1": "v",
+    "1,2": "k", "4,0": "k", "6,3": "k", "8,1": "k", "10,2": "k", "2,3": "k",
+    "5,1": "v", "3,0": "v", "9,3": "v",
   };
   const dots: { x: number; y: number; st: string; idx: number }[] = [];
   let n = 0;
@@ -119,7 +120,7 @@ function GfxFunnel() {
         ))}
       </svg>
       <div className="qual__legend">
-        <span className="qual__leg"><i className="qual__leg-dot" style={{ background: "rgba(1,14,30,0.2)" }} />Nézelődő</span>
+        <span className="qual__leg"><i className="qual__leg-dot" style={{ background: "rgba(1,14,30,0.32)" }} />Nézelődő</span>
         <span className="qual__leg"><i className="qual__leg-dot" style={{ background: "#010E1E" }} />Komoly szándék</span>
         <span className="qual__leg"><i className="qual__leg-dot" style={{ background: "#6DBC61" }} />Vevő</span>
         <span className="qual__note">Az előszűrés kiemeli a komolyakat — Ön már csak velük beszél.</span>
