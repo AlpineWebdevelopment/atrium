@@ -162,14 +162,7 @@ export default function FullSystem() {
             A rendszert mindig a cége méretéhez igazítjuk — a pár fős csapattól
             a nagyvállalatig.
           </p>
-          <p className="dash__p">
-            Egy közös memória minden csatornán. Végigkíséri az érdeklődőt a
-            hívástól a foglaláson át a visszatérő ügyfélig.
-          </p>
-          <p className="sys__howline">
-            AI-ügynökök kezelik a hang- és szöveges beszélgetést, természetes
-            magyarul. A meglévő eszközeit nem kell lecserélnie.
-          </p>
+
         </div>
 
         <div className="sysframe reveal" data-delay="1">

@@ -1518,8 +1518,8 @@ html.dark { --viz-purple-soft: #1d1b33; }
 }
 .sys__scale {
   margin: 14px auto 0; max-width: 620px;
-  font-family: var(--font-display); font-weight: 500; font-size: 17px;
-  letter-spacing: -0.015em; line-height: 1.4; color: var(--ink);
+  font-family: var(--font-body); font-weight: 400; font-size: 15px;
+  line-height: 1.6; color: var(--ink-70);
 }
 .dash__exnote {
   margin: 14px auto 0; max-width: 560px; text-align: center;
