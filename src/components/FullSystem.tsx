@@ -125,7 +125,7 @@ const PHASES = [
     ],
   },
   {
-    n: "02", name: "Foglalás", cap: "időpont, megerősítve", c: "#628FBC", Viz: VizFoglalas,
+    n: "02", name: "Foglalás", cap: "időpont, megerősítve", c: "#010E1E", Viz: VizFoglalas,
     steps: [
       { ic: "calendar", t: "Időpontfoglalás", s: "egyenesen a naptárba, ütközés nélkül" },
       { ic: "confirm", t: "Visszaigazolás", s: "azonnal visszaigazolja a foglalást" },
