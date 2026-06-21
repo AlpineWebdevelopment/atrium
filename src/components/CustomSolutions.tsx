@@ -84,6 +84,58 @@ const EXAMPLES: { ico: IconKey; t: string; d: string; who: string; c: string }[]
   },
 ];
 
+/* "Amit tudunk építeni" — four capability columns (spine design) */
+const CATEGORIES = [
+  {
+    h: "Adminisztráció és papírmunka",
+    c: "#9662BC",
+    ico: "doc" as IconKey,
+    items: [
+      "A számlákból és bizonylatokból kiszedi és táblázatba rendezi az adatokat",
+      "A beérkező űrlapokat és e-maileket egy helyre gyűjti",
+      "A papíron lévő adatokat kereshető formába viszi",
+      "A visszatérő heti és havi adminisztrációt elvégzi",
+      "Az ismétlődő dokumentumokat magától kitölti",
+    ],
+  },
+  {
+    h: "Belső információ és keresés",
+    c: "#628FBC",
+    ico: "search" as IconKey,
+    items: [
+      "A céges dokumentumokban másodpercek alatt megtalálja a választ",
+      "A csapat ismétlődő kérdéseire a cég saját anyagaiból felel",
+      "A hosszú dokumentumokból kiemeli a lényeget",
+      "Az értekezletekből összefoglalót és teendőlistát készít",
+      "Az új belépőt végigvezeti a fontos tudnivalókon",
+    ],
+  },
+  {
+    h: "Ügyfélszolgálat és támogatás",
+    c: "#62BCAC",
+    ico: "chat" as IconKey,
+    items: [
+      "A gyakori kérdésekre azonnal, a cég saját anyagaiból válaszol",
+      "A beérkező megkereséseket témakör szerint rendezi és továbbítja",
+      "Előkészíti a válaszokat a visszatérő ügyfélkérdésekre",
+      "A panaszokból kiemeli a lényeget, és jelzi, mi sürgős",
+      "Több nyelven is válaszol, ha külföldi ügyfél ír",
+    ],
+  },
+  {
+    h: "Adat és rendszerek",
+    c: "#BCA162",
+    ico: "refresh" as IconKey,
+    items: [
+      "Két rendszer vagy táblázat között átviszi az adatot",
+      "Szinkronban tartja a külön kezelt adatokat",
+      "Kiszűri a duplikátumokat és a hibás sorokat",
+      "Egy helyre gyűjti a szétszórt adatokat",
+      "Jelez, ha egy fontos szám eltér a megszokottól",
+    ],
+  },
+];
+
 /* radial mind-map: the 9 examples fanning from one root (same design as before) */
 const MAP_NODES = EXAMPLES;
 const MAP_W = 1000, MAP_H = 700;
@@ -207,6 +259,28 @@ export default function CustomSolutions() {
                 <span className="cux__mapitem-dot" />
                 <b className="cux__mapitem-t">{n.t}</b>
                 <span className="cux__mapitem-sub">{n.who}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* What we can build — four capability columns */}
+        <div className="cux__sec reveal">
+          <h3 className="cux__sec-h"><span>Amit tudunk építeni</span></h3>
+          <div className="cux__cats">
+            {CATEGORIES.map((cat, i) => (
+              <div className="cux__catcol" key={i} style={{ ["--pc" as string]: cat.c } as React.CSSProperties}>
+                <div className="cux__catcol-head">
+                  <span className="cux__catcol-ico">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{ICON_PATHS[cat.ico]}</svg>
+                  </span>
+                  <b className="cux__catcol-t">{cat.h}</b>
+                </div>
+                <div className="cux__catcol-branch">
+                  {cat.items.map((it, j) => (
+                    <div className="cux__catcol-item" key={j}>{it}</div>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
