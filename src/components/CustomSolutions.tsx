@@ -145,16 +145,18 @@ export default function CustomSolutions() {
           <div className="cux__cats cux__cats--3">
             {EXAMPLES.map((e, i) => (
               <div className="cux__catcol" key={i} style={{ ["--pc" as string]: e.c } as React.CSSProperties}>
-                <div className="cux__catcol-head">
-                  <span className="cux__catcol-ico">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{ICON_PATHS[e.ico]}</svg>
-                  </span>
-                  <b className="cux__catcol-t">{e.t}</b>
-                </div>
-                <div className="cux__catcol-branch">
-                  <div className="cux__catcol-item">{e.d}</div>
-                </div>
-                <span className="cux__catcol-who">{e.who}</span>
+                <details className="cux__det">
+                  <summary className="cux__catcol-head">
+                    <span className="cux__catcol-ico">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{ICON_PATHS[e.ico]}</svg>
+                    </span>
+                    <b className="cux__catcol-t">{e.t}</b>
+                  </summary>
+                  <div className="cux__catcol-branch">
+                    <div className="cux__catcol-item">{e.d}</div>
+                  </div>
+                  <span className="cux__catcol-who">{e.who}</span>
+                </details>
               </div>
             ))}
           </div>

@@ -1914,6 +1914,23 @@ html.dark { --viz-purple-soft: #1d1b33; }
   font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.02em;
   color: var(--pc, var(--viz-blue));
 }
+/* details accordion for példa projektek — open on desktop, collapsible on mobile */
+.cux__det > summary { list-style: none; }
+.cux__det > summary::-webkit-details-marker { display: none; }
+.cux__det > summary::marker { display: none; }
+@media (min-width: 561px) {
+  .cux__det { display: contents; }
+}
+@media (max-width: 560px) {
+  .cux__det > summary { cursor: pointer; display: flex; align-items: center; gap: 7px; }
+  .cux__det > summary::after {
+    content: '›'; display: inline-block; margin-left: auto; flex-shrink: 0;
+    font-size: 18px; line-height: 1; color: var(--stone);
+    transform: rotate(90deg); transition: transform 0.18s;
+  }
+  .cux__det[open] > summary::after { transform: rotate(270deg); }
+  .cux__catcol-branch, .cux__catcol-who { margin-top: 6px; }
+}
 @media (max-width: 900px) { .cux__cats--3 { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) {
   .cux__cats--3 { grid-template-columns: 1fr 1fr; gap: 16px 12px; }
