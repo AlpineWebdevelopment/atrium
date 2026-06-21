@@ -44,8 +44,7 @@ const PAINS = [
   },
   {
     tab: "No-show-k",
-    desc:
-      "Az elfelejtett időpont lyukat üt a naptárba. Emlékeztető és visszahívás nélkül a kieső óra bevétele végleg elveszik.",
+    desc: "",
     metrics: [
       { k: "Időpont", c: "var(--ink)", v: "9:00", d: "megerősítés nélkül" },
       { k: "A vendég", c: "var(--stone)", v: "Nem jön el", d: "el is felejtette" },
@@ -355,7 +354,7 @@ export default function RealtimeDashboard() {
           </div>
 
           <div className="dash__panel">
-            <p className="dash__desc">{pain.desc}</p>
+            {pain.desc && <p className="dash__desc">{pain.desc}</p>}
 
             <div className="dash__metrics">
               {pain.metrics.map((m, i) => (
