@@ -84,21 +84,6 @@ const EXAMPLES: { ico: IconKey; t: string; d: string; who: string; c: string }[]
   },
 ];
 
-const FIT = [
-  "Egy feladatot ma emberek csinálnak kézzel, újra meg újra",
-  "A piacon kapható eszközök nem tudják azt, amire szüksége van",
-  "Számít a megbízhatóság — nem elég, hogy „valahogy működjön”",
-  "Kész befektetni egy tartós eredménybe",
-  "Szeretne részt venni a fejlesztésben, nem csak átvenni egy kész terméket",
-];
-
-const NOFIT = [
-  "A legolcsóbb lehetőséget keresi, nem a jól működőt",
-  "Még nincs konkrét probléma, csak az AI érdekli önmagában",
-  "Kész terméket vár holnapra, fejlesztési idő nélkül",
-  "Nem akar időt szánni rá, hogy közösen pontosítsuk a feladatot",
-];
-
 const GUARANTEES = [
   {
     t: "Fix ár, működő eredmény",
@@ -172,22 +157,6 @@ export default function CustomSolutions() {
                 <span className="cux__catcol-who">{e.who}</span>
               </div>
             ))}
-          </div>
-        </div>
-
-        {/* Fit / not fit */}
-        <div className="cux__fit reveal">
-          <div className="cux__fit-col cux__fit-col--yes">
-            <div className="cux__fit-h"><span className="cux__fit-badge">✓</span>Önnek való, ha…</div>
-            <ul>
-              {FIT.map((f, i) => (<li key={i}>{f}</li>))}
-            </ul>
-          </div>
-          <div className="cux__fit-col cux__fit-col--no">
-            <div className="cux__fit-h"><span className="cux__fit-badge">✕</span>Nem Önnek való, ha…</div>
-            <ul>
-              {NOFIT.map((f, i) => (<li key={i}>{f}</li>))}
-            </ul>
           </div>
         </div>
 
