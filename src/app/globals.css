@@ -1658,10 +1658,11 @@ html.dark { --viz-purple-soft: #1d1b33; }
   border-top: 1px solid var(--line); margin-top: 20px;
 }
 .sys__prop {
-  display: flex; flex-direction: column; gap: 6px;
+  display: flex; flex-direction: row; align-items: flex-start; gap: 12px;
   padding: 20px 24px;
   border-right: 1px solid var(--line);
 }
+.sys__prop-txt { display: flex; flex-direction: column; gap: 3px; }
 .sys__prop:last-child { border-right: none; }
 .sys__prop-ico {
   width: 34px; height: 34px;
