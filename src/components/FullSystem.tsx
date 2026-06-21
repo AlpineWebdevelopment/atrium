@@ -119,6 +119,8 @@ const PHASES = [
       { ic: "phone", t: "Hívásfogadás", s: "minden hívást felvesz, éjjel és hétvégén is" },
       { ic: "chat", t: "Utánkövetés", s: "a webes érdeklődőt is percek alatt visszahívja" },
       { ic: "qualify", t: "Kvalifikáció", s: "felteszi a fontos kérdéseket, és minősíti az érdeklődőt" },
+      { ic: "chat", t: "Kérdés-megválaszolás", s: "a gyakori kérdésekre azonnal válaszol, a cég saját anyagaiból" },
+      { ic: "send", t: "Árajánlat-utánkövetés", s: "a kiküldött árajánlatot utánköveti, hogy ne hűljön ki" },
       { ic: "handoff", t: "Élő átadás", s: "ha emberi segítség kell, a megfelelő kollégához kapcsol" },
     ],
   },
@@ -129,6 +131,7 @@ const PHASES = [
       { ic: "confirm", t: "Visszaigazolás", s: "azonnal visszaigazolja a foglalást" },
       { ic: "bell", t: "Emlékeztető", s: "emlékeztet, hogy ne maradjon el a látogatás" },
       { ic: "reschedule", t: "Átütemezés", s: "ha változik a terv, átteszi vagy lemondja az időpontot" },
+      { ic: "users", t: "Várólista-feltöltés", s: "ha valaki lemond, a felszabadult időpontot felajánlja a várólistának" },
     ],
   },
   {
