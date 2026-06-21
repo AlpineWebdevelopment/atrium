@@ -11,8 +11,7 @@ export default function Footer() {
               Magyar nyelvű, AI-alapú értékesítési rendszer — minden hívás
               fogadva, minden időpont a naptárban.
             </p>
-            <p className="footer__badges">Magyar nyelvű · EU hosting · GDPR-konform</p>
-            <a href="/#kapcsolat" className="btn footer__cta">Foglaljon időpontot</a>
+<a href="/#kapcsolat" className="btn footer__cta">Foglaljon időpontot</a>
           </div>
 
           <div>
