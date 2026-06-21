@@ -139,6 +139,8 @@ const PHASES = [
     steps: [
       /* ATRIUM-EDIT SD3 — de-jargoned "No-show visszahívás" → "Elmaradtak visszahívása"; consistent with operator-Hungarian voice rule */
       { ic: "callback", t: "Elmaradtak visszahívása", s: "visszaszerzi az elmaradt időpontot" },
+      { ic: "clock", t: "Esedékesség-emlékeztető", s: "szól, amikor esedékes a következő alkalom, mielőtt az ügyfél elmaradna" },
+      { ic: "confirm", t: "Elégedettség-ellenőrzés", s: "a látogatás után rákérdez, minden rendben volt-e, és a gondot időben jelzi" },
       { ic: "star", t: "Értékelés", s: "elégedett ügyféltől értékelést kér" },
       { ic: "refresh", t: "Reaktiválás", s: "hónapokkal később visszahozza a régit" },
     ],
