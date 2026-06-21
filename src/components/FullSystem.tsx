@@ -230,15 +230,7 @@ export default function FullSystem() {
           Mérhető, végig — havonta megmutatja, mit hozott a rendszer, és hol szivárog még a bevétel.
         </div>
 
-        {/* ATRIUM-EDIT SD4a — removed jrn__result-s trailing clause "és minden lépés mérve — riportálás"; reporting is now a dedicated band above */}
-        <div className="jrn__result reveal">
-          <span className="jrn__result-ico">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">{ICONS.result}</svg>
-          </span>
-          <div className="jrn__result-txt">
-            <b className="jrn__result-t">Több lezárt ajánlat, kevesebb kiesett megkeresés.</b>
-          </div>
-        </div>
+
           {/* ATRIUM-EDIT SD2 — removed GoHighLevel from public integrations line; brand spec §10 prohibits exposing internal stack; GHL is also being dropped from the stack */}
           <div className="sysframe__integ">
             Saját CRM-et és teljes ökoszisztémát biztosítunk — ha mégis a meglévő eszközeinél maradna, ahhoz is csatlakozunk.
