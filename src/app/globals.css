@@ -1681,9 +1681,9 @@ html.dark { --viz-purple-soft: #1d1b33; }
   color: var(--ink-70); line-height: 1.55;
 }
 @media (max-width: 640px) {
-  .sys__props { grid-template-columns: 1fr; }
-  .sys__prop { border-right: none; border-bottom: 1px solid var(--line); }
-  .sys__prop:last-child { border-bottom: none; }
+  .sys__prop { padding: 14px 12px; }
+  .sys__prop-t { font-size: 12px; }
+  .sys__prop-d { font-size: 11px; }
 }
 
 /* system attributes: language / hosting / compliance */
