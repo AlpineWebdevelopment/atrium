@@ -2078,15 +2078,14 @@ html.dark { --viz-purple-soft: #1d1b33; }
 
 @media (max-width: 860px) {
   .cux__cats { grid-template-columns: 1fr 1fr; }
-  /* guarantees: stack as left-aligned rows, drop the horizontal line */
-  .cux__guar { grid-template-columns: 1fr; gap: 6px; }
-  .cux__guar::before { display: none; }
-  .cux__g {
-    text-align: left; padding: 12px 0;
-    display: grid; grid-template-columns: 60px 1fr; column-gap: 16px; row-gap: 2px; align-items: center;
-  }
-  .cux__g-node { margin: 0; grid-row: 1 / span 2; align-self: center; }
-  .cux__g-t, .cux__g-d { text-align: left; margin: 0; }
+  /* guarantees: keep 3 columns, tighten sizing */
+  .cux__guar { gap: 12px; }
+  .cux__guar::before { top: 30px; }
+  .cux__g { padding: 0 4px; }
+  .cux__g-node { width: 48px; height: 48px; }
+  .cux__g-ico { width: 20px; height: 20px; }
+  .cux__g-t { font-size: 13.5px; margin-top: 10px; }
+  .cux__g-d { font-size: 12px; line-height: 1.45; }
 }
 /* Önnek való / nem — two cards stack on tablet and below */
 @media (max-width: 760px) {

@@ -87,15 +87,15 @@ const EXAMPLES: { ico: IconKey; t: string; d: string; who: string; c: string }[]
 const GUARANTEES = [
   {
     t: "Fix ár, működő eredmény",
-    d: "A fejlesztést fix áron és egy közösen meghatározott, működő eredményre vállaljuk. Ha a megbeszélt működéshez több körre van szükség, az a mi dolgunk — nem kerül többe.",
+    d: "Fix áron, közösen meghatározott eredményre dolgozunk. Ha több kör kell hozzá, az a mi dolgunk — felár nélkül.",
   },
   {
     t: "Folyamatos rálátás",
-    d: "Nem egy fekete doboz épül. Rendszeresen megmutatjuk, hol tartunk, és bármikor kérdezhet. A kész rendszert részletes dokumentációval adjuk át.",
+    d: "Nem fekete doboz épül. Rendszeresen megmutatjuk, hol tartunk, a kész rendszert pedig dokumentációval adjuk át.",
   },
   {
     t: "Az Öné marad",
-    d: "Amit megépítünk, az az Öné. A kész rendszert és a teljes dokumentációt átadjuk, így a működése soha nem függ kizárólag tőlünk.",
+    d: "Amit megépítünk, az az Öné. A rendszert és a dokumentációt is átadjuk, így soha nem függ kizárólag tőlünk.",
   },
 ];
 
