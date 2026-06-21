@@ -1327,24 +1327,23 @@ html.dark { --viz-purple-soft: #1d1b33; }
 
 /* tab pills */
 .dash__tabs {
-  display: flex; justify-content: center; flex-wrap: wrap; gap: 4px;
-  background: transparent; border: 1px solid var(--line); border-radius: 12px; padding: 4px;
+  display: flex; justify-content: center; flex-wrap: wrap; gap: 6px;
+  background: transparent; border: none; padding: 0;
   width: fit-content; margin: 0 auto 22px;
 }
 .dash__tab {
   font-family: var(--font-body); font-size: 13px; font-weight: 500;
-  color: var(--ink-50); padding: 6px 16px; border-radius: 8px;
-  transition: background 160ms var(--ease), color 160ms var(--ease);
+  color: var(--ink-50); padding: 5px 14px; border-radius: 8px;
+  border: 1px solid var(--line); background: transparent;
+  transition: background 160ms var(--ease), color 160ms var(--ease), border-color 160ms var(--ease);
 }
-.dash__tab:hover { color: var(--ink); }
-.dash__tab--active { background: var(--bone); color: var(--ink); box-shadow: none; border: 1px solid var(--line); }
-/* below the width where all four fit on one line, lay them out as a balanced
-   2x2 grid instead of wrapping into an awkward 3 + 1 */
+.dash__tab:hover { color: var(--ink); border-color: rgba(1,14,30,0.22); }
+.dash__tab--active { background: var(--bone); color: var(--ink); border-color: rgba(1,14,30,0.28); }
 @media (max-width: 880px) {
   .dash__tabs {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 5px;
-    width: 100%; max-width: 440px; padding: 5px; border-radius: 14px;
-    margin: 0 auto 24px; background: transparent;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6px;
+    width: 100%; max-width: 440px; padding: 0;
+    margin: 0 auto 24px;
   }
   .dash__tab { text-align: center; padding: 7px 12px; color: var(--ink-70); }
   .dash__tab:last-child:nth-child(odd) { grid-column: 1 / -1; }
