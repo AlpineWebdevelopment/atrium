@@ -6,7 +6,7 @@ const PAINS = [
   {
     tab: "Kvalifikálatlan érdeklődők",
     desc:
-      "Megkeresés van — de a nagy része sosem lesz vevő. Aki mindenkivel végigbeszéli ugyanazt, az a komoly vevőktől veszi el az időt. A rendszer előszűr: mire Ön szót vált valakivel vagy árajánlatot küld, az már komoly.",
+      "Megkeresés van — de a nagy része sosem lesz vevő. Aki mindenkivel végigbeszéli ugyanazt, az a komoly vevőktől veszi el az időt. A rendszer előszűr: mire Ön beszél valakivel vagy árajánlatot küld, az már komoly.",
     metrics: [
       { k: "Megkeresés", c: "var(--stone)", v: "Minden nap", d: "hívás, űrlap, üzenet" },
       { k: "Ebből komoly", c: "#6DBC61", v: "A töredéke", d: "a többi csak nézelődik" },
