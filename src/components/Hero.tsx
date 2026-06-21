@@ -54,14 +54,13 @@ const DAY = [
 
 /* ATRIUM-EDIT A1 — "elmaradt időpontok" → "elszalasztott hívások és érdeklődők"; appointment-language is niche-specific, calls/inquiries are universal */
 const PHRASES = [
-  "az elszalasztott hívások miatt",
+  "az elmaradt hívások miatt",
   "a lassú válasz miatt",
-  "az esti és hétvégi hívások miatt",
-  "a megválaszolatlan üzenetek miatt",
-  "az utánkövetetlen árajánlatok miatt",
-  "az elfelejtett visszahívások miatt",
-  "a meg nem jelent időpontok miatt",
-  "az elsodródott régi ügyfelek miatt",
+  "a kihagyott üzenetek miatt",
+  "a régi ügyfelek miatt",
+  "az esti órák miatt",
+  "az elmaradt ajánlatok miatt",
+  "a lemondások miatt",
 ];
 
 export default function Hero() {
