@@ -1373,7 +1373,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
 /* chart */
 .dash__chart { position: relative; height: 230px; margin-top: 16px; }
 .dash__svg { width: 100%; height: 190px; display: block; overflow: visible; }
-.dash__axis { position: absolute; left: 0; right: 0; bottom: 0; display: flex; justify-content: space-between; }
+.dash__axis { position: absolute; left: 16px; right: 16px; bottom: 0; display: flex; justify-content: space-between; }
 .dash__axis span { font-family: var(--font-mono); font-size: 10px; color: var(--ink-35); }
 .dash__axis i { width: 4px; height: 4px; border-radius: 50%; background: var(--line); align-self: center; }
 .dash__marker {
