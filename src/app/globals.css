@@ -1915,7 +1915,15 @@ html.dark { --viz-purple-soft: #1d1b33; }
   color: var(--pc, var(--viz-blue));
 }
 @media (max-width: 900px) { .cux__cats--3 { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 560px) { .cux__cats--3 { grid-template-columns: 1fr; } }
+@media (max-width: 560px) {
+  .cux__cats--3 { grid-template-columns: 1fr 1fr; gap: 16px 12px; }
+  .cux__catcol-ico { width: 28px; height: 28px; }
+  .cux__catcol-ico svg { width: 14px; height: 14px; }
+  .cux__catcol-t { font-size: 12.5px; }
+  .cux__catcol-item { font-size: 11.5px; line-height: 1.4; padding: 6px 0 6px 4px; }
+  .cux__catcol-who { font-size: 10px; }
+  .cux__catcol-head { gap: 7px; }
+}
 /* Példa projektek — example cards (title + description + audience) */
 .cux__ex { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .cux__excard {
