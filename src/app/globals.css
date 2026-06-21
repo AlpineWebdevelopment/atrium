@@ -1795,9 +1795,19 @@ html.dark { --viz-purple-soft: #1d1b33; }
 }
 @media (max-width: 800px) {
   .how { padding: 72px 0; }
-  .how__grid { grid-template-columns: 1fr; gap: 30px; }
-  .how__grid--4 { grid-template-columns: 1fr; gap: 30px; }
+  .how__grid { grid-template-columns: 1fr; gap: 20px; }
+  .how__grid--4 { grid-template-columns: 1fr 1fr; gap: 24px 20px; }
   .how__grid::before { display: none; }
+  .how__step {
+    display: grid; grid-template-columns: 56px 1fr;
+    column-gap: 16px; row-gap: 4px; align-items: start; text-align: left;
+  }
+  .how__node { margin: 0; }
+  .how__title { margin-top: 0; grid-column: 2; }
+  .how__desc { grid-column: 2; }
+}
+@media (max-width: 500px) {
+  .how__grid--4 { grid-template-columns: 1fr; }
 }
 
 /* =========================================================
