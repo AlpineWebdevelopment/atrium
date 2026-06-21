@@ -323,12 +323,7 @@ export default function RealtimeDashboard() {
       <div className="wrap">
         <div className="dash__intro reveal">
           <span className="dash__eyebrow">Hol szivárog a bevétel</span>
-          <h2 className="dash__h">Négy hely, ahol a pénz kicsúszik.</h2>
-          <p className="dash__p">
-            A legtöbb cég nem ügyfélhiánytól szenved — hanem attól, hogy a
-            megkeresések egy része észrevétlenül elvész. A rendszer azt a lyukat
-            zárja be, amelyik Önnél a legnagyobb.
-          </p>
+          <h2 className="dash__h">Öt hely, ahol a pénz kicsúszik.</h2>
           <p className="dash__exnote">
             Az alábbi számok példák — élesben az Ön valós adataira szabva.
           </p>
