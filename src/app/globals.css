@@ -1908,6 +1908,32 @@ html.dark { --viz-purple-soft: #1d1b33; }
 /* What we can build — four branch trees: a category node with a colour-matched
    spine dropping through its capability nodes (a graph, not cards) */
 .cux__cats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+/* Példa projektek — example cards (title + description + audience) */
+.cux__ex { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.cux__excard {
+  display: flex; flex-direction: column; gap: 10px;
+  padding: 22px; border-radius: 16px;
+  border: 1px solid var(--line); background: var(--bone);
+  transition: transform 240ms var(--ease), box-shadow 240ms var(--ease), border-color 240ms var(--ease);
+}
+.cux__excard:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--pc, var(--viz-blue)) 45%, var(--line));
+  box-shadow: 0 16px 34px -20px rgba(1,14,30,0.32);
+}
+.cux__ex-ico {
+  width: 42px; height: 42px; border-radius: 11px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--pc, var(--viz-blue));
+  background: color-mix(in srgb, var(--pc, var(--viz-blue)) 12%, transparent);
+  border: 1.5px solid color-mix(in srgb, var(--pc, var(--viz-blue)) 38%, transparent);
+}
+.cux__ex-ico svg { width: 20px; height: 20px; }
+.cux__ex-t { font-family: var(--font-display); font-weight: 500; font-size: 16px; letter-spacing: -0.015em; line-height: 1.25; color: var(--ink); }
+.cux__ex-d { font-family: var(--font-body); font-size: 13px; line-height: 1.55; color: var(--ink-70); }
+.cux__ex-who { margin-top: auto; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.02em; color: var(--pc, var(--viz-blue)); }
+@media (max-width: 900px) { .cux__ex { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .cux__ex { grid-template-columns: 1fr; } }
 .cux__catcol-head { display: flex; align-items: center; gap: 11px; }
 .cux__catcol-ico {
   width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
