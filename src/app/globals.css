@@ -1347,6 +1347,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
     margin: 0 auto 24px;
   }
   .dash__tab { text-align: center; padding: 10px 12px; }
+  .dash__tab:last-child:nth-child(odd) { grid-column: 1 / -1; }
 }
 
 /* panel — fixed-ish height so tab switches don't jump */
