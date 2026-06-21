@@ -5,8 +5,7 @@ import { useState } from "react";
 const PAINS = [
   {
     tab: "Kvalifikálatlan érdeklődők",
-    desc:
-      "Megkeresés van — de a nagy része sosem lesz vevő. Aki mindenkivel végigbeszéli ugyanazt, az a komoly vevőktől veszi el az időt. A rendszer előszűr: mire Ön beszél valakivel vagy árajánlatot küld, az már komoly.",
+    desc: "",
     metrics: [
       { k: "Megkeresés", c: "var(--stone)", v: "Minden nap", d: "hívás, űrlap, üzenet" },
       { k: "Ebből komoly", c: "#6DBC61", v: "A töredéke", d: "a többi csak nézelődik" },
@@ -18,8 +17,7 @@ const PAINS = [
   },
   {
     tab: "Elszalasztott hívások",
-    desc:
-      "A hívások jó része munkaidő után, hétvégén vagy foglalt vonal mellett érkezik. Aki hangpostát kap, nem vár — a következő számot hívja.",
+    desc: "",
     metrics: [
       { k: "Hívás érkezik", c: "var(--ink)", v: "20:14", d: "munkaidő után" },
       { k: "A vonal", c: "var(--stone)", v: "Hangposta", d: "senki nem veszi fel" },
@@ -31,8 +29,7 @@ const PAINS = [
   },
   {
     tab: "Lassú utánkövetés",
-    desc:
-      "A hirdetésből érkező érdeklődő órákon belül dönt. Ha az első válasz másnap érkezik, addigra már mással egyeztetett.",
+    desc: "",
     metrics: [
       { k: "Űrlap kitöltve", c: "var(--ink)", v: "14:30", d: "hirdetésből érkezett" },
       { k: "Első válasz", c: "var(--stone)", v: "Másnap", d: "amikor épp jut rá idő" },
@@ -56,8 +53,7 @@ const PAINS = [
   },
   {
     tab: "Lezáratlan árajánlat",
-    desc:
-      "Az árajánlat kiment — de senki nem kíséri végig. Az ügyfél halogat, aztán elfelejti, vagy mást választ. A majdnem-kész üzlet csendben elveszik. A rendszer utánkövet: emlékeztet, kérdez, lezár.",
+    desc: "",
     metrics: [
       { k: "Ajánlat kiküldve", c: "var(--ink)", v: "Rendszeresen", d: "de ott marad válasz nélkül" },
       { k: "Utánkövetés", c: "var(--ink)", v: "Nincs", d: "senki nem kíséri végig" },
