@@ -84,6 +84,13 @@ const EXAMPLES: { ico: IconKey; t: string; d: string; who: string; c: string }[]
   },
 ];
 
+/* radial mind-map: the 9 examples fanning from one root (same design as before) */
+const MAP_NODES = EXAMPLES;
+const MAP_W = 1000, MAP_H = 700;
+const ROOT = { x: 142, y: MAP_H / 2, r: 48 };
+const NODE_X = 500;
+const nodeY = (i: number) => 46 + i * ((MAP_H - 92) / (MAP_NODES.length - 1));
+
 const FIT = [
   "Egy feladatot ma emberek csinálnak kézzel, újra meg újra",
   "A piacon kapható eszközök nem tudják azt, amire szüksége van",
@@ -157,15 +164,49 @@ export default function CustomSolutions() {
             radial mind-map and the "Amit tudunk építeni" taxonomy). */}
         <div className="cux__sec reveal" data-delay="2">
           <h3 className="cux__sec-h"><span>Példa projektek</span></h3>
-          <div className="cux__ex">
-            {EXAMPLES.map((e, i) => (
-              <div className="cux__excard" key={i} style={{ ["--pc" as string]: e.c } as React.CSSProperties}>
-                <span className="cux__ex-ico">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{ICON_PATHS[e.ico]}</svg>
-                </span>
-                <b className="cux__ex-t">{e.t}</b>
-                <span className="cux__ex-d">{e.d}</span>
-                <span className="cux__ex-who">{e.who}</span>
+          {/* desktop: mind-map — one root fanning out to the examples */}
+          <svg className="cux__map" viewBox={`0 0 ${MAP_W} ${MAP_H}`} role="img" aria-label="Egyedi AI — példa projektek">
+            <defs>
+              {MAP_NODES.map((n, i) => (
+                <linearGradient key={i} id={`gmap${i}`} gradientUnits="userSpaceOnUse" x1={ROOT.x} y1={ROOT.y} x2={NODE_X} y2={nodeY(i)}>
+                  <stop offset="0%" stopColor="rgba(1,14,30,0.16)" />
+                  <stop offset="100%" stopColor={n.c} />
+                </linearGradient>
+              ))}
+            </defs>
+            {MAP_NODES.map((n, i) => {
+              const y = nodeY(i);
+              return <path key={i} d={`M${ROOT.x + ROOT.r},${ROOT.y} C 330,${ROOT.y} 360,${y} ${NODE_X - 22},${y}`} fill="none" stroke={`url(#gmap${i})`} strokeWidth="2" />;
+            })}
+            <circle cx={ROOT.x} cy={ROOT.y} r={ROOT.r} fill="var(--bone)" stroke="#6DBC61" strokeWidth="2" />
+            <circle cx={ROOT.x} cy={ROOT.y} r={ROOT.r} fill="none" stroke="#6DBC61" strokeWidth="2">
+              <animate attributeName="r" values={`${ROOT.r};${ROOT.r + 20}`} dur="2.6s" repeatCount="indefinite" />
+              <animate attributeName="opacity" values="0.45;0" dur="2.6s" repeatCount="indefinite" />
+            </circle>
+            <text className="cux__map-root" x={ROOT.x} y={ROOT.y - 4} textAnchor="middle">Egyedi</text>
+            <text className="cux__map-root" x={ROOT.x} y={ROOT.y + 14} textAnchor="middle">AI</text>
+            {MAP_NODES.map((n, i) => {
+              const y = nodeY(i);
+              return (
+                <g key={i}>
+                  <circle cx={NODE_X} cy={y} r="19" fill="var(--bone)" stroke={n.c} strokeWidth="2" />
+                  <svg x={NODE_X - 11} y={y - 11} width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={n.c} strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" style={{ color: n.c }}>
+                    {ICON_PATHS[n.ico]}
+                  </svg>
+                  <text className="cux__map-t" x={NODE_X + 30} y={y - 2}>{n.t}</text>
+                  <text className="cux__map-sub" x={NODE_X + 30} y={y + 15} fill={n.c}>{n.who}</text>
+                </g>
+              );
+            })}
+          </svg>
+
+          {/* mobile: vertical spine version of the same map */}
+          <div className="cux__maplist">
+            {MAP_NODES.map((n, i) => (
+              <div className="cux__mapitem" key={i} style={{ ["--pc" as string]: n.c } as React.CSSProperties}>
+                <span className="cux__mapitem-dot" />
+                <b className="cux__mapitem-t">{n.t}</b>
+                <span className="cux__mapitem-sub">{n.who}</span>
               </div>
             ))}
           </div>
