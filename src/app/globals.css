@@ -1941,7 +1941,15 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .cux__ex-d { font-family: var(--font-body); font-size: 13px; line-height: 1.55; color: var(--ink-70); }
 .cux__ex-who { margin-top: auto; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.02em; color: var(--pc, var(--viz-blue)); }
 @media (max-width: 900px) { .cux__ex { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 560px) { .cux__ex { grid-template-columns: 1fr; } }
+@media (max-width: 560px) {
+  .cux__ex { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .cux__excard { padding: 14px; border-radius: 12px; gap: 7px; }
+  .cux__ex-ico { width: 34px; height: 34px; border-radius: 9px; }
+  .cux__ex-ico svg { width: 16px; height: 16px; }
+  .cux__ex-t { font-size: 13.5px; }
+  .cux__ex-d { font-size: 12px; line-height: 1.45; }
+  .cux__ex-who { font-size: 10px; }
+}
 .cux__catcol-head { display: flex; align-items: center; gap: 11px; }
 .cux__catcol-ico {
   width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
