@@ -8,8 +8,8 @@ const PAINS = [
     desc:
       "Megkeresés van — de a nagy része sosem lesz vevő. Aki mindenkivel végigbeszéli ugyanazt, az a komoly vevőktől veszi el az időt. A rendszer előszűr: mire Ön beszél valakivel, az már komoly.",
     metrics: [
-      { k: "Megkeresés", c: "var(--ink)", v: "Minden nap", d: "hívás, űrlap, üzenet" },
-      { k: "Ebből komoly", c: "var(--ink)", v: "A töredéke", d: "a többi csak nézelődik" },
+      { k: "Megkeresés", c: "var(--stone)", v: "Minden nap", d: "hívás, űrlap, üzenet" },
+      { k: "Ebből komoly", c: "#6DBC61", v: "A töredéke", d: "a többi csak nézelődik" },
       { k: "Az Ön ideje", c: "var(--stone)", v: "Órák", d: "ugyanazokra a kérdésekre" },
       { k: "Előszűrés", c: "var(--viz-red)", v: "Nincs", d: "mindenki sorra kerül" },
     ],
@@ -94,9 +94,9 @@ function GfxFunnel() {
       <svg className="qual__svg" viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Minden megkeresésből csak néhány komoly">
         <defs>
           <linearGradient id="qScan" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="rgba(1,14,30,0)" />
-            <stop offset="50%" stopColor="rgba(1,14,30,0.12)" />
-            <stop offset="100%" stopColor="rgba(1,14,30,0)" />
+            <stop offset="0%" stopColor="rgba(109,188,97,0)" />
+            <stop offset="50%" stopColor="rgba(109,188,97,0.2)" />
+            <stop offset="100%" stopColor="rgba(109,188,97,0)" />
           </linearGradient>
         </defs>
         <rect x="-90" y="0" width="90" height={H} fill="url(#qScan)">
@@ -106,7 +106,7 @@ function GfxFunnel() {
           <circle key={i} cx={d.x} cy={d.y} r={d.st === "n" ? 6 : 7.5} fill={color(d.st)} />
         ))}
         {flagged.map((d, i) => (
-          <circle key={`f${i}`} cx={d.x} cy={d.y} r="7.5" fill="none" stroke={color(d.st)} strokeWidth="2">
+          <circle key={`f${i}`} cx={d.x} cy={d.y} r="7.5" fill="none" stroke="#6DBC61" strokeWidth="2">
             <animate attributeName="r" values="7.5;19;19" keyTimes="0;0.12;1" dur={`${D}s`} begin={`${((d.x / W) * D).toFixed(2)}s`} repeatCount="indefinite" />
             <animate attributeName="opacity" values="0.85;0;0" keyTimes="0;0.12;1" dur={`${D}s`} begin={`${((d.x / W) * D).toFixed(2)}s`} repeatCount="indefinite" />
           </circle>
