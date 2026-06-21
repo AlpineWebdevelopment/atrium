@@ -1908,6 +1908,14 @@ html.dark { --viz-purple-soft: #1d1b33; }
 /* What we can build — four branch trees: a category node with a colour-matched
    spine dropping through its capability nodes (a graph, not cards) */
 .cux__cats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+.cux__cats--3 { grid-template-columns: repeat(3, 1fr); gap: 30px 28px; }
+.cux__catcol-who {
+  display: block; margin: 10px 0 0 18px; padding-left: 20px;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.02em;
+  color: var(--pc, var(--viz-blue));
+}
+@media (max-width: 900px) { .cux__cats--3 { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .cux__cats--3 { grid-template-columns: 1fr; } }
 /* Példa projektek — example cards (title + description + audience) */
 .cux__ex { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .cux__excard {

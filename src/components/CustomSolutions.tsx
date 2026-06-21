@@ -1,6 +1,6 @@
-/* Custom AI builds (root only). "Példa projektek" — concrete, buildable examples
-   framed as what we can build (never delivered work), each with audience.
-   No banned vocab; AI named flatly. */
+/* Custom AI builds (root only). "Példa projektek" — 9 concrete buildable examples
+   in the column/spine design (icon + title + description + audience).
+   Framed as what we can build, never as delivered work. No banned vocab. */
 
 type IconKey =
   | "doc" | "search" | "chat" | "trend" | "layers"
@@ -84,65 +84,6 @@ const EXAMPLES: { ico: IconKey; t: string; d: string; who: string; c: string }[]
   },
 ];
 
-/* "Amit tudunk építeni" — four capability columns (spine design) */
-const CATEGORIES = [
-  {
-    h: "Adminisztráció és papírmunka",
-    c: "#9662BC",
-    ico: "doc" as IconKey,
-    items: [
-      "A számlákból és bizonylatokból kiszedi és táblázatba rendezi az adatokat",
-      "A beérkező űrlapokat és e-maileket egy helyre gyűjti",
-      "A papíron lévő adatokat kereshető formába viszi",
-      "A visszatérő heti és havi adminisztrációt elvégzi",
-      "Az ismétlődő dokumentumokat magától kitölti",
-    ],
-  },
-  {
-    h: "Belső információ és keresés",
-    c: "#628FBC",
-    ico: "search" as IconKey,
-    items: [
-      "A céges dokumentumokban másodpercek alatt megtalálja a választ",
-      "A csapat ismétlődő kérdéseire a cég saját anyagaiból felel",
-      "A hosszú dokumentumokból kiemeli a lényeget",
-      "Az értekezletekből összefoglalót és teendőlistát készít",
-      "Az új belépőt végigvezeti a fontos tudnivalókon",
-    ],
-  },
-  {
-    h: "Ügyfélszolgálat és támogatás",
-    c: "#62BCAC",
-    ico: "chat" as IconKey,
-    items: [
-      "A gyakori kérdésekre azonnal, a cég saját anyagaiból válaszol",
-      "A beérkező megkereséseket témakör szerint rendezi és továbbítja",
-      "Előkészíti a válaszokat a visszatérő ügyfélkérdésekre",
-      "A panaszokból kiemeli a lényeget, és jelzi, mi sürgős",
-      "Több nyelven is válaszol, ha külföldi ügyfél ír",
-    ],
-  },
-  {
-    h: "Adat és rendszerek",
-    c: "#BCA162",
-    ico: "refresh" as IconKey,
-    items: [
-      "Két rendszer vagy táblázat között átviszi az adatot",
-      "Szinkronban tartja a külön kezelt adatokat",
-      "Kiszűri a duplikátumokat és a hibás sorokat",
-      "Egy helyre gyűjti a szétszórt adatokat",
-      "Jelez, ha egy fontos szám eltér a megszokottól",
-    ],
-  },
-];
-
-/* radial mind-map: the 9 examples fanning from one root (same design as before) */
-const MAP_NODES = EXAMPLES;
-const MAP_W = 1000, MAP_H = 700;
-const ROOT = { x: 142, y: MAP_H / 2, r: 48 };
-const NODE_X = 500;
-const nodeY = (i: number) => 46 + i * ((MAP_H - 92) / (MAP_NODES.length - 1));
-
 const FIT = [
   "Egy feladatot ma emberek csinálnak kézzel, újra meg újra",
   "A piacon kapható eszközök nem tudják azt, amire szüksége van",
@@ -212,75 +153,23 @@ export default function CustomSolutions() {
           </div>
         </div>
 
-        {/* ATRIUM-EDIT — Példa projektek: 9 concrete buildable examples (replaces the
-            radial mind-map and the "Amit tudunk építeni" taxonomy). */}
+        {/* ATRIUM-EDIT — Példa projektek in the column/spine design: 9 examples,
+            each with icon + title + description + audience. */}
         <div className="cux__sec reveal" data-delay="2">
           <h3 className="cux__sec-h"><span>Példa projektek</span></h3>
-          {/* desktop: mind-map — one root fanning out to the examples */}
-          <svg className="cux__map" viewBox={`0 0 ${MAP_W} ${MAP_H}`} role="img" aria-label="Egyedi AI — példa projektek">
-            <defs>
-              {MAP_NODES.map((n, i) => (
-                <linearGradient key={i} id={`gmap${i}`} gradientUnits="userSpaceOnUse" x1={ROOT.x} y1={ROOT.y} x2={NODE_X} y2={nodeY(i)}>
-                  <stop offset="0%" stopColor="rgba(1,14,30,0.16)" />
-                  <stop offset="100%" stopColor={n.c} />
-                </linearGradient>
-              ))}
-            </defs>
-            {MAP_NODES.map((n, i) => {
-              const y = nodeY(i);
-              return <path key={i} d={`M${ROOT.x + ROOT.r},${ROOT.y} C 330,${ROOT.y} 360,${y} ${NODE_X - 22},${y}`} fill="none" stroke={`url(#gmap${i})`} strokeWidth="2" />;
-            })}
-            <circle cx={ROOT.x} cy={ROOT.y} r={ROOT.r} fill="var(--bone)" stroke="#6DBC61" strokeWidth="2" />
-            <circle cx={ROOT.x} cy={ROOT.y} r={ROOT.r} fill="none" stroke="#6DBC61" strokeWidth="2">
-              <animate attributeName="r" values={`${ROOT.r};${ROOT.r + 20}`} dur="2.6s" repeatCount="indefinite" />
-              <animate attributeName="opacity" values="0.45;0" dur="2.6s" repeatCount="indefinite" />
-            </circle>
-            <text className="cux__map-root" x={ROOT.x} y={ROOT.y - 4} textAnchor="middle">Egyedi</text>
-            <text className="cux__map-root" x={ROOT.x} y={ROOT.y + 14} textAnchor="middle">AI</text>
-            {MAP_NODES.map((n, i) => {
-              const y = nodeY(i);
-              return (
-                <g key={i}>
-                  <circle cx={NODE_X} cy={y} r="19" fill="var(--bone)" stroke={n.c} strokeWidth="2" />
-                  <svg x={NODE_X - 11} y={y - 11} width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={n.c} strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" style={{ color: n.c }}>
-                    {ICON_PATHS[n.ico]}
-                  </svg>
-                  <text className="cux__map-t" x={NODE_X + 30} y={y - 2}>{n.t}</text>
-                  <text className="cux__map-sub" x={NODE_X + 30} y={y + 15} fill={n.c}>{n.who}</text>
-                </g>
-              );
-            })}
-          </svg>
-
-          {/* mobile: vertical spine version of the same map */}
-          <div className="cux__maplist">
-            {MAP_NODES.map((n, i) => (
-              <div className="cux__mapitem" key={i} style={{ ["--pc" as string]: n.c } as React.CSSProperties}>
-                <span className="cux__mapitem-dot" />
-                <b className="cux__mapitem-t">{n.t}</b>
-                <span className="cux__mapitem-sub">{n.who}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* What we can build — four capability columns */}
-        <div className="cux__sec reveal">
-          <h3 className="cux__sec-h"><span>Amit tudunk építeni</span></h3>
-          <div className="cux__cats">
-            {CATEGORIES.map((cat, i) => (
-              <div className="cux__catcol" key={i} style={{ ["--pc" as string]: cat.c } as React.CSSProperties}>
+          <div className="cux__cats cux__cats--3">
+            {EXAMPLES.map((e, i) => (
+              <div className="cux__catcol" key={i} style={{ ["--pc" as string]: e.c } as React.CSSProperties}>
                 <div className="cux__catcol-head">
                   <span className="cux__catcol-ico">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{ICON_PATHS[cat.ico]}</svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{ICON_PATHS[e.ico]}</svg>
                   </span>
-                  <b className="cux__catcol-t">{cat.h}</b>
+                  <b className="cux__catcol-t">{e.t}</b>
                 </div>
                 <div className="cux__catcol-branch">
-                  {cat.items.map((it, j) => (
-                    <div className="cux__catcol-item" key={j}>{it}</div>
-                  ))}
+                  <div className="cux__catcol-item">{e.d}</div>
                 </div>
+                <span className="cux__catcol-who">{e.who}</span>
               </div>
             ))}
           </div>
