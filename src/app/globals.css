@@ -1338,7 +1338,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
   transition: background 160ms var(--ease), color 160ms var(--ease), border-color 160ms var(--ease);
 }
 .dash__tab:hover { color: var(--ink); border-color: rgba(1,14,30,0.22); }
-.dash__tab--active { background: var(--bone); color: var(--ink); border-color: rgba(1,14,30,0.28); }
+.dash__tab--active { background: #fff; color: var(--ink); border-color: rgba(1,14,30,0.45); font-weight: 600; box-shadow: 0 1px 4px rgba(1,14,30,0.08); }
 @media (max-width: 880px) {
   .dash__tabs {
     display: grid; grid-template-columns: 1fr 1fr; gap: 6px;
