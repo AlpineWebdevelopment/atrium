@@ -355,21 +355,6 @@ export default function RealtimeDashboard() {
           </div>
 
           <div className="dash__panel">
-            <p className="dash__desc">{pain.desc}</p>
-
-            <div className="dash__metrics">
-              {pain.metrics.map((m, i) => (
-                <div key={i}>
-                  <div className="dash__metric-k">
-                    <span className="dash__metric-dot" style={{ background: m.c }} />
-                    {m.k}
-                  </div>
-                  <div className="dash__metric-v">{m.v}</div>
-                  <div className="dash__metric-d flat">{m.d}</div>
-                </div>
-              ))}
-            </div>
-
             <div className="dash__viz-frame">
               <div className="dash__loss">
                 <div className="dash__loss-l">
@@ -385,6 +370,21 @@ export default function RealtimeDashboard() {
                 <div className="dash__loss-v">{pain.loss.v}<span>{pain.loss.per}</span></div>
               </div>
               <Gfx />
+            </div>
+
+            <p className="dash__desc">{pain.desc}</p>
+
+            <div className="dash__metrics">
+              {pain.metrics.map((m, i) => (
+                <div key={i}>
+                  <div className="dash__metric-k">
+                    <span className="dash__metric-dot" style={{ background: m.c }} />
+                    {m.k}
+                  </div>
+                  <div className="dash__metric-v">{m.v}</div>
+                  <div className="dash__metric-d flat">{m.d}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
