@@ -1297,7 +1297,7 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
   --viz-cyan:     #62BCAC;
   --viz-green:    #6DBC61;
   --viz-amber:    #BCA162;
-  --viz-red:      #C46C64;
+  --viz-red:      #C83C38;
 }
 html.dark { --viz-purple-soft: #1d1b33; }
 
@@ -2090,7 +2090,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
 }
 .cal__slot--noshow .cal__time, .cal__slot--noshow .cal__tag { color: var(--stone); }
 .cal__slot--lost {
-  background: rgba(196,108,100,0.07); border: 1.5px dashed rgba(196,108,100,0.55);
+  background: rgba(200,60,56,0.07); border: 1.5px dashed rgba(200,60,56,0.55);
   animation: calPulse 2.4s ease-in-out infinite;
 }
 .cal__slot--lost .cal__time, .cal__slot--lost .cal__tag { color: var(--viz-red); }
@@ -2125,7 +2125,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
   background: color-mix(in srgb, var(--signal) 6%, var(--bone));
 }
 .quo__row--nema {
-  border: 1.5px dashed rgba(196,108,100,0.5); background: rgba(196,108,100,0.05);
+  border: 1.5px dashed rgba(200,60,56,0.5); background: rgba(200,60,56,0.05);
   animation: calPulse 2.4s ease-in-out infinite;
 }
 .quo__ico {
@@ -2135,7 +2135,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
 }
 .quo__ico svg { width: 16px; height: 16px; }
 .quo__row--won .quo__ico { color: var(--signal); border-color: color-mix(in srgb, var(--signal) 40%, transparent); background: color-mix(in srgb, var(--signal) 12%, transparent); }
-.quo__row--nema .quo__ico { color: var(--viz-red); border-color: rgba(196,108,100,0.4); background: rgba(196,108,100,0.08); }
+.quo__row--nema .quo__ico { color: var(--viz-red); border-color: rgba(200,60,56,0.4); background: rgba(200,60,56,0.08); }
 .quo__main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
 .quo__main b { font-family: var(--font-display); font-weight: 500; font-size: 14px; letter-spacing: -0.01em; color: var(--ink); }
 .quo__main span { font-family: var(--font-body); font-size: 11.5px; color: var(--ink-70); margin-top: 1px; }
@@ -2145,7 +2145,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
   padding: 3px 9px; border-radius: 999px; white-space: nowrap;
 }
 .quo__row--won .quo__tag { color: var(--signal); background: color-mix(in srgb, var(--signal) 14%, transparent); }
-.quo__row--nema .quo__tag { color: var(--viz-red); background: rgba(196,108,100,0.12); }
+.quo__row--nema .quo__tag { color: var(--viz-red); background: rgba(200,60,56,0.12); }
 .quo__sum {
   display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
   margin-top: 8px; padding-top: 12px; border-top: 1px solid var(--line);
@@ -2200,8 +2200,8 @@ html.dark { --viz-purple-soft: #1d1b33; }
   display: flex; align-items: center; gap: 28px;
   width: fit-content; max-width: 100%; margin: 20px auto 4px;
   padding: 14px 20px;
-  background: rgba(196,108,100,0.05);
-  border: 1px solid rgba(196,108,100,0.22); border-radius: 14px;
+  background: rgba(200,60,56,0.05);
+  border: 1px solid rgba(200,60,56,0.22); border-radius: 14px;
 }
 .dash__loss-l { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
 .dash__loss-head { display: flex; align-items: center; gap: 8px; }

@@ -11,7 +11,7 @@ const PAINS = [
       { k: "Megkeresés", c: "var(--stone)", v: "Minden nap", d: "hívás, űrlap, üzenet" },
       { k: "Ebből komoly", c: "#6DBC61", v: "A töredéke", d: "a többi csak nézelődik" },
       { k: "Az Ön ideje", c: "var(--stone)", v: "Órák", d: "ugyanazokra a kérdésekre" },
-      { k: "Előszűrés", c: "var(--viz-red)", v: "Nincs", d: "mindenki sorra kerül" },
+      { k: "Előszűrés", c: "var(--viz-amber)", v: "Nincs", d: "mindenki sorra kerül" },
     ],
     /* ATRIUM-EDIT LK1 — made math reconstructable: hours × hourly value = 240 000; old line had no visible bridge */
     loss: { v: "≈ 240 000 Ft", per: "/ hó", math: "~20 óra havonta előszűretlen beszélgetésre × ~12 000 Ft munkaóra-érték" },
@@ -94,9 +94,9 @@ function GfxFunnel() {
       <svg className="qual__svg" viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Minden megkeresésből csak néhány komoly">
         <defs>
           <linearGradient id="qScan" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="rgba(109,188,97,0)" />
-            <stop offset="50%" stopColor="rgba(109,188,97,0.2)" />
-            <stop offset="100%" stopColor="rgba(109,188,97,0)" />
+            <stop offset="0%" stopColor="rgba(98,143,188,0)" />
+            <stop offset="50%" stopColor="rgba(98,143,188,0.2)" />
+            <stop offset="100%" stopColor="rgba(98,143,188,0)" />
           </linearGradient>
         </defs>
         <rect x="-90" y="0" width="90" height={H} fill="url(#qScan)">
@@ -106,7 +106,7 @@ function GfxFunnel() {
           <circle key={i} cx={d.x} cy={d.y} r={d.st === "n" ? 6 : 7.5} fill={color(d.st)} />
         ))}
         {flagged.map((d, i) => (
-          <circle key={`f${i}`} cx={d.x} cy={d.y} r="7.5" fill="none" stroke="#6DBC61" strokeWidth="2">
+          <circle key={`f${i}`} cx={d.x} cy={d.y} r="7.5" fill="none" stroke="#628FBC" strokeWidth="2">
             <animate attributeName="r" values="7.5;19;19" keyTimes="0;0.12;1" dur={`${D}s`} begin={`${((d.x / W) * D).toFixed(2)}s`} repeatCount="indefinite" />
             <animate attributeName="opacity" values="0.85;0;0" keyTimes="0;0.12;1" dur={`${D}s`} begin={`${((d.x / W) * D).toFixed(2)}s`} repeatCount="indefinite" />
           </circle>
@@ -148,14 +148,14 @@ function GfxCalls() {
           <line key={y} x1="0" y1={y} x2="1000" y2={y} stroke="rgba(1,14,30,0.06)" strokeWidth="1" />
         ))}
         {/* after-hours zone */}
-        <rect x={closeX} y="0" width={1000 - closeX} height="190" fill="rgba(196,108,100,0.07)" />
-        <line x1={closeX} y1="0" x2={closeX} y2="190" stroke="rgba(196,108,100,0.45)" strokeWidth="1.5" strokeDasharray="5 5" />
+        <rect x={closeX} y="0" width={1000 - closeX} height="190" fill="rgba(200,60,56,0.07)" />
+        <line x1={closeX} y1="0" x2={closeX} y2="190" stroke="rgba(200,60,56,0.45)" strokeWidth="1.5" strokeDasharray="5 5" />
         {/* volume bars */}
         {bars.map((h, i) => {
           const x = i * bw + bw * 0.18;
           const w = bw * 0.64;
           const after = i * bw + bw / 2 >= closeX;
-          return <rect key={i} x={x} y={baseY - h} width={w} height={h} rx="3" fill={after ? "rgba(196,108,100,0.55)" : "rgba(1,14,30,0.18)"} />;
+          return <rect key={i} x={x} y={baseY - h} width={w} height={h} rx="3" fill={after ? "rgba(200,60,56,0.55)" : "rgba(1,14,30,0.18)"} />;
         })}
         {/* answered line — drops to zero after close */}
         <path d="M36,95 C90,58 150,40 215,52 C285,64 320,108 385,108 C450,108 480,86 545,90 C610,94 650,74 690,84" fill="none" stroke="url(#gAns)" strokeWidth="3" strokeLinecap="round" />
@@ -183,7 +183,7 @@ function GfxCooling() {
           <linearGradient id="gCool" x1="0" y1="0" x2="1" y2="0">
             <stop offset="0%" stopColor="#010E1E" />
             <stop offset="55%" stopColor="#8C8579" />
-            <stop offset="100%" stopColor="#C46C64" />
+            <stop offset="100%" stopColor="#C83C38" />
           </linearGradient>
           <linearGradient id="gCoolFill" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="rgba(1,14,30,0.16)" />
@@ -202,14 +202,14 @@ function GfxCooling() {
           <animateMotion dur="5s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.82;1" calcMode="linear">
             <mpath href="#coolPath" />
           </animateMotion>
-          <animate attributeName="fill" values="#010E1E;#8C8579;#C46C64;#C46C64" keyTimes="0;0.5;0.82;1" dur="5s" repeatCount="indefinite" />
+          <animate attributeName="fill" values="#010E1E;#8C8579;#C83C38;#C83C38" keyTimes="0;0.5;0.82;1" dur="5s" repeatCount="indefinite" />
         </circle>
         <circle cx="60" cy="52" r="7" fill="#010E1E" stroke="var(--bone)" strokeWidth="3" />
         <circle cx="60" cy="52" r="7" fill="none" stroke="#010E1E" strokeWidth="2">
           <animate attributeName="r" values="7;15" dur="2.2s" repeatCount="indefinite" />
           <animate attributeName="opacity" values="0.5;0" dur="2.2s" repeatCount="indefinite" />
         </circle>
-        <circle cx="950" cy="172" r="7" fill="#C46C64" stroke="var(--bone)" strokeWidth="3" />
+        <circle cx="950" cy="172" r="7" fill="#C83C38" stroke="var(--bone)" strokeWidth="3" />
       </svg>
       <div className="funnel__stage" style={{ left: "1%", top: "0", transform: "none" }}>
         <b>Érdeklődés beérkezik</b><span>14:30</span>
