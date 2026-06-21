@@ -243,7 +243,7 @@ export default function FullSystem() {
         </div>
           {/* ATRIUM-EDIT SD2 — removed GoHighLevel from public integrations line; brand spec §10 prohibits exposing internal stack; GHL is also being dropped from the stack */}
           <div className="sysframe__integ">
-            Csatlakozik a meglévő eszközeihez — a naptárához és a CRM-jéhez, amit ma is használ. Nem kell átköltöznie.
+            Saját CRM-et és teljes ökoszisztémát biztosítunk — ha mégis a meglévő eszközeinél maradna, ahhoz is csatlakozunk.
           </div>
         </div>
 
