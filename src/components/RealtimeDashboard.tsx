@@ -360,21 +360,22 @@ export default function RealtimeDashboard() {
               ))}
             </div>
 
-            <div className="dash__loss">
-              <div className="dash__loss-l">
-                <div className="dash__loss-head">
-                  <svg className="dash__loss-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="22 17 13.5 8.5 8.5 13.5 2 7" />
-                    <polyline points="16 17 22 17 22 11" />
-                  </svg>
-                  <span className="dash__loss-label">Becsült kieső bevétel</span>
+            <div className="dash__viz-frame">
+              <div className="dash__loss">
+                <div className="dash__loss-l">
+                  <div className="dash__loss-head">
+                    <svg className="dash__loss-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="22 17 13.5 8.5 8.5 13.5 2 7" />
+                      <polyline points="16 17 22 17 22 11" />
+                    </svg>
+                    <span className="dash__loss-label">Becsült kieső bevétel</span>
+                  </div>
+                  <span className="dash__loss-math">{pain.loss.math}</span>
                 </div>
-                <span className="dash__loss-math">{pain.loss.math}</span>
+                <div className="dash__loss-v">{pain.loss.v}<span>{pain.loss.per}</span></div>
               </div>
-              <div className="dash__loss-v">{pain.loss.v}<span>{pain.loss.per}</span></div>
+              <Gfx />
             </div>
-
-            <Gfx />
           </div>
         </div>
       </div>

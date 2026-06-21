@@ -2195,13 +2195,22 @@ html.dark { --viz-purple-soft: #1d1b33; }
   max-width: 100%;
 }
 
+/* --- Viz frame: loss header + chart body share one bordered card ---*/
+.dash__viz-frame {
+  margin-top: 20px;
+  border: 1px solid rgba(200,60,56,0.22);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.dash__viz-frame .dash__chart { margin-top: 0; }
+
 /* --- Estimated revenue-loss callout (per tab) — original red --- */
 .dash__loss {
   display: flex; align-items: center; gap: 28px;
-  width: fit-content; max-width: 100%; margin: 20px auto 4px;
+  width: 100%; max-width: 100%; margin: 0;
   padding: 14px 20px;
   background: rgba(200,60,56,0.05);
-  border: 1px solid rgba(200,60,56,0.22); border-radius: 14px;
+  border-bottom: 1px solid rgba(200,60,56,0.14);
 }
 .dash__loss-l { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
 .dash__loss-head { display: flex; align-items: center; gap: 8px; }
