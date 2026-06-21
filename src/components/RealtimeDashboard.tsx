@@ -69,45 +69,53 @@ const PAINS = [
   },
 ];
 
-/* ---- Graphic 1: qualification dot field ----
-   Dense dot field: small gray dots are lookers, larger dark dots are serious,
-   one green dot is a customer. Staggered fade-in + slow pulse on serious dots. */
+/* ---- Graphic 1: qualification dot grid ----
+   Perfect grid: gray=looker, dark=serious, green=customer.
+   Green is largest and has a double-ring pulse; dark has a subtle single ring. */
 function GfxFunnel() {
-  const COLS = 14, ROWS = 5, W = 800, H = 220, MX = 36, MY = 34;
+  const COLS = 11, ROWS = 4, W = 800, H = 200, MX = 40, MY = 40;
   const gx = (W - 2 * MX) / (COLS - 1);
   const gy = (H - 2 * MY) / (ROWS - 1);
   const serious: Record<string, "k" | "v"> = {
-    "2,1": "k", "5,0": "k", "9,2": "k", "11,1": "k", "3,3": "k", "7,4": "k", "10,2": "v",
+    "1,2": "k", "4,0": "k", "6,3": "k", "8,1": "k", "10,2": "k", "2,3": "k", "5,1": "v",
   };
   const dots: { x: number; y: number; st: string; idx: number }[] = [];
   let n = 0;
   for (let r = 0; r < ROWS; r++) {
     for (let c = 0; c < COLS; c++) {
-      const jx = Math.sin(n * 2.397) * 3;
-      const jy = Math.cos(n * 1.843) * 2.2;
-      dots.push({ x: MX + c * gx + jx, y: MY + r * gy + jy, st: serious[`${c},${r}`] || "n", idx: n });
-      n++;
+      dots.push({ x: MX + c * gx, y: MY + r * gy, st: serious[`${c},${r}`] || "n", idx: n++ });
     }
   }
-  const serious_dots = dots.filter((d) => d.st !== "n");
+  const R_N = 4.5, R_K = 6.5, R_V = 9.5;
   const color = (st: string) => st === "v" ? "#6DBC61" : st === "k" ? "#010E1E" : "rgba(1,14,30,0.12)";
-  const radius = (st: string) => st === "n" ? 4.2 : 6.5;
+  const radius = (st: string) => st === "v" ? R_V : st === "k" ? R_K : R_N;
   return (
     <div className="qual">
       <svg className="qual__svg" viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Minden megkeresésből csak néhány komoly">
         {dots.map((d) => (
           <circle key={d.idx} cx={d.x} cy={d.y} r={radius(d.st)} fill={color(d.st)} opacity="0">
-            <animate attributeName="opacity" from="0" to="1" dur="0.35s" begin={`${d.idx * 0.032}s`} fill="freeze" />
+            <animate attributeName="opacity" from="0" to="1" dur="0.3s" begin={`${d.idx * 0.036}s`} fill="freeze" />
           </circle>
         ))}
-        {serious_dots.map((d, i) => (
-          <circle key={`p${i}`} cx={d.x} cy={d.y} r={radius(d.st)} fill="none"
-            stroke={d.st === "v" ? "#6DBC61" : "#010E1E"} strokeWidth="1.4">
-            <animate attributeName="r" values={`${radius(d.st)};${radius(d.st) + 14}`} dur="3s"
-              begin={`${d.idx * 0.032 + 0.6}s`} repeatCount="indefinite" />
-            <animate attributeName="opacity" values="0.45;0" dur="3s"
-              begin={`${d.idx * 0.032 + 0.6}s`} repeatCount="indefinite" />
+        {/* komoly — subtle single dark ring */}
+        {dots.filter((d) => d.st === "k").map((d, i) => (
+          <circle key={`pk${i}`} cx={d.x} cy={d.y} r={R_K} fill="none" stroke="#010E1E" strokeWidth="1.2">
+            <animate attributeName="r" values={`${R_K};${R_K + 13}`} dur="3.2s" begin={`${d.idx * 0.036 + 0.8}s`} repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0.28;0" dur="3.2s" begin={`${d.idx * 0.036 + 0.8}s`} repeatCount="indefinite" />
           </circle>
+        ))}
+        {/* vevő — double green ring, clearly dominant */}
+        {dots.filter((d) => d.st === "v").map((d, i) => (
+          <g key={`pv${i}`}>
+            <circle cx={d.x} cy={d.y} r={R_V} fill="none" stroke="#6DBC61" strokeWidth="2">
+              <animate attributeName="r" values={`${R_V};${R_V + 20}`} dur="2.2s" begin={`${d.idx * 0.036 + 0.8}s`} repeatCount="indefinite" />
+              <animate attributeName="opacity" values="0.75;0" dur="2.2s" begin={`${d.idx * 0.036 + 0.8}s`} repeatCount="indefinite" />
+            </circle>
+            <circle cx={d.x} cy={d.y} r={R_V} fill="none" stroke="#6DBC61" strokeWidth="1.4">
+              <animate attributeName="r" values={`${R_V};${R_V + 34}`} dur="2.2s" begin={`${d.idx * 0.036 + 1.1}s`} repeatCount="indefinite" />
+              <animate attributeName="opacity" values="0.45;0" dur="2.2s" begin={`${d.idx * 0.036 + 1.1}s`} repeatCount="indefinite" />
+            </circle>
+          </g>
         ))}
       </svg>
       <div className="qual__legend">
