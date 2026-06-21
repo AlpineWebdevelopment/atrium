@@ -69,46 +69,44 @@ const PAINS = [
   },
 ];
 
-/* ---- Graphic 1: qualification as a pre-screening dot matrix ----
-   Every inquiry is a dot; most are just browsing (grey), a few are serious
-   (blue) or a customer (green). An AI scan sweeps across and flags the
-   serious ones — so you only ever talk to those. */
+/* ---- Graphic 1: qualification dot field ----
+   Dense dot field: small gray dots are lookers, larger dark dots are serious,
+   one green dot is a customer. Staggered fade-in + slow pulse on serious dots. */
 function GfxFunnel() {
-  const COLS = 13, ROWS = 3, W = 800, H = 200, MX = 38, MY = 36;
+  const COLS = 14, ROWS = 5, W = 800, H = 220, MX = 36, MY = 34;
   const gx = (W - 2 * MX) / (COLS - 1);
   const gy = (H - 2 * MY) / (ROWS - 1);
-  const D = 3.8; // sweep period
   const serious: Record<string, "k" | "v"> = {
-    "2,0": "k", "7,0": "k", "9,1": "v", "5,2": "k", "11,2": "k",
+    "2,1": "k", "5,0": "k", "9,2": "k", "11,1": "k", "3,3": "k", "7,4": "k", "10,2": "v",
   };
-  const color = (st: string) => (st === "v" ? "#6DBC61" : st === "k" ? "#010E1E" : "rgba(1,14,30,0.13)");
-  const dots: { x: number; y: number; st: string }[] = [];
+  const dots: { x: number; y: number; st: string; idx: number }[] = [];
+  let n = 0;
   for (let r = 0; r < ROWS; r++) {
     for (let c = 0; c < COLS; c++) {
-      dots.push({ x: MX + c * gx, y: MY + r * gy, st: serious[`${c},${r}`] || "n" });
+      const jx = Math.sin(n * 2.397) * 3;
+      const jy = Math.cos(n * 1.843) * 2.2;
+      dots.push({ x: MX + c * gx + jx, y: MY + r * gy + jy, st: serious[`${c},${r}`] || "n", idx: n });
+      n++;
     }
   }
-  const flagged = dots.filter((d) => d.st !== "n");
+  const serious_dots = dots.filter((d) => d.st !== "n");
+  const color = (st: string) => st === "v" ? "#6DBC61" : st === "k" ? "#010E1E" : "rgba(1,14,30,0.12)";
+  const radius = (st: string) => st === "n" ? 4.2 : 6.5;
   return (
     <div className="qual">
       <svg className="qual__svg" viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Minden megkeresésből csak néhány komoly">
-        <defs>
-          <linearGradient id="qScan" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="rgba(98,143,188,0)" />
-            <stop offset="50%" stopColor="rgba(98,143,188,0.2)" />
-            <stop offset="100%" stopColor="rgba(98,143,188,0)" />
-          </linearGradient>
-        </defs>
-        <rect x="-90" y="0" width="90" height={H} fill="url(#qScan)">
-          <animate attributeName="x" values={`-90;${W}`} dur={`${D}s`} repeatCount="indefinite" />
-        </rect>
-        {dots.map((d, i) => (
-          <circle key={i} cx={d.x} cy={d.y} r={d.st === "n" ? 6 : 7.5} fill={color(d.st)} />
+        {dots.map((d) => (
+          <circle key={d.idx} cx={d.x} cy={d.y} r={radius(d.st)} fill={color(d.st)} opacity="0">
+            <animate attributeName="opacity" from="0" to="1" dur="0.35s" begin={`${d.idx * 0.032}s`} fill="freeze" />
+          </circle>
         ))}
-        {flagged.map((d, i) => (
-          <circle key={`f${i}`} cx={d.x} cy={d.y} r="7.5" fill="none" stroke="#628FBC" strokeWidth="2">
-            <animate attributeName="r" values="7.5;19;19" keyTimes="0;0.12;1" dur={`${D}s`} begin={`${((d.x / W) * D).toFixed(2)}s`} repeatCount="indefinite" />
-            <animate attributeName="opacity" values="0.85;0;0" keyTimes="0;0.12;1" dur={`${D}s`} begin={`${((d.x / W) * D).toFixed(2)}s`} repeatCount="indefinite" />
+        {serious_dots.map((d, i) => (
+          <circle key={`p${i}`} cx={d.x} cy={d.y} r={radius(d.st)} fill="none"
+            stroke={d.st === "v" ? "#6DBC61" : "#010E1E"} strokeWidth="1.4">
+            <animate attributeName="r" values={`${radius(d.st)};${radius(d.st) + 14}`} dur="3s"
+              begin={`${d.idx * 0.032 + 0.6}s`} repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0.45;0" dur="3s"
+              begin={`${d.idx * 0.032 + 0.6}s`} repeatCount="indefinite" />
           </circle>
         ))}
       </svg>
