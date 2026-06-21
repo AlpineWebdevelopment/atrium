@@ -1,3 +1,6 @@
+"use client";
+import { useState } from "react";
+
 /* Custom AI builds (root only). "Példa projektek" — 9 concrete buildable examples
    in the column/spine design (icon + title + description + audience).
    Framed as what we can build, never as delivered work. No banned vocab. */
@@ -100,6 +103,7 @@ const GUARANTEES = [
 ];
 
 export default function CustomSolutions() {
+  const [showAll, setShowAll] = useState(false);
   return (
     <section className="cux" id="egyedi">
       <div className="wrap">
@@ -142,24 +146,25 @@ export default function CustomSolutions() {
             each with icon + title + description + audience. */}
         <div className="cux__sec reveal" data-delay="2">
           <h3 className="cux__sec-h"><span>Példa projektek</span></h3>
-          <div className="cux__cats cux__cats--3">
+          <div className={`cux__cats cux__cats--3${showAll ? " cux__cats--open" : ""}`}>
             {EXAMPLES.map((e, i) => (
-              <div className="cux__catcol" key={i} style={{ ["--pc" as string]: e.c } as React.CSSProperties}>
-                <details className="cux__det">
-                  <summary className="cux__catcol-head">
-                    <span className="cux__catcol-ico">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{ICON_PATHS[e.ico]}</svg>
-                    </span>
-                    <b className="cux__catcol-t">{e.t}</b>
-                  </summary>
-                  <div className="cux__catcol-branch">
-                    <div className="cux__catcol-item">{e.d}</div>
-                  </div>
-                  <span className="cux__catcol-who">{e.who}</span>
-                </details>
+              <div className={`cux__catcol${i >= 2 ? " cux__catcol--more" : ""}`} key={i} style={{ ["--pc" as string]: e.c } as React.CSSProperties}>
+                <div className="cux__catcol-head">
+                  <span className="cux__catcol-ico">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{ICON_PATHS[e.ico]}</svg>
+                  </span>
+                  <b className="cux__catcol-t">{e.t}</b>
+                </div>
+                <div className="cux__catcol-branch">
+                  <div className="cux__catcol-item">{e.d}</div>
+                </div>
+                <span className="cux__catcol-who">{e.who}</span>
               </div>
             ))}
           </div>
+          <button className="cux__more-btn" onClick={() => setShowAll(!showAll)}>
+            {showAll ? "Mutasson kevesebbet" : "Mutasson többet"}
+          </button>
         </div>
 
         {/* Guarantees */}
