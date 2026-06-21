@@ -2088,7 +2088,6 @@ html.dark { --viz-purple-soft: #1d1b33; }
 
 @media (max-width: 860px) {
   .cux__cats { grid-template-columns: 1fr 1fr; }
-  /* guarantees: keep 3 columns, tighten sizing */
   .cux__guar { gap: 12px; }
   .cux__guar::before { top: 30px; }
   .cux__g { padding: 0 4px; }
@@ -2096,6 +2095,21 @@ html.dark { --viz-purple-soft: #1d1b33; }
   .cux__g-ico { width: 20px; height: 20px; }
   .cux__g-t { font-size: 13.5px; margin-top: 10px; }
   .cux__g-d { font-size: 12px; line-height: 1.45; }
+}
+@media (max-width: 560px) {
+  .cux__guar { grid-template-columns: 1fr; gap: 0; }
+  .cux__guar::before { display: none; }
+  .cux__g {
+    display: grid; grid-template-columns: 52px 1fr;
+    column-gap: 16px; row-gap: 4px; align-items: start;
+    text-align: left; padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .cux__g:last-child { border-bottom: none; }
+  .cux__g-node { margin: 0; width: 44px; height: 44px; grid-row: span 2; }
+  .cux__g-ico { width: 18px; height: 18px; }
+  .cux__g-t { margin: 0 0 2px; grid-column: 2; font-size: 14px; }
+  .cux__g-d { grid-column: 2; font-size: 13px; }
 }
 /* Önnek való / nem — two cards stack on tablet and below */
 @media (max-width: 760px) {
