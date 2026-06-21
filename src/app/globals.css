@@ -1696,7 +1696,12 @@ html.dark { --viz-purple-soft: #1d1b33; }
   border: 1px solid var(--line); background: var(--bone);
   font-family: var(--font-body); font-size: 13px; color: var(--ink);
 }
-.sys__badge svg { width: 16px; height: 16px; color: var(--signal); flex-shrink: 0; }
+.sys__badge svg { width: 16px; height: 16px; color: var(--ink); flex-shrink: 0; }
+.sys__badge-flag { width: 20px; height: 14px; border-radius: 2px; overflow: hidden; flex-shrink: 0; display: inline-flex; flex-direction: column; }
+.sys__badge-flag span { flex: 1; display: block; }
+.sys__badge-flag span:nth-child(1) { background: #CE2939; }
+.sys__badge-flag span:nth-child(2) { background: #FFFFFF; }
+.sys__badge-flag span:nth-child(3) { background: #477050; }
 
 /* differentiators strip beneath the journey */
 .sys__points {

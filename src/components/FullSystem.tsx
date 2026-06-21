@@ -254,7 +254,7 @@ export default function FullSystem() {
 
         <div className="sys__badges reveal" data-delay="3">
           <span className="sys__badge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9" /><path d="M3 12h18" /><path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18" /></svg>
+            <span className="sys__badge-flag" aria-hidden="true"><span /><span /><span /></span>
             Magyar nyelvű
           </span>
           <span className="sys__badge">
