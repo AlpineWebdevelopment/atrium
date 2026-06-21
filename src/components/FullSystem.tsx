@@ -114,7 +114,7 @@ function VizMegtartas() {
 
 const PHASES = [
   {
-    n: "01", name: "Megkeresés", cap: "az első érintéstől a minősítésig", c: "#8A55B0", Viz: VizMegkereses,
+    n: "01", name: "Megkeresés", cap: "az első érintéstől a minősítésig", c: "#9360BA", Viz: VizMegkereses,
     steps: [
       { ic: "phone", t: "Hívásfogadás", s: "minden hívást felvesz, éjjel és hétvégén is" },
       { ic: "chat", t: "Utánkövetés", s: "a webes érdeklődőt is percek alatt visszahívja" },
