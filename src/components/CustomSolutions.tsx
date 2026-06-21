@@ -125,7 +125,7 @@ const FIT = [
   "A piacon kapható eszközök nem tudják azt, amire szüksége van",
   "Számít a megbízhatóság — nem elég, hogy „valahogy működjön”",
   "Kész befektetni egy tartós eredménybe",
-  "Szeretne részt venni a fejlesztésben, nem csak átvenni egy kész dobozt",
+  "Szeretne részt venni a fejlesztésben, nem csak átvenni egy kész terméket",
 ];
 
 const NOFIT = [
