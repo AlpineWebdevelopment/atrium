@@ -2165,7 +2165,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
 
 /* Graphic 5 — unfollowed quotes: a list of offers that went silent */
 .quo { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
-.quo__list { display: flex; flex-direction: column; gap: 8px; }
+.quo__list { display: flex; flex-direction: column; gap: 10px; }
 .quo__row {
   display: flex; align-items: center; gap: 13px;
   padding: 11px 15px; border-radius: 12px;
@@ -2176,7 +2176,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
   background: color-mix(in srgb, var(--signal) 6%, var(--bone));
 }
 .quo__row--nema {
-  border: 1.5px dashed rgba(200,60,56,0.5); background: rgba(200,60,56,0.05);
+  border: 1px solid var(--line); background: transparent;
   animation: calPulse 2.4s ease-in-out infinite;
 }
 .quo__ico {
@@ -2186,7 +2186,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
 }
 .quo__ico svg { width: 16px; height: 16px; }
 .quo__row--won .quo__ico { color: var(--signal); border-color: color-mix(in srgb, var(--signal) 40%, transparent); background: color-mix(in srgb, var(--signal) 12%, transparent); }
-.quo__row--nema .quo__ico { color: var(--viz-red); border-color: rgba(200,60,56,0.4); background: rgba(200,60,56,0.08); }
+.quo__row--nema .quo__ico { color: var(--stone); border-color: var(--line); background: transparent; }
 .quo__main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
 .quo__main b { font-family: var(--font-display); font-weight: 500; font-size: 14px; letter-spacing: -0.01em; color: var(--ink); }
 .quo__main span { font-family: var(--font-body); font-size: 11.5px; color: var(--ink-70); margin-top: 1px; }
