@@ -2253,7 +2253,10 @@ html.dark { --viz-purple-soft: #1d1b33; }
   border-radius: 14px;
   overflow: hidden;
 }
-.dash__viz-frame .dash__chart { margin-top: 0; }
+.dash__viz-frame .dash__chart { margin-top: 0; padding: 10px 16px 14px; }
+.dash__viz-frame .cal-wrap { padding: 10px 16px 14px; }
+.dash__viz-frame .quo { padding: 10px 16px 14px; }
+.dash__viz-frame .qual { padding: 0 16px 14px; }
 
 /* --- Estimated revenue-loss callout (per tab) — original red --- */
 .dash__loss {
