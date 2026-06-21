@@ -1667,8 +1667,8 @@ html.dark { --viz-purple-soft: #1d1b33; }
   width: 34px; height: 34px;
   display: flex; align-items: center; justify-content: center;
   border-radius: 9px;
-  background: color-mix(in srgb, var(--signal) 12%, var(--bone));
-  color: var(--signal); flex-shrink: 0; margin-bottom: 2px;
+  background: color-mix(in srgb, var(--ink) 8%, var(--bone));
+  color: var(--ink); flex-shrink: 0; margin-bottom: 2px;
 }
 .sys__prop-ico svg { width: 16px; height: 16px; }
 .sys__prop-t {
