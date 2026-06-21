@@ -72,53 +72,62 @@ const PAINS = [
 /* ---- Graphic 1: qualification dot grid ----
    Perfect grid: gray=looker, dark=serious, green=customer.
    Green is largest and has a double-ring pulse; dark has a subtle single ring. */
-function GfxFunnel() {
-  const COLS = 11, ROWS = 4, W = 800, H = 200, MX = 40, MY = 40;
+function buildDots(COLS: number, ROWS: number, W: number, H: number, MX: number, MY: number, serious: Record<string, "k" | "v">) {
   const gx = (W - 2 * MX) / (COLS - 1);
   const gy = (H - 2 * MY) / (ROWS - 1);
-  const serious: Record<string, "k" | "v"> = {
-    "1,2": "k", "4,0": "k", "6,3": "k", "8,1": "k", "10,2": "k", "2,3": "k",
-    "5,1": "v", "3,0": "v", "9,3": "v",
-  };
   const dots: { x: number; y: number; st: string; idx: number }[] = [];
   let n = 0;
-  for (let r = 0; r < ROWS; r++) {
-    for (let c = 0; c < COLS; c++) {
+  for (let r = 0; r < ROWS; r++)
+    for (let c = 0; c < COLS; c++)
       dots.push({ x: MX + c * gx, y: MY + r * gy, st: serious[`${c},${r}`] || "n", idx: n++ });
-    }
-  }
-  const R_N = 4.5, R_K = 6.5, R_V = 9.5;
+  return dots;
+}
+
+function DotSvg({ dots, R_N, R_K, R_V, W, H, cls }: { dots: ReturnType<typeof buildDots>; R_N: number; R_K: number; R_V: number; W: number; H: number; cls: string }) {
   const color = (st: string) => st === "v" ? "#6DBC61" : st === "k" ? "#010E1E" : "rgba(1,14,30,0.12)";
   const radius = (st: string) => st === "v" ? R_V : st === "k" ? R_K : R_N;
   return (
+    <svg className={cls} viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Minden megkeresésből csak néhány komoly">
+      {dots.map((d) => (
+        <circle key={d.idx} cx={d.x} cy={d.y} r={radius(d.st)} fill={color(d.st)} opacity="0">
+          <animate attributeName="opacity" from="0" to="1" dur="0.3s" begin={`${d.idx * 0.036}s`} fill="freeze" />
+        </circle>
+      ))}
+      {dots.filter((d) => d.st === "k").map((d, i) => (
+        <circle key={`pk${i}`} cx={d.x} cy={d.y} r={R_K} fill="none" stroke="#010E1E" strokeWidth="1.2">
+          <animate attributeName="r" values={`${R_K};${R_K + 13}`} dur="3.2s" begin={`${d.idx * 0.036 + 0.8}s`} repeatCount="indefinite" />
+          <animate attributeName="opacity" values="0.28;0" dur="3.2s" begin={`${d.idx * 0.036 + 0.8}s`} repeatCount="indefinite" />
+        </circle>
+      ))}
+      {dots.filter((d) => d.st === "v").map((d, i) => (
+        <g key={`pv${i}`}>
+          <circle cx={d.x} cy={d.y} r={R_V} fill="none" stroke="#6DBC61" strokeWidth="2">
+            <animate attributeName="r" values={`${R_V};${R_V + 20}`} dur="2.2s" begin={`${d.idx * 0.036 + 0.8}s`} repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0.75;0" dur="2.2s" begin={`${d.idx * 0.036 + 0.8}s`} repeatCount="indefinite" />
+          </circle>
+          <circle cx={d.x} cy={d.y} r={R_V} fill="none" stroke="#6DBC61" strokeWidth="1.4">
+            <animate attributeName="r" values={`${R_V};${R_V + 34}`} dur="2.2s" begin={`${d.idx * 0.036 + 1.1}s`} repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0.45;0" dur="2.2s" begin={`${d.idx * 0.036 + 1.1}s`} repeatCount="indefinite" />
+          </circle>
+        </g>
+      ))}
+    </svg>
+  );
+}
+
+function GfxFunnel() {
+  const desktopDots = buildDots(11, 4, 800, 200, 40, 40, {
+    "1,2": "k", "4,0": "k", "6,3": "k", "8,1": "k", "10,2": "k", "2,3": "k",
+    "5,1": "v", "3,0": "v", "9,3": "v",
+  });
+  const mobileDots = buildDots(7, 3, 500, 180, 36, 40, {
+    "1,1": "k", "4,0": "k", "5,2": "k",
+    "2,0": "v", "6,1": "v", "3,2": "v",
+  });
+  return (
     <div className="qual">
-      <svg className="qual__svg" viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Minden megkeresésből csak néhány komoly">
-        {dots.map((d) => (
-          <circle key={d.idx} cx={d.x} cy={d.y} r={radius(d.st)} fill={color(d.st)} opacity="0">
-            <animate attributeName="opacity" from="0" to="1" dur="0.3s" begin={`${d.idx * 0.036}s`} fill="freeze" />
-          </circle>
-        ))}
-        {/* komoly — subtle single dark ring */}
-        {dots.filter((d) => d.st === "k").map((d, i) => (
-          <circle key={`pk${i}`} cx={d.x} cy={d.y} r={R_K} fill="none" stroke="#010E1E" strokeWidth="1.2">
-            <animate attributeName="r" values={`${R_K};${R_K + 13}`} dur="3.2s" begin={`${d.idx * 0.036 + 0.8}s`} repeatCount="indefinite" />
-            <animate attributeName="opacity" values="0.28;0" dur="3.2s" begin={`${d.idx * 0.036 + 0.8}s`} repeatCount="indefinite" />
-          </circle>
-        ))}
-        {/* vevő — double green ring, clearly dominant */}
-        {dots.filter((d) => d.st === "v").map((d, i) => (
-          <g key={`pv${i}`}>
-            <circle cx={d.x} cy={d.y} r={R_V} fill="none" stroke="#6DBC61" strokeWidth="2">
-              <animate attributeName="r" values={`${R_V};${R_V + 20}`} dur="2.2s" begin={`${d.idx * 0.036 + 0.8}s`} repeatCount="indefinite" />
-              <animate attributeName="opacity" values="0.75;0" dur="2.2s" begin={`${d.idx * 0.036 + 0.8}s`} repeatCount="indefinite" />
-            </circle>
-            <circle cx={d.x} cy={d.y} r={R_V} fill="none" stroke="#6DBC61" strokeWidth="1.4">
-              <animate attributeName="r" values={`${R_V};${R_V + 34}`} dur="2.2s" begin={`${d.idx * 0.036 + 1.1}s`} repeatCount="indefinite" />
-              <animate attributeName="opacity" values="0.45;0" dur="2.2s" begin={`${d.idx * 0.036 + 1.1}s`} repeatCount="indefinite" />
-            </circle>
-          </g>
-        ))}
-      </svg>
+      <DotSvg dots={desktopDots} R_N={4.5} R_K={6.5} R_V={9.5} W={800} H={200} cls="qual__svg qual__svg--desktop" />
+      <DotSvg dots={mobileDots} R_N={7} R_K={10} R_V={15} W={500} H={180} cls="qual__svg qual__svg--mobile" />
       <div className="qual__legend">
         <span className="qual__leg"><i className="qual__leg-dot" style={{ background: "rgba(1,14,30,0.32)" }} />Nézelődő</span>
         <span className="qual__leg"><i className="qual__leg-dot" style={{ background: "#010E1E" }} />Komoly szándék</span>

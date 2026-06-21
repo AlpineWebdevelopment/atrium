@@ -2286,6 +2286,11 @@ html.dark { --viz-purple-soft: #1d1b33; }
 /* --- Qualification: pre-screening dot matrix --- */
 .qual { margin-top: 10px; padding: 0 18px 14px; }
 .qual__svg { width: 100%; max-width: 760px; height: auto; display: block; margin: 0 auto; }
+.qual__svg--mobile { display: none; }
+@media (max-width: 600px) {
+  .qual__svg--desktop { display: none; }
+  .qual__svg--mobile { display: block; }
+}
 .qual__legend {
   display: flex; align-items: center; gap: 16px 18px; flex-wrap: wrap;
   margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line);
