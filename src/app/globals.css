@@ -2744,6 +2744,10 @@ html.dark { --viz-purple-soft: #1d1b33; }
   .footer { padding: 48px 0 36px; }
 }
 
+@media (min-width: 561px) {
+  .hero__line1, .hero__line2 { display: inline; }
+}
+
 /* Ultra-narrow (≤400px): drop the toggle so brand + CTA share one row */
 @media (max-width: 400px) {
   .theme-toggle { display: none; }
