@@ -1364,6 +1364,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
     margin: 0 auto 24px;
   }
   .dash__tab { text-align: center; padding: 7px 12px; color: var(--ink-70); }
+  .dash__tab--active { color: #F5F2ED; }
   .dash__tab:last-child:nth-child(odd) { grid-column: 1; }
 }
 
