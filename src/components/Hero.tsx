@@ -103,7 +103,7 @@ export default function Hero() {
             <p className="hero__sub">
               Az Atrium egy magyar nyelvű, AI-alapú értékesítési rendszer:
               minden hívást fogad, minden időpontot lefoglal, minden érdeklődőt
-              utánkövet — a háttérben, az Ön eszközeivel.
+              utánkövet — a háttérben, amíg Ön a cégét vezeti.
             </p>
             <div className="hero__actions">
               <button className="btn">Foglaljon időpontot</button>
