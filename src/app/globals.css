@@ -491,7 +491,6 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
 .hcon__time { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.05em; color: var(--stone); }
 .hcon__ev { font-family: var(--font-body); font-size: 14px; line-height: 1.4; color: var(--ink-70); margin-top: 3px; }
 .hcon__row--done .hcon__ev, .hcon__row--now .hcon__ev { color: var(--ink); }
-.hcon__row--now .hcon__ev { font-weight: 500; }
 .hcon__foot {
   margin-top: 14px; padding-top: 12px; text-align: center;
   border-top: 1px solid var(--line);
