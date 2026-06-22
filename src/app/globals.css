@@ -932,7 +932,7 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
 /* =========================================================
    Manifesto — emotional pivot / positioning beat
    ========================================================= */
-.manifesto { padding: 64px 0 72px; }
+.manifesto { background: transparent; padding: 64px 0 72px; }
 .manifesto__inner { max-width: 800px; margin: 0 auto; padding: 0 24px; }
 .manifesto__card { background: #F5F2ED; border-radius: 20px; border: 1px solid rgba(1,14,30,0.09); box-shadow: 0 8px 40px -8px rgba(1,14,30,0.13); padding: 48px 52px; display: flex; gap: 36px; align-items: flex-start; }
 .manifesto__bang { font-family: var(--font-display); font-size: 100px; font-weight: 700; color: #6DBC61; line-height: 0.82; flex-shrink: 0; letter-spacing: -0.04em; }
