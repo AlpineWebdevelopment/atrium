@@ -2670,7 +2670,8 @@ html.dark { --viz-purple-soft: #1d1b33; }
   .hero__line2 { display: block; }
   .hero__rotline { font-size: 7.2vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .hero__sub { font-size: 13.5px; margin: 18px 0 26px; }
-  .hero__actions .btn { font-size: 13.5px; padding: 11px 16px; }
+  .hero__actions { flex-wrap: nowrap; gap: 8px; }
+  .hero__actions .btn { font-size: 13px; padding: 11px 13px; white-space: nowrap; }
   .canvas__stage { height: 290px; }
   .canvas__stage--con { height: auto; }
   .canvas__center {
