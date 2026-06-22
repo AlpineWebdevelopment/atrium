@@ -179,10 +179,8 @@ export default function FullSystem() {
                 <span className="sysframe__dot" aria-hidden="true" />
                 Az Atrium rendszer · egységes memória
               </span>
-              {/* ATRIUM-EDIT SD1 — "hívás" → "megkeresés"; channel chips show 8 channels, not just calls */}
               <span className="sysframe__live">
-                <span className="sysframe__live-dot" aria-hidden="true" />
-                Minden megkeresés egy helyen · egy sem vész el
+                <span className="sysframe__live-sub">Aki telefonon kezdte és Instagramon folytatja, ugyanaz az ügyfél marad — nem kell kétszer elmondania.</span>
               </span>
             </div>
             <div className="sysframe__channels">
@@ -227,35 +225,6 @@ export default function FullSystem() {
           ))}
         </div>
 
-        <div className="sys__props">
-          <div className="sys__prop">
-            <span className="sys__prop-ico">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20V10M18 20V4M6 20v-6" /></svg>
-            </span>
-            <div className="sys__prop-txt">
-              <b className="sys__prop-t">Mérhető, végig</b>
-              <span className="sys__prop-d">Havonta megmutatja, mit hozott a rendszer, és hol szivárog még a bevétel.</span>
-            </div>
-          </div>
-          <div className="sys__prop">
-            <span className="sys__prop-ico">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" /><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></svg>
-            </span>
-            <div className="sys__prop-txt">
-              <b className="sys__prop-t">Saját CRM</b>
-              <span className="sys__prop-d">Saját CRM-et és teljes ökoszisztémát biztosítunk.</span>
-            </div>
-          </div>
-          <div className="sys__prop">
-            <span className="sys__prop-ico">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></svg>
-            </span>
-            <div className="sys__prop-txt">
-              <b className="sys__prop-t">Mi építjük, mi üzemeltetjük</b>
-              <span className="sys__prop-d">Önnek nem kell hozzányúlnia.</span>
-            </div>
-          </div>
-        </div>
         </div>
 
         <div className="sys__badges reveal" data-delay="3">

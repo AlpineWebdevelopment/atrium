@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import RealtimeDashboard from "@/components/RealtimeDashboard";
 import FullSystem from "@/components/FullSystem";
+import Manifesto from "@/components/Manifesto";
 import CustomSolutions from "@/components/CustomSolutions";
 import WorkFlow from "@/components/WorkFlow";
 // import Reputation from "@/components/Reputation"; // hidden for now — re-enable to bring it back
@@ -15,6 +16,7 @@ export default function Home() {
       <ScrollReveal />
       <Hero />
       <RealtimeDashboard />
+      <Manifesto />
       <FullSystem />
       <CustomSolutions />
       <WorkFlow />

@@ -93,12 +93,12 @@ const GUARANTEES = [
     d: "Fix áron, közösen meghatározott eredményre dolgozunk. Ha több kör kell hozzá, az a mi dolgunk — felár nélkül.",
   },
   {
-    t: "Folyamatos rálátás",
-    d: "Nem fekete doboz épül. Rendszeresen megmutatjuk, hol tartunk, a kész rendszert pedig dokumentációval adjuk át.",
-  },
-  {
     t: "Az Öné marad",
     d: "Amit megépítünk, az az Öné. A rendszert és a dokumentációt is átadjuk, így soha nem függ kizárólag tőlünk.",
+  },
+  {
+    t: "Folyamatos rálátás",
+    d: "Nem fekete doboz épül. Rendszeresen megmutatjuk, hol tartunk, a kész rendszert pedig dokumentációval adjuk át.",
   },
 ];
 
@@ -110,21 +110,13 @@ export default function CustomSolutions() {
         <div className="dash__intro reveal">
           <span className="dash__eyebrow">Egyedi fejlesztés</span>
           <h2 className="dash__h">Amit a kész csomagok nem fednek le, azt megépítjük.</h2>
-          <p className="dash__p">
-            Néha a meglévő csomagok nem fedik le, amire Önnek szüksége van.
-            Ilyenkor a saját folyamatára építünk AI-alapú rendszert — nem
-            általánosságban, hanem egy konkrét üzleti problémára. Ön elmondja,
-            hol akad el a működés; mi pontosan arra tervezzük és fejlesztjük meg.
-          </p>
         </div>
 
         {/* The point: it starts from the operator's own idea, any scale */}
         <div className="cux__lead reveal" data-delay="1">
           <span className="cux__lead-kicker">Az Ön ötlete a kiindulópont</span>
           <p className="cux__lead-txt">
-            Mondja el, mire van szüksége — a többit ránk bízhatja. Ön szabja meg
-            a léptéket: lehet <b>egyetlen automatizálás</b>, néhány összekötött
-            folyamat, vagy az egész cégét átfogó, testre szabott rendszer.
+            Mondja el, mire van szüksége — a többit ránk bízhatja. Lehet egyetlen automatizálás, néhány összekötött folyamat, vagy egy teljes, testre szabott rendszer.
           </p>
           <div className="cux__scale" aria-hidden="true">
             <div className="cux__scale-step">
