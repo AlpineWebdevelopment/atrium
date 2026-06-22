@@ -29,7 +29,7 @@ export default function WorkFlow() {
     <section className="how" id="hogyan-dolgozunk">
       <div className="wrap">
         <div className="dash__intro reveal">
-          <span className="dash__eyebrow">Hogyan dolgozunk</span>
+          <span className="dash__eyebrow">Hogyan kezdjük?</span>
           <h2 className="dash__h">Beszélgetés, nem prezentáció.</h2>
         </div>
 
