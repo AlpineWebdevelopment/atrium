@@ -53,11 +53,10 @@ const DAY = [
 /* ATRIUM-EDIT A1 — "elmaradt időpontok" → "elszalasztott hívások és érdeklődők"; appointment-language is niche-specific, calls/inquiries are universal */
 const PHRASES = [
   "a lemondások miatt",
-  "az elmaradt hívások miatt",
+  "a kihagyott hívások miatt",
   "a kihűlt ajánlatok miatt",
   "a no-show-ok miatt",
   "a lassú válasz miatt",
-  "a kihagyott üzenetek miatt",
   "az inaktív ügyfelek miatt",
 ];
 
@@ -91,16 +90,15 @@ export default function Hero() {
         <div className="hero__grid">
           {/* Left — copy */}
           <div className="hero__content reveal reveal--instant visible">
+            <span className="hero__eyebrow">AI értékesítési rendszer</span>
             <h1 className="hero__title">
-              Ne veszítsen több bevételt
+              <span className="hero__line1">Ne veszítsen </span><span className="hero__line2">több bevételt</span>
               <span className="hero__rotline">
                 <span className="hero__rot">{text}</span><span className="hero__cursor" aria-hidden="true" />
               </span>
             </h1>
             <p className="hero__sub">
-              Az Atrium egy magyar nyelvű, AI-alapú értékesítési rendszer:
-              minden hívást fogad, minden időpontot lefoglal, minden érdeklődőt
-              utánkövet — a háttérben, amíg Ön a cégét vezeti.
+              AI-alapú értékesítési rendszer: minden hívást fogad, minden időpontot lefoglal, minden érdeklődőt utánkövet — amíg Ön a cégét vezeti.
             </p>
             <div className="hero__actions">
               <button className="btn">Foglaljon időpontot</button>
@@ -127,7 +125,7 @@ export default function Hero() {
                 </span>
               </div>
               <div className="hcon__cols">
-                {[DAY.slice(0, 6), DAY.slice(6)].map((col, ci) => (
+                {[DAY.slice(0, 7), DAY.slice(7)].map((col, ci) => (
                   <div className="hcon__col" key={ci}>
                     {col.map((d, ri) => {
                       const gi = ci * 6 + ri;
