@@ -6,7 +6,6 @@ export default function Manifesto() {
   return (
     <section className="manifesto">
       <div className="manifesto__inner reveal">
-        <span className="manifesto__rule" aria-hidden="true" />
         <h2 className="manifesto__h">
           Eddig az AI-ról beszéltek Önnek. Mi a pénzéről beszélünk.
         </h2>

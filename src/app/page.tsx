@@ -15,8 +15,8 @@ export default function Home() {
     <div className="page" data-screen-label="atriumscaling.com /">
       <ScrollReveal />
       <Hero />
-      <RealtimeDashboard />
       <Manifesto />
+      <RealtimeDashboard />
       <FullSystem />
       <CustomSolutions />
       <WorkFlow />
