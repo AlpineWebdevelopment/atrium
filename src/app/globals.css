@@ -2744,6 +2744,12 @@ html.dark { --viz-purple-soft: #1d1b33; }
   .footer { padding: 48px 0 36px; }
 }
 
+@media (min-width: 520px) and (max-width: 559px) {
+  .hero__title { font-weight: 480; }
+  .hero__rotline { font-weight: 580; }
+  .hero__rot { font-weight: 580; }
+}
+
 /* Ultra-narrow (≤400px): drop the toggle so brand + CTA share one row */
 @media (max-width: 400px) {
   .theme-toggle { display: none; }
