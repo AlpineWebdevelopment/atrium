@@ -40,6 +40,7 @@ const DAY = [
   { time: "10:30", k: "email",    c: "#BCA162",  t: "Két hete küldött árajánlat utánkövetve — nem hűlt ki." },
   { time: "11:40", k: "callback", c: "#C46C64",  t: "Valaki nem jött el — a rendszer visszahívta, új időpontot foglalt." },
   { time: "13:30", k: "refresh",  c: "#BCA162",  t: "8 hónapja nem látott ügyfél visszahívva." },
+  { time: "15:10", k: "bell",     c: "#62BCAC",  t: "A holnapi időpontok emlékeztetőt kaptak — kevesebb elmaradás." },
   { time: "18:00", k: "bars",     c: "#6DBC61",  t: "Zárás után: mit hozott a mai nap." },
   { time: "20:15", k: "home",     c: "#9662BC",  t: "Ön otthon, a családdal — a rendszer dolgozik tovább." },
   { time: "21:30", k: "moon",     c: "#628FBC",  t: "Tele naptár, 0 elszalasztott hívás. Nyugodtan alszik." },
@@ -56,11 +57,6 @@ const PHRASES = [
 ];
 
 export default function Hero() {
-  const [cur, setCur] = useState(DAY.length - 1);
-  useEffect(() => {
-    const t = setInterval(() => setCur((c) => (c + 1) % DAY.length), 1800);
-    return () => clearInterval(t);
-  }, []);
 
   /* typewriter: type the phrase, hold, delete, move to next */
   const [pi, setPi] = useState(0);
@@ -123,10 +119,8 @@ export default function Hero() {
                 {[DAY.slice(0, 5), DAY.slice(5)].map((col, ci) => (
                   <div className="hcon__col" key={ci}>
                     {col.map((d, ri) => {
-                      const gi = ci * 6 + ri;
-                      const state = gi < cur ? "done" : gi === cur ? "now" : "up";
                       return (
-                        <div className={"hcon__row hcon__row--" + state} key={gi}>
+                        <div className="hcon__row" key={`${ci}-${ri}`}>
                           <span className="hcon__ico" style={{ background: `color-mix(in srgb, ${d.c} 26%, var(--bone))`, color: d.c, border: `1px solid color-mix(in srgb, ${d.c} 55%, transparent)` }}>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">{ICONS[d.k]}</svg>
                           </span>
