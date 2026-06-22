@@ -41,8 +41,7 @@ const DAY = [
   { time: "11:40", k: "callback", c: "#C46C64",  t: "Valaki nem jött el — a rendszer visszahívta, új időpontot foglalt." },
   { time: "13:30", k: "refresh",  c: "#BCA162",  t: "8 hónapja nem látott ügyfél visszahívva." },
   { time: "15:10", k: "bell",     c: "#62BCAC",  t: "A holnapi időpontok emlékeztetőt kaptak — kevesebb elmaradás." },
-  { time: "18:00", k: "bars",     c: "#6DBC61",  t: "Zárás után: mit hozott a mai nap." },
-  { time: "20:15", k: "home",     c: "#9662BC",  t: "Ön otthon, a családdal — a rendszer dolgozik tovább." },
+  { time: "20:15", k: "home",     c: "#9662BC",  t: "Ön otthon a családdal — a telefonján látja, mit hozott a nap. A rendszer dolgozik tovább." },
   { time: "21:30", k: "moon",     c: "#628FBC",  t: "Tele naptár, 0 elszalasztott hívás. Nyugodtan alszik." },
 ];
 
