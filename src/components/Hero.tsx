@@ -92,7 +92,7 @@ export default function Hero() {
           {/* Left — copy */}
           <div className="hero__content reveal reveal--instant visible">
             <h1 className="hero__title">
-              Ne veszítsen több bevételt
+              <span className="hero__line1">Ne veszítsen </span><span className="hero__line2">több bevételt</span>
               <span className="hero__rotline">
                 <span className="hero__rot">{text}</span><span className="hero__cursor" aria-hidden="true" />
               </span>
