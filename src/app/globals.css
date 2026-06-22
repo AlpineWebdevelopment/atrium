@@ -358,8 +358,7 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
   line-height: 1.05;
   letter-spacing: -0.034em;
   color: var(--ink);
-  white-space: nowrap;
-  text-wrap: nowrap;
+  text-wrap: balance;
 }
 .hero__sub {
   font-family: var(--font-body);
@@ -2666,7 +2665,9 @@ html.dark { --viz-purple-soft: #1d1b33; }
   .theme-toggle { width: 30px; height: 30px; }
 
   .hero { padding: 52px 0 60px; }
-  .hero__title { font-size: 7.8vw; font-weight: 600; letter-spacing: 0.02em; white-space: nowrap; overflow: hidden; }
+  .hero__title { font-size: 7.8vw; font-weight: 600; letter-spacing: 0.02em; }
+  .hero__line1 { display: block; }
+  .hero__line2 { display: block; }
   .hero__rotline { font-size: 6.5vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .hero__sub { font-size: 13.5px; margin: 18px 0 26px; }
   .hero__actions .btn { font-size: 13.5px; padding: 11px 16px; }
