@@ -402,3 +402,7 @@ Section C — review flags:
 - **Placement (confirm):** ValueStrip placed directly above the WorkFlow ("Hogyan dolgozunk" pricing/decision) section — best-guess insertion point, needs human confirmation.
 - **Saját CRM reword:** the "az adatok… nem egy bérelt felületen" claim was dropped on purpose (Atrium ships a GoHighLevel instance, so a "never rented surface" claim half-contradicts the stack). No other "own platform / not rented" claim found on the root page that needs the same treatment.
 - **Dropped on purpose:** the lead-scoring/filter line and the `rendszer vs. munkatárs` cost table — not reintroduced anywhere.
+
+## Landing — manifeszt blokk restyle
+
+Removed card container and green ! icon. Section now highlights by scale (largest heading on the page, clamp 32–58px) and a thin Signal-green left-rule on the content block. Bone canvas, generous padding, body in Stone. No new tokens introduced.

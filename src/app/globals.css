@@ -929,16 +929,12 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
   .band__left { min-height: 280px; }
 }
 
-/* =========================================================
-   Manifesto — emotional pivot / positioning beat
+/* ATRIUM-EDIT — Manifesto: scale + green left-rule, bone canvas, no card
    ========================================================= */
-.manifesto { background: transparent; padding: 64px 0 72px; }
-.manifesto__inner { max-width: 800px; margin: 0 auto; padding: 0 24px; }
-.manifesto__card { background: #F5F2ED; border-radius: 20px; border: 1px solid rgba(1,14,30,0.09); box-shadow: 0 8px 40px -8px rgba(1,14,30,0.13); padding: 48px 52px; display: flex; gap: 36px; align-items: flex-start; }
-.manifesto__bang { font-family: var(--font-display); font-size: 100px; font-weight: 700; color: #6DBC61; line-height: 0.82; flex-shrink: 0; letter-spacing: -0.04em; }
-.manifesto__body { flex: 1; }
-.manifesto__h { font-family: var(--font-display); font-size: clamp(20px, 3vw, 32px); font-weight: 600; letter-spacing: -0.022em; color: #010E1E; line-height: 1.22; margin: 0 0 14px; }
-.manifesto__p { font-family: var(--font-body); font-size: 15.5px; line-height: 1.72; color: rgba(1,14,30,0.64); }
+.manifesto { padding: 108px 0 116px; }
+.manifesto__inner { max-width: 740px; margin: 0 auto; padding: 0 24px 0 36px; border-left: 3px solid #6DBC61; }
+.manifesto__h { font-family: var(--font-display); font-size: clamp(32px, 5.5vw, 58px); font-weight: 600; letter-spacing: -0.03em; color: var(--ink); line-height: 1.1; margin: 0 0 22px; }
+.manifesto__p { font-family: var(--font-body); font-size: 16px; line-height: 1.76; color: var(--stone); max-width: 65ch; }
 
 /* =========================================================
    FAQ — "Hear it from our users" slot (carousel-style)
@@ -2712,9 +2708,8 @@ html.dark { --viz-purple-soft: #1d1b33; }
   .pkg__cov-num { font-size: 56px; }
 
   /* Manifesto */
-  .manifesto { padding: 40px 0 48px; }
-  .manifesto__card { padding: 32px 28px; gap: 20px; }
-  .manifesto__bang { font-size: 72px; }
+  .manifesto { padding: 64px 0 72px; }
+  .manifesto__inner { padding-left: 24px; }
 
   /* Final CTA + footer */
   .final-cta { padding: 80px 0 88px; }
