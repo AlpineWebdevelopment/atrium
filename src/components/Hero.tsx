@@ -34,20 +34,20 @@ const CHANNELS = [
 ];
 
 const DAY = [
-  { time: "06:50", k: "callback", c: "#6DBC61", t: "Még alszik — a 4 éjjeli hívás már vissza van híva." },
-  { time: "07:30", k: "calendar", c: "#9662BC", t: "Reggeli közben 3 új foglalás futott a naptárba." },
-  { time: "08:15", k: "webchat", c: "#62BCAC", t: "Valaki a weboldalon írt — 30 mp alatt választ kapott." },
-  { time: "09:40", k: "phone", c: "#628FBC", t: "Ön ügyféllel van — közben 2 hívást is felvett a rendszer." },
-  { time: "11:00", k: "qualify", c: "#AD83CC", t: "Valaki csak az árat kérdezte — a rendszer megválaszolta, Önnek nem kellett megszakítania a munkát." },
-  { time: "12:20", k: "webchat", c: "#628FBC", t: "Valaki telefonon kezdte, majd SMS-ben folytatta — ugyanaz az ügyfél maradt a rendszerben." },
-  { time: "13:30", k: "refresh", c: "#BCA162", t: "Egy 8 hónapja nem látott ügyfél finoman visszahívva." },
-  /* ATRIUM-EDIT TL3 — replaced English jargon "no-show" with plain operator Hungarian */
-  { time: "15:10", k: "bell", c: "#62BCAC", t: "A holnapi időpontok emlékeztetőt kaptak — kevesebben maradnak el." },
-  { time: "16:45", k: "star", c: "#BCA162", t: "Egy elégedett ügyféltől a rendszer értékelést kért." },
-  /* ATRIUM-EDIT TL4 — converted redundant 3rd reception beat into reporting moment; icon phone → bars */
-  { time: "18:00", k: "bars", c: "#6DBC61", t: "Zárás után egy pillantás a telefonján — a rendszer megmutatja, mit hozott a mai nap." },
-  { time: "20:15", k: "home", c: "#9662BC", t: "Ön otthon, a családdal — a rendszer dolgozik tovább." },
-  { time: "21:30", k: "moon", c: "#628FBC", t: "Tele naptár, 0 elszalasztott hívás. Nyugodtan alszik." },
+  { time: "06:50", k: "callback", c: "#6DBC61",  t: "Még alszik — a 4 éjjeli hívást a rendszer már visszahívta." },
+  { time: "07:30", k: "calendar", c: "#9662BC",  t: "Reggeli közben 3 új foglalás futott a naptárba." },
+  { time: "08:15", k: "webchat",  c: "#62BCAC",  t: "Valaki a weboldalon írt — 30 mp alatt választ kapott." },
+  { time: "09:40", k: "phone",    c: "#628FBC",  t: "Ön ügyféllel van — közben 2 hívást is felvett a rendszer." },
+  { time: "10:30", k: "email",    c: "#BCA162",  t: "Egy két hete kiküldött árajánlatra rákérdezett a rendszer — így nem hűlt ki." },
+  { time: "11:00", k: "qualify",  c: "#AD83CC",  t: "Valaki csak az árat kérdezte — a rendszer megválaszolta, Önnek nem kellett megszakítania a munkát." },
+  { time: "11:40", k: "callback", c: "#C46C64",  t: "A 11 órás időpontra nem jött el valaki — a rendszer visszahívta, és új időpontot foglalt." },
+  { time: "12:20", k: "sms",      c: "#628FBC",  t: "Egy ügyfél telefonon kezdte, üzenetben folytatta — a rendszernek ugyanaz az ügyfél maradt." },
+  { time: "13:30", k: "refresh",  c: "#BCA162",  t: "Egy 8 hónapja nem látott ügyfelet finoman visszahívott a rendszer." },
+  { time: "15:10", k: "bell",     c: "#62BCAC",  t: "A holnapi időpontok emlékeztetőt kaptak — kevesebben maradnak el." },
+  { time: "16:45", k: "star",     c: "#BCA162",  t: "Egy elégedett ügyféltől a rendszer értékelést kért." },
+  { time: "18:00", k: "bars",     c: "#6DBC61",  t: "Zárás után egy pillantás a telefonján — a rendszer megmutatja, mit hozott a mai nap." },
+  { time: "20:15", k: "home",     c: "#9662BC",  t: "Ön otthon, a családdal — a rendszer dolgozik tovább." },
+  { time: "21:30", k: "moon",     c: "#628FBC",  t: "Tele naptár, 0 elszalasztott hívás. Nyugodtan alszik." },
 ];
 
 /* ATRIUM-EDIT A1 — "elmaradt időpontok" → "elszalasztott hívások és érdeklődők"; appointment-language is niche-specific, calls/inquiries are universal */
