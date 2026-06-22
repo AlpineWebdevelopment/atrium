@@ -932,10 +932,13 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
 /* =========================================================
    Manifesto — emotional pivot / positioning beat
    ========================================================= */
-.manifesto { background: #ECE8DF; padding: 72px 0 80px; border-top: 3px solid #6DBC61; }
-.manifesto__inner { max-width: 680px; margin: 0 auto; padding: 0 24px; text-align: center; }
-.manifesto__h { font-family: var(--font-display); font-size: clamp(28px, 4.5vw, 46px); font-weight: 600; letter-spacing: -0.025em; color: #010E1E; line-height: 1.18; margin: 0 0 20px; }
-.manifesto__p { font-family: var(--font-body); font-size: 16.5px; line-height: 1.72; color: rgba(1,14,30,0.66); max-width: 58ch; margin: 0 auto; }
+.manifesto { background: #ECE8DF; padding: 64px 0 72px; }
+.manifesto__inner { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+.manifesto__card { background: #F5F2ED; border-radius: 20px; border: 1px solid rgba(1,14,30,0.09); box-shadow: 0 8px 40px -8px rgba(1,14,30,0.13); padding: 48px 52px; display: flex; gap: 36px; align-items: flex-start; }
+.manifesto__bang { font-family: var(--font-display); font-size: 100px; font-weight: 700; color: #6DBC61; line-height: 0.82; flex-shrink: 0; letter-spacing: -0.04em; }
+.manifesto__body { flex: 1; }
+.manifesto__h { font-family: var(--font-display); font-size: clamp(20px, 3vw, 32px); font-weight: 600; letter-spacing: -0.022em; color: #010E1E; line-height: 1.22; margin: 0 0 14px; }
+.manifesto__p { font-family: var(--font-body); font-size: 15.5px; line-height: 1.72; color: rgba(1,14,30,0.64); }
 
 /* =========================================================
    FAQ — "Hear it from our users" slot (carousel-style)
@@ -2707,6 +2710,11 @@ html.dark { --viz-purple-soft: #1d1b33; }
   .pkg__ring.r3 { inset: 60px; }
   .pkg__pin { font-size: 10.5px; padding: 4px 9px; }
   .pkg__cov-num { font-size: 56px; }
+
+  /* Manifesto */
+  .manifesto { padding: 40px 0 48px; }
+  .manifesto__card { padding: 32px 28px; gap: 20px; }
+  .manifesto__bang { font-size: 72px; }
 
   /* Final CTA + footer */
   .final-cta { padding: 80px 0 88px; }
