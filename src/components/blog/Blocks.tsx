@@ -14,7 +14,7 @@ export function PostHeader({ fm }: { fm: PostFrontmatter }) {
         <span className="font-mono text-[12px] uppercase tracking-widest text-stone">{fm.niche} · {date}
         </span>
       </div>
-      <h1 className="font-onest text-[28px] font-bold leading-[1.2] sm:text-[36px]">
+      <h1 className="font-onest text-[28px] font-bold leading-tight sm:text-[36px]">
         {fm.title}
       </h1>
       <p className="mt-3 text-[17px] italic leading-[1.6] text-stone">{fm.dek}</p>

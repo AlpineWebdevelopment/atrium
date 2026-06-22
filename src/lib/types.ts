@@ -30,3 +30,21 @@ export type Post = {
   frontmatter: PostFrontmatter;
   content: string; // raw MDX body (frontmatter stripped)
 };
+
+// Advertorials are a SEPARATE genre: BOFU sales pages linked from paid ads,
+// retargeting, or sent to warm leads. They are intentionally `noindex` and are
+// NOT part of the SEO blog — no FAQ block, no Források block, not in the sitemap,
+// not in the blog index. They share the same visual components (Scene, StatCallout).
+export type AdvertorialFrontmatter = {
+  title: string; // H1 on the page
+  metaTitle: string; // <title> tag (page is noindex, but still titled for shares)
+  metaDescription: string; // social/preview description
+  niche: string; // eyebrow tag, e.g. "Kivitelezés" / "Klíma"
+  ctaHref?: string; // defaults to the booking URL in the route
+};
+
+export type Advertorial = {
+  slug: string;
+  frontmatter: AdvertorialFrontmatter;
+  content: string;
+};

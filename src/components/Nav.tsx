@@ -13,10 +13,10 @@ const ROOT_LINKS = [
 
 /* Niche/service page links — relative hashes, no root redirect */
 const PAGE_LINKS = [
-  { href: "#rendszer",  label: "A rendszer" },
-  { href: "#indulas",   label: "Hogyan indulunk" },
-  { href: "#gyik",      label: "GYIK" },
-  { href: "#kapcsolat", label: "Kapcsolat" },
+  { href: "/#rendszer",  label: "A rendszer" },
+  { href: "/#indulas",   label: "Hogyan indulunk" },
+  { href: "/#gyik",      label: "GYIK" },
+  { href: "/#kapcsolat", label: "Kapcsolat" },
   { href: "/blog",      label: "Blog" },
 ];
 
