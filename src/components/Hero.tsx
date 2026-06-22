@@ -124,7 +124,7 @@ export default function Hero() {
                 </span>
               </div>
               <div className="hcon__cols">
-                {[DAY.slice(0, 6), DAY.slice(6)].map((col, ci) => (
+                {[DAY.slice(0, 7), DAY.slice(7)].map((col, ci) => (
                   <div className="hcon__col" key={ci}>
                     {col.map((d, ri) => {
                       const gi = ci * 6 + ri;
