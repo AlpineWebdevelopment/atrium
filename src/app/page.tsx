@@ -18,8 +18,8 @@ export default function Home() {
       <Manifesto />
       <RealtimeDashboard />
       <FullSystem />
-      <CustomSolutions />
       <WorkFlow />
+      <CustomSolutions />
       {/* <Reputation /> hidden for now — ask to bring it back */}
       {/* <Packages /> hidden for now — ask to bring it back */}
       <Faq />
