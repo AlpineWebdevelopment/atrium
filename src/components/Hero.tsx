@@ -93,7 +93,6 @@ export default function Hero() {
         <div className="hero__grid">
           {/* Left — copy */}
           <div className="hero__content reveal reveal--instant visible">
-            <span className="hero__eyebrow">Értékesítési rendszerek, operátori szemmel</span>
             <h1 className="hero__title">
               Ne veszítsen több bevételt
               <span className="hero__rotline">
