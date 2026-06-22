@@ -268,7 +268,7 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
   gap: 5px;
   width: 34px; height: 34px;
   border-radius: 8px;
-  border: 1px solid var(--line);
+  border: none;
   background: transparent;
   cursor: pointer;
   color: var(--ink);
@@ -369,6 +369,19 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
   margin: 24px auto 32px;
 }
 .hero__actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+
+/* Brand motif — arched atrium with light rays, mobile only */
+.hero__motif {
+  display: none;
+  position: absolute;
+  right: -8px;
+  top: 16px;
+  width: 140px;
+  pointer-events: none;
+  color: var(--ink);
+  opacity: 0.07;
+  z-index: 0;
+}
 
 /* temporary review marker (amber = recommended) */
 .newtag {
@@ -2664,11 +2677,15 @@ html.dark { --viz-purple-soft: #1d1b33; }
   .nav__cta { font-size: 12.5px; padding: 8px 13px; }
   .theme-toggle { width: 30px; height: 30px; }
 
-  .hero { padding: 52px 0 60px; }
+  .hero { padding: 36px 0 32px; }
+  .hero__grid { gap: 16px; }
   .hero__title { font-size: 38px; font-weight: 600; }
   .hero__rotline { font-size: 22px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .hero__sub { font-size: 15.5px; margin: 18px 0 26px; }
-  .hero__actions .btn { font-size: 13.5px; padding: 11px 16px; }
+  .hero__sub { font-size: 15.5px; margin: 28px 0 14px; }
+  .hero__actions { flex-direction: column; align-items: stretch; gap: 4px; }
+  .hero__actions .btn { width: 100%; justify-content: center; font-size: 14px; padding: 13px 16px; }
+  .hero__actions .btn--ghost { border: none; background: none; box-shadow: none; padding: 10px 0; color: var(--stone); text-decoration: underline; text-underline-offset: 3px; font-size: 14px; }
+  .hero__motif { display: block; }
   .canvas__stage { height: 290px; }
   .canvas__stage--con { height: auto; }
   .canvas__center {

@@ -87,6 +87,20 @@ export default function Hero() {
 
   return (
     <section className="hero" id="rendszer">
+      <svg className="hero__motif" viewBox="0 0 160 230" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        {/* arch outline */}
+        <path d="M28 230 L28 108 Q28 28 80 28 Q132 28 132 108 L132 230" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
+        {/* inner arch edge */}
+        <path d="M44 230 L44 116 Q44 50 80 50 Q116 50 116 116 L116 230" stroke="currentColor" strokeWidth="0.5" strokeLinecap="round"/>
+        {/* light rays from keystone */}
+        <line x1="80" y1="26" x2="80" y2="-10" stroke="currentColor" strokeWidth="0.9" strokeLinecap="round"/>
+        <line x1="80" y1="26" x2="112" y2="-4" stroke="currentColor" strokeWidth="0.7" strokeLinecap="round"/>
+        <line x1="80" y1="26" x2="48" y2="-4" stroke="currentColor" strokeWidth="0.7" strokeLinecap="round"/>
+        <line x1="80" y1="26" x2="138" y2="10" stroke="currentColor" strokeWidth="0.5" strokeLinecap="round"/>
+        <line x1="80" y1="26" x2="22" y2="10" stroke="currentColor" strokeWidth="0.5" strokeLinecap="round"/>
+        <line x1="80" y1="26" x2="158" y2="30" stroke="currentColor" strokeWidth="0.3" strokeLinecap="round"/>
+        <line x1="80" y1="26" x2="2" y2="30" stroke="currentColor" strokeWidth="0.3" strokeLinecap="round"/>
+      </svg>
       <div className="wrap">
         <div className="hero__grid">
           {/* Left — copy */}
