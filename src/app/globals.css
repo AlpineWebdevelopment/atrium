@@ -1356,7 +1356,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
   transition: background 160ms var(--ease), color 160ms var(--ease), border-color 160ms var(--ease);
 }
 .dash__tab:hover { color: var(--ink); border-color: rgba(1,14,30,0.22); }
-.dash__tab--active { background: transparent; color: var(--ink); border-color: var(--ink); }
+.dash__tab--active { background: var(--ink); color: var(--bone); border-color: var(--ink); }
 @media (max-width: 880px) {
   .dash__tabs {
     display: grid; grid-template-columns: 1fr 1fr; gap: 6px;
