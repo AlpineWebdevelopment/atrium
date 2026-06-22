@@ -2665,7 +2665,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
   .theme-toggle { width: 30px; height: 30px; }
 
   .hero { padding: 52px 0 60px; }
-  .hero__title { font-size: 7.8vw; font-weight: 600; letter-spacing: 0.02em; }
+  .hero__title { font-size: 12vw; font-weight: 600; letter-spacing: 0.01em; }
   .hero__line1 { display: block; }
   .hero__line2 { display: block; }
   .hero__rotline { font-size: 6.5vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
