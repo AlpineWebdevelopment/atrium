@@ -39,7 +39,7 @@ export default function Faq() {
       <div className="wrap">
         <div className="faq__head reveal">
           <span className="dash__eyebrow">GYIK</span>
-          <h2 className="faq__h">A kérdések, amelyeket mindenki feltesz.</h2>
+          <h2 className="faq__h">A kérdések,<br />amelyeket mindenki feltesz.</h2>
         </div>
         <div className="faq__list reveal" data-delay="1">
           {FAQS.map((f, i) => {
