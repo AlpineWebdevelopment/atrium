@@ -466,7 +466,7 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
 .hcon__chans { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
 .hcon__chans svg { width: 15px; height: 15px; flex-shrink: 0; }
 .hcon__cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 18px; }
-.hcon__col { position: relative; display: flex; flex-direction: column; gap: 3px; }
+.hcon__col { position: relative; display: flex; flex-direction: column; gap: 8px; }
 /* timeline rail running down each column, through the icon nodes */
 .hcon__col::before {
   content: ""; position: absolute; left: 17px; top: 20px; bottom: 20px; width: 2px;
