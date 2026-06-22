@@ -1,6 +1,6 @@
 import type { ComponentProps } from "react";
 import Link from "next/link";
-import { Scene, StatCallout, Cascade, Hi, Cta } from "./Components";
+import { Scene, StatCallout, Cascade, Hi, Cta, InlineCta } from "./Components";
 
 export const mdxComponents = {
   // h2 — Onest semibold, tight tracking. The section anchor for readers skimming.
@@ -73,4 +73,5 @@ export const mdxComponents = {
   Cascade,
   Hi,
   Cta,
+  InlineCta,
 };

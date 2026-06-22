@@ -65,6 +65,25 @@ export function Hi({ children }: { children: React.ReactNode }) {
   );
 }
 
+export function InlineCta({
+  href = "https://atriumscaling.com/#kapcsolat",
+  children,
+}: {
+  href?: string;
+  children?: React.ReactNode;
+}) {
+  return (
+    <div className="my-8 rounded-lg border border-signal/30 bg-signal/8 px-[1.2rem] py-[1.1rem]">
+      <Link
+        href={href}
+        className="text-[15.5px] font-medium text-ink no-underline hover:underline"
+      >
+        {children}
+      </Link>
+    </div>
+  );
+}
+
 /**
  * Call to action. Brand-locked label "Foglaljon időpontot." — do not vary.
  * The green button is the section's single accent.
