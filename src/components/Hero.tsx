@@ -57,7 +57,6 @@ const PHRASES = [
   "a kihűlt ajánlatok miatt",
   "a no-show-ok miatt",
   "a lassú válasz miatt",
-  "a kihagyott üzenetek miatt",
   "az inaktív ügyfelek miatt",
 ];
 
