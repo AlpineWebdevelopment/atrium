@@ -932,9 +932,22 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
 /* ATRIUM-EDIT — Manifesto: scale + green left-rule, bone canvas, no card
    ========================================================= */
 .manifesto { padding: 108px 0 116px; }
-.manifesto__inner { max-width: 740px; margin: 0 auto; padding: 0 24px 0 36px; border-left: 3px solid #6DBC61; }
-.manifesto__h { font-family: var(--font-display); font-size: clamp(32px, 5.5vw, 58px); font-weight: 600; letter-spacing: -0.03em; color: var(--ink); line-height: 1.1; margin: 0 0 22px; }
-.manifesto__p { font-family: var(--font-body); font-size: 16px; line-height: 1.76; color: var(--stone); max-width: 65ch; }
+.manifesto__grid { max-width: 1080px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 64px; align-items: center; }
+.manifesto__inner { padding: 0 0 0 36px; border-left: 3px solid #6DBC61; }
+.manifesto__h { font-family: var(--font-display); font-size: clamp(32px, 4vw, 50px); font-weight: 600; letter-spacing: -0.03em; color: var(--ink); line-height: 1.1; margin: 0 0 22px; }
+.manifesto__p { font-family: var(--font-body); font-size: 16px; line-height: 1.76; color: var(--stone); max-width: 56ch; }
+
+/* Revenue-gap chart */
+.manifesto__viz { margin: 0; }
+.manifesto__viz svg { width: 100%; height: auto; display: block; overflow: visible; }
+.manifesto__cap { margin: 14px 0 0; font-family: var(--font-body); font-size: 12.5px; letter-spacing: 0.01em; color: var(--ink-35); }
+.mviz-axis, .mviz-axis-y { stroke: var(--line); stroke-width: 1; }
+.mviz-gap { fill: rgba(109, 188, 97, 0.13); stroke: none; }
+.mviz-potential { fill: none; stroke: var(--ink-35); stroke-width: 1.5; stroke-dasharray: 4 4; stroke-linejoin: round; stroke-linecap: round; }
+.mviz-actual { fill: none; stroke: #6DBC61; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+.mviz-dot { fill: #6DBC61; }
+.mviz-label { font-family: var(--font-body); font-size: 12px; fill: var(--ink-50); letter-spacing: 0.02em; }
+.mviz-label--accent { fill: #6DBC61; text-anchor: end; font-weight: 600; }
 
 /* =========================================================
    FAQ — "Hear it from our users" slot (carousel-style)
@@ -2709,7 +2722,9 @@ html.dark { --viz-purple-soft: #1d1b33; }
 
   /* Manifesto */
   .manifesto { padding: 64px 0 72px; }
+  .manifesto__grid { grid-template-columns: 1fr; gap: 40px; }
   .manifesto__inner { padding-left: 24px; }
+  .manifesto__viz { max-width: 440px; }
 
   /* Final CTA + footer */
   .final-cta { padding: 80px 0 88px; }
