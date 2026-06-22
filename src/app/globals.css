@@ -2686,8 +2686,8 @@ html.dark { --viz-purple-soft: #1d1b33; }
   .hcon__col::before { display: none; }
   .hcon__row {
     display: grid;
-    grid-template-areas: "time ico" "ev ev";
-    grid-template-columns: 1fr auto;
+    grid-template-areas: "ico time" "ev ev";
+    grid-template-columns: auto 1fr;
     gap: 1px 4px;
     padding: 5px 2px;
   }
