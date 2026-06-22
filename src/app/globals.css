@@ -932,11 +932,11 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
 /* =========================================================
    Manifesto — emotional pivot / positioning beat
    ========================================================= */
-.manifesto { background: var(--ink); padding: 100px 0; }
+.manifesto { background: #010E1E; padding: 100px 0; }
 .manifesto__inner { max-width: 720px; margin: 0 auto; padding: 0 24px; }
-.manifesto__rule { display: block; width: 36px; height: 3px; background: var(--signal); margin: 0 0 32px; border-radius: 2px; }
-.manifesto__h { font-family: var(--font-display); font-size: clamp(26px, 4vw, 38px); font-weight: 500; letter-spacing: -0.02em; color: var(--bone); line-height: 1.2; margin: 0 0 24px; }
-.manifesto__p { font-family: var(--font-body); font-size: 17px; line-height: 1.7; color: color-mix(in srgb, var(--bone) 75%, transparent); max-width: 65ch; }
+.manifesto__rule { display: block; width: 36px; height: 3px; background: #6DBC61; margin: 0 0 32px; border-radius: 2px; }
+.manifesto__h { font-family: var(--font-display); font-size: clamp(26px, 4vw, 38px); font-weight: 500; letter-spacing: -0.02em; color: #F5F2ED; line-height: 1.2; margin: 0 0 24px; }
+.manifesto__p { font-family: var(--font-body); font-size: 17px; line-height: 1.7; color: rgba(245, 242, 237, 0.72); max-width: 65ch; }
 
 /* =========================================================
    FAQ — "Hear it from our users" slot (carousel-style)
