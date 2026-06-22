@@ -2681,12 +2681,21 @@ html.dark { --viz-purple-soft: #1d1b33; }
   .hero__actions { flex-wrap: nowrap; gap: 6px; }
   .hero__actions .btn { font-size: clamp(13px, 3.6vw, 15px); padding: 12px clamp(12px, 3.2vw, 16px); white-space: nowrap; }
   .canvas__stage { height: 290px; }
-  .canvas__stage--con { height: auto; padding: 10px 8px; }
-  .hcon__cols { gap: 0 8px; }
-  .hcon__ico { width: 26px; height: 26px; }
-  .hcon__ico svg { width: 13px; height: 13px; }
-  .hcon__ev { font-size: 12px; }
-  .hcon__row { gap: 7px; }
+  .canvas__stage--con { height: auto; padding: 10px 6px; }
+  .hcon__cols { gap: 0 6px; }
+  .hcon__col::before { display: none; }
+  .hcon__row {
+    display: grid;
+    grid-template-areas: "time ico" "ev ev";
+    grid-template-columns: 1fr auto;
+    gap: 1px 4px;
+    padding: 5px 2px;
+  }
+  .hcon__txt { display: contents; }
+  .hcon__time { grid-area: time; align-self: center; }
+  .hcon__ico { grid-area: ico; width: 20px; height: 20px; align-self: center; box-shadow: none; }
+  .hcon__ico svg { width: 10px; height: 10px; }
+  .hcon__ev { grid-area: ev; font-size: 12px; margin-top: 0; }
   .canvas__center {
     white-space: normal;
     max-width: 78%;
