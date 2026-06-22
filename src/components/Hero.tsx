@@ -34,7 +34,7 @@ const CHANNELS = [
 ];
 
 const DAY = [
-  { time: "06:50", k: "callback", c: "#6DBC61",  t: "Még alszik — a 4 éjjeli hívást a rendszer már visszahívta." },
+  { time: "06:50", k: "callback", c: "#6DBC61",  t: "Még alszik — a 4 éjjeli hívást a rendszer már fogadta." },
   { time: "07:30", k: "calendar", c: "#9662BC",  t: "Reggelire 3 új foglalás a naptárban." },
   { time: "08:15", k: "webchat",  c: "#62BCAC",  t: "Webes érdeklődő — 30 mp alatt válasz." },
   { time: "10:30", k: "email",    c: "#BCA162",  t: "Két hete küldött árajánlat utánkövetve — nem hűlt ki." },
