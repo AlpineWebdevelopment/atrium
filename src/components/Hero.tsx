@@ -38,6 +38,7 @@ const DAY = [
   { time: "07:30", k: "calendar", c: "#9662BC",  t: "Reggelire 3 új foglalás a naptárban." },
   { time: "08:15", k: "webchat",  c: "#62BCAC",  t: "Webes érdeklődő — 30 mp alatt válasz." },
   { time: "10:30", k: "email",    c: "#BCA162",  t: "Két hete küldött árajánlat utánkövetve — nem hűlt ki." },
+  { time: "11:00", k: "qualify",  c: "#AD83CC",  t: "Valaki csak az árat kérdezte — a rendszer megválaszolta, Önnek nem kellett megszakítania a munkát." },
   { time: "11:40", k: "callback", c: "#C46C64",  t: "Valaki nem jött el — a rendszer visszahívta, új időpontot foglalt." },
   { time: "13:30", k: "refresh",  c: "#BCA162",  t: "8 hónapja nem látott ügyfél visszahívva." },
   { time: "15:10", k: "bell",     c: "#62BCAC",  t: "A holnapi időpontok emlékeztetőt kaptak — kevesebb elmaradás." },
