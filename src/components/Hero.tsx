@@ -57,6 +57,11 @@ const PHRASES = [
 ];
 
 export default function Hero() {
+  const [cur, setCur] = useState(0);
+  useEffect(() => {
+    const t = setInterval(() => setCur((c) => (c + 1) % DAY.length), 1800);
+    return () => clearInterval(t);
+  }, []);
 
   /* typewriter: type the phrase, hold, delete, move to next */
   const [pi, setPi] = useState(0);
@@ -119,8 +124,10 @@ export default function Hero() {
                 {[DAY.slice(0, 5), DAY.slice(5)].map((col, ci) => (
                   <div className="hcon__col" key={ci}>
                     {col.map((d, ri) => {
+                      const gi = ci * 5 + ri;
+                      const state = gi < cur ? "done" : gi === cur ? "now" : "up";
                       return (
-                        <div className="hcon__row" key={`${ci}-${ri}`}>
+                        <div className={`hcon__row hcon__row--${state}`} key={`${ci}-${ri}`}>
                           <span className="hcon__head">
                             <span className="hcon__ico" style={{ background: `color-mix(in srgb, ${d.c} 26%, var(--bone))`, color: d.c, border: `1px solid color-mix(in srgb, ${d.c} 55%, transparent)` }}>
                               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">{ICONS[d.k]}</svg>
