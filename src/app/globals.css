@@ -358,7 +358,7 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
   line-height: 1.05;
   letter-spacing: -0.034em;
   color: var(--ink);
-  text-wrap: balance;
+  white-space: nowrap;
 }
 .hero__sub {
   font-family: var(--font-body);
