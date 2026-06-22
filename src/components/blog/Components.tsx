@@ -76,7 +76,7 @@ export function InlineCta({
     <div className="my-8 rounded-lg border border-signal/30 bg-signal/8 px-[1.2rem] py-[1.1rem]">
       <Link
         href={href}
-        className="text-[15.5px] font-medium text-ink no-underline hover:underline"
+        className="text-[15.5px] font-medium text-ink no-underline hover:underline text-center w-full"
       >
         {children}
       </Link>

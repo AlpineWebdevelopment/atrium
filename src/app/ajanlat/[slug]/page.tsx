@@ -7,6 +7,7 @@ import {
   getAdvertorialSlugs,
 } from "@/lib/advertorials";
 import { mdxComponents } from "@/components/blog/mdxComponents";
+import { Cta } from "@/components/blog/Components";
 
 const SITE_URL = "https://atriumscaling.com";
 
@@ -47,6 +48,7 @@ export default async function Advertorial({ params }: Params) {
   const { frontmatter: fm, content } = ad;
 
   return (
+    <div className="page">
     <main className="mx-auto max-w-176 px-5 py-12 sm:px-6 sm:py-16">
       <article>
         <header>
@@ -63,8 +65,8 @@ export default async function Advertorial({ params }: Params) {
           </h1>
         </header>
 
-        {/* Sales body carries its own styled <Cta /> followed by the disclaimer
-            footnote (after a thematic break), preserving the authored order.
+        {/* Sales body, then the brand-locked styled CTA — appended here (like the
+            blog) so it renders as the green button, never as plain bold text.
             No FAQ, no Sources, no Article schema. */}
         <div className="mt-6">
           <MDXRemote
@@ -73,7 +75,10 @@ export default async function Advertorial({ params }: Params) {
             options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
           />
         </div>
+
+        <Cta />
       </article>
     </main>
+    </div>
   );
 }

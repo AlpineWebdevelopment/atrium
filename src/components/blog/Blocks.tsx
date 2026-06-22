@@ -1,4 +1,5 @@
 import type { FaqItem, PostFrontmatter, Source } from "@/lib/types";
+import Link from "next/link";
 
 /** Header: wordmark row + niche/date eyebrow, H1 (Onest), italic dek. */
 export function PostHeader({ fm }: { fm: PostFrontmatter }) {
@@ -10,7 +11,7 @@ export function PostHeader({ fm }: { fm: PostFrontmatter }) {
   return (
     <header>
       <div className="mb-6 flex items-center justify-between">
-        <a href="/blog" className="font-mono text-[12px] uppercase tracking-widest text-stone hover:text-ink transition" draggable="false">{"< "}Vissza</a>
+        <Link href="/blog" className="font-mono text-[12px] uppercase tracking-widest text-stone hover:text-ink transition" draggable="false">{"< "}Vissza</Link>
         <span className="font-mono text-[12px] uppercase tracking-widest text-stone">{fm.niche} · {date}
         </span>
       </div>

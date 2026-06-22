@@ -2223,7 +2223,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
 @keyframes calPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
 .cal__sum {
   display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
-  margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line);
+  margin-top: 16px; padding: 12px 0; border-top: 1px solid var(--line);
 }
 .cal__sum-item {
   display: inline-flex; align-items: center; gap: 7px;
@@ -2274,7 +2274,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .quo__row--nema .quo__tag { color: var(--viz-red); background: rgba(200,60,56,0.12); }
 .quo__sum {
   display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
-  margin-top: 8px; padding-top: 12px; border-top: 1px solid var(--line);
+  margin-top: 8px; padding: 12px 0; border-top: 1px solid var(--line);
 }
 .quo__sum-item { display: inline-flex; align-items: center; gap: 7px; font-family: var(--font-display); font-weight: 500; font-size: 13.5px; color: var(--ink); }
 .quo__sum-dot { width: 9px; height: 9px; border-radius: 50%; }
