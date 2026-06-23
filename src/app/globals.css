@@ -438,7 +438,7 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
 /* typewriter rotating-reason headline — bigger, wraps to 2 lines; 2-line min-height
    reserves space so phrase/line-count changes never shift the page */
 .hero__rotline { display: block; margin-top: 8px; font-size: 1.1em; line-height: 1.06; min-height: 2.12em; white-space: normal; text-wrap: balance; }
-.hero__rot { color: var(--signal); font-weight: 700; } /* brand signal green */
+.hero__rot { color: var(--signal); font-weight: 550; }
 .hero__cursor {
   display: inline-block; width: 4px; height: 0.78em; margin-left: 2px;
   background: var(--signal); transform: translateY(3px);
