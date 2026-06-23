@@ -49,11 +49,11 @@ const DAY = [
 /* ATRIUM-EDIT A1 — "elmaradt időpontok" → "elszalasztott hívások és érdeklődők"; appointment-language is niche-specific, calls/inquiries are universal */
 const PHRASES = [
   "lemondások miatt",
-  "kihagyott hívások miatt",
-  "kihűlt ajánlatok miatt",
+  "kihagyott hívások\nmiatt",
+  "kihűlt ajánlatok\nmiatt",
   "no-show-ok miatt",
-  "lassú válasz miatt",
-  "inaktív ügyfelek miatt",
+  "lassú válasz\nmiatt",
+  "inaktív ügyfelek\nmiatt",
 ];
 
 export default function Hero() {
@@ -104,7 +104,12 @@ export default function Hero() {
             <h1 className="hero__title">
               <span className="hero__line1">Ne veszítsen </span><span className="hero__line2">több bevételt</span>
               <span className="hero__rotline">
-                <span className="hero__rot">{text}</span><span className="hero__cursor" aria-hidden="true" />
+                {text.split('\n').map((line, idx, arr) => (
+                  <span key={idx}>
+                    <span className="hero__rot">{line}</span>
+                    {idx < arr.length - 1 ? <br /> : <span className="hero__cursor" aria-hidden="true" />}
+                  </span>
+                ))}
               </span>
             </h1>
             <p className="hero__sub">
