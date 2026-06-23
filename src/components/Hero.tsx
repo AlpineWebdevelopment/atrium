@@ -49,11 +49,11 @@ const DAY = [
 /* ATRIUM-EDIT A1 — "elmaradt időpontok" → "elszalasztott hívások és érdeklődők"; appointment-language is niche-specific, calls/inquiries are universal */
 const PHRASES = [
   "lemondások miatt",
-  "kihagyott hívások\nmiatt",
-  "kihűlt ajánlatok\nmiatt",
+  "kihagyott hívások miatt",
+  "kihűlt ajánlatok miatt",
   "no-show-ok miatt",
-  "lassú válasz\nmiatt",
-  "inaktív ügyfelek\nmiatt",
+  "lassú válasz miatt",
+  "inaktív ügyfelek miatt",
 ];
 
 export default function Hero() {
