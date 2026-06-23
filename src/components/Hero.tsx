@@ -132,7 +132,7 @@ export default function Hero() {
             </div>
             <div className="canvas__stage canvas__stage--con">
               <div className="hcon__head2">
-                <span className="hcon__title"><i /> Amíg Ön a cégét vezeti</span>
+                <span className="hcon__title"><i /> Reggeltől estig, megállás nélkül.</span>
                 <span className="hcon__chans">
                   {CHANNELS.map((c) => (
                     <svg key={c.k} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" style={{ color: c.c }}>{ICONS[c.k]}</svg>
