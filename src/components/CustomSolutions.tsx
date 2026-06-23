@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 /* Custom AI builds (root only). "Példa projektek" — 9 concrete buildable examples
    in the column/spine design (icon + title + description + audience).
@@ -104,6 +104,7 @@ const GUARANTEES = [
 
 export default function CustomSolutions() {
   const [showAll, setShowAll] = useState(false);
+  const savedScroll = useRef<number>(0);
   return (
     <section className="cux" id="egyedi">
       <div className="wrap">
@@ -154,7 +155,15 @@ export default function CustomSolutions() {
               </div>
             ))}
           </div>
-          <button className="cux__more-btn" onClick={() => setShowAll(!showAll)}>
+          <button className="cux__more-btn" onClick={() => {
+            if (!showAll) {
+              savedScroll.current = window.scrollY;
+              setShowAll(true);
+            } else {
+              setShowAll(false);
+              requestAnimationFrame(() => window.scrollTo({ top: savedScroll.current, behavior: "instant" }));
+            }
+          }}>
             {showAll ? "Mutasson kevesebbet" : "Mutasson többet"}
           </button>
         </div>
