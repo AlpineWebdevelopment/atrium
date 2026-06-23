@@ -8,6 +8,8 @@ export default function Manifesto() {
           <span className="manifesto__hair" />
         </div>
 
+        <span className="manifesto__glyph" aria-hidden="true">“</span>
+
         <h2 className="manifesto__h">
           Eddig az AI-ról beszéltek Önnek. Mi a pénzéről beszélünk<span className="manifesto__dot">.</span>
         </h2>
