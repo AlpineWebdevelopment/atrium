@@ -442,9 +442,9 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
 .hero__cursor {
   display: inline-block; width: 4px; height: 0.78em; margin-left: 2px;
   background: var(--signal); transform: translateY(3px);
-  animation: heroBlink 1s steps(1) infinite;
+  animation: heroBlink 0.9s ease-in-out infinite;
 }
-@keyframes heroBlink { 50% { opacity: 0; } }
+@keyframes heroBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 .hero__trust2 { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 22px; justify-content: center; }
 .hero__trust2 span {
   display: inline-flex; align-items: center; gap: 7px;

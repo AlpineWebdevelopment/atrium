@@ -83,9 +83,9 @@ export default function Hero() {
   useEffect(() => {
     if (!active) return;
     const full = PHRASES[pi];
-    let delay = del ? 32 : 62;
-    if (!del && text === full) delay = 1500;
-    else if (del && text === "") delay = 220;
+    let delay = del ? 28 + Math.random() * 20 : 55 + Math.random() * 35;
+    if (!del && text === full) delay = 1600;
+    else if (del && text === "") delay = 280;
     const id = setTimeout(() => {
       if (!del && text === full) setDel(true);
       else if (del && text === "") { setDel(false); setPi((p) => (p + 1) % PHRASES.length); }
