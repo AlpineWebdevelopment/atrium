@@ -4,7 +4,7 @@ import { useState } from "react";
 /* Four revenue leaks — each tab tells one problem's story, with its own graphic. */
 const PAINS = [
   {
-    tab: "Elmaradt hívás",
+    tab: "Elmaradt hívások",
     desc: "",
     metrics: [
       { k: "Hívás érkezik", c: "var(--ink)", v: "20:14", d: "munkaidő után" },
@@ -16,7 +16,7 @@ const PAINS = [
     loss: { v: "≈ 680 000 Ft", per: "/ hó", math: "~20 elszalasztott hívás × ~40% záródás × ~85 000 Ft munka" },
   },
   {
-    tab: "Lassú utánkövetés",
+    tab: "Lassú utánkövetések",
     desc: "",
     metrics: [
       { k: "Űrlap kitöltve", c: "var(--ink)", v: "14:30", d: "hirdetésből érkezett" },
@@ -40,7 +40,7 @@ const PAINS = [
     loss: { v: "≈ 360 000 Ft", per: "/ hó", math: "~12 no-show × ~30 000 Ft elmaradt ügyfélérték" },
   },
   {
-    tab: "Lezáratlan árajánlat",
+    tab: "Lezáratlan árajánlatok",
     desc: "",
     metrics: [
       { k: "Ajánlat kiküldve", c: "var(--ink)", v: "Rendszeresen", d: "de ott marad válasz nélkül" },
