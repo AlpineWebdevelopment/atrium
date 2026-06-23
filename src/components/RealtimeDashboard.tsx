@@ -48,7 +48,7 @@ const PAINS = [
       { k: "A döntés", c: "var(--stone)", v: "Halasztva", d: "az ügyfél vár, aztán felejt" },
       { k: "A majdnem-kész üzlet", c: "var(--viz-red)", v: "Elveszik", d: "máshol köt ki" },
     ],
-    loss: { v: "≈ 1 680 000 Ft", per: "/ hó", math: "~3 utánkövetetlen árajánlat havonta × a nyertes munka töredéke" },
+    loss: { v: "≈ 1 270 000 Ft", per: "/ hó", math: "~3 utánkövetetlen árajánlat havonta × a nyertes munka töredéke" },
   },
 ];
 
@@ -266,7 +266,7 @@ function GfxCalendar() {
 function GfxQuotes() {
   type Row = { sub: string; val: string; s: "nema" | "won" };
   const rows: Row[] = [
-    { sub: "3 napja — nincs utánkövetés", val: "1 200 000 Ft", s: "nema" },
+    { sub: "3 napja — nincs utánkövetés", val: "790 000 Ft", s: "nema" },
     { sub: "ma — a rendszer utánkövette", val: "850 000 Ft", s: "won" },
     { sub: "6 napja — nincs utánkövetés", val: "480 000 Ft", s: "nema" },
   ];
