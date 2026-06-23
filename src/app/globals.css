@@ -1369,6 +1369,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
   .dash__tab {
     text-align: center; padding: 7px 12px; color: var(--ink-70);
     display: flex; align-items: center; justify-content: center;
+    min-height: 52px;
   }
   .dash__tab--active { color: #F5F2ED; }
   .dash__tab:last-child:nth-child(odd) { grid-column: 1; }
