@@ -465,31 +465,34 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
 }
 .hcon__chans { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
 .hcon__chans svg { width: 15px; height: 15px; flex-shrink: 0; }
-.hcon__cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 18px; }
+.hcon__cols { display: grid; grid-template-columns: 1fr; gap: 0; }
 .hcon__col { position: relative; display: flex; flex-direction: column; gap: 8px; }
-/* timeline rail running down each column, through the icon nodes */
+/* timeline rail */
 .hcon__col::before {
   content: ""; position: absolute; left: 17px; top: 20px; bottom: 20px; width: 2px;
   background: var(--line); border-radius: 2px;
 }
-.hcon__head { display: flex; align-items: center; gap: 8px; }
 .hcon__row {
-  position: relative; display: flex; flex-direction: column; gap: 3px;
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  grid-template-areas: "ico time" "ico ev";
+  column-gap: 11px; row-gap: 2px;
   padding: 7px 8px 7px 2px; border-radius: 10px;
   background: transparent;
-  transition: background 350ms var(--ease), opacity 350ms var(--ease);
+  transition: opacity 350ms var(--ease);
 }
 .hcon__row--up { opacity: 0.4; }
 .hcon__row--now { background: transparent; }
 .hcon__ico {
+  grid-area: ico; align-self: start;
   width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0; z-index: 1;
   display: flex; align-items: center; justify-content: center;
   box-shadow: 0 0 0 3px var(--bone);
 }
 .hcon__ico svg { width: 16px; height: 16px; }
 .hcon__row--now .hcon__ico { opacity: 1; }
-.hcon__time { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.05em; color: var(--stone); }
-.hcon__ev { font-family: var(--font-body); font-size: 14px; line-height: 1.4; color: var(--ink-70); margin-top: 3px; }
+.hcon__time { grid-area: time; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.05em; color: var(--stone); align-self: end; }
+.hcon__ev { grid-area: ev; font-family: var(--font-body); font-size: 14px; line-height: 1.4; color: var(--ink-70); }
 .hcon__row--done .hcon__ev, .hcon__row--now .hcon__ev { color: var(--ink); }
 .hcon__foot {
   margin-top: 14px; padding-top: 12px; text-align: center;
@@ -2681,13 +2684,17 @@ html.dark { --viz-purple-soft: #1d1b33; }
   .hero__actions .btn { font-size: clamp(13px, 3.6vw, 15px); padding: 12px clamp(12px, 3.2vw, 16px); white-space: nowrap; }
   .canvas__stage { height: 290px; }
   .canvas__stage--con { height: auto; padding: 10px 6px; }
-  .hcon__cols { gap: 0 6px; }
+  .hcon__cols { grid-template-columns: 1fr 1fr; gap: 0 6px; }
   .hcon__col::before { display: none; }
-  .hcon__row { display: flex; flex-direction: column; gap: 2px; padding: 5px 2px; }
-  .hcon__head { display: flex; align-items: center; gap: 5px; }
+  .hcon__row {
+    grid-template-columns: auto 1fr;
+    grid-template-areas: "ico time" "ev ev";
+    column-gap: 5px; row-gap: 1px;
+    padding: 5px 2px;
+  }
   .hcon__ico { width: 20px; height: 20px; box-shadow: none; }
   .hcon__ico svg { width: 10px; height: 10px; }
-  .hcon__ev { font-size: 12px; margin-top: 0; }
+  .hcon__ev { font-size: 12px; }
   .canvas__center {
     white-space: normal;
     max-width: 78%;
