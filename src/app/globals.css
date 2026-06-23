@@ -1362,10 +1362,14 @@ html.dark { --viz-purple-soft: #1d1b33; }
 @media (max-width: 880px) {
   .dash__tabs {
     display: grid; grid-template-columns: 1fr 1fr; gap: 6px;
+    align-items: stretch;
     width: 100%; max-width: 100%; padding: 0;
     margin: 0 auto 24px;
   }
-  .dash__tab { text-align: center; padding: 7px 12px; color: var(--ink-70); }
+  .dash__tab {
+    text-align: center; padding: 7px 12px; color: var(--ink-70);
+    display: flex; align-items: center; justify-content: center;
+  }
   .dash__tab--active { color: #F5F2ED; }
   .dash__tab:last-child:nth-child(odd) { grid-column: 1; }
 }
