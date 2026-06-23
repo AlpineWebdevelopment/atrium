@@ -159,19 +159,12 @@ function GfxCooling() {
         ))}
         <path d="M60,52 C220,58 380,94 560,128 C720,158 850,168 950,172 L950,190 L60,190 Z" fill="url(#gCoolFillS)" />
         <path id="coolPathS" d="M60,52 C220,58 380,94 560,128 C720,158 850,168 950,172" fill="none" stroke="url(#gCoolS)" strokeWidth="3" strokeLinecap="round" />
-        <circle r="6" fill="#010E1E" stroke="var(--bone)" strokeWidth="2.5">
-          <animateMotion dur="5s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.82;1" calcMode="linear">
-            <mpath href="#coolPathS" />
-          </animateMotion>
-          <animate attributeName="fill" values="#010E1E;#8C8579;#C46C64;#C46C64" keyTimes="0;0.5;0.82;1" dur="5s" repeatCount="indefinite" />
-        </circle>
-        <circle cx="60" cy="52" r="7" fill="#010E1E" stroke="var(--bone)" strokeWidth="3" />
-        <circle cx="60" cy="52" r="7" fill="none" stroke="#010E1E" strokeWidth="2">
-          <animate attributeName="r" values="7;15" dur="2.2s" repeatCount="indefinite" />
-          <animate attributeName="opacity" values="0.5;0" dur="2.2s" repeatCount="indefinite" />
-        </circle>
-        <circle cx="950" cy="172" r="7" fill="#C46C64" stroke="var(--bone)" strokeWidth="3" />
       </svg>
+      <div className="cool-dots" aria-hidden="true">
+        <span className="cool-dot cool-dot--start" />
+        <span className="cool-dot cool-dot--lead" />
+        <span className="cool-dot cool-dot--end" />
+      </div>
       <div className="funnel__stage" style={{ left: "2%", top: "15%", transform: "translateY(-50%)" }}>
         <b>Foglalási igény</b><span>13:45</span>
       </div>
