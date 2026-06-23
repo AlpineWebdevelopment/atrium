@@ -1546,7 +1546,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
   font-weight: 600; color: var(--ink); font-size: 11px; letter-spacing: 0.02em;
 }
 .sysframe__live-sub {
-  font-size: 10px; color: var(--ink-50); line-height: 1.4; text-align: right; max-width: 280px;
+  font-size: 10px; color: var(--ink-50); line-height: 1.4; text-align: left; max-width: 280px;
 }
 .sysframe__live-dot {
   width: 7px; height: 7px; border-radius: 50%; background: var(--signal);
