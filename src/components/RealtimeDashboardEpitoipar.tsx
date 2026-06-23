@@ -84,8 +84,10 @@ function GfxCalls() {
           return <rect key={i} x={x} y={baseY - h} width={w} height={h} rx="3" fill={after ? "rgba(196,108,100,0.55)" : "rgba(1,14,30,0.18)"} />;
         })}
         <path d="M36,95 C90,58 150,40 215,52 C285,64 320,108 385,108 C450,108 480,86 545,90 C610,94 650,74 690,84" fill="none" stroke="url(#gAns)" strokeWidth="3" strokeLinecap="round" />
-        <circle cx="690" cy="84" r="5" fill="#6DBC61" stroke="var(--bone)" strokeWidth="2.5" />
       </svg>
+      <div className="calls-dots" aria-hidden="true">
+        <span className="calls-dot" style={{ background: "#6DBC61" }} />
+      </div>
       <div className="funnel__stage funnel__stage--tr">
         <b>Zárás után</b><span>hangposta, nincs válasz</span>
       </div>
