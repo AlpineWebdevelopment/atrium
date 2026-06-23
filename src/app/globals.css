@@ -938,19 +938,18 @@ html.dark .nav--scrolled { box-shadow: 0 1px 24px rgba(0,0,0,0.25); }
 .manifesto { padding: 104px 24px 112px; }
 .manifesto__inner { position: relative; max-width: 880px; margin: 0 auto; padding: clamp(32px, 4.6vw, 60px); text-align: left; background: var(--bone); border: 1px solid var(--line); border-radius: 24px; box-shadow: 0 1px 2px rgba(1,14,30,0.05), 0 28px 56px -32px rgba(1,14,30,0.22); overflow: hidden; }
 
-/* small green-dot eyebrow label, like a card header */
-.manifesto__eyebrow { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 18px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-50); }
-.manifesto__eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #6DBC61; }
+/* framing marker rule */
+.manifesto__top { display: flex; align-items: center; gap: 16px; margin-bottom: 40px; }
+.manifesto__mark { flex: none; width: 10px; height: 10px; background: #6DBC61; border-radius: 2px; }
+.manifesto__hair { flex: 1; height: 1px; background: var(--line); }
 
-.manifesto__h { font-family: var(--font-display); font-weight: 600; font-size: clamp(23px, 2.6vw, 32px); letter-spacing: -0.022em; line-height: 1.2; color: var(--ink); max-width: 24ch; margin: 0 0 20px; text-wrap: balance; }
-.manifesto__dot { color: inherit; }
+.manifesto__h { font-family: var(--font-display); font-weight: 600; font-size: clamp(24px, 2.8vw, 34px); letter-spacing: -0.025em; line-height: 1.18; color: var(--ink); max-width: 26ch; margin: 0 0 22px; text-wrap: balance; }
+.manifesto__dot { color: #6DBC61; }
 
-.manifesto__p { font-family: var(--font-body); font-size: 15.5px; line-height: 1.72; color: var(--stone); max-width: 60ch; margin: 0; }
+.manifesto__p { font-family: var(--font-body); font-size: 15.5px; line-height: 1.72; color: var(--stone); max-width: 58ch; margin: 0 0 26px; }
 
-.manifesto__rule { height: 1px; background: var(--line); margin: 26px 0; }
-
-.manifesto__punch { font-family: var(--font-display); font-weight: 600; font-size: clamp(16px, 1.5vw, 19px); letter-spacing: -0.015em; line-height: 1.45; color: var(--ink); max-width: 34ch; margin: 0; }
-.manifesto__hl { color: #6DBC61; }
+/* punchline as a green-barred callout */
+.manifesto__punch { font-family: var(--font-display); font-weight: 600; font-size: clamp(16px, 1.5vw, 19px); letter-spacing: -0.015em; line-height: 1.4; color: var(--ink); max-width: 30ch; margin: 0; padding-left: 18px; border-left: 2px solid #6DBC61; }
 
 /* =========================================================
    FAQ — "Hear it from our users" slot (carousel-style)
@@ -2828,7 +2827,8 @@ html.dark { --viz-purple-soft: #1d1b33; }
   /* Manifesto */
   .manifesto { padding: 64px 16px 72px; }
   .manifesto__inner { padding: 28px 22px; border-radius: 18px; }
-  .manifesto__h { margin-bottom: 16px; }
+  .manifesto__top { margin-bottom: 24px; }
+  .manifesto__h { margin-bottom: 18px; }
   .manifesto__p { margin-bottom: 30px; }
 
   /* Final CTA + footer */
