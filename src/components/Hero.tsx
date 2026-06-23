@@ -40,10 +40,10 @@ const DAY = [
   { time: "10:30", k: "email",    c: "#BCA162",  t: "Két hete küldött árajánlat utánkövetve — nem hűlt ki." },
   { time: "11:00", k: "qualify",  c: "#AD83CC",  t: "Valaki csak az árat kérdezte — a rendszer válaszolt, Önnek nem kellett megszakítania a munkát." },
   { time: "11:40", k: "callback", c: "#C46C64",  t: "Valaki nem jött el — a rendszer visszahívta, új időpontot foglalt." },
+  { time: "12:10", k: "users",   c: "#6DBC61",  t: "Valaki lemondott — a várólista azonnal értesítve, az időpont percek alatt betelt." },
   { time: "13:30", k: "refresh",  c: "#BCA162",  t: "8 hónapja nem látott ügyfél visszahívva." },
   { time: "15:10", k: "bell",     c: "#62BCAC",  t: "A holnapi időpontok emlékeztetőt kaptak — kevesebb elmaradás." },
   { time: "20:15", k: "home",     c: "#9662BC",  t: "Ön otthon a családdal — a telefonján látja, mit hozott a nap. A rendszer dolgozik tovább." },
-  { time: "21:30", k: "moon",     c: "#628FBC",  t: "Tele naptár, 0 elszalasztott hívás. Nyugodtan alszik." },
 ];
 
 /* ATRIUM-EDIT A1 — "elmaradt időpontok" → "elszalasztott hívások és érdeklődők"; appointment-language is niche-specific, calls/inquiries are universal */
