@@ -1,10 +1,10 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 /* Four revenue leaks — each tab tells one problem's story, with its own graphic. */
 const PAINS = [
   {
-    tab: "Elmaradt hívás",
+    tab: "Elmaradt hívások",
     desc: "",
     metrics: [
       { k: "Hívás érkezik", c: "var(--ink)", v: "20:14", d: "munkaidő után" },
@@ -16,7 +16,7 @@ const PAINS = [
     loss: { v: "≈ 680 000 Ft", per: "/ hó", math: "~20 elszalasztott hívás × ~40% záródás × ~85 000 Ft munka" },
   },
   {
-    tab: "Lassú utánkövetés",
+    tab: "Lassú utánkövetések",
     desc: "",
     metrics: [
       { k: "Űrlap kitöltve", c: "var(--ink)", v: "14:30", d: "hirdetésből érkezett" },
@@ -40,7 +40,7 @@ const PAINS = [
     loss: { v: "≈ 360 000 Ft", per: "/ hó", math: "~12 no-show × ~30 000 Ft elmaradt ügyfélérték" },
   },
   {
-    tab: "Lezáratlan árajánlat",
+    tab: "Lezáratlan árajánlatok",
     desc: "",
     metrics: [
       { k: "Ajánlat kiküldve", c: "var(--ink)", v: "Rendszeresen", d: "de ott marad válasz nélkül" },
@@ -158,8 +158,10 @@ function GfxCalls() {
         })}
         {/* answered line — drops to zero after close */}
         <path d="M36,95 C90,58 150,40 215,52 C285,64 320,108 385,108 C450,108 480,86 545,90 C610,94 650,74 690,84" fill="none" stroke="url(#gAns)" strokeWidth="3" strokeLinecap="round" />
-        <circle cx="690" cy="84" r="5" fill="#6DBC61" stroke="var(--bone)" strokeWidth="2.5" />
       </svg>
+      <div className="calls-dots" aria-hidden="true">
+        <span className="calls-dot" style={{ background: "#6DBC61" }} />
+      </div>
       <div className="funnel__stage funnel__stage--tr">
         <b>Zárás után</b><span>hangposta, nincs válasz</span>
       </div>
@@ -180,7 +182,7 @@ function GfxCooling() {
       <svg className="dash__svg" viewBox="0 0 1000 190" preserveAspectRatio="none">
         <defs>
           <linearGradient id="gCool" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#010E1E" />
+            <stop offset="0%" stopColor="#6DBC61" />
             <stop offset="55%" stopColor="#8C8579" />
             <stop offset="100%" stopColor="#C83C38" />
           </linearGradient>
@@ -197,26 +199,20 @@ function GfxCooling() {
         <path d="M60,52 C220,58 380,94 560,128 C720,158 850,168 950,172 L950,190 L60,190 Z" fill="url(#gCoolFill)" />
         <path id="coolPath" d="M60,52 C220,58 380,94 560,128 C720,158 850,168 950,172" fill="none" stroke="url(#gCool)" strokeWidth="3" strokeLinecap="round" />
         {/* the lead, sliding down the curve as time passes */}
-        <circle r="6" fill="#010E1E" stroke="var(--bone)" strokeWidth="2.5">
-          <animateMotion dur="5s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.82;1" calcMode="linear">
-            <mpath href="#coolPath" />
-          </animateMotion>
-          <animate attributeName="fill" values="#010E1E;#8C8579;#C83C38;#C83C38" keyTimes="0;0.5;0.82;1" dur="5s" repeatCount="indefinite" />
-        </circle>
-        <circle cx="60" cy="52" r="7" fill="#010E1E" stroke="var(--bone)" strokeWidth="3" />
-        <circle cx="60" cy="52" r="7" fill="none" stroke="#010E1E" strokeWidth="2">
-          <animate attributeName="r" values="7;15" dur="2.2s" repeatCount="indefinite" />
-          <animate attributeName="opacity" values="0.5;0" dur="2.2s" repeatCount="indefinite" />
-        </circle>
-        <circle cx="950" cy="172" r="7" fill="#C83C38" stroke="var(--bone)" strokeWidth="3" />
       </svg>
-      <div className="funnel__stage" style={{ left: "1%", top: "0", transform: "none" }}>
+      <div className="cool-dots cool-dots--ink" aria-hidden="true">
+        <span className="cool-dot cool-dot--start" />
+        <span className="cool-dot cool-dot--lead" />
+        <span className="cool-dot cool-dot--mid" />
+        <span className="cool-dot cool-dot--end" />
+      </div>
+      <div className="funnel__stage" style={{ left: "1%", top: "7%", transform: "none" }}>
         <b>Érdeklődés beérkezik</b><span>14:30</span>
       </div>
-      <div className="funnel__stage" style={{ left: "50%", top: "30%", transform: "translateX(-50%)" }}>
+      <div className="funnel__stage" style={{ left: "50%", top: "34%", transform: "translateX(-50%)" }}>
         <b>Kihűlőben</b><span>válasz nélkül</span>
       </div>
-      <div className="funnel__stage" style={{ right: "1%", left: "auto", top: "54%", transform: "none" }}>
+      <div className="funnel__stage" style={{ right: "1%", left: "auto", top: "60%", transform: "none" }}>
         <b>Első válasz</b><span>másnap</span>
       </div>
       <div className="dash__axis">
@@ -309,6 +305,21 @@ export default function RealtimeDashboard() {
   const [tab, setTab] = useState(0);
   const pain = PAINS[tab];
   const Gfx = GRAPHICS[tab];
+  const tabsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const sync = () => {
+      const tabs = tabsRef.current?.querySelectorAll<HTMLElement>(".dash__tab");
+      if (!tabs) return;
+      tabs.forEach(t => { t.style.minHeight = ""; });
+      const max = Math.max(...Array.from(tabs).map(t => t.offsetHeight));
+      if (max > 0) tabs.forEach(t => { t.style.minHeight = max + "px"; });
+    };
+    sync();
+    const ro = new ResizeObserver(sync);
+    if (tabsRef.current) ro.observe(tabsRef.current);
+    return () => ro.disconnect();
+  }, []);
 
   return (
     <section className="dash">
@@ -323,7 +334,7 @@ export default function RealtimeDashboard() {
 
         <div className="dash__card reveal" data-delay="1">
           {/* Tabs — one per pain point */}
-          <div className="dash__tabs" role="tablist">
+          <div className="dash__tabs" role="tablist" ref={tabsRef}>
             {PAINS.map((p, i) => (
               <button
                 key={i}

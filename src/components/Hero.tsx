@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /* Hero — left: outcome copy. Right: "Egy nap a rendszerrel" — an emotional
    day-in-the-life of an owner: each moment is a worry the system quietly takes
@@ -34,44 +34,54 @@ const CHANNELS = [
 ];
 
 const DAY = [
-  { time: "06:50", k: "callback", c: "#6DBC61",  t: "Még alszik — a 4 éjjeli hívást a rendszer már visszahívta." },
-  { time: "07:30", k: "calendar", c: "#9662BC",  t: "Reggeli közben 3 új foglalás futott a naptárba." },
-  { time: "08:15", k: "webchat",  c: "#62BCAC",  t: "Valaki a weboldalon írt — 30 mp alatt választ kapott." },
-  { time: "09:40", k: "phone",    c: "#628FBC",  t: "Ön ügyféllel van — közben 2 hívást is felvett a rendszer." },
-  { time: "10:30", k: "email",    c: "#BCA162",  t: "Egy két hete kiküldött árajánlatra rákérdezett a rendszer — így nem hűlt ki." },
-  { time: "11:00", k: "qualify",  c: "#AD83CC",  t: "Valaki csak az árat kérdezte — a rendszer megválaszolta, Önnek nem kellett megszakítania a munkát." },
-  { time: "11:40", k: "callback", c: "#C46C64",  t: "A 11 órás időpontra nem jött el valaki — a rendszer visszahívta, és új időpontot foglalt." },
-  { time: "12:20", k: "sms",      c: "#628FBC",  t: "Egy ügyfél telefonon kezdte, üzenetben folytatta — a rendszernek ugyanaz az ügyfél maradt." },
-  { time: "13:30", k: "refresh",  c: "#BCA162",  t: "Egy 8 hónapja nem látott ügyfelet finoman visszahívott a rendszer." },
-  { time: "15:10", k: "bell",     c: "#62BCAC",  t: "A holnapi időpontok emlékeztetőt kaptak — kevesebben maradnak el." },
-  { time: "16:45", k: "star",     c: "#BCA162",  t: "Egy elégedett ügyféltől a rendszer értékelést kért." },
-  { time: "18:00", k: "bars",     c: "#6DBC61",  t: "Zárás után egy pillantás a telefonján — a rendszer megmutatja, mit hozott a mai nap." },
-  { time: "20:15", k: "home",     c: "#9662BC",  t: "Ön otthon, a családdal — a rendszer dolgozik tovább." },
+  { time: "06:50", k: "callback", c: "#6DBC61",  t: "Még alszik — a 4 éjjeli hívást a rendszer már fogadta." },
+  { time: "07:30", k: "calendar", c: "#9662BC",  t: "Reggelizik - 3 új foglalás a naptárban." },
+  { time: "08:15", k: "webchat",  c: "#62BCAC",  t: "Valaki a weboldalon írt, telefonon folytatta — a rendszer onnan vitte tovább, ahol abbahagyták." },
+  { time: "10:30", k: "email",    c: "#BCA162",  t: "Két hete küldött árajánlat utánkövetve — nem hűlt ki." },
+  { time: "11:00", k: "qualify",  c: "#AD83CC",  t: "Valaki csak az árat kérdezte — a rendszer válaszolt, Önnek nem kellett megszakítania a munkát." },
+  { time: "11:40", k: "callback", c: "#C46C64",  t: "Valaki nem jött el — a rendszer visszahívta, új időpontot foglalt." },
+  { time: "13:30", k: "refresh",  c: "#BCA162",  t: "8 hónapja nem látott ügyfél visszahívva." },
+  { time: "15:10", k: "bell",     c: "#62BCAC",  t: "A holnapi időpontok emlékeztetőt kaptak — kevesebb elmaradás." },
+  { time: "20:15", k: "home",     c: "#9662BC",  t: "Ön otthon a családdal — a telefonján látja, mit hozott a nap. A rendszer dolgozik tovább." },
   { time: "21:30", k: "moon",     c: "#628FBC",  t: "Tele naptár, 0 elszalasztott hívás. Nyugodtan alszik." },
 ];
 
 /* ATRIUM-EDIT A1 — "elmaradt időpontok" → "elszalasztott hívások és érdeklődők"; appointment-language is niche-specific, calls/inquiries are universal */
 const PHRASES = [
-  "a lemondások miatt",
-  "a kihagyott hívások miatt",
-  "a kihűlt ajánlatok miatt",
-  "a no-show-ok miatt",
-  "a lassú válasz miatt",
-  "az inaktív ügyfelek miatt",
+  "lemondások miatt",
+  "kihagyott hívások\nmiatt",
+  "kihűlt ajánlatok\nmiatt",
+  "no-show-ok miatt",
+  "lassú válasz\nmiatt",
+  "inaktív ügyfelek\nmiatt",
 ];
 
 export default function Hero() {
-  const [cur, setCur] = useState(DAY.length - 1);
+  /* pause both hero animations once the section scrolls out of view —
+     stops the typewriter from reflowing (and shifting) the page below the fold */
+  const sectionRef = useRef<HTMLElement>(null);
+  const [active, setActive] = useState(true);
   useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([e]) => setActive(e.isIntersecting), { threshold: 0 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  const [cur, setCur] = useState(0);
+  useEffect(() => {
+    if (!active) return;
     const t = setInterval(() => setCur((c) => (c + 1) % DAY.length), 1800);
     return () => clearInterval(t);
-  }, []);
+  }, [active]);
 
   /* typewriter: type the phrase, hold, delete, move to next */
   const [pi, setPi] = useState(0);
   const [text, setText] = useState("");
   const [del, setDel] = useState(false);
   useEffect(() => {
+    if (!active) return;
     const full = PHRASES[pi];
     let delay = del ? 32 : 62;
     if (!del && text === full) delay = 1500;
@@ -82,10 +92,10 @@ export default function Hero() {
       else setText(full.slice(0, text.length + (del ? -1 : 1)));
     }, delay);
     return () => clearTimeout(id);
-  }, [text, del, pi]);
+  }, [text, del, pi, active]);
 
   return (
-    <section className="hero" id="rendszer">
+    <section className="hero" id="rendszer" ref={sectionRef}>
       <div className="wrap">
         <div className="hero__grid">
           {/* Left — copy */}
@@ -94,7 +104,12 @@ export default function Hero() {
             <h1 className="hero__title">
               <span className="hero__line1">Ne veszítsen </span><span className="hero__line2">több bevételt</span>
               <span className="hero__rotline">
-                <span className="hero__rot">{text}</span><span className="hero__cursor" aria-hidden="true" />
+                {text.split('\n').map((line, idx, arr) => (
+                  <span key={idx}>
+                    <span className="hero__rot">{line}</span>
+                    {idx < arr.length - 1 ? <br /> : <span className="hero__cursor" aria-hidden="true" />}
+                  </span>
+                ))}
               </span>
             </h1>
             <p className="hero__sub">
@@ -125,20 +140,18 @@ export default function Hero() {
                 </span>
               </div>
               <div className="hcon__cols">
-                {[DAY.slice(0, 7), DAY.slice(7)].map((col, ci) => (
+                {[DAY.slice(0, 5), DAY.slice(5)].map((col, ci) => (
                   <div className="hcon__col" key={ci}>
                     {col.map((d, ri) => {
-                      const gi = ci * 6 + ri;
+                      const gi = ci * 5 + ri;
                       const state = gi < cur ? "done" : gi === cur ? "now" : "up";
                       return (
-                        <div className={"hcon__row hcon__row--" + state} key={gi}>
+                        <div className={`hcon__row hcon__row--${state}`} key={`${ci}-${ri}`}>
                           <span className="hcon__ico" style={{ background: `color-mix(in srgb, ${d.c} 26%, var(--bone))`, color: d.c, border: `1px solid color-mix(in srgb, ${d.c} 55%, transparent)` }}>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">{ICONS[d.k]}</svg>
                           </span>
-                          <span className="hcon__txt">
-                            <span className="hcon__time">{d.time}</span>
-                            <span className="hcon__ev">{d.t}</span>
-                          </span>
+                          <span className="hcon__time">{d.time}</span>
+                          <span className="hcon__ev">{d.t}</span>
                         </div>
                       );
                     })}

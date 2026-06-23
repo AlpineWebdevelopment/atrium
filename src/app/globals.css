@@ -435,8 +435,9 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
   margin-top: 18px; max-width: 460px;
   font-family: var(--font-body); font-size: 14px; line-height: 1.55; color: var(--ink-90);
 }
-/* typewriter rotating-reason headline — overflow clip prevents long phrases spilling on mobile */
-.hero__rotline { display: block; margin-top: 2px; min-height: 1.25em; overflow: hidden; }
+/* typewriter rotating-reason headline — bigger, wraps to 2 lines; 2-line min-height
+   reserves space so phrase/line-count changes never shift the page */
+.hero__rotline { display: block; margin-top: 8px; font-size: 1.1em; line-height: 1.06; min-height: 2.12em; white-space: normal; text-wrap: balance; }
 .hero__rot { color: var(--signal); font-weight: 700; } /* brand signal green */
 .hero__cursor {
   display: inline-block; width: 4px; height: 0.78em; margin-left: 2px;
@@ -466,32 +467,34 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
 .hcon__chans { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
 .hcon__chans svg { width: 15px; height: 15px; flex-shrink: 0; }
 .hcon__cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 18px; }
-.hcon__col { position: relative; display: flex; flex-direction: column; gap: 3px; }
-/* timeline rail running down each column, through the icon nodes */
+.hcon__col { position: relative; display: flex; flex-direction: column; gap: 8px; }
+/* timeline rail */
 .hcon__col::before {
   content: ""; position: absolute; left: 17px; top: 20px; bottom: 20px; width: 2px;
   background: var(--line); border-radius: 2px;
 }
 .hcon__row {
-  position: relative; display: flex; align-items: flex-start; gap: 11px;
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  grid-template-areas: "ico time" "ico ev";
+  column-gap: 11px; row-gap: 2px;
   padding: 7px 8px 7px 2px; border-radius: 10px;
   background: transparent;
-  transition: background 350ms var(--ease), opacity 350ms var(--ease);
+  transition: opacity 350ms var(--ease);
 }
 .hcon__row--up { opacity: 0.4; }
-.hcon__row--now { background: color-mix(in srgb, var(--signal) 8%, var(--bone)); }
+.hcon__row--now { background: transparent; }
 .hcon__ico {
+  grid-area: ico; align-self: start;
   width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0; z-index: 1;
   display: flex; align-items: center; justify-content: center;
   box-shadow: 0 0 0 3px var(--bone);
 }
 .hcon__ico svg { width: 16px; height: 16px; }
-.hcon__row--now .hcon__ico { animation: atr-pulse 1.5s ease-in-out infinite; }
-.hcon__txt { flex: 1; min-width: 0; display: flex; flex-direction: column; padding-top: 1px; }
-.hcon__time { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.05em; color: var(--stone); }
-.hcon__ev { font-family: var(--font-body); font-size: 14px; line-height: 1.4; color: var(--ink-70); margin-top: 3px; }
+.hcon__row--now .hcon__ico { opacity: 1; }
+.hcon__time { grid-area: time; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.05em; color: var(--stone); align-self: end; }
+.hcon__ev { grid-area: ev; font-family: var(--font-body); font-size: 14px; line-height: 1.4; color: var(--ink-70); }
 .hcon__row--done .hcon__ev, .hcon__row--now .hcon__ev { color: var(--ink); }
-.hcon__row--now .hcon__ev { font-weight: 500; }
 .hcon__foot {
   margin-top: 14px; padding-top: 12px; text-align: center;
   border-top: 1px solid var(--line);
@@ -517,7 +520,7 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
   border-bottom: 1px solid var(--line-2);
   background: var(--bone);
 }
-.canvas__dot { width: 9px; height: 9px; border-radius: 50%; background: var(--line); }
+.canvas__dot { width: 9px; height: 9px; border-radius: 50%; background: var(--line); flex-shrink: 0; }
 .canvas__bar-label {
   margin-left: 8px;
   font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.05em; color: var(--stone);
@@ -1360,10 +1363,14 @@ html.dark { --viz-purple-soft: #1d1b33; }
 @media (max-width: 880px) {
   .dash__tabs {
     display: grid; grid-template-columns: 1fr 1fr; gap: 6px;
+    align-items: stretch;
     width: 100%; max-width: 100%; padding: 0;
     margin: 0 auto 24px;
   }
-  .dash__tab { text-align: center; padding: 7px 12px; color: var(--ink-70); }
+  .dash__tab {
+    text-align: center; padding: 7px 12px; color: var(--ink-70);
+    display: flex; align-items: center; justify-content: center;
+  }
   .dash__tab--active { color: #F5F2ED; }
   .dash__tab:last-child:nth-child(odd) { grid-column: 1; }
 }
@@ -1413,6 +1420,39 @@ html.dark { --viz-purple-soft: #1d1b33; }
 @keyframes dashMarkerPulse {
   0%, 100% { box-shadow: 0 4px 12px -3px rgba(1,14,30,0.4), 0 0 0 0 rgba(140,133,121,0.5); }
   50% { box-shadow: 0 4px 12px -3px rgba(1,14,30,0.4), 0 0 0 9px rgba(140,133,121,0); }
+}
+
+/* Cooling chart dots — round HTML overlays. The chart SVG uses
+   preserveAspectRatio="none", which stretches <circle> into ovals on
+   narrow viewports; positioning the dots as % overlays keeps them round. */
+.cool-dots { position: absolute; left: 0; top: 0; right: 0; height: 190px; pointer-events: none; --cool-end: #C46C64; }
+.cool-dots--ink { --cool-end: #C83C38; }
+.cool-dot { position: absolute; width: 13px; height: 13px; border-radius: 50%; border: 2.5px solid var(--bone); box-sizing: content-box; transform: translate(-50%, -50%); }
+.cool-dot--start { left: 7.5%; top: 27.37%; background: #6DBC61; }
+.cool-dot--start::after { content: ""; position: absolute; left: 50%; top: 50%; width: 13px; height: 13px; border-radius: 50%; border: 2px solid #6DBC61; transform: translate(-50%, -50%); animation: coolPulse 2.2s ease-out infinite; }
+.cool-dot--mid { left: 50%; top: 61.2%; background: #8C8579; }
+.cool-dot--end { left: 95%; top: 90.53%; background: var(--cool-end); }
+.cool-dot--lead { left: 6%; top: 27.37%; width: 11px; height: 11px; background: #6DBC61; animation: coolLead 5s linear infinite; }
+/* Call-volume chart endpoint dot — round HTML overlay (SVG stretch ovals it) */
+.calls-dots { position: absolute; left: 0; top: 0; right: 0; height: 190px; pointer-events: none; }
+.calls-dot { position: absolute; left: 69%; top: 44.21%; width: 11px; height: 11px; border-radius: 50%; border: 2px solid var(--bone); box-sizing: content-box; transform: translate(-50%, -50%); }
+/* Framed dashboard insets the chart 16px; match the dot overlays to the SVG so dots align with the lines */
+.dash__viz-frame .cool-dots, .dash__viz-frame .calls-dots { left: 16px; right: 16px; }
+@keyframes coolPulse { from { transform: translate(-50%, -50%) scale(1); opacity: 0.5; } to { transform: translate(-50%, -50%) scale(2.6); opacity: 0; } }
+@keyframes coolLead {
+  0%    { left: 6%;     top: 27.37%; background: #6DBC61; }
+  8.2%  { left: 14.97%; top: 30.68%; }
+  16.4% { left: 23.89%; top: 36.53%; }
+  24.6% { left: 32.76%; top: 44.13%; }
+  32.8% { left: 41.6%;  top: 52.76%; }
+  41%   { left: 50.43%; top: 61.75%; }
+  49.2% { left: 59.27%; top: 70.48%; }
+  50%   { background: #8C8579; }
+  57.4% { left: 68.15%; top: 77.88%; }
+  65.6% { left: 77.07%; top: 83.7%; }
+  73.8% { left: 86.02%; top: 87.9%; }
+  82%   { left: 95%;    top: 90.53%; background: var(--cool-end); }
+  100%  { left: 95%;    top: 90.53%; background: var(--cool-end); }
 }
 .dash__gbar {
   position: absolute; transform: translate(-50%, -50%);
@@ -1506,7 +1546,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
   font-weight: 600; color: var(--ink); font-size: 11px; letter-spacing: 0.02em;
 }
 .sysframe__live-sub {
-  font-size: 10px; color: var(--ink-50); line-height: 1.4; text-align: right; max-width: 280px;
+  font-size: 10px; color: var(--ink-50); line-height: 1.4; text-align: left; max-width: 280px;
 }
 .sysframe__live-dot {
   width: 7px; height: 7px; border-radius: 50%; background: var(--signal);
@@ -1519,7 +1559,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
   text-transform: uppercase; color: var(--ink);
 }
 .sysframe__dot {
-  width: 8px; height: 8px; border-radius: 50%; background: var(--signal);
+  width: 8px; height: 8px; border-radius: 50%; background: var(--signal); flex-shrink: 0;
   box-shadow: 0 0 0 4px color-mix(in srgb, var(--signal) 20%, transparent);
   animation: sysPulse 1.6s ease-in-out infinite;
 }
@@ -1935,7 +1975,6 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .cux__scale-lbl {
   font-family: var(--font-body); font-size: 12.5px; line-height: 1.3; color: var(--ink-70);
 }
-.cux__scale-step--full .cux__scale-lbl { color: var(--ink); font-weight: 500; }
 @media (max-width: 560px) {
   .cux__lead { padding: 24px 18px 26px; }
   .cux__scale { gap: 8px; }
@@ -2672,16 +2711,27 @@ html.dark { --viz-purple-soft: #1d1b33; }
   .theme-toggle { width: 30px; height: 30px; }
 
   .hero { padding: 52px 0 60px; }
-  .hero__title { font-size: 12vw; font-weight: 550; letter-spacing: 0.01em; line-height: 0.95; }
+  .hero__title { font-size: 12vw; font-weight: 650; letter-spacing: -0.01em; line-height: 1.0; }
   .hero__line1 { display: block; }
   .hero__line2 { display: block; }
-  .hero__rotline { font-size: 7vw; font-weight: 700; margin-top: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .hero__rot { font-weight: 700; }
+  .hero__rotline { font-size: 9vw; font-weight: 650; margin-top: 6px; line-height: 1.1; min-height: 2.2em; white-space: normal; }
+  .hero__rot { font-weight: 650; }
   .hero__sub { font-size: 13.5px; margin: 18px 0 26px; }
   .hero__actions { flex-wrap: nowrap; gap: 6px; }
   .hero__actions .btn { font-size: clamp(13px, 3.6vw, 15px); padding: 12px clamp(12px, 3.2vw, 16px); white-space: nowrap; }
   .canvas__stage { height: 290px; }
-  .canvas__stage--con { height: auto; }
+  .canvas__stage--con { height: auto; padding: 10px 6px; }
+  .hcon__cols { grid-template-columns: 1fr 1fr; gap: 0 6px; }
+  .hcon__col::before { display: none; }
+  .hcon__row {
+    grid-template-columns: auto 1fr;
+    grid-template-areas: "ico time" "ev ev";
+    column-gap: 5px; row-gap: 1px;
+    padding: 5px 2px;
+  }
+  .hcon__ico { width: 20px; height: 20px; box-shadow: none; }
+  .hcon__ico svg { width: 10px; height: 10px; }
+  .hcon__ev { font-size: 12px; }
   .canvas__center {
     white-space: normal;
     max-width: 78%;
@@ -2697,9 +2747,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
   .dash__metric-k { font-size: 10.5px; }
   .dash__metric-v { font-size: 19px; }
   .dash__metric-d { font-size: 9.5px; }
-  .dash__chart { height: 200px; }
-  .dash__svg { height: 160px; }
-  .prof__row { grid-template-columns: 36px 1fr auto; gap: 12px; }
+.prof__row { grid-template-columns: 36px 1fr auto; gap: 12px; }
   .prof__chan { display: none; }
   .funnel__top { gap: 24px; }
   .funnel__svg { height: 190px; }

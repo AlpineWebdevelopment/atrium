@@ -11,7 +11,7 @@ function GfxLeadSpeed() {
       <svg className="dash__svg" viewBox="0 0 1000 190" preserveAspectRatio="none">
         <defs>
           <linearGradient id="gCool" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#010E1E" />
+            <stop offset="0%" stopColor="#6DBC61" />
             <stop offset="55%" stopColor="#8C8579" />
             <stop offset="100%" stopColor="#C46C64" />
           </linearGradient>
@@ -25,26 +25,20 @@ function GfxLeadSpeed() {
         ))}
         <path d="M60,52 C220,58 380,94 560,128 C720,158 850,168 950,172 L950,190 L60,190 Z" fill="url(#gCoolFill)" />
         <path id="leadPath" d="M60,52 C220,58 380,94 560,128 C720,158 850,168 950,172" fill="none" stroke="url(#gCool)" strokeWidth="3" strokeLinecap="round" />
-        <circle r="6" fill="#010E1E" stroke="var(--bone)" strokeWidth="2.5">
-          <animateMotion dur="5s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.82;1" calcMode="linear">
-            <mpath href="#leadPath" />
-          </animateMotion>
-          <animate attributeName="fill" values="#010E1E;#8C8579;#C46C64;#C46C64" keyTimes="0;0.5;0.82;1" dur="5s" repeatCount="indefinite" />
-        </circle>
-        <circle cx="60" cy="52" r="7" fill="#010E1E" stroke="var(--bone)" strokeWidth="3" />
-        <circle cx="60" cy="52" r="7" fill="none" stroke="#010E1E" strokeWidth="2">
-          <animate attributeName="r" values="7;15" dur="2.2s" repeatCount="indefinite" />
-          <animate attributeName="opacity" values="0.5;0" dur="2.2s" repeatCount="indefinite" />
-        </circle>
-        <circle cx="950" cy="172" r="7" fill="#C46C64" stroke="var(--bone)" strokeWidth="3" />
       </svg>
-      <div className="funnel__stage" style={{ left: "1%", top: "0", transform: "none" }}>
+      <div className="cool-dots" aria-hidden="true">
+        <span className="cool-dot cool-dot--start" />
+        <span className="cool-dot cool-dot--lead" />
+        <span className="cool-dot cool-dot--mid" />
+        <span className="cool-dot cool-dot--end" />
+      </div>
+      <div className="funnel__stage" style={{ left: "1%", top: "7%", transform: "none" }}>
         <b>Lead beérkezik</b><span>kifizetve</span>
       </div>
-      <div className="funnel__stage" style={{ left: "50%", top: "30%", transform: "translateX(-50%)" }}>
+      <div className="funnel__stage" style={{ left: "50%", top: "34%", transform: "translateX(-50%)" }}>
         <b>Órák telnek</b><span>válasz nélkül</span>
       </div>
-      <div className="funnel__stage" style={{ right: "1%", left: "auto", top: "54%", transform: "none" }}>
+      <div className="funnel__stage" style={{ right: "1%", left: "auto", top: "60%", transform: "none" }}>
         <b>Kihűlt</b><span>a versenytársé</span>
       </div>
       <div className="dash__axis">
