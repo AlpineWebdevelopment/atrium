@@ -165,6 +165,7 @@ function GfxCooling() {
       <div className="cool-dots" aria-hidden="true">
         <span className="cool-dot cool-dot--start" />
         <span className="cool-dot cool-dot--lead" />
+        <span className="cool-dot cool-dot--mid" />
         <span className="cool-dot cool-dot--end" />
       </div>
       <div className="funnel__stage" style={{ left: "2%", top: "15%", transform: "translateY(-50%)" }}>

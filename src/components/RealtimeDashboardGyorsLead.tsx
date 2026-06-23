@@ -29,9 +29,10 @@ function GfxLeadSpeed() {
       <div className="cool-dots" aria-hidden="true">
         <span className="cool-dot cool-dot--start" />
         <span className="cool-dot cool-dot--lead" />
+        <span className="cool-dot cool-dot--mid" />
         <span className="cool-dot cool-dot--end" />
       </div>
-      <div className="funnel__stage" style={{ left: "1%", top: "0", transform: "none" }}>
+      <div className="funnel__stage" style={{ left: "1%", top: "7%", transform: "none" }}>
         <b>Lead beérkezik</b><span>kifizetve</span>
       </div>
       <div className="funnel__stage" style={{ left: "50%", top: "30%", transform: "translateX(-50%)" }}>

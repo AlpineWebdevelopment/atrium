@@ -1429,6 +1429,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .cool-dot { position: absolute; width: 13px; height: 13px; border-radius: 50%; border: 2.5px solid var(--bone); box-sizing: content-box; transform: translate(-50%, -50%); }
 .cool-dot--start { left: 6%; top: 27.37%; background: #010E1E; }
 .cool-dot--start::after { content: ""; position: absolute; left: 50%; top: 50%; width: 13px; height: 13px; border-radius: 50%; border: 2px solid #010E1E; transform: translate(-50%, -50%); animation: coolPulse 2.2s ease-out infinite; }
+.cool-dot--mid { left: 50%; top: 61.2%; background: #8C8579; }
 .cool-dot--end { left: 95%; top: 90.53%; background: var(--cool-end); }
 .cool-dot--lead { left: 6%; top: 27.37%; width: 11px; height: 11px; background: #010E1E; animation: coolLead 5s linear infinite; }
 /* Call-volume chart endpoint dot — round HTML overlay (SVG stretch ovals it) */
