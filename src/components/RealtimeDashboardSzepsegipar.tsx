@@ -76,10 +76,10 @@ function GfxDM() {
       <div className="funnel__stage" style={{ left: "1%", top: "7%", transform: "none" }}>
         <b>DM érkezik</b><span>azonnal</span>
       </div>
-      <div className="funnel__stage" style={{ left: "50%", top: "30%", transform: "translateX(-50%)" }}>
+      <div className="funnel__stage" style={{ left: "50%", top: "34%", transform: "translateX(-50%)" }}>
         <b>Válasz nélkül</b><span>percek telnek</span>
       </div>
-      <div className="funnel__stage" style={{ right: "1%", left: "auto", top: "54%", transform: "none" }}>
+      <div className="funnel__stage" style={{ right: "1%", left: "auto", top: "60%", transform: "none" }}>
         <b>Elpártol</b><span>mást foglal</span>
       </div>
       <div className="dash__axis">
