@@ -48,7 +48,7 @@ const PAINS = [
       { k: "A döntés", c: "var(--stone)", v: "Halasztva", d: "az ügyfél vár, aztán felejt" },
       { k: "A majdnem-kész üzlet", c: "var(--viz-red)", v: "Elveszik", d: "máshol köt ki" },
     ],
-    loss: { v: "≈ 900 000 Ft", per: "/ hó", math: "~3 utánkövetetlen árajánlat havonta × a nyertes munka töredéke" },
+    loss: { v: "≈ 1 680 000 Ft", per: "/ hó", math: "~3 utánkövetetlen árajánlat havonta × a nyertes munka töredéke" },
   },
 ];
 
@@ -285,7 +285,7 @@ function GfxQuotes() {
               <b>Árajánlat kiküldve</b>
               <span>{r.sub}</span>
             </span>
-            <span className="quo__val">{r.val}</span>
+            <span className="quo__val">{r.s === "nema" ? "−" : "+"}{r.val}</span>
             <span className="quo__tag">{r.s === "won" ? "Lezárva" : "Néma"}</span>
           </div>
         ))}
