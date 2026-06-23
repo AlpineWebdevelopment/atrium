@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
+import { isNicheSlug } from "@/lib/niches";
 
 const ROOT_LINKS = [
   { href: "/#rendszer",  label: "A rendszer" },
@@ -28,7 +29,14 @@ export default function Nav() {
   const isRoot = pathname === "/";
 
   const logoHref = isRoot ? "/" : pathname;
-  const links = isRoot ? ROOT_LINKS : PAGE_LINKS;
+
+  // On a niche route (/<niche> or /<niche>/blog) the "Blog" link points at that
+  // niche's filtered index; everywhere else it points at the main /blog.
+  const nicheSlug = pathname.split("/")[1];
+  const blogHref = isNicheSlug(nicheSlug) ? `/${nicheSlug}/blog` : "/blog";
+  const links = (isRoot ? ROOT_LINKS : PAGE_LINKS).map((l) =>
+    l.href === "/blog" ? { ...l, href: blogHref } : l,
+  );
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);

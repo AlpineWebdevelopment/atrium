@@ -1192,6 +1192,75 @@ html.dark .nav--scrolled { box-shadow: 0 1px 24px rgba(0,0,0,0.25); }
 .page--gyors-lead-valasz .jrn__result-ico { color: #2B64B8; }
 
 /* =========================================================
+   FOGÁSZAT THEME — /fogaszat ; clinical steel-blue (first-pass color)
+   ========================================================= */
+.page--fogaszat {
+  --signal: #2C8FB5;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, #2C8FB5 9%, #F5F2ED) 0px,
+    color-mix(in srgb, #2C8FB5 5%, #F5F2ED) 520px,
+    var(--bone) 1180px,
+    color-mix(in srgb, #1F6E8C 6%, #F5F2ED) 100%
+  );
+}
+.page--fogaszat .btn { background: #2C8FB5; border-color: #2C8FB5; color: #fff; }
+.page--fogaszat .btn:hover { opacity: 0.88; }
+.page--fogaszat .btn--ghost { background: var(--bone); border-color: var(--line); color: var(--ink); }
+.page--fogaszat .btn--ghost:hover { background: var(--panel); opacity: 1; }
+.page--fogaszat .dash__tab--active { border-color: #2C8FB5; color: #2C8FB5; }
+.page--fogaszat .faq__item--open .faq__chev { color: #2C8FB5; }
+.page--fogaszat .newtag { background: color-mix(in srgb, #2C8FB5 14%, var(--bone)); color: #2C8FB5; }
+.page--fogaszat .sysframe__live-dot { background: #2C8FB5; }
+.page--fogaszat .jrn__result-ico { color: #2C8FB5; }
+
+/* =========================================================
+   KLÍMA THEME — /klima ; cool cyan (first-pass color)
+   ========================================================= */
+.page--klima {
+  --signal: #33ABDB;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, #33ABDB 9%, #F5F2ED) 0px,
+    color-mix(in srgb, #33ABDB 5%, #F5F2ED) 520px,
+    var(--bone) 1180px,
+    color-mix(in srgb, #1E7BA8 6%, #F5F2ED) 100%
+  );
+}
+.page--klima .btn { background: #33ABDB; border-color: #33ABDB; color: #fff; }
+.page--klima .btn:hover { opacity: 0.88; }
+.page--klima .btn--ghost { background: var(--bone); border-color: var(--line); color: var(--ink); }
+.page--klima .btn--ghost:hover { background: var(--panel); opacity: 1; }
+.page--klima .dash__tab--active { border-color: #33ABDB; color: #33ABDB; }
+.page--klima .faq__item--open .faq__chev { color: #33ABDB; }
+.page--klima .newtag { background: color-mix(in srgb, #33ABDB 14%, var(--bone)); color: #33ABDB; }
+.page--klima .sysframe__live-dot { background: #33ABDB; }
+.page--klima .jrn__result-ico { color: #33ABDB; }
+
+/* =========================================================
+   NAPELEM THEME — /napelem ; solar amber (first-pass color)
+   ========================================================= */
+.page--napelem {
+  --signal: #E0A12B;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, #E0A12B 9%, #F5F2ED) 0px,
+    color-mix(in srgb, #E0A12B 5%, #F5F2ED) 520px,
+    var(--bone) 1180px,
+    color-mix(in srgb, #B97D1A 6%, #F5F2ED) 100%
+  );
+}
+.page--napelem .btn { background: #E0A12B; border-color: #E0A12B; color: #fff; }
+.page--napelem .btn:hover { opacity: 0.88; }
+.page--napelem .btn--ghost { background: var(--bone); border-color: var(--line); color: var(--ink); }
+.page--napelem .btn--ghost:hover { background: var(--panel); opacity: 1; }
+.page--napelem .dash__tab--active { border-color: #E0A12B; color: #E0A12B; }
+.page--napelem .faq__item--open .faq__chev { color: #E0A12B; }
+.page--napelem .newtag { background: color-mix(in srgb, #E0A12B 14%, var(--bone)); color: #E0A12B; }
+.page--napelem .sysframe__live-dot { background: #E0A12B; }
+.page--napelem .jrn__result-ico { color: #E0A12B; }
+
+/* =========================================================
    VOICE DEMO
    ========================================================= */
 .vdemo { padding: 100px 0 80px; }
