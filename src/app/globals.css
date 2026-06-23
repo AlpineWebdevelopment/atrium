@@ -435,8 +435,9 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
   margin-top: 18px; max-width: 460px;
   font-family: var(--font-body); font-size: 14px; line-height: 1.55; color: var(--ink-90);
 }
-/* typewriter rotating-reason headline — overflow clip prevents long phrases spilling on mobile */
-.hero__rotline { display: block; margin-top: 2px; min-height: 1.25em; overflow: hidden; }
+/* typewriter rotating-reason headline — bigger, wraps to 2 lines; 2-line min-height
+   reserves space so phrase/line-count changes never shift the page */
+.hero__rotline { display: block; margin-top: 8px; font-size: 1.1em; line-height: 1.06; min-height: 2.12em; white-space: normal; text-wrap: balance; }
 .hero__rot { color: var(--signal); font-weight: 700; } /* brand signal green */
 .hero__cursor {
   display: inline-block; width: 4px; height: 0.78em; margin-left: 2px;
@@ -2714,7 +2715,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
   .hero__title { font-size: 12vw; font-weight: 650; letter-spacing: 0.01em; line-height: 0.95; }
   .hero__line1 { display: block; }
   .hero__line2 { display: block; }
-  .hero__rotline { font-size: 7.5vw; font-weight: 900; margin-top: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .hero__rotline { font-size: 9vw; font-weight: 900; margin-top: 6px; line-height: 1.06; min-height: 2.12em; white-space: normal; text-wrap: balance; }
   .hero__rot { font-weight: 700; }
   .hero__sub { font-size: 13.5px; margin: 18px 0 26px; }
   .hero__actions { flex-wrap: nowrap; gap: 6px; }

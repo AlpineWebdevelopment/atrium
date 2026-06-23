@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /* Hero — left: outcome copy. Right: "Egy nap a rendszerrel" — an emotional
    day-in-the-life of an owner: each moment is a worry the system quietly takes
@@ -57,17 +57,31 @@ const PHRASES = [
 ];
 
 export default function Hero() {
+  /* pause both hero animations once the section scrolls out of view —
+     stops the typewriter from reflowing (and shifting) the page below the fold */
+  const sectionRef = useRef<HTMLElement>(null);
+  const [active, setActive] = useState(true);
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([e]) => setActive(e.isIntersecting), { threshold: 0 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
   const [cur, setCur] = useState(0);
   useEffect(() => {
+    if (!active) return;
     const t = setInterval(() => setCur((c) => (c + 1) % DAY.length), 1800);
     return () => clearInterval(t);
-  }, []);
+  }, [active]);
 
   /* typewriter: type the phrase, hold, delete, move to next */
   const [pi, setPi] = useState(0);
   const [text, setText] = useState("");
   const [del, setDel] = useState(false);
   useEffect(() => {
+    if (!active) return;
     const full = PHRASES[pi];
     let delay = del ? 32 : 62;
     if (!del && text === full) delay = 1500;
@@ -78,10 +92,10 @@ export default function Hero() {
       else setText(full.slice(0, text.length + (del ? -1 : 1)));
     }, delay);
     return () => clearTimeout(id);
-  }, [text, del, pi]);
+  }, [text, del, pi, active]);
 
   return (
-    <section className="hero" id="rendszer">
+    <section className="hero" id="rendszer" ref={sectionRef}>
       <div className="wrap">
         <div className="hero__grid">
           {/* Left — copy */}
