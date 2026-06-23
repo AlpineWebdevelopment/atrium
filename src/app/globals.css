@@ -1525,7 +1525,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
   text-transform: uppercase; color: var(--ink);
 }
 .sysframe__dot {
-  width: 8px; height: 8px; border-radius: 50%; background: var(--signal);
+  width: 8px; height: 8px; border-radius: 50%; background: var(--signal); flex-shrink: 0;
   box-shadow: 0 0 0 4px color-mix(in srgb, var(--signal) 20%, transparent);
   animation: sysPulse 1.6s ease-in-out infinite;
 }
