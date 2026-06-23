@@ -1427,17 +1427,17 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .cool-dots { position: absolute; left: 0; top: 0; right: 0; height: 190px; pointer-events: none; --cool-end: #C46C64; }
 .cool-dots--ink { --cool-end: #C83C38; }
 .cool-dot { position: absolute; width: 13px; height: 13px; border-radius: 50%; border: 2.5px solid var(--bone); box-sizing: content-box; transform: translate(-50%, -50%); }
-.cool-dot--start { left: 6%; top: 27.37%; background: #010E1E; }
-.cool-dot--start::after { content: ""; position: absolute; left: 50%; top: 50%; width: 13px; height: 13px; border-radius: 50%; border: 2px solid #010E1E; transform: translate(-50%, -50%); animation: coolPulse 2.2s ease-out infinite; }
+.cool-dot--start { left: 6%; top: 27.37%; background: #6DBC61; }
+.cool-dot--start::after { content: ""; position: absolute; left: 50%; top: 50%; width: 13px; height: 13px; border-radius: 50%; border: 2px solid #6DBC61; transform: translate(-50%, -50%); animation: coolPulse 2.2s ease-out infinite; }
 .cool-dot--mid { left: 50%; top: 61.2%; background: #8C8579; }
 .cool-dot--end { left: 95%; top: 90.53%; background: var(--cool-end); }
-.cool-dot--lead { left: 6%; top: 27.37%; width: 11px; height: 11px; background: #010E1E; animation: coolLead 5s linear infinite; }
+.cool-dot--lead { left: 6%; top: 27.37%; width: 11px; height: 11px; background: #6DBC61; animation: coolLead 5s linear infinite; }
 /* Call-volume chart endpoint dot — round HTML overlay (SVG stretch ovals it) */
 .calls-dots { position: absolute; left: 0; top: 0; right: 0; height: 190px; pointer-events: none; }
 .calls-dot { position: absolute; left: 69%; top: 44.21%; width: 11px; height: 11px; border-radius: 50%; border: 2px solid var(--bone); box-sizing: content-box; transform: translate(-50%, -50%); }
 @keyframes coolPulse { from { transform: translate(-50%, -50%) scale(1); opacity: 0.5; } to { transform: translate(-50%, -50%) scale(2.6); opacity: 0; } }
 @keyframes coolLead {
-  0%    { left: 6%;     top: 27.37%; background: #010E1E; }
+  0%    { left: 6%;     top: 27.37%; background: #6DBC61; }
   8.2%  { left: 14.97%; top: 30.68%; }
   16.4% { left: 23.89%; top: 36.53%; }
   24.6% { left: 32.76%; top: 44.13%; }

@@ -147,7 +147,7 @@ function GfxCooling() {
       <svg className="dash__svg" viewBox="0 0 1000 190" preserveAspectRatio="none">
         <defs>
           <linearGradient id="gCoolS" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#010E1E" />
+            <stop offset="0%" stopColor="#6DBC61" />
             <stop offset="55%" stopColor="#8C8579" />
             <stop offset="100%" stopColor="#C46C64" />
           </linearGradient>
