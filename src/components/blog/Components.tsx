@@ -1,5 +1,8 @@
 import Link from "next/link";
 
+/** Booking URL used whenever a CTA's href is unset OR an empty string. */
+const DEFAULT_CTA_HREF = "https://atriumscaling.com/#kapcsolat";
+
 /**
  * Cold-open scene. The narrative hook with the single green left rule.
  * One Signal-green accent per zone — this is one of them.
@@ -66,20 +69,20 @@ export function Hi({ children }: { children: React.ReactNode }) {
 }
 
 export function InlineCta({
-  href = "https://atriumscaling.com/#kapcsolat",
+  href,
   children,
 }: {
   href?: string;
   children?: React.ReactNode;
 }) {
   return (
-    <div className="my-8 rounded-lg border border-signal/30 bg-signal/8 px-[1.2rem] py-[1.1rem]">
-      <Link
-        href={href}
-        className="text-[15.5px] font-medium text-ink no-underline hover:underline text-center w-full"
+    <div className="my-8 rounded-lg bg-ink px-[1.2rem] py-[1.1rem] flex justify-center align-center">
+      <a
+        href={href || DEFAULT_CTA_HREF}
+        className="w-full text-center text-[15.5px] font-medium text-bone no-underline hover:underline [&>p]:my-0 [&>p]:text-[15.5px]"
       >
         {children}
-      </Link>
+      </a>
     </div>
   );
 }
@@ -89,7 +92,7 @@ export function InlineCta({
  * The green button is the section's single accent.
  */
 export function Cta({
-  href = "https://atriumscaling.com/#kapcsolat",
+  href,
   children = "Foglaljon időpontot.",
 }: {
   href?: string;
@@ -98,7 +101,7 @@ export function Cta({
   return (
     <div className="my-8">
       <Link
-        href={href}
+        href={href || DEFAULT_CTA_HREF}
         className="inline-block rounded-lg bg-signal px-[1.3rem] py-[0.7rem] text-[15px] font-semibold font-onest text-black! no-underline transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
       >
         {children}

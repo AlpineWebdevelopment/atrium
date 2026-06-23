@@ -76,7 +76,7 @@ export default async function Advertorial({ params }: Params) {
           />
         </div>
 
-        <Cta />
+        <Cta href={fm.ctaHref} />
       </article>
     </main>
     </div>

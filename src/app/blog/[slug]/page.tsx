@@ -69,7 +69,7 @@ export default async function BlogPost({ params }: Params) {
           />
         </div>
 
-        <Cta />
+        <Cta href={fm.ctaHref} />
         <Faq items={fm.faq} />
         <Sources items={fm.sources} />
       </article>

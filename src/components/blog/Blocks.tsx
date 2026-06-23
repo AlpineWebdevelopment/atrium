@@ -12,7 +12,7 @@ export function PostHeader({ fm }: { fm: PostFrontmatter }) {
     <header>
       <div className="mb-6 flex items-center justify-between">
         <Link href="/blog" className="font-mono text-[12px] uppercase tracking-widest text-stone hover:text-ink transition" draggable="false">{"< "}Vissza</Link>
-        <span className="font-mono text-[12px] uppercase tracking-widest text-stone">{fm.niche} · {date}
+        <span className="font-mono text-[12px] uppercase tracking-widest text-stone">{date}
         </span>
       </div>
       <h1 className="font-onest text-[28px] font-bold leading-tight sm:text-[36px]">

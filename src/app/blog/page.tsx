@@ -22,9 +22,9 @@ export default function BlogIndex() {
           <li key={p.slug} className="py-5 px-5 hover:bg-stone/5 hover:shadow-md transition-all">
             <Link href={`/blog/${p.slug}`} className="group block no-underline select-none" draggable="false">
               <div className="flex justify-between">
-              <p className="font-mono text-[12px] uppercase tracking-widest">
+              {/* <p className="font-mono text-[12px] uppercase tracking-widest">
                 {p.frontmatter.niche}
-              </p>
+              </p> */}
               <p className="font-mono text-[12px] uppercase tracking-widest text-stone">
                 {p.frontmatter.publishedAt}
               </p>

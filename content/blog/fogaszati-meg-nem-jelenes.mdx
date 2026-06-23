@@ -8,7 +8,7 @@ cluster: "A"
 intent: "Informational"
 funnel: "TOFU/MOFU"
 pillar: true
-publishedAt: "2026-06-16"
+publishedAt: "2026-06-03"
 faq:
   - q: "Mennyivel csökkenthető reálisan a meg nem jelenés?"
     a: "A szakirodalom alapján az emlékeztetők érdemi javulást hoznak — egy randomizált vizsgálatban a 24%-os arány 14%-ra csökkent. A tényleges eredmény rendelőnként eltér, ezért konkrét számot a saját adatai ismerete nélkül nem ígérünk; a kiindulópont mindig a saját, mért arány."
@@ -23,12 +23,16 @@ sources:
     url: ""
   - label: "Randomizált vizsgálat az emlékeztetők hatásáról: a meg nem jelenés a kontrollcsoport 24%-áról 14%-ra csökkent emlékeztetők hatására."
     url: ""
+ctaHref: ""
 ---
 
 ## Egy üres kezelőszék hétfő reggel
 
 <Scene>
-Hétfő, 9:00. A kezelőszék üres. A naptárban ott a név: 9:00, fogkőeltávolítás. A recepciós próbálja hívni a pácienst, de nem veszik fel. A következő érkező negyed tízkor jön — addig harminc perc, amiért senki nem fizet, miközben a rendelő minden költsége tovább fut.
+  Hétfő, 9:00. A kezelőszék üres. A naptárban ott a név: 9:00, fogkőeltávolítás.
+  A recepciós próbálja hívni a pácienst, de nem veszik fel. A következő érkező
+  negyed tízkor jön — addig harminc perc, amiért senki nem fizet, miközben a
+  rendelő minden költsége tovább fut.
 </Scene>
 
 Ez nem rendkívüli reggel. A legtöbb rendelőben a hét minden napján megtörténik, csak ritkán számolja ki valaki, mennyibe kerül. A meg nem jelenés azért alattomos, mert nem jár hangos következménnyel: nincs reklamáció, nincs rossz értékelés, csak egy csendes üresség a naptárban, ami minden héten visszatér.
@@ -49,13 +53,18 @@ Két dolgot érdemes tisztázni ezzel a számmal kapcsolatban. Egyrészt ez nem 
 
 Nézzük meg, mit jelent ez a gyakorlatban. Tegyük fel — ismét csak a nagyságrend kedvéért —, hogy egy rendelőnek napi 20 időpontja van, és ennek nagyjából az ötöde marad el:
 
-<Cascade>{`Napi    20 időpont   →   ~4 elmaradt
+<Cascade>
+  {`Napi    20 időpont   →   ~4 elmaradt
 Heti   100 időpont   →  ~19 elmaradt
-Havi   400 időpont   →  `}<Hi>~76 elmaradt</Hi></Cascade>
+Havi   400 időpont   →  `}
+  <Hi>~76 elmaradt</Hi>
+</Cascade>
 
 Ez nem az Ön számlája, hanem egy modell. De a saját naptárából kiszámolható a valós szám, és ott kezd igazán érdekessé válni a kérdés: mi áll a hiányzások mögött, és melyik részük előzhető meg.
 
-<InlineCta>Kíváncsi, az Ön naptárában mekkora ez a szám? Felmérjük Önnel.</InlineCta>
+<InlineCta href="">
+  Kíváncsi, az Ön naptárában mekkora ez a szám? Felmérjük Önnel.
+</InlineCta>
 
 ## Az elmaradt bevétel csak a jéghegy csúcsa
 
@@ -101,19 +110,22 @@ A fogászat sajátos eset: itt a szorongás önálló okként jelenik meg. A pá
 
 Az okok többsége egyetlen közös ponton találkozik: a kommunikáció hiányán vagy egyirányúságán. Érdemes ezért nem azt nézni, „küldünk-e emlékeztetőt”, hanem azt, hogy az adott módszer mire képes valójában.
 
-| Módszer | Automatikus | Kétirányú (lemondás, áthelyezés) | Munkaóra-igény |
-| --- | --- | --- | --- |
-| Kézi telefonos emlékeztető | Nem | Igen, de csak munkaidőben | Magas |
-| Egyszeri e-mail | Részben | Nem | Alacsony |
-| SMS emlékeztető | Igen | Jellemzően nem | Alacsony |
-| Többcsatornás, kétirányú rendszer | Igen | Igen, a páciens egy kattintással intézi | Minimális |
+| Módszer                           | Automatikus | Kétirányú (lemondás, áthelyezés)        | Munkaóra-igény |
+| --------------------------------- | ----------- | --------------------------------------- | -------------- |
+| Kézi telefonos emlékeztető        | Nem         | Igen, de csak munkaidőben               | Magas          |
+| Egyszeri e-mail                   | Részben     | Nem                                     | Alacsony       |
+| SMS emlékeztető                   | Igen        | Jellemzően nem                          | Alacsony       |
+| Többcsatornás, kétirányú rendszer | Igen        | Igen, a páciens egy kattintással intézi | Minimális      |
 
 A különbség nem csupán a kényelem. Egy egyirányú emlékeztető legfeljebb arra jó, hogy a páciens emlékezzen — de ha mégsem tud jönni, nem ad módot a gyors lemondásra, így a felszabadult idő elvész. A kétirányú, automatikus megközelítés ezzel szemben a lemondást is kezeli, és a felszabadult helyet újra ki lehet ajánlani.
 
 Hogy az emlékeztetésnek van-e érdemi hatása, arra a szakirodalom is választ ad.
 
 <StatCallout source="randomizált kontrollált vizsgálat — hivatkozás a cikkben.">
-Egy randomizált vizsgálatban az emlékeztetők a meg nem jelenés arányát a kontrollcsoport **24%-áról 14%-ra** csökkentették — vagyis nagyjából a hiányzások harmadát-felét meg lehetett előzni pusztán azzal, hogy a páciens időben, a megfelelő csatornán kapott emlékeztetőt.
+  Egy randomizált vizsgálatban az emlékeztetők a meg nem jelenés arányát a
+  kontrollcsoport **24%-áról 14%-ra** csökkentették — vagyis nagyjából a
+  hiányzások harmadát-felét meg lehetett előzni pusztán azzal, hogy a páciens
+  időben, a megfelelő csatornán kapott emlékeztetőt.
 </StatCallout>
 
 ## Hogyan előzhető meg a meg nem jelenés egy értékesítési rendszerrel?
