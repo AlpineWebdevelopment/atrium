@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 /* Four revenue leaks — each tab tells one problem's story, with its own graphic. */
 const PAINS = [
@@ -309,6 +309,21 @@ export default function RealtimeDashboard() {
   const [tab, setTab] = useState(0);
   const pain = PAINS[tab];
   const Gfx = GRAPHICS[tab];
+  const tabsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const sync = () => {
+      const tabs = tabsRef.current?.querySelectorAll<HTMLElement>(".dash__tab");
+      if (!tabs) return;
+      tabs.forEach(t => { t.style.minHeight = ""; });
+      const max = Math.max(...Array.from(tabs).map(t => t.offsetHeight));
+      if (max > 0) tabs.forEach(t => { t.style.minHeight = max + "px"; });
+    };
+    sync();
+    const ro = new ResizeObserver(sync);
+    if (tabsRef.current) ro.observe(tabsRef.current);
+    return () => ro.disconnect();
+  }, []);
 
   return (
     <section className="dash">
@@ -323,7 +338,7 @@ export default function RealtimeDashboard() {
 
         <div className="dash__card reveal" data-delay="1">
           {/* Tabs — one per pain point */}
-          <div className="dash__tabs" role="tablist">
+          <div className="dash__tabs" role="tablist" ref={tabsRef}>
             {PAINS.map((p, i) => (
               <button
                 key={i}
