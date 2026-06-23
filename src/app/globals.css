@@ -519,7 +519,7 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
   border-bottom: 1px solid var(--line-2);
   background: var(--bone);
 }
-.canvas__dot { width: 9px; height: 9px; border-radius: 50%; background: var(--line); }
+.canvas__dot { width: 9px; height: 9px; border-radius: 50%; background: var(--line); flex-shrink: 0; }
 .canvas__bar-label {
   margin-left: 8px;
   font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.05em; color: var(--stone);
