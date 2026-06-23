@@ -22,12 +22,19 @@ const PAGE_LINKS = [
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const isRoot = pathname === "/";
 
   const logoHref = isRoot ? "/" : pathname;
   const links = isRoot ? ROOT_LINKS : PAGE_LINKS;
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     const el = menuRef.current;
@@ -38,7 +45,7 @@ export default function Nav() {
   }, [open]);
 
   return (
-    <header className="nav">
+    <header className={`nav${scrolled ? " nav--scrolled" : ""}`}>
       <div className="wrap">
         <div className="nav__in">
           {/* ATRIUM-EDIT: logo href = current page on niche routes; never redirects to root */}
