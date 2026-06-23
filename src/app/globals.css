@@ -2714,9 +2714,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
   .dash__metric-k { font-size: 10.5px; }
   .dash__metric-v { font-size: 19px; }
   .dash__metric-d { font-size: 9.5px; }
-  .dash__chart { height: 200px; overflow-x: auto; }
-  .dash__svg { height: 160px; width: 560px; }
-  .prof__row { grid-template-columns: 36px 1fr auto; gap: 12px; }
+.prof__row { grid-template-columns: 36px 1fr auto; gap: 12px; }
   .prof__chan { display: none; }
   .funnel__top { gap: 24px; }
   .funnel__svg { height: 190px; }
