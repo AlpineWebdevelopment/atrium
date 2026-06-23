@@ -269,7 +269,6 @@ function GfxQuotes() {
     { sub: "3 napja — nincs utánkövetés", val: "1 200 000 Ft", s: "nema" },
     { sub: "ma — a rendszer utánkövette", val: "850 000 Ft", s: "won" },
     { sub: "6 napja — nincs utánkövetés", val: "480 000 Ft", s: "nema" },
-    { sub: "9 napja — nincs utánkövetés", val: "360 000 Ft", s: "nema" },
   ];
   const nema = rows.filter((r) => r.s === "nema").length;
   return (

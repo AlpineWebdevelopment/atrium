@@ -2297,7 +2297,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
   background: color-mix(in srgb, var(--signal) 6%, var(--bone));
 }
 .quo__row--nema {
-  border: 1px solid var(--line); background: transparent;
+  border: 1px solid rgba(200,60,56,0.22); background: rgba(200,60,56,0.06);
   animation: calPulse 2.4s ease-in-out infinite;
 }
 .quo__ico {
