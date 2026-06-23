@@ -1336,6 +1336,8 @@ html.dark { --viz-purple-soft: #1d1b33; }
   font-size: clamp(32px, 3.8vw, 48px); letter-spacing: -0.03em; line-height: 1.04;
   color: var(--ink); margin: 14px 0 14px; text-wrap: balance;
 }
+.desk-br { display: block; }
+@media (max-width: 880px) { .desk-br { display: none; } }
 .dash__p { font-family: var(--font-body); font-size: 15px; line-height: 1.6; color: var(--ink-70); }
 
 .dash__card {
