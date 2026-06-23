@@ -366,7 +366,7 @@ html.dark .nav { background: rgba(12,18,27,0.80); }
   line-height: 1.6;
   color: var(--ink-70);
   max-width: 580px;
-  margin: 24px auto 32px;
+  margin: 6px auto 32px;
 }
 .hero__actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
 
