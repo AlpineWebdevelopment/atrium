@@ -2904,7 +2904,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
   .manifesto__inner { padding: 30px 22px; border-radius: 18px; grid-template-columns: 1fr; gap: 28px; }
   .manifesto__top { margin-bottom: 24px; }
   .manifesto__h { margin-bottom: 18px; }
-  .manifesto__art { max-width: 340px; margin: 0 auto; }
+  .manifesto__art { order: -1; max-width: 300px; margin: 0 auto 4px; }
 
   /* Final CTA + footer */
   .final-cta { padding: 80px 0 88px; }
