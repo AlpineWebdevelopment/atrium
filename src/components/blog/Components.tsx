@@ -88,7 +88,9 @@ export function InlineCta({
 }
 
 /**
- * Call to action. Brand-locked label "Foglaljon időpontot." — do not vary.
+ * Call to action. Default label "Foglaljon időpontot." for booking-bound posts;
+ * posts that point at a niche advertorial override it via the `ctaLabel`
+ * frontmatter field (the destination isn't a booking, so the label shouldn't say so).
  * The green button is the section's single accent.
  */
 export function Cta({

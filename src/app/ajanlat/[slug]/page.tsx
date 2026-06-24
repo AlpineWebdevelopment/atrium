@@ -77,6 +77,8 @@ export default async function Advertorial({ params }: Params) {
         </div>
 
         <Cta href={fm.ctaHref} />
+        <hr className="text-stone/50 mb-2" />
+        <p className="font-mono text-[12px] tracking-[0.08em] text-stone/80">© 2026 Atrium · atriumscaling.com</p>
       </article>
     </main>
     </div>

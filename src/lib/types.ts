@@ -21,7 +21,8 @@ export type PostFrontmatter = {
   pillar: boolean;
   publishedAt: string; // ISO date
   updatedAt?: string; // ISO date
-  ctaHref?: string; // end-CTA destination; falls back to the booking URL in <Cta> when unset
+  ctaHref?: string; // end-CTA destination; falls back to the booking URL in <Cta> when unset/empty
+  ctaLabel?: string; // end-CTA button text; falls back to "Foglaljon időpontot." when unset
   faq?: FaqItem[];
   sources?: Source[];
 };

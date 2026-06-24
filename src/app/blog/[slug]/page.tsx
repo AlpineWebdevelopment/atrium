@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
-import { getPostBySlug, getPostSlugs } from "@/lib/posts";
+import { getAllPosts, getPostBySlug, getPostSlugs } from "@/lib/posts";
 import { mdxComponents } from "@/components/blog/mdxComponents";
 import { PostHeader, Faq, Sources } from "@/components/blog/Blocks";
 import { Cta } from "@/components/blog/Components";
 import { ArticleJsonLd } from "@/components/blog/JsonLd";
+import RelatedPosts from "@/components/blog/RelatedPosts";
+import { UNIVERSAL_NICHES } from "@/lib/niches";
 
 const SITE_URL = "https://atriumscaling.com";
 
@@ -51,6 +53,24 @@ export default async function BlogPost({ params }: Params) {
 
   const { frontmatter: fm, content } = post;
 
+  // Related-post pools. For a niche post: same-niche partners + universal posts.
+  // For a universal post, "same niche" collapses to the universal pool, so the
+  // two cards become two distinct universal posts. The client randomizes.
+  const isUniversal = UNIVERSAL_NICHES.includes(fm.niche);
+  const others = getAllPosts().filter((p) => p.slug !== slug);
+  const pick = (p: (typeof others)[number]) => ({
+    slug: p.slug,
+    title: p.frontmatter.title,
+    niche: p.frontmatter.niche,
+    dek: p.frontmatter.dek,
+  });
+  const general = others
+    .filter((p) => UNIVERSAL_NICHES.includes(p.frontmatter.niche))
+    .map(pick);
+  const sameNiche = isUniversal
+    ? general
+    : others.filter((p) => p.frontmatter.niche === fm.niche).map(pick);
+
   return (
     <div className="page">
     <main className="mx-auto max-w-176 px-5 py-12 sm:px-6 sm:py-16">
@@ -69,10 +89,12 @@ export default async function BlogPost({ params }: Params) {
           />
         </div>
 
-        <Cta href={fm.ctaHref} />
+        <Cta href={fm.ctaHref}>{fm.ctaLabel}</Cta>
         <Faq items={fm.faq} />
         <Sources items={fm.sources} />
       </article>
+
+      <RelatedPosts sameNiche={sameNiche} general={general} />
     </main>
     </div>
   );
