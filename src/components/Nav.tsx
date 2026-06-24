@@ -25,10 +25,25 @@ export default function Nav() {
   // On a niche route (/<niche> or /<niche>/blog) the "Blog" link points at that
   // niche's filtered index; everywhere else it points at the main /blog.
   const nicheSlug = pathname.split("/")[1];
-  const blogHref = isNicheSlug(nicheSlug) ? `/${nicheSlug}/blog` : "/blog";
-  const links = LINKS.map((l) =>
-    l.href === "/blog" ? { ...l, href: blogHref } : l,
-  );
+  const onNiche = isNicheSlug(nicheSlug);
+  const blogHref = onNiche ? `/${nicheSlug}/blog` : "/blog";
+
+  // The section anchors (#rendszer, #kapcsolat, …) only exist on the landing
+  // pages — the root (/) and the niche landings (/<niche>). On any other page
+  // (e.g. /blog, /<niche>/blog, a blog post) a bare "#section" link goes
+  // nowhere. There we prefix the hash with the matching landing page so the
+  // link navigates back to it and scrolls to the section; on a landing page we
+  // keep the bare hash so it scrolls in place without a reload.
+  const landingBase = onNiche ? `/${nicheSlug}` : "/";
+  const isLanding = pathname === landingBase;
+  const hashBase = isLanding ? "" : landingBase;
+  const hashHref = (hash: string) => `${hashBase}${hash}`;
+
+  const links = LINKS.map((l) => {
+    if (l.href === "/blog") return { ...l, href: blogHref };
+    if (l.href.startsWith("#")) return { ...l, href: hashHref(l.href) };
+    return l;
+  });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -59,7 +74,7 @@ export default function Nav() {
           </nav>
           <div className="nav__right">
             {/* ThemeToggle removed */}
-            <a href="#kapcsolat" className="btn nav__cta">Foglaljon időpontot</a>
+            <a href={hashHref("#kapcsolat")} className="btn nav__cta">Foglaljon időpontot</a>
             <button
               className="nav__burger"
               aria-label={open ? "Menü bezárása" : "Menü megnyitása"}
@@ -80,7 +95,7 @@ export default function Nav() {
                 <a key={l.href} href={l.href} className="nav__mobile-link" onClick={() => setOpen(false)}>{l.label}</a>
               ))}
             </nav>
-            <a href="#kapcsolat" className="btn nav__mobile-cta" onClick={() => setOpen(false)}>
+            <a href={hashHref("#kapcsolat")} className="btn nav__mobile-cta" onClick={() => setOpen(false)}>
               Foglaljon időpontot
             </a>
           </div>
