@@ -1095,27 +1095,8 @@ html.dark .nav--scrolled { box-shadow: 0 1px 24px rgba(0,0,0,0.25); }
 .page--kormos .jrn__result-ico { color: #C4705A; }
 
 /* =========================================================
-   Építőipar — warm amber (#A07C34) + earthy undertone gradient; signal → amber
+   Építőipar — uses root green palette (no signal override)
    ========================================================= */
-.page--epitoipar {
-  --signal: #A07C34;
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, #A07C34 8%, #F5F2ED) 0%,
-    #F5F2ED 18%,
-    #F5F2ED 78%,
-    color-mix(in srgb, #7A5E28 7%, #F5F2ED) 100%
-  );
-}
-.page--epitoipar .btn { background: #A07C34; border-color: #A07C34; color: #fff; }
-.page--epitoipar .btn:hover { opacity: 0.88; }
-.page--epitoipar .btn--ghost { background: var(--bone); border-color: var(--line); color: var(--ink); }
-.page--epitoipar .btn--ghost:hover { background: var(--panel); opacity: 1; }
-.page--epitoipar .dash__tab--active { border-color: #A07C34; color: #A07C34; }
-.page--epitoipar .faq__item--open .faq__chev { color: #A07C34; }
-.page--epitoipar .newtag { background: color-mix(in srgb, #A07C34 14%, var(--bone)); color: #A07C34; }
-.page--epitoipar .sysframe__live-dot { background: #A07C34; }
-.page--epitoipar .jrn__result-ico { color: #A07C34; }
 
 /* =========================================================
    ÁLLATORVOS THEME — /allatorvos
