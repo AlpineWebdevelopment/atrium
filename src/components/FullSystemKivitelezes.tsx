@@ -118,7 +118,7 @@ const PHASES = [
       { ic: "calendar", t: "Felmérés-időpont-egyeztetés", s: "egyenesen a naptárba, ütközés nélkül" },
       { ic: "confirm", t: "Visszaigazolás", s: "azonnal visszaigazolja az egyeztetett időpontot" },
       { ic: "bell", t: "Emlékeztető", s: "emlékeztet, hogy ne maradjon el a felmérés" },
-      { ic: "reschedule", t: "Átütemezés", s: "ha változik a terv, új időpontot egyeztet" },
+      { ic: "reschedule", t: "Átütemezés", s: "ha valaki lemondja vagy nem jelenik meg, felhívja, hogy egyeztessenek új felmérési időpontot" },
       { ic: "users", t: "Várólista-feltöltés", s: "ha valaki lemond, a felszabadult időpontot felajánlja a várólistának" },
     ],
   },

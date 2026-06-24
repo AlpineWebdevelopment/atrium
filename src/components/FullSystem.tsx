@@ -130,7 +130,7 @@ const PHASES = [
       { ic: "calendar", t: "Időpontfoglalás", s: "egyenesen a naptárba, ütközés nélkül" },
       { ic: "confirm", t: "Visszaigazolás", s: "azonnal visszaigazolja a foglalást" },
       { ic: "bell", t: "Emlékeztető", s: "emlékeztet, hogy ne maradjon el a látogatás" },
-      { ic: "reschedule", t: "Átütemezés", s: "ha változik a terv, átteszi vagy lemondja az időpontot" },
+      { ic: "reschedule", t: "Átütemezés", s: "ha valaki lemondja vagy nem jön el, hívja, hogy egyeztessenek újat vagy lemondja az időpontot" },
       { ic: "users", t: "Várólista-feltöltés", s: "ha valaki lemond, a felszabadult időpontot felajánlja a várólistának" },
     ],
   },
