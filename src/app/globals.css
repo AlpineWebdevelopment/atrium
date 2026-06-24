@@ -1648,17 +1648,17 @@ html.dark { --viz-purple-soft: #1d1b33; }
   padding: 10px 6px 22px; border-bottom: 1px solid var(--line);
 }
 .sysframe__bar-top {
-  display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 8px;
 }
 .sysframe__live {
-  display: inline-flex; flex-direction: column; align-items: flex-end; gap: 3px;
+  display: inline-flex; flex-direction: column; align-items: flex-start; gap: 3px;
   font-family: var(--font-mono); font-size: 11px; color: var(--ink-70);
 }
 .sysframe__live-title {
   font-weight: 600; color: var(--ink); font-size: 11px; letter-spacing: 0.02em;
 }
 .sysframe__live-sub {
-  font-size: 10px; color: var(--ink-50); line-height: 1.4; text-align: left; max-width: 280px;
+  font-size: 10px; color: var(--ink-50); line-height: 1.45; text-align: left; max-width: 560px;
 }
 .sysframe__live-dot {
   width: 7px; height: 7px; border-radius: 50%; background: var(--signal);
