@@ -105,7 +105,7 @@ const PHASES = [
     n: "01", name: "Megkeresés", cap: "az első érintéstől a minősítésig", c: "#9360BA", Viz: VizMegkereses,
     steps: [
       { ic: "phone", t: "Hívásfogadás", s: "minden hívást felvesz, éjjel és hétvégén is" },
-      { ic: "chat", t: "Utánkövetés", s: "a webes és e-mailes ajánlatkérőt is percek alatt visszahívja" },
+      { ic: "chat", t: "Utánkövetés", s: "a webes, e-mailes vagy Instagram-érdeklődőt is percek alatt felhívja" },
       { ic: "qualify", t: "Kvalifikáció", s: "kikérdezi a projektet, és eldönti, komoly munka-e" },
       { ic: "chat", t: "Kérdés-megválaszolás", s: "a gyakori kérdésekre azonnal válaszol, a cég saját anyagaiból" },
       { ic: "send", t: "Árajánlat-utánkövetés", s: "a kiküldött árajánlatot utánköveti, amíg le nem zárul" },
@@ -113,7 +113,7 @@ const PHASES = [
     ],
   },
   {
-    n: "02", name: "Egyeztetés", cap: "helyszíni felmérés, visszaigazolva", c: "#010E1E", Viz: VizEgyeztetes,
+    n: "02", name: "Egyeztetés", cap: "a megkereséstől a felmérés napjáig", c: "#010E1E", Viz: VizEgyeztetes,
     steps: [
       { ic: "calendar", t: "Felmérés-időpont-egyeztetés", s: "egyenesen a naptárba, ütközés nélkül" },
       { ic: "confirm", t: "Visszaigazolás", s: "azonnal visszaigazolja az egyeztetett időpontot" },
@@ -123,7 +123,7 @@ const PHASES = [
     ],
   },
   {
-    n: "03", name: "Megtartás", cap: "vissza, és újra", c: "#6DBC61", Viz: VizMegtartas,
+    n: "03", name: "Megtartás", cap: "az átadástól a következő megrendelésig", c: "#6DBC61", Viz: VizMegtartas,
     steps: [
       { ic: "callback", t: "Elmaradtak visszahívása", s: "visszaszerzi az elmaradt felmérési időpontot" },
       { ic: "clock", t: "Projektkövetés", s: "befejezett munka után időben ajánlja a következő projektet" },
@@ -151,7 +151,7 @@ export default function FullSystemKivitelezes() {
       <div className="wrap">
         <div className="dash__intro reveal">
           <span className="dash__eyebrow">A teljes rendszer</span>
-          <h2 className="dash__h">AI-alapú értékesítési rendszer, amely Önért dolgozik.</h2>
+          <h2 className="dash__h">AI-alapú értékesítési rendszer, amely Önért dolgozik<span className="heading-dot">.</span></h2>
           <p className="sys__scale">
             A rendszert mindig a cége méretéhez igazítjuk — a pár fős csapattól
             a nagyvállalatig.

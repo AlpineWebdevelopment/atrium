@@ -236,7 +236,7 @@ export default function RealtimeDashboardKivitelezes() {
       <div className="wrap">
         <div className="dash__intro reveal">
           <span className="dash__eyebrow" style={{ color: "#9360BA" }}>Hol szivárog a bevétel</span>
-          <h2 className="dash__h">Négy hely, ahol a pénz kicsúszik.</h2>
+          <h2 className="dash__h">Négy hely, ahol a pénz szivárog<span className="heading-dot">.</span></h2>
           <p className="dash__exnote">
             Az alábbi számok példák — élesben az Ön valós adataira szabva.
           </p>
