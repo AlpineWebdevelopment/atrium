@@ -4,7 +4,7 @@ import { useState } from "react";
 const FAQS = [
   {
     q: "Mennyi pénzt hagyok valójában az asztalon?",
-    a: "A legtöbb cégvezető nem tudja — és pont ez a baj. Hány esti hívás megy veszendőbe, hány érdeklődő hűl ki, mielőtt visszahívná, hány régi ügyfél nem jön vissza? Ami nincs mérve, az csendben szivárog, hónapról hónapra. A találkozón az Ön számaiból kiszámoljuk a pontos összeget — utána nem tippel, hanem tudja.",
+    a: "Őszintén? Pontos számot fejből senki nem mond — aki a cége ismerete nélkül konkrét összeget ígér, az csak tippel. De a pénz szinte mindig ugyanott szivárog: a nem fogadott hívásoknál, a lassan megválaszolt érdeklődőknél és az utánkövetés nélkül maradt régi ügyfeleknél. A találkozón három valós számából — havi megkeresés, egy munka átlagos értéke, záródási arány — pár perc alatt kiszámoljuk a konkrét havi forintösszeget. Onnantól nem érzésre dönt: tudja, mennyiről van szó, és hogy megéri-e behozni.",
   },
   {
     q: "Észreveszik az ügyfelek, hogy AI-val beszélnek?",
