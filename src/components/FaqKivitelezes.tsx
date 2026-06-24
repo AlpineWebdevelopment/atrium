@@ -4,7 +4,7 @@ import { useState } from "react";
 const FAQS = [
   {
     q: "Mennyi megrendelést hagyok valójában az asztalon?",
-    a: "A legtöbb kivitelező cégvezető nem tudja — és pont ez a baj. Hány esti hívás megy veszendőbe, miközben Ön a helyszínen van? Hány árajánlat hűl ki utánkövetés nélkül? Hány felmérési időpont esik ki visszahívás nélkül? Ami nincs mérve, az csendben szivárog hónapról hónapra. A találkozón az Ön valós adataiból kiszámoljuk a pontos összeget — utána nem tippel, hanem tudja.",
+    a: "Őszintén? Pontos számot fejből senki nem mond — aki a cége ismerete nélkül konkrét összeget ígér, az csak tippel. De a pénz szinte mindig ugyanott szivárog: a nem fogadott hívásoknál, a lassan megválaszolt ajánlatkéréseknél és az utánkövetés nélkül maradt árajánlatoknál. A találkozón három valós számából — havi megkeresés, egy kivitelezési munka átlagos értéke, záródási arány — pár perc alatt kiszámoljuk a konkrét havi forintösszeget. Onnantól nem érzésre dönt: tudja, mennyiről van szó, és hogy megéri-e behozni.",
   },
   {
     q: "Észreveszik a megrendelők, hogy AI-val beszélnek?",
@@ -39,7 +39,7 @@ export default function FaqKivitelezes() {
       <div className="wrap">
         <div className="faq__head reveal">
           <span className="dash__eyebrow">GYIK</span>
-          <h2 className="faq__h">A kérdések,<br />amelyeket mindenki feltesz.</h2>
+          <h2 className="faq__h">A kérdések,<br />amelyeket mindenki feltesz<span className="heading-dot">.</span></h2>
         </div>
         <div className="faq__list reveal" data-delay="1">
           {FAQS.map((f, i) => {

@@ -106,7 +106,7 @@ export default function CustomSolutionsKivitelezes() {
       <div className="wrap">
         <div className="dash__intro reveal">
           <span className="dash__eyebrow">Egyedi fejlesztés</span>
-          <h2 className="dash__h">Amit a kész csomagok nem fednek le, azt megépítjük.</h2>
+          <h2 className="dash__h">Amit a kész csomagok nem fednek le, azt megépítjük<span className="heading-dot">.</span></h2>
         </div>
 
         <div className="cux__lead reveal" data-delay="1">
