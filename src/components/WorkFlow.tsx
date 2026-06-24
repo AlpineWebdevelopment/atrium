@@ -30,7 +30,7 @@ export default function WorkFlow() {
       <div className="wrap">
         <div className="dash__intro reveal">
           <span className="dash__eyebrow">Hogyan kezdjük?</span>
-          <h2 className="dash__h">Beszélgetés, nem prezentáció.</h2>
+          <h2 className="dash__h">Beszélgetés, nem prezentáció<span className="heading-dot">.</span></h2>
         </div>
 
         <div className="how__grid">

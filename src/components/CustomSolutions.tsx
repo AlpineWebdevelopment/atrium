@@ -110,7 +110,7 @@ export default function CustomSolutions() {
       <div className="wrap">
         <div className="dash__intro reveal">
           <span className="dash__eyebrow">Egyedi fejlesztés</span>
-          <h2 className="dash__h">Amit a kész csomagok nem fednek le, azt megépítjük.</h2>
+          <h2 className="dash__h">Amit a kész csomagok nem fednek le, azt megépítjük<span className="heading-dot">.</span></h2>
         </div>
 
         {/* The point: it starts from the operator's own idea, any scale */}

@@ -164,7 +164,7 @@ export default function FullSystem() {
       <div className="wrap">
         <div className="dash__intro reveal">
           <span className="dash__eyebrow">A teljes rendszer</span>
-          <h2 className="dash__h">AI-alapú értékesítési rendszer, amely Önért dolgozik.</h2>
+          <h2 className="dash__h">AI-alapú értékesítési rendszer, amely Önért dolgozik<span className="heading-dot">.</span></h2>
           <p className="sys__scale">
             A rendszert mindig a cége méretéhez igazítjuk — a pár fős csapattól
             a nagyvállalatig.
