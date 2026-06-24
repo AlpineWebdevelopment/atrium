@@ -3,22 +3,14 @@ import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { isNicheSlug } from "@/lib/niches";
 
-const ROOT_LINKS = [
-  { href: "/#rendszer",  label: "A rendszer" },
-  { href: "/#indulas",   label: "Hogyan indulunk" },
-  { href: "/#crm",       label: "AI CRM" },
-  { href: "/#gyik",      label: "GYIK" },
-  { href: "/#kapcsolat", label: "Kapcsolat" },
-  { href: "/blog",       label: "Blog" },
-];
-
-/* Niche/service page links — relative hashes, no root redirect */
-const PAGE_LINKS = [
-  { href: "/#rendszer",  label: "A rendszer" },
-  { href: "/#indulas",   label: "Hogyan indulunk" },
-  { href: "/#gyik",      label: "GYIK" },
-  { href: "/#kapcsolat", label: "Kapcsolat" },
-  { href: "/blog",      label: "Blog" },
+/* Relative hashes so links scroll within the current page (root or niche),
+   never redirecting to "/". Only sections that exist on every page. */
+const LINKS = [
+  { href: "#rendszer",         label: "A rendszer" },
+  { href: "#hogyan-dolgozunk", label: "Hogyan dolgozunk" },
+  { href: "#gyik",             label: "GYIK" },
+  { href: "#kapcsolat",        label: "Kapcsolat" },
+  { href: "/blog",             label: "Blog" },
 ];
 
 export default function Nav() {
@@ -34,7 +26,7 @@ export default function Nav() {
   // niche's filtered index; everywhere else it points at the main /blog.
   const nicheSlug = pathname.split("/")[1];
   const blogHref = isNicheSlug(nicheSlug) ? `/${nicheSlug}/blog` : "/blog";
-  const links = (isRoot ? ROOT_LINKS : PAGE_LINKS).map((l) =>
+  const links = LINKS.map((l) =>
     l.href === "/blog" ? { ...l, href: blogHref } : l,
   );
 
@@ -67,7 +59,7 @@ export default function Nav() {
           </nav>
           <div className="nav__right">
             {/* ThemeToggle removed */}
-            <button className="btn nav__cta">Foglaljon időpontot</button>
+            <a href="#kapcsolat" className="btn nav__cta">Foglaljon időpontot</a>
             <button
               className="nav__burger"
               aria-label={open ? "Menü bezárása" : "Menü megnyitása"}
@@ -88,9 +80,9 @@ export default function Nav() {
                 <a key={l.href} href={l.href} className="nav__mobile-link" onClick={() => setOpen(false)}>{l.label}</a>
               ))}
             </nav>
-            <button className="btn nav__mobile-cta" onClick={() => setOpen(false)}>
+            <a href="#kapcsolat" className="btn nav__mobile-cta" onClick={() => setOpen(false)}>
               Foglaljon időpontot
-            </button>
+            </a>
           </div>
         </div>
       </div>

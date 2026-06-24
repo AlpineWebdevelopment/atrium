@@ -6,6 +6,7 @@ import FullSystemKivitelezes from "@/components/FullSystemKivitelezes";
 import WorkFlow from "@/components/WorkFlow";
 import CustomSolutionsKivitelezes from "@/components/CustomSolutionsKivitelezes";
 import FaqKivitelezes from "@/components/FaqKivitelezes";
+import FinalCtaEpitoipar from "@/components/FinalCtaEpitoipar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 
@@ -26,6 +27,7 @@ export default function EpitoiparPage() {
       <WorkFlow />
       <CustomSolutionsKivitelezes />
       <FaqKivitelezes />
+      <FinalCtaEpitoipar />
       <Footer />
     </div>
   );

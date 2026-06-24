@@ -1348,7 +1348,7 @@ html.dark .nav--scrolled { box-shadow: 0 1px 24px rgba(0,0,0,0.25); }
 .footer__brand-col { display: flex; flex-direction: column; align-items: flex-start; }
 .footer__brand {
   font-family: var(--font-display); font-weight: 600; font-size: 22px;
-  letter-spacing: -0.02em; color: #F5F2ED;
+  letter-spacing: -0.02em; color: #F5F2ED; text-decoration: none;
   display: inline-flex; align-items: baseline;
 }
 .footer__brand .dot {
