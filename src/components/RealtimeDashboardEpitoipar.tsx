@@ -129,13 +129,13 @@ function GfxCooling() {
         <span className="cool-dot cool-dot--mid" />
         <span className="cool-dot cool-dot--end" />
       </div>
-      <div className="funnel__stage" style={{ left: "1%", top: "7%", transform: "none" }}>
+      <div className="funnel__stage" style={{ left: "1%", top: "2%", transform: "none" }}>
         <b>Érdeklődés beérkezik</b><span>14:30</span>
       </div>
-      <div className="funnel__stage" style={{ left: "50%", top: "34%", transform: "translateX(-50%)" }}>
+      <div className="funnel__stage" style={{ left: "50%", top: "29%", transform: "translateX(-50%)" }}>
         <b>Kihűlőben</b><span>válasz nélkül</span>
       </div>
-      <div className="funnel__stage" style={{ right: "1%", left: "auto", top: "60%", transform: "none" }}>
+      <div className="funnel__stage" style={{ right: "1%", left: "auto", top: "55%", transform: "none" }}>
         <b>Első válasz</b><span>másnap</span>
       </div>
       <div className="dash__axis">
