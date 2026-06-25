@@ -48,7 +48,7 @@ const EXAMPLES: { ico: IconKey; t: string; d: string; who: string; c: string }[]
   },
   {
     ico: "layers",
-    t: "Projektkövetési irányítópult",
+    t: "Vezetői irányítópult",
     d: "Hol tart most minden aktív projekt, melyik határidő közeleg, melyik számla van lejárva — ma ez több helyen és fejben él. A rendszer egy helyre gyűjti, és naprakészen mutatja. A heti áttekintéshez nem kell több táblázatot összevadászni.",
     who: "Egyszerre több projektet vezető cégeknek",
     c: "#9662BC",
