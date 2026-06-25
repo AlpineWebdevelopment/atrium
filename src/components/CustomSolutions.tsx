@@ -51,13 +51,6 @@ const EXAMPLES: { ico: IconKey; t: string; d: string; who: string; c: string }[]
     c: "#BCA162",
   },
   {
-    ico: "search",
-    t: "Önéletrajz-előszűrő rendszer",
-    d: "Egy meghirdetett pozícióra több tucat önéletrajz érkezik, és valaki mindet végigolvassa, mielőtt eldől, kit hív be. A rendszer a megadott szempontok szerint előrendezi és összefoglalja a jelentkezéseket — a döntés és a behívás végig Önnél marad. Kevesebb átolvasás, ugyanaz a mérlegelés.",
-    who: "Sok jelentkezőt kezelő cégeknek, HR-csapatoknak",
-    c: "#9662BC",
-  },
-  {
     ico: "trend",
     t: "Jelentés-összeállító rendszer",
     d: "A havi jelentést ma valaki több helyről kézzel rakja össze — táblázat, e-mail, rendszer-export. Egy fél nap, hónap végén, minden hónapban. A rendszer a forrásokból összeállítja a kész jelentést, és időben kiküldi annak, akinek szól. Az adat ugyanaz, az óra nem megy el rá.",
@@ -77,13 +70,6 @@ const EXAMPLES: { ico: IconKey; t: string; d: string; who: string; c: string }[]
     d: "A baj ma akkor derül ki, amikor már baj — a kimaradt rendelés, az elakadt szállítmány, az elcsúszott határidő utólag tűnik fel. A rendszer figyeli a megszokott menetet, és előre szól, ha valami eltér tőle. A hibát nem a vevő veszi észre először.",
     who: "Gyártó, logisztikai és kereskedelmi cégeknek",
     c: "#BCA162",
-  },
-  {
-    ico: "target",
-    t: "Termékadat- és leírás-rendszer",
-    d: "Egy új termék felvitele a webshopba kézi munka: leírás, kategória, paraméterek, mind egyenként. Több száz terméknél ez hetekbe telik, és sosem teljes. A rendszer a meglévő adatokból megírja a leírásokat és kategorizál, egységes hangon. Ön jóváhagyja, nem gépeli.",
-    who: "Nagy kínálatú webshopoknak",
-    c: "#628FBC",
   },
   {
     ico: "refresh",
