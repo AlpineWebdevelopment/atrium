@@ -165,7 +165,7 @@ export default function FullSystem() {
           <h2 className="dash__h">AI-alapú értékesítési rendszer, amely Önért dolgozik<span className="heading-dot">.</span></h2>
           <p className="sys__scale">
             A rendszert mindig a cége méretéhez igazítjuk — a pár fős csapattól
-            a nagyvállalatig.
+            a nagyvállalatig. Pilot csomagok is elérhetők.
           </p>
 
         </div>
