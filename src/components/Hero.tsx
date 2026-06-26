@@ -100,7 +100,7 @@ export default function Hero() {
         <div className="hero__grid">
           {/* Left — copy */}
           <div className="hero__content reveal reveal--instant visible">
-            <span className="hero__eyebrow">Értékesítési rendszer, nem AI-bemutató</span>
+            <span className="hero__eyebrow">Értékesítési rendszer, nem AI-show</span>
             <h1 className="hero__title">
               <span className="hero__line1">Ne veszítsen </span><span className="hero__line2">több bevételt</span>
               <span className="hero__rotline">

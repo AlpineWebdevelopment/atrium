@@ -23,66 +23,66 @@ const ICON_PATHS: Record<IconKey, React.ReactNode> = {
 
 const EXAMPLES: { ico: IconKey; t: string; d: string; who: string; c: string }[] = [
   {
-    ico: "doc",
-    t: "Dokumentum-feldolgozó rendszer",
-    d: "A bejövő számlákból, űrlapokból és szerződésekből kiszedi a fontos adatokat, és rendezett formában a meglévő rendszerébe tölti. Megszünteti a kézi adatrögzítést és a gépelési hibákat.",
-    who: "Sok papírral dolgozó cégeknek",
+    ico: "send",
+    t: "Árajánlat-összeállító rendszer",
+    d: "Egy árajánlat összeállítása ma egy estét visz el: méretek, anyagárak, korábbi munkák átnézése. Mire elkészül, az ügyfél már a következő céget hívta. A rendszer a felmérés adataiból és a korábbi ajánlatokból összeállítja a tételes ajánlatot — Ön már csak ellenőrzi és kiküldi.",
+    who: "Kivitelező, tetőfedő és gépészeti cégeknek",
     c: "#9662BC",
   },
   {
-    ico: "search",
-    t: "Belső tudás-asszisztens",
-    d: "A cég saját szabályzataiból, kézikönyveiből és korábbi anyagaiból válaszol a csapat kérdéseire, így nem kell mindenért vezetőt keresni. Az új belépők is gyorsabban beletanulnak.",
-    who: "Nagyobb csapatoknak",
+    ico: "doc",
+    t: "Szerződés-átvizsgáló rendszer",
+    d: "A beérkező szerződéseket ma valaki bekezdésről bekezdésre olvassa át — keresi a szokatlan kikötést, a hiányzó határidőt, az eltérést a sablontól. A rendszer kiemeli a kockázatos pontokat, mielőtt aláírásra kerülne. A döntés végig emberi kézben marad; csak a felolvasás tűnik el.",
+    who: "Ügyvédi irodáknak, beszerzéssel dolgozó cégeknek",
     c: "#628FBC",
   },
   {
     ico: "chat",
-    t: "Ügyfélszolgálati támogató rendszer",
-    d: "A visszatérő kérdésekre előkészíti a választ, a beérkező megkereséseket témakör szerint rendezi, és szükség esetén több nyelven is felel. A munkatárs csak jóváhagyja vagy átveszi a beszélgetést.",
-    who: "Sok megkeresést kezelő cégeknek",
+    t: "Többnyelvű ügyfélszolgálat",
+    d: "A külföldi vendég vagy páciens kérdése ma megvárja, amíg valaki ráér angolul vagy németül válaszolni. A rendszer a megkeresést a vendég nyelvén fogadja, a gyakori kérdésekre felel, a bonyolultabbat pedig a munkatárs elé teszi — már lefordítva. A nyelv nem akadály, és nem plusz munkaerő kérdése.",
+    who: "Wellness szállodáknak, fogászati turizmussal dolgozó rendelőknek",
     c: "#62BCAC",
   },
   {
-    ico: "trend",
-    t: "Készlet- és kapacitás-előrejelző",
-    d: "A korábbi adatokból előrejelzi, mire lesz kereslet, mikor fogy ki egy alapanyag, és mennyi szabad kapacitás marad. Segít időben rendelni és tervezni.",
-    who: "Webshopoknak és gyártó cégeknek",
+    ico: "doc",
+    t: "Dokumentum-feldolgozó rendszer",
+    d: "A bejövő számlák és szerződések adatait ma valaki kézzel viszi át a könyvelő- vagy ügyviteli rendszerbe, soronként. A rendszer kiolvassa belőlük a lényeget, és a meglévő rendszerébe írja — az adat közben végig az EU-n belül marad. A kézi rögzítés megszűnik, az érzékeny adat nem hagyja el Európát.",
+    who: "Könyvelőirodáknak, sok beérkező számlával dolgozó cégeknek",
     c: "#BCA162",
   },
   {
-    ico: "layers",
-    t: "Rendszer-összekötő automatizálás",
-    d: "Összeköt két eszközt, amely eddig külön élt, és kézi átmásolás nélkül viszi át köztük az adatot. Jelez, ha valami eltér a megszokottól.",
-    who: "Több külön rendszert használó cégeknek",
-    c: "#9662BC",
+    ico: "trend",
+    t: "Jelentés-összeállító rendszer",
+    d: "A havi jelentést ma valaki több helyről kézzel rakja össze — táblázat, e-mail, rendszer-export. Egy fél nap, hónap végén, minden hónapban. A rendszer a forrásokból összeállítja a kész jelentést, és időben kiküldi annak, akinek szól. Az adat ugyanaz, az óra nem megy el rá.",
+    who: "Több helyről riportoló cégeknek, ügynökségeknek",
+    c: "#628FBC",
   },
   {
-    ico: "target",
-    t: "Egyedi vezetői kimutatás",
-    d: "A több helyen tárolt adatból összeállítja a vezetői kimutatást, amit eddig kézzel kellett összerakni. Egy helyen, naprakészen mutatja a fontos számokat.",
-    who: "Olyan cégeknek, ahol az adat sok rendszerben szétszórva él",
-    c: "#628FBC",
+    ico: "search",
+    t: "Belső tudás-asszisztens",
+    d: "A válasz a szabályzatban vagy egy korábbi anyagban már megvan — a kolléga mégis úgy jut hozzá, hogy megkérdez valakit. A rendszer ezekből az anyagokból válaszol, a forrást megjelölve. A vezetőt nem szakítja félbe minden kérdés, az új belépő pedig egyedül is gyorsan beletanul.",
+    who: "Nagyobb csapatoknak, ahol gyakori a betanítás",
+    c: "#62BCAC",
+  },
+  {
+    ico: "layers",
+    t: "Folyamat-figyelő rendszer",
+    d: "A baj ma akkor derül ki, amikor már baj — a kimaradt rendelés, az elakadt szállítmány, az elcsúszott határidő utólag tűnik fel. A rendszer figyeli a megszokott menetet, és előre szól, ha valami eltér tőle. A hibát nem a vevő veszi észre először.",
+    who: "Gyártó, logisztikai és kereskedelmi cégeknek",
+    c: "#BCA162",
   },
   {
     ico: "refresh",
     t: "Beszállítói és alvállalkozói egyeztető",
-    d: "Az anyagrendeléseket és az alvállalkozói időpontokat egyezteti és nyomon követi, és jelez, ha valami csúszik. Kevesebb telefonálás, kevesebb elcsúszott határidő.",
+    d: "Az anyagrendelések és az alvállalkozók időpontjai ma telefonban, üzenetekben és fejben élnek — egyetlen csúszás, és áll a munka. A rendszer egyezteti és követi mindkettőt, és előre szól, ha valami nem érkezik időben. Kevesebb telefonálás, kevesebb elcsúszott határidő.",
     who: "Kivitelező és gyártó cégeknek",
     c: "#62BCAC",
   },
   {
-    ico: "send",
-    t: "Értekezlet-összefoglaló és teendőkövető",
-    d: "A felvett értekezletekből összefoglalót és teendőlistát készít, és rögzíti, kinek mi a dolga. Semmi nem vész el a megbeszélés után.",
-    who: "Sokat egyeztető csapatoknak",
-    c: "#BCA162",
-  },
-  {
     ico: "plus",
     t: "Az Ön ötlete",
-    d: "Mondja el, mire van szüksége a működésében — ha automatizálható, megépítjük.",
-    who: "Bármilyen cégnek",
+    d: "Ha a működésében van egy visszatérő, kézi folyamat, amely felemészti az idejét, mondja el. Megnézzük, automatizálható-e — és ha igen, megépítjük.",
+    who: "Bármire, ami ismétlődik és automatizálható",
     c: "#6DBC61",
   },
 ];
@@ -141,7 +141,7 @@ export default function CustomSolutions() {
           <h3 className="cux__sec-h"><span>Példa projektek</span></h3>
           <div className={`cux__cats cux__cats--3${showAll ? " cux__cats--open" : ""}`}>
             {EXAMPLES.map((e, i) => (
-              <div className={`cux__catcol${i >= 2 ? " cux__catcol--more" : ""}`} key={i} style={{ ["--pc" as string]: e.c } as React.CSSProperties}>
+              <div className={`cux__catcol${i >= 3 ? " cux__catcol--more" : ""}`} key={i} style={{ ["--pc" as string]: e.c } as React.CSSProperties}>
                 <div className="cux__catcol-head">
                   <span className="cux__catcol-ico">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{ICON_PATHS[e.ico]}</svg>

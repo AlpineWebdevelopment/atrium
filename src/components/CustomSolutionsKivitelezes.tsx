@@ -19,65 +19,65 @@ const ICON_PATHS: Record<IconKey, React.ReactNode> = {
 
 const EXAMPLES: { ico: IconKey; t: string; d: string; who: string; c: string }[] = [
   {
-    ico: "chat",
+    ico: "refresh",
     t: "Alvállalkozói és anyagrendelési egyeztető",
-    d: "Automatikusan egyezteti az alvállalkozók menetrendjét és az anyagrendelési határidőket, és jelez, ha valami csúszik. Kevesebb telefonálás, kevesebb elmaradt határidő.",
-    who: "Alvállalkozókat és anyagbeszerzőket koordináló cégeknek",
+    d: "Az alvállalkozók időpontjai és az anyagrendelési határidők ma telefonban és fejben élnek — egyetlen csúszás, és áll a munka a helyszínen. A rendszer egyezteti és követi mindkettőt, és előre szól, ha egy szállítmány vagy egy alvállalkozó csúszik. Kevesebb telefonálás, kevesebb állásidő a helyszínen.",
+    who: "Több alvállalkozóval és beszállítóval dolgozó cégeknek",
     c: "#9662BC",
   },
   {
     ico: "doc",
     t: "Engedély- és dokumentum-feldolgozó",
-    d: "A bejövő engedélyekből, számlákból és szerződésekből kiszedi a fontos adatokat, és rendezett formában a meglévő rendszerébe tölti. Megszünteti a kézi adatrögzítést.",
-    who: "Sok papírral és hatósági engedéllyel dolgozó cégeknek",
+    d: "Az engedélyek, szerződések és számlák adatait ma valaki kézzel viszi át a rendszerébe — határidő, ügyszám, összeg, soronként. A rendszer kiolvassa belőlük a lényeget, és rendezetten a meglévő rendszerébe írja. A kézi rögzítés és az elgépelés megszűnik.",
+    who: "Sok hatósági engedéllyel és papírral dolgozó cégeknek",
     c: "#628FBC",
   },
   {
-    ico: "target",
-    t: "Helyszíni felmérés-ütemező",
-    d: "Automatikusan egyezteti és visszaigazolja a felmérési időpontokat, emlékeztetőt küld a megrendelőknek, és a lemondott időpontokat azonnal felajánlja a várólistának.",
-    who: "Sok felmérést végző kivitelező cégeknek",
+    ico: "trend",
+    t: "Kintlévőség-figyelő",
+    d: "A kész munka számlája kiment, a pénz mégis késik — és a fizetésre emlékeztetni kínos, ezért gyakran elmarad. A rendszer figyeli a lejárt számlákat, és a megfelelő hangnemben, időben emlékeztet. A pénz hamarabb beérkezik, Önnek nem kell a kínos telefonokat intéznie.",
+    who: "Rendszeres kintlévőséggel küzdő kivitelező cégeknek",
     c: "#62BCAC",
   },
   {
     ico: "send",
-    t: "Árajánlat-utánkövető rendszer",
-    d: "A kiküldött árajánlatokat automatikusan nyomon követi, a megrendelőt megfelelő időközönként megkeresi, és jelzi, ha az üzlet lezárult vagy elveszett.",
-    who: "Sok ajánlatot kiküldő cégeknek",
+    t: "Tételes árajánlat-összeállító",
+    d: "Egy tételes árajánlat összeállítása ma egy estét visz el: méretek, anyagárak, a korábbi hasonló munkák átnézése. A rendszer a felmérés adataiból és a korábbi ajánlataiból összeállítja a tételes ajánlat vázát — Ön már csak ellenőrzi, pontosít és kiküldi. Az ajánlat aznap megy ki, nem egy hét múlva.",
+    who: "Sok tételes ajánlatot készítő cégeknek",
     c: "#BCA162",
   },
   {
-    ico: "trend",
-    t: "Projektkövetési irányítópult",
-    d: "A több helyen tárolt adatból összeállítja a vezetői kimutatást — aktív projektek, közelgő határidők, elmaradt fizetések — egy helyen, naprakészen.",
+    ico: "layers",
+    t: "Vezetői irányítópult",
+    d: "Hol tart most minden aktív projekt, melyik határidő közeleg, melyik számla van lejárva — ma ez több helyen és fejben él. A rendszer egy helyre gyűjti, és naprakészen mutatja. A heti áttekintéshez nem kell több táblázatot összevadászni.",
     who: "Egyszerre több projektet vezető cégeknek",
     c: "#9662BC",
   },
   {
-    ico: "refresh",
-    t: "Ügyfélreaktiváló rendszer",
-    d: "A korábban ajánlatot kért, de nem megrendelő érdeklődőket a megfelelő időpontban automatikusan visszahívja. A régi érdeklődőkből újra lehet megrendelő.",
-    who: "Nagy ajánlat-archívummal rendelkező cégeknek",
-    c: "#628FBC",
-  },
-  {
-    ico: "layers",
+    ico: "target",
     t: "Rendszer-összekötő automatizálás",
-    d: "Összeköt két eszközt, amely eddig külön élt — számlázó, naptár, CRM — és kézi átmásolás nélkül viszi át köztük az adatot. Jelez, ha valami eltér a megszokottól.",
-    who: "Több külön rendszert használó cégeknek",
-    c: "#62BCAC",
+    d: "A számlázó, a naptár és a CRM ma külön él — az adatot valaki kézzel másolja az egyikből a másikba. A rendszer ezt a háttérben elvégzi, és jelez, ha valami eltér a megszokottól. Egy teljes kézi munkafolyamat eltűnik a napból.",
+    who: "Több, egymással össze nem kötött rendszert használó cégeknek",
+    c: "#628FBC",
   },
   {
     ico: "search",
     t: "Belső tudás-asszisztens",
-    d: "A cég saját szabályzataiból, műszaki anyagaiból és korábbi projektrögzítéseiből válaszol a csapat kérdéseire. Az új kolléga is gyorsabban tanulja be a folyamatokat.",
-    who: "Növekvő csapatot építő cégeknek",
+    d: "A válasz egy korábbi projekt rögzítésében vagy a cég műszaki anyagában már megvan — az új kolléga mégis úgy jut hozzá, hogy megkérdez valakit. A rendszer ezekből az anyagokból válaszol, a forrást megjelölve. A betanulás gyorsabb, a tapasztalt kollégát nem szakítja félbe minden kérdés.",
+    who: "Növekvő, sok új belépőt betanító cégeknek",
+    c: "#62BCAC",
+  },
+  {
+    ico: "chat",
+    t: "Garanciális hibajegy-kezelő",
+    d: "Az átadás után a hibajelzések szétszórva érkeznek — telefonon, e-mailben, üzenetben —, és néhány elsikkad, amíg nagyobb baj nem lesz belőle. A rendszer egy helyen fogadja és rögzíti a garanciális jelzéseket, és rászól, ha valami túl rég nyitva van. Egy reklamáció sem marad megválaszolatlanul.",
+    who: "Átadás utáni garanciális ügyeket kezelő cégeknek",
     c: "#BCA162",
   },
   {
     ico: "plus",
     t: "Az Ön ötlete",
-    d: "Mondja el, mire van szüksége a működésében — ha automatizálható, megépítjük.",
+    d: "Ha a működésében van egy visszatérő, kézi folyamat, amely felemészti az idejét, mondja el. Megnézzük, automatizálható-e — és ha igen, megépítjük.",
     who: "Bármilyen kivitelező cégnek",
     c: "#6DBC61",
   },
@@ -134,7 +134,7 @@ export default function CustomSolutionsKivitelezes() {
           <h3 className="cux__sec-h"><span>Példa projektek</span></h3>
           <div className={`cux__cats cux__cats--3${showAll ? " cux__cats--open" : ""}`}>
             {EXAMPLES.map((e, i) => (
-              <div className={`cux__catcol${i >= 2 ? " cux__catcol--more" : ""}`} key={i} style={{ ["--pc" as string]: e.c } as React.CSSProperties}>
+              <div className={`cux__catcol${i >= 3 ? " cux__catcol--more" : ""}`} key={i} style={{ ["--pc" as string]: e.c } as React.CSSProperties}>
                 <div className="cux__catcol-head">
                   <span className="cux__catcol-ico">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{ICON_PATHS[e.ico]}</svg>

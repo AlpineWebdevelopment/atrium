@@ -32,13 +32,13 @@ function GfxLeadSpeed() {
         <span className="cool-dot cool-dot--mid" />
         <span className="cool-dot cool-dot--end" />
       </div>
-      <div className="funnel__stage" style={{ left: "1%", top: "7%", transform: "none" }}>
+      <div className="funnel__stage" style={{ left: "1%", top: "2%", transform: "none" }}>
         <b>Lead beérkezik</b><span>kifizetve</span>
       </div>
-      <div className="funnel__stage" style={{ left: "50%", top: "34%", transform: "translateX(-50%)" }}>
+      <div className="funnel__stage" style={{ left: "50%", top: "29%", transform: "translateX(-50%)" }}>
         <b>Órák telnek</b><span>válasz nélkül</span>
       </div>
-      <div className="funnel__stage" style={{ right: "1%", left: "auto", top: "60%", transform: "none" }}>
+      <div className="funnel__stage" style={{ right: "1%", left: "auto", top: "55%", transform: "none" }}>
         <b>Kihűlt</b><span>a versenytársé</span>
       </div>
       <div className="dash__axis">

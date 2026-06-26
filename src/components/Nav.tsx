@@ -6,10 +6,10 @@ import { isNicheSlug } from "@/lib/niches";
 /* Relative hashes so links scroll within the current page (root or niche),
    never redirecting to "/". Only sections that exist on every page. */
 const LINKS = [
-  { href: "#rendszer",         label: "A rendszer" },
-  { href: "#hogyan-dolgozunk", label: "Hogyan dolgozunk" },
+  { href: "home",              label: "Főoldal" },
+  { href: "#rendszer-teljes",  label: "Szolgáltatások" },
+  { href: "#egyedi",           label: "Egyedi fejlesztés" },
   { href: "#gyik",             label: "GYIK" },
-  { href: "#kapcsolat",        label: "Kapcsolat" },
   { href: "/blog",             label: "Blog" },
 ];
 
@@ -40,6 +40,7 @@ export default function Nav() {
   const hashHref = (hash: string) => `${hashBase}${hash}`;
 
   const links = LINKS.map((l) => {
+    if (l.href === "home") return { ...l, href: landingBase || "/" };
     if (l.href === "/blog") return { ...l, href: blogHref };
     if (l.href.startsWith("#")) return { ...l, href: hashHref(l.href) };
     return l;
