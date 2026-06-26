@@ -39,12 +39,12 @@ const DAY = [
 ];
 
 const PHRASES = [
-  "kihagyott hívások miatt",
-  "lassú visszajelzés miatt",
-  "lezáratlan\nárajánlatok miatt",
-  "elmaradt\nfelmérések miatt",
+  "kihagyott hívás miatt",
+  "lassú válasz miatt",
+  "néma árajánlat miatt",
+  "elmaradt felmérés miatt",
   "a versenytárs miatt",
-  "éjjeli megkeresések miatt",
+  "éjjeli hívás miatt",
 ];
 
 export default function HeroKivitelezes() {

@@ -441,6 +441,8 @@ html.dark .nav--scrolled { box-shadow: 0 1px 24px rgba(0,0,0,0.25); }
    reserves space so phrase/line-count changes never shift the page */
 .hero__rotline { display: block; margin-top: 8px; font-size: 1.1em; line-height: 1.06; white-space: normal; }
 .hero__rot { color: var(--signal); font-weight: 450; }
+/* Építőipar hero: keep the rotating reason on a single row at every width */
+.page--epitoipar .hero__rotline { white-space: nowrap; min-height: 1.2em; font-size: clamp(24px, 4.2vw, 50px); }
 .hero__cursor {
   display: inline-block; width: 4px; height: 0.78em; margin-left: 2px;
   background: var(--signal); transform: translateY(3px);
