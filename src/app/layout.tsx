@@ -55,10 +55,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       data-scroll-behavior="smooth"
     >
       <body className="bg-bone text-ink">
-        {/* Runs before paint — prevents flash of wrong theme */}
+        {/* Dark mode disabled — clear any previously stored preference so the
+            site always renders light, even for visitors who toggled it before. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `try{if(localStorage.getItem('theme')==='dark')document.documentElement.classList.add('dark')}catch(e){}`,
+            __html: `try{localStorage.removeItem('theme');document.documentElement.classList.remove('dark')}catch(e){}`,
           }}
         />
         <script
