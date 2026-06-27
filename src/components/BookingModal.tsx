@@ -129,12 +129,17 @@ export default function BookingModal({ niche = "root" }: { niche?: string }) {
       utm_content: params.get("utm_content"),
       consent_text_version: CONSENT_TEXT_VERSION,
       consent_given_at: new Date().toISOString(),
+      // For the confirmation email only — our /api/book strips this before
+      // forwarding to the CRM. Already localized so the email time matches.
+      slot_label: chosenLabel,
     };
 
     setSubmitting(true);
     setFormError(null);
     try {
-      const res = await fetch(`${CRM_URL}/api/book`, {
+      // Post to our own /api/book, which forwards to the CRM and — only on a
+      // confirmed booking — sends the confirmation + notification emails.
+      const res = await fetch(`/api/book`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
