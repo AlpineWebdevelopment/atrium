@@ -2,7 +2,6 @@
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { isNicheSlug } from "@/lib/niches";
-import ThemeToggle from "@/components/ThemeToggle";
 
 /* Relative hashes so links scroll within the current page (root or niche),
    never redirecting to "/". Only sections that exist on every page. */
@@ -75,7 +74,7 @@ export default function Nav() {
             ))}
           </nav>
           <div className="nav__right">
-            <ThemeToggle />
+            {/* ThemeToggle removed */}
             <a href={hashHref("#kapcsolat")} className="btn nav__cta">Foglaljon időpontot</a>
             <button
               className="nav__burger"
