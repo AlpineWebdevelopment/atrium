@@ -116,7 +116,7 @@ export default function Hero() {
               AI-alapú értékesítési rendszer: minden hívást fogad, minden időpontot lefoglal, minden érdeklődőt utánkövet — amíg Ön a cégét vezeti.
             </p>
             <div className="hero__actions">
-              <button className="btn">Foglaljon időpontot</button>
+              <a className="btn" href="#kapcsolat">Foglaljon időpontot</a>
               <a className="btn btn--ghost" href="#rendszer-teljes">
                 <svg className="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><polygon points="5 3 19 12 5 21 5 3" /></svg>
                 A rendszerről

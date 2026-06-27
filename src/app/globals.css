@@ -1338,6 +1338,211 @@ html.dark .nav--scrolled { box-shadow: 0 1px 24px rgba(0,0,0,0.25); }
 .final-cta__note { display: block; margin-top: 18px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em; color: var(--stone); }
 
 /* =========================================================
+   BOOKING FORM  (#kapcsolat — lead capture → CRM)
+   ========================================================= */
+.booking { padding: 100px 0 110px; }
+.booking__panel {
+  max-width: 760px; margin: 0 auto;
+  padding: 52px 44px 40px;
+  border-radius: 24px;
+  border: 1px solid color-mix(in srgb, var(--signal) 34%, var(--line));
+  background: color-mix(in srgb, var(--signal) 6%, var(--bone));
+  box-shadow: 0 1px 2px rgba(1,14,30,0.04), 0 30px 60px -40px rgba(109,188,97,0.5);
+}
+@media (max-width: 560px) { .booking__panel { padding: 38px 22px 30px; } }
+.booking__intro { text-align: center; margin-bottom: 32px; }
+.booking__intro .eyebrow { display: block; margin-bottom: 12px; }
+.booking__h {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(28px, 3.4vw, 40px);
+  letter-spacing: -0.03em;
+  line-height: 1.06;
+  color: var(--ink);
+  margin: 0 auto 12px;
+}
+.booking__p {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink-70);
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.booking__form { display: flex; flex-direction: column; gap: 16px; }
+.booking__hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.booking__row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 560px) { .booking__row { grid-template-columns: 1fr; } }
+.booking__field { display: flex; flex-direction: column; gap: 7px; }
+.booking__label {
+  font-family: var(--font-body);
+  font-size: 13px; font-weight: 500;
+  color: var(--ink-70);
+}
+.booking__opt { color: var(--stone); font-weight: 400; }
+.booking__input {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--ink);
+  background: var(--bone);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px 14px;
+  width: 100%;
+  transition: border-color 140ms var(--ease-out), box-shadow 140ms var(--ease-out);
+}
+.booking__input::placeholder { color: var(--ink-35); }
+.booking__input:focus {
+  outline: none;
+  border-color: color-mix(in srgb, var(--signal) 55%, var(--line));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--signal) 16%, transparent);
+}
+.booking__consent {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-family: var(--font-body);
+  font-size: 13px; line-height: 1.5;
+  color: var(--ink-70);
+  margin-top: 2px;
+}
+.booking__consent input {
+  margin-top: 2px;
+  width: 16px; height: 16px;
+  accent-color: var(--signal);
+  flex-shrink: 0;
+}
+.booking__link { color: var(--ink); text-decoration: underline; text-underline-offset: 2px; }
+.booking__link:hover { color: var(--signal); }
+.booking__err {
+  font-family: var(--font-body);
+  font-size: 13px; color: #C46C64;
+  margin: 0;
+}
+.booking__submit { width: 100%; margin-top: 6px; }
+.booking__note {
+  display: block; text-align: center;
+  margin-top: 4px;
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 0.04em; color: var(--stone);
+}
+
+.booking__done { text-align: center; padding: 24px 0 8px; }
+.booking__done-mark {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 52px; height: 52px; border-radius: 50%;
+  background: color-mix(in srgb, var(--signal) 18%, var(--bone));
+  color: var(--signal);
+  margin-bottom: 18px;
+}
+.booking__done-mark svg { width: 26px; height: 26px; }
+.booking__done-h {
+  font-family: var(--font-display); font-weight: 500;
+  font-size: 24px; letter-spacing: -0.02em; color: var(--ink);
+  margin: 0 0 8px;
+}
+.booking__done-p {
+  font-family: var(--font-body); font-size: 15px;
+  color: var(--ink-70); max-width: 420px; margin: 0 auto;
+}
+
+.booking__badges {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 14px;
+  margin-top: 30px; padding-top: 26px;
+  border-top: 1px solid color-mix(in srgb, var(--signal) 18%, var(--line));
+}
+
+/* =========================================================
+   BOOKING MODAL  (calendar + instant form → CRM)
+   ========================================================= */
+.bk-overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+  background: rgba(1,14,30,0.55);
+  backdrop-filter: blur(3px);
+  animation: bk-fade 160ms var(--ease-out);
+}
+@keyframes bk-fade { from { opacity: 0; } to { opacity: 1; } }
+.bk-modal {
+  position: relative;
+  width: 100%; max-width: 560px;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  background: var(--bone);
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  box-shadow: 0 30px 80px -30px rgba(1,14,30,0.5);
+  padding: 32px;
+  animation: bk-rise 200ms var(--ease-out);
+}
+@keyframes bk-rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@media (max-width: 560px) { .bk-modal { padding: 24px 20px; } }
+.bk-close {
+  position: absolute; top: 16px; right: 16px;
+  width: 32px; height: 32px; border-radius: 8px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: transparent; border: none; cursor: pointer; color: var(--stone);
+}
+.bk-close:hover { background: var(--panel); color: var(--ink); }
+.bk-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.10em; text-transform: uppercase; color: var(--signal); }
+.bk-title { font-family: var(--font-display); font-weight: 500; font-size: 24px; letter-spacing: -0.02em; color: var(--ink); margin: 8px 0 4px; }
+.bk-sub { font-family: var(--font-body); font-size: 14px; color: var(--ink-70); margin: 0 0 22px; }
+
+.bk-section-label { font-family: var(--font-body); font-size: 13px; font-weight: 500; color: var(--ink-70); margin: 0 0 10px; }
+
+.bk-days { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 8px; margin-bottom: 20px; }
+.bk-day {
+  flex: 0 0 auto; min-width: 64px;
+  padding: 10px 12px; border-radius: 10px;
+  background: var(--bone); border: 1px solid var(--line);
+  cursor: pointer; text-align: center; transition: all 120ms var(--ease-out);
+}
+.bk-day:hover { border-color: var(--stone); }
+.bk-day--active { background: var(--ink); border-color: var(--ink); }
+.bk-day--active .bk-day-dow, .bk-day--active .bk-day-num { color: var(--bone); }
+.bk-day-dow { display: block; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--stone); }
+.bk-day-num { display: block; font-family: var(--font-display); font-size: 18px; font-weight: 500; color: var(--ink); margin-top: 2px; }
+
+.bk-slots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 4px; }
+@media (max-width: 460px) { .bk-slots { grid-template-columns: repeat(3, 1fr); } }
+.bk-slot {
+  padding: 10px 0; border-radius: 8px;
+  background: var(--bone); border: 1px solid var(--line);
+  font-family: var(--font-mono); font-size: 13px; color: var(--ink);
+  cursor: pointer; transition: all 120ms var(--ease-out);
+}
+.bk-slot:hover { border-color: var(--stone); }
+.bk-slot--active { background: var(--ink); border-color: var(--ink); color: var(--bone); }
+
+.bk-empty { font-family: var(--font-body); font-size: 14px; color: var(--stone); padding: 16px 0; }
+
+.bk-form { display: flex; flex-direction: column; gap: 14px; }
+.bk-chosen { font-family: var(--font-body); font-size: 14px; color: var(--ink); background: color-mix(in srgb, var(--signal) 10%, var(--bone)); border: 1px solid color-mix(in srgb, var(--signal) 30%, var(--line)); border-radius: 10px; padding: 12px 14px; display: flex; align-items: center; justify-content: space-between; }
+.bk-chosen button { background: none; border: none; color: var(--stone); font-family: var(--font-body); font-size: 13px; cursor: pointer; text-decoration: underline; }
+.bk-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 460px) { .bk-row { grid-template-columns: 1fr; } }
+.bk-label { display: block; font-family: var(--font-body); font-size: 13px; font-weight: 500; color: var(--ink-70); margin-bottom: 6px; }
+.bk-input {
+  width: 100%; font-family: var(--font-body); font-size: 15px; color: var(--ink);
+  background: var(--bone); border: 1px solid var(--line); border-radius: 10px; padding: 11px 13px;
+  transition: border-color 120ms var(--ease-out), box-shadow 120ms var(--ease-out);
+}
+.bk-input::placeholder { color: var(--ink-35); }
+.bk-input:focus { outline: none; border-color: color-mix(in srgb, var(--signal) 55%, var(--line)); box-shadow: 0 0 0 3px color-mix(in srgb, var(--signal) 16%, transparent); }
+.bk-consent { display: flex; align-items: flex-start; gap: 10px; font-family: var(--font-body); font-size: 13px; line-height: 1.5; color: var(--ink-70); }
+.bk-consent input { margin-top: 2px; width: 16px; height: 16px; accent-color: var(--signal); flex-shrink: 0; }
+.bk-link { color: var(--ink); text-decoration: underline; text-underline-offset: 2px; }
+.bk-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.bk-err { font-family: var(--font-body); font-size: 13px; color: #C46C64; margin: 0; }
+.bk-submit { width: 100%; }
+
+.bk-success { text-align: center; padding: 20px 0 8px; }
+.bk-success-mark { display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 50%; background: color-mix(in srgb, var(--signal) 18%, var(--bone)); color: var(--signal); margin-bottom: 16px; }
+.bk-success-mark svg { width: 26px; height: 26px; }
+.bk-success-h { font-family: var(--font-display); font-weight: 500; font-size: 22px; letter-spacing: -0.02em; color: var(--ink); margin: 0 0 8px; }
+.bk-success-p { font-family: var(--font-body); font-size: 14px; color: var(--ink-70); max-width: 380px; margin: 0 auto; }
+
+/* =========================================================
    FOOTER
    ========================================================= */
 .footer {
