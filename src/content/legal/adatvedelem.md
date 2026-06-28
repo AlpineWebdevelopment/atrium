@@ -6,7 +6,7 @@
 
 ## 1. Bevezetés
 
-A jelen adatvédelmi tájékoztató (a továbbiakban: „Tájékoztató") a **Severin Simon Máté E.V.** által az **Atrium** néven, a **www.atriumscaling.com** weboldalon (a továbbiakban: „Weboldal") végzett adatkezelésről nyújt tájékoztatást.
+A jelen adatvédelmi tájékoztató (a továbbiakban: „Tájékoztató") az **Atrium** néven, a **www.atriumscaling.com** weboldalon (a továbbiakban: „Weboldal") végzett adatkezelésről nyújt tájékoztatást. Az adatkezelésért felelős Adatkezelő azonosító adatait a 2. pont tartalmazza.
 
 Adatkezelőként kötelességünknek tartjuk, hogy tiszteletben tartsuk az Ön személyes adataihoz fűződő jogait, és átlátható módon kezeljük azokat. A jelen Tájékoztató az Európai Parlament és a Tanács (EU) 2016/679 rendelete (általános adatvédelmi rendelet, a továbbiakban: „GDPR"), valamint az információs önrendelkezési jogról és az információszabadságról szóló 2011. évi CXII. törvény (a továbbiakban: „Infotv.") rendelkezéseivel összhangban készült.
 
@@ -186,7 +186,7 @@ A jelen Tájékoztatóra és az azon alapuló adatkezelésre a **magyar jog**, �
 Ha bármilyen kérdése van a jelen Tájékoztatóval vagy az adatkezeléssel kapcsolatban, kérjük, vegye fel velünk a kapcsolatot:
 
 **E-mail:** info@atriumscaling.com
-**Adatkezelő:** Severin Simon Máté E.V.
+**Adatkezelő:** Atrium (üzemeltető: Severin Simon Máté E.V. — részletek a 2. pontban)
 
 ---
 
