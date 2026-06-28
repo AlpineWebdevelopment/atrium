@@ -28,6 +28,8 @@ export default function Footer() {
                 <li><a href="/blog">Blog</a></li>
                 <li><a href="#gyik">GYIK</a></li>
                 <li><a href="#kapcsolat">Kapcsolat</a></li>
+                <li><a href="/adatvedelem">Adatvédelmi tájékoztató</a></li>
+                <li><a href="/aszf">ÁSZF</a></li>
               </ul>
             </div>
           </div>
@@ -35,11 +37,6 @@ export default function Footer() {
 
         <div className="footer__bottom">
           <span>© 2026 Atrium · atriumscaling.com</span>
-          <span className="footer__legal">
-            <a href="/adatvedelem" className="text-bone/55 no-underline transition-colors hover:text-bone/90">Adatvédelmi tájékoztató</a>
-            <span aria-hidden="true"> · </span>
-            <a href="/aszf" className="text-bone/55 no-underline transition-colors hover:text-bone/90">ÁSZF</a>
-          </span>
         </div>
       </div>
     </footer>
