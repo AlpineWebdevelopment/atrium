@@ -14,6 +14,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: SITE_URL, lastModified: new Date(), priority: 1 },
     { url: `${SITE_URL}/blog`, lastModified: new Date(), priority: 0.7 },
+    { url: `${SITE_URL}/adatvedelem`, lastModified: new Date(), changeFrequency: "yearly" as const, priority: 0.3 },
+    { url: `${SITE_URL}/aszf`, lastModified: new Date(), changeFrequency: "yearly" as const, priority: 0.3 },
     ...posts,
   ];
 }

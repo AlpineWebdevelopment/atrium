@@ -35,7 +35,11 @@ export default function Footer() {
 
         <div className="footer__bottom">
           <span>© 2026 Atrium · atriumscaling.com</span>
-          <span>Adatkezelés · ÁSZF · GDPR</span>
+          <span className="footer__legal">
+            <a href="/adatvedelem" className="text-bone/55 no-underline transition-colors hover:text-bone/90">Adatvédelmi tájékoztató</a>
+            <span aria-hidden="true"> · </span>
+            <a href="/aszf" className="text-bone/55 no-underline transition-colors hover:text-bone/90">ÁSZF</a>
+          </span>
         </div>
       </div>
     </footer>
