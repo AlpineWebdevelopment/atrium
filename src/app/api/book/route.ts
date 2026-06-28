@@ -48,9 +48,8 @@ async function sendBookingEmails(p: {
         <p>Kedves ${esc(p.name)}!</p>
         <p>Köszönjük a foglalását. Az időpontját rögzítettük:</p>
         <p style="font-size:17px;font-weight:600;margin:16px 0">${esc(p.slotLabel)}</p>
-        <p>30 perces, kötelezettség nélküli megbeszélés. Hamarosan felvesszük Önnel
-        a kapcsolatot a megerősítéshez. Ha kérdése van, egyszerűen válaszoljon erre az e-mailre.</p>
-        <p style="margin-top:24px">Üdvözlettel,<br/>Atrium</p>
+        <p>30 perc, kötelezettség nélküli megbeszélés. </p>
+        <p style="margin-top:24px">Üdvözlettel,<br/>az Atrium csapata</p>
       </div>
     `,
   });
