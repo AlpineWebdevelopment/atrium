@@ -28,6 +28,11 @@ export default function Footer() {
                 <li><a href="/blog">Blog</a></li>
                 <li><a href="#gyik">GYIK</a></li>
                 <li><a href="#kapcsolat">Kapcsolat</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4>Legal</h4>
+              <ul>
                 <li><a href="/adatvedelem">Adatvédelmi tájékoztató</a></li>
                 <li><a href="/aszf">ÁSZF</a></li>
               </ul>

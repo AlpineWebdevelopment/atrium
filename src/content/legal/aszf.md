@@ -9,7 +9,7 @@
 
 ### 1.1. Az ÁSZF célja és alkalmazása
 
-A jelen Általános Szerződési Feltételek (a továbbiakban: „ÁSZF") szabályozzák a **Severin Simon Máté E.V.** (a továbbiakban: „Szolgáltató") által **Atrium** néven nyújtott értékesítési rendszerek és kapcsolódó szolgáltatások értékesítésével és nyújtásával kapcsolatos szerződéses feltételeket.
+A jelen Általános Szerződési Feltételek (a továbbiakban: „ÁSZF") az **Atrium** (a továbbiakban: „Szolgáltató") által nyújtott értékesítési rendszerek és kapcsolódó szolgáltatások értékesítésével és nyújtásával kapcsolatos szerződéses feltételeket szabályozzák. A Szolgáltató azonosító adatait a 2. pont tartalmazza.
 
 ### 1.2. Az ÁSZF megismerése és elfogadása
 
