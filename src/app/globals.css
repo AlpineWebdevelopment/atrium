@@ -1506,10 +1506,11 @@ html.dark .nav--scrolled { box-shadow: 0 1px 24px rgba(0,0,0,0.25); }
 .bk-slots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 4px; }
 @media (max-width: 460px) { .bk-slots { grid-template-columns: repeat(3, 1fr); } }
 .bk-slot {
+  display: flex; align-items: center; justify-content: center;
   padding: 10px 0; border-radius: 8px;
   background: var(--bone); border: 1px solid var(--line);
   font-family: var(--font-mono); font-size: 13px; color: var(--ink);
-  cursor: pointer; transition: all 120ms var(--ease-out);
+  text-align: center; cursor: pointer; transition: all 120ms var(--ease-out);
 }
 .bk-slot:hover { border-color: var(--stone); }
 .bk-slot--active { background: var(--ink); border-color: var(--ink); color: var(--bone); }
