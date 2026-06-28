@@ -13,7 +13,7 @@ const CONSENT_LABEL =
 
 const DOW = ["Vas", "Hét", "Ked", "Sze", "Csü", "Pén", "Szo"];
 
-interface Slot { start: string; label: string; }
+interface Slot { start: string; label: string; busy?: boolean; }
 interface Day { date: string; weekday: number; slots: Slot[]; }
 interface Availability { timezone: string; slot_duration_minutes: number; days: Day[]; }
 
@@ -116,6 +116,7 @@ export default function BookingModal({ niche = "root" }: { niche?: string }) {
       name: (data.get("name") as string)?.trim(),
       email: (data.get("email") as string)?.trim(),
       phone: (data.get("phone") as string)?.trim(),
+      website: (data.get("website") as string)?.trim() || null,
       company_name: (data.get("company_name") as string)?.trim() || null,
       role: (data.get("role") as string)?.trim() || null,
       source_niche: niche,
@@ -204,12 +205,21 @@ export default function BookingModal({ niche = "root" }: { niche?: string }) {
                     </div>
                     <p className="bk-section-label">Időpont</p>
                     <div className="bk-slots">
-                      {activeDay?.slots.map((s) => (
-                        <button key={s.start} className="bk-slot" type="button" onClick={() => setSlot(s)}>
-                          {s.label}
-                        </button>
-                      ))}
+                      {activeDay?.slots.map((s) =>
+                        s.busy ? (
+                          <span key={s.start} className="bk-slot bk-slot--busy" aria-disabled="true">
+                            {s.label}
+                          </span>
+                        ) : (
+                          <button key={s.start} className="bk-slot" type="button" onClick={() => setSlot(s)}>
+                            {s.label}
+                          </button>
+                        )
+                      )}
                     </div>
+                    {activeDay && activeDay.slots.every((s) => s.busy) && (
+                      <p className="bk-empty">Erre a napra minden időpont betelt.</p>
+                    )}
                   </>
                 ) : (
                   <form className="bk-form" onSubmit={submit} noValidate>
@@ -230,9 +240,15 @@ export default function BookingModal({ niche = "root" }: { niche?: string }) {
                         <input className="bk-input" type="tel" name="phone" required autoComplete="tel" placeholder="+36 ..." />
                       </div>
                     </div>
-                    <div>
-                      <label className="bk-label">E-mail cím</label>
-                      <input className="bk-input" type="email" name="email" required autoComplete="email" placeholder="nev@ceg.hu" />
+                    <div className="bk-row">
+                      <div>
+                        <label className="bk-label">E-mail cím</label>
+                        <input className="bk-input" type="email" name="email" required autoComplete="email" placeholder="nev@ceg.hu" />
+                      </div>
+                      <div>
+                        <label className="bk-label">Weboldal</label>
+                        <input className="bk-input" type="text" name="website" required autoComplete="url" placeholder="https://..." />
+                      </div>
                     </div>
                     <div className="bk-row">
                       <div>
@@ -247,7 +263,7 @@ export default function BookingModal({ niche = "root" }: { niche?: string }) {
 
                     <label className="bk-consent">
                       <input type="checkbox" name="consent" required />
-                      <span>{CONSENT_LABEL}{" "}<a href="#" className="bk-link" onClick={(e) => e.preventDefault()}>Adatkezelési tájékoztató</a> · <a href="#" className="bk-link" onClick={(e) => e.preventDefault()}>ÁSZF</a></span>
+                      <span>{CONSENT_LABEL}{" "}<a href="/adatvedelem" className="bk-link" target="_blank" rel="noopener noreferrer">Adatkezelési tájékoztató</a> · <a href="/aszf" className="bk-link" target="_blank" rel="noopener noreferrer">ÁSZF</a></span>
                     </label>
 
                     {formError && <p className="bk-err">{formError}</p>}
