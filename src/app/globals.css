@@ -1513,6 +1513,14 @@ html.dark .nav--scrolled { box-shadow: 0 1px 24px rgba(0,0,0,0.25); }
 }
 .bk-slot:hover { border-color: var(--stone); }
 .bk-slot--active { background: var(--ink); border-color: var(--ink); color: var(--bone); }
+.bk-slot--busy {
+  color: color-mix(in srgb, var(--stone) 70%, transparent);
+  background: color-mix(in srgb, var(--stone) 8%, var(--bone));
+  border-color: var(--line-2);
+  text-decoration: line-through;
+  cursor: not-allowed;
+  pointer-events: none;
+}
 
 .bk-empty { font-family: var(--font-body); font-size: 14px; color: var(--stone); padding: 16px 0; }
 

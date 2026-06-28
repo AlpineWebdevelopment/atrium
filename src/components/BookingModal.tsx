@@ -13,7 +13,7 @@ const CONSENT_LABEL =
 
 const DOW = ["Vas", "Hét", "Ked", "Sze", "Csü", "Pén", "Szo"];
 
-interface Slot { start: string; label: string; }
+interface Slot { start: string; label: string; busy?: boolean; }
 interface Day { date: string; weekday: number; slots: Slot[]; }
 interface Availability { timezone: string; slot_duration_minutes: number; days: Day[]; }
 
@@ -204,12 +204,21 @@ export default function BookingModal({ niche = "root" }: { niche?: string }) {
                     </div>
                     <p className="bk-section-label">Időpont</p>
                     <div className="bk-slots">
-                      {activeDay?.slots.map((s) => (
-                        <button key={s.start} className="bk-slot" type="button" onClick={() => setSlot(s)}>
-                          {s.label}
-                        </button>
-                      ))}
+                      {activeDay?.slots.map((s) =>
+                        s.busy ? (
+                          <span key={s.start} className="bk-slot bk-slot--busy" aria-disabled="true">
+                            {s.label}
+                          </span>
+                        ) : (
+                          <button key={s.start} className="bk-slot" type="button" onClick={() => setSlot(s)}>
+                            {s.label}
+                          </button>
+                        )
+                      )}
                     </div>
+                    {activeDay && activeDay.slots.every((s) => s.busy) && (
+                      <p className="bk-empty">Erre a napra minden időpont betelt.</p>
+                    )}
                   </>
                 ) : (
                   <form className="bk-form" onSubmit={submit} noValidate>
