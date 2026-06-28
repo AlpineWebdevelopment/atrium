@@ -37,6 +37,18 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   openGraph: { type: "website", locale: SITE.locale, siteName: SITE.name },
   robots: { index: true, follow: true },
+  icons: {
+    icon: [
+      { url: "/fav/icon_16x.png", sizes: "16x16", type: "image/png" },
+      { url: "/fav/icon_32x.png", sizes: "32x32", type: "image/png" },
+      { url: "/fav/icon_48x.png", sizes: "48x48", type: "image/png" },
+      { url: "/fav/icon_64x.png", sizes: "64x64", type: "image/png" },
+      { url: "/fav/icon_96x.png", sizes: "96x96", type: "image/png" },
+      { url: "/fav/icon_128x.png", sizes: "128x128", type: "image/png" },
+      { url: "/fav/icon_192x.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: [{ url: "/fav/icon_192x.png", sizes: "192x192", type: "image/png" }],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
