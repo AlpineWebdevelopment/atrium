@@ -116,9 +116,6 @@ export default function BookingModal({ niche = "root" }: { niche?: string }) {
       name: (data.get("name") as string)?.trim(),
       email: (data.get("email") as string)?.trim(),
       phone: (data.get("phone") as string)?.trim(),
-      website: (data.get("website") as string)?.trim() || null,
-      company_name: (data.get("company_name") as string)?.trim() || null,
-      role: (data.get("role") as string)?.trim() || null,
       source_niche: niche,
       slot_start: slot.start,
       source_url: window.location.href,
@@ -240,25 +237,9 @@ export default function BookingModal({ niche = "root" }: { niche?: string }) {
                         <input className="bk-input" type="tel" name="phone" required autoComplete="tel" placeholder="+36 ..." />
                       </div>
                     </div>
-                    <div className="bk-row">
-                      <div>
-                        <label className="bk-label">E-mail cím</label>
-                        <input className="bk-input" type="email" name="email" required autoComplete="email" placeholder="nev@ceg.hu" />
-                      </div>
-                      <div>
-                        <label className="bk-label">Weboldal</label>
-                        <input className="bk-input" type="text" name="website" required autoComplete="url" placeholder="https://..." />
-                      </div>
-                    </div>
-                    <div className="bk-row">
-                      <div>
-                        <label className="bk-label">Cég neve</label>
-                        <input className="bk-input" type="text" name="company_name" autoComplete="organization" placeholder="Nem kötelező" />
-                      </div>
-                      <div>
-                        <label className="bk-label">Beosztás</label>
-                        <input className="bk-input" type="text" name="role" placeholder="Nem kötelező" />
-                      </div>
+                    <div>
+                      <label className="bk-label">E-mail cím</label>
+                      <input className="bk-input" type="email" name="email" required autoComplete="email" placeholder="nev@ceg.hu" />
                     </div>
 
                     <label className="bk-consent">
