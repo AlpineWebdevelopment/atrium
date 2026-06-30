@@ -49,10 +49,21 @@ export default function BookingModal({ niche = "root" }: { niche?: string }) {
     setSuccess(false);
     setSlot(null);
     setFormError(null);
+    try { sessionStorage.setItem("bk_open", "1"); } catch {}
     loadAvailability();
   }, [loadAvailability]);
 
-  const close = useCallback(() => setOpen(false), []);
+  const close = useCallback(() => {
+    setOpen(false);
+    try { sessionStorage.removeItem("bk_open"); } catch {}
+  }, []);
+
+  // Re-open the modal after a page refresh if it was open before.
+  useEffect(() => {
+    try {
+      if (sessionStorage.getItem("bk_open") === "1") openModal();
+    } catch {}
+  }, [openModal]);
 
   // Intercept every CTA on the page: links to #kapcsolat or buttons/links
   // whose text says "Foglaljon...".
@@ -151,6 +162,7 @@ export default function BookingModal({ niche = "root" }: { niche?: string }) {
       }
       if (!res.ok) throw new Error();
       setSuccess(true);
+      try { sessionStorage.removeItem("bk_open"); } catch {}
     } catch {
       setFormError("Hiba történt a foglalás során. Kérjük, próbálja újra.");
     } finally {
