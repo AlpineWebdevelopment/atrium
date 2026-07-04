@@ -53,7 +53,7 @@ Amikor Ön a Weboldal kapcsolatfelvételi vagy időpontfoglaló űrlapját kitö
 Az Ön megkeresésére történő válaszadás, konzultációs időpont egyeztetése és lebonyolítása, személyre szabott ajánlat készítése és küldése, valamint az ügyfélkapcsolat kezelése. Az időpont lefoglalását követően a sikeres találkozó érdekében a konzultáció időpontjáig emlékeztető és szervezési célú e-maileket küldhetünk Önnek.
 
 **Az adatkezelés jogalapja:**
-Az Ön önkéntes hozzájárulása (GDPR 6. cikk (1) bekezdés a) pont), illetve a szerződés megkötését megelőző lépések megtételéhez és a szerződés teljesítéséhez szükséges adatkezelés (GDPR 6. cikk (1) bekezdés b) pont).
+A szerződés megkötését megelőző lépések megtétele az Ön kérésére, illetve a szerződés teljesítése (GDPR 6. cikk (1) bekezdés b) pont). Az időpontfoglalás és a kapcsolatfelvétel az Ön kezdeményezésére történik; az ehhez kapcsolódó válaszadás, egyeztetés és emlékeztető-küldés e jogalapon nyugszik, külön hozzájárulás nem szükséges. Amennyiben a jövőben ettől elkülönülő marketingkommunikációt kívánunk küldeni, ahhoz előzetesen külön hozzájárulását kérjük (GDPR 6. cikk (1) bekezdés a) pont).
 
 **Az adatkezelés időtartama:**
 Az első kapcsolatfelvételtől számított **1 évig**, vagy az Ön törlési kérelmének benyújtásáig, attól függően, melyik következik be előbb. Amennyiben a kapcsolatfelvételből szerződéses jogviszony jön létre, az adatok kezelésére a szerződéses jogviszonyra irányadó határidők vonatkoznak (lásd 3.2. pont).
@@ -93,17 +93,22 @@ Bizonyos szolgáltatóink (pl. Retell AI, illetve egyes AI modellszolgáltatók)
 
 ---
 
-## 5. Sütik (cookies) használata
-
-A Weboldal minimális mértékben használ sütiket az alapvető működéshez.
+## 5. Sütik (cookies) és követőkódok használata
 
 **Funkcionális (feltétlenül szükséges) sütik**
 - **Cél:** az időpontfoglaló és kapcsolatfelvételi funkciók működéséhez szükséges munkamenet-azonosítás, űrlapadatok ideiglenes tárolása.
 - **Jogalap:** az Adatkezelő jogos érdeke (GDPR 6. cikk (1) bekezdés f) pont) a Weboldal rendeltetésszerű működtetéséhez.
 - **Tárolási idő:** a munkamenet végéig, illetve legfeljebb 24 óráig.
 
+**Marketing célú követőkód (Meta Pixel)**
+- A Weboldal egyes oldalain a Meta Platforms Ireland Ltd. „Meta Pixel" követőkódja működik.
+- **Cél:** hirdetéseink eredményességének mérése (pl. időpontfoglalási konverziók), valamint a Weboldalt korábban meglátogató érdeklődők számára releváns hirdetések megjelenítése (remarketing) a Meta platformjain.
+- **Jogalap:** az Ön előzetes, önkéntes hozzájárulása (GDPR 6. cikk (1) bekezdés a) pont), amelyet a Weboldalon megjelenő süti-tájékoztató (cookie banner) útján adhat meg. A Pixel az Ön hozzájárulása nélkül nem aktiválódik. Hozzájárulását bármikor visszavonhatja a sütibeállítások módosításával.
+- **Adattovábbítás:** a Meta Pixel által gyűjtött adatok a Meta Platforms részére kerülnek továbbításra, amely azokat az Európai Unión kívül (Amerikai Egyesült Államok) is feldolgozhatja, az Európai Bizottság megfelelőségi határozata, illetve általános szerződési feltételek (SCC) alapján. A Meta adatkezeléséről a Meta saját adatvédelmi tájékoztatójában tájékozódhat.
 
-A Weboldal nem használ analitikai vagy marketing célú sütiket. A sütik kezeléséről vagy letiltásáról böngészője beállításaiban tájékozódhat.
+>
+
+A fentieken túl a Weboldal nem használ analitikai vagy marketing célú sütiket. A sütik kezeléséről vagy letiltásáról böngészője beállításaiban is tájékozódhat.
 
 ---
 

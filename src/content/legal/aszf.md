@@ -130,7 +130,7 @@ A szerződés nyelve magyar.
 
 ### 7.1. Árak
 
-A Szolgáltató szolgáltatásainak ára projektfüggő, és egyedileg kerül megállapításra az Ügyfél igényei, a projekt komplexitása és terjedelme, valamint az Ügyfél tényleges üzleti számai alapján. A konkrét árakat az egyedi ajánlat tartalmazza, feltüntetve a nettó árat, az alkalmazandó ÁFA mértékét és a bruttó végösszeget. Az ajánlatban szereplő árak — eltérő rendelkezés hiányában — a kézhezvételtől számított 30 napig érvényesek.
+A Szolgáltató szolgáltatásainak ára projektfüggő, és egyedileg kerül megállapításra az Ügyfél igényei, a projekt komplexitása és terjedelme, valamint az Ügyfél tényleges üzleti számai alapján. A konkrét árakat az egyedi ajánlat tartalmazza. A számlázás és az ÁFA feltüntetése a Szolgáltató mindenkori adójogi státusza szerint történik: alanyi adómentesség esetén a számla ÁFA-t nem tartalmaz és „AAM" megjelöléssel készül; ÁFA-körbe tartozás esetén az ajánlat a nettó árat, az alkalmazandó ÁFA mértékét és a bruttó végösszeget is feltünteti. Az ajánlatban szereplő árak — eltérő rendelkezés hiányában — a kézhezvételtől számított 30 napig érvényesek.
 
 ### 7.2. Fizetési feltételek
 
@@ -142,7 +142,7 @@ A Szolgáltató szolgáltatásainak ára projektfüggő, és egyedileg kerül me
 
 ### 7.3. Késedelmes fizetés
 
-Késedelmes fizetés esetén a Szolgáltató — mint vállalkozások közötti (B2B) szerződés jogosultja — a Polgári Törvénykönyv (2013. évi V. törvény) 6:155. §-a szerinti késedelmi kamatra jogosult, amelynek mértéke a késedelemmel érintett naptári félév első napján érvényes **jegybanki alapkamat 8 százalékponttal növelt összege**. Ezen felül a Szolgáltató a behajtási költségek fedezésére **legalább 40 eurónak megfelelő forintösszegű behajtási költségátalányra** jogosult.
+Késedelmes fizetés esetén a Szolgáltató — mint vállalkozások közötti (B2B) szerződés jogosultja — a Polgári Törvénykönyv (2013. évi V. törvény) 6:155. §-a szerinti késedelmi kamatra jogosult, amelynek mértéke a késedelemmel érintett naptári félév első napján érvényes **jegybanki alapkamat 8 százalékponttal növelt összege**. Ezen felül a Szolgáltató a behajtási költségátalányról szóló **2016. évi IX. törvény** alapján a behajtási költségek fedezésére **40 eurónak megfelelő, a Magyar Nemzeti Bank késedelem kezdőnapján érvényes hivatalos deviza-középárfolyamán számított forintösszegű behajtási költségátalányra** jogosult.
 
 A fizetési határidő elmulasztása esetén a Szolgáltató jogosult a szolgáltatás nyújtásának felfüggesztésére, illetve a már üzemeltetett rendszer működésének szüneteltetésére, megfelelő előzetes értesítést követően.
 
