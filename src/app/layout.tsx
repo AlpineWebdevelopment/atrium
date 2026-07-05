@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Onest, Geist, Geist_Mono } from "next/font/google";
 import Nav from "@/components/Nav";
+import BookingRedirect from "@/components/BookingRedirect";
 import "./globals.css";
 
 const onest = Onest({
@@ -87,6 +88,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <img height="1" width="1" style={{ display: "none" }} src="https://www.facebook.com/tr?id=917389961371271&ev=PageView&noscript=1" alt="" />
         </noscript>
         <Nav />
+        <BookingRedirect />
         {children}
       </body>
     </html>

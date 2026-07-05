@@ -1454,6 +1454,16 @@ html.dark .nav--scrolled { box-shadow: 0 1px 24px rgba(0,0,0,0.25); }
 /* =========================================================
    BOOKING MODAL  (calendar + instant form → CRM)
    ========================================================= */
+/* /foglalas — booking as a standalone page (reuses the bk-* form styles) */
+.foglalas { padding: 104px 20px 120px; }
+.foglalas__card {
+  width: 100%; max-width: 560px; margin: 0 auto;
+  background: var(--bone); border: 1px solid var(--line); border-radius: 18px;
+  box-shadow: 0 20px 50px -30px rgba(1,14,30,0.22);
+  padding: 36px;
+}
+@media (max-width: 560px) { .foglalas { padding: 76px 16px 88px; } .foglalas__card { padding: 26px 20px; } }
+
 .bk-overlay {
   position: fixed; inset: 0; z-index: 1000;
   display: flex; align-items: center; justify-content: center;
