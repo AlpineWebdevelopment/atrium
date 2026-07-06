@@ -7,7 +7,7 @@ import { useState, useRef } from "react";
 
 type IconKey =
   | "doc" | "search" | "chat" | "trend" | "layers"
-  | "target" | "refresh" | "send" | "plus";
+  | "target" | "refresh" | "send" | "plus" | "calc" | "inbox";
 
 const ICON_PATHS: Record<IconKey, React.ReactNode> = {
   doc: (<><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /><path d="M8 13h6M8 17h4" /></>),
@@ -19,63 +19,65 @@ const ICON_PATHS: Record<IconKey, React.ReactNode> = {
   refresh: (<><path d="M3 12a9 9 0 0 1 15-6.7L21 8" /><path d="M21 3v5h-5" /><path d="M21 12a9 9 0 0 1-15 6.7L3 16" /><path d="M3 21v-5h5" /></>),
   send: (<><path d="M22 2L11 13" /><path d="M22 2l-7 20-4-9-9-4z" /></>),
   plus: (<><path d="M12 5v14M5 12h14" /></>),
+  calc: (<><rect x="5" y="2" width="14" height="20" rx="2" /><path d="M8 6h8" /><path d="M8 10.5h2M12 10.5h4" /><path d="M8 14h2M12 14h4" /><path d="M8 17.5h2M12 17.5h4" /></>),
+  inbox: (<><path d="M22 12h-6l-2 3h-4l-2-3H2" /><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" /></>),
 };
 
 const EXAMPLES: { ico: IconKey; t: string; d: string; who: string; c: string }[] = [
   {
-    ico: "target",
-    t: "Érdeklődő-felkutató rendszer",
-    d: "Az új ügyfelek felkutatása ma akkor halad, amikor épp jut rá idő. A rendszer LinkedInen és nyilvános cégadatbázisokban folyamatosan keresi a profilba illő cégeket, rangsorolja őket, és előkészíti a megszólításukat. Ön rangsorolt listával kezdi a hetet, nem üres táblázattal.",
-    who: "B2B értékesítéssel és ügyfélszerzéssel dolgozó cégeknek",
+    ico: "doc",
+    t: "Árajánlat-készítő rendszer",
+    d: "Az árajánlatok ma este készülnek, a nap végén, a felmérés jegyzeteiből. A rendszer a jegyzetekből és fotókból — az Ön árlistája alapján — elkészíti az ajánlat piszkozatát, egységes, küldhető formában. Önnek átnézni és elküldeni marad, nem megírni.",
+    who: "Árajánlatot készítő cégeknek — a kivitelezéstől a rendelőig",
     c: "#9662BC",
   },
   {
-    ico: "search",
-    t: "Online láthatóság-elemző",
-    d: "Hogy hol áll egy weboldal a keresőben — és látják-e az AI-asszisztensek —, azt ma oldalanként, kézzel kell átnézni. A rendszer hetente átfésüli az oldalakat, és kész javítási listát küld: címek, leírások, tartalmi hiányok, sorrendben. Egy szakember így sokszorta több oldalt tart kézben.",
-    who: "Webes jelenlétet gondozó csapatoknak és marketingeseknek",
+    ico: "calc",
+    t: "Ár-kalkulátor a weboldalra",
+    d: "Aki árat szeretne, ma űrlapot tölt ki, és napokat vár. A kalkulátor a weboldalon néhány kérdés után azonnal tájékoztató árat ad, az adatokat pedig érdeklődőként rögzíti. A látogató választ kap, Ön pedig egy komoly érdeklődőt — paraméterekkel együtt.",
+    who: "Paraméterezhető szolgáltatást árazó cégeknek — napelem, klíma, szigetelés, kivitelezés",
     c: "#628FBC",
   },
   {
-    ico: "doc",
-    t: "Irattár-kereső asszisztens",
-    d: "Ahol több ezer akta gyűlt fel — szerződés, jegyzőkönyv, levelezés —, ott egy konkrét adat előkeresése perceket visz el. A rendszer az egész iratanyagból kiemeli a keresett részt, és megmutatja, melyik dokumentumból való. A válasz pár másodperc, forrással együtt.",
-    who: "Nagy iratállománnyal dolgozó irodáknak és intézményeknek",
+    ico: "trend",
+    t: "Hirdetés-eredmény elemző",
+    d: "A hirdetési felület kattintást és elérést mutat — azt nem, hogy lett-e belőle munka. A rendszer összeköti a hirdetést az érdeklődővel és a foglalással, és hetente magyarul megírja, mi történt. Ön azt látja, melyik hirdetés hoz ügyfelet, és melyik csak viszi a pénzt.",
+    who: "Hirdetésre költő cégeknek",
     c: "#62BCAC",
+  },
+  {
+    ico: "inbox",
+    t: "Megkeresés-rendező rendszer",
+    d: "A közös postafiókban ma együtt áll az árajánlatkérés, a számla és a kéretlen levél — a fontosat naponta kell kihalászni. A rendszer szétválogatja a beérkezőt, a sürgőset jelzi, a tipikusra válasz-piszkozatot ír. Reggel nem a fiókot rendezi, hanem dönt.",
+    who: "Sok bejövő megkereséssel dolgozó cégeknek",
+    c: "#BCA162",
+  },
+  {
+    ico: "search",
+    t: "Irattár-kereső asszisztens",
+    d: "Ahol több ezer dokumentum gyűlt fel — szerződés, árajánlat, jegyzőkönyv, tervrajz —, ott egy konkrét adat előkeresése perceket visz el. A rendszer az egész iratanyagból kiemeli a keresett részt, és megmutatja, melyik dokumentumból való. A válasz pár másodperc, forrással együtt.",
+    who: "Nagy iratállománnyal dolgozó cégeknek és irodáknak",
+    c: "#628FBC",
   },
   {
     ico: "chat",
     t: "Idegennyelvű ügyfélkapu",
     d: "A más nyelven író ügyfél kérdése ma kivár, amíg ráér valaki, aki bírja a nyelvet. A rendszer az ügyfél nyelvén — angolul, németül vagy más nagyobb nyelven — fogadja az üzenetet, a tipikus kérdésekre válaszol, a többit lefordítva teszi a munkatárs elé. A válasz nem lassul le, és nem köt le külön embert.",
     who: "Külföldi ügyfélkört kiszolgáló cégeknek",
-    c: "#BCA162",
-  },
-  {
-    ico: "send",
-    t: "Megkeresés-előkészítő rendszer",
-    d: "A hideg megkeresés ma az értékesítő idejének javát viszi el, és nagy része nem vezet sehová. A rendszer e-mailben és LinkedInen személyre szabott első üzeneteket küld, figyeli a válaszokat, és csak a valóban érdeklődőt adja át a kollégának. Az értékesítő a komoly lehetőségekkel foglalkozik, nem a hideg névsorral.",
-    who: "Új ügyfeleket aktívan kereső cégeknek",
-    c: "#628FBC",
-  },
-  {
-    ico: "trend",
-    t: "Kimutatás-készítő rendszer",
-    d: "A heti és havi összefoglalók ma több forrásból, kézzel állnak össze — újra meg újra. A rendszer a nyilvántartásból, a számlázóból és a táblázatokból összeszedi az adatot, megírja a kimutatást, és időre elküldi annak, akinek szól. Ugyanaz a tartalom, fél napnyi munka nélkül.",
-    who: "Rendszeres kimutatásokat készítő cégeknek",
     c: "#62BCAC",
+  },
+  {
+    ico: "target",
+    t: "Ügyfél-felkutató és megkereső rendszer",
+    d: "Az új ügyfelek felkutatása és megszólítása ma az értékesítő idejének javát viszi el — és nagy része nem vezet sehová. A rendszer nyilvános cégadatbázisokban és LinkedInen keresi a profilba illő cégeket, megírja és e-mailben elküldi a személyre szabott első üzenetet, és csak a ténylegesen válaszolót adja át. Ön a komoly lehetőségekkel foglalkozik, nem a hideg névsorral.",
+    who: "B2B értékesítéssel dolgozó cégeknek",
+    c: "#9662BC",
   },
   {
     ico: "refresh",
     t: "Rendszerek közötti adatkapocs",
     d: "Az ügyfél-nyilvántartás, a számlázó és a naptár ma külön szigeteken áll, és valaki kézzel viszi át köztük az adatot — időnként hibázva. A rendszer a háttérben tartja egyben a hármat, és szól, ha valami nem stimmel. Egy ismétlődő gépelős feladat kerül le a napról.",
     who: "Több, össze nem kötött programot használó cégeknek",
-    c: "#9662BC",
-  },
-  {
-    ico: "layers",
-    t: "Eltérés-jelző rendszer",
-    d: "A gond ma többnyire akkor látszik meg, amikor már baj van belőle — a kiesett rendelés, a megakadt szállítmány, a duplán rögzített tétel. A rendszer figyeli a szokásos menetet, és időben jelez, ha valami kilóg belőle. A hibát nem a megrendelő veszi észre elsőként.",
-    who: "Gyártó, logisztikai és kereskedelmi cégeknek",
     c: "#BCA162",
   },
   {
@@ -91,10 +93,10 @@ const CAPS: { t: string; items: string[] }[] = [
   {
     t: "Értékesítés",
     items: [
-      "érdeklődő-felkutatás és minősítés",
-      "személyre szabott e-mail-sorozatok",
       "árajánlat-készítés és utánkövetés",
       "árkalkulátor a weboldalra",
+      "hirdetések eredményének kimutatása",
+      "érdeklődő-felkutatás és megszólítás",
     ],
   },
   {
@@ -108,10 +110,9 @@ const CAPS: { t: string; items: string[] }[] = [
   {
     t: "Háttérfolyamatok",
     items: [
+      "bejövő megkeresések rendezése",
       "dokumentum-feldolgozás és -keresés",
-      "kimutatások összeállítása és küldése",
       "rendszerek összekötése",
-      "folyamatfigyelés és hibajelzés",
     ],
   },
 ];
