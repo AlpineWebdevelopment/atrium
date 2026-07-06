@@ -12,8 +12,8 @@ const PAINS = [
       { k: "Üzenet", c: "var(--stone)", v: "Nincs", d: "a hívó nem hagy" },
       { k: "A hívó", c: "var(--viz-red)", v: "Továbblép", d: "a következőt hívja" },
     ],
-    /* ATRIUM-EDIT LK2 — added ~40% close rate; old line implied 100% conversion (8 × 85 000 = 680 000 only if every call closes); new: 20 × 0,40 × 85 000 = 680 000 */
-    loss: { v: "≈ 680 000 Ft", per: "/ hó", math: "~20 elszalasztott hívás × ~40% záródás × ~85 000 Ft munka" },
+    /* One example business across all four tabs: ~150 000 Ft average job. 20 × 0,40 × 150 000 = 1 200 000 */
+    loss: { v: "≈ 1 200 000 Ft", per: "/ hó", math: "~20 elszalasztott hívás × ~40% záródás × ~150 000 Ft munka" },
   },
   {
     tab: "Lassú utánkövetések",
@@ -24,20 +24,20 @@ const PAINS = [
       { k: "Az érdeklődő", c: "var(--stone)", v: "Kihűlt", d: "már mással tárgyal" },
       { k: "A hirdetési költség", c: "var(--viz-red)", v: "Elment", d: "bevétel nem lett belőle" },
     ],
-    /* ATRIUM-EDIT LK3 — added ~40% close rate; dropped dangling "+ elment hirdetési költség" not included in total; new: 30 × 0,40 × 43 000 ≈ 520 000 */
-    loss: { v: "≈ 520 000 Ft", per: "/ hó", math: "~30 lassan követett érdeklődő × ~40% záródás × ~43 000 Ft" },
+    /* Only the delta lost to slow response (~20%), not every slow lead — some still close next day. 30 × 0,20 × 150 000 = 900 000 */
+    loss: { v: "≈ 900 000 Ft", per: "/ hó", math: "~30 érdeklődő × a lassú válasz miatt kieső ~20% × ~150 000 Ft munka" },
   },
   {
-    tab: "No-show-k",
+    tab: "Elmaradt időpontok",
     desc: "",
     metrics: [
       { k: "Időpont", c: "var(--ink)", v: "9:00", d: "megerősítés nélkül" },
-      { k: "A vendég", c: "var(--stone)", v: "Nem jön el", d: "el is felejtette" },
+      { k: "Az ügyfél", c: "var(--stone)", v: "Nem jelenik meg", d: "el is felejtette" },
       { k: "A naptárban", c: "var(--stone)", v: "Üres óra", d: "senki nem tölti fel" },
       { k: "Visszahívás", c: "var(--viz-red)", v: "Nincs", d: "nincs rá kapacitás" },
     ],
-    /* ATRIUM-EDIT LK4 — de-medicalized "kezelés" → "elmaradt ügyfélérték"; math unchanged (booked slot = full value fair) */
-    loss: { v: "≈ 360 000 Ft", per: "/ hó", math: "~12 no-show × ~30 000 Ft elmaradt ügyfélérték" },
+    /* Only the ones who never rebook (~40%). 12 × 0,40 × 150 000 = 720 000 */
+    loss: { v: "≈ 720 000 Ft", per: "/ hó", math: "~12 elmaradt időpont × ~40% nem tér vissza × ~150 000 Ft munka" },
   },
   {
     tab: "Lezáratlan árajánlatok",
@@ -48,7 +48,8 @@ const PAINS = [
       { k: "A döntés", c: "var(--stone)", v: "Halasztva", d: "az ügyfél vár, aztán felejt" },
       { k: "A majdnem-kész üzlet", c: "var(--viz-red)", v: "Elveszik", d: "máshol köt ki" },
     ],
-    loss: { v: "≈ 1 270 000 Ft", per: "/ hó", math: "~3 utánkövetetlen árajánlat havonta × a nyertes munka töredéke" },
+    /* 2 néma × 0,40 × 1 600 000 = 1 280 000; equals (1 900 000 + 1 300 000) × 0,40 — cards and formula agree */
+    loss: { v: "≈ 1 280 000 Ft", per: "/ hó", math: "~2 néma árajánlat × ~40% záródás × ~1 600 000 Ft átlagérték" },
   },
 ];
 
@@ -237,7 +238,7 @@ function GfxCalendar() {
   const all = states.flat();
   const noshow = all.filter((s) => s === "noshow").length;
   const lost = all.filter((s) => s === "lost").length;
-  const label = (s: Slot["s"]) => (s === "noshow" ? "no-show" : s === "lost" ? "üres" : "");
+  const label = (s: Slot["s"]) => (s === "noshow" ? "elmaradt" : s === "lost" ? "üres" : "");
   return (
     <div className="cal-wrap">
       <div className="cal">
@@ -254,7 +255,7 @@ function GfxCalendar() {
         ))}
       </div>
       <div className="cal__sum">
-        <span className="cal__sum-item"><i className="cal__sum-dot cal__sum-dot--amber" />{noshow} no-show</span>
+        <span className="cal__sum-item"><i className="cal__sum-dot cal__sum-dot--amber" />{noshow} elmaradt időpont</span>
         <span className="cal__sum-item"><i className="cal__sum-dot cal__sum-dot--red" />{lost} üres óra</span>
         <span className="cal__sum-note">visszahívás nélkül a bevétel végleg elveszik</span>
       </div>
@@ -266,9 +267,9 @@ function GfxCalendar() {
 function GfxQuotes() {
   type Row = { sub: string; val: string; s: "nema" | "won" };
   const rows: Row[] = [
-    { sub: "3 napja — nincs utánkövetés", val: "790 000 Ft", s: "nema" },
+    { sub: "3 napja — nincs utánkövetés", val: "1 900 000 Ft", s: "nema" },
     { sub: "ma — a rendszer utánkövette", val: "850 000 Ft", s: "won" },
-    { sub: "6 napja — nincs utánkövetés", val: "480 000 Ft", s: "nema" },
+    { sub: "6 napja — nincs utánkövetés", val: "1 300 000 Ft", s: "nema" },
   ];
   const nema = rows.filter((r) => r.s === "nema").length;
   return (
@@ -285,7 +286,7 @@ function GfxQuotes() {
               <b>Árajánlat kiküldve</b>
               <span>{r.sub}</span>
             </span>
-            <span className="quo__val">{r.s === "nema" ? "−" : "+"}{r.val}</span>
+            <span className="quo__val">{r.val}</span>
             <span className="quo__tag">{r.s === "won" ? "Lezárva" : "Néma"}</span>
           </div>
         ))}
