@@ -2316,6 +2316,51 @@ html.dark { --viz-purple-soft: #1d1b33; }
   font-size: clamp(18px, 2.2vw, 24px); letter-spacing: -0.02em; color: var(--ink);
 }
 
+/* Capability categories — compact strip: what we typically build, grouped */
+.cux__cap { margin-top: 40px; }
+.cux__cap-h {
+  position: relative; text-align: center; margin-bottom: 22px;
+}
+.cux__cap-h::before {
+  content: ''; position: absolute; left: 0; right: 0; top: 50%;
+  height: 1px; background: var(--line);
+}
+.cux__cap-h span {
+  position: relative; display: inline-block; padding: 0 16px;
+  background: var(--bone);
+  font-family: var(--font-display); font-weight: 500;
+  font-size: clamp(18px, 2.2vw, 24px); letter-spacing: -0.02em; color: var(--ink);
+}
+.cux__cap-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+  max-width: 900px; margin: 0 auto;
+}
+.cux__cap-col {
+  padding: 22px 22px 20px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(1,14,30,0.03);
+}
+.cux__cap-t {
+  display: block; margin-bottom: 12px;
+  font-family: var(--font-display); font-weight: 500;
+  font-size: 16px; letter-spacing: -0.01em; color: var(--ink);
+}
+.cux__cap-list { list-style: none; margin: 0; padding: 0; }
+.cux__cap-item {
+  position: relative; padding-left: 16px; margin-bottom: 8px;
+  font-family: var(--font-body); font-size: 14px; line-height: 1.5; color: var(--ink-70);
+}
+.cux__cap-item:last-child { margin-bottom: 0; }
+.cux__cap-item::before {
+  content: ''; position: absolute; left: 2px; top: 9px;
+  width: 4px; height: 4px; border-radius: 50%; background: var(--ink-40, rgba(1,14,30,0.35));
+}
+@media (max-width: 760px) {
+  .cux__cap-grid { grid-template-columns: 1fr; gap: 12px; max-width: 480px; }
+  .cux__cap-col { padding: 20px 20px 18px; }
+}
+
 /* Example projects */
 /* Example projects — mind-map: one root fanning to the projects */
 .cux__map { width: 100%; max-width: 900px; height: auto; display: block; margin: 6px auto 0; }

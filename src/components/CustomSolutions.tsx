@@ -25,42 +25,42 @@ const EXAMPLES: { ico: IconKey; t: string; d: string; who: string; c: string }[]
   {
     ico: "target",
     t: "Érdeklődő-felkutató rendszer",
-    d: "A profilba illő új cégek felkutatása ma akkor halad, amikor épp jut rá idő. A rendszer folyamatosan keresi és rangsorolja őket, és előkészíti a megszólításukat. Ön rangsorolt listával kezdi a hetet, nem üres táblázattal.",
+    d: "Az új ügyfelek felkutatása ma akkor halad, amikor épp jut rá idő. A rendszer LinkedInen és nyilvános cégadatbázisokban folyamatosan keresi a profilba illő cégeket, rangsorolja őket, és előkészíti a megszólításukat. Ön rangsorolt listával kezdi a hetet, nem üres táblázattal.",
     who: "B2B értékesítéssel és ügyfélszerzéssel dolgozó cégeknek",
     c: "#9662BC",
   },
   {
     ico: "search",
     t: "Online láthatóság-elemző",
-    d: "Hogy hol áll egy weboldal a keresőben, azt ma oldalanként, kézzel kell átnézni. A rendszer rendszeresen átfésüli az oldalakat, és kész kimutatást küld arról, mit érdemes javítani. Egy szakember így sokszorta több oldalt tart kézben.",
+    d: "Hogy hol áll egy weboldal a keresőben — és látják-e az AI-asszisztensek —, azt ma oldalanként, kézzel kell átnézni. A rendszer hetente átfésüli az oldalakat, és kész javítási listát küld: címek, leírások, tartalmi hiányok, sorrendben. Egy szakember így sokszorta több oldalt tart kézben.",
     who: "Webes jelenlétet gondozó csapatoknak és marketingeseknek",
     c: "#628FBC",
   },
   {
     ico: "doc",
     t: "Irattár-kereső asszisztens",
-    d: "Ahol több ezer akta gyűlt fel, ott egy konkrét adat előkeresése perceket visz el. A rendszer az egész iratanyagból kiemeli a keresett részt, és megmutatja, honnan való. A válasz pár másodperc — a forrással együtt.",
+    d: "Ahol több ezer akta gyűlt fel — szerződés, jegyzőkönyv, levelezés —, ott egy konkrét adat előkeresése perceket visz el. A rendszer az egész iratanyagból kiemeli a keresett részt, és megmutatja, melyik dokumentumból való. A válasz pár másodperc, forrással együtt.",
     who: "Nagy iratállománnyal dolgozó irodáknak és intézményeknek",
     c: "#62BCAC",
   },
   {
     ico: "chat",
     t: "Idegennyelvű ügyfélkapu",
-    d: "A más nyelven író ügyfél kérdése ma kivár, amíg valaki ráér, aki bírja a nyelvet. A rendszer az ügyfél nyelvén fogadja az üzenetet, válaszol a tipikus kérdésekre, a többit lefordítva a munkatárs elé teszi. A válasz nem lassul le, és nem köt le külön embert.",
+    d: "A más nyelven író ügyfél kérdése ma kivár, amíg ráér valaki, aki bírja a nyelvet. A rendszer az ügyfél nyelvén — angolul, németül vagy más nagyobb nyelven — fogadja az üzenetet, a tipikus kérdésekre válaszol, a többit lefordítva teszi a munkatárs elé. A válasz nem lassul le, és nem köt le külön embert.",
     who: "Külföldi ügyfélkört kiszolgáló cégeknek",
     c: "#BCA162",
   },
   {
     ico: "send",
     t: "Megkeresés-előkészítő rendszer",
-    d: "A hideg megkeresés ma az értékesítő idejének javát elviszi, és nagy része nem vezet sehová. A rendszer személyre szabott első üzeneteket küld, és csak a ténylegesen érdeklődő kapcsolatot adja át a kollégának. Az értékesítő a komoly lehetőségekkel foglalkozik, nem a hideg névsorral.",
+    d: "A hideg megkeresés ma az értékesítő idejének javát viszi el, és nagy része nem vezet sehová. A rendszer e-mailben és LinkedInen személyre szabott első üzeneteket küld, figyeli a válaszokat, és csak a valóban érdeklődőt adja át a kollégának. Az értékesítő a komoly lehetőségekkel foglalkozik, nem a hideg névsorral.",
     who: "Új ügyfeleket aktívan kereső cégeknek",
     c: "#628FBC",
   },
   {
     ico: "trend",
     t: "Kimutatás-készítő rendszer",
-    d: "A heti és havi összefoglalók ma több forrásból, kézzel állnak össze — újra meg újra. A rendszer összeszedi az adatot, megírja a kimutatást, és időre elküldi annak, akinek szól. Ugyanaz a tartalom, fél nap nélkül.",
+    d: "A heti és havi összefoglalók ma több forrásból, kézzel állnak össze — újra meg újra. A rendszer a nyilvántartásból, a számlázóból és a táblázatokból összeszedi az adatot, megírja a kimutatást, és időre elküldi annak, akinek szól. Ugyanaz a tartalom, fél napnyi munka nélkül.",
     who: "Rendszeres kimutatásokat készítő cégeknek",
     c: "#62BCAC",
   },
@@ -68,13 +68,13 @@ const EXAMPLES: { ico: IconKey; t: string; d: string; who: string; c: string }[]
     ico: "refresh",
     t: "Rendszerek közötti adatkapocs",
     d: "Az ügyfél-nyilvántartás, a számlázó és a naptár ma külön szigeteken áll, és valaki kézzel viszi át köztük az adatot — időnként hibázva. A rendszer a háttérben tartja egyben a hármat, és szól, ha valami nem stimmel. Egy ismétlődő gépelős feladat kerül le a napról.",
-    who: "Több, egymással össze nem kötött programot használó cégeknek",
+    who: "Több, össze nem kötött programot használó cégeknek",
     c: "#9662BC",
   },
   {
     ico: "layers",
     t: "Eltérés-jelző rendszer",
-    d: "A gond ma többnyire akkor látszik meg, amikor már baj van belőle — a kiesett rendelés, a megakadt szállítmány. A rendszer figyeli a szokásos menetet, és időben jelez, ha valami kilóg belőle. A hibát nem a megrendelő veszi észre elsőként.",
+    d: "A gond ma többnyire akkor látszik meg, amikor már baj van belőle — a kiesett rendelés, a megakadt szállítmány, a duplán rögzített tétel. A rendszer figyeli a szokásos menetet, és időben jelez, ha valami kilóg belőle. A hibát nem a megrendelő veszi észre elsőként.",
     who: "Gyártó, logisztikai és kereskedelmi cégeknek",
     c: "#BCA162",
   },
@@ -84,6 +84,35 @@ const EXAMPLES: { ico: IconKey; t: string; d: string; who: string; c: string }[]
     d: "Ha a működésében van egy visszatérő, kézi folyamat, amely felemészti az idejét, mondja el. Megnézzük, automatizálható-e — és ha igen, megépítjük.",
     who: "Bármire, ami ismétlődik és automatizálható",
     c: "#6DBC61",
+  },
+];
+
+const CAPS: { t: string; items: string[] }[] = [
+  {
+    t: "Értékesítés",
+    items: [
+      "érdeklődő-felkutatás és minősítés",
+      "személyre szabott e-mail-sorozatok",
+      "árajánlat-készítés és utánkövetés",
+      "árkalkulátor a weboldalra",
+    ],
+  },
+  {
+    t: "Ügyfélkiszolgálás",
+    items: [
+      "többnyelvű ügyfélkapu",
+      "válaszadás a cég saját anyagaiból",
+      "a sürgős ügy azonnal emberhez kerül",
+    ],
+  },
+  {
+    t: "Háttérfolyamatok",
+    items: [
+      "dokumentum-feldolgozás és -keresés",
+      "kimutatások összeállítása és küldése",
+      "rendszerek összekötése",
+      "folyamatfigyelés és hibajelzés",
+    ],
   },
 ];
 
@@ -132,6 +161,23 @@ export default function CustomSolutions() {
               <span className="cux__scale-bar" style={{ height: "90px" }} />
               <span className="cux__scale-lbl">Teljes rendszer</span>
             </div>
+          </div>
+        </div>
+
+        {/* Capability categories — what we typically build, grouped (not industries) */}
+        <div className="cux__cap reveal" data-delay="2">
+          <h3 className="cux__cap-h"><span>Amire jellemzően építünk</span></h3>
+          <div className="cux__cap-grid">
+            {CAPS.map((g, i) => (
+              <div className="cux__cap-col" key={i}>
+                <b className="cux__cap-t">{g.t}</b>
+                <ul className="cux__cap-list">
+                  {g.items.map((it, j) => (
+                    <li className="cux__cap-item" key={j}>{it}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
 
