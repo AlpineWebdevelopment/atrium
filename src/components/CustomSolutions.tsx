@@ -89,34 +89,6 @@ const EXAMPLES: { ico: IconKey; t: string; d: string; who: string; c: string }[]
   },
 ];
 
-const CAPS: { t: string; items: string[] }[] = [
-  {
-    t: "Értékesítés",
-    items: [
-      "árajánlat-készítés és utánkövetés",
-      "árkalkulátor a weboldalra",
-      "hirdetések eredményének kimutatása",
-      "érdeklődő-felkutatás és megszólítás",
-    ],
-  },
-  {
-    t: "Ügyfélkiszolgálás",
-    items: [
-      "többnyelvű ügyfélkapu",
-      "válaszadás a cég saját anyagaiból",
-      "a sürgős ügy azonnal emberhez kerül",
-    ],
-  },
-  {
-    t: "Háttérfolyamatok",
-    items: [
-      "bejövő megkeresések rendezése",
-      "dokumentum-feldolgozás és -keresés",
-      "rendszerek összekötése",
-    ],
-  },
-];
-
 const GUARANTEES = [
   {
     t: "Fix ár, működő eredmény",
@@ -162,23 +134,6 @@ export default function CustomSolutions() {
               <span className="cux__scale-bar" style={{ height: "90px" }} />
               <span className="cux__scale-lbl">Teljes rendszer</span>
             </div>
-          </div>
-        </div>
-
-        {/* Capability categories — what we typically build, grouped (not industries) */}
-        <div className="cux__cap reveal" data-delay="2">
-          <h3 className="cux__cap-h"><span>Amire jellemzően építünk</span></h3>
-          <div className="cux__cap-grid">
-            {CAPS.map((g, i) => (
-              <div className="cux__cap-col" key={i}>
-                <b className="cux__cap-t">{g.t}</b>
-                <ul className="cux__cap-list">
-                  {g.items.map((it, j) => (
-                    <li className="cux__cap-item" key={j}>{it}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
           </div>
         </div>
 
