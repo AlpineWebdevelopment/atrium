@@ -12,6 +12,12 @@ const CONSENT_LABEL =
 
 const DOW = ["Vas", "Hét", "Ked", "Sze", "Csü", "Pén", "Szo"];
 
+declare global {
+  interface Window {
+    fbq?: (...args: unknown[]) => void;
+  }
+}
+
 interface Slot { start: string; label: string; busy?: boolean; }
 interface Day { date: string; weekday: number; slots: Slot[]; }
 interface Availability { timezone: string; slot_duration_minutes: number; days: Day[]; }
@@ -98,6 +104,10 @@ export default function BookingForm({ niche = "root" }: { niche?: string }) {
         return;
       }
       if (!res.ok) throw new Error();
+      // Meta Pixel conversion — fires only on a confirmed booking
+      if (typeof window !== "undefined" && window.fbq) {
+        window.fbq("track", "Schedule");
+      }
       setSuccess(true);
     } catch {
       setFormError("Hiba történt a foglalás során. Kérjük, próbálja újra.");
