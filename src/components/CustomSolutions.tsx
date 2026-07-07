@@ -27,7 +27,7 @@ const EXAMPLES: { ico: IconKey; t: string; d: string; who: string; c: string }[]
   {
     ico: "doc",
     t: "Árajánlat-készítő rendszer",
-    d: "Az árajánlatok ma este készülnek, a nap végén, a felmérés jegyzeteiből. A rendszer a jegyzetekből és fotókból — az Ön árlistája alapján — elkészíti az ajánlat piszkozatát, egységes, küldhető formában. Önnek átnézni és elküldeni marad, nem megírni.",
+    d: "Az árajánlatok ma este készülnek, a nap végén, a felmérés jegyzeteiből. A rendszer a jegyzetekből és fotókból — az Ön árlistája alapján — elkészíti az ajánlat piszkozatát, egységes, küldhető formában. Önnek már csak átnéznie és elküldenie kell, nem megírni.",
     who: "Árajánlatot készítő cégeknek — a kivitelezéstől a rendelőig",
     c: "#9662BC",
   },
