@@ -1,0 +1,229 @@
+/* Atlas demo — design tokens and the few primitives that are genuinely easier
+   as CSS than as Tailwind utility soup.
+
+   Everything is scoped under `.atlas`, so the demo console cannot leak styling
+   into the surrounding marketing site (which ships its own bone/ink palette and
+   a fairly assertive base reset in globals.css).
+
+   The font variables come from the root layout's next/font declarations, so the
+   demo reuses the Geist Sans + Geist Mono the site already loads rather than
+   pulling a second copy of the same typefaces. */
+
+.atlas {
+  --a-canvas: #fafaf9;
+  --a-surface: #ffffff;
+  --a-border: #e7e5e4;
+  --a-border-strong: #d6d3d1;
+  --a-text: #111827;
+  --a-muted: #6b7280;
+  --a-accent: #0f766e;
+  --a-accent-soft: #f0fdfa;
+  --a-success: #15803d;
+  --a-warning: #b45309;
+  --a-danger: #b91c1c;
+  --a-hover: #f5f5f4;
+  --a-radius: 10px;
+  --a-ease: cubic-bezier(0.4, 0, 0.2, 1);
+
+  font-family: var(--font-geist-src), ui-sans-serif, system-ui, sans-serif;
+  background: var(--a-canvas);
+  color: var(--a-text);
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.004em;
+}
+
+/* Mono numerals are the signature of this design: every number, ID, phone
+   number, duration and percentage uses them, tabular so columns line up. */
+.atlas .a-mono {
+  font-family: var(--font-geist-mono-src), ui-monospace, "SF Mono", Menlo, monospace;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+.atlas .a-card {
+  background: var(--a-surface);
+  border: 1px solid var(--a-border);
+  border-radius: var(--a-radius);
+}
+
+/* Live indicator — the one ambient motion in the console. */
+.atlas .a-pulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--a-accent);
+  display: inline-block;
+  flex: none;
+  animation: a-pulse 1.2s ease-in-out infinite;
+}
+@keyframes a-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .atlas .a-pulse {
+    animation: none;
+  }
+}
+
+/* ---- form controls -------------------------------------------------------
+   Styled explicitly: Tailwind's preflight strips them, and the site's own base
+   layer resets `button` to a transparent, border-less element. */
+
+.atlas .a-input,
+.atlas .a-select,
+.atlas .a-textarea {
+  width: 100%;
+  background: var(--a-surface);
+  border: 1px solid var(--a-border);
+  border-radius: 8px;
+  padding: 7px 10px;
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--a-text);
+  transition: border-color 150ms var(--a-ease), box-shadow 150ms var(--a-ease);
+}
+.atlas .a-textarea {
+  resize: vertical;
+  min-height: 96px;
+}
+.atlas .a-select {
+  appearance: none;
+  padding-right: 28px;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 9px center;
+  cursor: pointer;
+}
+.atlas .a-input::placeholder,
+.atlas .a-textarea::placeholder {
+  color: #9ca3af;
+}
+.atlas .a-input:focus,
+.atlas .a-select:focus,
+.atlas .a-textarea:focus {
+  outline: none;
+  border-color: var(--a-accent);
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.12);
+}
+
+.atlas .a-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 13px;
+  border-radius: 8px;
+  border: 1px solid var(--a-border);
+  background: var(--a-surface);
+  color: var(--a-text);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 150ms var(--a-ease), border-color 150ms var(--a-ease),
+    color 150ms var(--a-ease);
+}
+.atlas .a-btn:hover {
+  background: var(--a-hover);
+  border-color: var(--a-border-strong);
+}
+.atlas .a-btn-primary {
+  background: var(--a-accent);
+  border-color: var(--a-accent);
+  color: #ffffff;
+}
+.atlas .a-btn-primary:hover {
+  background: #115e57;
+  border-color: #115e57;
+}
+.atlas .a-btn-sm {
+  height: 28px;
+  padding: 0 10px;
+  font-size: 12px;
+}
+
+/* ---- range slider -------------------------------------------------------- */
+.atlas .a-range {
+  width: 100%;
+  height: 18px;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+.atlas .a-range::-webkit-slider-runnable-track {
+  height: 3px;
+  border-radius: 2px;
+  background: var(--a-border-strong);
+}
+.atlas .a-range::-moz-range-track {
+  height: 3px;
+  border-radius: 2px;
+  background: var(--a-border-strong);
+}
+.atlas .a-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 13px;
+  height: 13px;
+  margin-top: -5px;
+  border-radius: 50%;
+  background: var(--a-accent);
+  border: 0;
+}
+.atlas .a-range::-moz-range-thumb {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--a-accent);
+  border: 0;
+}
+
+/* ---- table --------------------------------------------------------------- */
+.atlas .a-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.atlas .a-table thead th {
+  text-align: left;
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--a-muted);
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--a-border);
+  white-space: nowrap;
+}
+.atlas .a-table tbody td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--a-border);
+  vertical-align: middle;
+}
+.atlas .a-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+.atlas .a-table tbody tr {
+  transition: background-color 150ms var(--a-ease);
+}
+.atlas .a-table tbody tr[data-clickable="true"] {
+  cursor: pointer;
+}
+.atlas .a-table tbody tr[data-clickable="true"]:hover {
+  background: var(--a-hover);
+}
+.atlas .a-num {
+  text-align: right;
+}
+
+/* Recharts draws a focus ring on its wrapper when clicked; suppress it. */
+.atlas .recharts-wrapper:focus,
+.atlas .recharts-surface:focus {
+  outline: none;
+}
