@@ -3130,3 +3130,128 @@ html.dark { --viz-purple-soft: #1d1b33; }
   .theme-toggle { display: none; }
   .nav__cta { font-size: 12px; padding: 8px 11px; }
 }
+
+/* =========================================================
+   KARRIER — /karrier job posting
+   Only the job-specific blocks live here; the page otherwise reuses
+   dash__intro / caps / how / final-cta / sys__badge.
+   ========================================================= */
+.kar-hero { padding: 72px 0 0; text-align: center; }
+.kar-hero__in { max-width: 780px; margin: 0 auto; }
+.kar-hero__h {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(34px, 4.6vw, 56px); letter-spacing: -0.032em; line-height: 1.04;
+  color: var(--ink); margin: 14px 0 0; text-wrap: balance;
+}
+.kar-hero__p {
+  margin: 20px auto 0; max-width: 620px;
+  font-family: var(--font-body); font-size: 16px; line-height: 1.65; color: var(--ink-70);
+}
+.kar-hero__badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 28px; }
+.kar-hero__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 28px; }
+
+/* key facts — one hairline-split card, salary cell tinted */
+.kar-facts { padding: 48px 0 0; }
+.kar-facts__grid {
+  max-width: 920px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+  background: var(--line); border: 1px solid var(--line);
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 1px 2px rgba(1,14,30,0.04), 0 26px 52px -40px rgba(1,14,30,0.28);
+}
+.kar-fact { background: var(--bone); padding: 22px 24px 24px; }
+.kar-fact__k {
+  display: block;
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.10em;
+  text-transform: uppercase; color: var(--stone);
+}
+.kar-fact__v {
+  display: block; margin-top: 10px;
+  font-family: var(--font-display); font-weight: 500; font-size: 19px;
+  letter-spacing: -0.018em; line-height: 1.22; color: var(--ink);
+}
+.kar-fact__n {
+  display: block; margin-top: 6px;
+  font-family: var(--font-body); font-size: 12.5px; line-height: 1.45; color: var(--ink-70);
+}
+.kar-fact--hi { background: color-mix(in srgb, var(--signal) 8%, var(--bone)); }
+.kar-fact--hi .kar-fact__v { font-size: 23px; white-space: nowrap; }
+@media (max-width: 860px) { .kar-facts__grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .kar-facts__grid { grid-template-columns: 1fr; } }
+
+/* generic career section rhythm */
+.kar-sec { padding: 76px 0 0; }
+.caps--kar { margin-top: 34px; }
+
+/* requirements — two cards side by side */
+.kar-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+  max-width: 980px; margin: 34px auto 0;
+}
+.kar-card {
+  padding: 28px 28px 30px;
+  border: 1px solid var(--line); border-radius: 18px; background: var(--bone);
+}
+.kar-card--soft { background: rgba(1,14,30,0.03); }
+.kar-card__h {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 18px;
+  font-family: var(--font-display); font-weight: 500; font-size: 17px;
+  letter-spacing: -0.015em; color: var(--ink);
+}
+.kar-card__h svg { width: 18px; height: 18px; color: var(--signal); flex-shrink: 0; }
+.kar-card--soft .kar-card__h svg { color: var(--ink-35); }
+.kar-card__note {
+  margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line);
+  font-family: var(--font-body); font-size: 13px; line-height: 1.6; color: var(--stone);
+}
+.kar-list { display: flex; flex-direction: column; gap: 12px; list-style: none; }
+.kar-list li {
+  position: relative; padding-left: 24px;
+  font-family: var(--font-body); font-size: 14px; line-height: 1.6; color: var(--ink-70);
+}
+.kar-list li::before {
+  content: ""; position: absolute; left: 3px; top: 8px;
+  width: 7px; height: 7px; border-radius: 2px; background: var(--signal);
+}
+.kar-card--soft .kar-list li::before { background: var(--ink-35); }
+@media (max-width: 760px) { .kar-cols { grid-template-columns: 1fr; } }
+
+/* what we offer — checked two-column list */
+.kar-offer {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 18px 34px;
+  max-width: 920px; margin: 34px auto 0;
+}
+.kar-offer__i { display: grid; grid-template-columns: 26px 1fr; gap: 12px; align-items: start; }
+.kar-offer__ico {
+  width: 26px; height: 26px; border-radius: 8px; margin-top: 1px;
+  display: flex; align-items: center; justify-content: center;
+  background: color-mix(in srgb, var(--signal) 14%, var(--bone));
+  border: 1px solid color-mix(in srgb, var(--signal) 34%, var(--line));
+  color: #3d8f34; flex-shrink: 0;
+}
+.kar-offer__ico svg { width: 14px; height: 14px; }
+.kar-offer__t {
+  display: block;
+  font-family: var(--font-display); font-weight: 500; font-size: 15.5px;
+  letter-spacing: -0.012em; color: var(--ink);
+}
+.kar-offer__d {
+  display: block; margin-top: 4px;
+  font-family: var(--font-body); font-size: 13.5px; line-height: 1.55; color: var(--ink-70);
+}
+@media (max-width: 700px) { .kar-offer { grid-template-columns: 1fr; gap: 16px; } }
+
+/* consent line under the apply CTA */
+.kar-gdpr {
+  margin: 22px auto 0; max-width: 520px;
+  font-family: var(--font-body); font-size: 12.5px; line-height: 1.55; color: var(--stone);
+}
+.kar-gdpr a { text-decoration: underline; text-underline-offset: 2px; }
+.kar-gdpr a:hover { color: var(--ink); }
+
+@media (max-width: 800px) {
+  .kar-hero { padding: 52px 0 0; }
+  .kar-sec { padding: 60px 0 0; }
+  .kar-facts { padding: 36px 0 0; }
+  .kar-card { padding: 24px 22px 26px; }
+}

@@ -20,6 +20,7 @@ export default function Footer() {
                 <li><a href="#rendszer-teljes">A teljes rendszer</a></li>
                 <li><a href="#egyedi">Egyedi fejlesztés</a></li>
                 <li><a href="#hogyan-dolgozunk">Hogyan dolgozunk</a></li>
+                <li><a href="#pelda">Példa Projektek</a></li>
               </ul>
             </div>
             <div>
@@ -27,6 +28,7 @@ export default function Footer() {
               <ul>
                 <li><a href="/blog">Blog</a></li>
                 <li><a href="#gyik">GYIK</a></li>
+                <li><a href="/karrier">Karrier</a></li>
                 <li><a href="#kapcsolat">Kapcsolat</a></li>
               </ul>
             </div>

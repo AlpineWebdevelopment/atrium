@@ -130,7 +130,7 @@ export default function CustomSolutionsKivitelezes() {
           </div>
         </div>
 
-        <div className="cux__sec reveal" data-delay="2">
+        <div className="cux__sec reveal" data-delay="2" id="pelda">
           <h3 className="cux__sec-h"><span>Példa projektek</span></h3>
           <div className={`cux__cats cux__cats--3${showAll ? " cux__cats--open" : ""}`}>
             {EXAMPLES.map((e, i) => (
