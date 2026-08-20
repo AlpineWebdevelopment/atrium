@@ -50,7 +50,16 @@ export default function BookingForm({ niche = "root" }: { niche?: string }) {
 
   useEffect(() => { loadAvailability(); }, [loadAvailability]);
 
-  const days = avail?.days ?? [];
+  /* Only days with something left to book. A day whose slots are all taken has
+     nothing for a visitor to click, and offering it as a tab is worse than
+     leaving it out: dayIdx starts at 0, so on any day that filled up the
+     widget would open on an empty picker. Filtering here also means the first
+     tab is always a day with real availability, without tracking that
+     separately. */
+  const days = useMemo(
+    () => (avail?.days ?? []).filter((d) => d.slots.some((s) => !s.busy)),
+    [avail]
+  );
   const activeDay = days[dayIdx];
 
   const chosenLabel = useMemo(() => {
@@ -155,18 +164,18 @@ export default function BookingForm({ niche = "root" }: { niche?: string }) {
                 })}
               </div>
               <p className="bk-section-label">Időpont</p>
+              {/* Taken slots are dropped rather than shown crossed out. A wall
+                  of struck-through times reads as "this place is full" — the
+                  opposite of what a booking page is for — and there is nothing
+                  a visitor can do with one. This list is never empty: `days`
+                  only holds days that still have one. */}
               <div className="bk-slots">
-                {activeDay?.slots.map((s) =>
-                  s.busy ? (
-                    <span key={s.start} className="bk-slot bk-slot--busy" aria-disabled="true">{s.label}</span>
-                  ) : (
+                {activeDay?.slots
+                  .filter((s) => !s.busy)
+                  .map((s) => (
                     <button key={s.start} className="bk-slot" type="button" onClick={() => setSlot(s)}>{s.label}</button>
-                  )
-                )}
+                  ))}
               </div>
-              {activeDay && activeDay.slots.every((s) => s.busy) && (
-                <p className="bk-empty">Erre a napra minden időpont betelt.</p>
-              )}
             </>
           ) : (
             <form className="bk-form" onSubmit={submit} noValidate>
