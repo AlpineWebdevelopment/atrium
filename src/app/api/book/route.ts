@@ -12,14 +12,14 @@ import { Resend } from "resend";
 //   EMAIL_BOOKING_FROM      — sender on a verified Resend domain, e.g. "Atrium <idopont@atriumscaling.com>"
 //   EMAIL_BOOKING_NOTIFY_TO — internal recipient for new-booking alerts
 //   EMAIL_REPLY_TO          — (optional) reply-to for the customer mail; defaults to the notify address
-//   NEXT_PUBLIC_CRM_URL     — CRM base URL (optional; falls back to the prod CRM)
+//   NEXT_PUBLIC_ATRIUM_CRM_URL — CRM base URL (optional; falls back to the prod CRM)
 
 // The CRM is the dashboard's Atrium CRM, not the old standalone deployment, and
 // its booking route lives under /api/atrium. A booking therefore lands as a lead
 // in the same CRM the pipeline is worked in, rather than in a second system it
 // had to be copied out of by hand.
 const CRM_URL =
-  process.env.NEXT_PUBLIC_CRM_URL ?? "https://granturismo.vercel.app";
+  process.env.NEXT_PUBLIC_ATRIUM_CRM_URL ?? "https://granturismo.vercel.app";
 
 function esc(s: string): string {
   return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");

@@ -9,7 +9,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
    Availability and bookings both come from its /api/atrium routes now, so the
    hours and blocked slots set in the dashboard are what this page offers, and
    a booking arrives there as a lead instead of being copied over by hand. */
-const CRM_URL = process.env.NEXT_PUBLIC_CRM_URL ?? "https://granturismo.vercel.app";
+const CRM_URL = process.env.NEXT_PUBLIC_ATRIUM_CRM_URL ?? "https://granturismo.vercel.app";
 const CONSENT_TEXT_VERSION = "v1.0_2026-06-07";
 const CONSENT_LABEL =
   "Hozzájárulok, hogy az Atrium a megadott adataimat a kapcsolatfelvétel és időpont-egyeztetés céljából kezelje az adatkezelési tájékoztató szerint.";
