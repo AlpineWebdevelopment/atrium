@@ -1,9 +1,8 @@
 /* FAQ for /chatgpt-hirdetes. Q&A pairs come from src/lib/chatgptHirdetes.ts
-   so the page's FAQPage JSON-LD renders the same text. Answers that state a
-   fact carry their source link inline. */
+   so the page's FAQPage JSON-LD renders the same text. */
 "use client";
 import { useState } from "react";
-import { FAQS, SOURCES } from "@/lib/chatgptHirdetes";
+import { FAQS } from "@/lib/chatgptHirdetes";
 
 export default function FaqChatgpt() {
   const [open, setOpen] = useState<number | null>(0);
@@ -11,8 +10,8 @@ export default function FaqChatgpt() {
     <section className="faq cg-faq" id="gyik">
       <div className="wrap">
         <div className="faq__head reveal">
-          <span className="dash__eyebrow">Gyakori kérdések</span>
-          <h2 className="faq__h">A kérdések, amelyeket a ChatGPT-hirdetésről feltesznek.</h2>
+          <span className="dash__eyebrow cg-eyebrow-txt" style={{ color: "var(--viz-cyan)" }}>Gyakori kérdések</span>
+          <h2 className="faq__h">Amit a legtöbben kérdeznek.</h2>
         </div>
         <div className="faq__list reveal" data-delay="1">
           {FAQS.map((f, i) => {
@@ -32,17 +31,6 @@ export default function FaqChatgpt() {
                 <div className="faq__a-wrap">
                   <div className="faq__a">
                     <p>{f.a}</p>
-                    {f.sources && f.sources.length > 0 && (
-                      <p className="cg-faq__src">
-                        Forrás:{" "}
-                        {f.sources.map((k, j) => (
-                          <span key={k}>
-                            <a href={SOURCES[k].url} target="_blank" rel="noopener noreferrer">{SOURCES[k].label}</a>
-                            {j < f.sources!.length - 1 ? " · " : ""}
-                          </span>
-                        ))}
-                      </p>
-                    )}
                   </div>
                 </div>
               </div>

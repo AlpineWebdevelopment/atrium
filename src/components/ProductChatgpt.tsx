@@ -1,8 +1,6 @@
-/* "Mit csinálunk" — the customer acquisition system end to end. Everything
-   the competitor lists as a service (question research, competitor analysis,
-   offer, copy, campaign management, landing page, measurement, monthly
-   consultation) plus the part nobody else covers: what happens to the lead
-   after the click. */
+/* "Mit csinálunk" — the customer acquisition system end to end, as eight
+   tinted, numbered tiles. Each tile carries its own colour so the grid reads
+   as a sequence, not a wall. */
 
 const ICONS: Record<string, React.ReactNode> = {
   search:   <g><circle cx="11" cy="11" r="7" /><path d="M21 21l-4.3-4.3" /></g>,
@@ -20,10 +18,10 @@ const STEPS = [
   { ic: "compare",  c: "#62BCAC", t: "Versenytárs-elemzés",       d: "Megnézzük, ki hirdet már az Ön szakmájában és hol, és hova érdemes beállni, ahol még senki nem áll." },
   { ic: "offer",    c: "#9662BC", t: "Ajánlat kidolgozása",        d: "Három ajánlat-koncepció, nem egy variáció. Az, amire a kérdező tényleg kattint: gyors visszahívás, konkrét ár, konkrét határidő." },
   { ic: "pen",      c: "#BCA162", t: "Szövegírás és kreatív",      d: "A kártya címe, leírása, képe — a válasz nyelvén, az OpenAI szabályai szerint, hogy át is menjen az elbíráláson." },
-  { ic: "ads",      c: "#AD83CC", t: "Kampánykezelés",             d: "Fiók, cégellenőrzés, kontextus-jelzések, büdzsé, optimalizálás. Az Ön fiókjában, az Ön nevén; a költést az OpenAI-nak fizeti." },
-  { ic: "page",     c: "#628FBC", t: "Céloldal",                   d: "A kattintás egy oldalon landol, amit erre a kérdésre írtunk. Egy ajánlat, egy gomb, visszahívás-kérés. Az Öné marad." },
-  { ic: "callback", c: "#010E1E", t: "Érdeklődő-kezelés",          d: "A beérkező érdeklődőt a rendszerünk percek alatt visszahívja, kvalifikálja és időpontot foglal — hogy a kattintásból ügyfél legyen, ne egy űrlap." },
-  { ic: "bars",     c: "#62BCAC", t: "Mérés, riport, havi egyeztetés", d: "Havonta egy tiszta kép: hány kérdésre jelent meg, hány érdeklődő, hány ügyfél, mennyiért. És egy beszélgetés arról, mit változtatunk." },
+  { ic: "ads",      c: "#C4705A", t: "Kampánykezelés",             d: "Fiók, cégellenőrzés, kontextus-jelzések, büdzsé, optimalizálás. Az Ön fiókjában, az Ön nevén; a költést az OpenAI-nak fizeti." },
+  { ic: "page",     c: "#2B64B8", t: "Céloldal",                   d: "A kattintás egy oldalon landol, amit erre a kérdésre írtunk. Egy ajánlat, egy gomb, visszahívás-kérés. Az Öné marad." },
+  { ic: "callback", c: "#6DBC61", t: "Érdeklődő-kezelés",          d: "A beérkező érdeklődőt a rendszerünk percek alatt visszahívja, kvalifikálja és időpontot foglal — hogy a kattintásból ügyfél legyen, ne egy űrlap." },
+  { ic: "bars",     c: "#BC6285", t: "Mérés, riport, havi egyeztetés", d: "Havonta egy tiszta kép: hány kérdésre jelent meg, hány érdeklődő, hány ügyfél, mennyiért. És egy beszélgetés arról, mit változtatunk." },
 ];
 
 export default function ProductChatgpt() {
@@ -31,25 +29,24 @@ export default function ProductChatgpt() {
     <section className="sys cg-sys" id="rendszer-teljes">
       <div className="wrap">
         <div className="dash__intro reveal">
-          <span className="dash__eyebrow">Mit csinálunk</span>
+          <span className="dash__eyebrow cg-eyebrow-txt" style={{ color: "var(--viz-cyan)" }}>Mit csinálunk</span>
           <h2 className="dash__h">Nem hirdetést kezelünk. Ügyfélszerző rendszert építünk és üzemeltetünk.</h2>
           <p className="dash__p">
             A hirdetés csak az első lépés. Ami Önnek számít, az a végén van: az ügyfél, aki felhívta, időpontot kért, és eljött. Ezért az egész utat mi visszük, a kérdéstől a foglalásig.
           </p>
         </div>
 
-        <div className="caps cg-caps reveal" data-delay="1">
-          <div className="caps__grid cg-caps__grid cg-caps__grid--8">
-            {STEPS.map((c, i) => (
-              <div className="caps__item" key={i}>
-                <span className="caps__ico" style={{ color: c.c }}>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{ICONS[c.ic]}</svg>
-                </span>
-                <span className="caps__t"><span className="cg-caps__n">0{i + 1}</span>{c.t}</span>
-                <span className="caps__d">{c.d}</span>
-              </div>
-            ))}
-          </div>
+        <div className="cg-tiles reveal" data-delay="1">
+          {STEPS.map((c, i) => (
+            <div className="cg-tile" style={{ ["--c" as string]: c.c }} key={i}>
+              <span className="cg-tile__n">0{i + 1}</span>
+              <span className="cg-tile__ico">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{ICONS[c.ic]}</svg>
+              </span>
+              <span className="cg-tile__t">{c.t}</span>
+              <span className="cg-tile__d">{c.d}</span>
+            </div>
+          ))}
         </div>
 
         <p className="sys__howline reveal cg-howline" data-delay="2">
@@ -57,7 +54,7 @@ export default function ProductChatgpt() {
         </p>
 
         <div className="sec-cta reveal" data-delay="3">
-          <a className="btn btn--lg" href="#kapcsolat">Foglaljon időpontot.</a>
+          <a className="btn btn--lg cg-btn" href="#kapcsolat">Foglaljon időpontot.</a>
         </div>
       </div>
     </section>
