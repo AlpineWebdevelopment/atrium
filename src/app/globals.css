@@ -3613,8 +3613,17 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .cg-tile__ico svg { width: 30px; height: 30px; }
 .cg-tile__t { font-family: var(--font-display); font-weight: 600; font-size: 17.5px; line-height: 1.22; letter-spacing: -0.012em; color: var(--ink); }
 .cg-tile__d { margin-top: 9px; font-family: var(--font-body); font-size: 13.5px; line-height: 1.58; color: var(--ink-70); }
+/* the eight base steps stay two-across all the way down — four rows of two
+   on a phone rather than one long column */
 @media (max-width: 980px) { .cg-tiles { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 520px) { .cg-tiles { grid-template-columns: 1fr; } }
+@media (max-width: 560px) {
+  .cg-tiles { gap: 10px; }
+  .cg-tile { padding: 16px 14px 18px; border-radius: 14px; }
+  .cg-tile__ico { margin: 14px 0 12px; }
+  .cg-tile__ico svg { width: 26px; height: 26px; }
+  .cg-tile__t { font-size: 15px; }
+  .cg-tile__d { font-size: 12.5px; line-height: 1.5; }
+}
 .cg-howline { text-align: center; margin-top: 30px; font-size: 15px; }
 
 /* the automation layer — visually separate from the base tiles so it never
