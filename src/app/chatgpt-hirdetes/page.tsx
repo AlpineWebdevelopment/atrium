@@ -3,6 +3,7 @@ import HeroChatgpt from "@/components/HeroChatgpt";
 import WhatChangedChatgpt from "@/components/WhatChangedChatgpt";
 import PositioningChatgpt from "@/components/PositioningChatgpt";
 import ProductChatgpt from "@/components/ProductChatgpt";
+import CompareChatgpt from "@/components/CompareChatgpt";
 import FitChatgpt from "@/components/FitChatgpt";
 import HonestyChatgpt from "@/components/HonestyChatgpt";
 import HowWeStartChatgpt from "@/components/HowWeStartChatgpt";
@@ -12,14 +13,14 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import { FAQS } from "@/lib/chatgptHirdetes";
 
-/* Segment landing: the AI sales system for service businesses that advertise
-   in ChatGPT. Not a niche page and not a PPC-management page — ChatGPT Ads is
-   the front of the funnel; what Atrium sells is what happens after the click.
+/* Segment landing: Atrium as the AI growth partner that runs a customer
+   acquisition system on ChatGPT ads for Hungarian service businesses —
+   question research, offer, ads, landing page, lead handling, reporting.
    Indexable, in the sitemap, FAQPage schema below. */
 
-const TITLE = "ChatGPT hirdetés szolgáltató cégeknek — AI értékesítési rendszer";
+const TITLE = "ChatGPT hirdetés kezelés — ügyfélszerző rendszer szolgáltató cégeknek";
 const DESCRIPTION =
-  "2026 augusztusától a ChatGPT-ben is megjelennek hirdetések Magyarországon. Az Atrium AI értékesítési rendszere a ChatGPT-ből érkező érdeklődőt percek alatt visszahívja, lefoglalja az időpontot, és megmutatja, mi lett a hirdetési költésből.";
+  "A ChatGPT-ben 2026 augusztusától hirdetések jelennek meg Magyarországon. Az Atrium beállítja, hogy az Ön szakmájában az Ön cégét ajánlja a válasz alatt, és megcsinálja hozzá a teljes ügyfélszerző rendszert: kérdéskutatás, ajánlat, hirdetés, céloldal, érdeklődő-kezelés, riport.";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -51,9 +52,10 @@ export default function ChatgptHirdetesPage() {
       <WhatChangedChatgpt />
       <PositioningChatgpt />
       <ProductChatgpt />
+      <CompareChatgpt />
       <FitChatgpt />
-      <HonestyChatgpt />
       <HowWeStartChatgpt />
+      <HonestyChatgpt />
       <FaqChatgpt />
       <FinalCtaChatgpt />
       <Footer />

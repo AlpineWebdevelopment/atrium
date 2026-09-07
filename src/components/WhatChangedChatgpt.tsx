@@ -21,7 +21,7 @@ export default function WhatChangedChatgpt() {
             A hirdetést a beszélgetés témája hívja elő, nem kulcsszó: az jelenik meg, ami a kérdéshez illik. Európában a rendszer induláskor nem személyre szabott — a beszélgetés kontextusa, a nyelv és a hozzávetőleges hely számít.
           </p>
           <p className="cg-facts__p">
-            Az önkiszolgáló hirdetéskezelő 2026 szeptemberétől érhető el európai hirdetőknek. A napi minimális büdzsé forintos fiókban <span className="cg-num">5 500 Ft</span>. A hirdetési fiók a hirdető cégé, a költést közvetlenül az OpenAI-nak fizeti.
+            Az önkiszolgáló hirdetéskezelő 2026 szeptemberétől érhető el európai hirdetőknek. A napi minimális büdzsé forintos fiókban <span className="cg-num">5 500 Ft</span>. A hirdetési fiók a hirdető cégé, a költést közvetlenül az OpenAI-nak fizeti — nálunk is így marad.
           </p>
         </div>
 

@@ -3,6 +3,10 @@
    renders the accordion on the client and the FAQPage JSON-LD on the server,
    so it lives here rather than inside the "use client" component).
 
+   Positioning: Atrium is the AI growth partner that runs the whole customer
+   acquisition system — ChatGPT ads, landing page, lead handling, reporting.
+   We sell customers, not marketing.
+
    Every dated fact on the page links to one of these sources. Re-verify the
    links before shipping — OpenAI has been rewriting its ad policy monthly.
    Facts verified 2026-09-07. */
@@ -48,40 +52,46 @@ export type FaqItem = { q: string; a: string; sources?: SourceKey[] };
 
 export const FAQS: FaqItem[] = [
   {
-    q: "Elérhető már a ChatGPT-hirdetés Magyarországon?",
-    a: "Igen. Az OpenAI 2026. augusztus 18-án jelentette be, hogy a hirdetések 31 európai országban, köztük Magyarországon is megjelennek; a magyar felhasználók augusztus 25. óta látják őket. Az önkiszolgáló hirdetéskezelő európai hirdetőknek 2026 szeptemberétől érhető el.",
+    q: "Mi az a ChatGPT-hirdetés?",
+    a: "Egy szponzorált kártya, amely a ChatGPT válasza alatt jelenik meg, amikor valaki olyat kérdez, amiben az Ön cége tud a legjobb válasz lenni. Címmel, rövid leírással, képpel és linkkel, szponzoráltként megjelölve. Nem szakítja félbe a beszélgetést, és nem változtatja meg magát a választ. Magyarországon 2026. augusztus 25. óta látják a felhasználók.",
     sources: ["expansion", "hvg"],
   },
   {
-    q: "Ki látja a ChatGPT-hirdetéseket?",
-    a: "A bejelentkezett, ingyenes és Go csomagos felhasználók. A Plus, Pro és Enterprise előfizetők hirdetés nélkül használják a ChatGPT-t. A hirdetés a válasz alatt jelenik meg, szponzoráltként megjelölve, és nem változtatja meg magát a választ.",
-    sources: ["expansion", "policies"],
-  },
-  {
-    q: "Miben más a ChatGPT-hirdetés, mint a Google Ads?",
-    a: "A ChatGPT-ben nem kulcsszóra, hanem a beszélgetés témájára jelenik meg a hirdetés: a hirdető kontextus-jelzéseket ad meg, és a rendszer ahhoz illeszti a kártyát, amiről a felhasználó éppen kérdez. Európában induláskor nincs személyre szabás — a beszélgetés kontextusa, a nyelv és a hozzávetőleges hely számít. A kattintás mögött így olyan ember áll, aki éppen egy konkrét kérdésre keres választ.",
-    sources: ["media1", "collection"],
-  },
-  {
-    q: "Mennyibe kerül egy kattintás a ChatGPT-ben?",
-    a: "Magyar kattintási ár ma még nincs — sem az OpenAI-tól, sem mérésből. Amit az OpenAI közöl: forintos fiókban a minimális napi büdzsé 5 500 Ft, a vásárlás CPM, CPC vagy konverzióra optimalizált CPC alapon történik, utólagos számlázással. A valódi kattintási árat az Ön első kampányának első hetei adják meg.",
+    q: "Mennyibe kerül?",
+    a: "Két része van. A hirdetési költést Ön közvetlenül az OpenAI-nak fizeti a saját fiókjából: forintos fiókban a minimális napi büdzsé 5 500 Ft. A mi díjunk az Ön számaiból jön ki a beszélgetésen — mekkora egy ügyfél értéke, hány új ügyfél fér be egy hónapba — és nem a kattintások számából. Magyar kattintási ár ma még nincs, sem az OpenAI-tól, sem mérésből; az első hetek adják meg.",
     sources: ["budget", "billing"],
   },
   {
+    q: "Mennyi idő, amíg elindul?",
+    a: "A beszélgetés után 48 órán belül megkapja a kampánytervet: a kérdéseket, amelyekre az Ön cége szóba jön, három ajánlat-koncepciót szöveggel, és a céloldal vázlatát. Ha Ön jóváhagyja, a hirdetési fiók létrehozása és az OpenAI cégellenőrzése néhány nap, a céloldal és a kampány ezzel párhuzamosan készül.",
+    sources: ["account"],
+  },
+  {
+    q: "Kicsi cégként is van értelme?",
+    a: "Igen, ha ma is érkeznek érdeklődők, és van hova fogadni őket. A ChatGPT-ben ma még kevés magyar cég hirdet, és a napi minimum nem milliós keret. Ami számít: az Ön területén és régiójában mi egy céggel dolgozunk, így nem saját maga ellen licitál.",
+    sources: ["budget"],
+  },
+  {
+    q: "Miben más, mint a Google Ads?",
+    a: "A ChatGPT-ben nem kulcsszóra, hanem a beszélgetés témájára jelenik meg a hirdetés: a hirdető kontextus-jelzéseket ad meg, és a rendszer ahhoz illeszti a kártyát, amiről a felhasználó éppen kérdez. Európában induláskor nincs személyre szabás — a beszélgetés kontextusa, a nyelv és a hozzávetőleges hely számít. A kattintás mögött olyan ember áll, aki éppen dönt, nem böngész.",
+    sources: ["media1", "collection"],
+  },
+  {
+    q: "Ki látja a ChatGPT-hirdetéseket?",
+    a: "A bejelentkezett, ingyenes és Go csomagos felhasználók. A Plus, Pro és Enterprise előfizetők hirdetés nélkül használják a ChatGPT-t.",
+    sources: ["expansion", "policies"],
+  },
+  {
     q: "Milyen cégek hirdethetnek a ChatGPT-ben?",
-    a: "A jelenlegi szabályok szerint a korai szakasz fókusza a háztartási és fogyasztási cikkek, a helyi szolgáltatások, az utazás és szórakozás, valamint a digitális termékek és az oktatás. Egészségügyi, pénzügyi és jogi szolgáltatók az Egyesült Államokon kívül jelenleg nem hirdethetnek. A landing oldalt a hirdetéssel együtt bírálják el: félrevezető ígéret az eredményről vagy az árról bármelyik kategóriában elutasítást jelent.",
+    a: "A jelenlegi szabályok szerint a korai szakasz fókusza a háztartási és fogyasztási cikkek, a helyi szolgáltatások, az utazás és szórakozás, valamint a digitális termékek és az oktatás. Egészségügyi, pénzügyi és jogi szolgáltatók az Egyesült Államokon kívül jelenleg nem hirdethetnek. A céloldalt a hirdetéssel együtt bírálják el: félrevezető ígéret az eredményről vagy az árról elutasítást jelent. Ezért a céloldalt is mi készítjük, a szabályok szerint.",
     sources: ["policies"],
   },
   {
-    q: "Mit csinál az Atrium a ChatGPT-hirdetéssel?",
-    a: "A hirdetési fiók az Öné marad, a kampányt Ön kezeli, vagy aki ma a hirdetéseit viszi. Az Atrium az, ami a kattintás után történik: a rendszer percek alatt visszahívja az érdeklődőt, fogadja a hívást, lefoglalja az időpontot, utánköveti az ajánlatkérést, és havonta megmutatja, mi lett a hirdetési költésből. Nem chatbot, hanem egy értékesítési rendszer, amely az Ön cégére épül.",
+    q: "Mit kell nekem csinálnom?",
+    a: "Egy beszélgetést, és utána jóváhagyni a tervet. A kérdéskutatást, az ajánlatot, a szövegeket, a céloldalt, a hirdetési fiók beállítását, a kampány kezelését és a havi riportot mi visszük. Ha az érdeklődők fogadását is ránk bízza, a rendszer percek alatt visszahívja őket és időpontot foglal — de ez az Ön döntése, nem feltétel.",
   },
   {
-    q: "Kell új szoftverre váltania a csapatomnak?",
-    a: "Nem. A rendszer a meglévő naptár, CRM és telefon mellé épül, nem a helyükre. Amit a csapata ma használ, azt használja tovább; a rendszer a két oldalt szinkronban tartja. Nincs adatmigráció, nincs átképzés.",
-  },
-  {
-    q: "Mennyibe kerül az Atrium rendszere?",
-    a: "Nincs árlista, mert egy általános ár az Ön cégére úgyis rossz lenne. Az ár az Ön számaiból jön ki a találkozón: hány érdeklődő érkezik, mekkora egy munka értéke, mennyi vész el ma. Ebből látszik, mennyit ér a rendszer az Ön cégének, és ebből lesz a szám. Foglaljon időpontot, és a beszélgetés végén tudni fogja.",
+    q: "Kié lesz a hirdetési fiók és a céloldal?",
+    a: "Az Öné. A hirdetési fiók az Ön cége nevén fut, a költést az OpenAI-nak fizeti, nem nekünk. A céloldal az Ön tulajdona, a szövegekkel és az adatokkal együtt. Ha elválunk, minden Önnél marad.",
   },
 ];

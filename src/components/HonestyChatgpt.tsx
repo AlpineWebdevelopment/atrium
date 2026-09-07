@@ -1,16 +1,16 @@
-/* "Amit nem mondunk" — positioning, not a disclaimer. Written with
-   confidence: no Hungarian CPC, conversion or payback figures exist yet, so
-   none appear here; every number on the page is cited or labeled. */
+/* "Amit nem mutatunk" — positioning, not a disclaimer. The competitor's
+   page runs on placeholder testimonials and unsourced claims; ours runs on
+   cited facts and labeled illustrations. Written with confidence. */
 
 export default function HonestyChatgpt() {
   return (
-    <section className="pos cg-honest" id="amit-nem-mondunk">
+    <section className="pos cg-honest" id="amit-nem-mutatunk">
       <div className="wrap">
         <div className="pos__inner cg-honest__inner reveal">
-          <span className="dash__eyebrow">Amit nem mondunk</span>
-          <h2 className="pos__h">Magyar kattintási ár, konverziós arány, megtérülési szám a ChatGPT-hirdetésről ma még nincs.</h2>
+          <span className="dash__eyebrow">Amit nem mutatunk</span>
+          <h2 className="pos__h">Kitalált véleményeket, kitalált számokat, logófalat.</h2>
           <p className="pos__p">
-            Aki mond ilyet, becsül. Ezen az oldalon minden szám mögött forrás van, vagy oda van írva, hogy szemléltető. Az Ön kampányának valódi számait az első hetek adják — és azokat a rendszer havonta megmutatja.
+            Magyar kattintási ár, konverziós arány, megtérülési szám a ChatGPT-hirdetésről ma még nincs. Aki ötcsillagos véleményekkel és megduplázott foglalásokkal hirdeti, az kitalálta. Ezen az oldalon minden szám mögött forrás van, vagy oda van írva, hogy szemléltető. Az Ön kampányának valódi számait az első hetek adják — és azokat havonta megmutatjuk.
           </p>
         </div>
       </div>

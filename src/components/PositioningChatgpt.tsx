@@ -1,37 +1,34 @@
-/* "Hol szivárog" — problem-led. The leak is not the ad; the leak is what
-   happens after the click. No numbers, no studies. */
+/* "Miért most" — three arguments, not statistics. The competitor makes the
+   same three points; we make them without inventing numbers. */
 
-const LEAKS = [
+const ARGS = [
   {
     n: "01",
-    b: "Az űrlap, ami órákig áll.",
-    s: "A kattintás beérkezik, az űrlap kitöltve. Valaki holnap ránéz. Az érdeklődő addigra a következő cégnél jár.",
+    b: "A válasz alatt az Ön cége áll.",
+    s: "Amikor valaki az Ön szakmájában kér tanácsot, a válasz alatt nem egy tízes lista jelenik meg, hanem egyetlen ajánlott lehetőség. A kérdés pillanatában ér oda, nem három nappal később — és olyan emberhez, aki éppen dönt.",
   },
   {
     n: "02",
-    b: "A hívás, ami hangpostára megy.",
-    s: "Este, hétvégén, vagy amikor a kollégák másik vonalon vannak. A hívó nem hagy üzenetet — tovább keres.",
+    b: "A felület ma még üres.",
+    s: "A ChatGPT-hirdetés Magyarországon hetek óta létezik. Az Ön szakmájában valószínűleg még senki nem csinálja. Nincs licitháború, nincs húsz versenytárs ugyanarra a kérdésre. Aki most tanulja meg, mi működik, annak jövőre adatelőnye lesz.",
   },
   {
     n: "03",
-    b: "Az ajánlat, amire senki nem kérdez rá.",
-    s: "Az árajánlat kimegy, aztán csend. Az érdeklődő nem döntött ellene, csak nem hívta vissza senki.",
+    b: "Az emberek a ChatGPT-től kérdeznek.",
+    s: "Melyik szakembert hívják. Kire bízzák a felújítást, a könyvelést, az esküvői fotózást. Ezek a döntések egyre gyakrabban egy beszélgetésben dőlnek el — és az Ön cége ma még nincs benne abban a beszélgetésben.",
   },
 ];
 
 export default function PositioningChatgpt() {
   return (
-    <section className="wpr cg-leak" id="problema">
+    <section className="wpr cg-leak" id="miert-most">
       <div className="wrap">
         <div className="dash__intro reveal">
-          <span className="dash__eyebrow">Hol szivárog</span>
-          <h2 className="dash__h">A hirdetés megveszi a pillanatot. Ami utána történik, az viszi el a pénzt.</h2>
-          <p className="dash__p">
-            Egy ChatGPT-ből érkező kattintás mögött olyan ember áll, aki éppen dönt. Összehasonlít, kérdez, és tíz percen belül továbblép. A kattintás egy weboldalon landol, űrlap vagy telefonhívás lesz belőle — és aztán megtörténik a szokásos: valaki másnap ér rá, vagy senki.
-          </p>
+          <span className="dash__eyebrow">Miért most</span>
+          <h2 className="dash__h">Új felület, kevés hirdető, kész vásárlási szándék.</h2>
         </div>
         <div className="wpr__grid cg-leak__grid reveal" data-delay="1">
-          {LEAKS.map((l) => (
+          {ARGS.map((l) => (
             <div className="wpr__item" key={l.n}>
               <span className="wpr__n">{l.n}</span>
               <span className="wpr__t">

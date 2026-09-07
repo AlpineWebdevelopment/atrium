@@ -1,17 +1,18 @@
-/* Final CTA for /chatgpt-hirdetes: category line + the single CTA. */
+/* Final CTA for /chatgpt-hirdetes: the promise, the single CTA, and the
+   OpenAI-relationship note the ad policy expects from any agency page. */
 
 export default function FinalCtaChatgpt() {
   return (
     <section className="final-cta cg-final" id="kapcsolat">
       <div className="wrap">
         <div className="final-cta__panel reveal">
-          <span className="dash__eyebrow">AI értékesítési rendszer ChatGPT-ben hirdető szolgáltató cégeknek.</span>
-          <h2 className="final-cta__h">A kattintást már megfizette. A rendszer arról gondoskodik, hogy ügyfél legyen belőle.</h2>
+          <span className="dash__eyebrow">AI növekedési partner szolgáltató cégeknek.</span>
+          <h2 className="final-cta__h">Az Ön szakmájában ma még üres a válasz alatti hely. Foglalja el, mielőtt más teszi.</h2>
           <p className="final-cta__p">
-            Harmincperces beszélgetés. Ön elmondja, hol vesznek el az érdeklődők; mi elmondjuk, mit épít erre a rendszer az Ön cégére, és az Ön számaiból mennyibe kerül.
+            Ingyenes, 30 perces beszélgetés. Utána 48 órán belül kampányterv három koncepcióval, a céloldal vázlatával és az árral, az Ön számaiból. Ön dönti el, indítjuk-e.
           </p>
           <a className="btn btn--lg final-cta__btn" href="#kapcsolat">Foglaljon időpontot.</a>
-          <span className="final-cta__note">Nincs kötelezettség · nincs sürgetés</span>
+          <span className="final-cta__note">Nincs kötelezettség · nincs sürgetés · az Atrium nem áll kapcsolatban az OpenAI-jal</span>
         </div>
       </div>
     </section>
