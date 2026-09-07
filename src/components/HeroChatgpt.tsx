@@ -1,8 +1,7 @@
 /* Hero for /chatgpt-hirdetes — Atrium as the AI growth partner that runs a
    customer acquisition system on ChatGPT ads. Left: the promise with an
    underlined phrase and the one CTA. Right: a ChatGPT-style mockup of the
-   sponsored card under an answer. Monochrome; the only colour on the page
-   is the green/red of the check-and-cross marks further down. */
+   sponsored card under an answer, tinted so the ad reads as the ad. */
 
 export default function HeroChatgpt() {
   return (
@@ -25,9 +24,9 @@ export default function HeroChatgpt() {
               </a>
             </div>
             <ul className="cg-hero__pills" aria-label="Amit az első beszélgetés után kap">
-              <li>Ingyenes, 30 perces beszélgetés</li>
-              <li>48 órán belül kampányterv</li>
-              <li>Egy szakmában, egy régióban egy cég</li>
+              <li style={{ ["--c" as string]: "var(--t-slate)" }}><i />Ingyenes, 30 perces beszélgetés</li>
+              <li style={{ ["--c" as string]: "var(--t-sage)" }}><i />48 órán belül kampányterv</li>
+              <li style={{ ["--c" as string]: "var(--t-clay)" }}><i />Egy szakmában, egy régióban egy cég</li>
             </ul>
           </div>
 

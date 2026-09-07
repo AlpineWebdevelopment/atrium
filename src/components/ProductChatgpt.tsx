@@ -1,8 +1,8 @@
-/* "Mit csinálunk" — the customer acquisition system end to end, as a
-   hairline-divided grid of eight steps. No per-tile colour and no filled
-   icon badges (that reads as a template); the hierarchy comes from the
-   numerals, thin line icons, and one dark cell on the step that is the
-   actual differentiator — what happens to the lead after the click. */
+/* "Mit csinálunk" — the customer acquisition system end to end, as eight
+   tiles. Each tile carries a muted, desaturated tint from a five-hue family
+   and a thin line icon in that same hue — no filled badges, no candy
+   pastels. One cell stays dark: the step that is the actual differentiator,
+   what happens to the lead after the click. */
 
 const ICONS: Record<string, React.ReactNode> = {
   // magnifier over a conversation — real questions, not keywords
@@ -24,14 +24,14 @@ const ICONS: Record<string, React.ReactNode> = {
 };
 
 const STEPS = [
-  { ic: "research", t: "Kérdéskutatás",              d: "Összegyűjtjük azokat a valós kérdéseket, amelyekre a ChatGPT az Ön cégét ajánlhatja — nem kulcsszavakat, hanem beszélgetéseket." },
-  { ic: "rivals",   t: "Versenytárs-elemzés",        d: "Megnézzük, ki hirdet már az Ön szakmájában és hol, és hova érdemes beállni, ahol még senki nem áll." },
-  { ic: "offer",    t: "Ajánlat kidolgozása",        d: "Három ajánlat-koncepció, nem egy variáció. Az, amire a kérdező tényleg kattint: gyors visszahívás, konkrét ár, konkrét határidő." },
-  { ic: "pen",      t: "Szövegírás és kreatív",      d: "A kártya címe, leírása, képe — a válasz nyelvén, az OpenAI szabályai szerint, hogy át is menjen az elbíráláson." },
-  { ic: "campaign", t: "Kampánykezelés",             d: "Fiók, cégellenőrzés, kontextus-jelzések, büdzsé, optimalizálás. Az Ön fiókjában, az Ön nevén; a költést az OpenAI-nak fizeti." },
-  { ic: "page",     t: "Céloldal",                   d: "A kattintás egy oldalon landol, amit erre a kérdésre írtunk. Egy ajánlat, egy gomb, visszahívás-kérés. Az Öné marad." },
-  { ic: "callback", t: "Érdeklődő-kezelés",          d: "A beérkező érdeklődőt a rendszerünk percek alatt visszahívja, kvalifikálja és időpontot foglal — hogy a kattintásból ügyfél legyen, ne egy űrlap.", dark: true },
-  { ic: "report",   t: "Mérés, riport, havi egyeztetés", d: "Havonta egy tiszta kép: hány kérdésre jelent meg, hány érdeklődő, hány ügyfél, mennyiért. És egy beszélgetés arról, mit változtatunk." },
+  { ic: "research", c: "var(--t-slate)", t: "Kérdéskutatás",              d: "Összegyűjtjük azokat a valós kérdéseket, amelyekre a ChatGPT az Ön cégét ajánlhatja — nem kulcsszavakat, hanem beszélgetéseket." },
+  { ic: "rivals",   c: "var(--t-teal)",  t: "Versenytárs-elemzés",        d: "Megnézzük, ki hirdet már az Ön szakmájában és hol, és hova érdemes beállni, ahol még senki nem áll." },
+  { ic: "offer",    c: "var(--t-sage)",  t: "Ajánlat kidolgozása",        d: "Három ajánlat-koncepció, nem egy variáció. Az, amire a kérdező tényleg kattint: gyors visszahívás, konkrét ár, konkrét határidő." },
+  { ic: "pen",      c: "var(--t-sand)",  t: "Szövegírás és kreatív",      d: "A kártya címe, leírása, képe — a válasz nyelvén, az OpenAI szabályai szerint, hogy át is menjen az elbíráláson." },
+  { ic: "campaign", c: "var(--t-clay)",  t: "Kampánykezelés",             d: "Fiók, cégellenőrzés, kontextus-jelzések, büdzsé, optimalizálás. Az Ön fiókjában, az Ön nevén; a költést az OpenAI-nak fizeti." },
+  { ic: "page",     c: "var(--t-plum)",  t: "Céloldal",                   d: "A kattintás egy oldalon landol, amit erre a kérdésre írtunk. Egy ajánlat, egy gomb, visszahívás-kérés. Az Öné marad." },
+  { ic: "callback", c: "",               t: "Érdeklődő-kezelés",          d: "A beérkező érdeklődőt a rendszerünk percek alatt visszahívja, kvalifikálja és időpontot foglal — hogy a kattintásból ügyfél legyen, ne egy űrlap.", dark: true },
+  { ic: "report",   c: "var(--t-slate)", t: "Mérés, riport, havi egyeztetés", d: "Havonta egy tiszta kép: hány kérdésre jelent meg, hány érdeklődő, hány ügyfél, mennyiért. És egy beszélgetés arról, mit változtatunk." },
 ];
 
 export default function ProductChatgpt() {
@@ -48,7 +48,11 @@ export default function ProductChatgpt() {
 
         <div className="cg-tiles reveal" data-delay="1">
           {STEPS.map((c, i) => (
-            <div className={"cg-tile" + (c.dark ? " cg-tile--dark" : "")} key={c.t}>
+            <div
+              className={"cg-tile" + (c.dark ? " cg-tile--dark" : "")}
+              style={c.c ? ({ ["--c" as string]: c.c }) : undefined}
+              key={c.t}
+            >
               <span className="cg-tile__n">{String(i + 1).padStart(2, "0")}</span>
               <span className="cg-tile__ico">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">{ICONS[c.ic]}</svg>
