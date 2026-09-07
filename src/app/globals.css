@@ -3370,5 +3370,5 @@ html.dark { --viz-purple-soft: #1d1b33; }
 }
 .cg-faq__src a { color: inherit; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }
 
-/* Final CTA */
+/* Final CTA — neutral panel, the CTA is the only emphasis */
 .cg-final { padding: 40px 0 110px; }
