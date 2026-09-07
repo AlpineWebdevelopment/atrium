@@ -1,38 +1,52 @@
 "use client";
-import { useState } from "react";
-import { ConversationProvider, useConversation } from "@elevenlabs/react";
+import { useEffect, useRef, useState } from "react";
+import { RetellWebClient } from "retell-client-js-sdk";
 
 type Status = "idle" | "connecting" | "active" | "error";
 
-function VoiceDemoInner() {
+export default function VoiceDemo() {
   const [status, setStatus] = useState<Status>("idle");
-  const conversation = useConversation({
-    onConnect: () => setStatus("active"),
-    onDisconnect: () => setStatus("idle"),
-    onError: () => setStatus("error"),
-  });
+  const [agentTalking, setAgentTalking] = useState(false);
+  const clientRef = useRef<RetellWebClient | null>(null);
 
-  const agentTalking = status === "active" && conversation.isSpeaking;
+  useEffect(() => {
+    return () => {
+      clientRef.current?.stopCall();
+    };
+  }, []);
 
   async function startCall() {
     setStatus("connecting");
     try {
-      // The browser must grant mic access before the session opens.
-      await navigator.mediaDevices.getUserMedia({ audio: true });
+      const res = await fetch("/api/retell", { method: "POST" });
+      const { accessToken, error } = await res.json();
+      if (error || !accessToken) throw new Error(error);
 
-      const res = await fetch("/api/elevenlabs");
-      const { signedUrl, error } = await res.json();
-      if (error || !signedUrl) throw new Error(error);
+      const client = new RetellWebClient();
+      clientRef.current = client;
 
-      await conversation.startSession({ signedUrl });
+      client.on("call_started", () => setStatus("active"));
+      client.on("call_ended", () => {
+        setStatus("idle");
+        setAgentTalking(false);
+      });
+      client.on("error", () => {
+        setStatus("error");
+        setAgentTalking(false);
+      });
+      client.on("agent_start_talking", () => setAgentTalking(true));
+      client.on("agent_stop_talking", () => setAgentTalking(false));
+
+      await client.startCall({ accessToken });
     } catch {
       setStatus("error");
     }
   }
 
   function stopCall() {
-    conversation.endSession();
+    clientRef.current?.stopCall();
     setStatus("idle");
+    setAgentTalking(false);
   }
 
   return (
@@ -57,14 +71,7 @@ function VoiceDemoInner() {
                 (status === "active" ? " vdemo__orb--active" : "")
               }
             >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M9 2h6v12H9z" />
                 <path d="M5 10a7 7 0 0 0 14 0M12 19v3" />
               </svg>
@@ -104,13 +111,5 @@ function VoiceDemoInner() {
         </div>
       </div>
     </section>
-  );
-}
-
-export default function VoiceDemo() {
-  return (
-    <ConversationProvider>
-      <VoiceDemoInner />
-    </ConversationProvider>
   );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import HeroChatgpt from "@/components/HeroChatgpt";
+import CtaPanelChatgpt from "@/components/CtaPanelChatgpt";
 import WhatChangedChatgpt from "@/components/WhatChangedChatgpt";
 import PositioningChatgpt from "@/components/PositioningChatgpt";
 import ProductChatgpt from "@/components/ProductChatgpt";
@@ -8,7 +9,6 @@ import FitChatgpt from "@/components/FitChatgpt";
 import HonestyChatgpt from "@/components/HonestyChatgpt";
 import HowWeStartChatgpt from "@/components/HowWeStartChatgpt";
 import FaqChatgpt from "@/components/FaqChatgpt";
-import FinalCtaChatgpt from "@/components/FinalCtaChatgpt";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import { FAQS } from "@/lib/chatgptHirdetes";
@@ -16,6 +16,8 @@ import { FAQS } from "@/lib/chatgptHirdetes";
 /* Segment landing: Atrium as the AI growth partner that runs a customer
    acquisition system on ChatGPT ads for Hungarian service businesses —
    question research, offer, ads, landing page, lead handling, reporting.
+   The offer panel sits directly under the hero as well as at the end, so a
+   visitor who reads only the top of the page still sees what they get.
    Indexable, in the sitemap, FAQPage schema below. */
 
 const TITLE = "ChatGPT hirdetés kezelés — ügyfélszerző rendszer szolgáltató cégeknek";
@@ -49,6 +51,13 @@ export default function ChatgptHirdetesPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <ScrollReveal />
       <HeroChatgpt />
+      <CtaPanelChatgpt
+        id="ajanlat"
+        variant="top"
+        eyebrow="AI növekedési partner szolgáltató cégeknek"
+        title="Az Ön szakmájában ma még üres a válasz alatti hely. Foglalja el, mielőtt más teszi."
+        body="Ingyenes, 30 perces beszélgetés. Utána 48 órán belül kampányterv három koncepcióval, a céloldal vázlatával és az árral, az Ön számaiból. Ön dönti el, indítjuk-e."
+      />
       <WhatChangedChatgpt />
       <PositioningChatgpt />
       <ProductChatgpt />
@@ -57,7 +66,12 @@ export default function ChatgptHirdetesPage() {
       <HowWeStartChatgpt />
       <HonestyChatgpt />
       <FaqChatgpt />
-      <FinalCtaChatgpt />
+      <CtaPanelChatgpt
+        id="kapcsolat"
+        eyebrow="Következő lépés"
+        title="Nézzük meg, milyen kérdésekre jönne szóba az Ön cége."
+        body="A beszélgetésen végigvesszük, hol tart ma az érdeklődő-szerzése, és mit építenénk rá. Ha az Ön szakmája és régiója szabad, 48 órán belül megkapja a kampánytervet."
+      />
       <Footer />
     </div>
   );

@@ -3701,6 +3701,8 @@ html.dark { --viz-purple-soft: #1d1b33; }
 /* ---------- FAQ + final CTA ---------- */
 .cg-faq { padding: 24px 0 76px; }
 .cg-final { padding: 24px 0 110px; }
+/* the same panel directly under the hero — tighter above, room below */
+.cg-final--top { padding: 8px 0 20px; }
 .page--chatgpt-hirdetes .cg-final__panel { background: var(--ink); border-color: var(--ink); box-shadow: none; }
 .page--chatgpt-hirdetes .cg-final__panel .cg-eyebrow-txt { color: rgba(245,242,237,0.55); }
 .page--chatgpt-hirdetes .cg-final__panel .cg-eyebrow-txt::before { background: rgba(245,242,237,0.4); }
