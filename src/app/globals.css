@@ -3255,3 +3255,120 @@ html.dark { --viz-purple-soft: #1d1b33; }
   .kar-facts { padding: 36px 0 0; }
   .kar-card { padding: 24px 22px 26px; }
 }
+
+/* =========================================================
+   CHATGPT HIRDETÉS — /chatgpt-hirdetes (segment landing)
+   Brand-spec strict: Bone canvas, Ink type, Stone support. The nav
+   wordmark dot is this page's one Signal moment, so every shared
+   element that would add a second green is neutralised here.
+   Weights 400/500 only; sentence case (eyebrows lose the uppercase).
+   ========================================================= */
+.page--chatgpt-hirdetes .hero__title { font-weight: 500; white-space: normal; }
+.page--chatgpt-hirdetes .dash__h,
+.page--chatgpt-hirdetes .faq__h { font-weight: 500; }
+.page--chatgpt-hirdetes .dash__eyebrow {
+  display: block; text-transform: none; letter-spacing: 0.02em;
+  font-family: var(--font-body); font-size: 14px; color: var(--stone);
+}
+.page--chatgpt-hirdetes .dash__intro { max-width: 720px; }
+.page--chatgpt-hirdetes .dash__p { font-size: 16px; }
+.page--chatgpt-hirdetes .heading-dot { color: var(--ink); }
+.page--chatgpt-hirdetes .hcon__title i {
+  background: var(--ink); box-shadow: 0 0 0 3px color-mix(in srgb, var(--ink) 14%, transparent);
+}
+.page--chatgpt-hirdetes .final-cta__panel {
+  border-color: var(--line); background: var(--panel); box-shadow: none;
+}
+.page--chatgpt-hirdetes .final-cta__panel .dash__eyebrow { margin-bottom: 18px; }
+.page--chatgpt-hirdetes .pos__inner { border-color: var(--line); background: var(--panel); }
+.page--chatgpt-hirdetes .how__card { box-shadow: none; border: 1px solid var(--line); background: var(--bone); }
+.page--chatgpt-hirdetes .caps__item:hover { transform: none; box-shadow: none; border-color: var(--line); }
+.page--chatgpt-hirdetes .caps__t { display: block; }
+
+/* hero — fixed lead-in in Stone, the rotating leak in Ink; the slot reserves
+   two lines so items of different length never shift the page */
+.cg-hero__lead {
+  display: block; color: var(--stone); font-weight: 400;
+  font-size: 0.62em; letter-spacing: -0.02em; margin-bottom: 0.28em;
+}
+.cg-hero__slot {
+  display: block; position: relative;
+  font-size: 0.72em; line-height: 1.12; letter-spacing: -0.028em;
+  min-height: 2.24em; text-wrap: balance;
+}
+.cg-hero__leak { display: block; animation: cgLeakIn 520ms var(--ease-out) both; }
+@keyframes cgLeakIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 640px) {
+  /* four lines reserved: the longest leak wraps to four at this width */
+  .cg-hero__slot { font-size: 0.74em; min-height: 4.5em; }
+}
+.cg-caption { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em; color: var(--stone); }
+
+/* sources line — Geist caption, darkened within Stone's role for AA */
+.cg-sources { max-width: 760px; margin: 28px auto 0; padding-top: 16px; border-top: 1px solid var(--line); }
+.cg-sources__label {
+  display: block; margin-bottom: 8px;
+  font-family: var(--font-body); font-size: 13px; letter-spacing: 0.02em; color: var(--stone);
+}
+.cg-sources__list { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+.cg-sources__list a {
+  font-family: var(--font-body); font-size: 14px; line-height: 1.5; color: var(--ink-70);
+  text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px;
+  transition: opacity 150ms;
+}
+.cg-sources__list a:hover { opacity: 0.7; }
+
+/* Mi változott — factual block */
+.cg-changed { padding: 72px 0 80px; }
+.cg-facts { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+.cg-facts__p { font-family: var(--font-body); font-size: 17px; line-height: 1.62; color: var(--ink-90); }
+.cg-num { font-family: var(--font-mono); font-size: 0.95em; color: var(--ink); white-space: nowrap; }
+
+/* Hol szivárog — three leak cards */
+.cg-leak { padding: 40px 0 80px; }
+.cg-leak__grid { grid-template-columns: repeat(3, 1fr); max-width: 980px; margin-left: auto; margin-right: auto; }
+@media (max-width: 860px) { .cg-leak__grid { grid-template-columns: 1fr; } }
+.cg-lead { font-family: var(--font-display); font-weight: 500; font-size: 17px; letter-spacing: -0.01em; color: var(--ink); }
+
+/* A rendszer — seven tiles, the first one (follow-up) spans two columns */
+.cg-sys { padding: 64px 0 80px; }
+.cg-caps__grid { grid-template-columns: repeat(4, 1fr); }
+.cg-caps__item--lead { grid-column: span 2; }
+@media (max-width: 980px) { .cg-caps__grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .cg-caps__grid { grid-template-columns: 1fr; } .cg-caps__item--lead { grid-column: auto; } }
+.cg-howline { text-align: center; margin-top: 28px; font-size: 15px; }
+
+/* Kinek való, és kinek nem — two neutral columns, Stone dividers */
+.cg-fit { padding: 40px 0 80px; }
+.cg-fit__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; max-width: 980px; margin: 0 auto; }
+@media (max-width: 760px) { .cg-fit__grid { grid-template-columns: 1fr; } }
+.cg-fit__col { padding: 28px 28px 24px; border: 1px solid var(--line); border-radius: 16px; background: var(--bone); }
+.cg-fit__col--no { background: var(--panel); }
+.cg-fit__h {
+  display: block; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--line);
+  font-family: var(--font-display); font-weight: 500; font-size: 22px; letter-spacing: -0.015em; color: var(--ink);
+}
+.cg-fit__p { font-family: var(--font-body); font-size: 15px; line-height: 1.6; color: var(--ink-90); }
+.cg-fit__p + .cg-fit__p { margin-top: 12px; }
+
+/* Amit nem mondunk */
+.cg-honest { padding: 40px 0 80px; }
+.cg-honest__inner .dash__eyebrow { margin-bottom: 14px; }
+.cg-honest__inner .pos__h { font-size: clamp(24px, 2.8vw, 34px); }
+
+/* Hogyan indul */
+.cg-how { padding: 40px 0 80px; }
+
+/* FAQ — inline source under an answer */
+.cg-faq { padding: 40px 0 80px; }
+.cg-faq__src {
+  font-size: 13px !important; line-height: 1.5 !important; color: var(--ink-70) !important;
+  padding-top: 0 !important; margin-top: -10px !important;
+}
+.cg-faq__src a { color: inherit; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }
+
+/* Final CTA */
+.cg-final { padding: 40px 0 110px; }

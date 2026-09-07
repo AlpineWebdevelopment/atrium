@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     { url: SITE_URL, lastModified: new Date(), priority: 1 },
+    { url: `${SITE_URL}/chatgpt-hirdetes`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.9 },
     { url: `${SITE_URL}/blog`, lastModified: new Date(), priority: 0.7 },
     { url: `${SITE_URL}/karrier`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.5 },
     { url: `${SITE_URL}/adatvedelem`, lastModified: new Date(), changeFrequency: "yearly" as const, priority: 0.3 },

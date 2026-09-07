@@ -27,6 +27,8 @@ export const UNIVERSAL_NICHES = ["Általános", "Kategória", "Megfelelés"];
 // uses page--salon and fizioterapia uses page--physio — not page--<slug>).
 export const NICHES: NicheConfig[] = [
   { slug: "allatorvos", label: "Állatorvos", themeClass: "page--allatorvos", postNiches: ["Állatorvos"] },
+  // Segment landing (not a trade): service businesses advertising in ChatGPT.
+  { slug: "chatgpt-hirdetes", label: "ChatGPT hirdetés", themeClass: "page--chatgpt-hirdetes", postNiches: [] },
   { slug: "epitoipar", label: "Építőipar", themeClass: "page--epitoipar", postNiches: ["Építőipar"] },
   { slug: "fizioterapia", label: "Fizioterápia", themeClass: "page--physio", postNiches: [] },
   { slug: "gyors-lead-valasz", label: "Gyors lead-válasz", themeClass: "page--gyors-lead-valasz", postNiches: [] },
