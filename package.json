@@ -18,7 +18,8 @@
     "react-dom": "19.2.4",
     "recharts": "^3.10.1",
     "remark-gfm": "^4.0.1",
-    "resend": "^6.16.0"
+    "resend": "^6.16.0",
+    "retell-client-js-sdk": "^2.0.8"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
