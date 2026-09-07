@@ -1,24 +1,21 @@
-/* "Hogyan indul" — three steps on a connected line, each node in its own
-   muted hue. */
+/* "Hogyan indul" — three steps on a connected line. Ink nodes; the colour
+   in this section would compete with the step numbers. */
 
 const STEPS = [
   {
     n: "01",
-    c: "var(--t-slate)",
     t: "Egy beszélgetés.",
     d: "Ingyenes, 30 perc. Ön elmondja, mit csinál, kinek, és mennyit ér egy ügyfél. Mi elmondjuk, milyen kérdésekre jönne szóba a ChatGPT-ben, és mit építenénk rá.",
     ico: <g><path d="M20 13.5a2 2 0 0 1-2 2h-7l-4 3.5V15.5H6a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2z" /><path d="M8 8.5h8M8 11.5h5" /></g>,
   },
   {
     n: "02",
-    c: "var(--t-sand)",
     t: "48 órán belül kampányterv.",
     d: "A valós kérdések listája, három ajánlat-koncepció kész szövegekkel, a céloldal vázlata, és az ár az Ön számaiból. Kötelezettség nélkül; Ön dönti el, indítjuk-e.",
     ico: <g><path d="M13.5 3.5H7a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9z" /><path d="M13.5 3.5V9H19" /><path d="M8.5 13h7M8.5 16.5h4.5" /></g>,
   },
   {
     n: "03",
-    c: "var(--t-sage)",
     t: "Indítás és üzemeltetés.",
     d: "Fiók, cégellenőrzés, céloldal, kampány. Az érdeklődőket a rendszer fogadja, Ön a naptárában látja őket. Havonta riport és egy beszélgetés arról, mit változtatunk.",
     ico: <g><path d="M12 3v8.5" /><path d="M17.7 6.8a8 8 0 1 1-11.4 0" /></g>,
@@ -37,7 +34,7 @@ export default function HowWeStartChatgpt() {
 
           <div className="how__grid cg-how__grid">
             {STEPS.map((s, i) => (
-              <div className="how__step cg-how__step" style={{ ["--c" as string]: s.c }} data-delay={i + 1} key={s.n}>
+              <div className="how__step cg-how__step" data-delay={i + 1} key={s.n}>
                 <div className="how__node cg-how__node">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     {s.ico}

@@ -3715,7 +3715,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .cg-how__grid { position: relative; }
 .cg-how__grid::before { content: ""; position: absolute; top: 28px; left: 16.66%; right: 16.66%; height: 1px; background: var(--line); }
 @media (max-width: 860px) { .cg-how__grid::before { display: none; } }
-.cg-how__node { background: var(--bone); border: 1px solid var(--line); color: var(--c); box-shadow: none; }
+.cg-how__node { background: var(--bone); border: 1px solid var(--line); color: var(--ink); box-shadow: none; }
 .cg-how__node svg { width: 25px; height: 25px; }
 .cg-how__node .how__node-num { background: var(--ink); }
 .cg-how__note { border-style: solid; border-color: color-mix(in srgb, var(--t-sand) 30%, var(--line)); background: color-mix(in srgb, var(--t-sand) 10%, var(--bone)); }

@@ -5,7 +5,6 @@ import WhatChangedChatgpt from "@/components/WhatChangedChatgpt";
 import PositioningChatgpt from "@/components/PositioningChatgpt";
 import ProductChatgpt from "@/components/ProductChatgpt";
 import CompareChatgpt from "@/components/CompareChatgpt";
-import FitChatgpt from "@/components/FitChatgpt";
 import HonestyChatgpt from "@/components/HonestyChatgpt";
 import HowWeStartChatgpt from "@/components/HowWeStartChatgpt";
 import FaqChatgpt from "@/components/FaqChatgpt";
@@ -60,10 +59,9 @@ export default function ChatgptHirdetesPage() {
         body="Ingyenes, 30 perces beszélgetés. Utána 48 órán belül kampányterv három koncepcióval, a céloldal vázlatával és az árral, az Ön számaiból. Ön dönti el, indítjuk-e."
       />
       <WhatChangedChatgpt />
-      <PositioningChatgpt />
       <ProductChatgpt />
       <CompareChatgpt />
-      <FitChatgpt />
+      <PositioningChatgpt />
       <HowWeStartChatgpt />
       <HonestyChatgpt />
       <FaqChatgpt />
