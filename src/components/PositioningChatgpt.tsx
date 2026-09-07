@@ -6,7 +6,7 @@ const ARGS = [
     n: "01",
     c: "var(--t-plum)",
     b: "A válasz alatt az Ön cége áll.",
-    s: "Amikor valaki az Ön szakmájában kér tanácsot, a válasz alatt nem egy tízes lista jelenik meg, hanem egyetlen ajánlott lehetőség. A kérdés pillanatában ér oda, nem három nappal később — és olyan emberhez, aki éppen dönt.",
+    s: "Amikor valaki az Ön szakmájában kér tanácsot, a válasz alatt nem egy tízes lista jelenik meg, hanem egyetlen ajánlott lehetőség. A kérdés pillanatában ér oda, nem három nappal később, és olyan emberhez, aki éppen dönt.",
   },
   {
     n: "02",
@@ -18,7 +18,7 @@ const ARGS = [
     n: "03",
     c: "var(--t-clay)",
     b: "Az emberek a ChatGPT-től kérdeznek.",
-    s: "Melyik szakembert hívják. Kire bízzák a felújítást, a könyvelést, az esküvői fotózást. Ezek a döntések egyre gyakrabban egy beszélgetésben dőlnek el — és az Ön cége ma még nincs benne abban a beszélgetésben.",
+    s: "Melyik szakembert hívják. Kire bízzák a felújítást, a könyvelést, az esküvői fotózást. Ezek a döntések egyre gyakrabban egy beszélgetésben dőlnek el, és az Ön cége ma még nincs benne abban a beszélgetésben.",
   },
 ];
 

@@ -58,7 +58,7 @@ export const FAQS: FaqItem[] = [
   },
   {
     q: "Mennyibe kerül?",
-    a: "Két része van. A hirdetési költést Ön közvetlenül az OpenAI-nak fizeti a saját fiókjából: forintos fiókban a minimális napi büdzsé 5 500 Ft. A mi díjunk az Ön számaiból jön ki a beszélgetésen — mekkora egy ügyfél értéke, hány új ügyfél fér be egy hónapba — és nem a kattintások számából. Magyar kattintási ár ma még nincs, sem az OpenAI-tól, sem mérésből; az első hetek adják meg.",
+    a: "Két része van. A hirdetési költést Ön közvetlenül az OpenAI-nak fizeti a saját fiókjából: forintos fiókban a minimális napi büdzsé 5 500 Ft. A mi díjunk az Ön számaiból jön ki a beszélgetésen, mekkora egy ügyfél értéke, hány új ügyfél fér be egy hónapba, és nem a kattintások számából. Magyar kattintási ár ma még nincs, sem az OpenAI-tól, sem mérésből; az első hetek adják meg.",
     sources: ["budget", "billing"],
   },
   {
@@ -73,7 +73,7 @@ export const FAQS: FaqItem[] = [
   },
   {
     q: "Miben más, mint a Google Ads?",
-    a: "A ChatGPT-ben nem kulcsszóra, hanem a beszélgetés témájára jelenik meg a hirdetés: a hirdető kontextus-jelzéseket ad meg, és a rendszer ahhoz illeszti a kártyát, amiről a felhasználó éppen kérdez. Európában induláskor nincs személyre szabás — a beszélgetés kontextusa, a nyelv és a hozzávetőleges hely számít. A kattintás mögött olyan ember áll, aki éppen dönt, nem böngész.",
+    a: "A ChatGPT-ben nem kulcsszóra, hanem a beszélgetés témájára jelenik meg a hirdetés: a hirdető kontextus-jelzéseket ad meg, és a rendszer ahhoz illeszti a kártyát, amiről a felhasználó éppen kérdez. Európában induláskor nincs személyre szabás, a beszélgetés kontextusa, a nyelv és a hozzávetőleges hely számít. A kattintás mögött olyan ember áll, aki éppen dönt, nem böngész.",
     sources: ["media1", "collection"],
   },
   {
@@ -88,7 +88,7 @@ export const FAQS: FaqItem[] = [
   },
   {
     q: "Mit kell nekem csinálnom?",
-    a: "Egy beszélgetést, és utána jóváhagyni a tervet. A kérdéskutatást, az ajánlatot, a szövegeket, a céloldalt, a hirdetési fiók beállítását, a kampány kezelését és a havi riportot mi visszük. Ha az érdeklődők fogadását is ránk bízza, a rendszer percek alatt visszahívja őket és időpontot foglal — de ez az Ön döntése, nem feltétel.",
+    a: "Egy beszélgetést, és utána jóváhagyni a tervet. A kérdéskutatást, az ajánlatot, a szövegeket, a céloldalt, a hirdetési fiók beállítását, a kampány kezelését és a havi riportot mi visszük. Ha az érdeklődők fogadását is ránk bízza, a rendszer percek alatt visszahívja őket és időpontot foglal, de ez az Ön döntése, nem feltétel.",
   },
   {
     q: "Kié lesz a hirdetési fiók és a céloldal?",

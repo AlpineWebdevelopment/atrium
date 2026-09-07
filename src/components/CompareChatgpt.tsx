@@ -7,7 +7,7 @@ const ROWS: [string, string, string][] = [
   ["Ahol a kattintás landol",      "Az Ön meglévő weboldalán, ahol tíz dolog közül választhat.",    "Egy erre a kérdésre írt céloldalon, egy ajánlattal, egy gombbal."],
   ["Ami a kattintás után történik", "Űrlap érkezik, valaki majd visszahívja.",                     "A rendszer percek alatt visszahív, kvalifikál, időpontot foglal."],
   ["Az ajánlat",                   "Egy szöveg, egy variáció.",                                    "Három koncepció, és az marad, amelyikre ügyfél jön."],
-  ["Az Ön szakmájában",            "Ahány ügyfél, annyi kampány — egymás ellen.",                   "Egy területen, egy régióban egy céggel dolgozunk."],
+  ["Az Ön szakmájában",            "Ahány ügyfél, annyi kampány, egymás ellen.",                   "Egy területen, egy régióban egy céggel dolgozunk."],
   ["A fiók és az oldal",           "Gyakran a kezelő cégé.",                                       "Az Öné. A költést az OpenAI-nak fizeti, nem nekünk."],
   ["Amit a riportban lát",         "Grafikonok a kattintásokról.",                                 "Hány ügyfél jött, mennyiért, és mit változtatunk jövő hónapban."],
 ];

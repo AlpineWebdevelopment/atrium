@@ -8,7 +8,7 @@ const YES = [
 ];
 
 const NO = [
-  "Egészségügyi, pénzügyi és jogi szolgáltatóknak — az OpenAI ezekben a kategóriákban az Egyesült Államokon kívül jelenleg nem enged hirdetést.",
+  "Egészségügyi, pénzügyi és jogi szolgáltatóknak, az OpenAI ezekben a kategóriákban az Egyesült Államokon kívül jelenleg nem enged hirdetést.",
   "Akinek a szakmájában és régiójában már dolgozunk valakivel. Egy területen egy céget viszünk.",
   "Aki gyors eredményt vár mérés nélkül. Magyar számok a ChatGPT-hirdetésről ma még nincsenek; az első hetek mérésre mennek.",
   "Aki hirdetéskezelést keres, és nem akar hozzányúlni ahhoz, mi történik a kattintás után.",

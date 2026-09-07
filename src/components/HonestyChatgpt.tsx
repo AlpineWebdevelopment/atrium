@@ -14,7 +14,7 @@ export default function HonestyChatgpt() {
           </div>
           <h2 className="pos__h">Magyar kattintási ár, konverziós arány, megtérülési szám a ChatGPT-hirdetésről ma még nincs.</h2>
           <p className="pos__p">
-            Aki ötcsillagos véleményekkel és megduplázott foglalásokkal hirdeti, az kitalálta. Ezen az oldalon minden szám vagy az OpenAI saját közlése, vagy oda van írva, hogy szemléltető. Az Ön kampányának valódi számait az első hetek adják — és azokat havonta megmutatjuk.
+            Aki ötcsillagos véleményekkel és megduplázott foglalásokkal hirdeti, az kitalálta. Ezen az oldalon minden szám vagy az OpenAI saját közlése, vagy oda van írva, hogy szemléltető. Az Ön kampányának valódi számait az első hetek adják, és azokat havonta megmutatjuk.
           </p>
         </div>
       </div>

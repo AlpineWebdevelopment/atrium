@@ -24,13 +24,13 @@ const ICONS: Record<string, React.ReactNode> = {
 };
 
 const STEPS = [
-  { ic: "research", c: "var(--t-slate)", t: "Kérdéskutatás",              d: "Összegyűjtjük azokat a valós kérdéseket, amelyekre a ChatGPT az Ön cégét ajánlhatja — nem kulcsszavakat, hanem beszélgetéseket." },
+  { ic: "research", c: "var(--t-slate)", t: "Kérdéskutatás",              d: "Összegyűjtjük azokat a valós kérdéseket, amelyekre a ChatGPT az Ön cégét ajánlhatja, nem kulcsszavakat, hanem beszélgetéseket." },
   { ic: "rivals",   c: "var(--t-teal)",  t: "Versenytárs-elemzés",        d: "Megnézzük, ki hirdet már az Ön szakmájában és hol, és hova érdemes beállni, ahol még senki nem áll." },
   { ic: "offer",    c: "var(--t-sage)",  t: "Ajánlat kidolgozása",        d: "Három ajánlat-koncepció, nem egy variáció. Az, amire a kérdező tényleg kattint: gyors visszahívás, konkrét ár, konkrét határidő." },
-  { ic: "pen",      c: "var(--t-sand)",  t: "Szövegírás és kreatív",      d: "A kártya címe, leírása, képe — a válasz nyelvén, az OpenAI szabályai szerint, hogy át is menjen az elbíráláson." },
+  { ic: "pen",      c: "var(--t-sand)",  t: "Szövegírás és kreatív",      d: "A kártya címe, leírása, képe, a válasz nyelvén, az OpenAI szabályai szerint, hogy át is menjen az elbíráláson." },
   { ic: "campaign", c: "var(--t-clay)",  t: "Kampánykezelés",             d: "Fiók, cégellenőrzés, kontextus-jelzések, büdzsé, optimalizálás. Az Ön fiókjában, az Ön nevén; a költést az OpenAI-nak fizeti." },
   { ic: "page",     c: "var(--t-plum)",  t: "Céloldal",                   d: "A kattintás egy oldalon landol, amit erre a kérdésre írtunk. Egy ajánlat, egy gomb, visszahívás-kérés. Az Öné marad." },
-  { ic: "callback", c: "",               t: "Érdeklődő-kezelés",          d: "A beérkező érdeklődőt a rendszerünk percek alatt visszahívja, kvalifikálja és időpontot foglal — hogy a kattintásból ügyfél legyen, ne egy űrlap.", dark: true },
+  { ic: "callback", c: "",               t: "Érdeklődő-kezelés",          d: "A beérkező érdeklődőt a rendszerünk percek alatt visszahívja, kvalifikálja és időpontot foglal, hogy a kattintásból ügyfél legyen, ne egy űrlap.", dark: true },
   { ic: "report",   c: "var(--t-slate)", t: "Mérés, riport, havi egyeztetés", d: "Havonta egy tiszta kép: hány kérdésre jelent meg, hány érdeklődő, hány ügyfél, mennyiért. És egy beszélgetés arról, mit változtatunk." },
 ];
 
@@ -64,7 +64,7 @@ export default function ProductChatgpt() {
         </div>
 
         <p className="sys__howline reveal cg-howline" data-delay="2">
-          AI növekedési partnerként dolgozunk: ahol egy folyamat AI-val jobban megy — visszahívás, foglalás, utánkövetés, riport — ott AI-val csináljuk. Ahol nem, ott nem. A cél nem az AI, hanem az új ügyfél.
+          AI növekedési partnerként dolgozunk: ahol egy folyamat AI-val jobban megy, visszahívás, foglalás, utánkövetés, riport, ott AI-val csináljuk. Ahol nem, ott nem. A cél nem az AI, hanem az új ügyfél.
         </p>
 
         <div className="sec-cta reveal" data-delay="3">

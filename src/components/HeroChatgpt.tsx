@@ -14,7 +14,7 @@ export default function HeroChatgpt() {
               Amikor valaki a ChatGPT-től kérdezi, kit hívjon, <span className="cg-hl">az Ön cégét ajánlja.</span>
             </h1>
             <p className="hero__sub">
-              A ChatGPT-ben 2026 augusztusától hirdetések jelennek meg Magyarországon. Mi beállítjuk, hogy az Ön szakmájában az Ön cége álljon a válasz alatt — és megcsináljuk hozzá a teljes ügyfélszerző rendszert: kérdéskutatás, ajánlat, hirdetés, céloldal, érdeklődő-kezelés, riport. Nem marketinget adunk el. Ügyfeleket szerzünk.
+              A ChatGPT-ben 2026 augusztusától hirdetések jelennek meg Magyarországon. Mi beállítjuk, hogy az Ön szakmájában az Ön cége álljon a válasz alatt, és megcsináljuk hozzá a teljes ügyfélszerző rendszert: kérdéskutatás, ajánlat, hirdetés, céloldal, érdeklődő-kezelés, riport. Nem marketinget adunk el. Ügyfeleket szerzünk.
             </p>
             <div className="hero__actions">
               <a className="btn cg-btn" href="#kapcsolat">Foglaljon időpontot.</a>
