@@ -15,14 +15,15 @@ import { FAQS } from "@/lib/chatgptHirdetes";
 
 /* Segment landing: Atrium as the AI growth partner that runs a customer
    acquisition system on ChatGPT ads for Hungarian service businesses —
-   question research, offer, ads, landing page, lead handling, reporting.
+   question research, offer, ads, landing page, CRM, reporting. Automating
+   the leads themselves is separate work, and the page says so.
    The offer panel sits directly under the hero as well as at the end, so a
    visitor who reads only the top of the page still sees what they get.
    Indexable, in the sitemap, FAQPage schema below. */
 
 const TITLE = "ChatGPT hirdetés kezelés — ügyfélszerző rendszer szolgáltató cégeknek";
 const DESCRIPTION =
-  "A ChatGPT-ben 2026 augusztusától hirdetések jelennek meg Magyarországon. Az Atrium beállítja, hogy az Ön szakmájában az Ön cégét ajánlja a válasz alatt, és megcsinálja hozzá a teljes ügyfélszerző rendszert: kérdéskutatás, ajánlat, hirdetés, céloldal, érdeklődő-kezelés, riport.";
+  "A ChatGPT-ben 2026 augusztusától hirdetések jelennek meg Magyarországon. Az Atrium beállítja, hogy az Ön szakmájában az Ön cégét ajánlja a válasz alatt, és megcsinálja hozzá a teljes ügyfélszerző rendszert: kérdéskutatás, ajánlat, hirdetés, céloldal, CRM, riport.";
 
 export const metadata: Metadata = {
   title: TITLE,
