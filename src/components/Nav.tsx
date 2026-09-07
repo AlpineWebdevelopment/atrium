@@ -61,7 +61,7 @@ export default function Nav() {
   }, [open]);
 
   return (
-    <header className={`nav${scrolled ? " nav--scrolled" : ""}`}>
+    <header className={`nav${scrolled ? " nav--scrolled" : ""}${isRoot || nicheSlug === "chatgpt-hirdetes" ? " nav--newtype" : ""}`}>
       <div className="wrap">
         <div className="nav__in">
           {/* ATRIUM-EDIT: logo href = current page on niche routes; never redirects to root */}

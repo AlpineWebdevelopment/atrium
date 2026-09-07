@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Onest, Geist, Geist_Mono } from "next/font/google";
+import { Onest, Geist, Geist_Mono, Bricolage_Grotesque, Figtree } from "next/font/google";
 import Nav from "@/components/Nav";
 import BookingRedirect from "@/components/BookingRedirect";
 import "./globals.css";
@@ -20,6 +20,21 @@ const geistMono = Geist_Mono({
   subsets: ["latin", "latin-ext"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   variable: "--font-geist-mono-src",
+  display: "swap",
+});
+/* Second type pairing — Bricolage Grotesque (display) + Figtree (body).
+   Used by the root landing and /chatgpt-hirdetes via the .page--root /
+   .page--chatgpt-hirdetes / .nav--newtype overrides in globals.css. */
+const bricolage = Bricolage_Grotesque({
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-bricolage-src",
+  display: "swap",
+});
+const figtree = Figtree({
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600"],
+  variable: "--font-figtree-src",
   display: "swap",
 });
 
@@ -63,7 +78,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="hu"
-      className={`${onest.variable} ${geist.variable} ${geistMono.variable}`}
+      className={`${onest.variable} ${geist.variable} ${geistMono.variable} ${bricolage.variable} ${figtree.variable}`}
       suppressHydrationWarning
       data-scroll-behavior="smooth"
     >

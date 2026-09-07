@@ -12,7 +12,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 export default function Home() {
   return (
-    <div className="page" data-screen-label="atriumscaling.com /">
+    <div className="page page--root" data-screen-label="atriumscaling.com /">
       <ScrollReveal />
       <Hero />
       <Manifesto />

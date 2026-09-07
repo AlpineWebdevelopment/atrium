@@ -3450,11 +3450,14 @@ html.dark { --viz-purple-soft: #1d1b33; }
    Bricolage Grotesque (display) + Figtree (body), loaded in the
    route layout; the variables below only resolve on this page.
    ========================================================= */
-.page--chatgpt-hirdetes {
+.page--chatgpt-hirdetes,
+.page--root,
+.nav--newtype {
   --font-display: var(--font-bricolage-src), "Onest", ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-figtree-src), "Geist", ui-sans-serif, system-ui, sans-serif;
   --viz-red-soft: #F2DCD9;
 }
+.page--root, .page--root .btn, .nav--newtype .btn, .nav--newtype .nav__link { font-family: var(--font-body); }
 .page--chatgpt-hirdetes .hero__title,
 .page--chatgpt-hirdetes .dash__h,
 .page--chatgpt-hirdetes .faq__h,
