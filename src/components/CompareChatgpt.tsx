@@ -20,7 +20,7 @@ export default function CompareChatgpt() {
     <section className="wpr cg-compare" id="ugyfelek">
       <div className="wrap">
         <div className="dash__intro reveal">
-          <span className="dash__eyebrow cg-eyebrow-txt" style={{ color: "var(--viz-green)" }}>Ügyfelek, nem marketing</span>
+          <span className="dash__eyebrow cg-eyebrow-txt">Ügyfelek, nem marketing</span>
           <h2 className="dash__h">Egy hirdetéskezelő kattintást ad át. Mi ügyfelet.</h2>
           <p className="dash__p">
             Ugyanazon a felületen, ugyanabból a büdzséből két különböző dolog jöhet ki. A különbség abban van, mit mérünk, hol landol a kattintás, és ki hívja vissza az embert.

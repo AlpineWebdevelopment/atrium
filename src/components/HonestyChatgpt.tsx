@@ -8,7 +8,7 @@ export default function HonestyChatgpt() {
     <section className="pos cg-honest" id="amit-nem-mutatunk">
       <div className="wrap">
         <div className="pos__inner cg-honest__inner reveal">
-          <span className="dash__eyebrow cg-eyebrow-txt" style={{ color: "var(--viz-red)" }}>Amit nem mutatunk</span>
+          <span className="dash__eyebrow cg-eyebrow-txt">Amit nem mutatunk</span>
           <div className="cg-honest__tags" aria-hidden="true">
             {NOT.map((t) => <span key={t}><s>{t}</s></span>)}
           </div>

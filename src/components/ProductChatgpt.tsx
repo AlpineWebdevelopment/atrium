@@ -1,27 +1,37 @@
-/* "Mit csinálunk" — the customer acquisition system end to end, as eight
-   tinted, numbered tiles. Each tile carries its own colour so the grid reads
-   as a sequence, not a wall. */
+/* "Mit csinálunk" — the customer acquisition system end to end, as a
+   hairline-divided grid of eight steps. No per-tile colour and no filled
+   icon badges (that reads as a template); the hierarchy comes from the
+   numerals, thin line icons, and one dark cell on the step that is the
+   actual differentiator — what happens to the lead after the click. */
 
 const ICONS: Record<string, React.ReactNode> = {
-  search:   <g><circle cx="11" cy="11" r="7" /><path d="M21 21l-4.3-4.3" /></g>,
-  compare:  <g><path d="M3 6h7M3 12h7M3 18h7" /><path d="M14 6h7M14 12h7M14 18h7" /></g>,
-  offer:    <g><path d="M20 12v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8" /><path d="M2 7h20v5H2z" /><path d="M12 22V7" /><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z" /><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" /></g>,
-  pen:      <g><path d="M12 20h9" /><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z" /></g>,
-  ads:      <g><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M7 15l3-4 3 3 4-5" /></g>,
-  page:     <g><rect x="3" y="3" width="18" height="18" rx="2" /><path d="M3 9h18" /><path d="M7 14h6M7 17h10" /></g>,
-  callback: <g><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" /><path d="M16 8 22 2M22 8V2h-6" /></g>,
-  bars:     <path d="M12 20V10M18 20V4M6 20v-6" />,
+  // magnifier over a conversation — real questions, not keywords
+  research: <g><path d="M20 13.5a2 2 0 0 1-2 2h-6l-4 3.5V15.5H6a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2z" /><circle cx="11.2" cy="10" r="2.6" /><path d="M13.2 12l1.9 1.9" /></g>,
+  // two unequal columns — who is already there, where the gap is
+  rivals: <g><path d="M4 20h16" /><rect x="5.5" y="12" width="4.5" height="8" /><rect x="14" y="6" width="4.5" height="14" /><path d="M7.75 9.5V7M16.25 3.5V6" /></g>,
+  // three stacked offers, the top one chosen
+  offer: <g><rect x="6" y="4" width="12" height="6" rx="1.5" /><path d="M4.5 12.5h15M6 16h12M8 19.5h8" /></g>,
+  // pen nib
+  pen: <g><path d="M12 3.5 5.5 17 12 20.5 18.5 17z" /><path d="M12 3.5V20.5" /><path d="M8.4 12.8h7.2" /></g>,
+  // faders — campaign settings under control
+  campaign: <g><path d="M5 4v6M5 14v6M12 4v3M12 11v9M19 4v9M19 17v3" /><circle cx="5" cy="12" r="2" /><circle cx="12" cy="9" r="2" /><circle cx="19" cy="15" r="2" /></g>,
+  // a page with one offer and one button
+  page: <g><rect x="3.5" y="4.5" width="17" height="15" rx="2" /><path d="M3.5 8.5h17" /><path d="M7 12h6" /><rect x="7" y="15" width="7" height="2.5" rx="1.25" /></g>,
+  // phone with an outbound arrow — the callback
+  callback: <g><path d="M21 16.9v2.6a1.8 1.8 0 0 1-2 1.8 18.4 18.4 0 0 1-8-2.9 18.1 18.1 0 0 1-5.6-5.6 18.4 18.4 0 0 1-2.9-8.1A1.8 1.8 0 0 1 4.3 3h2.6a1.8 1.8 0 0 1 1.8 1.6c.1.9.3 1.7.6 2.5a1.8 1.8 0 0 1-.4 1.9L7.8 10.2a14.6 14.6 0 0 0 5.5 5.5l1.2-1.1a1.8 1.8 0 0 1 1.9-.4c.8.3 1.6.5 2.5.6A1.8 1.8 0 0 1 21 16.9z" /><path d="M15.5 8.5 21 3M21 8.5V3h-5.5" /></g>,
+  // a line going up over a baseline
+  report: <g><path d="M4 4v16h16" /><path d="M7.5 15.5 11 11l3 2.5 5-6.5" /><path d="M16.5 7h2.5v2.5" /></g>,
 };
 
 const STEPS = [
-  { ic: "search",   c: "#628FBC", t: "Kérdéskutatás",            d: "Összegyűjtjük azokat a valós kérdéseket, amelyekre a ChatGPT az Ön cégét ajánlhatja — nem kulcsszavakat, hanem beszélgetéseket." },
-  { ic: "compare",  c: "#62BCAC", t: "Versenytárs-elemzés",       d: "Megnézzük, ki hirdet már az Ön szakmájában és hol, és hova érdemes beállni, ahol még senki nem áll." },
-  { ic: "offer",    c: "#9662BC", t: "Ajánlat kidolgozása",        d: "Három ajánlat-koncepció, nem egy variáció. Az, amire a kérdező tényleg kattint: gyors visszahívás, konkrét ár, konkrét határidő." },
-  { ic: "pen",      c: "#BCA162", t: "Szövegírás és kreatív",      d: "A kártya címe, leírása, képe — a válasz nyelvén, az OpenAI szabályai szerint, hogy át is menjen az elbíráláson." },
-  { ic: "ads",      c: "#C4705A", t: "Kampánykezelés",             d: "Fiók, cégellenőrzés, kontextus-jelzések, büdzsé, optimalizálás. Az Ön fiókjában, az Ön nevén; a költést az OpenAI-nak fizeti." },
-  { ic: "page",     c: "#2B64B8", t: "Céloldal",                   d: "A kattintás egy oldalon landol, amit erre a kérdésre írtunk. Egy ajánlat, egy gomb, visszahívás-kérés. Az Öné marad." },
-  { ic: "callback", c: "#6DBC61", t: "Érdeklődő-kezelés",          d: "A beérkező érdeklődőt a rendszerünk percek alatt visszahívja, kvalifikálja és időpontot foglal — hogy a kattintásból ügyfél legyen, ne egy űrlap." },
-  { ic: "bars",     c: "#BC6285", t: "Mérés, riport, havi egyeztetés", d: "Havonta egy tiszta kép: hány kérdésre jelent meg, hány érdeklődő, hány ügyfél, mennyiért. És egy beszélgetés arról, mit változtatunk." },
+  { ic: "research", t: "Kérdéskutatás",              d: "Összegyűjtjük azokat a valós kérdéseket, amelyekre a ChatGPT az Ön cégét ajánlhatja — nem kulcsszavakat, hanem beszélgetéseket." },
+  { ic: "rivals",   t: "Versenytárs-elemzés",        d: "Megnézzük, ki hirdet már az Ön szakmájában és hol, és hova érdemes beállni, ahol még senki nem áll." },
+  { ic: "offer",    t: "Ajánlat kidolgozása",        d: "Három ajánlat-koncepció, nem egy variáció. Az, amire a kérdező tényleg kattint: gyors visszahívás, konkrét ár, konkrét határidő." },
+  { ic: "pen",      t: "Szövegírás és kreatív",      d: "A kártya címe, leírása, képe — a válasz nyelvén, az OpenAI szabályai szerint, hogy át is menjen az elbíráláson." },
+  { ic: "campaign", t: "Kampánykezelés",             d: "Fiók, cégellenőrzés, kontextus-jelzések, büdzsé, optimalizálás. Az Ön fiókjában, az Ön nevén; a költést az OpenAI-nak fizeti." },
+  { ic: "page",     t: "Céloldal",                   d: "A kattintás egy oldalon landol, amit erre a kérdésre írtunk. Egy ajánlat, egy gomb, visszahívás-kérés. Az Öné marad." },
+  { ic: "callback", t: "Érdeklődő-kezelés",          d: "A beérkező érdeklődőt a rendszerünk percek alatt visszahívja, kvalifikálja és időpontot foglal — hogy a kattintásból ügyfél legyen, ne egy űrlap.", dark: true },
+  { ic: "report",   t: "Mérés, riport, havi egyeztetés", d: "Havonta egy tiszta kép: hány kérdésre jelent meg, hány érdeklődő, hány ügyfél, mennyiért. És egy beszélgetés arról, mit változtatunk." },
 ];
 
 export default function ProductChatgpt() {
@@ -29,7 +39,7 @@ export default function ProductChatgpt() {
     <section className="sys cg-sys" id="rendszer-teljes">
       <div className="wrap">
         <div className="dash__intro reveal">
-          <span className="dash__eyebrow cg-eyebrow-txt" style={{ color: "var(--viz-cyan)" }}>Mit csinálunk</span>
+          <span className="dash__eyebrow cg-eyebrow-txt">Mit csinálunk</span>
           <h2 className="dash__h">Nem hirdetést kezelünk. Ügyfélszerző rendszert építünk és üzemeltetünk.</h2>
           <p className="dash__p">
             A hirdetés csak az első lépés. Ami Önnek számít, az a végén van: az ügyfél, aki felhívta, időpontot kért, és eljött. Ezért az egész utat mi visszük, a kérdéstől a foglalásig.
@@ -38,10 +48,10 @@ export default function ProductChatgpt() {
 
         <div className="cg-tiles reveal" data-delay="1">
           {STEPS.map((c, i) => (
-            <div className="cg-tile" style={{ ["--c" as string]: c.c }} key={i}>
-              <span className="cg-tile__n">0{i + 1}</span>
+            <div className={"cg-tile" + (c.dark ? " cg-tile--dark" : "")} key={c.t}>
+              <span className="cg-tile__n">{String(i + 1).padStart(2, "0")}</span>
               <span className="cg-tile__ico">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{ICONS[c.ic]}</svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">{ICONS[c.ic]}</svg>
               </span>
               <span className="cg-tile__t">{c.t}</span>
               <span className="cg-tile__d">{c.d}</span>

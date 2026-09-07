@@ -10,7 +10,7 @@ export default function FaqChatgpt() {
     <section className="faq cg-faq" id="gyik">
       <div className="wrap">
         <div className="faq__head reveal">
-          <span className="dash__eyebrow cg-eyebrow-txt" style={{ color: "var(--viz-cyan)" }}>Gyakori kérdések</span>
+          <span className="dash__eyebrow cg-eyebrow-txt">Gyakori kérdések</span>
           <h2 className="faq__h">Amit a legtöbben kérdeznek.</h2>
         </div>
         <div className="faq__list reveal" data-delay="1">

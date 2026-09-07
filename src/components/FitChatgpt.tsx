@@ -22,7 +22,7 @@ export default function FitChatgpt() {
     <section className="wpr cg-fit" id="kinek">
       <div className="wrap">
         <div className="dash__intro reveal">
-          <span className="dash__eyebrow cg-eyebrow-txt" style={{ color: "var(--viz-amber)" }}>Kinek való, és kinek nem</span>
+          <span className="dash__eyebrow cg-eyebrow-txt">Kinek való, és kinek nem</span>
           <h2 className="dash__h">Nem minden cégnek, és egy szakmában nem mindenkinek.</h2>
         </div>
 
