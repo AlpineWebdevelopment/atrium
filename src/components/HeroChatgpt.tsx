@@ -42,7 +42,7 @@ export default function HeroChatgpt() {
               </div>
               <div className="cg-chat__msg cg-chat__msg--ai">
                 <span className="cg-chat__avatar">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3.5l1.7 4.8 4.8 1.7-4.8 1.7L12 16.5l-1.7-4.8-4.8-1.7 4.8-1.7z" /></svg>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3.5l1.7 4.8 4.8 1.7-4.8 1.7L12 16.5l-1.7-4.8-4.8-1.7 4.8-1.7z" /></svg>
                 </span>
                 <div>
                   <p>Érdemes olyan céget választani, amelyik gyorsan visszahív, előre megmondja az árat, és időpontot ad a hétre. Néhány szempont:</p>

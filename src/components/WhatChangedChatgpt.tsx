@@ -38,7 +38,7 @@ export default function WhatChangedChatgpt() {
           {FACTS.map((f) => (
             <div className="cg-fact" style={{ ["--c" as string]: f.c }} key={f.k}>
               <span className="cg-fact__ico">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">{f.ico}</svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">{f.ico}</svg>
               </span>
               <span className="cg-fact__k">{f.k}</span>
               <span className="cg-fact__t">{f.t}</span>

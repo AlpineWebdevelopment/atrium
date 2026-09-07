@@ -55,7 +55,7 @@ export default function ProductChatgpt() {
             >
               <span className="cg-tile__n">{String(i + 1).padStart(2, "0")}</span>
               <span className="cg-tile__ico">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">{ICONS[c.ic]}</svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">{ICONS[c.ic]}</svg>
               </span>
               <span className="cg-tile__t">{c.t}</span>
               <span className="cg-tile__d">{c.d}</span>

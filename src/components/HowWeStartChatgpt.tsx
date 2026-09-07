@@ -39,7 +39,7 @@ export default function HowWeStartChatgpt() {
             {STEPS.map((s, i) => (
               <div className="how__step cg-how__step" style={{ ["--c" as string]: s.c }} data-delay={i + 1} key={s.n}>
                 <div className="how__node cg-how__node">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     {s.ico}
                   </svg>
                   <span className="how__node-num">{s.n}</span>
