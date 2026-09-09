@@ -58,10 +58,10 @@ export default function ChatgptHirdetesPage() {
         title="Az Ön szakmájában ma még üres a válasz alatti hely. Foglalja el, mielőtt más teszi."
         body="Ingyenes, 30 perces beszélgetés. Utána megkapja a kérdéstérképet: a valós kérdéseket, amelyekre az Ön cége szóba jöhet, és azt, mit építenénk rájuk. Ön dönti el, indítjuk-e."
       />
-      <WhatChangedChatgpt />
       <ProductChatgpt />
       <CompareChatgpt />
       <PositioningChatgpt />
+      <WhatChangedChatgpt />
       <HowWeStartChatgpt />
       <HonestyChatgpt />
       <FaqChatgpt />
