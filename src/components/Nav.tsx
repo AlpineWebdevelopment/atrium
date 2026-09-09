@@ -3,6 +3,10 @@ import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { isNicheSlug } from "@/lib/niches";
 
+/* Routes that ship their own header because they are closed surfaces: every
+   link stays inside the page or goes to the booking flow. */
+const STANDALONE = ["/chatgpt-hirdetes"];
+
 /* Relative hashes so links scroll within the current page (root or niche),
    never redirecting to "/". Only sections that exist on every page. */
 const LINKS = [
@@ -19,6 +23,7 @@ export default function Nav() {
   const menuRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const isRoot = pathname === "/";
+  const standalone = STANDALONE.includes(pathname);
 
   const logoHref = isRoot ? "/" : pathname;
 
@@ -59,6 +64,8 @@ export default function Nav() {
     el.style.opacity = open ? "1" : "0";
     el.style.borderTopColor = open ? "var(--line-2)" : "transparent";
   }, [open]);
+
+  if (standalone) return null;
 
   return (
     <header className={`nav${scrolled ? " nav--scrolled" : ""}${isRoot || nicheSlug === "chatgpt-hirdetes" ? " nav--newtype" : ""}`}>
