@@ -3390,7 +3390,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
 @media (max-width: 860px) { .cg-facts { grid-template-columns: 1fr; } }
 
 /* ---------- Miért most — the section that has to carry weight ---------- */
-.cg-why { padding: 76px 0; background: var(--panel); }
+.cg-why { padding: 76px 0; }
 .cg-why__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 1100px; margin: 0 auto; }
 .cg-why__card {
   display: flex; flex-direction: column; padding: 30px 28px 26px; border-radius: 20px;
