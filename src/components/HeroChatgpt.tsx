@@ -9,7 +9,7 @@ export default function HeroChatgpt() {
       <div className="wrap">
         <div className="hero__grid">
           <div className="hero__content reveal reveal--instant visible">
-            <span className="hero__eyebrow cg-eyebrow"><i /> Egy szakma, egy cég · az Öné még szabad</span>
+            <span className="hero__eyebrow cg-eyebrow"><i /> Ma még szabad a hely a válasz alatt</span>
             <h1 className="hero__title cg-hero__title">
               Amikor valaki a ChatGPT-től kérdezi, kit hívjon, <span className="cg-hl">az Ön cégét ajánlja.</span>
             </h1>
@@ -38,7 +38,7 @@ export default function HeroChatgpt() {
             </div>
             <div className="canvas__stage cg-chat">
               <div className="cg-chat__msg cg-chat__msg--user">
-                Kit hívjak, ha a héten kellene egy megbízható szakember, és nem akarok napokat várni a visszahívásra?
+                Kit hívjak a környékemen, ha a héten kellene egy megbízható szakember, és nem akarok napokat várni a visszahívásra?
               </div>
               <div className="cg-chat__msg cg-chat__msg--ai">
                 <span className="cg-chat__avatar">
