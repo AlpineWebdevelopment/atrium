@@ -12,23 +12,6 @@ const ROWS: [string, string, string][] = [
   ["Amit a riportban lát",         "Grafikonok a kattintásokról.",                                 "Hány ügyfél jött, mennyiért, és mit változtatunk jövő hónapban."],
 ];
 
-/* The two paths a click can take after it lands. Built from markup rather
-   than an SVG so the labels wrap and the lanes stack on a phone. */
-const PATHS = [
-  {
-    key: "no" as const,
-    head: "Hirdetéskezelés",
-    steps: ["Az Ön meglévő weboldala", "Űrlap, e-mail értesítéssel", "Valaki majd visszahívja"],
-    end: "Csend",
-  },
-  {
-    key: "ok" as const,
-    head: "Ügyfélszerző rendszer",
-    steps: ["Erre a kérdésre írt céloldal", "CRM, a forrással együtt", "Visszahívás, amíg dönt"],
-    end: "Ügyfél",
-  },
-];
-
 const X = <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18M6 6l12 12" /></svg>;
 const CHECK = <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>;
 
@@ -44,28 +27,7 @@ export default function CompareChatgpt() {
           </p>
         </div>
 
-        <figure className="cg-path reveal" data-delay="1">
-          <figcaption className="cg-path__start">
-            <span className="cg-path__start-dot" aria-hidden="true" />
-            Egy kattintás a ChatGPT-ből
-          </figcaption>
-          <div className="cg-path__lanes">
-            {PATHS.map((p) => (
-              <div className={`cg-path__lane cg-path__lane--${p.key}`} key={p.key}>
-                <span className="cg-path__head">
-                  <i className={`cg-mark cg-mark--${p.key}`}>{p.key === "ok" ? CHECK : X}</i>
-                  {p.head}
-                </span>
-                <ol className="cg-path__steps">
-                  {p.steps.map((st) => <li key={st}>{st}</li>)}
-                </ol>
-                <span className="cg-path__end">{p.end}</span>
-              </div>
-            ))}
-          </div>
-        </figure>
-
-        <div className="cg-table reveal" data-delay="2" role="table">
+        <div className="cg-table reveal" data-delay="1" role="table">
           <div className="cg-table__head" role="row">
             <span role="columnheader" />
             <span role="columnheader" className="cg-table__theirs"><i className="cg-mark cg-mark--x">{X}</i>Hirdetéskezelés</span>

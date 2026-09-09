@@ -3622,58 +3622,6 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .nav__mobile--cg.nav__mobile--open { max-height: 520px; opacity: 1; border-top-color: var(--line-2); }
 .nav__mobile--cg .nav__mobile-inner { overflow: visible; }
 
-/* ---------- graphic: the two paths a click can take ---------- */
-.cg-path { margin: 0 auto 34px; max-width: 1000px; }
-.cg-path__start {
-  display: flex; align-items: center; justify-content: center; gap: 9px;
-  padding-bottom: 20px; position: relative;
-  font-family: var(--font-body); font-weight: 600; font-size: 14px; color: var(--ink);
-}
-.cg-path__start-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--ink); }
-/* the stem that splits into the two lanes */
-.cg-path__start::after {
-  content: ""; position: absolute; left: 50%; bottom: 0; width: 1px; height: 14px; background: var(--line);
-}
-.cg-path__lanes { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.cg-path__lane {
-  position: relative; display: flex; flex-direction: column;
-  padding: 20px 22px 22px; border-radius: 18px; border: 1px solid var(--line);
-}
-.cg-path__lane--no { background: color-mix(in srgb, var(--no) 6%, var(--bone)); border-color: color-mix(in srgb, var(--no) 22%, transparent); }
-.cg-path__lane--ok { background: color-mix(in srgb, var(--ok) 7%, var(--bone)); border-color: color-mix(in srgb, var(--ok) 24%, transparent); }
-.cg-path__head {
-  display: flex; align-items: center; gap: 9px; margin-bottom: 14px;
-  font-family: var(--font-display); font-weight: 600; font-size: 16px; color: var(--ink);
-}
-.cg-path__steps {
-  list-style: none; margin: 0; padding: 0 0 0 22px; position: relative;
-  display: flex; flex-direction: column; gap: 14px;
-}
-/* the rail the steps hang off */
-.cg-path__steps::before {
-  content: ""; position: absolute; left: 5px; top: 8px; bottom: 8px; width: 1px;
-  background: color-mix(in srgb, var(--ink) 16%, transparent);
-}
-.cg-path__steps li {
-  position: relative;
-  font-family: var(--font-body); font-size: 14px; line-height: 1.45; color: var(--ink-90);
-}
-.cg-path__steps li::before {
-  content: ""; position: absolute; left: -21px; top: 6px;
-  width: 9px; height: 9px; border-radius: 50%;
-  background: var(--bone); border: 1px solid color-mix(in srgb, var(--ink) 32%, transparent);
-}
-.cg-path__end {
-  margin-top: 16px; padding-top: 14px; border-top: 1px solid color-mix(in srgb, var(--ink) 10%, transparent);
-  font-family: var(--font-display); font-weight: 600; font-size: 19px; letter-spacing: -0.015em;
-}
-.cg-path__lane--no .cg-path__end { color: var(--no); }
-.cg-path__lane--ok .cg-path__end { color: var(--ok); }
-@media (max-width: 700px) {
-  .cg-path__lanes { grid-template-columns: 1fr; gap: 12px; }
-  .cg-path__lane { padding: 18px 18px 20px; }
-}
-
 /* ---------- graphic: a results list against a single answer ---------- */
 .cg-slot {
   display: grid; grid-template-columns: 1fr 1.15fr; gap: 18px;
