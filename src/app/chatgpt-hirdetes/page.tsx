@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import HeroChatgpt from "@/components/HeroChatgpt";
 import CtaPanelChatgpt from "@/components/CtaPanelChatgpt";
-import WhatChangedChatgpt from "@/components/WhatChangedChatgpt";
 import PositioningChatgpt from "@/components/PositioningChatgpt";
 import ProductChatgpt from "@/components/ProductChatgpt";
 import CompareChatgpt from "@/components/CompareChatgpt";
-import HonestyChatgpt from "@/components/HonestyChatgpt";
 import HowWeStartChatgpt from "@/components/HowWeStartChatgpt";
 import FaqChatgpt from "@/components/FaqChatgpt";
 import Footer from "@/components/Footer";
@@ -15,7 +13,9 @@ import { FAQS } from "@/lib/chatgptHirdetes";
 /* Segment landing: Atrium as the AI growth partner that runs a customer
    acquisition system on ChatGPT ads for Hungarian service businesses —
    question research, offer, ads, landing page, CRM, reporting. Automating
-   the leads themselves is separate work, and the page says so.
+   the leads themselves is separate work, and the page says so. The
+   platform facts and the honesty note live in the FAQ rather than in
+   sections of their own.
    The offer panel sits directly under the hero as well as at the end, so a
    visitor who reads only the top of the page still sees what they get.
    Indexable, in the sitemap, FAQPage schema below. */
@@ -61,9 +61,7 @@ export default function ChatgptHirdetesPage() {
       <ProductChatgpt />
       <CompareChatgpt />
       <PositioningChatgpt />
-      <WhatChangedChatgpt />
       <HowWeStartChatgpt />
-      <HonestyChatgpt />
       <FaqChatgpt />
       <CtaPanelChatgpt
         id="kapcsolat"
