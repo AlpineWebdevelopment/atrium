@@ -29,7 +29,7 @@ const ICONS: Record<string, React.ReactNode> = {
 const BASE = [
   { ic: "research", c: "var(--t-slate)", t: "Kérdéskutatás",              d: "Összegyűjtjük azokat a valós kérdéseket, amelyekre a ChatGPT az Ön cégét ajánlhatja, nem kulcsszavakat, hanem beszélgetéseket." },
   { ic: "rivals",   c: "var(--t-teal)",  t: "Versenytárs-elemzés",        d: "Megnézzük, ki hirdet már az Ön szakmájában és hol, és hova érdemes beállni, ahol még senki nem áll." },
-  { ic: "offer",    c: "var(--t-sage)",  t: "Ajánlat kidolgozása",        d: "Három ajánlat-koncepció, nem egy variáció. Az, amire a kérdező tényleg kattint: gyors visszahívás, konkrét ár, konkrét határidő." },
+  { ic: "offer",    c: "var(--t-sage)",  t: "Ajánlat kidolgozása",        d: "Annyi ajánlat-koncepció, amennyi kell, és a készlet folyamatosan bővül. Az, amire a kérdező tényleg kattint: gyors visszahívás, konkrét ár, konkrét határidő." },
   { ic: "pen",      c: "var(--t-sand)",  t: "Szövegírás és kreatív",      d: "A kártya címe, leírása, képe, a válasz nyelvén, az OpenAI szabályai szerint, hogy át is menjen az elbíráláson." },
   { ic: "campaign", c: "var(--t-clay)",  t: "Kampánykezelés",             d: "Fiók, cégellenőrzés, kontextus-jelzések, büdzsé, optimalizálás. Az Ön fiókjában, az Ön nevén; a költést az OpenAI-nak fizeti." },
   { ic: "page",     c: "var(--t-plum)",  t: "Céloldal",                   d: "A kattintás egy oldalon landol, amit erre a kérdésre írtunk. Egy ajánlat, egy gomb, visszahívás-kérés. Az Öné marad." },
