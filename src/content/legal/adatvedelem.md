@@ -1,6 +1,6 @@
 # Adatvédelmi tájékoztató
 
-**Utolsó frissítés: 2026. június 28.**
+**Utolsó frissítés: 2026. szeptember 9.**
 
 ---
 
@@ -47,6 +47,7 @@ Amikor Ön a Weboldal kapcsolatfelvételi vagy időpontfoglaló űrlapját kitö
 - A vállalkozás neve
 - A vállalkozás tevékenységi köre / iparága
 - Az Ön által megadott, a vállalkozása helyzetére vonatkozó információk (pl. arra a kérdésre adott válasz, hogy jelenleg mi okozza a legtöbb elveszett ügyfelet)
+- Technikai kísérőadatok: az az aloldal, ahonnan a foglalás indult, a hivatkozó oldal címe, valamint a hivatkozásban szereplő kampányazonosítók (UTM-paraméterek). Ezeket kizárólag annak megállapítására használjuk, melyik hirdetésből vagy céloldalról érkezett a megkeresés.
 
 
 **Az adatkezelés célja:**
@@ -83,6 +84,7 @@ Az adatkezelés során az alábbi szolgáltatók (adatfeldolgozók, illetve köz
 | **Twilio** | Telefonos (SIP) kapcsolat | Amerikai Egyesült Államok | DPA + SCC |
 | **ElevenLabs** | Hangszintézis (szöveg-beszéd) | Amerikai Egyesült Államok / Egyesült Királyság | DPA + SCC |
 | **OpenAI** | Természetesnyelv-feldolgozás (nyelvi modell) | Amerikai Egyesült Államok | DPA + SCC |
+| **OpenAI** (hirdetési rendszer) | ChatGPT-hirdetések konverziómérése (OpenAI Pixel, Conversions API) | Amerikai Egyesült Államok | DPA + SCC |
 | **n8n (saját üzemeltetésű)** | Folyamat-automatizálás | Európai Unió — PikaPods | Saját üzemeltetés |
 | **Vercel** | A Weboldal üzemeltetése | Amerikai Egyesült Államok | DPA + SCC |
 
@@ -105,6 +107,13 @@ Bizonyos szolgáltatóink (pl. Retell AI, illetve egyes AI modellszolgáltatók)
 - **Cél:** hirdetéseink eredményességének mérése (pl. időpontfoglalási konverziók), valamint a Weboldalt korábban meglátogató érdeklődők számára releváns hirdetések megjelenítése (remarketing) a Meta platformjain.
 - **Jogalap:** az Ön előzetes, önkéntes hozzájárulása (GDPR 6. cikk (1) bekezdés a) pont), amelyet a Weboldalon megjelenő süti-tájékoztató (cookie banner) útján adhat meg. A Pixel az Ön hozzájárulása nélkül nem aktiválódik. Hozzájárulását bármikor visszavonhatja a sütibeállítások módosításával.
 - **Adattovábbítás:** a Meta Pixel által gyűjtött adatok a Meta Platforms részére kerülnek továbbításra, amely azokat az Európai Unión kívül (Amerikai Egyesült Államok) is feldolgozhatja, az Európai Bizottság megfelelőségi határozata, illetve általános szerződési feltételek (SCC) alapján. A Meta adatkezeléséről a Meta saját adatvédelmi tájékoztatójában tájékozódhat.
+
+**Marketing célú követőkód (OpenAI Pixel)**
+- A Weboldal ChatGPT-hirdetéshez kapcsolódó céloldalain — így különösen a **/chatgpt-hirdetes** oldalon — az OpenAI hirdetési rendszerének konverziómérő kódja („OpenAI Pixel") működhet.
+- **Cél:** a ChatGPT felületén megjelenő hirdetéseink eredményességének mérése (pl. hány időpontfoglalás származik egy adott hirdetésből), valamint a kampányok ez alapján történő optimalizálása.
+- **Jogalap:** az Ön előzetes, önkéntes hozzájárulása (GDPR 6. cikk (1) bekezdés a) pont), amelyet a Weboldalon megjelenő süti-tájékoztató útján adhat meg. A Pixel az Ön hozzájárulása nélkül nem aktiválódik, és hozzájárulását bármikor visszavonhatja a sütibeállítások módosításával.
+- **Adattovábbítás:** az OpenAI Pixel által gyűjtött adatok az OpenAI részére kerülnek továbbításra, amely azokat az Európai Unión kívül (Amerikai Egyesült Államok) is feldolgozhatja, az Európai Bizottság által elfogadott általános szerződési feltételek (SCC) alapján. Az OpenAI adatkezeléséről az OpenAI saját adatvédelmi tájékoztatójában tájékozódhat.
+- **Megjegyzés:** ha Ön ChatGPT-hirdetésre kattintva érkezett a Weboldalra, a hirdetés megjelenítésével összefüggő adatkezelésért az OpenAI önálló adatkezelőként felel. Az Atrium nem áll kapcsolatban az OpenAI-jal, és nem fér hozzá a ChatGPT-beszélgetések tartalmához.
 
 >
 

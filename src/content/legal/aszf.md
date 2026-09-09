@@ -1,7 +1,7 @@
 # Általános Szerződési Feltételek (ÁSZF)
 
 **Hatálybalépés dátuma: 2026. június 28.**
-**Utolsó módosítás: 2026. június 28.**
+**Utolsó módosítás: 2026. szeptember 9.**
 
 ---
 
@@ -87,13 +87,36 @@ A Szolgáltató az alábbi szolgáltatásokat nyújtja üzleti ügyfelek részé
 - Értékelések kérése és kezelése
 - Riportálás: havi áttekintés a bevételi forrásokról és a rendszer eredményeiről
 
-**5.1.2. Egyedi automatizálás**
+**5.1.2. ChatGPT-hirdetéskezelés és ügyfélszerző rendszer**
+- Kérdéskutatás: azon valós kérdések feltérképezése, amelyekre az Ügyfél cége a ChatGPT válaszaiban szóba jöhet
+- Versenytárs-elemzés az Ügyfél szakterületén
+- Hirdetési ajánlat-koncepciók és hirdetési szövegek, kreatívok elkészítése
+- A hirdetési fiók beállítása és a kampány kezelése az Ügyfél saját hirdetési fiókjában
+- Az adott kampányhoz készülő céloldal (landing page) elkészítése
+- Ügyfélkapcsolat-kezelő rendszer (CRM) biztosítása a beérkező érdeklődők nyilvántartására
+- Mérés, havi riport és egyeztetés
+
+**5.1.3. Egyedi automatizálás**
 Az Ügyfél olyan egyedi folyamatigénye esetén, amely a fenti komponensek körén kívül esik, a Szolgáltató egyedi automatizálást alakíthat ki.
 
-**5.1.3. Integráció és támogatás**
+**5.1.4. Integráció és támogatás**
 - Integráció az Ügyfél meglévő eszközeivel (naptár, ügyfélkezelő rendszer stb.)
 - Folyamatos üzemeltetés, felügyelet és finomhangolás
 
+
+### 5.1.5. A ChatGPT-hirdetésre vonatkozó külön rendelkezések
+
+**A hirdetési fiók és a hirdetési költés.** A ChatGPT hirdetési fiók minden esetben az Ügyfél nevén jön létre, és az Ügyfél tulajdonában marad. A hirdetési költést az Ügyfél közvetlenül az OpenAI részére fizeti; ez az összeg nem része a Szolgáltató díjának, és azt a Szolgáltató nem számlázza tovább. A hirdetési fiókhoz a Szolgáltató az Ügyfél által biztosított hozzáféréssel (meghívott csapattagként) fér hozzá.
+
+**Az OpenAI-tól való függetlenség.** A Szolgáltató nem áll semmilyen szerződéses, ügynöki vagy partneri kapcsolatban az OpenAI-jal, és nem jár el annak nevében. A „ChatGPT" és az „OpenAI" megjelölések kizárólag a szolgáltatás tárgyának azonosítására szolgálnak.
+
+**Az OpenAI szabályai és döntései.** A hirdetések megjelenítéséről, elbírálásáról, elutasításáról vagy felfüggesztéséről kizárólag az OpenAI dönt, saját hirdetési szabályzata alapján. Az OpenAI a hirdetéssel együtt a céloldalt is elbírálja. A Szolgáltató a szabályoknak megfelelő hirdetést és céloldalt készít, azonban az elbírálás eredményéért nem vállal felelősséget. Az OpenAI hirdetési szabályzata bizonyos tevékenységi köröket az Egyesült Államokon kívül jelenleg kizár a hirdetésből; ha az Ügyfél ilyen körbe tartozik, a hirdetési szolgáltatás nem teljesíthető, amiről a Szolgáltató az Egyedi Szerződés megkötése előtt tájékoztatja az Ügyfelet.
+
+**A platform változásai.** A ChatGPT hirdetési rendszere új és folyamatosan változik. Az OpenAI bármikor módosíthatja a felület működését, a szabályait, az elérhető országokat, a minimális költést vagy az árazási modellt. Az ilyen változásokból eredő következményekért a Szolgáltatót felelősség nem terheli.
+
+**Eredmény.** A Szolgáltató a kampány szakszerű elkészítését és kezelését vállalja, nem pedig meghatározott számú érdeklődőt, ügyfelet vagy bevételt. A ChatGPT-hirdetésre vonatkozóan magyar piaci teljesítménymutatók (pl. kattintási ár, konverziós arány) a szerződéskötés időpontjában nem állnak rendelkezésre; a Szolgáltató ilyet nem is állít, és nem is garantál.
+
+**Az elkészült anyagok.** Az adott kampányhoz készült céloldal, hirdetési szövegek és kreatívok, valamint a CRM-ben nyilvántartott érdeklődői adatok az Ügyfelet illetik, a 9.1. pont szerint.
 
 ### 5.2. A szolgáltatásnyújtás módja
 
@@ -224,7 +247,7 @@ Az AI-alapú rendszer a legjobb gyakorlat szerint működik, azonban a Szolgált
 
 **Az általa irányított alvállalkozók** tekintetében a Szolgáltató úgy felel az alvállalkozó által okozott károkért, mintha azokat maga okozta volna.
 
-**A független technológiai platformok** (pl. a hangalapú rendszert kiszolgáló külső szolgáltatók) működéséért a Szolgáltató csak olyan mértékben felel, amennyiben arra ésszerűen ráhatása van. E platformok megnevezését és az adatkezelés helyét a Szolgáltató adatvédelmi tájékoztatója, illetve — az érintett adatokat illetően — az Adatfeldolgozói megállapodás tartalmazza. A személyes adatok feldolgozása tekintetében a Szolgáltató adatfeldolgozói felelőssége a GDPR 28. cikke szerint áll fenn, függetlenül a jelen pont szerinti polgári jogi felelősségkorlátozástól.
+**A független technológiai platformok** (pl. a hangalapú rendszert kiszolgáló külső szolgáltatók, illetve a ChatGPT hirdetési rendszere) működéséért, rendelkezésre állásáért és döntéseiért a Szolgáltató csak olyan mértékben felel, amennyiben arra ésszerűen ráhatása van. E platformok megnevezését és az adatkezelés helyét a Szolgáltató adatvédelmi tájékoztatója, illetve — az érintett adatokat illetően — az Adatfeldolgozói megállapodás tartalmazza. A személyes adatok feldolgozása tekintetében a Szolgáltató adatfeldolgozói felelőssége a GDPR 28. cikke szerint áll fenn, függetlenül a jelen pont szerinti polgári jogi felelősségkorlátozástól.
 
 ### 10.5. Szavatosság és garancia
 
