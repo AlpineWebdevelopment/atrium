@@ -42,6 +42,41 @@ const ARGS = [
   },
 ];
 
+/* The first argument, drawn: a list of results where nothing stands out,
+   against a single recommended answer. Markup rather than an image so it
+   reflows and picks up the page's own type and colour. */
+function AnswerSlot() {
+  return (
+    <figure className="cg-slot reveal" data-delay="1">
+      <div className="cg-slot__side">
+        <span className="cg-slot__label">Egy találati lista</span>
+        <div className="cg-slot__rows" aria-hidden="true">
+          {Array.from({ length: 8 }).map((_, i) => (
+            <span className="cg-slot__row" key={i} style={{ width: `${92 - i * 6}%` }} />
+          ))}
+        </div>
+        <span className="cg-slot__note">Az Ön cége valahol a sorban.</span>
+      </div>
+      <div className="cg-slot__side cg-slot__side--answer">
+        <span className="cg-slot__label">Egy válasz a ChatGPT-ben</span>
+        <div className="cg-slot__answer" aria-hidden="true">
+          <span className="cg-slot__row" style={{ width: "88%" }} />
+          <span className="cg-slot__row" style={{ width: "72%" }} />
+          <div className="cg-slot__card">
+            <span className="cg-slot__card-tag">Szponzorált</span>
+            <span className="cg-slot__card-logo">A.</span>
+            <span className="cg-slot__card-lines">
+              <span className="cg-slot__row cg-slot__row--strong" style={{ width: "54%" }} />
+              <span className="cg-slot__row" style={{ width: "84%" }} />
+            </span>
+          </div>
+        </div>
+        <span className="cg-slot__note">Az Ön cége az egyetlen ajánlott.</span>
+      </div>
+    </figure>
+  );
+}
+
 export default function PositioningChatgpt() {
   return (
     <section className="wpr cg-why" id="miert-most">
@@ -50,7 +85,8 @@ export default function PositioningChatgpt() {
           <span className="dash__eyebrow cg-eyebrow-txt">Miért most</span>
           <h2 className="dash__h">Új felület, kevés hirdető, kész vásárlási szándék.</h2>
         </div>
-        <div className="cg-why__grid reveal" data-delay="1">
+        <AnswerSlot />
+        <div className="cg-why__grid reveal" data-delay="2">
           {ARGS.map((l) => (
             <div className="cg-why__card" style={{ ["--c" as string]: l.c }} key={l.n}>
               <span className="cg-why__n">{l.n}</span>
