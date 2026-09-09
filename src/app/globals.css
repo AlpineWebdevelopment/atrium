@@ -3508,12 +3508,11 @@ html.dark { --viz-purple-soft: #1d1b33; }
   color: var(--t-slate);
   font-family: var(--font-body); font-weight: 600; font-size: 12px; letter-spacing: 0.02em;
 }
-.cg-eyebrow i { width: 7px; height: 7px; border-radius: 50%; background: var(--t-slate); animation: atr-pulse 1.4s ease-in-out infinite; }
-/* the promise phrase gets a soft wash and a rule, not a highlighter block */
+.cg-eyebrow i { width: 7px; height: 7px; border-radius: 50%; background: var(--t-slate); animation: atr-pulse 1.4s ease-in-out infinite; flex-shrink: 0; }
+/* the promise phrase is marked with a rule only — a filled block shouted */
 .cg-hl {
-  padding: 0 0.08em; border-radius: 3px;
-  background: color-mix(in srgb, var(--t-sage) 20%, transparent);
-  box-shadow: inset 0 -2px 0 0 color-mix(in srgb, var(--t-sage) 70%, transparent);
+  background: none;
+  box-shadow: inset 0 -0.1em 0 0 color-mix(in srgb, var(--t-sage) 75%, transparent);
 }
 .cg-hero__pills { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 10px; margin: 24px 0 0; padding: 0; }
 .cg-hero__pills li {
