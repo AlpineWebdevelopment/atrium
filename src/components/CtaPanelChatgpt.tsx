@@ -1,18 +1,16 @@
-/* The CTA panel, used twice on /chatgpt-hirdetes: once directly under
-   the hero as the early conversion point, and once at the end as the close.
-   Same shape, different copy, so the second one does not read as a repeat. */
+/* The closing CTA panel on /chatgpt-hirdetes. The offer itself is stated in
+   the hero, so this one only has to ask for the meeting. */
 
 type Props = {
   id: string;
   eyebrow: string;
   title: string;
   body: string;
-  variant?: "top" | "end";
 };
 
-export default function CtaPanelChatgpt({ id, eyebrow, title, body, variant = "end" }: Props) {
+export default function CtaPanelChatgpt({ id, eyebrow, title, body }: Props) {
   return (
-    <section className={"final-cta cg-final" + (variant === "top" ? " cg-final--top" : "")} id={id}>
+    <section className="final-cta cg-final" id={id}>
       <div className="wrap">
         <div className="final-cta__panel cg-final__panel reveal">
           <span className="dash__eyebrow cg-eyebrow-txt">{eyebrow}</span>

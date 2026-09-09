@@ -28,6 +28,9 @@ export default function HeroChatgpt() {
               <li style={{ ["--c" as string]: "var(--t-sage)" }}><i />Kérdéstérkép az Ön szakmájából</li>
               <li style={{ ["--c" as string]: "var(--t-clay)" }}><i />A fiók és a céloldal az Öné marad</li>
             </ul>
+            <p className="cg-hero__terms">
+              Nincs kötelezettség és nincs sürgetés. A kérdéstérkép után Ön dönti el, indítjuk-e.
+            </p>
           </div>
 
           {/* ChatGPT-style mockup: question → answer → sponsored card */}

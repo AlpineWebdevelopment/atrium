@@ -16,7 +16,8 @@ import { FAQS } from "@/lib/chatgptHirdetes";
    question research, offer, ads, landing page, CRM, reporting. Automating
    the leads themselves is separate work, and the page says so. The
    platform facts and the honesty note live in the FAQ rather than in
-   sections of their own.
+   sections of their own, and the offer is folded into the hero rather
+   than repeated in a panel under it.
    The offer panel sits directly under the hero as well as at the end, so a
    visitor who reads only the top of the page still sees what they get.
    Indexable, in the sitemap, FAQPage schema below. */
@@ -53,15 +54,8 @@ export default function ChatgptHirdetesPage() {
       <ScrollReveal />
       <NavChatgpt />
       <HeroChatgpt />
-      <CtaPanelChatgpt
-        id="ajanlat"
-        variant="top"
-        eyebrow="AI növekedési partner szolgáltató cégeknek"
-        title="Az Ön szakmájában ma még üres a válasz alatti hely. Foglalja el, mielőtt más teszi."
-        body="Ingyenes, 30 perces beszélgetés. Utána megkapja a kérdéstérképet: a valós kérdéseket, amelyekre az Ön cége szóba jöhet, és azt, mit építenénk rájuk. Ön dönti el, indítjuk-e."
-      />
-      <ProductChatgpt />
       <CompareChatgpt />
+      <ProductChatgpt />
       <PositioningChatgpt />
       <HowWeStartChatgpt />
       <FaqChatgpt />

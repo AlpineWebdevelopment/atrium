@@ -3332,6 +3332,10 @@ html.dark { --viz-purple-soft: #1d1b33; }
   font-family: var(--font-body); font-weight: 500; font-size: 13px; color: var(--ink-90);
 }
 .cg-hero__pills i { width: 7px; height: 7px; border-radius: 50%; background: var(--c); flex-shrink: 0; }
+.cg-hero__terms {
+  margin: 16px auto 0; max-width: 520px;
+  font-family: var(--font-body); font-size: 13.5px; line-height: 1.55; color: var(--stone);
+}
 
 /* ChatGPT mockup */
 .cg-canvas { box-shadow: 0 30px 60px -46px rgba(1,14,30,0.4); }
