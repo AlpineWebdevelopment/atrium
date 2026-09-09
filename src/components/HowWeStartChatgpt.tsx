@@ -10,8 +10,8 @@ const STEPS = [
   },
   {
     n: "02",
-    t: "48 órán belül kampányterv.",
-    d: "A valós kérdések listája, három ajánlat-koncepció kész szövegekkel, a céloldal vázlata, és az ár az Ön számaiból. Kötelezettség nélkül; Ön dönti el, indítjuk-e.",
+    t: "A kérdéstérkép.",
+    d: "Megkapja a valós kérdések listáját az Ön szakmájából, mellé három ajánlat-koncepciót kész szövegekkel, a céloldal vázlatát és az árat az Ön számaiból. Kötelezettség nélkül; Ön dönti el, indítjuk-e.",
     ico: <g><path d="M13.5 3.5H7a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9z" /><path d="M13.5 3.5V9H19" /><path d="M8.5 13h7M8.5 16.5h4.5" /></g>,
   },
   {

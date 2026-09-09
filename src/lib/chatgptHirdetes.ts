@@ -63,7 +63,7 @@ export const FAQS: FaqItem[] = [
   },
   {
     q: "Mennyi idő, amíg elindul?",
-    a: "A beszélgetés után 48 órán belül megkapja a kampánytervet: a kérdéseket, amelyekre az Ön cége szóba jön, három ajánlat-koncepciót szöveggel, és a céloldal vázlatát. Ha Ön jóváhagyja, a hirdetési fiók létrehozása és az OpenAI cégellenőrzése néhány nap, a céloldal és a kampány ezzel párhuzamosan készül.",
+    a: "A beszélgetés után néhány napon belül megkapja a kérdéstérképet: a kérdéseket, amelyekre az Ön cége szóba jön, három ajánlat-koncepciót szöveggel, és a céloldal vázlatát. Ha Ön jóváhagyja, a hirdetési fiók létrehozása és az OpenAI cégellenőrzése néhány nap, a céloldal és a kampány ezzel párhuzamosan készül.",
     sources: ["account"],
   },
   {

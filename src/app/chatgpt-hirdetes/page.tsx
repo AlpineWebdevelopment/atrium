@@ -56,7 +56,7 @@ export default function ChatgptHirdetesPage() {
         variant="top"
         eyebrow="AI növekedési partner szolgáltató cégeknek"
         title="Az Ön szakmájában ma még üres a válasz alatti hely. Foglalja el, mielőtt más teszi."
-        body="Ingyenes, 30 perces beszélgetés. Utána 48 órán belül kampányterv három koncepcióval, a céloldal vázlatával és az árral, az Ön számaiból. Ön dönti el, indítjuk-e."
+        body="Ingyenes, 30 perces beszélgetés. Utána megkapja a kérdéstérképet: a valós kérdéseket, amelyekre az Ön cége szóba jöhet, és azt, mit építenénk rájuk. Ön dönti el, indítjuk-e."
       />
       <WhatChangedChatgpt />
       <ProductChatgpt />
@@ -69,7 +69,7 @@ export default function ChatgptHirdetesPage() {
         id="kapcsolat"
         eyebrow="Következő lépés"
         title="Nézzük meg, milyen kérdésekre jönne szóba az Ön cége."
-        body="A beszélgetésen végigvesszük, hol tart ma az érdeklődő-szerzése, és mit építenénk rá. Ha az Ön szakmája és régiója szabad, 48 órán belül megkapja a kampánytervet."
+        body="A beszélgetésen végigvesszük, hol tart ma az érdeklődő-szerzése, és mit építenénk rá. Ha az Ön szakmája és régiója szabad, elkészítjük a kérdéstérképet, és Ön eldönti, indítjuk-e."
       />
       <Footer />
     </div>

@@ -9,7 +9,7 @@ export default function HeroChatgpt() {
       <div className="wrap">
         <div className="hero__grid">
           <div className="hero__content reveal reveal--instant visible">
-            <span className="hero__eyebrow cg-eyebrow"><i /> Már él Magyarországon · még szabad a hely</span>
+            <span className="hero__eyebrow cg-eyebrow"><i /> Egy szakma, egy cég · az Öné még szabad</span>
             <h1 className="hero__title cg-hero__title">
               Amikor valaki a ChatGPT-től kérdezi, kit hívjon, <span className="cg-hl">az Ön cégét ajánlja.</span>
             </h1>
@@ -25,8 +25,8 @@ export default function HeroChatgpt() {
             </div>
             <ul className="cg-hero__pills" aria-label="Amit az első beszélgetés után kap">
               <li style={{ ["--c" as string]: "var(--t-slate)" }}><i />Ingyenes, 30 perces beszélgetés</li>
-              <li style={{ ["--c" as string]: "var(--t-sage)" }}><i />48 órán belül kampányterv</li>
-              <li style={{ ["--c" as string]: "var(--t-clay)" }}><i />Egy szakmában, egy régióban egy cég</li>
+              <li style={{ ["--c" as string]: "var(--t-sage)" }}><i />Kérdéstérkép az Ön szakmájából</li>
+              <li style={{ ["--c" as string]: "var(--t-clay)" }}><i />A fiók és a céloldal az Öné marad</li>
             </ul>
           </div>
 
