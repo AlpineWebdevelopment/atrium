@@ -1,7 +1,13 @@
 /* Hero for /chatgpt-hirdetes — Atrium as the AI growth partner that runs a
    customer acquisition system on ChatGPT ads. Left: the promise with an
    underlined phrase and the one CTA. Right: a ChatGPT-style mockup of the
-   sponsored card under an answer, tinted so the ad reads as the ad. */
+   sponsored card under an answer, tinted so the ad reads as the ad.
+
+   Under the mockup, a strip explains what the reader has just looked at:
+   what triggers the ad, who sees it, where it sits, and what the platform
+   itself costs. Those facts otherwise only existed inside collapsed FAQ
+   answers, so a visitor who did not click never learned how any of it
+   works. Every figure here is OpenAI's own, stated without embellishment. */
 
 export default function HeroChatgpt() {
   return (
@@ -69,6 +75,25 @@ export default function HeroChatgpt() {
               <div className="cg-chat__foot">A hirdetés nem változtatja meg a választ. A kérdés pillanatában az Ön cége áll ott.</div>
             </div>
           </div>
+
+          <dl className="cg-how-works">
+            <div className="cg-how-works__item">
+              <dt>Mi hívja elő</dt>
+              <dd>A beszélgetés témája, nem kulcsszó. Európában induláskor nincs személyre szabás: a kontextus, a nyelv és a hozzávetőleges hely számít.</dd>
+            </div>
+            <div className="cg-how-works__item">
+              <dt>Ki látja</dt>
+              <dd>A bejelentkezett, ingyenes és Go csomagos felhasználók. A Plus, Pro és Enterprise előfizetők hirdetés nélkül használják a ChatGPT-t.</dd>
+            </div>
+            <div className="cg-how-works__item">
+              <dt>Hol jelenik meg</dt>
+              <dd>A válasz alatt, szponzoráltként megjelölve, címmel, rövid leírással, képpel és linkkel. Magát a választ nem befolyásolja.</dd>
+            </div>
+            <div className="cg-how-works__item">
+              <dt>Mibe kerül a felület</dt>
+              <dd>A napi minimum forintos fiókban <span className="cg-how-works__num">5 500 Ft</span>. A hirdetési fiók az Öné, a költést közvetlenül az OpenAI-nak fizeti.</dd>
+            </div>
+          </dl>
         </div>
       </div>
     </section>
