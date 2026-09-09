@@ -23,6 +23,9 @@ const ICONS: Record<string, React.ReactNode> = {
   qualify: <g><circle cx="12" cy="12" r="8.5" /><path d="M8.5 12.2l2.5 2.5 4.5-5.4" /></g>,
   calendar: <g><rect x="3.5" y="5" width="17" height="15" rx="2" /><path d="M16 3v4M8 3v4M3.5 10h17" /></g>,
   refresh: <g><path d="M3.5 12a8.5 8.5 0 1 0 8.5-8.5 9.2 9.2 0 0 0-6.4 2.6L3.5 8" /><path d="M3.5 3.5V8h4.5" /></g>,
+  bell: <g><path d="M18 8.5a6 6 0 0 0-12 0c0 6.5-2.5 8.5-2.5 8.5h17S18 15 18 8.5" /><path d="M13.7 20.5a2 2 0 0 1-3.4 0" /></g>,
+  users: <g><circle cx="9" cy="8" r="3.4" /><path d="M2.5 20v-1a5 5 0 0 1 5-5h3a5 5 0 0 1 5 5v1" /><circle cx="17.6" cy="9" r="2.4" /><path d="M21.5 20v-.6a4 4 0 0 0-3-3.6" /></g>,
+  star: <path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L3.5 9.7l5.9-.9z" />,
 };
 
 /* the base — every engagement includes these */
@@ -37,12 +40,16 @@ const BASE = [
   { ic: "report",   c: "var(--t-teal)",  t: "Mérés, riport, havi egyeztetés", d: "Havonta egy tiszta kép: hány kérdésre jelent meg, hány érdeklődő, hány ügyfél, mennyiért. És egy beszélgetés arról, mit változtatunk." },
 ];
 
-/* the automation layer — separate work, scoped in the meeting */
+/* the automation layer — separate work, scoped in the meeting. Not limited
+   to lead handling: anything that moves acquisition or selling forward. */
 const EXTRA = [
   { ic: "callback", t: "Visszahívás percek alatt", d: "A beérkező érdeklődőt a rendszer felhívja, magyarul, az Ön cége nevében." },
   { ic: "qualify",  t: "Előminősítés",             d: "Kikérdezi a projektet, és eldönti, komoly munka-e, mielőtt Ön időt tölt vele." },
   { ic: "calendar", t: "Időpontfoglalás",          d: "Közvetlenül az Ön meglévő naptárába, visszaigazolással." },
   { ic: "refresh",  t: "Utánkövetés",              d: "Ha nincs válasz, más csatornán és más ütemben próbál újra." },
+  { ic: "bell",     t: "Elmaradt időpontok",       d: "Ami kiesett a naptárból, arra a rendszer időben rákérdez, és újat egyeztet." },
+  { ic: "users",    t: "Régi ügyfelek",            d: "Az elcsendesedett ügyfeleket megkeresi, mielőtt máshol kötnének ki." },
+  { ic: "star",     t: "Értékelés kérése",         d: "Az elégedett ügyfelet nyilvános értékeléshez vezeti, az elégedetlent zárt csatornába." },
 ];
 
 export default function ProductChatgpt() {
@@ -74,9 +81,9 @@ export default function ProductChatgpt() {
         <div className="cg-extra reveal" data-delay="2">
           <div className="cg-extra__head">
             <span className="cg-extra__label">Ezen felül</span>
-            <h3 className="cg-extra__h">Az érdeklődők automatikus kezelése külön munka.</h3>
+            <h3 className="cg-extra__h">Az automatizálás külön munka.</h3>
             <p className="cg-extra__p">
-              A fentiek a ChatGPT-hirdetés köré épülő rendszer. Ha azt szeretné, hogy a beérkező érdeklődőt ne Önnek kelljen visszahívnia, azt is megépítjük, de az külön feladat, és nem tesszük bele automatikusan. A beszélgetésen derül ki, van-e értelme az Ön cégénél.
+              A fentiek a ChatGPT-hirdetés köré épülő rendszer. Ezen túl bármilyen automatizálást megépítünk, ami az Ön cégénél az ügyfélszerzést vagy az értékesítést előbbre viszi. Ez külön feladat, nem tesszük bele automatikusan; a beszélgetésen derül ki, mi éri meg valóban.
             </p>
           </div>
           <div className="cg-extra__grid">
@@ -89,6 +96,10 @@ export default function ProductChatgpt() {
                 <span className="cg-extra__d">{e.d}</span>
               </div>
             ))}
+            <div className="cg-extra__item cg-extra__item--note">
+              <span className="cg-extra__t">És ami itt nem szerepel.</span>
+              <span className="cg-extra__d">Ez nem lista, amiből választani kell. Ami az Ön cégénél hozza az ügyfelet, azt építjük meg.</span>
+            </div>
           </div>
         </div>
 
