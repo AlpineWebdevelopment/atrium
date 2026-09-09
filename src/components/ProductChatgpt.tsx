@@ -26,6 +26,7 @@ const ICONS: Record<string, React.ReactNode> = {
   bell: <g><path d="M18 8.5a6 6 0 0 0-12 0c0 6.5-2.5 8.5-2.5 8.5h17S18 15 18 8.5" /><path d="M13.7 20.5a2 2 0 0 1-3.4 0" /></g>,
   users: <g><circle cx="9" cy="8" r="3.4" /><path d="M2.5 20v-1a5 5 0 0 1 5-5h3a5 5 0 0 1 5 5v1" /><circle cx="17.6" cy="9" r="2.4" /><path d="M21.5 20v-.6a4 4 0 0 0-3-3.6" /></g>,
   star: <path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L3.5 9.7l5.9-.9z" />,
+  phone: <path d="M21 16.9v2.6a1.8 1.8 0 0 1-2 1.8 18.4 18.4 0 0 1-8-2.9 18.1 18.1 0 0 1-5.6-5.6 18.4 18.4 0 0 1-2.9-8.1A1.8 1.8 0 0 1 4.3 3h2.6a1.8 1.8 0 0 1 1.8 1.6c.1.9.3 1.7.6 2.5a1.8 1.8 0 0 1-.4 1.9L7.8 10.2a14.6 14.6 0 0 0 5.5 5.5l1.2-1.1a1.8 1.8 0 0 1 1.9-.4c.8.3 1.6.5 2.5.6A1.8 1.8 0 0 1 21 16.9z" />,
 };
 
 /* the base — every engagement includes these */
@@ -43,7 +44,8 @@ const BASE = [
 /* the automation layer — separate work, scoped in the meeting. Not limited
    to lead handling: anything that moves acquisition or selling forward. */
 const EXTRA = [
-  { ic: "callback", t: "Visszahívás percek alatt", d: "A beérkező érdeklődőt a rendszer felhívja, magyarul, az Ön cége nevében." },
+  { ic: "phone",    t: "Hívásfogadás",              d: "Magyar nyelvű AI hangügynök veszi fel a telefont este, hétvégén, és amikor mindenki más vonalban van." },
+  { ic: "callback", t: "Visszahívás percek alatt", d: "A beérkező érdeklődőt az AI hangügynök hívja vissza, magyarul, az Ön cége nevében." },
   { ic: "qualify",  t: "Előminősítés",             d: "Kikérdezi a projektet, és eldönti, komoly munka-e, mielőtt Ön időt tölt vele." },
   { ic: "calendar", t: "Időpontfoglalás",          d: "Közvetlenül az Ön meglévő naptárába, visszaigazolással." },
   { ic: "refresh",  t: "Utánkövetés",              d: "Ha nincs válasz, más csatornán és más ütemben próbál újra." },
@@ -83,7 +85,7 @@ export default function ProductChatgpt() {
             <span className="cg-extra__label">Ezen felül</span>
             <h3 className="cg-extra__h">Az automatizálás külön munka.</h3>
             <p className="cg-extra__p">
-              A fentiek a ChatGPT-hirdetés köré épülő rendszer. Ezen túl bármilyen automatizálást megépítünk, ami az Ön cégénél az ügyfélszerzést vagy az értékesítést előbbre viszi. Ez külön feladat, nem tesszük bele automatikusan; a beszélgetésen derül ki, mi éri meg valóban.
+              A fentiek a ChatGPT-hirdetés köré épülő rendszer. Ezen túl bármilyen automatizálást megépítünk, ami az Ön cégénél az ügyfélszerzést vagy az értékesítést előbbre viszi, a magyar nyelvű AI hangügynöktől a szöveges utánkövetésig. Ez külön feladat, nem tesszük bele automatikusan; a beszélgetésen derül ki, mi éri meg valóban.
             </p>
           </div>
           <div className="cg-extra__grid">
@@ -96,11 +98,10 @@ export default function ProductChatgpt() {
                 <span className="cg-extra__d">{e.d}</span>
               </div>
             ))}
-            <div className="cg-extra__item cg-extra__item--note">
-              <span className="cg-extra__t">És ami itt nem szerepel.</span>
-              <span className="cg-extra__d">Ez nem lista, amiből választani kell. Ami az Ön cégénél hozza az ügyfelet, azt építjük meg.</span>
-            </div>
           </div>
+          <p className="cg-extra__foot">
+            Ez nem lista, amiből választani kell. Ami az Ön cégénél hozza az ügyfelet, azt építjük meg, akkor is, ha itt nem szerepel.
+          </p>
         </div>
 
         <p className="sys__howline reveal cg-howline" data-delay="3">
