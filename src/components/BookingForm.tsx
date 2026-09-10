@@ -26,7 +26,17 @@ interface Slot { start: string; label: string; busy?: boolean; }
 interface Day { date: string; weekday: number; slots: Slot[]; }
 interface Availability { timezone: string; slot_duration_minutes: number; days: Day[]; }
 
-export default function BookingForm({ niche = "root" }: { niche?: string }) {
+export default function BookingForm({
+  niche = "root",
+  backHref = "/",
+  backLabel = "Vissza a főoldalra",
+}: {
+  niche?: string;
+  /* Where the confirmation screen sends the visitor. A landing with its own
+     chrome points back at itself rather than at the site root. */
+  backHref?: string;
+  backLabel?: string;
+}) {
   const [loading, setLoading] = useState(true);
   const [avail, setAvail] = useState<Availability | null>(null);
   const [loadError, setLoadError] = useState(false);
@@ -135,7 +145,7 @@ export default function BookingForm({ niche = "root" }: { niche?: string }) {
         <span className="bk-success-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg></span>
         <h2 className="bk-success-h">Időpont lefoglalva.</h2>
         <p className="bk-success-p">{chosenLabel ? `${chosenLabel} — ` : ""}hamarosan felvesszük Önnel a kapcsolatot a megerősítéshez.</p>
-        <a href="/" className="btn btn--ghost" style={{ marginTop: "22px" }}>Vissza a főoldalra</a>
+        <a href={backHref} className="btn btn--ghost" style={{ marginTop: "22px" }}>{backLabel}</a>
       </div>
     );
   }

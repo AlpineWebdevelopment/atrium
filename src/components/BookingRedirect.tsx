@@ -3,6 +3,10 @@ import { useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { isNicheSlug } from "@/lib/niches";
 
+/* Landings that ship their own booking page, so the visitor keeps that
+   landing's header and footer instead of dropping into the site-wide one. */
+const OWN_BOOKING_PAGE = ["chatgpt-hirdetes"];
+
 /* Every "Foglaljon időpontot" CTA (button or link) and every #kapcsolat link
    navigates to the /foglalas booking page. Mounted once in the root layout so
    it works on every page — no need to give each CTA its own href.
@@ -18,12 +22,16 @@ export default function BookingRedirect() {
 
   useEffect(() => {
     const go = () => {
-      if (pathname === "/foglalas") return;
-      const params = new URLSearchParams(window.location.search);
       const slug = pathname.split("/")[1];
-      if (isNicheSlug(slug) && !params.has("from")) params.set("from", slug);
+      const ownPage = OWN_BOOKING_PAGE.includes(slug);
+      const target = ownPage ? `/${slug}/foglalas` : "/foglalas";
+      if (pathname === target || pathname === "/foglalas") return;
+      const params = new URLSearchParams(window.location.search);
+      // A landing with its own booking page states the niche in that route, so
+      // only the shared /foglalas needs to be told where the visitor came from.
+      if (!ownPage && isNicheSlug(slug) && !params.has("from")) params.set("from", slug);
       const qs = params.toString();
-      router.push(qs ? `/foglalas?${qs}` : "/foglalas");
+      router.push(qs ? `${target}?${qs}` : target);
     };
     function onClick(e: MouseEvent) {
       if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey) return;

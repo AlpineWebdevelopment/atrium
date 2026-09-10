@@ -2,7 +2,10 @@
 
    Same rule as the header: no route out of this landing except the booking
    flow. The section list stays in-page and the only external links are the
-   two legal documents, which have to be reachable. */
+   two legal documents, which have to be reachable.
+
+   `base` is empty on the landing and "/chatgpt-hirdetes" on the booking
+   route, where the anchors have to travel back to the landing. */
 
 const SECTIONS = [
   { href: "#rendszer-teljes", label: "Mit csinálunk" },
@@ -12,19 +15,21 @@ const SECTIONS = [
   { href: "#gyik", label: "Gyakori kérdések" },
 ];
 
-export default function FooterChatgpt() {
+export default function FooterChatgpt({ base = "" }: { base?: string }) {
+  const onLanding = base === "";
+  const to = (hash: string) => `${base}${hash}`;
   return (
     <footer className="footer footer--cg">
       <div className="wrap">
         <div className="footer__top">
           <div className="footer__brand-col">
-            <a href="#rendszer" className="footer__brand" aria-label="Atrium — az oldal tetejére">
+            <a href={onLanding ? "#rendszer" : base} className="footer__brand" aria-label={onLanding ? "Atrium — az oldal tetejére" : "Atrium — vissza az oldalra"}>
               Atrium<span className="dot" aria-hidden="true" />
             </a>
             <p className="footer__sub">
               AI növekedési partner szolgáltató cégeknek. Beállítjuk, hogy az Ön szakmájában az Ön cége álljon a ChatGPT válasza alatt, és megépítjük hozzá a teljes ügyfélszerző rendszert.
             </p>
-            <a href="#kapcsolat" className="btn footer__cta cg-btn">Foglaljon időpontot.</a>
+            {onLanding && <a href="#kapcsolat" className="btn footer__cta cg-btn">Foglaljon időpontot.</a>}
           </div>
 
           <div className="footer__links">
@@ -32,7 +37,7 @@ export default function FooterChatgpt() {
               <h4>Az oldalon</h4>
               <ul>
                 {SECTIONS.map((s) => (
-                  <li key={s.href}><a href={s.href}>{s.label}</a></li>
+                  <li key={s.href}><a href={to(s.href)}>{s.label}</a></li>
                 ))}
               </ul>
             </div>

@@ -4,7 +4,11 @@
    or at the booking flow. The wordmark scrolls to the top instead of going
    to the root, and there is no "Főoldal" or blog entry, so a visitor who
    arrived from a ChatGPT ad cannot wander off into the rest of the site.
-   The global Nav suppresses itself on this route. */
+   The global Nav suppresses itself on these routes.
+
+   `base` is empty on the landing itself and "/chatgpt-hirdetes" on the
+   booking route, where the anchors have to travel back to the landing and
+   the CTA would be pointless — the visitor is already booking. */
 "use client";
 import { useEffect, useState } from "react";
 
@@ -16,7 +20,9 @@ const LINKS = [
   { href: "#gyik", label: "GYIK" },
 ];
 
-export default function NavChatgpt() {
+export default function NavChatgpt({ base = "" }: { base?: string }) {
+  const onLanding = base === "";
+  const to = (hash: string) => `${base}${hash}`;
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -30,16 +36,16 @@ export default function NavChatgpt() {
     <header className={`nav nav--newtype nav--cg${scrolled ? " nav--scrolled" : ""}`}>
       <div className="wrap">
         <div className="nav__in">
-          <a href="#rendszer" className="nav__brand" aria-label="Atrium — az oldal tetejére">
+          <a href={onLanding ? "#rendszer" : base} className="nav__brand" aria-label={onLanding ? "Atrium — az oldal tetejére" : "Atrium — vissza az oldalra"}>
             Atrium<span className="dot" aria-hidden="true" />
           </a>
           <nav className="nav__links" aria-label="Oldalszakaszok">
             {LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="nav__link">{l.label}</a>
+              <a key={l.href} href={to(l.href)} className="nav__link">{l.label}</a>
             ))}
           </nav>
           <div className="nav__right">
-            <a href="#kapcsolat" className="btn nav__cta cg-btn">Foglaljon időpontot.</a>
+            {onLanding && <a href="#kapcsolat" className="btn nav__cta cg-btn">Foglaljon időpontot.</a>}
             <button
               className="nav__burger"
               aria-label={open ? "Menü bezárása" : "Menü megnyitása"}
@@ -57,12 +63,14 @@ export default function NavChatgpt() {
           <div className="wrap">
             <nav className="nav__mobile-links" aria-label="Oldalszakaszok, mobil">
               {LINKS.map((l) => (
-                <a key={l.href} href={l.href} className="nav__mobile-link" onClick={() => setOpen(false)}>{l.label}</a>
+                <a key={l.href} href={to(l.href)} className="nav__mobile-link" onClick={() => setOpen(false)}>{l.label}</a>
               ))}
             </nav>
-            <a href="#kapcsolat" className="btn nav__mobile-cta cg-btn" onClick={() => setOpen(false)}>
-              Foglaljon időpontot.
-            </a>
+            {onLanding && (
+              <a href="#kapcsolat" className="btn nav__mobile-cta cg-btn" onClick={() => setOpen(false)}>
+                Foglaljon időpontot.
+              </a>
+            )}
           </div>
         </div>
       </div>
