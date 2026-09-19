@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
@@ -8,7 +9,7 @@ import { PostHeader, Faq, Sources } from "@/components/blog/Blocks";
 import { Cta } from "@/components/blog/Components";
 import { ArticleJsonLd } from "@/components/blog/JsonLd";
 import RelatedPosts from "@/components/blog/RelatedPosts";
-import { UNIVERSAL_NICHES } from "@/lib/niches";
+import { UNIVERSAL_NICHES, POST_NICHE_LANDING } from "@/lib/niches";
 
 const SITE_URL = "https://atriumscaling.com";
 
@@ -31,7 +32,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const fm = post.frontmatter;
   const url = `${SITE_URL}/blog/${slug}`;
   return {
-    title: fm.metaTitle,
+    // metaTitle already ends in "| Atrium", so skip the layout's "%s · Atrium" template.
+    title: { absolute: fm.metaTitle },
     description: fm.metaDescription,
     alternates: { canonical: url },
     openGraph: {
@@ -52,6 +54,7 @@ export default async function BlogPost({ params }: Params) {
   if (!post) notFound();
 
   const { frontmatter: fm, content } = post;
+  const landing = POST_NICHE_LANDING[fm.niche];
 
   // Related-post pools. For a niche post: same-niche partners + universal posts.
   // For a universal post, "same niche" collapses to the universal pool, so the
@@ -88,6 +91,15 @@ export default async function BlogPost({ params }: Params) {
             options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
           />
         </div>
+
+        {landing ? (
+          <p className="mt-8 text-[15px] leading-[1.6] text-stone">
+            Hogyan működik ez a gyakorlatban?{" "}
+            <Link href={landing.href} className="text-ink underline decoration-line underline-offset-2 hover:decoration-ink">
+              {landing.anchor}
+            </Link>
+          </p>
+        ) : null}
 
         <Cta href={fm.ctaHref}>{fm.ctaLabel}</Cta>
         <Faq items={fm.faq} />

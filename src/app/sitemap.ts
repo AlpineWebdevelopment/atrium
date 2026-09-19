@@ -11,9 +11,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: p.frontmatter.pillar ? 0.8 : 0.6,
   }));
 
+  // Indexable landing pages. /kormos and /szepsegszalon are left out on purpose:
+  // /szepsegipar supersedes them (see CHANGES.md SZ-R7).
+  const landings = [
+    "fogaszat",
+    "allatorvos",
+    "fizioterapia",
+    "szepsegipar",
+    "epitoipar",
+    "klima",
+    "napelem",
+    "gyors-lead-valasz",
+  ].map((slug) => ({
+    url: `${SITE_URL}/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.9,
+  }));
+
   return [
     { url: SITE_URL, lastModified: new Date(), priority: 1 },
     { url: `${SITE_URL}/chatgpt-hirdetes`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.9 },
+    ...landings,
     { url: `${SITE_URL}/blog`, lastModified: new Date(), priority: 0.7 },
     { url: `${SITE_URL}/karrier`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.5 },
     { url: `${SITE_URL}/adatvedelem`, lastModified: new Date(), changeFrequency: "yearly" as const, priority: 0.3 },

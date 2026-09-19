@@ -14,7 +14,8 @@ import ScrollReveal from "@/components/ScrollReveal";
 /* AV-C1: CustomSolutions excluded — custom-dev taxonomy is off-strategy for a niche launch page */
 
 export const metadata: Metadata = {
-  title: "Atrium — Állatorvosi rendelők AI-alapú értékesítési rendszere",
+  alternates: { canonical: "/allatorvos" },
+  title: "Állatorvosi rendelők AI-alapú értékesítési rendszere",
   description:
     "Magyar nyelvű AI-rendszer állatorvosi rendelőknek: minden hívást fogad, a sürgős eseteket rangsorolja, a rutin időpontokat lefoglalja, és visszahívja a pácienseket az oltás és szűrés esedékességekor.",
 };

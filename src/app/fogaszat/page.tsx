@@ -14,7 +14,8 @@ import ScrollReveal from "@/components/ScrollReveal";
 /* FG-C1: CustomSolutions excluded — custom-dev taxonomy is off-strategy for a niche launch page */
 
 export const metadata: Metadata = {
-  title: "Atrium — Fogászati rendelők AI-alapú értékesítési rendszere",
+  alternates: { canonical: "/fogaszat" },
+  title: "Fogászati rendelők AI-alapú értékesítési rendszere",
   description:
     "Magyar nyelvű AI-rendszer fogászati rendelőknek: minden hívást fogad, a sürgős eseteket rangsorolja, a rutin időpontokat lefoglalja, és visszahívja a pácienseket a kontroll és a higiéniai kezelés esedékességekor.",
 };

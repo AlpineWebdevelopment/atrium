@@ -15,7 +15,8 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
-  title: "Atrium — Körmösök és műkörömépítők AI-alapú értékesítési rendszere",
+  alternates: { canonical: "/kormos" },
+  title: "Körmösök és műkörömépítők AI-alapú értékesítési rendszere",
   description:
     "Magyar nyelvű AI-rendszer körmösöknek és műkörömépítőknek: teli naptár, kevesebb no-show, automatikus vendégvisszahívás — a háttérben, az Ön naptárához kötve.",
 };

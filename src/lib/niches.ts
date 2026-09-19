@@ -42,6 +42,18 @@ export const NICHES: NicheConfig[] = [
 
 export const NICHE_SLUGS = NICHES.map((n) => n.slug);
 
+// Post `niche:` label → the landing page a post links to, with keyword anchor
+// text. Explicit rather than derived from NICHES, because Szépségipar maps to
+// several landings and must point at /szepsegipar, the canonical one.
+export const POST_NICHE_LANDING: Record<string, { href: string; anchor: string }> = {
+  "Állatorvos": { href: "/allatorvos", anchor: "AI értékesítési rendszer állatorvosi rendelőknek" },
+  "Építőipar": { href: "/epitoipar", anchor: "AI értékesítési rendszer kivitelező cégeknek" },
+  "Fogászat": { href: "/fogaszat", anchor: "AI értékesítési rendszer fogászati rendelőknek" },
+  "Klíma": { href: "/klima", anchor: "AI értékesítési rendszer klímaszervizeknek" },
+  "Napelem": { href: "/napelem", anchor: "AI értékesítési rendszer napelemes cégeknek" },
+  "Szépségipar": { href: "/szepsegipar", anchor: "Foglalási asszisztens szépségszalonoknak" },
+};
+
 export function getNiche(slug: string): NicheConfig | undefined {
   return NICHES.find((n) => n.slug === slug);
 }

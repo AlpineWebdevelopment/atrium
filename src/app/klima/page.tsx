@@ -13,7 +13,8 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
-  title: "Atrium — Klímaszervizek AI-alapú értékesítési rendszere",
+  alternates: { canonical: "/klima" },
+  title: "Klímaszervizek AI-alapú értékesítési rendszere",
   description:
     "Magyar nyelvű AI-alapú értékesítési rendszer klímaszervizeknek: a hőségcsúcson is minden hívást fogad és kvalifikál, a megfelelő emberhez irányít, minden ajánlatot utánkövet és jelzi az esedékes karbantartásokat — az egészet Ön látja.",
 };
