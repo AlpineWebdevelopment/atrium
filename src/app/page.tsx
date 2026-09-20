@@ -9,6 +9,13 @@ import WorkFlow from "@/components/WorkFlow";
 import Faq from "@/components/Faq";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import type { Metadata } from "next";
+
+// Canonical lives here, not in the root layout: a layout-level canonical is
+// inherited by every page that doesn't set its own, pointing them all at "/".
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   return (

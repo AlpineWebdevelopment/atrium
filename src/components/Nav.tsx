@@ -5,7 +5,7 @@ import { isNicheSlug } from "@/lib/niches";
 
 /* Routes that ship their own header because they are closed surfaces: every
    link stays inside the page or goes to the booking flow. */
-const STANDALONE = ["/chatgpt-hirdetes", "/chatgpt-hirdetes/foglalas"];
+const STANDALONE = ["/chatgpt-hirdetes", "/chatgpt-hirdetes/foglalas", "/direct"];
 
 /* Relative hashes so links scroll within the current page (root or niche),
    never redirecting to "/". Only sections that exist on every page. */

@@ -15,7 +15,8 @@ import ScrollReveal from "@/components/ScrollReveal";
 /* SZ-C2: QualifierCrm excluded — munkatárs vs rendszer cost-bar is false at 49k/hó fixed price */
 
 export const metadata: Metadata = {
-  title: "Atrium — Foglalási asszisztens szépségszalonoknak, körmösöknek, kozmetikusoknak",
+  alternates: { canonical: "/szepsegipar" },
+  title: "Foglalási asszisztens szépségszalonoknak, körmösöknek, kozmetikusoknak",
   description:
     "Magyar nyelvű AI-alapú foglalási rendszer: a Messengeren és Instagramon érkező foglalási üzeneteket megválaszolja, időpontot ad, és visszahozza az elmaradt vendéget. Fix árak: 39 / 49 / 99 000 Ft.",
 };

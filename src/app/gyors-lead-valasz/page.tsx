@@ -15,7 +15,8 @@ import ScrollReveal from "@/components/ScrollReveal";
 /* LR-C2: QualifierCrm excluded — cost-bar frame is niche-specific, not cross-niche */
 
 export const metadata: Metadata = {
-  title: "Atrium — Gyors lead-válasz: minden leadre válasz perceken belül",
+  alternates: { canonical: "/gyors-lead-valasz" },
+  title: "Gyors lead-válasz: minden leadre válasz perceken belül",
   description:
     "AI-alapú lead-kezelés Meta- és Google-hirdetésekhez. Azonnali válasz, kvalifikáció, foglalás — mielőtt a versenytárs megteszi. Magyar nyelvű, EU hosting.",
 };

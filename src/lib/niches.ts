@@ -21,6 +21,12 @@ export type NicheConfig = {
 // Un-niched posts: shown in the main blog AND in every niche blog index.
 // Megfelelés (compliance, e.g. GDPR) is cross-cutting — every trade needs it —
 // so it is treated as universal rather than tied to one niche.
+// Landing surfaces that are not niches but must still be recorded as the
+// booking source. /direct is a paid-traffic direct-response page: it has no
+// blog index and no niche theme, so it does not belong in NICHES, but a
+// booking that came from it should not be filed as "root".
+export const EXTRA_BOOKING_SOURCES = ["direct"];
+
 export const UNIVERSAL_NICHES = ["Általános", "Kategória", "Megfelelés"];
 
 // themeClass values mirror the wrappers on each landing page (note szepsegszalon
@@ -42,12 +48,30 @@ export const NICHES: NicheConfig[] = [
 
 export const NICHE_SLUGS = NICHES.map((n) => n.slug);
 
+// Post `niche:` label → the landing page a post links to, with keyword anchor
+// text. Explicit rather than derived from NICHES, because Szépségipar maps to
+// several landings and must point at /szepsegipar, the canonical one.
+export const POST_NICHE_LANDING: Record<string, { href: string; anchor: string }> = {
+  "Állatorvos": { href: "/allatorvos", anchor: "AI értékesítési rendszer állatorvosi rendelőknek" },
+  "Építőipar": { href: "/epitoipar", anchor: "AI értékesítési rendszer kivitelező cégeknek" },
+  "Fogászat": { href: "/fogaszat", anchor: "AI értékesítési rendszer fogászati rendelőknek" },
+  "Klíma": { href: "/klima", anchor: "AI értékesítési rendszer klímaszervizeknek" },
+  "Napelem": { href: "/napelem", anchor: "AI értékesítési rendszer napelemes cégeknek" },
+  "Szépségipar": { href: "/szepsegipar", anchor: "Foglalási asszisztens szépségszalonoknak" },
+};
+
 export function getNiche(slug: string): NicheConfig | undefined {
   return NICHES.find((n) => n.slug === slug);
 }
 
 export function isNicheSlug(slug: string | null | undefined): slug is string {
   return !!slug && NICHE_SLUGS.includes(slug);
+}
+
+// Every slug a booking may be attributed to: the niche landings plus the
+// non-niche landing surfaces listed in EXTRA_BOOKING_SOURCES.
+export function isBookingSource(slug: string | null | undefined): slug is string {
+  return isNicheSlug(slug) || (!!slug && EXTRA_BOOKING_SOURCES.includes(slug));
 }
 
 // Posts shown on a niche index: the niche's own labels + all universal posts.

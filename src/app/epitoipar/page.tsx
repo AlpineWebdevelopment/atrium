@@ -10,7 +10,8 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
-  title: "Atrium — Kivitelező cégek AI-alapú értékesítési rendszere",
+  alternates: { canonical: "/epitoipar" },
+  title: "Kivitelező cégek AI-alapú értékesítési rendszere",
   description:
     "Magyar nyelvű AI-alapú értékesítési rendszer kivitelező cégeknek: minden megkeresést fogad és kvalifikál, minden árajánlatot utánkövet, minden helyszíni felmérést beütemez — az egészet Ön látja.",
 };

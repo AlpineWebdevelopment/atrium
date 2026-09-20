@@ -130,6 +130,7 @@ const PHASES = [
       { ic: "confirm", t: "Elégedettség-ellenőrzés", s: "az átadás után rákérdez, minden rendben volt-e" },
       { ic: "star", t: "Értékelés", s: "elégedett megrendelőtől értékelést kér" },
       { ic: "refresh", t: "Reaktiválás", s: "hónapokkal később visszahozza a régit" },
+      { ic: "bars", t: "Kimutatás", s: "havonta megmutatja, mit hozott a rendszer, és hol szivárog még" },
     ],
   },
 ];
