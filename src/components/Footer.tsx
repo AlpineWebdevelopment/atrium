@@ -33,19 +33,6 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <h4>Iparágak</h4>
-              <ul>
-                <li><a href="/fogaszat">Fogászat</a></li>
-                <li><a href="/allatorvos">Állatorvos</a></li>
-                <li><a href="/fizioterapia">Fizioterápia</a></li>
-                <li><a href="/szepsegipar">Szépségipar</a></li>
-                <li><a href="/epitoipar">Építőipar</a></li>
-                <li><a href="/klima">Klíma</a></li>
-                <li><a href="/napelem">Napelem</a></li>
-                <li><a href="/gyors-lead-valasz">Gyors lead-válasz</a></li>
-              </ul>
-            </div>
-            <div>
               <h4>Legal</h4>
               <ul>
                 <li><a href="/adatvedelem">Adatvédelmi tájékoztató</a></li>
