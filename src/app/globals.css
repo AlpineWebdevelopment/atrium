@@ -1,5 +1,5 @@
 /* Atrium — Chronicle-style landing, Atrium colors + fonts only.
-   Bone / Ink / Signal / Stone. Epilogue (display) + Manrope (body) + JetBrains Mono.
+   Bone / Ink / Signal / Stone. Onest (display) + Geist (body) + Geist Mono.
    Full rebuild: faithful Chronicle layout, Atrium palette + type.
    + colorful data-viz dashboard (tabbed) & packages sections. */
 
@@ -21,9 +21,9 @@
   --line:   rgba(1, 14, 30, 0.10);
   --line-2: rgba(1, 14, 30, 0.06);
 
-  --font-display: var(--font-epilogue-src), ui-sans-serif, system-ui, sans-serif;
-  --font-body:    var(--font-manrope-src), ui-sans-serif, system-ui, sans-serif;
-  --font-mono:    var(--font-jetbrains-mono-src), ui-monospace, "SF Mono", Menlo, monospace;
+  --font-display: "Onest", ui-sans-serif, system-ui, sans-serif;
+  --font-body:    "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-mono:    "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
   --ease: cubic-bezier(0.32, 0.72, 0, 1);          /* default / drawer-style */
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);      /* strong ease-out — entrances, reveals */
@@ -43,9 +43,7 @@
 
   --font-onest: var(--font-onest-src), ui-sans-serif, system-ui, sans-serif;
   --font-geist: var(--font-geist-src), ui-sans-serif, system-ui, sans-serif;
-  --font-epilogue: var(--font-epilogue-src), ui-sans-serif, system-ui, sans-serif;
-  --font-manrope: var(--font-manrope-src), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-jetbrains-mono-src), ui-monospace, monospace;
+  --font-mono: var(--font-geist-mono-src), ui-monospace, monospace;
 }
 
 /* Base defaults for pages that don't use the landing-page CSS classes. */
@@ -3259,7 +3257,8 @@ html.dark { --viz-purple-soft: #1d1b33; }
 }
 
 /* =========================================================
-   CHATGPT HIRDETÉS v5 — muted colour on an editorial frame.
+   CHATGPT HIRDETÉS v5 — muted colour on an editorial frame
+   Bricolage Grotesque (display) + Figtree (body).
    Colour comes from a five-hue family of desaturated, warm-leaning
    tones. They appear as soft washes (12% over Bone) with the line
    icon in the full hue — never as a saturated fill behind a white
@@ -3267,6 +3266,12 @@ html.dark { --viz-purple-soft: #1d1b33; }
    Green and red stay reserved for the check and cross, where the
    colour carries meaning.
    ========================================================= */
+.page--chatgpt-hirdetes,
+.page--root,
+.nav--newtype {
+  --font-display: var(--font-bricolage-src), "Onest", ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-figtree-src), "Geist", ui-sans-serif, system-ui, sans-serif;
+}
 .page--root, .page--root .btn, .nav--newtype .btn, .nav--newtype .nav__link { font-family: var(--font-body); }
 .page--chatgpt-hirdetes {
   --t-slate: #4E86C4;
@@ -3595,6 +3600,8 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .nav--cg .nav__cta { font-size: 14px; padding: 10px 18px; }
 
 .footer--cg {
+  --font-display: var(--font-bricolage-src), "Onest", ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-figtree-src), "Geist", ui-sans-serif, system-ui, sans-serif;
   border-top: 1px solid var(--line);
 }
 .footer--cg .footer__brand { font-family: var(--font-display); font-weight: 600; }
