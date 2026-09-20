@@ -3735,18 +3735,14 @@ html.dark { --viz-purple-soft: #1d1b33; }
 
 .dr-now { padding: clamp(44px, 6vw, 76px) 0; border-top: 1px solid var(--line); }
 .dr-moments {
-  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1px; margin-top: 34px; background: var(--line-2);
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px; margin-top: 30px; background: var(--line-2);
   border: 1px solid var(--line-2); border-radius: 14px; overflow: hidden;
 }
 .dr-moment { background: var(--bone); padding: 24px 22px 26px; }
-.dr-moment__t {
-  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.05em;
-  text-transform: uppercase; color: var(--stone);
-}
 .dr-moment__k {
-  margin: 9px 0 0; font-family: var(--font-display); font-weight: 600;
-  font-size: 17px; letter-spacing: -0.015em; color: var(--ink); line-height: 1.25;
+  margin: 0; font-family: var(--font-display); font-weight: 600;
+  font-size: 16px; letter-spacing: -0.015em; color: var(--ink); line-height: 1.28;
 }
 .dr-moment__d { margin: 8px 0 0; font-size: 14.5px; line-height: 1.55; color: var(--ink-70); }
 .dr-now__close {
@@ -3840,6 +3836,9 @@ html.dark { --viz-purple-soft: #1d1b33; }
   border: 1px solid var(--line); border-radius: 999px;
 }
 
+@media (max-width: 980px) {
+  .dr-moments { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 @media (max-width: 720px) {
   .dr-moments, .dr-rival__cols, .dr-show__grid, .dr-calc, .dr-steps { grid-template-columns: minmax(0, 1fr); }
   .dr-calc { padding: 22px; gap: 24px; }

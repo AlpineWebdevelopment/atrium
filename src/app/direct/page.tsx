@@ -21,9 +21,9 @@ import ScrollReveal from "@/components/ScrollReveal";
 export const metadata: Metadata = {
   alternates: { canonical: "/direct" },
   robots: { index: false, follow: true },
-  title: "Mennyi bevétel megy el a nem fogadott hívásokon?",
+  title: "Hol folyik el a bevétele?",
   description:
-    "Magyar nyelvű AI-alapú értékesítési rendszer szolgáltató cégeknek: felveszi a telefont éjjel és hétvégén is, időpontot foglal, és utánamegy az árajánlatnak. Számolja ki, mennyi megy el Önnél havonta.",
+    "Magyar nyelvű AI-alapú értékesítési rendszer szolgáltató cégeknek. Minden megkeresést fogad, percek alatt válaszol, időpontot foglal, utánamegy az árajánlatnak, és visszahívja a régi ügyfelet. Számolja ki, mennyi megy el Önnél havonta.",
 };
 
 export default function DirectPage() {

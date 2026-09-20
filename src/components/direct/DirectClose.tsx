@@ -3,7 +3,7 @@
    figure — so everything here stays Ink. */
 const STEPS = [
   { n: "01", t: "Foglaljon időpontot.", d: "30 perc, online. Nincs prezentáció." },
-  { n: "02", t: "Átnézzük a számait.", d: "Hívásnapló, árajánlatok, naptár. Ebből jön ki az ár." },
+  { n: "02", t: "Átnézzük a számait.", d: "Végigmegyünk minden ponton, ahol ma veszít. Ebből jön ki az ár." },
   { n: "03", t: "A rendszer élesedik.", d: "A meglévő eszközeihez kötve. A csapatának nem kell semmit lecserélnie." },
 ];
 
@@ -14,8 +14,9 @@ export default function DirectClose() {
         <div className="dr-close__panel reveal">
           <h2 className="dr-h2">Nézzük meg, mennyi az Öné.</h2>
           <p className="dr-close__p">
-            Hozza a hívásnaplóját és az elmúlt hónap árajánlatait. Fél óra alatt
-            kiderül, van-e itt visszahozható pénz — és ha nincs, azt is megmondjuk.
+            Hozza az elmúlt hónapját: hívásnapló, postafiók, űrlapok, kiküldött árajánlatok,
+            naptár. Fél óra alatt kiderül, van-e itt visszahozható pénz — és ha nincs,
+            azt is megmondjuk.
           </p>
 
           <div className="dr-steps">

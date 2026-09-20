@@ -10,7 +10,7 @@ const FIELDS = [
   {
     k: "lost" as const,
     label: "Havonta hány megkeresés vész el?",
-    hint: "Nem fogadott hívás, megválaszolatlan űrlap, utánkövetetlen árajánlat együtt.",
+    hint: "Minden szivárgási pont együtt: megválaszolatlan megkeresés, késve küldött válasz, utánkövetetlen árajánlat, elmaradt időpont, elhidegült régi ügyfél.",
     min: 0,
     max: 200,
     step: 1,
@@ -47,7 +47,7 @@ export default function DirectMath() {
       <div className="dr-wrap">
         <h2 className="dr-h2 reveal">Számolja ki a sajátját.</h2>
         <p className="dr-sub reveal" data-delay="1">
-          Három szám kell hozzá. Mindhármat Ön adja meg — mi nem teszünk hozzá semmit.
+          Nem a hívásokat számoljuk, hanem az összes elvesztett megkeresést. Három szám kell hozzá, és mindhármat Ön adja meg — mi nem teszünk hozzá semmit.
         </p>
 
         <div className="dr-calc reveal" data-delay="2">
@@ -87,7 +87,7 @@ export default function DirectMath() {
 
         <p className="dr-math__honest reveal" data-delay="3">
           Ha a becslése rossz, ez a szám is rossz — ezért nem ezzel dolgozunk. A meetingen
-          a valós hívásnaplójából és a kiküldött árajánlataiból pontosítjuk. A rendszer ára
+          a valós adataiból pontosítjuk: hívásnapló, postafiók, űrlapok, kiküldött árajánlatok, naptár. A rendszer ára
           ugyanebből a számból jön ki: ha nem hozza vissza a költségét, nincs miről beszélni.
         </p>
       </div>
