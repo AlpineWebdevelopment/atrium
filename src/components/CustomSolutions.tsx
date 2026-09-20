@@ -1,13 +1,15 @@
 "use client";
 import { useState, useRef } from "react";
 
-/* Custom AI builds (root only). "Példa projektek" — 9 concrete buildable examples
-   in the column/spine design (icon + title + description + audience).
-   Framed as what we can build, never as delivered work. No banned vocab. */
+/* Custom AI builds (root only). "Esettanulmányok" — 9 cards in the column/spine
+   design (icon + title + description + audience). The first 5 are delivered
+   client projects, anonymised by industry — no company names, no figures. The
+   rest are buildable examples. No banned vocab. */
 
 type IconKey =
   | "doc" | "search" | "chat" | "trend" | "layers"
-  | "target" | "refresh" | "send" | "plus" | "calc" | "inbox";
+  | "target" | "refresh" | "send" | "plus" | "calc" | "inbox"
+  | "phoneOut" | "phoneIn" | "gift" | "filter" | "cart";
 
 const ICON_PATHS: Record<IconKey, React.ReactNode> = {
   doc: (<><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /><path d="M8 13h6M8 17h4" /></>),
@@ -21,57 +23,62 @@ const ICON_PATHS: Record<IconKey, React.ReactNode> = {
   plus: (<><path d="M12 5v14M5 12h14" /></>),
   calc: (<><rect x="5" y="2" width="14" height="20" rx="2" /><path d="M8 6h8" /><path d="M8 10.5h2M12 10.5h4" /><path d="M8 14h2M12 14h4" /><path d="M8 17.5h2M12 17.5h4" /></>),
   inbox: (<><path d="M22 12h-6l-2 3h-4l-2-3H2" /><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" /></>),
+  phoneOut: (<><path d="M14.5 13.5a13 13 0 0 1-4-4l1.9-1.6a1.3 1.3 0 0 0 .3-1.5L11.3 3.6A1.3 1.3 0 0 0 9.9 2.9l-3.3.6A1.5 1.5 0 0 0 5.4 5C5.8 12.6 11.4 18.2 19 18.6a1.5 1.5 0 0 0 1.5-1.2l.6-3.3a1.3 1.3 0 0 0-.7-1.4l-2.8-1.4a1.3 1.3 0 0 0-1.5.3z" /><path d="M15.5 8.5 21 3" /><path d="M16.5 3H21v4.5" /></>),
+  phoneIn: (<><path d="M14.5 13.5a13 13 0 0 1-4-4l1.9-1.6a1.3 1.3 0 0 0 .3-1.5L11.3 3.6A1.3 1.3 0 0 0 9.9 2.9l-3.3.6A1.5 1.5 0 0 0 5.4 5C5.8 12.6 11.4 18.2 19 18.6a1.5 1.5 0 0 0 1.5-1.2l.6-3.3a1.3 1.3 0 0 0-.7-1.4l-2.8-1.4a1.3 1.3 0 0 0-1.5.3z" /><path d="M21 3l-5.5 5.5" /><path d="M20 8.5h-4.5V4" /></>),
+  gift: (<><rect x="3" y="10" width="18" height="11" rx="1.5" /><path d="M3 14h18" /><path d="M12 10v11" /><path d="M12 10S10.6 6 8.5 6a2.5 2.5 0 0 0 0 5z" /><path d="M12 10s1.4-4 3.5-4a2.5 2.5 0 0 1 0 5z" /></>),
+  filter: (<><path d="M3 5h18l-7 8v6l-4 2v-8z" /></>),
+  cart: (<><circle cx="9.5" cy="20" r="1.3" /><circle cx="18" cy="20" r="1.3" /><path d="M2 3h2.4l2.5 12.4a1.5 1.5 0 0 0 1.5 1.2h9.4a1.5 1.5 0 0 0 1.5-1.2L21 7H5.2" /></>),
 };
 
 const EXAMPLES: { ico: IconKey; t: string; d: string; who: string; c: string }[] = [
+  {
+    ico: "phoneOut",
+    t: "Hang-AI értékesítő hívásokhoz",
+    d: "A telefonos értékesítés hívásról hívásra halad a listán — órák mennek el, mire valaki felveszi és meghallgat. A kimenő hívásokat egy hang-AI indítja: természetes beszélgetésben bemutatja az ajánlatot, válaszol a kérdésekre, és rögzíti, mi lett a hívás eredménye. Az értékesítők már az érdeklődő ügyfelekkel beszélnek, nem a hideg listával.",
+    who: "Telemarketinggel értékesítő cégnek",
+    c: "#9662BC",
+  },
+  {
+    ico: "phoneIn",
+    t: "Telefonos asszisztens időpontfoglalással",
+    d: "A rendelőben a telefon kezelés közben is csörög, és aki nem ér el senkit, máshol foglal. Az AI-asszisztens fogadja a bejövő hívásokat: mindent elmond a szolgáltatásokról, és a telefonáló nevében lefoglalja az egyeztetett időpontot. Utána megerősíti, és az időpontig többször emlékezteti rá.",
+    who: "Fogászati rendelőnek",
+    c: "#628FBC",
+  },
+  {
+    ico: "gift",
+    t: "Személyes kapcsolattartó felület",
+    d: "Ahogy nő az érdeklődők száma, a személyes figyelem egyre kevésbé fér bele a napba. A felületről a cég minden érdeklődőjének személyre szabott e-mailt vagy üzenetet küldhet — névnapra, születésnapra, más alkalomra. A kapcsolat közvetlenebb marad akkor is, ha az érdeklődő még nem döntött.",
+    who: "Vállalkozások adásvételével foglalkozó cégnek",
+    c: "#62BCAC",
+  },
+  {
+    ico: "filter",
+    t: "Érdeklődő-előminősítő rendszer",
+    d: "A munkatársak idejét az viszi el, hogy minden érdeklődővel végigbeszéljék ugyanazokat a kérdéseket — azokkal is, akik nem komolyak. A rendszer az írásos csatornákon kikérdezi az érdeklődőt, és felméri, mennyire komoly. A munkatárshoz csak a komoly érdeklődő kerül, és vele együtt minden, amit előre tudni kell róla.",
+    who: "Sok írásos megkereséssel dolgozó cégnek",
+    c: "#BCA162",
+  },
+  {
+    ico: "cart",
+    t: "Webshop-asszisztens, amely összeállítja a kosarat",
+    d: "Egy komplett első lökhárító nyolc külön alkatrészből áll — ezeket korábban egy munkatárs kereste ki telefonban, cikkszámról cikkszámra. Az AI-asszisztenssel írásban és élőszóban is lehet beszélni: minden termékkérdésre válaszol, és ha az ügyfél egy komplett egységet kér, a hozzá tartozó összes alkatrészt a kosárba teszi. A vásárlónak nem kell cikkszámokat keresnie, a munkatársnak pedig nem kell telefonon végigmennie velük.",
+    who: "Autóalkatrész-webshopnak",
+    c: "#9662BC",
+  },
   {
     ico: "doc",
     t: "Árajánlat-készítő rendszer",
     d: "Az árajánlatok ma este készülnek, a nap végén, a felmérés jegyzeteiből. A rendszer a jegyzetekből és fotókból — az Ön árlistája alapján — elkészíti az ajánlat piszkozatát, egységes, küldhető formában. Önnek már csak átnéznie és elküldenie kell, nem megírni.",
     who: "Árajánlatot készítő cégeknek — a kivitelezéstől a rendelőig",
-    c: "#9662BC",
-  },
-  {
-    ico: "calc",
-    t: "Ár-kalkulátor a weboldalra",
-    d: "Aki árat szeretne, ma űrlapot tölt ki, és napokat vár. A kalkulátor a weboldalon néhány kérdés után azonnal tájékoztató árat ad, az adatokat pedig érdeklődőként rögzíti. A látogató választ kap, Ön pedig egy komoly érdeklődőt — paraméterekkel együtt.",
-    who: "Paraméterezhető szolgáltatást árazó cégeknek — napelem, klíma, szigetelés, kivitelezés",
     c: "#628FBC",
-  },
-  {
-    ico: "trend",
-    t: "Hirdetés-eredmény elemző",
-    d: "A hirdetési felület kattintást és elérést mutat — azt nem, hogy lett-e belőle munka. A rendszer összeköti a hirdetést az érdeklődővel és a foglalással, és hetente magyarul megírja, mi történt. Ön azt látja, melyik hirdetés hoz ügyfelet, és melyik csak viszi a pénzt.",
-    who: "Hirdetésre költő cégeknek",
-    c: "#62BCAC",
-  },
-  {
-    ico: "inbox",
-    t: "Megkeresés-rendező rendszer",
-    d: "A közös postafiókban ma együtt áll az árajánlatkérés, a számla és a kéretlen levél — a fontosat naponta kell kihalászni. A rendszer szétválogatja a beérkezőt, a sürgőset jelzi, a tipikusra válasz-piszkozatot ír. Reggel nem a fiókot rendezi, hanem dönt.",
-    who: "Sok bejövő megkereséssel dolgozó cégeknek",
-    c: "#BCA162",
-  },
-  {
-    ico: "search",
-    t: "Irattár-kereső asszisztens",
-    d: "Ahol több ezer dokumentum gyűlt fel — szerződés, árajánlat, jegyzőkönyv, tervrajz —, ott egy konkrét adat előkeresése perceket visz el. A rendszer az egész iratanyagból kiemeli a keresett részt, és megmutatja, melyik dokumentumból való. A válasz pár másodperc, forrással együtt.",
-    who: "Nagy iratállománnyal dolgozó cégeknek és irodáknak",
-    c: "#628FBC",
-  },
-  {
-    ico: "chat",
-    t: "Idegennyelvű ügyfélkapu",
-    d: "A más nyelven író ügyfél kérdése ma kivár, amíg ráér valaki, aki bírja a nyelvet. A rendszer az ügyfél nyelvén — angolul, németül vagy más nagyobb nyelven — fogadja az üzenetet, a tipikus kérdésekre válaszol, a többit lefordítva teszi a munkatárs elé. A válasz nem lassul le, és nem köt le külön embert.",
-    who: "Külföldi ügyfélkört kiszolgáló cégeknek",
-    c: "#62BCAC",
   },
   {
     ico: "target",
     t: "Ügyfél-felkutató és megkereső rendszer",
     d: "Az új ügyfelek felkutatása és megszólítása ma az értékesítő idejének javát viszi el — és nagy része nem vezet sehová. A rendszer nyilvános cégadatbázisokban és LinkedInen keresi a profilba illő cégeket, megírja és e-mailben elküldi a személyre szabott első üzenetet, és csak a ténylegesen válaszolót adja át. Ön a komoly lehetőségekkel foglalkozik, nem a hideg névsorral.",
     who: "B2B értékesítéssel dolgozó cégeknek",
-    c: "#9662BC",
+    c: "#62BCAC",
   },
   {
     ico: "refresh",
@@ -137,10 +144,11 @@ export default function CustomSolutions() {
           </div>
         </div>
 
-        {/* ATRIUM-EDIT — Példa projektek in the column/spine design: 9 examples,
-            each with icon + title + description + audience. */}
+        {/* ATRIUM-EDIT — Esettanulmányok in the column/spine design: 9 cards,
+            each with icon + title + description + audience. The first 5 are
+            delivered client projects; id stays `pelda` for the footer anchor. */}
         <div className="cux__sec reveal" data-delay="2" id="pelda">
-          <h3 className="cux__sec-h"><span>Példa projektek</span></h3>
+          <h3 className="cux__sec-h"><span>Esettanulmányok</span></h3>
           <div className={`cux__cats cux__cats--3${showAll ? " cux__cats--open" : ""}`}>
             {EXAMPLES.map((e, i) => (
               <div className={`cux__catcol${i >= 3 ? " cux__catcol--more" : ""}`} key={i} style={{ ["--pc" as string]: e.c } as React.CSSProperties}>

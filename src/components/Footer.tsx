@@ -20,7 +20,7 @@ export default function Footer() {
                 <li><a href="#rendszer-teljes">A teljes rendszer</a></li>
                 <li><a href="#egyedi">Egyedi fejlesztés</a></li>
                 <li><a href="#hogyan-dolgozunk">Hogyan dolgozunk</a></li>
-                <li><a href="#pelda">Példa Projektek</a></li>
+                <li><a href="#pelda">Esettanulmányok</a></li>
               </ul>
             </div>
             <div>
