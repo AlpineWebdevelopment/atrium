@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Onest, Geist, Geist_Mono, Epilogue, Manrope, JetBrains_Mono } from "next/font/google";
+import { Onest, Geist, Geist_Mono, Fraunces, Manrope, JetBrains_Mono } from "next/font/google";
 import Nav from "@/components/Nav";
 import BookingRedirect from "@/components/BookingRedirect";
 import "./globals.css";
@@ -22,18 +22,24 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono-src",
   display: "swap",
 });
-/* Brand pairing (spec §9.2) — Epilogue (display) + Manrope (body), with
+/* Brand pairing (spec §9.2) — Fraunces (display) + Manrope (body), with
    JetBrains Mono for tabular numbers and timestamps. Driven from the
    --font-display / --font-body / --font-mono tokens in globals.css, so every
    landing picks them up at once. No weight list: all three ship a variable
    font, so the full range loads from a single file.
 
+   Fraunces carries its optical-size axis, so the browser serves the display
+   cut (tighter, higher contrast) at hero sizes and the text cut at card-title
+   sizes on its own. SOFT and WONK stay at their 0 defaults — the wonky cut is
+   the wrong register for this brand.
+
    Onest, Geist and Geist Mono above are still loaded for the surfaces not
    migrated yet (blog, legal pages, the demo dashboards), which reach them
    through the Tailwind font-onest / font-geist utilities. */
-const epilogue = Epilogue({
+const fraunces = Fraunces({
   subsets: ["latin", "latin-ext"], // latin-ext required for Hungarian glyphs (ő, ű, etc.)
-  variable: "--font-epilogue-src",
+  axes: ["opsz"],
+  variable: "--font-fraunces-src",
   display: "swap",
 });
 const manrope = Manrope({
@@ -86,7 +92,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="hu"
-      className={`${onest.variable} ${geist.variable} ${geistMono.variable} ${epilogue.variable} ${manrope.variable} ${jetbrainsMono.variable}`}
+      className={`${onest.variable} ${geist.variable} ${geistMono.variable} ${fraunces.variable} ${manrope.variable} ${jetbrainsMono.variable}`}
       suppressHydrationWarning
       data-scroll-behavior="smooth"
     >
