@@ -1,5 +1,5 @@
 /* Atrium — Chronicle-style landing, Atrium colors + fonts only.
-   Bone / Ink / Signal / Stone. Geologica (display) + Manrope (body) + JetBrains Mono.
+   Bone / Ink / Signal / Stone. Epilogue (display) + Manrope (body) + JetBrains Mono.
    Full rebuild: faithful Chronicle layout, Atrium palette + type.
    + colorful data-viz dashboard (tabbed) & packages sections. */
 
@@ -21,7 +21,7 @@
   --line:   rgba(1, 14, 30, 0.10);
   --line-2: rgba(1, 14, 30, 0.06);
 
-  --font-display: var(--font-geologica-src), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-epilogue-src), ui-sans-serif, system-ui, sans-serif;
   --font-body:    var(--font-manrope-src), ui-sans-serif, system-ui, sans-serif;
   --font-mono:    var(--font-jetbrains-mono-src), ui-monospace, "SF Mono", Menlo, monospace;
 
@@ -43,7 +43,7 @@
 
   --font-onest: var(--font-onest-src), ui-sans-serif, system-ui, sans-serif;
   --font-geist: var(--font-geist-src), ui-sans-serif, system-ui, sans-serif;
-  --font-geologica: var(--font-geologica-src), ui-sans-serif, system-ui, sans-serif;
+  --font-epilogue: var(--font-epilogue-src), ui-sans-serif, system-ui, sans-serif;
   --font-manrope: var(--font-manrope-src), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono-src), ui-monospace, monospace;
 }
