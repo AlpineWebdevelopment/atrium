@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Onest, Geist, Geist_Mono, Epilogue, Manrope, JetBrains_Mono } from "next/font/google";
+import { Onest, Geist, Geist_Mono, Geologica, Manrope, JetBrains_Mono } from "next/font/google";
 import Nav from "@/components/Nav";
 import BookingRedirect from "@/components/BookingRedirect";
 import "./globals.css";
@@ -22,7 +22,7 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono-src",
   display: "swap",
 });
-/* Brand pairing (spec §9.2) — Epilogue (display) + Manrope (body), with
+/* Brand pairing (spec §9.2) — Geologica (display) + Manrope (body), with
    JetBrains Mono for tabular numbers and timestamps. Driven from the
    --font-display / --font-body / --font-mono tokens in globals.css, so every
    landing picks them up at once. No weight list: all three ship a variable
@@ -31,9 +31,9 @@ const geistMono = Geist_Mono({
    Onest, Geist and Geist Mono above are still loaded for the surfaces not
    migrated yet (blog, legal pages, the demo dashboards), which reach them
    through the Tailwind font-onest / font-geist utilities. */
-const epilogue = Epilogue({
+const geologica = Geologica({
   subsets: ["latin", "latin-ext"], // latin-ext required for Hungarian glyphs (ő, ű, etc.)
-  variable: "--font-epilogue-src",
+  variable: "--font-geologica-src",
   display: "swap",
 });
 const manrope = Manrope({
@@ -86,7 +86,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="hu"
-      className={`${onest.variable} ${geist.variable} ${geistMono.variable} ${epilogue.variable} ${manrope.variable} ${jetbrainsMono.variable}`}
+      className={`${onest.variable} ${geist.variable} ${geistMono.variable} ${geologica.variable} ${manrope.variable} ${jetbrainsMono.variable}`}
       suppressHydrationWarning
       data-scroll-behavior="smooth"
     >
