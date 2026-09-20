@@ -1,7 +1,7 @@
 "use client";
 import { useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { isNicheSlug } from "@/lib/niches";
+import { isBookingSource } from "@/lib/niches";
 
 /* Landings that ship their own booking page, so the visitor keeps that
    landing's header and footer instead of dropping into the site-wide one. */
@@ -29,7 +29,7 @@ export default function BookingRedirect() {
       const params = new URLSearchParams(window.location.search);
       // A landing with its own booking page states the niche in that route, so
       // only the shared /foglalas needs to be told where the visitor came from.
-      if (!ownPage && isNicheSlug(slug) && !params.has("from")) params.set("from", slug);
+      if (!ownPage && isBookingSource(slug) && !params.has("from")) params.set("from", slug);
       const qs = params.toString();
       router.push(qs ? `${target}?${qs}` : target);
     };

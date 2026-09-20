@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import BookingForm from "@/components/BookingForm";
 import Footer from "@/components/Footer";
-import { isNicheSlug } from "@/lib/niches";
+import { isBookingSource } from "@/lib/niches";
 
 export const metadata: Metadata = {
   title: "Foglaljon időpontot",
@@ -19,7 +19,7 @@ export default async function FoglalasPage({
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
   const from = (await searchParams).from;
-  const niche = typeof from === "string" && isNicheSlug(from) ? from : "root";
+  const niche = typeof from === "string" && isBookingSource(from) ? from : "root";
   return (
     <div className="page">
       <main className="foglalas">

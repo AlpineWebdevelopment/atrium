@@ -21,6 +21,12 @@ export type NicheConfig = {
 // Un-niched posts: shown in the main blog AND in every niche blog index.
 // Megfelelés (compliance, e.g. GDPR) is cross-cutting — every trade needs it —
 // so it is treated as universal rather than tied to one niche.
+// Landing surfaces that are not niches but must still be recorded as the
+// booking source. /direct is a paid-traffic direct-response page: it has no
+// blog index and no niche theme, so it does not belong in NICHES, but a
+// booking that came from it should not be filed as "root".
+export const EXTRA_BOOKING_SOURCES = ["direct"];
+
 export const UNIVERSAL_NICHES = ["Általános", "Kategória", "Megfelelés"];
 
 // themeClass values mirror the wrappers on each landing page (note szepsegszalon
@@ -60,6 +66,12 @@ export function getNiche(slug: string): NicheConfig | undefined {
 
 export function isNicheSlug(slug: string | null | undefined): slug is string {
   return !!slug && NICHE_SLUGS.includes(slug);
+}
+
+// Every slug a booking may be attributed to: the niche landings plus the
+// non-niche landing surfaces listed in EXTRA_BOOKING_SOURCES.
+export function isBookingSource(slug: string | null | undefined): slug is string {
+  return isNicheSlug(slug) || (!!slug && EXTRA_BOOKING_SOURCES.includes(slug));
 }
 
 // Posts shown on a niche index: the niche's own labels + all universal posts.
