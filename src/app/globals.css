@@ -3867,3 +3867,22 @@ html.dark { --viz-purple-soft: #1d1b33; }
   .hero__rotline { font-size: 9vw; }
   .page--epitoipar .hero__rotline { font-size: 5.6vw; }
 }
+
+/* Same cause on desktop: the /epitoipar title ("Ne veszítsen több
+   megrendelést") stays on one line above 560px and measures ~19.2em in
+   Unbounded, so 68px overran a 1280px viewport. 4.6vw keeps it inside the
+   viewport at every desktop width (≈59px at 1280, capped at 64px). */
+@media (min-width: 561px) {
+  .page--epitoipar .hero__title { font-size: clamp(30px, 4.6vw, 64px); }
+}
+
+/* The base .hero__title is nowrap because the root-template hero is built
+   from two deliberate lines (.hero__line1 / .hero__line2). The niche heroes
+   are single sentences ("Minden páciens. Minden hívás. Minden órában.") and
+   inherited the nowrap, so on desktop they ran past the viewport and were
+   clipped — already true with Onest (1403px at 1280), worse with a wider
+   face. Titles without the line spans now wrap, balanced, a size down. */
+.hero__title:not(:has(.hero__line1)) { white-space: normal; text-wrap: balance; }
+@media (min-width: 561px) {
+  .hero__title:not(:has(.hero__line1)) { font-size: clamp(34px, 4.2vw, 56px); }
+}
