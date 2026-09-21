@@ -3731,12 +3731,12 @@ html.dark { --viz-purple-soft: #1d1b33; }
 }
 .page--direct .dr-h1 {
   margin: 18px 0 0; font-family: var(--font-display); font-weight: 600;
-  font-size: clamp(36px, 6vw, 62px); line-height: 1.04; letter-spacing: -0.035em;
+  font-size: clamp(46px, 8vw, 88px); line-height: 0.98; letter-spacing: -0.035em;
   color: var(--ink);
 }
 .page--direct .dr-h2 {
   margin: 0; font-family: var(--font-display); font-weight: 600;
-  font-size: clamp(27px, 3.8vw, 40px); line-height: 1.12; letter-spacing: -0.03em;
+  font-size: clamp(34px, 5.2vw, 56px); line-height: 1.02; letter-spacing: -0.03em;
   color: var(--ink); text-wrap: balance;
 }
 .page--direct .dr-lead {
@@ -3928,3 +3928,14 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .nav__brand, .footer__brand, .dr-top__brand, .dr-foot__brand {
   font-family: var(--font-logo) !important;
 }
+
+/* /direct — the three FOMO lines: large blunt statements, hairline between. */
+.dr-lines { list-style: none; margin: 30px 0 0; padding: 0; max-width: 760px; }
+.dr-lines li {
+  padding: 18px 0; border-top: 1px solid var(--line);
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(19px, 2.3vw, 25px); line-height: 1.3; letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.dr-lines li:last-child { border-bottom: 1px solid var(--line); }
+.page--direct .dr-show__col { margin-top: 30px; max-width: 640px; }

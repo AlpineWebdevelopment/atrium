@@ -10,8 +10,10 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 /* Direct-response surface. It deliberately does not reuse the root page's
    section taxonomy (Manifesto / dashboard / full system tour / custom builds):
-   the argument runs loss → competitor → the operator's own arithmetic → what
-   we are not → one booking. A closed surface, so Nav does not render on it
+   the argument runs money on the table → the customer decides without you →
+   the competitor is faster → the operator's own arithmetic → what we are not
+   → one booking. Deliberately no product label and no service list; services
+   get their own page. A closed surface, so Nav does not render on it
    (see STANDALONE in Nav.tsx) and every CTA goes to the booking page.
 
    noindex on purpose: this is a paid-traffic page arguing the same offer as
@@ -21,9 +23,9 @@ import ScrollReveal from "@/components/ScrollReveal";
 export const metadata: Metadata = {
   alternates: { canonical: "/direct" },
   robots: { index: false, follow: true },
-  title: "Hol folyik el a bevétele?",
+  title: "Minden nap pénzt hagy az asztalon",
   description:
-    "Magyar nyelvű AI-alapú értékesítési rendszer szolgáltató cégeknek. Minden megkeresést fogad, percek alatt válaszol, időpontot foglal, utánamegy az árajánlatnak, és visszahívja a régi ügyfelet. Számolja ki, mennyi megy el Önnél havonta.",
+    "Szolgáltató cégeknek: 30 perc alatt kiszámoljuk az Ön számaiból, mennyi pénzt hagy az asztalon — és ha megéri, visszahozzuk.",
 };
 
 export default function DirectPage() {

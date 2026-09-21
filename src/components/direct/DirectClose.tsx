@@ -1,10 +1,9 @@
-/* The close. Three steps, one CTA, the same trust strip the other landings
-   carry. Signal green appears exactly once on this page — on the calculator
-   figure — so everything here stays Ink. */
+/* The close. Three steps, one CTA. Signal green appears exactly once on this
+   page — on the calculator figure — so everything here stays Ink. */
 const STEPS = [
-  { n: "01", t: "Foglaljon időpontot.", d: "30 perc, online. Nincs prezentáció." },
-  { n: "02", t: "Átnézzük a számait.", d: "Végigmegyünk minden ponton, ahol ma veszít. Ebből jön ki az ár." },
-  { n: "03", t: "A rendszer élesedik.", d: "A meglévő eszközeihez kötve. A csapatának nem kell semmit lecserélnie." },
+  { n: "01", t: "Foglal egy időpontot.", d: "30 perc, online. Nincs prezentáció." },
+  { n: "02", t: "Megnézzük a számait.", d: "Ebből jön ki, mennyit ér ez Önnek — és mennyibe kerül." },
+  { n: "03", t: "Élesítjük.", d: "Önnek nem kell semmit lecserélnie." },
 ];
 
 export default function DirectClose() {
@@ -12,11 +11,9 @@ export default function DirectClose() {
     <section className="dr-close" id="kapcsolat">
       <div className="dr-wrap">
         <div className="dr-close__panel reveal">
-          <h2 className="dr-h2">Nézzük meg, mennyi az Öné.</h2>
+          <h2 className="dr-h2">30 perc. Utána tudja,<br />mennyiről van szó.</h2>
           <p className="dr-close__p">
-            Hozza az elmúlt hónapját: hívásnapló, postafiók, űrlapok, kiküldött árajánlatok,
-            naptár. Fél óra alatt kiderül, van-e itt visszahozható pénz — és ha nincs,
-            azt is megmondjuk.
+            Hozza az elmúlt hónapját. Ha nincs itt visszahozható pénz, megmondjuk — és ennyi.
           </p>
 
           <div className="dr-steps">
@@ -30,12 +27,6 @@ export default function DirectClose() {
           </div>
 
           <a className="dr-btn dr-btn--lg" href="/foglalas?from=direct">Foglaljon időpontot</a>
-
-          <div className="dr-badges">
-            <span className="dr-badge">Magyar nyelvű</span>
-            <span className="dr-badge">EU-s adattárolás</span>
-            <span className="dr-badge">GDPR-megfelelő</span>
-          </div>
         </div>
       </div>
     </section>
