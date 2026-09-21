@@ -126,18 +126,12 @@ html.dark {
 .divider { height: 1px; background: var(--line); width: 100%; }
 
 /* ---------- Buttons ---------- */
-/* Chunky pressable buttons — a thick bottom edge in a darker shade of the
-   button's own colour (key-cap style), rounded corners, a soft top sheen.
-   Colour variants only set --btn-face; the edge is derived from it, so the
-   per-niche palettes stay exactly as they were. --press is the edge height,
-   and :active sinks the face onto it. */
+/* Buttons. Solid faces (ink, the niche colours, the ChatGPT purple) stay
+   flat with a soft drop shadow; only the white/ghost button is the chunky
+   pressable key-cap — a thick bottom edge a shade darker than bone, a top
+   sheen, and a real press onto the edge. Colour variants set --btn-face. */
 .btn {
   --btn-face: var(--ink);
-  /* The near-black ink face cannot go darker, so its edge is a dark grey
-     (ink mixed with stone) — just light enough to read under the face. Coloured variants
-     override this below with a darker shade of their own face. */
-  --btn-edge: color-mix(in oklab, var(--ink) 42%, var(--stone));
-  --press: 5px;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -149,20 +143,23 @@ html.dark {
   border-radius: 14px;
   background: var(--btn-face);
   color: var(--bone);
-  border: 1px solid color-mix(in oklab, var(--btn-face) 86%, black);
+  border: 1px solid var(--btn-face);
   white-space: nowrap;
   max-width: 100%;
   justify-content: center;
-  box-shadow: 0 var(--press) 0 var(--btn-edge), inset 0 1px 0 rgba(255,255,255,0.22);
-  transition: transform 120ms var(--ease-out), opacity 140ms, box-shadow 120ms var(--ease-out);
+  box-shadow: 0 2px 5px -1px rgba(1,14,30,0.22), 0 1px 2px rgba(1,14,30,0.14);
+  transition: transform 140ms var(--ease-out), opacity 140ms, box-shadow 140ms var(--ease-out);
 }
 /* hover only on pointer devices — prevents sticky states on touch */
 @media (hover: hover) and (pointer: fine) {
   .btn:hover {
-    transform: translateY(1px); opacity: 1;
-    box-shadow: 0 calc(var(--press) - 1px) 0 var(--btn-edge), inset 0 1px 0 rgba(255,255,255,0.22);
+    transform: translateY(-1px); opacity: 0.93;
+    box-shadow: 0 6px 16px -5px rgba(1,14,30,0.32), 0 2px 5px -2px rgba(1,14,30,0.18);
   }
-  .btn--ghost:hover { background: var(--panel); opacity: 1; }
+  .btn--ghost:hover {
+    background: var(--panel); opacity: 1; transform: translateY(1px);
+    box-shadow: 0 calc(var(--press) - 1px) 0 var(--btn-edge), inset 0 1px 0 rgba(255,255,255,0.6);
+  }
   .caps__item:hover {
     transform: translateY(-4px);
     border-color: var(--line-2);
@@ -171,33 +168,25 @@ html.dark {
 }
 /* press feedback — mandatory for any pressable surface */
 .btn:active {
-  transform: translateY(calc(var(--press) - 1px)) !important;
+  transform: scale(0.97) !important;
   opacity: 1 !important;
-  box-shadow: 0 1px 0 var(--btn-edge), inset 0 1px 0 rgba(255,255,255,0.22) !important;
-  transition-duration: 90ms !important;
+  box-shadow: 0 1px 3px -1px rgba(1,14,30,0.18) !important;
+  transition-duration: 100ms !important;
 }
 .btn .ico { width: 15px; height: 15px; }
 
 .btn--ghost {
   --btn-face: var(--bone);
   --btn-edge: color-mix(in oklab, var(--bone) 72%, var(--stone));
+  --press: 5px;
   color: var(--ink);
   border: 1px solid var(--line);
+  box-shadow: 0 var(--press) 0 var(--btn-edge), inset 0 1px 0 rgba(255,255,255,0.6);
 }
-
-/* Coloured button faces (the niche palettes and the ChatGPT purple) are
-   bright enough to darken; their edge is a darker shade of themselves. */
-.page--salon .btn:not(.btn--ghost),
-.page--physio .btn:not(.btn--ghost),
-.page--kormos .btn:not(.btn--ghost),
-.page--szepsegipar .btn:not(.btn--ghost),
-.page--allatorvos .btn:not(.btn--ghost),
-.page--gyors-lead-valasz .btn:not(.btn--ghost),
-.page--fogaszat .btn:not(.btn--ghost),
-.page--klima .btn:not(.btn--ghost),
-.page--napelem .btn:not(.btn--ghost),
-.cg-btn {
-  --btn-edge: color-mix(in oklab, var(--btn-face) 66%, black);
+.btn--ghost:active {
+  transform: translateY(calc(var(--press) - 1px)) !important;
+  box-shadow: 0 1px 0 var(--btn-edge), inset 0 1px 0 rgba(255,255,255,0.6) !important;
+  transition-duration: 90ms !important;
 }
 
 .btn--lg { padding: 17px 30px; font-size: 15px; border-radius: 16px; }
@@ -277,7 +266,7 @@ html.dark .nav--scrolled { box-shadow: 0 1px 24px rgba(0,0,0,0.25); }
 .nav__right { justify-self: end; display: flex; align-items: center; gap: 18px; }
 .nav__login { font-family: var(--font-body); font-size: 14px; color: var(--ink-70); transition: color 160ms var(--ease); }
 .nav__login:hover { color: var(--ink); }
-.nav__cta { font-size: 13.5px; padding: 9px 16px; --press: 3px; border-radius: 11px; }
+.nav__cta { font-size: 13.5px; padding: 9px 16px; border-radius: 11px; }
 .theme-toggle {
   width: 34px; height: 34px;
   display: inline-flex; align-items: center; justify-content: center;
@@ -1614,8 +1603,6 @@ html.dark .nav--scrolled { box-shadow: 0 1px 24px rgba(0,0,0,0.25); }
 }
 .footer__cta {
   margin-top: 24px;
-  --press: 4px;
-  --btn-edge: rgba(245,242,237,0.22);
   background: rgba(245,242,237,0.10) !important;
   color: #F5F2ED !important;
   border: 1px solid rgba(245,242,237,0.18) !important;
@@ -3335,7 +3322,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
 }
 .page--chatgpt-hirdetes .cg-eyebrow-txt::before { content: ""; width: 24px; height: 1px; background: var(--stone); }
 
-.cg-btn { --btn-face: var(--viz-purple); color: #fff; box-shadow: 0 var(--press) 0 var(--btn-edge), 0 14px 24px -14px rgba(150,98,188,0.6), inset 0 1px 0 rgba(255,255,255,0.28); }
+.cg-btn { --btn-face: var(--viz-purple); color: #fff; box-shadow: 0 8px 20px -10px rgba(150,98,188,0.75); }
 .cg-btn--light { background: var(--bone); border-color: var(--bone); color: var(--ink); box-shadow: none; }
 
 /* ---------- hero ---------- */
@@ -3749,15 +3736,12 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .page--direct .dr-sub { margin: 12px 0 0; max-width: 620px; font-size: 16px; line-height: 1.55; color: var(--ink-70); }
 
 .page--direct .dr-btn {
-  --btn-edge: color-mix(in oklab, var(--ink) 42%, var(--stone));
   display: inline-flex; align-items: center; justify-content: center;
   background: var(--ink); color: var(--bone); font-size: 15.5px; font-weight: 600;
   padding: 15px 28px; border-radius: 14px; text-decoration: none;
-  box-shadow: 0 5px 0 var(--btn-edge), inset 0 1px 0 rgba(255,255,255,0.22);
-  transition: transform 120ms var(--ease-out), box-shadow 120ms var(--ease-out);
+  transition: transform 160ms var(--ease), opacity 160ms var(--ease);
 }
-.page--direct .dr-btn:hover { transform: translateY(1px); box-shadow: 0 4px 0 var(--btn-edge), inset 0 1px 0 rgba(255,255,255,0.22); }
-.page--direct .dr-btn:active { transform: translateY(4px); box-shadow: 0 1px 0 var(--btn-edge), inset 0 1px 0 rgba(255,255,255,0.22); }
+.page--direct .dr-btn:hover { opacity: 0.9; transform: translateY(-1px); }
 .page--direct .dr-btn--lg { padding: 17px 34px; font-size: 16.5px; border-radius: 16px; }
 
 .dr-hero { padding: clamp(40px, 7vw, 86px) 0 clamp(48px, 7vw, 92px); }
