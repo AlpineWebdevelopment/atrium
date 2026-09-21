@@ -1,3 +1,5 @@
+import DirectKicker from "./DirectKicker";
+
 /* The circus — what the buyer has already sat through. Stated as their own
    experience, not as claims about named competitors. */
 const SHOW = [
@@ -9,22 +11,21 @@ const SHOW = [
 
 export default function DirectNow() {
   return (
-    <section className="dr-now">
-      <div className="dr-wrap">
-        <h2 className="dr-h2 reveal">Ismerős?</h2>
-        <div className="dr-show__col dr-show__col--not reveal" data-delay="1">
-          <ul>
-            {SHOW.map((t) => (
-              <li key={t}>
+    <section className="dr-sec">
+      <div className="dr-wrap dr-grid">
+        <DirectKicker n="01" label="Az AI-show" />
+        <div className="dr-body">
+          <h2 className="dr-h2 reveal">Ismerős?</h2>
+          <div className="dr-cards dr-cards--2">
+            {SHOW.map((t, i) => (
+              <div className="dr-card dr-card--x reveal" data-delay={(i % 2) + 1} key={t}>
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
-                <span>{t}</span>
-              </li>
+                <p>{t}</p>
+              </div>
             ))}
-          </ul>
+          </div>
+          <p className="dr-statement reveal" data-delay="3">Ez az AI-show. Mi nem ezt csináljuk.</p>
         </div>
-        <p className="dr-now__close reveal" data-delay="2">
-          Ez az AI-show. Mi nem ezt csináljuk.
-        </p>
       </div>
     </section>
   );

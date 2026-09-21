@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import DirectKicker from "./DirectKicker";
 
 /* The payback section. The brand does not publish a figure it cannot stand
    behind, so this section publishes no figure at all — the operator's own
@@ -43,8 +44,10 @@ export default function DirectMath() {
   const monthly = v.lost * (v.close / 100) * v.value;
 
   return (
-    <section className="dr-math">
-      <div className="dr-wrap">
+    <section className="dr-sec dr-math">
+      <div className="dr-wrap dr-grid">
+        <DirectKicker n="04" label="A megtérülés" />
+        <div className="dr-body">
         <h2 className="dr-h2 reveal">Nem hype.<br />Forint.</h2>
         <p className="dr-sub reveal" data-delay="1">
           Számolja ki, mennyi megy el ma. Három szám, mindhármat Ön adja meg — mi nem teszünk hozzá semmit.
@@ -89,6 +92,7 @@ export default function DirectMath() {
           Ha a becslése rossz, a szám is rossz. A meetingen a valós adataiból számolunk —
           és ha nem jön ki, hogy megéri, nem adunk el semmit.
         </p>
+        </div>
       </div>
     </section>
   );

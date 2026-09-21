@@ -33,10 +33,6 @@ export default function DirectPage() {
   return (
     <div className="page page--direct" data-screen-label="atriumscaling.com /direct">
       <ScrollReveal />
-      <header className="dr-top">
-        <a className="dr-top__brand" href="/direct">Atrium<span className="dr-top__dot">.</span></a>
-        <a className="dr-top__cta" href="/foglalas?from=direct">Foglaljon időpontot</a>
-      </header>
       <DirectHero />
       <DirectNow />
       <DirectWhat />

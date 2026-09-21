@@ -1,21 +1,29 @@
+import DirectKicker from "./DirectKicker";
+
 /* "We know what we are doing" — what the buyer gets instead of the show.
-   Three blunt lines, no capability list. */
+   Three columns under a heavy rule, no capability list. */
 const GET = [
-  "Élesben működő rendszert, nem demót.",
-  "Egy számot, amit ellenőrizni tud.",
-  "Valakit, aki üzemelteti — nem Önnek kell.",
+  { t: "Élesben működő rendszert.", d: "Nem demót, nem pilot-prezentációt." },
+  { t: "Egy számot, amit ellenőrizni tud.", d: "Forintban, az Ön adataiból." },
+  { t: "Valakit, aki üzemelteti.", d: "Nem Önnek kell mellette ülnie." },
 ];
 
 export default function DirectNoShow() {
   return (
-    <section className="dr-show">
-      <div className="dr-wrap">
-        <h2 className="dr-h2 reveal">Nem prezentálunk.<br />Megcsináljuk.</h2>
-        <ul className="dr-lines">
-          {GET.map((t, i) => (
-            <li className="reveal" data-delay={i + 1} key={t}>{t}</li>
-          ))}
-        </ul>
+    <section className="dr-sec">
+      <div className="dr-wrap dr-grid">
+        <DirectKicker n="05" label="Amit kap" />
+        <div className="dr-body">
+          <h2 className="dr-h2 reveal">Nem prezentálunk.<br />Megcsináljuk.</h2>
+          <div className="dr-cols3">
+            {GET.map((g, i) => (
+              <div className="dr-col reveal" data-delay={i + 1} key={g.t}>
+                <h3 className="dr-col__t">{g.t}</h3>
+                <p>{g.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
