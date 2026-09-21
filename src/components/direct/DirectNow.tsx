@@ -1,10 +1,11 @@
-/* The circus — what the buyer has already sat through. Stated as their own
-   experience, not as claims about named competitors. */
+/* The circus — what the buyer has already sat through, told the way they
+   would tell it over a beer. Their own experience, not claims about named
+   competitors. */
 const SHOW = [
-  "Egy demó, ami a meetingen lenyűgöző volt, aztán semmit nem hozott.",
-  "Egy chatbot a weboldalon, amit senki nem használ.",
-  "Egy negyvenoldalas stratégia az AI-transzformációról.",
-  "Egy tanácsadó, aki elmondta, mit kéne csinálni — és elment.",
+  "A demó, amitől mindenki elolvadt a meetingen. Aztán soha többé nem hallott róla senki.",
+  "A chatbot, ami köszönni tud és elnézést kérni. Ügyfelet hozni nem.",
+  "A negyvenoldalas AI-stratégia, amit pontosan egyszer nyitott meg valaki.",
+  "A tanácsadó, aki órabérért mesélt a jövőről. A jövő azóta se jött el.",
 ];
 
 export default function DirectNow() {
@@ -21,7 +22,10 @@ export default function DirectNow() {
               </div>
             ))}
           </div>
-          <p className="dr-statement reveal" data-delay="3">Ez az AI-show. Mi nem ezt csináljuk.</p>
+          <p className="dr-statement reveal" data-delay="3">
+            Ez az AI-show. Önnek pénzbe került, nekünk a szakmánkat járatja le.
+            Nem kérünk belőle.
+          </p>
         </div>
       </div>
     </section>

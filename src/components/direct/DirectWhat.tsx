@@ -4,12 +4,12 @@ const WHAT = [
   {
     n: "A",
     t: "AI értékesítési rendszer",
-    d: "Ott kezdjük, ahol a legtöbb pénz marad az asztalon: a megkereséstől a lezárt megrendelésig. Élesben fut, nem egy prezentációban.",
+    d: "Ott, ahol a pénze most is folyik el: a megkereséstől a lezárt megrendelésig. Élesben fut, ügyfelekkel — nem egy vetítésben.",
   },
   {
     n: "B",
     t: "És bármi, ami AI-jal megoldható",
-    d: "Ha van a cégében egy gond, ami időt vagy pénzt visz, és AI-jal megoldható, megoldjuk. Ha nem oldható meg, azt is megmondjuk.",
+    d: "Ha valami a cégében időt vagy pénzt zabál, és AI-jal megoldható, megoldjuk. Ha nem oldható meg, kimondjuk. Ennyi.",
   },
 ];
 

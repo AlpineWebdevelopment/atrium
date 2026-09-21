@@ -1,9 +1,9 @@
 /* "We know what we are doing" — what the buyer gets instead of the show.
    Three columns under a heavy rule, no capability list. */
 const GET = [
-  { t: "Élesben működő rendszert.", d: "Nem demót, nem pilot-prezentációt." },
-  { t: "Egy számot, amit ellenőrizni tud.", d: "Forintban, az Ön adataiból." },
-  { t: "Valakit, aki üzemelteti.", d: "Nem Önnek kell mellette ülnie." },
+  { t: "Élesben működő rendszert.", d: "Nem demót, nem pilotot, nem ígéretet." },
+  { t: "Egy számot, amit ellenőrizni tud.", d: "Forintban. Az Ön adataiból, nem a miénkből." },
+  { t: "Valakit, aki üzemelteti.", d: "Nem Önnek kell pásztorolnia." },
 ];
 
 export default function DirectNoShow() {
