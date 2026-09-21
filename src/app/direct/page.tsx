@@ -3,7 +3,7 @@ import DirectHero from "@/components/direct/DirectHero";
 import DirectNow from "@/components/direct/DirectNow";
 import DirectWhat from "@/components/direct/DirectWhat";
 import DirectRival from "@/components/direct/DirectRival";
-import DirectMath from "@/components/direct/DirectMath";
+import DirectPayback from "@/components/direct/DirectPayback";
 import DirectNoShow from "@/components/direct/DirectNoShow";
 import DirectClose from "@/components/direct/DirectClose";
 import DirectFooter from "@/components/direct/DirectFooter";
@@ -12,8 +12,8 @@ import ScrollReveal from "@/components/ScrollReveal";
 /* Direct-response surface, being shaped into the next root landing. The
    argument: enough of the AI circus → the show the buyer already sat through
    → what we sell (an AI sales system, and anything else AI can fix in the
-   business) → the competitor already runs it → the operator's own
-   arithmetic → what they get instead of a show → one booking. No service
+   business) → the competitor already runs it → payback in forint from
+   their own numbers → what they get instead of a show → one booking. No service
    list; services get their own page. A closed surface: Nav does not render
    (STANDALONE in Nav.tsx) and every CTA goes to the booking page.
 
@@ -37,7 +37,7 @@ export default function DirectPage() {
       <DirectNow />
       <DirectWhat />
       <DirectRival />
-      <DirectMath />
+      <DirectPayback />
       <DirectNoShow />
       <DirectClose />
       <DirectFooter />

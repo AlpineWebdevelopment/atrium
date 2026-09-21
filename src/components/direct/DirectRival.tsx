@@ -1,14 +1,11 @@
-import DirectKicker from "./DirectKicker";
-
 /* Competitor + FOMO: while the buyer is still sitting through demos,
    someone in their trade already runs it. A mechanism they can recognise,
    not a market statistic. */
 export default function DirectRival() {
   return (
     <section className="dr-sec">
-      <div className="dr-wrap dr-grid">
-        <DirectKicker n="03" label="A versenytárs" />
-        <div className="dr-body">
+      <div className="dr-wrap">
+        <div className="dr-center">
           <h2 className="dr-h2 reveal">A versenytársa már nem kísérletezik.<br />Használja.</h2>
           <div className="dr-rival__cols reveal" data-delay="1">
             <p>

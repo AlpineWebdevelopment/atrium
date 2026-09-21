@@ -1,5 +1,3 @@
-import DirectKicker from "./DirectKicker";
-
 /* The circus — what the buyer has already sat through. Stated as their own
    experience, not as claims about named competitors. */
 const SHOW = [
@@ -12,9 +10,8 @@ const SHOW = [
 export default function DirectNow() {
   return (
     <section className="dr-sec">
-      <div className="dr-wrap dr-grid">
-        <DirectKicker n="01" label="Az AI-show" />
-        <div className="dr-body">
+      <div className="dr-wrap">
+        <div className="dr-center">
           <h2 className="dr-h2 reveal">Ismerős?</h2>
           <div className="dr-cards dr-cards--2">
             {SHOW.map((t, i) => (

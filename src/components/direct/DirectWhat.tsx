@@ -1,5 +1,3 @@
-import DirectKicker from "./DirectKicker";
-
 /* What we sell, in two statements — deliberately not a service list; the
    services get their own page. */
 const WHAT = [
@@ -18,9 +16,8 @@ const WHAT = [
 export default function DirectWhat() {
   return (
     <section className="dr-sec">
-      <div className="dr-wrap dr-grid">
-        <DirectKicker n="02" label="Amit adunk" />
-        <div className="dr-body">
+      <div className="dr-wrap">
+        <div className="dr-center">
           <h2 className="dr-h2 reveal">AI, ami dolgozik.<br />Nem ami szerepel.</h2>
           <div className="dr-cards dr-cards--2">
             {WHAT.map((w, i) => (

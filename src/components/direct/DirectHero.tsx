@@ -1,6 +1,6 @@
-/* Hero on the Ink ground — the one dark opening the spec reserves for
-   dramatic moments. The top bar lives inside it so the dark band runs from
-   the very top. The CTA is the light pressable button. */
+/* Hero. Same bone ground as the rest of the page, centred. The whole page
+   hangs on one contrast: the market is drowning in AI show, we are not
+   that — say it first, then say plainly what we sell. */
 export default function DirectHero() {
   return (
     <section className="dr-hero">
@@ -19,7 +19,7 @@ export default function DirectHero() {
           Nem bemutatjuk. Megcsináljuk, és forintban mérhető, mit hoz.
         </p>
         <div className="dr-cta-row reveal" data-delay="3">
-          <a className="dr-btn dr-btn--light" href="/foglalas?from=direct">Foglaljon időpontot</a>
+          <a className="dr-btn" href="/foglalas?from=direct">Foglaljon időpontot</a>
           <span className="dr-cta-note">30 perc. Nincs demó. Ha nem éri meg, megmondjuk.</span>
         </div>
         <ul className="dr-proof reveal" data-delay="4">

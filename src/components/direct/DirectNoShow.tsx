@@ -1,5 +1,3 @@
-import DirectKicker from "./DirectKicker";
-
 /* "We know what we are doing" — what the buyer gets instead of the show.
    Three columns under a heavy rule, no capability list. */
 const GET = [
@@ -11,9 +9,8 @@ const GET = [
 export default function DirectNoShow() {
   return (
     <section className="dr-sec">
-      <div className="dr-wrap dr-grid">
-        <DirectKicker n="05" label="Amit kap" />
-        <div className="dr-body">
+      <div className="dr-wrap">
+        <div className="dr-center">
           <h2 className="dr-h2 reveal">Nem prezentálunk.<br />Megcsináljuk.</h2>
           <div className="dr-cols3">
             {GET.map((g, i) => (

@@ -1,6 +1,4 @@
-/* The close, on the Ink ground so the page is framed dark at both ends.
-   Three steps, one light CTA. Signal green appears exactly once on this page
-   — on the calculator figure — so nothing here is green. */
+/* The close. Three steps, one CTA, on the same ground as the page. */
 const STEPS = [
   { n: "01", t: "Foglal egy időpontot.", d: "30 perc, online. Nincs prezentáció." },
   { n: "02", t: "Megnézzük a számait.", d: "Ebből jön ki, mit hoz és mennyibe kerül — nem egy prezentációból." },
@@ -27,7 +25,7 @@ export default function DirectClose() {
             ))}
           </div>
 
-          <a className="dr-btn dr-btn--light dr-btn--lg" href="/foglalas?from=direct">Foglaljon időpontot</a>
+          <a className="dr-btn dr-btn--lg" href="/foglalas?from=direct">Foglaljon időpontot</a>
         </div>
       </div>
     </section>
