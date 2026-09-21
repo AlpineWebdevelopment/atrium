@@ -1,9 +1,9 @@
-/* "We know what we are doing" — what the buyer gets instead of the show.
-   Three columns under a heavy rule, no capability list. */
+/* What the buyer actually walks away with. Three columns under a heavy
+   rule, no capability list. */
 const GET = [
-  { t: "Élesben működő rendszert.", d: "Nem demót, nem pilotot, nem ígéretet." },
-  { t: "Egy számot, amit ellenőrizni tud.", d: "Forintban. Az Ön adataiból, nem a miénkből." },
-  { t: "Valakit, aki üzemelteti.", d: "Nem Önnek kell pásztorolnia." },
+  { t: "Rendszert, ami dolgozik.", d: "Holnap is, éjjel is, hétvégén is." },
+  { t: "Számot, ami stimmel.", d: "Az Ön adataiból. Bármikor ellenőrizheti." },
+  { t: "Embert, aki viszi.", d: "Önnek dolga nincs vele." },
 ];
 
 export default function DirectNoShow() {
@@ -11,7 +11,7 @@ export default function DirectNoShow() {
     <section className="dr-sec">
       <div className="dr-wrap">
         <div className="dr-center">
-          <h2 className="dr-h2 reveal">Nem prezentálunk.<br />Megcsináljuk.</h2>
+          <h2 className="dr-h2 reveal">Beszélni bárki tud.<br />Mi szállítunk.</h2>
           <div className="dr-cols3">
             {GET.map((g, i) => (
               <div className="dr-col reveal" data-delay={i + 1} key={g.t}>

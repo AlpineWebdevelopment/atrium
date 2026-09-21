@@ -24,9 +24,9 @@ import ScrollReveal from "@/components/ScrollReveal";
 export const metadata: Metadata = {
   alternates: { canonical: "/direct" },
   robots: { index: false, follow: true },
-  title: "Elegünk van az AI-cirkuszból",
+  title: "Az AI eddig csak vitte a pénzét",
   description:
-    "Torkig vagyunk a demókkal, a chatbotokkal és az AI-showval — ezért nem azt adjuk. AI értékesítési rendszer, és bármi, ami a cégében AI-jal megoldható. Élesben, forintban mérve.",
+    "Demó, chatbot, tanácsadás — mire ment el eddig a pénze? Mi AI értékesítési rendszert építünk, ami a megkeresésből megrendelést csinál. Fél óra, egyenes válaszok, két szám az Ön adataiból.",
 };
 
 export default function DirectPage() {

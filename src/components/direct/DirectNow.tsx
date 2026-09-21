@@ -1,11 +1,10 @@
-/* The circus — what the buyer has already sat through, told the way they
-   would tell it over a beer. Their own experience, not claims about named
-   competitors. */
+/* Where their money went so far — telegraphic pairs, cost against result.
+   Their own experience, not claims about named competitors. */
 const SHOW = [
-  "A demó, amitől mindenki elolvadt a meetingen. Aztán soha többé nem hallott róla senki.",
-  "A chatbot, ami köszönni tud és elnézést kérni. Ügyfelet hozni nem.",
-  "A negyvenoldalas AI-stratégia, amit pontosan egyszer nyitott meg valaki.",
-  "A tanácsadó, aki órabérért mesélt a jövőről. A jövő azóta se jött el.",
+  "Demó: lenyűgöző volt. Bevétel belőle: nulla.",
+  "Chatbot: udvarias. Ügyfelet hozott: egyet se.",
+  "Stratégia: negyven oldal. Elolvasva: egyszer.",
+  "Tanácsadó: kiszámlázta. Megcsinálni: Önre maradt.",
 ];
 
 export default function DirectNow() {
@@ -13,7 +12,7 @@ export default function DirectNow() {
     <section className="dr-sec">
       <div className="dr-wrap">
         <div className="dr-center">
-          <h2 className="dr-h2 reveal">Ismerős?</h2>
+          <h2 className="dr-h2 reveal">Mire ment el<br />eddig a pénze?</h2>
           <div className="dr-cards dr-cards--2">
             {SHOW.map((t, i) => (
               <div className="dr-card dr-card--x reveal" data-delay={(i % 2) + 1} key={t}>
@@ -23,8 +22,7 @@ export default function DirectNow() {
             ))}
           </div>
           <p className="dr-statement reveal" data-delay="3">
-            Ez az AI-show. Önnek pénzbe került, nekünk a szakmánkat járatja le.
-            Nem kérünk belőle.
+            Ebből él egy egész iparág. Mi abból élünk, ami Önnek hoz pénzt.
           </p>
         </div>
       </div>

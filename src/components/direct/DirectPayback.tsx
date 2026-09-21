@@ -1,18 +1,18 @@
-/* Payback, argued without a calculator: the number comes from the operator's
-   own figures in the first conversation, and no number means no sale. */
+/* Payback, argued without a calculator: two figures from their own data,
+   and if the maths does not close, we walk. */
 export default function DirectPayback() {
   return (
     <section className="dr-sec">
       <div className="dr-wrap">
         <div className="dr-center">
-          <h2 className="dr-h2 reveal">Nem hype.<br />Forint.</h2>
+          <h2 className="dr-h2 reveal">Számok.<br />Semmi varázslat.</h2>
           <p className="dr-sub reveal" data-delay="1">
-            Az első beszélgetésen az Ön számaiból számolunk. Nem ígérünk, nem festünk
-            jövőképet, nem mutatunk más cégéről esettanulmányt. Összeadunk.
+            Leülünk, elővesszük az Ön adatait, és kiszámoljuk, mit hozna és mibe kerül.
+            Két szám. Vagy nagyobb az egyik, vagy nem.
           </p>
           <p className="dr-statement reveal" data-delay="2">
-            Ha nem jön ki, hogy megéri, nem adunk el semmit. Ezt kevés cég meri leírni.
-            Mi ezért írtuk le.
+            Ha nem hozna többet, mint amibe kerül, elköszönünk. Ez ingyen volt,
+            és megspórolt magának egy rossz döntést.
           </p>
         </div>
       </div>

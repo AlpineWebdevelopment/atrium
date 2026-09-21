@@ -4,12 +4,12 @@ const WHAT = [
   {
     n: "A",
     t: "AI értékesítési rendszer",
-    d: "Ott, ahol a pénze most is folyik el: a megkereséstől a lezárt megrendelésig. Élesben fut, ügyfelekkel — nem egy vetítésben.",
+    d: "A megkeresésből megrendelést csinál. Ügyfelekkel fut, éles forgalomban — nem vásznon, nem tesztkörnyezetben.",
   },
   {
     n: "B",
-    t: "És bármi, ami AI-jal megoldható",
-    d: "Ha valami a cégében időt vagy pénzt zabál, és AI-jal megoldható, megoldjuk. Ha nem oldható meg, kimondjuk. Ennyi.",
+    t: "Ami még pénzt éget, megoldjuk",
+    d: "Ha a cégében valami időt vagy pénzt éget, és AI-jal kezelhető, kezeljük. Ha nem, megmondjuk, és nem raboljuk tovább az idejét.",
   },
 ];
 
@@ -18,7 +18,7 @@ export default function DirectWhat() {
     <section className="dr-sec">
       <div className="dr-wrap">
         <div className="dr-center">
-          <h2 className="dr-h2 reveal">AI, ami dolgozik.<br />Nem ami szerepel.</h2>
+          <h2 className="dr-h2 reveal">Két dolgot csinálunk.<br />Azt viszont élesben.</h2>
           <div className="dr-cards dr-cards--2">
             {WHAT.map((w, i) => (
               <div className="dr-card dr-card--what reveal" data-delay={i + 1} key={w.n}>
