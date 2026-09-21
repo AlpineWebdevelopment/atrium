@@ -15,8 +15,13 @@ import { NextResponse, type NextRequest } from "next/server";
    The notice goes out as 503 with Retry-After, so search engines treat it as
    a temporary outage and keep the indexed pages instead of replacing them.
 
-   To end the break: set MAINTENANCE to false and deploy. */
+   To end the break: set MAINTENANCE to false and deploy.
+
+   MAINTENANCE_PATHS takes single pages down while the rest of the site stays
+   up — the same notice, the same 503. Exact matches only. Currently the root
+   landing, while /direct is shaped into its replacement. */
 const MAINTENANCE = false;
+const MAINTENANCE_PATHS: string[] = ["/"];
 
 const OPEN_PATHS = ["/foglalas", "/chatgpt-hirdetes/foglalas", "/adatvedelem", "/aszf"];
 
@@ -63,9 +68,10 @@ const PAGE = `<!doctype html>
 </html>`;
 
 export function proxy(request: NextRequest) {
-  if (!MAINTENANCE) return NextResponse.next();
   const { pathname } = request.nextUrl;
-  if (OPEN_PATHS.some((p) => pathname === p || pathname.startsWith(`${p}/`))) {
+  const pageDown = MAINTENANCE_PATHS.includes(pathname);
+  if (!MAINTENANCE && !pageDown) return NextResponse.next();
+  if (!pageDown && OPEN_PATHS.some((p) => pathname === p || pathname.startsWith(`${p}/`))) {
     return NextResponse.next();
   }
   return new NextResponse(PAGE, {
