@@ -3910,8 +3910,9 @@ html.dark { --viz-purple-soft: #1d1b33; }
 /* /direct — bento grid under "Amit mi AI-nak hívunk.". Two columns: value
    is the tall tile on the left spanning two rows, package and technology
    stack on the right, the dashboard spans the full width underneath. Each card is a flex column with the checklist pushed to the bottom
-   (margin-top: auto), so every tile fills its cell edge to edge. Stacks to
-   one column on phones, two on tablets. */
+   (margin-top: auto), so every tile fills its cell edge to edge. Tablets
+   and phones keep a two-column bento: value on top, package and technology
+   side by side, dashboard underneath. */
 .page--direct .dr-bento-sec { border-top: 0; padding-top: 0; }
 .dr-bento {
   display: grid; gap: 14px; text-align: left;
@@ -3965,8 +3966,23 @@ html.dark { --viz-purple-soft: #1d1b33; }
     grid-template-areas: "val val" "pack tech" "dash dash";
   }
 }
+/* Phones keep the bento: value full width, package and technology side by
+   side as compact tiles (no paragraph, smaller type), dashboard full width. */
 @media (max-width: 620px) {
-  .dr-bento { grid-template-columns: minmax(0, 1fr); grid-template-areas: "val" "pack" "tech" "dash"; }
-  .dr-bento__card--dash { flex-direction: column; gap: 20px; }
-  .dr-bento__card--dash .dr-bento__list { padding: 16px 0 0; border-left: 0; border-top: 1px solid var(--line); }
+  .dr-bento { gap: 10px; }
+  .dr-bento__card { padding: 18px 16px 18px; gap: 14px; border-radius: 16px; }
+  .dr-bento__card--val { padding: 24px 22px; }
+  .dr-bento__card--pack .dr-bento__p,
+  .dr-bento__card--tech .dr-bento__p { display: none; }
+  .dr-bento__card--pack .dr-bento__t,
+  .dr-bento__card--tech .dr-bento__t { font-size: 16px; line-height: 1.22; margin-top: 8px; }
+  .dr-bento__card--pack .dr-bento__list,
+  .dr-bento__card--tech .dr-bento__list { gap: 8px; padding-top: 12px; }
+  .dr-bento__card--pack .dr-bento__list li,
+  .dr-bento__card--tech .dr-bento__list li { font-size: 12.5px; gap: 7px; }
+  .dr-bento__card--pack .dr-bento__ok,
+  .dr-bento__card--tech .dr-bento__ok { width: 13px; height: 13px; }
+  .dr-bento__k { font-size: 10px; }
+  .dr-bento__card--dash { flex-direction: column; gap: 16px; }
+  .dr-bento__card--dash .dr-bento__list { padding: 14px 0 0; border-left: 0; border-top: 1px solid var(--line); }
 }
