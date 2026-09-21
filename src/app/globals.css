@@ -21,8 +21,8 @@
   --line:   rgba(1, 14, 30, 0.10);
   --line-2: rgba(1, 14, 30, 0.06);
 
-  --font-display: var(--font-lexend-exa-src), ui-sans-serif, system-ui, sans-serif;
-  --font-body:    var(--font-jakarta-src), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-krona-src), ui-sans-serif, system-ui, sans-serif;
+  --font-body:    var(--font-outfit-src), ui-sans-serif, system-ui, sans-serif;
   --font-mono:    var(--font-dm-mono-src), ui-monospace, "SF Mono", Menlo, monospace;
 
   --ease: cubic-bezier(0.32, 0.72, 0, 1);          /* default / drawer-style */
@@ -3269,8 +3269,8 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .page--chatgpt-hirdetes,
 .page--root,
 .nav--newtype {
-  --font-display: var(--font-lexend-exa-src), ui-sans-serif, system-ui, sans-serif;
-  --font-body: var(--font-jakarta-src), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-krona-src), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-outfit-src), ui-sans-serif, system-ui, sans-serif;
 }
 .page--root, .page--root .btn, .nav--newtype .btn, .nav--newtype .nav__link { font-family: var(--font-body); }
 .page--chatgpt-hirdetes {
@@ -3600,8 +3600,8 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .nav--cg .nav__cta { font-size: 14px; padding: 10px 18px; }
 
 .footer--cg {
-  --font-display: var(--font-lexend-exa-src), ui-sans-serif, system-ui, sans-serif;
-  --font-body: var(--font-jakarta-src), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-krona-src), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-outfit-src), ui-sans-serif, system-ui, sans-serif;
   border-top: 1px solid var(--line);
 }
 .footer--cg .footer__brand { font-family: var(--font-display); font-weight: 600; }
@@ -3677,8 +3677,8 @@ html.dark { --viz-purple-soft: #1d1b33; }
    Signal green appears exactly once here — on the calculator figure.
    ========================================================= */
 .page--direct {
-  --font-display: var(--font-lexend-exa-src), ui-sans-serif, system-ui, sans-serif;
-  --font-body: var(--font-jakarta-src), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-krona-src), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-outfit-src), ui-sans-serif, system-ui, sans-serif;
   font-family: var(--font-body);
   background: var(--bone);
 }
@@ -3864,7 +3864,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
    it has to win over the ≤560px hero rules above. */
 @media (max-width: 560px) {
   .hero__title { white-space: normal; font-size: 10.4vw; overflow-wrap: break-word; }
-  .hero__rotline { font-size: 9vw; }
+  .hero__rotline { font-size: 8vw; } /* the longest root phrase must stay within the two lines min-height reserves */
   .page--epitoipar .hero__rotline { font-size: 5.6vw; }
 }
 
@@ -3886,3 +3886,8 @@ html.dark { --viz-purple-soft: #1d1b33; }
 @media (min-width: 561px) {
   .hero__title:not(:has(.hero__line1)) { font-size: clamp(34px, 4.2vw, 56px); }
 }
+
+/* Krona One ships one weight (400). Without this, every heading that asks
+   for 550-650 gets a browser-synthesised faux bold. Landings and the site
+   nav only; the blog keeps synthesis, since Onest has no true italic. */
+.page, .nav { font-synthesis-weight: none; }
