@@ -3907,43 +3907,66 @@ html.dark { --viz-purple-soft: #1d1b33; }
   .dr-proof { gap: 8px 22px; }
 }
 
-/* /direct — four alternating feature rows under "Amit mi AI-nak hívunk.":
-   text on one side, a line-art illustration on a dotted field on the other,
-   sides swapping row by row. Each row carries one accent colour, used only
-   for its eyebrow and check marks. Same bone ground as the page. */
-.dr-feats { padding: 0 0 clamp(48px, 7vw, 96px); }
-.dr-feat {
-  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: clamp(32px, 6vw, 80px); align-items: center;
-  padding: clamp(48px, 6vw, 80px) 0; border-top: 1px solid var(--line);
+/* /direct — bento grid under "Amit mi AI-nak hívunk.". Two columns: value
+   is the tall tile on the left spanning two rows, package and technology
+   stack on the right, the dashboard spans the full width underneath. Each card is a flex column with the checklist pushed to the bottom
+   (margin-top: auto), so every tile fills its cell edge to edge. Stacks to
+   one column on phones, two on tablets. */
+.page--direct .dr-bento-sec { border-top: 0; padding-top: 0; }
+.dr-bento {
+  display: grid; gap: 14px; text-align: left;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  grid-template-areas:
+    "val pack"
+    "val tech"
+    "dash dash";
 }
-.dr-feat:first-child { border-top: 0; padding-top: clamp(24px, 3vw, 40px); }
-.dr-feat--flip .dr-feat__art { order: -1; }
-.dr-feat__eyebrow {
-  display: block; font-family: var(--font-mono); font-size: 11.5px; font-weight: 600;
-  letter-spacing: 0.1em; text-transform: uppercase;
+.dr-bento__card {
+  display: flex; flex-direction: column; gap: 20px; min-width: 0;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 18px;
+  padding: 24px 24px 26px;
 }
-.dr-feat__t {
-  margin: 12px 0 0; font-family: var(--font-display); font-weight: 700;
-  font-size: clamp(26px, 3vw, 36px); line-height: 1.12; letter-spacing: -0.02em; color: var(--ink);
-  text-wrap: balance;
+.dr-bento__card--val { grid-area: val; padding: clamp(28px, 3.4vw, 40px); container-type: inline-size; }
+.dr-bento__card--pack { grid-area: pack; }
+.dr-bento__card--tech { grid-area: tech; }
+.dr-bento__card--dash { grid-area: dash; }
+.dr-bento__k {
+  display: block; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--stone);
 }
-.dr-feat__p { margin: 14px 0 0; max-width: 460px; font-size: 16px; line-height: 1.6; color: var(--ink-70); }
-.dr-feat__list { list-style: none; margin: 24px 0 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
-.dr-feat__list li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; line-height: 1.45; color: var(--ink); font-weight: 500; }
-.dr-feat__list svg { flex: none; width: 18px; height: 18px; margin-top: 1px; fill: none; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
-.dr-feat__art {
-  aspect-ratio: 1 / 1; width: 100%; max-width: 420px; justify-self: center;
-  display: grid; place-items: center; border-radius: 20px;
-  background-image: radial-gradient(rgba(1, 14, 30, 0.16) 1.1px, transparent 1.3px);
-  background-size: 14px 14px;
+.dr-bento__t {
+  margin: 10px 0 0; font-family: var(--font-display); font-weight: 700;
+  font-size: 20px; line-height: 1.2; letter-spacing: -0.015em; color: var(--ink); text-wrap: balance;
 }
-.dr-feat__art svg {
-  width: 72%; height: auto; fill: var(--bone); stroke: var(--ink);
-  stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round;
+.dr-bento__card--val .dr-bento__t {
+  font-family: var(--font-headline); font-weight: 400; font-size: clamp(52px, 18.4cqi, 104px);
+  line-height: 0.92; letter-spacing: 0.01em; margin-top: 14px;
 }
-@media (max-width: 760px) {
-  .dr-feat { grid-template-columns: minmax(0, 1fr); gap: 28px; }
-  .dr-feat--flip .dr-feat__art { order: 0; }
-  .dr-feat__art { max-width: 300px; }
+.dr-bento__p { margin: 10px 0 0; font-size: 14.5px; line-height: 1.55; color: var(--ink-70); }
+.dr-bento__card--val .dr-bento__p { font-size: 17px; max-width: 480px; margin-top: 20px; }
+.dr-bento__list {
+  list-style: none; margin: auto 0 0; padding: 16px 0 0; border-top: 1px solid var(--line);
+  display: flex; flex-direction: column; gap: 9px;
+}
+.dr-bento__list li { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.4; font-weight: 500; color: var(--ink); }
+.dr-bento__card--val .dr-bento__list li { font-size: 15.5px; }
+.dr-bento__ok {
+  flex: none; width: 16px; height: 16px; margin-top: 1px; fill: none; stroke: var(--ink);
+  stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round;
+}
+/* the wide dashboard tile: text left, checklist right */
+.dr-bento__card--dash { flex-direction: row; align-items: stretch; gap: 32px; }
+.dr-bento__card--dash .dr-bento__top { flex: 1 1 0; }
+.dr-bento__card--dash .dr-bento__list { flex: 1 1 0; margin: 0; padding: 0 0 0 28px; border-top: 0; border-left: 1px solid var(--line); justify-content: center; }
+
+@media (max-width: 1000px) {
+  .dr-bento {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas: "val val" "pack tech" "dash dash";
+  }
+}
+@media (max-width: 620px) {
+  .dr-bento { grid-template-columns: minmax(0, 1fr); grid-template-areas: "val" "pack" "tech" "dash"; }
+  .dr-bento__card--dash { flex-direction: column; gap: 20px; }
+  .dr-bento__card--dash .dr-bento__list { padding: 16px 0 0; border-left: 0; border-top: 1px solid var(--line); }
 }
