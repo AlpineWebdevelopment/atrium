@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import DirectHero from "@/components/direct/DirectHero";
 import DirectNow from "@/components/direct/DirectNow";
 import DirectWhat from "@/components/direct/DirectWhat";
+import DirectFeatures from "@/components/direct/DirectFeatures";
 import DirectClose from "@/components/direct/DirectClose";
 import DirectFooter from "@/components/direct/DirectFooter";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -9,7 +10,8 @@ import ScrollReveal from "@/components/ScrollReveal";
 /* Direct-response surface, being shaped into the next root landing. The
    argument: the AI show that brings no money → "Ismerős?", what the buyer
    has already paid for, measured in forint, hours and orders → what we call
-   AI (the sales system, and anything else AI can solve) → one booking. No
+   AI (the sales system, and anything else AI can solve) → four rows on
+   packages, technology, value and the dashboard → one booking. No
    service list; services get their own page. A closed surface: Nav does not
    render (STANDALONE in Nav.tsx) and every CTA goes to the booking page.
 
@@ -32,6 +34,7 @@ export default function DirectPage() {
       <DirectHero />
       <DirectNow />
       <DirectWhat />
+      <DirectFeatures />
       <DirectClose />
       <DirectFooter />
     </div>
