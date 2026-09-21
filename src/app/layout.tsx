@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Onest, Geist, Geist_Mono, Unbounded, Montserrat, JetBrains_Mono } from "next/font/google";
+import { Onest, Geist, Geist_Mono, Bricolage_Grotesque, Figtree } from "next/font/google";
 import Nav from "@/components/Nav";
 import BookingRedirect from "@/components/BookingRedirect";
 import "./globals.css";
@@ -22,26 +22,19 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono-src",
   display: "swap",
 });
-/* Landing type (trial) — Unbounded (display) + Montserrat (body) +
-   JetBrains Mono (mono), the synkai.hu set. Drives the --font-display /
-   --font-body / --font-mono tokens and the per-page overrides in globals.css,
-   so every landing picks it up at once. All three are variable fonts, so no
-   weight list. Onest and Geist stay loaded for the surfaces not migrated
-   (blog, legal pages, demos) via the Tailwind font-onest / font-geist
-   utilities. */
-const unbounded = Unbounded({
-  subsets: ["latin", "latin-ext"], // latin-ext required for Hungarian glyphs (ő, ű, etc.)
-  variable: "--font-unbounded-src",
+/* Second type pairing — Bricolage Grotesque (display) + Figtree (body).
+   Used by the root landing and /chatgpt-hirdetes via the .page--root /
+   .page--chatgpt-hirdetes / .nav--newtype overrides in globals.css. */
+const bricolage = Bricolage_Grotesque({
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-bricolage-src",
   display: "swap",
 });
-const montserrat = Montserrat({
+const figtree = Figtree({
   subsets: ["latin", "latin-ext"],
-  variable: "--font-montserrat-src",
-  display: "swap",
-});
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin", "latin-ext"],
-  variable: "--font-jetbrains-mono-src",
+  weight: ["400", "500", "600"],
+  variable: "--font-figtree-src",
   display: "swap",
 });
 
@@ -84,7 +77,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="hu"
-      className={`${onest.variable} ${geist.variable} ${geistMono.variable} ${unbounded.variable} ${montserrat.variable} ${jetbrainsMono.variable}`}
+      className={`${onest.variable} ${geist.variable} ${geistMono.variable} ${bricolage.variable} ${figtree.variable}`}
       suppressHydrationWarning
       data-scroll-behavior="smooth"
     >
