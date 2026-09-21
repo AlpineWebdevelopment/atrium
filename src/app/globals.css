@@ -3907,54 +3907,83 @@ html.dark { --viz-purple-soft: #1d1b33; }
   .dr-proof { gap: 8px 22px; }
 }
 
-/* /direct — "A különbség." comparison table under "Amit mi AI-nak hívunk.":
-   a row label, then the AI-show cell (muted, crossed) and our cell, which
-   sits in a highlighted panel column. Hairlines between rows. Stacks per row
-   on phones. */
-.page--direct .dr-cmp-sec { border-top: 0; padding-top: 0; }
-.dr-cmp {
-  position: relative; margin-top: 38px;
-  display: grid; grid-template-columns: 170px minmax(0, 1fr) minmax(0, 1.25fr);
+/* /direct — "A különbség." comparison bands under "Amit mi AI-nak hívunk.".
+   Grid per band: [meta | AI-show card | arrow | Atrium card]. The show card
+   is dashed and muted with a struck title; the Atrium card is the solid
+   panel with an Ink icon tile and a checklist. Column pills sit above.
+   Stacks on phones with the arrow turned downward. */
+.page--direct .dr-vs-sec { border-top: 0; padding-top: 0; }
+.dr-vs__head, .dr-vs__row {
+  display: grid; grid-template-columns: 150px minmax(0, 0.9fr) 40px minmax(0, 1.3fr);
+  gap: 0 18px; align-items: stretch;
 }
-/* the highlighted "Nálunk" column, drawn behind the third grid column */
-.dr-cmp::before {
-  content: ""; position: absolute; top: 0; bottom: 0; right: 0;
-  width: calc((100% - 170px) * 1.25 / 2.25);
-  background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
+.dr-vs__head { margin-top: 40px; padding-bottom: 14px; align-items: end; }
+.dr-vs__pill {
+  justify-self: start; display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 14px; border-radius: 999px; font-family: var(--font-mono);
+  font-size: 11.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
 }
-.dr-cmp__row { display: contents; }
-.dr-cmp__row > span {
-  position: relative; padding: 22px 24px; border-top: 1px solid var(--line);
-  font-size: 15.5px; line-height: 1.5; text-align: left;
+.dr-vs__pill--show { color: var(--stone); border: 1px dashed rgba(140,133,121,0.6); }
+.dr-vs__pill--us { color: var(--bone); background: var(--ink); }
+.dr-vs { border-top: 2px solid var(--ink); }
+.dr-vs__row { padding: 26px 0; border-bottom: 1px solid var(--line); }
+
+.dr-vs__meta { display: flex; flex-direction: column; gap: 6px; padding-top: 4px; text-align: left; }
+.dr-vs__n {
+  font-family: var(--font-headline); font-size: 54px; line-height: 0.9;
+  letter-spacing: 0.01em; color: var(--ink);
 }
-.dr-cmp__row--head > span { border-top: 0; padding-top: 24px; padding-bottom: 18px; }
-.dr-cmp__row:nth-child(2) > span { border-top-color: var(--ink); }
-.dr-cmp__k {
-  padding-left: 0 !important; font-family: var(--font-mono); font-size: 11.5px !important;
+.dr-vs__k {
+  font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--stone);
+}
+
+.dr-vs__show, .dr-vs__us { border-radius: 16px; padding: 22px 22px 24px; text-align: left; }
+.dr-vs__show { border: 1.5px dashed rgba(140,133,121,0.45); }
+.dr-vs__show p { margin: 8px 0 0; font-size: 14.5px; line-height: 1.55; color: var(--stone); }
+.dr-vs__tag {
+  display: inline-block; font-family: var(--font-mono); font-size: 10.5px;
   letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone);
 }
-.dr-cmp__show { color: var(--stone); display: flex; gap: 12px; align-items: flex-start; }
-.dr-cmp__us { color: var(--ink); font-weight: 500; display: flex; gap: 12px; align-items: flex-start; }
-.dr-cmp__row--head .dr-cmp__show,
-.dr-cmp__row--head .dr-cmp__us {
-  font-family: var(--font-display); font-weight: 700; font-size: 18px; letter-spacing: -0.01em; align-items: center;
+.dr-vs__tag--us { color: var(--ink-70); }
+.dr-vs__st {
+  margin: 8px 0 0; font-family: var(--font-display); font-weight: 600; font-size: 19px;
+  line-height: 1.25; color: var(--stone);
+  text-decoration: line-through; text-decoration-thickness: 1.5px; text-decoration-color: rgba(140,133,121,0.7);
 }
-.dr-cmp__row--head .dr-cmp__us { color: var(--ink); }
-.dr-cmp__x, .dr-cmp__ok {
-  flex: none; width: 18px; height: 18px; margin-top: 2px; fill: none;
-  stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round;
-}
-.dr-cmp__row--head .dr-cmp__x, .dr-cmp__row--head .dr-cmp__ok { margin-top: 0; }
-.dr-cmp__x { stroke: var(--stone); }
-.dr-cmp__ok { stroke: var(--ink); }
 
-@media (max-width: 760px) {
-  .dr-cmp { grid-template-columns: minmax(0, 1fr); }
-  .dr-cmp::before { display: none; }
-  .dr-cmp__row { display: block; padding: 20px 0; border-top: 1px solid var(--line); }
-  .dr-cmp__row--head { display: none; }
-  .dr-cmp__row > span { display: flex; padding: 0; border-top: 0; }
-  .dr-cmp__k { margin-bottom: 12px; }
-  .dr-cmp__show { margin-bottom: 10px; }
-  .dr-cmp__us { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px !important; }
+.dr-vs__arrow { display: grid; place-items: center; }
+.dr-vs__arrow svg {
+  width: 26px; height: 26px; fill: none; stroke: var(--ink); stroke-width: 1.8;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+
+.dr-vs__us { background: var(--panel); border: 1px solid var(--line); }
+.dr-vs__ustop { display: flex; gap: 14px; align-items: center; }
+.dr-vs__icon {
+  flex: none; width: 44px; height: 44px; border-radius: 12px; background: var(--ink);
+  display: grid; place-items: center;
+}
+.dr-vs__icon svg {
+  width: 22px; height: 22px; fill: none; stroke: var(--bone); stroke-width: 1.7;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+.dr-vs__ut {
+  margin: 4px 0 0; font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(19px, 1.9vw, 22px); line-height: 1.2; letter-spacing: -0.01em; color: var(--ink);
+}
+.dr-vs__us > p { margin: 14px 0 0; font-size: 15px; line-height: 1.55; color: var(--ink-70); }
+.dr-vs__us ul { list-style: none; margin: 14px 0 0; padding: 14px 0 0; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 9px; }
+.dr-vs__us li { display: flex; gap: 10px; align-items: flex-start; font-size: 14.5px; line-height: 1.45; color: var(--ink); font-weight: 500; }
+.dr-vs__ok {
+  flex: none; width: 17px; height: 17px; margin-top: 1px; fill: none; stroke: var(--ink);
+  stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round;
+}
+
+@media (max-width: 900px) {
+  .dr-vs__head { display: none; }
+  .dr-vs__row { grid-template-columns: minmax(0, 1fr); gap: 12px; padding: 28px 0; }
+  .dr-vs__meta { flex-direction: row; align-items: baseline; gap: 14px; }
+  .dr-vs__n { font-size: 44px; }
+  .dr-vs__arrow svg { transform: rotate(90deg); width: 22px; height: 22px; }
 }
