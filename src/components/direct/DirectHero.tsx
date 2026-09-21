@@ -1,5 +1,5 @@
-/* Hero. The subject must land in one glance — the flashy AI wave as a
-   whole, not just chatbots — together with our verdict on it. The hook is
+/* Hero. The subject must land in one glance — the AI talk being sold
+   everywhere, in every form — together with our verdict on it. The hook is
    the paradox: we hate it too, and we build AI for a living. */
 export default function DirectHero() {
   return (
@@ -11,7 +11,7 @@ export default function DirectHero() {
       <div className="dr-wrap dr-hero__in">
         <span className="dr-eyebrow reveal">AI értékesítési rendszer · szolgáltató cégeknek</span>
         <h1 className="dr-h1 reveal" data-delay="1">
-          Mi is utáljuk<br />a csilivili AI-t.
+          Mi is utáljuk<br />az AI-dumát.
         </h1>
         <p className="dr-lead reveal" data-delay="2">
           Pedig AI-ból élünk. Pont ezért fáj nézni, mit adnak el ezen a néven:
@@ -26,7 +26,7 @@ export default function DirectHero() {
         <ul className="dr-proof reveal" data-delay="4">
           <li>Nincs demó</li>
           <li>Nincs dia</li>
-          <li>Nincs duma</li>
+          <li>Nincs ígérgetés</li>
         </ul>
       </div>
     </section>
