@@ -21,8 +21,9 @@
   --line:   rgba(1, 14, 30, 0.10);
   --line-2: rgba(1, 14, 30, 0.06);
 
-  --font-display: "Onest", ui-sans-serif, system-ui, sans-serif;
-  --font-body:    "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-outfit-src), ui-sans-serif, system-ui, sans-serif;
+  --font-headline: var(--font-bebas-src), ui-sans-serif, system-ui, sans-serif;
+  --font-body:    var(--font-outfit-src), ui-sans-serif, system-ui, sans-serif;
   --font-mono:    "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
   --ease: cubic-bezier(0.32, 0.72, 0, 1);          /* default / drawer-style */
@@ -3284,8 +3285,9 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .page--chatgpt-hirdetes,
 .page--root,
 .nav--newtype {
-  --font-display: var(--font-bricolage-src), "Onest", ui-sans-serif, system-ui, sans-serif;
-  --font-body: var(--font-figtree-src), "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-outfit-src), ui-sans-serif, system-ui, sans-serif;
+  --font-headline: var(--font-bebas-src), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-outfit-src), ui-sans-serif, system-ui, sans-serif;
 }
 .page--root, .page--root .btn, .nav--newtype .btn, .nav--newtype .nav__link { font-family: var(--font-body); }
 .page--chatgpt-hirdetes {
@@ -3615,8 +3617,9 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .nav--cg .nav__cta { font-size: 14px; padding: 10px 18px; }
 
 .footer--cg {
-  --font-display: var(--font-bricolage-src), "Onest", ui-sans-serif, system-ui, sans-serif;
-  --font-body: var(--font-figtree-src), "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-outfit-src), ui-sans-serif, system-ui, sans-serif;
+  --font-headline: var(--font-bebas-src), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-outfit-src), ui-sans-serif, system-ui, sans-serif;
   border-top: 1px solid var(--line);
 }
 .footer--cg .footer__brand { font-family: var(--font-display); font-weight: 600; }
@@ -3692,8 +3695,9 @@ html.dark { --viz-purple-soft: #1d1b33; }
    Signal green appears exactly once here — on the calculator figure.
    ========================================================= */
 .page--direct {
-  --font-display: var(--font-bricolage-src), "Onest", ui-sans-serif, system-ui, sans-serif;
-  --font-body: var(--font-figtree-src), "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-outfit-src), ui-sans-serif, system-ui, sans-serif;
+  --font-headline: var(--font-bebas-src), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-outfit-src), ui-sans-serif, system-ui, sans-serif;
   font-family: var(--font-body);
   background: var(--bone);
 }
@@ -3892,4 +3896,24 @@ html.dark { --viz-purple-soft: #1d1b33; }
    Onest). Let it wrap, a notch smaller. */
 @media (max-width: 560px) {
   .page--epitoipar .hero__title { white-space: normal; font-size: 10.4vw; }
+}
+
+/* Bebas Neue is a condensed all-caps display face with a single weight. It
+   is used the way hírösweb.hu uses it — on the large headlines only (hero,
+   section headings, the wordmark); every smaller "display" role (card and
+   step titles, stat values, tabs) falls to Outfit through --font-display,
+   because Bebas at 14-17px is cramped and hard to read.
+   - No faux bold: the headlines ask for 550-650 and the browser would smear
+     the 400 drawing. Landings and the site nav only; the blog keeps
+     synthesis, since Onest has no true italic.
+   - Positive tracking: the negative values tuned for the old grotesques
+     crush a condensed caps face.
+   !important because the per-component heading rules set family and
+   tracking at equal or higher specificity. */
+.page, .nav { font-synthesis-weight: none; }
+.page :is(h1, h2),
+.page :is(.hero__title, .hero__rotline, .dash__h, .manifesto__h, .faq__h, .pos__h, .final-cta__h, .cg-hero__title, .dr-h1, .dr-h2),
+.nav__brand, .footer__brand, .dr-top__brand, .dr-foot__brand {
+  font-family: var(--font-headline) !important;
+  letter-spacing: 0.012em !important;
 }
