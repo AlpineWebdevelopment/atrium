@@ -16,7 +16,7 @@ import { NextResponse, type NextRequest } from "next/server";
    a temporary outage and keep the indexed pages instead of replacing them.
 
    To end the break: set MAINTENANCE to false and deploy. */
-const MAINTENANCE = true;
+const MAINTENANCE = false;
 
 const OPEN_PATHS = ["/foglalas", "/chatgpt-hirdetes/foglalas", "/adatvedelem", "/aszf"];
 
