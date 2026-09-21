@@ -12,7 +12,7 @@ export default function DirectNow() {
     <section className="dr-sec">
       <div className="dr-wrap">
         <div className="dr-center">
-          <h2 className="dr-h2 reveal">Mire ment el<br />eddig a pénze?</h2>
+          <h2 className="dr-h2 reveal">Ezt kapta eddig<br />„AI" néven:</h2>
           <div className="dr-cards dr-cards--2">
             {SHOW.map((t, i) => (
               <div className="dr-card dr-card--x reveal" data-delay={(i % 2) + 1} key={t}>
@@ -22,7 +22,8 @@ export default function DirectNow() {
             ))}
           </div>
           <p className="dr-statement reveal" data-delay="3">
-            Ebből él egy egész iparág. Mi abból élünk, ami Önnek hoz pénzt.
+            Ez nem innováció. Ez lehúzás, jó marketinggel.
+            Mi nem csak nem áruljuk — elítéljük.
           </p>
         </div>
       </div>

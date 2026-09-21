@@ -1,6 +1,6 @@
-/* Hero. Same bone ground as the rest of the page, centred. Money-first and
-   second-person: AI has only taken their money so far — we build the kind
-   that brings it back, and we say so without any stagecraft. */
+/* Hero. The subject must land in one glance — the flashy AI-chatbot wave —
+   together with our verdict on it. The hook is the paradox: we hate it too,
+   and we build AI for a living. */
 export default function DirectHero() {
   return (
     <section className="dr-hero">
@@ -11,13 +11,13 @@ export default function DirectHero() {
       <div className="dr-wrap dr-hero__in">
         <span className="dr-eyebrow reveal">AI értékesítési rendszer · szolgáltató cégeknek</span>
         <h1 className="dr-h1 reveal" data-delay="1">
-          Az AI eddig csak<br />vitte a pénzét.
+          Mi is utáljuk<br />az AI-chatbotokat.
         </h1>
         <p className="dr-lead reveal" data-delay="2">
-          Fizetett már demóért, chatbotért, tanácsadásért — és maradt utánuk bármi?
-          Mi arra szerződünk, ami marad. AI értékesítési rendszert építünk, ami a
-          megkeresésből megrendelést csinál. És ha más éget pénzt a cégében, azt is
-          megoldjuk, ha AI-jal megoldható.
+          Pedig AI-ból élünk. Pont ezért fáj nézni, mit adnak el ezen a néven:
+          villogó demót, okoskodó chatbotot, forró levegőt. Kimondjuk, amit Ön is
+          gondol: ez átverés. Mi AI értékesítési rendszert építünk, ami
+          megrendelést hoz — és megoldjuk, ami a cégében AI-jal tényleg megoldható.
         </p>
         <div className="dr-cta-row reveal" data-delay="3">
           <a className="dr-btn" href="/foglalas?from=direct">Foglaljon időpontot</a>
