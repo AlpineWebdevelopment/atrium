@@ -14,10 +14,9 @@ export default function DirectHero() {
           Unalmas már a sok szép AI‑show, ami egy forintot se hoz?
         </h1>
         <p className="dr-lead reveal" data-delay="2">
-          Pedig AI-ból élünk. Pont ezért fáj nézni, mit adnak el ezen a néven:
-          villogó demót, okoskodó chatbotot, forró levegőt. Kimondjuk, amit Ön is
-          gondol: ez átverés. Mi AI értékesítési rendszert építünk, ami
-          megrendelést hoz — és megoldjuk, ami a cégében AI-jal tényleg megoldható.
+          Nálunk az első kérdés nem az, hogy mit tud az AI. Hanem az, hogy mennyit
+          hoz. AI értékesítési rendszert építünk, és bármit, ami a cégében
+          megoldható vele.
         </p>
         <div className="dr-cta-row reveal" data-delay="3">
           <a className="dr-btn" href="/foglalas?from=direct">Foglaljon időpontot</a>
