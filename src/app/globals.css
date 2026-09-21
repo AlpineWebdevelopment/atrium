@@ -3907,83 +3907,43 @@ html.dark { --viz-purple-soft: #1d1b33; }
   .dr-proof { gap: 8px 22px; }
 }
 
-/* /direct — "A különbség." comparison bands under "Amit mi AI-nak hívunk.".
-   Grid per band: [meta | AI-show card | arrow | Atrium card]. The show card
-   is dashed and muted with a struck title; the Atrium card is the solid
-   panel with an Ink icon tile and a checklist. Column pills sit above.
-   Stacks on phones with the arrow turned downward. */
-.page--direct .dr-vs-sec { border-top: 0; padding-top: 0; }
-.dr-vs__head, .dr-vs__row {
-  display: grid; grid-template-columns: 150px minmax(0, 0.9fr) 40px minmax(0, 1.3fr);
-  gap: 0 18px; align-items: stretch;
+/* /direct — four alternating feature rows under "Amit mi AI-nak hívunk.":
+   text on one side, a line-art illustration on a dotted field on the other,
+   sides swapping row by row. Each row carries one accent colour, used only
+   for its eyebrow and check marks. Same bone ground as the page. */
+.dr-feats { padding: 0 0 clamp(48px, 7vw, 96px); }
+.dr-feat {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(32px, 6vw, 80px); align-items: center;
+  padding: clamp(48px, 6vw, 80px) 0; border-top: 1px solid var(--line);
 }
-.dr-vs__head { margin-top: 40px; padding-bottom: 14px; align-items: end; }
-.dr-vs__pill {
-  justify-self: start; display: inline-flex; align-items: center; gap: 8px;
-  padding: 7px 14px; border-radius: 999px; font-family: var(--font-mono);
-  font-size: 11.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+.dr-feat:first-child { border-top: 0; padding-top: clamp(24px, 3vw, 40px); }
+.dr-feat--flip .dr-feat__art { order: -1; }
+.dr-feat__eyebrow {
+  display: block; font-family: var(--font-mono); font-size: 11.5px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
 }
-.dr-vs__pill--show { color: var(--stone); border: 1px dashed rgba(140,133,121,0.6); }
-.dr-vs__pill--us { color: var(--bone); background: var(--ink); }
-.dr-vs { border-top: 2px solid var(--ink); }
-.dr-vs__row { padding: 26px 0; border-bottom: 1px solid var(--line); }
-
-.dr-vs__meta { display: flex; flex-direction: column; gap: 6px; padding-top: 4px; text-align: left; }
-.dr-vs__n {
-  font-family: var(--font-headline); font-size: 54px; line-height: 0.9;
-  letter-spacing: 0.01em; color: var(--ink);
+.dr-feat__t {
+  margin: 12px 0 0; font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(26px, 3vw, 36px); line-height: 1.12; letter-spacing: -0.02em; color: var(--ink);
+  text-wrap: balance;
 }
-.dr-vs__k {
-  font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--stone);
+.dr-feat__p { margin: 14px 0 0; max-width: 460px; font-size: 16px; line-height: 1.6; color: var(--ink-70); }
+.dr-feat__list { list-style: none; margin: 24px 0 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.dr-feat__list li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; line-height: 1.45; color: var(--ink); font-weight: 500; }
+.dr-feat__list svg { flex: none; width: 18px; height: 18px; margin-top: 1px; fill: none; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.dr-feat__art {
+  aspect-ratio: 1 / 1; width: 100%; max-width: 420px; justify-self: center;
+  display: grid; place-items: center; border-radius: 20px;
+  background-image: radial-gradient(rgba(1, 14, 30, 0.16) 1.1px, transparent 1.3px);
+  background-size: 14px 14px;
 }
-
-.dr-vs__show, .dr-vs__us { border-radius: 16px; padding: 22px 22px 24px; text-align: left; }
-.dr-vs__show { border: 1.5px dashed rgba(140,133,121,0.45); }
-.dr-vs__show p { margin: 8px 0 0; font-size: 14.5px; line-height: 1.55; color: var(--stone); }
-.dr-vs__tag {
-  display: inline-block; font-family: var(--font-mono); font-size: 10.5px;
-  letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone);
+.dr-feat__art svg {
+  width: 72%; height: auto; fill: var(--bone); stroke: var(--ink);
+  stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round;
 }
-.dr-vs__tag--us { color: var(--ink-70); }
-.dr-vs__st {
-  margin: 8px 0 0; font-family: var(--font-display); font-weight: 600; font-size: 19px;
-  line-height: 1.25; color: var(--stone);
-  text-decoration: line-through; text-decoration-thickness: 1.5px; text-decoration-color: rgba(140,133,121,0.7);
-}
-
-.dr-vs__arrow { display: grid; place-items: center; }
-.dr-vs__arrow svg {
-  width: 26px; height: 26px; fill: none; stroke: var(--ink); stroke-width: 1.8;
-  stroke-linecap: round; stroke-linejoin: round;
-}
-
-.dr-vs__us { background: var(--panel); border: 1px solid var(--line); }
-.dr-vs__ustop { display: flex; gap: 14px; align-items: center; }
-.dr-vs__icon {
-  flex: none; width: 44px; height: 44px; border-radius: 12px; background: var(--ink);
-  display: grid; place-items: center;
-}
-.dr-vs__icon svg {
-  width: 22px; height: 22px; fill: none; stroke: var(--bone); stroke-width: 1.7;
-  stroke-linecap: round; stroke-linejoin: round;
-}
-.dr-vs__ut {
-  margin: 4px 0 0; font-family: var(--font-display); font-weight: 700;
-  font-size: clamp(19px, 1.9vw, 22px); line-height: 1.2; letter-spacing: -0.01em; color: var(--ink);
-}
-.dr-vs__us > p { margin: 14px 0 0; font-size: 15px; line-height: 1.55; color: var(--ink-70); }
-.dr-vs__us ul { list-style: none; margin: 14px 0 0; padding: 14px 0 0; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 9px; }
-.dr-vs__us li { display: flex; gap: 10px; align-items: flex-start; font-size: 14.5px; line-height: 1.45; color: var(--ink); font-weight: 500; }
-.dr-vs__ok {
-  flex: none; width: 17px; height: 17px; margin-top: 1px; fill: none; stroke: var(--ink);
-  stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round;
-}
-
-@media (max-width: 900px) {
-  .dr-vs__head { display: none; }
-  .dr-vs__row { grid-template-columns: minmax(0, 1fr); gap: 12px; padding: 28px 0; }
-  .dr-vs__meta { flex-direction: row; align-items: baseline; gap: 14px; }
-  .dr-vs__n { font-size: 44px; }
-  .dr-vs__arrow svg { transform: rotate(90deg); width: 22px; height: 22px; }
+@media (max-width: 760px) {
+  .dr-feat { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .dr-feat--flip .dr-feat__art { order: 0; }
+  .dr-feat__art { max-width: 300px; }
 }

@@ -1,144 +1,159 @@
-/* "A különbség." — four comparison bands under "Amit mi AI-nak hívunk.":
-   package, technology, value, transparency. Each band: a big number and
-   label, the AI-show card (dashed, struck title, why it fails), an arrow,
-   and our card (icon, title, one line, three checks). No published prices,
-   no unverifiable figures. */
+/* Four alternating rows under "Amit mi AI-nak hívunk." — the layout of a
+   reference the user shared (text on one side, a line-art illustration on a
+   dotted field on the other, sides swapping; coloured mono eyebrow, title,
+   one line, a checklist in the row's colour), with our own topics and
+   examples: sales, retention, internal processes, measurement. No
+   published prices and no unverifiable figures. */
 
 type Row = {
-  n: string;
-  k: string;
-  show: { t: string; d: string };
-  us: { t: string; d: string; items: string[] };
-  Icon: () => React.JSX.Element;
+  eyebrow: string;
+  color: string;
+  title: string;
+  lead: string;
+  items: string[];
+  Art: () => React.JSX.Element;
 };
 
-const IconBox = () => (
-  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z" /><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5" /></svg>
-);
-const IconChannels = () => (
-  <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3" /><circle cx="4" cy="6" r="2" /><circle cx="20" cy="6" r="2" /><circle cx="4" cy="18" r="2" /><circle cx="20" cy="18" r="2" /><path d="M6 7l3.5 3M18 7l-3.5 3M6 17l3.5-3M18 17l-3.5-3" /></svg>
-);
-const IconTrend = () => (
-  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8" /><path d="M15 7h6v6" /></svg>
-);
-const IconEye = () => (
-  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z" /><circle cx="12" cy="12" r="3" /></svg>
-);
+function ArtComputer() {
+  return (
+    <svg viewBox="0 0 240 240" aria-hidden="true">
+      <path d="M56 46 L168 36 L168 142 L56 152 Z" />
+      <path d="M168 36 L190 50 L190 154 L168 142" />
+      <path d="M56 152 L78 166 L190 154" />
+      <path d="M70 60 L154 52 L154 128 L70 136 Z" />
+      <path d="M80 76 L120 72 M80 88 L140 83 M80 100 L110 97 M80 112 L132 107" />
+      <path d="M44 178 L166 166 L208 188 L86 202 Z" />
+      <path d="M70 182 L170 172 M84 190 L184 180" />
+      <path d="M108 158 L108 170 M140 155 L140 167" />
+    </svg>
+  );
+}
+
+function ArtLoop() {
+  return (
+    <svg viewBox="0 0 240 240" aria-hidden="true">
+      <path d="M120 176 L196 206 L120 236 L44 206 Z" />
+      <path d="M82 191 L158 221 M158 191 L82 221" />
+      <path d="M70 110 A50 50 0 0 1 164 88" />
+      <path d="M170 130 A50 50 0 0 1 76 152" />
+      <path d="M152 76 L166 88 L150 98 M88 164 L74 152 L90 142" />
+      <circle cx="120" cy="120" r="20" />
+      <path d="M112 120 L118 126 L130 113" />
+    </svg>
+  );
+}
+
+function ArtBox() {
+  return (
+    <svg viewBox="0 0 240 240" aria-hidden="true">
+      <path d="M120 40 L200 86 L120 132 L40 86 Z" />
+      <path d="M40 86 L40 174 L120 220 L120 132" />
+      <path d="M200 86 L200 174 L120 220" />
+      <g transform="translate(160 154) skewY(-30)">
+        <circle r="24" />
+        <circle r="10" />
+        {Array.from({ length: 8 }).map((_, i) => {
+          const a = (i * Math.PI) / 4;
+          return <line key={i} x1={Math.cos(a) * 24} y1={Math.sin(a) * 24} x2={Math.cos(a) * 32} y2={Math.sin(a) * 32} />;
+        })}
+      </g>
+      <path d="M62 108 L98 129 M62 124 L98 145 M62 140 L86 154" />
+    </svg>
+  );
+}
+
+function ArtChart() {
+  return (
+    <svg viewBox="0 0 240 240" aria-hidden="true">
+      <path d="M40 60 L200 60 L200 190 L40 190 Z" />
+      <path d="M40 80 L200 80" />
+      <circle cx="54" cy="70" r="3" /><circle cx="66" cy="70" r="3" /><circle cx="78" cy="70" r="3" />
+      <path d="M62 170 L62 140 M92 170 L92 124 M122 170 L122 132 M152 170 L152 108 M182 170 L182 96" />
+      <path d="M58 132 L92 112 L122 120 L152 96 L184 84" />
+      <path d="M170 84 L184 84 L180 98" />
+    </svg>
+  );
+}
 
 const ROWS: Row[] = [
   {
-    n: "01",
-    k: "Csomag",
-    show: {
-      t: "Dobozos csomag",
-      d: "Mindenki ugyanazt kapja, a cégnek kell igazodnia a szoftverhez. Ami nem fér bele, az kimarad.",
-    },
-    us: {
-      t: "Az Ön cégére szabva",
-      d: "Előbb megnézzük, hogyan dolgozik, és ahhoz építjük a rendszert — a pár fős csapattól a nagyvállalatig.",
-      items: ["Saját CRM minden csomagban", "Beállítás és havidíj a cég méretéhez igazítva", "Folyamatos támogatás és karbantartás"],
-    },
-    Icon: IconBox,
+    eyebrow: "Értékesítés",
+    color: "#4F9E43",
+    title: "Egyetlen megkeresés se vész el.",
+    lead: "Aki ma megkeresi, és nem kap időben választ, holnap már a versenytársánál van. A rendszer ezt a rést zárja be.",
+    items: [
+      "Minden hívást felvesz, éjjel és hétvégén is",
+      "Percek alatt válaszol a webes és közösségi érdeklődőkre",
+      "Utánamegy a kiküldött árajánlatnak",
+      "Időpontot foglal, egyenesen a naptárába",
+    ],
+    Art: ArtComputer,
   },
   {
-    n: "02",
-    k: "Technológia",
-    show: {
-      t: "Egy chatablak",
-      d: "A weboldal sarkában ül, és csak azt látja, amit ott írnak neki. A telefonról és az e-mailről nem tud semmit.",
-    },
-    us: {
-      t: "Minden csatorna, egy memória",
-      d: "Akárhol keresi az ügyfél, a rendszer ugyanazt a beszélgetést viszi tovább. Semmit nem kell kétszer elmondania.",
-      items: ["Telefon, SMS, WhatsApp, Messenger, Instagram, e-mail, webchat", "Magától megkeresi a régi és elhidegült ügyfeleket", "A CRM valós időben frissül"],
-    },
-    Icon: IconChannels,
+    eyebrow: "Ügyfélmegtartás",
+    color: "#9662BC",
+    title: "A régi ügyfél is pénz.",
+    lead: "A legolcsóbb megrendelés attól jön, aki már vásárolt Öntől. Csak valakinek szólnia kell neki, időben.",
+    items: [
+      "Szól, amikor esedékes a következő alkalom",
+      "Visszahívja, aki hónapok óta nem jelentkezett",
+      "Rákérdez, minden rendben volt-e a munkával",
+      "Az elégedett ügyféltől értékelést kér",
+    ],
+    Art: ArtLoop,
   },
   {
-    n: "03",
-    k: "Érték",
-    show: {
-      t: "Szép bemutató",
-      d: "A meetingen lenyűgöző. Hogy utána hoz-e pénzt, azt senki nem méri — és senki nem is kérdezi.",
-    },
-    us: {
-      t: "Mérhető bevétel",
-      d: "Egy dolga van: hogy több megkeresésből legyen megrendelés. A megtérülést az Ön számaiból számoljuk, nem ígéretből.",
-      items: ["Kevesebb elveszett érdeklődő", "Heti riport, forintban", "A számok alapján folyamatos finomítás"],
-    },
-    Icon: IconTrend,
+    eyebrow: "Belső folyamatok",
+    color: "#2C6FB5",
+    title: "Ami ma kézzel megy, holnap magától.",
+    lead: "Ha valami a cégében rendszeresen órákat visz el, és AI-jal megoldható, megépítjük. Ha nem, megmondjuk.",
+    items: [
+      "Árajánlat-piszkozat a felmérés jegyzeteiből",
+      "Számlák, szerződések adatainak kiolvasása",
+      "Adatátvitel a meglévő rendszerei között",
+      "Belső tudásbázis, amitől bármit meg lehet kérdezni",
+    ],
+    Art: ArtBox,
   },
   {
-    n: "04",
-    k: "Átláthatóság",
-    show: {
-      t: "Fekete doboz",
-      d: "Fut valami a háttérben, de nem látja, mit csinál. El kell hinnie, hogy működik.",
-    },
-    us: {
-      t: "Minden látszik",
-      d: "Egy felületen látja az összes beszélgetést, ügyfelet és eredményt, valós időben.",
-      items: ["Minden beszélgetés visszanézhető", "Valós idejű mutatók és statisztikák", "Több AI-ügynök egy helyen, mobilon is"],
-    },
-    Icon: IconEye,
+    eyebrow: "Mérés",
+    color: "#B8862B",
+    title: "Minden héten tudja, mit hozott.",
+    lead: "Nem kell elhinnie, hogy működik. Látja: hány megkeresés jött, mennyiből lett megrendelés, és hol akad el még.",
+    items: [
+      "Heti riport, forintban",
+      "Minden beszélgetés visszanézhető",
+      "Látszik, hol morzsolódnak le az érdeklődők",
+      "A számok alapján hétről hétre finomítjuk",
+    ],
+    Art: ArtChart,
   },
 ];
 
-const Check = () => (
-  <svg viewBox="0 0 24 24" aria-hidden="true" className="dr-vs__ok"><path d="M5 13l4 4L19 7" /></svg>
-);
-
 export default function DirectFeatures() {
   return (
-    <section className="dr-sec dr-vs-sec">
+    <section className="dr-feats">
       <div className="dr-wrap">
-        <div className="dr-center">
-          <h2 className="dr-h2 reveal">A különbség.</h2>
-        </div>
-
-        <div className="dr-vs__head reveal" data-delay="1" aria-hidden="true">
-          <span />
-          <span className="dr-vs__pill dr-vs__pill--show">AI-show</span>
-          <span />
-          <span className="dr-vs__pill dr-vs__pill--us">Atrium</span>
-        </div>
-
-        <div className="dr-vs">
-          {ROWS.map((r, i) => (
-            <div className="dr-vs__row reveal" data-delay={(i % 2) + 1} key={r.n}>
-              <div className="dr-vs__meta">
-                <span className="dr-vs__n">{r.n}</span>
-                <span className="dr-vs__k">{r.k}</span>
-              </div>
-
-              <div className="dr-vs__show">
-                <span className="dr-vs__tag">AI-show</span>
-                <h3 className="dr-vs__st">{r.show.t}</h3>
-                <p>{r.show.d}</p>
-              </div>
-
-              <div className="dr-vs__arrow" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-              </div>
-
-              <div className="dr-vs__us">
-                <div className="dr-vs__ustop">
-                  <span className="dr-vs__icon"><r.Icon /></span>
-                  <div>
-                    <span className="dr-vs__tag dr-vs__tag--us">Atrium</span>
-                    <h3 className="dr-vs__ut">{r.us.t}</h3>
-                  </div>
-                </div>
-                <p>{r.us.d}</p>
-                <ul>
-                  {r.us.items.map((t) => (
-                    <li key={t}><Check /><span>{t}</span></li>
-                  ))}
-                </ul>
-              </div>
+        {ROWS.map((r, i) => (
+          <div className={`dr-feat${i % 2 ? " dr-feat--flip" : ""}`} key={r.eyebrow}>
+            <div className="dr-feat__text reveal">
+              <span className="dr-feat__eyebrow" style={{ color: r.color }}>{r.eyebrow}</span>
+              <h3 className="dr-feat__t">{r.title}</h3>
+              <p className="dr-feat__p">{r.lead}</p>
+              <ul className="dr-feat__list">
+                {r.items.map((t) => (
+                  <li key={t}>
+                    <svg viewBox="0 0 24 24" aria-hidden="true" style={{ stroke: r.color }}><path d="M5 13l4 4L19 7" /></svg>
+                    <span>{t}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-          ))}
-        </div>
+            <div className="dr-feat__art reveal" data-delay="1">
+              <r.Art />
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
