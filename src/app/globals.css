@@ -133,7 +133,10 @@ html.dark {
    and :active sinks the face onto it. */
 .btn {
   --btn-face: var(--ink);
-  --btn-edge: color-mix(in oklab, var(--btn-face) 66%, black);
+  /* The near-black ink face cannot go darker, so its edge goes lighter — a
+     slate shade of ink, like the lit side of a dark key. Coloured variants
+     override this below with a darker shade of their own face. */
+  --btn-edge: color-mix(in oklab, var(--ink) 68%, var(--bone));
   --press: 5px;
   display: inline-flex;
   align-items: center;
@@ -180,6 +183,21 @@ html.dark {
   --btn-edge: color-mix(in oklab, var(--bone) 72%, var(--stone));
   color: var(--ink);
   border: 1px solid var(--line);
+}
+
+/* Coloured button faces (the niche palettes and the ChatGPT purple) are
+   bright enough to darken; their edge is a darker shade of themselves. */
+.page--salon .btn:not(.btn--ghost),
+.page--physio .btn:not(.btn--ghost),
+.page--kormos .btn:not(.btn--ghost),
+.page--szepsegipar .btn:not(.btn--ghost),
+.page--allatorvos .btn:not(.btn--ghost),
+.page--gyors-lead-valasz .btn:not(.btn--ghost),
+.page--fogaszat .btn:not(.btn--ghost),
+.page--klima .btn:not(.btn--ghost),
+.page--napelem .btn:not(.btn--ghost),
+.cg-btn {
+  --btn-edge: color-mix(in oklab, var(--btn-face) 66%, black);
 }
 
 .btn--lg { padding: 17px 30px; font-size: 15px; border-radius: 16px; }
@@ -3731,7 +3749,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .page--direct .dr-sub { margin: 12px 0 0; max-width: 620px; font-size: 16px; line-height: 1.55; color: var(--ink-70); }
 
 .page--direct .dr-btn {
-  --btn-edge: color-mix(in oklab, var(--ink) 66%, black);
+  --btn-edge: color-mix(in oklab, var(--ink) 68%, var(--bone));
   display: inline-flex; align-items: center; justify-content: center;
   background: var(--ink); color: var(--bone); font-size: 15.5px; font-weight: 600;
   padding: 15px 28px; border-radius: 14px; text-decoration: none;
