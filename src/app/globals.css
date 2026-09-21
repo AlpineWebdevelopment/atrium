@@ -23,6 +23,7 @@
 
   --font-display: var(--font-outfit-src), ui-sans-serif, system-ui, sans-serif;
   --font-headline: var(--font-bebas-src), ui-sans-serif, system-ui, sans-serif;
+  --font-logo: var(--font-onest-src), ui-sans-serif, system-ui, sans-serif;
   --font-body:    var(--font-outfit-src), ui-sans-serif, system-ui, sans-serif;
   --font-mono:    "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
@@ -44,6 +45,8 @@
 
   --font-onest: var(--font-onest-src), ui-sans-serif, system-ui, sans-serif;
   --font-geist: var(--font-geist-src), ui-sans-serif, system-ui, sans-serif;
+  --font-headline: var(--font-bebas-src), ui-sans-serif, system-ui, sans-serif;
+  --font-outfit: var(--font-outfit-src), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono-src), ui-monospace, monospace;
 }
 
@@ -56,7 +59,7 @@
     text-rendering: optimizeLegibility;
   }
   body {
-    font-family: var(--font-geist);
+    font-family: var(--font-outfit);
   }
   @media (prefers-reduced-motion: reduce) {
     *,
@@ -3287,6 +3290,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .nav--newtype {
   --font-display: var(--font-outfit-src), ui-sans-serif, system-ui, sans-serif;
   --font-headline: var(--font-bebas-src), ui-sans-serif, system-ui, sans-serif;
+  --font-logo: var(--font-bricolage-src), ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-outfit-src), ui-sans-serif, system-ui, sans-serif;
 }
 .page--root, .page--root .btn, .nav--newtype .btn, .nav--newtype .nav__link { font-family: var(--font-body); }
@@ -3619,6 +3623,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .footer--cg {
   --font-display: var(--font-outfit-src), ui-sans-serif, system-ui, sans-serif;
   --font-headline: var(--font-bebas-src), ui-sans-serif, system-ui, sans-serif;
+  --font-logo: var(--font-bricolage-src), ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-outfit-src), ui-sans-serif, system-ui, sans-serif;
   border-top: 1px solid var(--line);
 }
@@ -3697,6 +3702,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .page--direct {
   --font-display: var(--font-outfit-src), ui-sans-serif, system-ui, sans-serif;
   --font-headline: var(--font-bebas-src), ui-sans-serif, system-ui, sans-serif;
+  --font-logo: var(--font-bricolage-src), ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-outfit-src), ui-sans-serif, system-ui, sans-serif;
   font-family: var(--font-body);
   background: var(--bone);
@@ -3911,9 +3917,14 @@ html.dark { --viz-purple-soft: #1d1b33; }
    !important because the per-component heading rules set family and
    tracking at equal or higher specificity. */
 .page, .nav { font-synthesis-weight: none; }
-.page :is(h1, h2),
-.page :is(.hero__title, .hero__rotline, .dash__h, .manifesto__h, .faq__h, .pos__h, .final-cta__h, .cg-hero__title, .dr-h1, .dr-h2),
-.nav__brand, .footer__brand, .dr-top__brand, .dr-foot__brand {
+.page :is(h1, h2):not([class*="font-"]),
+.page :is(.hero__title, .hero__rotline, .dash__h, .manifesto__h, .faq__h, .pos__h, .final-cta__h, .cg-hero__title, .dr-h1, .dr-h2) {
   font-family: var(--font-headline) !important;
   letter-spacing: 0.012em !important;
+}
+/* The wordmark keeps its original type everywhere: Onest by default,
+   Bricolage Grotesque where those pages set --font-logo. Its own
+   letter-spacing and weight rules still apply. */
+.nav__brand, .footer__brand, .dr-top__brand, .dr-foot__brand {
+  font-family: var(--font-logo) !important;
 }

@@ -69,7 +69,7 @@ export default function RelatedPosts({
 
   return (
     <section className="mt-12 border-t border-line pt-6" aria-labelledby="tovabbi">
-      <h2 id="tovabbi" className="mb-4 font-onest text-[20px] font-bold">
+      <h2 id="tovabbi" className="mb-4 font-headline font-normal tracking-[0.012em] text-[28px] leading-[1.1]">
         Ez is érdekelheti
       </h2>
       <ul className="grid gap-4 sm:grid-cols-2">
@@ -83,7 +83,7 @@ export default function RelatedPosts({
               <p className="font-mono text-[11px] uppercase tracking-widest text-stone">
                 {p.niche}
               </p>
-              <h3 className="mt-1 font-onest text-[16.5px] font-semibold leading-snug">
+              <h3 className="mt-1 font-outfit text-[16.5px] font-semibold leading-snug">
                 {p.title}
               </h3>
               <p className="mt-1 text-[14px] leading-normal text-stone">{p.dek}</p>

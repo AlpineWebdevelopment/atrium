@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Onest, Geist, Geist_Mono, Bebas_Neue, Outfit } from "next/font/google";
+import { Onest, Geist, Geist_Mono, Bebas_Neue, Outfit, Bricolage_Grotesque } from "next/font/google";
 import Nav from "@/components/Nav";
 import BookingRedirect from "@/components/BookingRedirect";
 import "./globals.css";
@@ -22,16 +22,20 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono-src",
   display: "swap",
 });
-/* Landing type — Bebas Neue (display) + Outfit (body), the hírösweb.hu
-   pairing. Drives the --font-display / --font-body tokens and the per-page
-   overrides in globals.css, so every landing picks it up at once. Onest and
-   Geist stay loaded for the surfaces not migrated (blog, legal pages, demos)
-   via the Tailwind font-onest / font-geist utilities; Geist Mono stays the
-   mono face.
+/* Site type — Bebas Neue (headlines) + Outfit (everything else), the
+   hírösweb.hu pairing, on every public surface: landings, blog, legal,
+   offers, career, booking. Driven by the --font-headline / --font-display /
+   --font-body tokens and the font-headline / font-outfit utilities in
+   globals.css. Geist Mono stays the mono face.
+
+   The wordmark keeps the type it always had — Onest by default, Bricolage
+   Grotesque on /, /chatgpt-hirdetes and /direct — via --font-logo, which is
+   why Onest and Bricolage are still loaded. Onest and Geist also stay for the
+   client demos (_demo/*), which keep their own look.
 
    Bebas Neue is a condensed all-caps face with a single 400 weight;
-   globals.css turns weight synthesis off on the landings and gives headings
-   positive tracking to suit it. */
+   globals.css turns weight synthesis off and gives headlines positive
+   tracking to suit it. */
 const bebas = Bebas_Neue({
   subsets: ["latin", "latin-ext"], // latin-ext required for Hungarian glyphs (ő, ű, etc.)
   weight: "400",
@@ -41,6 +45,13 @@ const bebas = Bebas_Neue({
 const outfit = Outfit({
   subsets: ["latin", "latin-ext"],
   variable: "--font-outfit-src",
+  display: "swap",
+});
+// Wordmark only (the logo's weight is 600).
+const bricolage = Bricolage_Grotesque({
+  subsets: ["latin", "latin-ext"],
+  weight: "600",
+  variable: "--font-bricolage-src",
   display: "swap",
 });
 
@@ -83,7 +94,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="hu"
-      className={`${onest.variable} ${geist.variable} ${geistMono.variable} ${bebas.variable} ${outfit.variable}`}
+      className={`${onest.variable} ${geist.variable} ${geistMono.variable} ${bebas.variable} ${outfit.variable} ${bricolage.variable}`}
       suppressHydrationWarning
       data-scroll-behavior="smooth"
     >

@@ -104,7 +104,7 @@ export function Cta({
     <div className="my-8">
       <Link
         href={href || DEFAULT_CTA_HREF}
-        className="inline-block rounded-lg bg-signal px-[1.3rem] py-[0.7rem] text-[15px] font-semibold font-onest text-black! no-underline transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+        className="inline-block rounded-lg bg-signal px-[1.3rem] py-[0.7rem] text-[15px] font-semibold font-outfit text-black! no-underline transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
       >
         {children}
       </Link>

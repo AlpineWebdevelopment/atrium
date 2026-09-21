@@ -14,7 +14,7 @@ export default function BlogIndex() {
   return (
     <div className="page">
     <main className="mx-auto max-w-176 py-12 sm:px-6 sm:py-16">
-      <h1 className="mt-6 font-onest text-[30px] font-semibold leading-[1.2] px-5">
+      <h1 className="mt-6 font-headline font-normal tracking-[0.012em] text-[40px] leading-[1.05] px-5">
         Blog
       </h1>
       <ul className="mt-8 divide-y divide-line">
@@ -29,7 +29,7 @@ export default function BlogIndex() {
                 {p.frontmatter.publishedAt}
               </p>
               </div>
-              <h2 className="mt-1 font-onest text-[20px] font-semibold">
+              <h2 className="mt-1 font-outfit text-[20px] font-semibold">
                 {p.frontmatter.title}
               </h2>
               <p className="mt-1 text-[15px] leading-[1.6] text-stone">{p.frontmatter.dek}</p>
