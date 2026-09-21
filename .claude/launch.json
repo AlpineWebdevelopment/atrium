@@ -7,6 +7,12 @@
       "runtimeArgs": ["run", "dev"],
       "port": 3000,
       "autoPort": true
+    },
+    {
+      "name": "alpinelandings-static",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["-y", "serve", "C:/severinnhq/alpinelandings", "-l", "4173"],
+      "port": 4173
     }
   ]
 }
