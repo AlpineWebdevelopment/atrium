@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Onest, Geist, Geist_Mono, Lexend_Exa, Plus_Jakarta_Sans, DM_Mono } from "next/font/google";
+import { Onest, Geist, Geist_Mono, Unbounded, Montserrat, JetBrains_Mono } from "next/font/google";
 import Nav from "@/components/Nav";
 import BookingRedirect from "@/components/BookingRedirect";
 import "./globals.css";
@@ -22,28 +22,26 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono-src",
   display: "swap",
 });
-/* Landing type (trial) — Lexend Exa (display) + Plus Jakarta Sans (body) +
-   DM Mono (mono). Same register as the synkai.hu set tried before (wide
-   display, geometric body) without reading as the same fonts. Drives the
-   --font-display / --font-body / --font-mono tokens and the per-page
-   overrides in globals.css, so every landing picks it up at once. Onest and
-   Geist stay loaded for the surfaces not migrated (blog, legal pages, demos)
-   via the Tailwind font-onest / font-geist utilities. */
-const lexendExa = Lexend_Exa({
+/* Landing type (trial) — Unbounded (display) + Montserrat (body) +
+   JetBrains Mono (mono), the synkai.hu set. Drives the --font-display /
+   --font-body / --font-mono tokens and the per-page overrides in globals.css,
+   so every landing picks it up at once. All three are variable fonts, so no
+   weight list. Onest and Geist stay loaded for the surfaces not migrated
+   (blog, legal pages, demos) via the Tailwind font-onest / font-geist
+   utilities. */
+const unbounded = Unbounded({
   subsets: ["latin", "latin-ext"], // latin-ext required for Hungarian glyphs (ő, ű, etc.)
-  variable: "--font-lexend-exa-src",
+  variable: "--font-unbounded-src",
   display: "swap",
 });
-const jakarta = Plus_Jakarta_Sans({
+const montserrat = Montserrat({
   subsets: ["latin", "latin-ext"],
-  variable: "--font-jakarta-src",
+  variable: "--font-montserrat-src",
   display: "swap",
 });
-// DM Mono ships static weights only, so they are listed.
-const dmMono = DM_Mono({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin", "latin-ext"],
-  weight: ["400", "500"],
-  variable: "--font-dm-mono-src",
+  variable: "--font-jetbrains-mono-src",
   display: "swap",
 });
 
@@ -86,7 +84,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="hu"
-      className={`${onest.variable} ${geist.variable} ${geistMono.variable} ${lexendExa.variable} ${jakarta.variable} ${dmMono.variable}`}
+      className={`${onest.variable} ${geist.variable} ${geistMono.variable} ${unbounded.variable} ${montserrat.variable} ${jetbrainsMono.variable}`}
       suppressHydrationWarning
       data-scroll-behavior="smooth"
     >

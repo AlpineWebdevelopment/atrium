@@ -21,9 +21,9 @@
   --line:   rgba(1, 14, 30, 0.10);
   --line-2: rgba(1, 14, 30, 0.06);
 
-  --font-display: var(--font-lexend-exa-src), ui-sans-serif, system-ui, sans-serif;
-  --font-body:    var(--font-jakarta-src), ui-sans-serif, system-ui, sans-serif;
-  --font-mono:    var(--font-dm-mono-src), ui-monospace, "SF Mono", Menlo, monospace;
+  --font-display: var(--font-unbounded-src), ui-sans-serif, system-ui, sans-serif;
+  --font-body:    var(--font-montserrat-src), ui-sans-serif, system-ui, sans-serif;
+  --font-mono:    var(--font-jetbrains-mono-src), ui-monospace, "SF Mono", Menlo, monospace;
 
   --ease: cubic-bezier(0.32, 0.72, 0, 1);          /* default / drawer-style */
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);      /* strong ease-out — entrances, reveals */
@@ -43,7 +43,7 @@
 
   --font-onest: var(--font-onest-src), ui-sans-serif, system-ui, sans-serif;
   --font-geist: var(--font-geist-src), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-dm-mono-src), ui-monospace, monospace;
+  --font-mono: var(--font-jetbrains-mono-src), ui-monospace, monospace;
 }
 
 /* Base defaults for pages that don't use the landing-page CSS classes. */
@@ -3269,8 +3269,8 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .page--chatgpt-hirdetes,
 .page--root,
 .nav--newtype {
-  --font-display: var(--font-lexend-exa-src), ui-sans-serif, system-ui, sans-serif;
-  --font-body: var(--font-jakarta-src), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-unbounded-src), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-montserrat-src), ui-sans-serif, system-ui, sans-serif;
 }
 .page--root, .page--root .btn, .nav--newtype .btn, .nav--newtype .nav__link { font-family: var(--font-body); }
 .page--chatgpt-hirdetes {
@@ -3600,8 +3600,8 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .nav--cg .nav__cta { font-size: 14px; padding: 10px 18px; }
 
 .footer--cg {
-  --font-display: var(--font-lexend-exa-src), ui-sans-serif, system-ui, sans-serif;
-  --font-body: var(--font-jakarta-src), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-unbounded-src), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-montserrat-src), ui-sans-serif, system-ui, sans-serif;
   border-top: 1px solid var(--line);
 }
 .footer--cg .footer__brand { font-family: var(--font-display); font-weight: 600; }
@@ -3677,8 +3677,8 @@ html.dark { --viz-purple-soft: #1d1b33; }
    Signal green appears exactly once here — on the calculator figure.
    ========================================================= */
 .page--direct {
-  --font-display: var(--font-lexend-exa-src), ui-sans-serif, system-ui, sans-serif;
-  --font-body: var(--font-jakarta-src), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-unbounded-src), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-montserrat-src), ui-sans-serif, system-ui, sans-serif;
   font-family: var(--font-body);
   background: var(--bone);
 }
@@ -3858,7 +3858,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .dr-foot__links a:hover { color: var(--ink); }
 .dr-foot__bottom { margin-top: 26px; font-size: 12.5px; color: var(--stone); }
 
-/* The trial display face sets far wider than the Onest the mobile hero was tuned for
+/* Unbounded sets far wider than the Onest the mobile hero was tuned for
    ("több megrendelést" is ~55% wider), so on phones the title may wrap
    instead of being clipped, a notch smaller. Keep at the end of the file:
    it has to win over the ≤560px hero rules above. */
@@ -3869,9 +3869,9 @@ html.dark { --viz-purple-soft: #1d1b33; }
 }
 
 /* Same cause on desktop: the /epitoipar title ("Ne veszítsen több
-   megrendelést") stays on one line above 560px, and in a wide display face
-   68px overruns a 1280px viewport. 4.6vw keeps it inside the viewport at
-   every desktop width (≈59px at 1280, capped at 64px). */
+   megrendelést") stays on one line above 560px and measures ~19.2em in
+   Unbounded, so 68px overran a 1280px viewport. 4.6vw keeps it inside the
+   viewport at every desktop width (≈59px at 1280, capped at 64px). */
 @media (min-width: 561px) {
   .page--epitoipar .hero__title { font-size: clamp(30px, 4.6vw, 64px); }
 }
