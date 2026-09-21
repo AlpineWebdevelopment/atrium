@@ -11,7 +11,7 @@ export default function DirectHero() {
       <div className="dr-wrap dr-hero__in">
         <span className="dr-eyebrow reveal">AI értékesítési rendszer · szolgáltató cégeknek</span>
         <h1 className="dr-h1 reveal" data-delay="1">
-          Mi is utáljuk<br />az AI-show-t.
+          Unalmas már a sok szép AI‑show, ami egy forintot se hoz?
         </h1>
         <p className="dr-lead reveal" data-delay="2">
           Pedig AI-ból élünk. Pont ezért fáj nézni, mit adnak el ezen a néven:
