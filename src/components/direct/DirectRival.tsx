@@ -1,21 +1,21 @@
-/* The competitor angle, as a mechanism the operator has already seen from
-   the outside — not a market statistic, the brand does not publish numbers
-   it cannot stand behind. */
+/* Competitor + FOMO: while the buyer is still sitting through demos,
+   someone in their trade already runs it. A mechanism they can recognise,
+   not a market statistic. */
 export default function DirectRival() {
   return (
     <section className="dr-rival">
       <div className="dr-wrap">
         <div className="dr-rival__inner reveal">
-          <h2 className="dr-h2">A versenytársa nem jobb Önnél.<br />Csak gyorsabb.</h2>
+          <h2 className="dr-h2">A versenytársa már nem kísérletezik.<br />Használja.</h2>
           <div className="dr-rival__cols">
             <p>
-              Aki ma a szakmájában nő, nem jobb szakember. Gyorsabban válaszol, nem
-              felejt el visszaszólni, és egyetlen megkeresést sem hagy kihűlni.
-              Nem hirdeti, hogyan csinálja. Ön csak annyit lát, hogy a munkák hozzá mennek.
+              Miközben Ön a következő AI-demót nézi, valaki a szakmájában már élesben
+              használja. Gyorsabban válaszol, nem felejt el visszaszólni, és a munkák
+              hozzá mennek. Nem hirdeti. Csak nő.
             </p>
             <p>
-              A kérdés nem az, hogy megéri-e ezt rendbe tenni. Hanem hogy mennyit hagy
-              még addig az asztalon, amíg halogatja.
+              Nem az a kérdés, hogy bevezeti-e. Hanem hogy mennyit hagy addig az asztalon,
+              amíg halogatja.
             </p>
           </div>
         </div>

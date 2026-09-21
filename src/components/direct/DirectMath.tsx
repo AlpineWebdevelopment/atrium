@@ -45,9 +45,9 @@ export default function DirectMath() {
   return (
     <section className="dr-math">
       <div className="dr-wrap">
-        <h2 className="dr-h2 reveal">Számolja ki.<br />Az Ön számaival.</h2>
+        <h2 className="dr-h2 reveal">Nem hype.<br />Forint.</h2>
         <p className="dr-sub reveal" data-delay="1">
-          Három szám. Mindhármat Ön adja meg — mi nem teszünk hozzá semmit.
+          Számolja ki, mennyi megy el ma. Három szám, mindhármat Ön adja meg — mi nem teszünk hozzá semmit.
         </p>
 
         <div className="dr-calc reveal" data-delay="2">

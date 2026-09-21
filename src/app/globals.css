@@ -3939,3 +3939,12 @@ html.dark { --viz-purple-soft: #1d1b33; }
 }
 .dr-lines li:last-child { border-bottom: 1px solid var(--line); }
 .page--direct .dr-show__col { margin-top: 30px; max-width: 640px; }
+
+/* /direct — "what we sell": two statements side by side, no list. */
+.dr-what { padding: clamp(44px, 6vw, 76px) 0; border-top: 1px solid var(--line); }
+.dr-what .dr-rival__cols p { margin: 10px 0 0; font-size: 16px; line-height: 1.62; color: var(--ink-70); }
+.dr-what__h {
+  margin: 0; font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(19px, 2.1vw, 23px); line-height: 1.25; letter-spacing: -0.01em; color: var(--ink);
+}
+.page--direct .dr-now .dr-show__col { margin-top: 26px; }
