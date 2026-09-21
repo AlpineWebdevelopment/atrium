@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Onest, Geist, Geist_Mono, Krona_One, Outfit, DM_Mono } from "next/font/google";
+import { Onest, Geist, Geist_Mono, Lexend_Exa, Plus_Jakarta_Sans, DM_Mono } from "next/font/google";
 import Nav from "@/components/Nav";
 import BookingRedirect from "@/components/BookingRedirect";
 import "./globals.css";
@@ -22,26 +22,21 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono-src",
   display: "swap",
 });
-/* Landing type (trial) — Krona One (display) + Outfit (body) + DM Mono
-   (mono). Same register as the synkai.hu set (wide display, geometric
-   body) without reading as the same fonts. Drives the --font-display /
-   --font-body / --font-mono tokens and the per-page overrides in
-   globals.css, so every landing picks it up at once. Onest and Geist stay
-   loaded for the surfaces not migrated (blog, legal pages, demos) via the
-   Tailwind font-onest / font-geist utilities.
-
-   Krona One has a single 400 weight; globals.css turns weight synthesis off
-   on the landings so headings asking for 550-650 render the real drawing
-   instead of a smeared faux bold. */
-const krona = Krona_One({
+/* Landing type (trial) — Lexend Exa (display) + Plus Jakarta Sans (body) +
+   DM Mono (mono). Same register as the synkai.hu set tried before (wide
+   display, geometric body) without reading as the same fonts. Drives the
+   --font-display / --font-body / --font-mono tokens and the per-page
+   overrides in globals.css, so every landing picks it up at once. Onest and
+   Geist stay loaded for the surfaces not migrated (blog, legal pages, demos)
+   via the Tailwind font-onest / font-geist utilities. */
+const lexendExa = Lexend_Exa({
   subsets: ["latin", "latin-ext"], // latin-ext required for Hungarian glyphs (ő, ű, etc.)
-  weight: "400",
-  variable: "--font-krona-src",
+  variable: "--font-lexend-exa-src",
   display: "swap",
 });
-const outfit = Outfit({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin", "latin-ext"],
-  variable: "--font-outfit-src",
+  variable: "--font-jakarta-src",
   display: "swap",
 });
 // DM Mono ships static weights only, so they are listed.
@@ -91,7 +86,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="hu"
-      className={`${onest.variable} ${geist.variable} ${geistMono.variable} ${krona.variable} ${outfit.variable} ${dmMono.variable}`}
+      className={`${onest.variable} ${geist.variable} ${geistMono.variable} ${lexendExa.variable} ${jakarta.variable} ${dmMono.variable}`}
       suppressHydrationWarning
       data-scroll-behavior="smooth"
     >
