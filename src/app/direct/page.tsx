@@ -24,9 +24,9 @@ import ScrollReveal from "@/components/ScrollReveal";
 export const metadata: Metadata = {
   alternates: { canonical: "/direct" },
   robots: { index: false, follow: true },
-  title: "Mi is utáljuk az AI-chatbotokat",
+  title: "Mi is utáljuk a csilivili AI-t",
   description:
-    "Pedig AI-ból élünk. A villogó demók és okoskodó chatbotok átverés — kimondjuk. Mi AI értékesítési rendszert építünk, ami megrendelést hoz, és megoldjuk, ami a cégében AI-jal tényleg megoldható.",
+    "Pedig AI-ból élünk. A villogó demók, az okoskodó chatbotok, a forró levegő — átverés, és kimondjuk. Mi AI értékesítési rendszert építünk, ami megrendelést hoz, és megoldjuk, ami a cégében AI-jal tényleg megoldható.",
 };
 
 export default function DirectPage() {

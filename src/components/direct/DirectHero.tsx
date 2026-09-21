@@ -1,6 +1,6 @@
-/* Hero. The subject must land in one glance — the flashy AI-chatbot wave —
-   together with our verdict on it. The hook is the paradox: we hate it too,
-   and we build AI for a living. */
+/* Hero. The subject must land in one glance — the flashy AI wave as a
+   whole, not just chatbots — together with our verdict on it. The hook is
+   the paradox: we hate it too, and we build AI for a living. */
 export default function DirectHero() {
   return (
     <section className="dr-hero">
@@ -11,7 +11,7 @@ export default function DirectHero() {
       <div className="dr-wrap dr-hero__in">
         <span className="dr-eyebrow reveal">AI értékesítési rendszer · szolgáltató cégeknek</span>
         <h1 className="dr-h1 reveal" data-delay="1">
-          Mi is utáljuk<br />az AI-chatbotokat.
+          Mi is utáljuk<br />a csilivili AI-t.
         </h1>
         <p className="dr-lead reveal" data-delay="2">
           Pedig AI-ból élünk. Pont ezért fáj nézni, mit adnak el ezen a néven:
