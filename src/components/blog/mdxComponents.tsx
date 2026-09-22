@@ -3,17 +3,17 @@ import Link from "next/link";
 import { Scene, StatCallout, Cascade, Hi, Cta, InlineCta } from "./Components";
 
 export const mdxComponents = {
-  // h2 — Onest semibold, tight tracking. The section anchor for readers skimming.
+  // h2 — Bebas Neue headline. The section anchor for readers skimming.
   h2: (p: ComponentProps<"h2">) => (
     <h2
-      className="mb-2 mt-10 font-onest text-[21px] font-bold leading-tight"
+      className="mb-2 mt-10 font-headline font-normal tracking-[0.012em] text-[28px] leading-[1.1]"
       {...p}
     />
   ),
-  // h3 — Onest medium, slightly muted so it reads as a sub-beat under h2.
+  // h3 — Outfit semibold, slightly muted so it reads as a sub-beat under h2.
   h3: (p: ComponentProps<"h3">) => (
     <h3
-      className="mb-1.5 mt-7 font-onest text-[17px] font-semibold leading-[1.3] tracking-[-0.01em] text-stone"
+      className="mb-1.5 mt-7 font-outfit text-[17px] font-semibold leading-[1.3] text-stone"
       {...p}
     />
   ),
@@ -52,7 +52,7 @@ export const mdxComponents = {
   thead: (p: ComponentProps<"thead">) => <thead {...p} />,
   th: (p: ComponentProps<"th">) => (
     <th
-      className="border-b border-line py-[0.6rem] pr-4 text-left font-onest font-bold last:pr-0"
+      className="border-b border-line py-[0.6rem] pr-4 text-left font-outfit font-bold last:pr-0"
       {...p}
     />
   ),

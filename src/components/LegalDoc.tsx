@@ -14,7 +14,7 @@ const legalComponents = {
   ...mdxComponents,
   h1: (p: ComponentProps<"h1">) => (
     <h1
-      className="mb-3 font-onest text-[30px] font-bold leading-[1.12] tracking-[-0.02em] sm:text-[38px]"
+      className="mb-3 font-headline font-normal tracking-[0.012em] text-[38px] leading-[1.05] sm:text-[50px]"
       {...p}
     />
   ),

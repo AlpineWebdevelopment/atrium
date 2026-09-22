@@ -1,7 +1,7 @@
 import type { FaqItem, PostFrontmatter, Source } from "@/lib/types";
 import BackLink from "./BackLink";
 
-/** Header: wordmark row + niche/date eyebrow, H1 (Onest), italic dek. */
+/** Header: back link + date row, H1 (Bebas Neue headline), italic dek. */
 export function PostHeader({ fm }: { fm: PostFrontmatter }) {
   const date = new Date(fm.publishedAt).toLocaleDateString("hu-HU", {
     year: "numeric",
@@ -15,7 +15,7 @@ export function PostHeader({ fm }: { fm: PostFrontmatter }) {
         <span className="font-mono text-[12px] uppercase tracking-widest text-stone">{date}
         </span>
       </div>
-      <h1 className="font-onest text-[28px] font-bold leading-tight sm:text-[36px]">
+      <h1 className="font-headline font-normal tracking-[0.012em] text-[36px] leading-[1.05] sm:text-[48px]">
         {fm.title}
       </h1>
       <p className="mt-3 text-[17px] italic leading-[1.6] text-stone">{fm.dek}</p>
@@ -30,15 +30,15 @@ export function Faq({ items }: { items?: FaqItem[] }) {
     <section className="mt-10" aria-labelledby="gyik">
       <h2
         id="gyik"
-        className="mb-3 font-onest text-[20px] font-bold"
+        className="mb-3 font-headline font-normal tracking-[0.012em] text-[28px] leading-[1.1]"
       >
         Gyakori kérdések
       </h2>
       <dl>
         {items.map((item, i) => (
           <div key={i} className="border-t border-line py-4 first:border-t-0">
-            <dt className="font-onest text-[16.5px] font-semibold leading-[1.3] tracking-[-0.01em]">{item.q}</dt>
-            <dd className="mt-2 text-[15px] leading-[1.6] italic font-onest text-stone">{item.a}</dd>
+            <dt className="font-outfit text-[16.5px] font-semibold leading-[1.3]">{item.q}</dt>
+            <dd className="mt-2 text-[15px] leading-[1.6] italic font-outfit text-stone">{item.a}</dd>
           </div>
         ))}
       </dl>

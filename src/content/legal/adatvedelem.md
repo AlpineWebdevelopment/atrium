@@ -1,6 +1,6 @@
 # Adatvédelmi tájékoztató
 
-**Utolsó frissítés: 2026. szeptember 9.**
+**Utolsó frissítés: 2026. szeptember 21.**
 
 ---
 
@@ -85,7 +85,6 @@ Az adatkezelés során az alábbi szolgáltatók (adatfeldolgozók, illetve köz
 | **ElevenLabs** | Hangszintézis (szöveg-beszéd) | Amerikai Egyesült Államok / Egyesült Királyság | DPA + SCC |
 | **OpenAI** | Természetesnyelv-feldolgozás (nyelvi modell) | Amerikai Egyesült Államok | DPA + SCC |
 | **OpenAI** (hirdetési rendszer) | ChatGPT-hirdetések konverziómérése (OpenAI Pixel, Conversions API) | Amerikai Egyesült Államok | DPA + SCC |
-| **n8n (saját üzemeltetésű)** | Folyamat-automatizálás | Európai Unió — PikaPods | Saját üzemeltetés |
 | **Vercel** | A Weboldal üzemeltetése | Amerikai Egyesült Államok | DPA + SCC |
 
 

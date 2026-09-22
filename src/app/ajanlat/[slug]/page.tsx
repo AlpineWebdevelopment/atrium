@@ -60,7 +60,7 @@ export default async function Advertorial({ params }: Params) {
               {fm.niche}
             </span>
           </div>
-          <h1 className="font-onest text-[28px] font-semibold leading-tight tracking-[-0.01em] sm:text-[34px]">
+          <h1 className="font-headline font-normal tracking-[0.012em] text-[34px] leading-[1.05] sm:text-[44px]">
             {fm.title}
           </h1>
         </header>

@@ -1,27 +1,32 @@
-/* Direct-response hero. The subject is lost revenue, not the phone: the phone
-   is only one of the places it leaks. One claim, one action. The sub-line
-   states the offer's terms up front so the click is informed, not curious. */
+/* Hero. The subject must land in one glance — the AI talk being sold
+   everywhere, in every form — together with our verdict on it. The hook is
+   the paradox: we hate it too, and we build AI for a living. */
 export default function DirectHero() {
   return (
     <section className="dr-hero">
-      <div className="dr-wrap">
-        <span className="dr-eyebrow reveal">Szolgáltató cégeknek · 30 perces beszélgetés</span>
+      <header className="dr-top">
+        <a className="dr-top__brand" href="/direct">Atrium<span className="dr-top__dot">.</span></a>
+        <a className="dr-top__cta" href="/foglalas?from=direct">Foglaljon időpontot</a>
+      </header>
+      <div className="dr-wrap dr-hero__in">
+        <span className="dr-eyebrow reveal">AI értékesítési rendszer · szolgáltató cégeknek</span>
         <h1 className="dr-h1 reveal" data-delay="1">
-          Nem egy nagy hiba viszi el a bevételét.<br />Húsz apró.
+          Unalmas már a sok szép AI‑show, ami egy forintot se hoz?
         </h1>
         <p className="dr-lead reveal" data-delay="2">
-          Az Atrium egy magyar nyelvű, AI-alapú értékesítési rendszer. Fogadja a megkeresést —
-          telefonon, űrlapon, e-mailben, Messengeren, Instagramon, WhatsAppon —, kikérdezi,
-          időpontot foglal, utánamegy a kiküldött árajánlatnak, és visszahívja azt, aki hónapok
-          óta nem jelentkezett. Nem marketinget adunk el: azt a keresletet hozzuk vissza,
-          ami ma csendben elszivárog.
+          Nálunk az első kérdés nem az, hogy mit tud az AI. Hanem az, hogy mennyit
+          hoz. AI értékesítési rendszert építünk, és bármit, ami a cégében
+          megoldható vele.
         </p>
         <div className="dr-cta-row reveal" data-delay="3">
           <a className="dr-btn" href="/foglalas?from=direct">Foglaljon időpontot</a>
-          <span className="dr-cta-note">
-            30 perc. Az Ön számaival dolgozunk. Ha nem tudunk segíteni, a meetingen megmondjuk.
-          </span>
+          <span className="dr-cta-note">Fél óra. Egyenes válaszokkal távozik.</span>
         </div>
+        <ul className="dr-proof reveal" data-delay="4">
+          <li>Nincs demó</li>
+          <li>Nincs dia</li>
+          <li>Nincs ígérgetés</li>
+        </ul>
       </div>
     </section>
   );
