@@ -1,4 +1,4 @@
-# Atlas — demó konzol
+# Atrium — demó konzol
 
 Többügyfeles AI értékesítési konzol **kattintható demója**. Egy operátor hat
 magyar gyártó kkv-nak üzemeltet hang- és e-mail agenteket; ez a felület az ő
@@ -87,7 +87,7 @@ egy éles rendszerben is — ezt a Hívások képernyő alcíme ki is mondja.
 | --- | --- |
 | `lib/data.ts` | Típusok, adatok, lekérdezők és minden származtatott összesítés. |
 | `lib/format.ts` | Magyar szám-, pénz-, dátum- és időtartam-formázás. |
-| `ui/atlas.css` | Design tokenek, űrlapelemek, tábla, pulzáló élő pont. |
+| `ui/atrium.css` | Design tokenek, űrlapelemek, tábla, pulzáló élő pont. |
 | `ui/primitives.tsx` | Badge, StatKartya, Folyamatsav, Tabla, Fulek, Kapcsolo… |
 | `ui/Shell.tsx` | Oldalsáv, felső sáv, URL-ből származtatott morzsamenü. |
 | `ui/charts.tsx` | Recharts wrapperek (görbe, donut, oszlop, mini görbe). |
@@ -107,7 +107,7 @@ A betűket a demó a projekt gyökér-layoutjából örökli (`--font-geist-src`
 `--font-geist-mono-src`), ezért nem tölti be másodszor ugyanazt a két
 betűtípust — a `geist` npm csomagra nincs szükség.
 
-A teljes konzol egy `position: fixed` rétegben fut `.atlas` scope alatt, így a
+A teljes konzol egy `position: fixed` rétegben fut `.atrium` scope alatt, így a
 marketingoldal navigációja és alap-CSS-e nem látszik át rajta, a demó stílusai
 pedig nem szivárognak ki az oldalra.
 

@@ -27,7 +27,7 @@ export default function Login() {
               <input
                 type="email"
                 className="a-input"
-                defaultValue="norbert@atlas.example"
+                defaultValue="norbert@atrium.example"
                 autoComplete="off"
               />
             </label>

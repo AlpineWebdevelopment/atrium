@@ -271,7 +271,7 @@ export default function AgentReszletek({ agentId }: { agentId: string }) {
             </p>
             <input
               className={`a-input ${hang ? "a-mono" : ""}`}
-              value={hang ? tesztszam : "norbert@atlas.example"}
+              value={hang ? tesztszam : "norbert@atrium.example"}
               onChange={(e) => setTesztszam(e.target.value)}
               placeholder={hang ? "+36 30 000 0000" : "cim@pelda.hu"}
             />

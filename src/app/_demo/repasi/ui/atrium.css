@@ -1,7 +1,7 @@
-/* Atlas demo — design tokens and the few primitives that are genuinely easier
+/* Atrium demo — design tokens and the few primitives that are genuinely easier
    as CSS than as Tailwind utility soup.
 
-   Everything is scoped under `.atlas`, so the demo console cannot leak styling
+   Everything is scoped under `.atrium`, so the demo console cannot leak styling
    into the surrounding marketing site (which ships its own bone/ink palette and
    a fairly assertive base reset in globals.css).
 
@@ -9,7 +9,7 @@
    demo reuses the Geist Sans + Geist Mono the site already loads rather than
    pulling a second copy of the same typefaces. */
 
-.atlas {
+.atrium {
   --a-canvas: #fafaf9;
   --a-surface: #ffffff;
   --a-border: #e7e5e4;
@@ -34,20 +34,20 @@
 
 /* Mono numerals are the signature of this design: every number, ID, phone
    number, duration and percentage uses them, tabular so columns line up. */
-.atlas .a-mono {
+.atrium .a-mono {
   font-family: var(--font-geist-mono-src), ui-monospace, "SF Mono", Menlo, monospace;
   font-variant-numeric: tabular-nums;
   font-feature-settings: "tnum" 1;
 }
 
-.atlas .a-card {
+.atrium .a-card {
   background: var(--a-surface);
   border: 1px solid var(--a-border);
   border-radius: var(--a-radius);
 }
 
 /* Live indicator — the one ambient motion in the console. */
-.atlas .a-pulse {
+.atrium .a-pulse {
   width: 6px;
   height: 6px;
   border-radius: 50%;
@@ -66,7 +66,7 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .atlas .a-pulse {
+  .atrium .a-pulse {
     animation: none;
   }
 }
@@ -75,9 +75,9 @@
    Styled explicitly: Tailwind's preflight strips them, and the site's own base
    layer resets `button` to a transparent, border-less element. */
 
-.atlas .a-input,
-.atlas .a-select,
-.atlas .a-textarea {
+.atrium .a-input,
+.atrium .a-select,
+.atrium .a-textarea {
   width: 100%;
   background: var(--a-surface);
   border: 1px solid var(--a-border);
@@ -89,11 +89,11 @@
   color: var(--a-text);
   transition: border-color 150ms var(--a-ease), box-shadow 150ms var(--a-ease);
 }
-.atlas .a-textarea {
+.atrium .a-textarea {
   resize: vertical;
   min-height: 96px;
 }
-.atlas .a-select {
+.atrium .a-select {
   appearance: none;
   padding-right: 28px;
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
@@ -101,19 +101,19 @@
   background-position: right 9px center;
   cursor: pointer;
 }
-.atlas .a-input::placeholder,
-.atlas .a-textarea::placeholder {
+.atrium .a-input::placeholder,
+.atrium .a-textarea::placeholder {
   color: #9ca3af;
 }
-.atlas .a-input:focus,
-.atlas .a-select:focus,
-.atlas .a-textarea:focus {
+.atrium .a-input:focus,
+.atrium .a-select:focus,
+.atrium .a-textarea:focus {
   outline: none;
   border-color: var(--a-accent);
   box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.12);
 }
 
-.atlas .a-btn {
+.atrium .a-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -132,44 +132,44 @@
   transition: background-color 150ms var(--a-ease), border-color 150ms var(--a-ease),
     color 150ms var(--a-ease);
 }
-.atlas .a-btn:hover {
+.atrium .a-btn:hover {
   background: var(--a-hover);
   border-color: var(--a-border-strong);
 }
-.atlas .a-btn-primary {
+.atrium .a-btn-primary {
   background: var(--a-accent);
   border-color: var(--a-accent);
   color: #ffffff;
 }
-.atlas .a-btn-primary:hover {
+.atrium .a-btn-primary:hover {
   background: #115e57;
   border-color: #115e57;
 }
-.atlas .a-btn-sm {
+.atrium .a-btn-sm {
   height: 28px;
   padding: 0 10px;
   font-size: 12px;
 }
 
 /* ---- range slider -------------------------------------------------------- */
-.atlas .a-range {
+.atrium .a-range {
   width: 100%;
   height: 18px;
   appearance: none;
   background: transparent;
   cursor: pointer;
 }
-.atlas .a-range::-webkit-slider-runnable-track {
+.atrium .a-range::-webkit-slider-runnable-track {
   height: 3px;
   border-radius: 2px;
   background: var(--a-border-strong);
 }
-.atlas .a-range::-moz-range-track {
+.atrium .a-range::-moz-range-track {
   height: 3px;
   border-radius: 2px;
   background: var(--a-border-strong);
 }
-.atlas .a-range::-webkit-slider-thumb {
+.atrium .a-range::-webkit-slider-thumb {
   appearance: none;
   width: 13px;
   height: 13px;
@@ -178,7 +178,7 @@
   background: var(--a-accent);
   border: 0;
 }
-.atlas .a-range::-moz-range-thumb {
+.atrium .a-range::-moz-range-thumb {
   width: 13px;
   height: 13px;
   border-radius: 50%;
@@ -187,12 +187,12 @@
 }
 
 /* ---- table --------------------------------------------------------------- */
-.atlas .a-table {
+.atrium .a-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 13px;
 }
-.atlas .a-table thead th {
+.atrium .a-table thead th {
   text-align: left;
   font-weight: 500;
   font-size: 12px;
@@ -201,29 +201,29 @@
   border-bottom: 1px solid var(--a-border);
   white-space: nowrap;
 }
-.atlas .a-table tbody td {
+.atrium .a-table tbody td {
   padding: 10px 12px;
   border-bottom: 1px solid var(--a-border);
   vertical-align: middle;
 }
-.atlas .a-table tbody tr:last-child td {
+.atrium .a-table tbody tr:last-child td {
   border-bottom: 0;
 }
-.atlas .a-table tbody tr {
+.atrium .a-table tbody tr {
   transition: background-color 150ms var(--a-ease);
 }
-.atlas .a-table tbody tr[data-clickable="true"] {
+.atrium .a-table tbody tr[data-clickable="true"] {
   cursor: pointer;
 }
-.atlas .a-table tbody tr[data-clickable="true"]:hover {
+.atrium .a-table tbody tr[data-clickable="true"]:hover {
   background: var(--a-hover);
 }
-.atlas .a-num {
+.atrium .a-num {
   text-align: right;
 }
 
 /* Recharts draws a focus ring on its wrapper when clicked; suppress it. */
-.atlas .recharts-wrapper:focus,
-.atlas .recharts-surface:focus {
+.atrium .recharts-wrapper:focus,
+.atrium .recharts-surface:focus {
   outline: none;
 }

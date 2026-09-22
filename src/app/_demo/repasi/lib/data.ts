@@ -1,4 +1,4 @@
-/* Atlas — demo data. Every company, person, phone number and conversation here
+/* Atrium — demo data. Every company, person, phone number and conversation here
    is invented.
 
    Two rules hold this file together:
@@ -14,7 +14,7 @@
    The numeric series were produced once by an offline generator with a fixed
    seed and pasted in as literals — there is no randomness at render time. */
 
-export const APP_NAME = "Atlas";
+export const APP_NAME = "Atrium";
 export const DEMO_TODAY = "2026-08-03";
 
 /** The signed-in operator. Shown in the topbar chip. */
@@ -1144,9 +1144,9 @@ export const TELEFONSZAMOK: readonly Telefonszam[] = [
 ];
 
 export const CSAPAT: readonly CsapatTag[] = [
-  { nev: "R. Norbert", szerep: "Operátor — teljes hozzáférés", email: "norbert@atlas.example", utolsoBelepes: "2026-08-03" },
-  { nev: "Szabó Réka", szerep: "Ügyfélkezelő — két ügyfél", email: "reka@atlas.example", utolsoBelepes: "2026-08-03" },
-  { nev: "Kovács Dániel", szerep: "Ügyfélkezelő — egy ügyfél", email: "daniel@atlas.example", utolsoBelepes: "2026-07-31" },
+  { nev: "R. Norbert", szerep: "Operátor — teljes hozzáférés", email: "norbert@atrium.example", utolsoBelepes: "2026-08-03" },
+  { nev: "Szabó Réka", szerep: "Ügyfélkezelő — két ügyfél", email: "reka@atrium.example", utolsoBelepes: "2026-08-03" },
+  { nev: "Kovács Dániel", szerep: "Ügyfélkezelő — egy ügyfél", email: "daniel@atrium.example", utolsoBelepes: "2026-07-31" },
 ];
 
 export const INTEGRACIOK: readonly { nev: string; allapot: string; reszlet: string }[] = [

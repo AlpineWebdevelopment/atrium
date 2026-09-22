@@ -6,7 +6,7 @@ import type { ReactNode } from "react";
 import { BASE, NAV } from "./nav";
 import { APP_NAME, DEMO_TODAY, OPERATOR, agent, hivas, kontakt, ugyfel } from "../lib/data";
 import { datum, monogram } from "../lib/format";
-import "./atlas.css";
+import "./atrium.css";
 
 /** Wordmark: name in Geist Sans medium with a teal period. */
 export function Szoveglogo({ meret = 15 }: { meret?: number }) {
@@ -126,12 +126,12 @@ export default function Shell({ children }: { children: ReactNode }) {
 
   if (csupasz) {
     return (
-      <div className="atlas fixed inset-0 z-50 overflow-y-auto bg-(--a-canvas)">{children}</div>
+      <div className="atrium fixed inset-0 z-50 overflow-y-auto bg-(--a-canvas)">{children}</div>
     );
   }
 
   return (
-    <div className="atlas fixed inset-0 z-50 flex overflow-hidden bg-(--a-canvas)">
+    <div className="atrium fixed inset-0 z-50 flex overflow-hidden bg-(--a-canvas)">
       <Oldalsav pathname={pathname} />
       <div className="flex min-w-0 flex-1 flex-col">
         <Felsosav pathname={pathname} />
