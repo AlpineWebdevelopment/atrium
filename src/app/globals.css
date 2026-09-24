@@ -4410,13 +4410,14 @@ html.dark { --viz-purple-soft: #1d1b33; }
   position: relative; font-style: normal; display: inline-block; transform: skewX(-9deg);
   color: #FFFFFF;
 }
-/* Underlined by hand, in gold: the one warm thing on a blue picture, and the
-   line is not straight because a drawn line never is. */
+/* Underlined in gold, in three zigzag flicks — the one warm thing on a blue
+   picture, and three strokes rather than one so it reads as drawn. */
 .sk-q__line {
-  position: absolute; left: 1%; width: 98%; bottom: 0.03em; height: 0.14em; overflow: visible;
+  position: absolute; left: 0; width: 100%; bottom: 0.01em; height: 0.24em; overflow: visible;
 }
 .sk-q__line path {
-  fill: none; stroke: #FFC24B; stroke-width: 3.4; stroke-linecap: round;
+  fill: none; stroke: #FFC24B; stroke-width: 3.2;
+  stroke-linecap: round; stroke-linejoin: miter;
   vector-effect: non-scaling-stroke;
 }
 .sk-lead {
