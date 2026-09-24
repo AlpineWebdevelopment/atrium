@@ -20,7 +20,14 @@ export default function DirectHero() {
       <div className="sk-in">
         <span className="sk-pill reveal"><b>Új</b>Már WhatsAppon és Viberen is válaszol</span>
         <h1 className="sk-h1 reveal" data-delay="1">
-          Unalmas már a sok szép <em className="sk-q">„AI-show”</em>,
+          Unalmas már a sok szép{" "}
+          <em className="sk-q">
+            „AI-show”
+            <svg className="sk-q__line" viewBox="0 0 200 8" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M2 5.2 C42 2.4 88 6.4 136 3.4 C160 2 180 4.6 198 2.6" />
+            </svg>
+          </em>
+          ,
           <span>ami egy forintot se hoz?</span>
         </h1>
         <p className="sk-lead reveal" data-delay="2">
