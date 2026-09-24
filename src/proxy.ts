@@ -69,6 +69,12 @@ const PAGE = `<!doctype html>
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
+  // Local only: while /direct is shaped into the new root, serve it at "/" in
+  // `next dev` so the page is edited where it will live. Production keeps the
+  // root under maintenance (MAINTENANCE_PATHS) until the real swap.
+  if (process.env.NODE_ENV === "development" && pathname === "/") {
+    return NextResponse.rewrite(new URL("/direct", request.url));
+  }
   const pageDown = MAINTENANCE_PATHS.includes(pathname);
   if (!MAINTENANCE && !pageDown) return NextResponse.next();
   if (!pageDown && OPEN_PATHS.some((p) => pathname === p || pathname.startsWith(`${p}/`))) {

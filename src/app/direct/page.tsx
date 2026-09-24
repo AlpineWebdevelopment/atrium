@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import { Barlow } from "next/font/google";
 import DirectHero from "@/components/direct/DirectHero";
 import DirectNow from "@/components/direct/DirectNow";
 import DirectWhat from "@/components/direct/DirectWhat";
 import DirectFeatures from "@/components/direct/DirectFeatures";
+import DirectReport from "@/components/direct/DirectReport";
 import DirectClose from "@/components/direct/DirectClose";
 import DirectFooter from "@/components/direct/DirectFooter";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -27,14 +29,23 @@ export const metadata: Metadata = {
     "Pedig AI-ból élünk. A villogó demók, az okoskodó chatbotok, a forró levegő — átverés, és kimondjuk. Mi AI értékesítési rendszert építünk, ami megrendelést hoz, és megoldjuk, ami a cégében AI-jal tényleg megoldható.",
 };
 
+/* Body face for /direct only: Barlow's narrow, slightly technical shapes sit
+   next to the Bebas headlines; the rest of the site keeps Outfit. */
+const barlow = Barlow({
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-barlow-src",
+});
+
 export default function DirectPage() {
   return (
-    <div className="page page--direct" data-screen-label="atriumscaling.com /direct">
+    <div className={`page page--direct ${barlow.variable}`} data-screen-label="atriumscaling.com /direct">
       <ScrollReveal />
       <DirectHero />
       <DirectNow />
       <DirectWhat />
       <DirectFeatures />
+      <DirectReport />
       <DirectClose />
       <DirectFooter />
     </div>

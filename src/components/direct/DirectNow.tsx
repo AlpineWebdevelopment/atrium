@@ -2,10 +2,10 @@
    result they can check in their own numbers (revenue, hours, orders).
    Their own experience, not claims about named competitors. */
 const SHOW = [
-  "Demó: lenyűgöző volt. Bevétel belőle: nulla.",
-  "Chatbot: udvarias. Ügyfelet hozott: egyet se.",
-  "Automatizálás: beüzemelve. Megspórolt munkaóra: nulla.",
-  "AI-előfizetés: minden hónapban. Plusz megrendelés: egy se.",
+  { a: "Demó: lenyűgöző volt.", b: "Bevétel belőle: nulla." },
+  { a: "Chatbot: udvarias.", b: "Ügyfelet hozott: egyet se." },
+  { a: "Automatizálás: beüzemelve.", b: "Megspórolt munkaóra: nulla." },
+  { a: "AI-előfizetés: minden hónapban.", b: "Plusz megrendelés: egy se." },
 ];
 
 export default function DirectNow() {
@@ -16,9 +16,13 @@ export default function DirectNow() {
           <h2 className="dr-h2 reveal">Ismerős?</h2>
           <div className="dr-cards dr-cards--2">
             {SHOW.map((t, i) => (
-              <div className="dr-card dr-card--x reveal" data-delay={(i % 2) + 1} key={t}>
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
-                <p>{t}</p>
+              <div className="dr-card dr-card--x reveal" data-delay={(i % 2) + 1} key={t.a}>
+                <p>
+                  <span className="dr-card__a">{t.a}</span>
+                  <span className="dr-card__b">
+                    <mark className="dr-card__hl">{t.b}</mark>
+                  </span>
+                </p>
               </div>
             ))}
           </div>

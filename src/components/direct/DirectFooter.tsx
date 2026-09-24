@@ -18,6 +18,7 @@ export default function DirectFooter() {
             </p>
           </div>
           <ul className="dr-foot__links">
+            <li><a href="/szolgaltatasok">Szolgáltatások</a></li>
             <li><a href="/foglalas?from=direct">Foglaljon időpontot</a></li>
             <li><a href="/adatvedelem">Adatvédelmi tájékoztató</a></li>
             <li><a href="/aszf">ÁSZF</a></li>

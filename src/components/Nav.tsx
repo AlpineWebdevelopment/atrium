@@ -5,7 +5,7 @@ import { isNicheSlug } from "@/lib/niches";
 
 /* Routes that ship their own header because they are closed surfaces: every
    link stays inside the page or goes to the booking flow. */
-const STANDALONE = ["/chatgpt-hirdetes", "/chatgpt-hirdetes/foglalas", "/direct"];
+const STANDALONE = ["/chatgpt-hirdetes", "/chatgpt-hirdetes/foglalas", "/direct", "/szolgaltatasok"];
 
 /* Relative hashes so links scroll within the current page (root or niche),
    never redirecting to "/". Only sections that exist on every page. */
@@ -23,7 +23,10 @@ export default function Nav() {
   const menuRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const isRoot = pathname === "/";
-  const standalone = STANDALONE.includes(pathname);
+  // In `next dev` the proxy serves /direct at "/" (see src/proxy.ts), so the
+  // root is a closed surface locally too.
+  const standalone =
+    STANDALONE.includes(pathname) || (process.env.NODE_ENV === "development" && pathname === "/");
 
   const logoHref = isRoot ? "/" : pathname;
 
