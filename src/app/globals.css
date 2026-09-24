@@ -4074,6 +4074,18 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .page--direct .dr-card:hover { transform: none; border-color: rgba(1, 14, 30, 0.42); box-shadow: none; }
 .page--direct .dr-what__plus { border-color: rgba(1, 14, 30, 0.18); }
 
+/* The close, with the smallest amount of colour that still does something: the
+   rule over each step and its number, running blue → cyan → green, so the
+   three columns read as a sequence and the last one as a go. Nothing else on
+   the panel is tinted. */
+.page--direct .dr-close .dr-step { border-top-width: 2px; }
+.page--direct .dr-close .dr-step:nth-child(1) { border-top-color: var(--viz-blue); }
+.page--direct .dr-close .dr-step:nth-child(2) { border-top-color: var(--viz-cyan); }
+.page--direct .dr-close .dr-step:nth-child(3) { border-top-color: var(--viz-green); }
+.page--direct .dr-close .dr-step:nth-child(1) .dr-step__n { color: var(--viz-blue); }
+.page--direct .dr-close .dr-step:nth-child(2) .dr-step__n { color: var(--viz-cyan); }
+.page--direct .dr-close .dr-step:nth-child(3) .dr-step__n { color: var(--viz-green); }
+
 /* /direct — the small drawings inside the panels. Each one is labelled, so
    it explains its tile instead of decorating it: company sizes on the
    package tile, channels merging into one memory on the technology tile, a
