@@ -4411,13 +4411,14 @@ html.dark { --viz-purple-soft: #1d1b33; }
   color: #FFFFFF;
 }
 /* One thick stroke under the word, swept by hand: it dips, rises and lifts off
-   at the end, the way a marker does. Vermilion — warmer than the felt tip on
-   the cards below and dark enough not to glow against a bright sky. */
+   at the end, the way a marker does. Amber — the lighter sibling of the page's
+   own #B45309, so no new colour enters the system, and blue's complement, so
+   it reads at a glance on the sky. */
 .sk-q__line {
   position: absolute; left: -2%; width: 104%; bottom: -0.04em; height: 0.34em; overflow: visible;
 }
 .sk-q__line path {
-  fill: none; stroke: #D93A16; stroke-width: 7;
+  fill: none; stroke: #F59E0B; stroke-width: 7;
   stroke-linecap: round; vector-effect: non-scaling-stroke;
 }
 .sk-lead {
