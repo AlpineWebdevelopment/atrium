@@ -4410,15 +4410,15 @@ html.dark { --viz-purple-soft: #1d1b33; }
   position: relative; font-style: normal; display: inline-block; transform: skewX(-9deg);
   color: #FFFFFF;
 }
-/* Underlined in gold, in three zigzag flicks — the one warm thing on a blue
-   picture, and three strokes rather than one so it reads as drawn. */
+/* One thick stroke under the word, swept by hand: it dips, rises and lifts off
+   at the end, the way a marker does. Coral red — the same family as the felt
+   tip on the cards below, loud enough to hold its own against a blue sky. */
 .sk-q__line {
-  position: absolute; left: 0; width: 100%; bottom: 0.01em; height: 0.24em; overflow: visible;
+  position: absolute; left: -2%; width: 104%; bottom: -0.04em; height: 0.34em; overflow: visible;
 }
 .sk-q__line path {
-  fill: none; stroke: #FFC24B; stroke-width: 3.2;
-  stroke-linecap: round; stroke-linejoin: miter;
-  vector-effect: non-scaling-stroke;
+  fill: none; stroke: #FF4B33; stroke-width: 7;
+  stroke-linecap: round; vector-effect: non-scaling-stroke;
 }
 .sk-lead {
   margin: 22px auto 0; max-width: 620px; font-size: 17px; line-height: 1.55;

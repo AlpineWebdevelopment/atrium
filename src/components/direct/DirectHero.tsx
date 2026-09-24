@@ -23,10 +23,8 @@ export default function DirectHero() {
           Unalmas már a sok szép{" "}
           <em className="sk-q">
             „AI-show”
-            <svg className="sk-q__line" viewBox="0 0 200 10" preserveAspectRatio="none" aria-hidden="true">
-              <path d="M8 8.6 L20 2 L32 8.6 L44 2 L56 8.6" />
-              <path d="M72 8.6 L84 2 L96 8.6 L108 2 L120 8.6" />
-              <path d="M136 8.6 L148 2 L160 8.6 L172 2 L184 8.6" />
+            <svg className="sk-q__line" viewBox="0 0 200 16" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M3 10.5 C28 15.4 56 4.8 90 7.6 C122 10.2 158 6.4 197 2.4" />
             </svg>
           </em>
           ,
