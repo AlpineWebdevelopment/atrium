@@ -4429,7 +4429,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
    navigation instead of a row of loose links. */
 .sk-top__nav {
   margin: 0 auto; display: flex; gap: 4px; padding: 5px; border-radius: 14px;
-  background: rgba(255, 255, 255, 0.22); border: 1px solid rgba(255, 255, 255, 0.34);
+  background: rgba(255, 255, 255, 0.14); border: 1px solid rgba(255, 255, 255, 0.26);
   backdrop-filter: blur(10px);
 }
 .sk-top__nav a {
