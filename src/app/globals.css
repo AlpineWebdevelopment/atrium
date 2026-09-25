@@ -4493,6 +4493,13 @@ html.dark { --viz-purple-soft: #1d1b33; }
   transform: translateY(calc(var(--press) - 1px));
   box-shadow: 0 1px 0 var(--btn-edge); transition-duration: 90ms;
 }
+/* The secondary button is a pane of glass on the photograph, not a key: no
+   wall under it, and it presses by shrinking rather than sinking. */
+.sk-btn--ghost, .sk-btn--ghost:active { box-shadow: none; }
+.sk-btn--ghost:active { transform: scale(0.97); transition-duration: 100ms; }
+@media (hover: hover) and (pointer: fine) {
+  .sk-btn--ghost:hover { transform: translateY(-1px); box-shadow: none; }
+}
 .sk-proof { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 22px; margin: 18px 0 0; padding: 0; }
 .sk-proof li {
   display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 500;
