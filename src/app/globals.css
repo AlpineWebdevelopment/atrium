@@ -153,20 +153,14 @@ html.dark {
   justify-content: center;
   /* A key, not a sticker: a solid darker wall under the face gives the button
      its thickness, and pressing it sinks the face onto that wall. */
-  /* The wall under the face is what makes it a key rather than a sticker. The
-     default face is nearly black, where a darker wall would be invisible, so
-     this one leans towards the sky the way a lit side would; a coloured face
-     sets its own darker wall where it is declared. */
-  --btn-edge: #16304C;
-  --press: 5px;
-  box-shadow: 0 var(--press) 0 var(--btn-edge), 0 calc(var(--press) + 5px) 14px -8px rgba(1, 14, 30, 0.4);
+  box-shadow: 0 2px 5px -1px rgba(1, 14, 30, 0.22), 0 1px 2px rgba(1, 14, 30, 0.14);
   transition: transform 140ms var(--ease-out), opacity 140ms, box-shadow 140ms var(--ease-out);
 }
 /* hover only on pointer devices — prevents sticky states on touch */
 @media (hover: hover) and (pointer: fine) {
   .btn:hover {
-    transform: translateY(-1px); opacity: 1;
-    box-shadow: 0 calc(var(--press) + 1px) 0 var(--btn-edge), 0 calc(var(--press) + 8px) 18px -8px rgba(1, 14, 30, 0.42);
+    transform: translateY(-1px); opacity: 0.93;
+    box-shadow: 0 6px 16px -5px rgba(1, 14, 30, 0.32), 0 2px 5px -2px rgba(1, 14, 30, 0.18);
   }
   .btn--ghost:hover {
     background: var(--panel); opacity: 1; transform: translateY(1px);
@@ -180,16 +174,16 @@ html.dark {
 }
 /* press feedback — mandatory for any pressable surface */
 .btn:active {
-  transform: translateY(calc(var(--press) - 1px)) !important;
+  transform: scale(0.97) !important;
   opacity: 1 !important;
-  box-shadow: 0 1px 0 var(--btn-edge) !important;
-  transition-duration: 90ms !important;
+  box-shadow: 0 1px 3px -1px rgba(1, 14, 30, 0.18) !important;
+  transition-duration: 100ms !important;
 }
 .btn .ico { width: 15px; height: 15px; }
 
 .btn--ghost {
   --btn-face: var(--bone);
-  --btn-edge: color-mix(in oklab, var(--bone) 72%, var(--stone));
+  --btn-edge: color-mix(in oklab, var(--bone) 52%, var(--ink));
   --press: 5px;
   color: var(--ink);
   border: 1px solid var(--line);
@@ -1042,7 +1036,7 @@ html.dark .nav--scrolled { box-shadow: 0 1px 24px rgba(0,0,0,0.25); }
   );
 }
 .page--salon .btn {
-  --btn-face: #BC6285; --btn-edge: color-mix(in srgb, #BC6285 68%, #000000);
+  --btn-face: #BC6285;
   color: #fff;
 }
 .page--salon .btn:hover { opacity: 0.88; }
@@ -1074,7 +1068,7 @@ html.dark .nav--scrolled { box-shadow: 0 1px 24px rgba(0,0,0,0.25); }
   );
 }
 .page--physio .btn {
-  --btn-face: #4A9EB8; --btn-edge: color-mix(in srgb, #4A9EB8 68%, #000000);
+  --btn-face: #4A9EB8;
   color: #fff;
 }
 .page--physio .btn:hover { opacity: 0.88; }
@@ -1106,7 +1100,7 @@ html.dark .nav--scrolled { box-shadow: 0 1px 24px rgba(0,0,0,0.25); }
   );
 }
 .page--kormos .btn {
-  --btn-face: #C4705A; --btn-edge: color-mix(in srgb, #C4705A 68%, #000000);
+  --btn-face: #C4705A;
   color: #fff;
 }
 .page--kormos .btn:hover { opacity: 0.88; }
@@ -1147,7 +1141,7 @@ html.dark .nav--scrolled { box-shadow: 0 1px 24px rgba(0,0,0,0.25); }
     color-mix(in srgb, #7A4F7A 6%, #F5F2ED) 100%
   );
 }
-.page--szepsegipar .btn { --btn-face: #9E6B9E; --btn-edge: color-mix(in srgb, #9E6B9E 68%, #000000); color: #fff; }
+.page--szepsegipar .btn { --btn-face: #9E6B9E; color: #fff; }
 .page--szepsegipar .btn:hover { opacity: 0.88; }
 .page--szepsegipar .btn--ghost { --btn-face: var(--bone); --btn-edge: color-mix(in oklab, var(--bone) 72%, var(--stone)); border-color: var(--line); color: var(--ink); }
 .page--szepsegipar .btn--ghost:hover { background: var(--panel); opacity: 1; }
@@ -1168,7 +1162,7 @@ html.dark .nav--scrolled { box-shadow: 0 1px 24px rgba(0,0,0,0.25); }
     color-mix(in srgb, #3A6B5E 6%, #F5F2ED) 100%
   );
 }
-.page--allatorvos .btn { --btn-face: #2D9B7F; --btn-edge: color-mix(in srgb, #2D9B7F 68%, #000000); color: #fff; }
+.page--allatorvos .btn { --btn-face: #2D9B7F; color: #fff; }
 .page--allatorvos .btn:hover { opacity: 0.88; }
 .page--allatorvos .btn--ghost { --btn-face: var(--bone); --btn-edge: color-mix(in oklab, var(--bone) 72%, var(--stone)); border-color: var(--line); color: var(--ink); }
 .page--allatorvos .btn--ghost:hover { background: var(--panel); opacity: 1; }
@@ -1193,7 +1187,7 @@ html.dark .nav--scrolled { box-shadow: 0 1px 24px rgba(0,0,0,0.25); }
     color-mix(in srgb, #1A4A8E 6%, #F5F2ED) 100%
   );
 }
-.page--gyors-lead-valasz .btn { --btn-face: #2B64B8; --btn-edge: color-mix(in srgb, #2B64B8 68%, #000000); color: #fff; }
+.page--gyors-lead-valasz .btn { --btn-face: #2B64B8; color: #fff; }
 .page--gyors-lead-valasz .btn:hover { opacity: 0.88; }
 .page--gyors-lead-valasz .btn--ghost { --btn-face: var(--bone); --btn-edge: color-mix(in oklab, var(--bone) 72%, var(--stone)); border-color: var(--line); color: var(--ink); }
 .page--gyors-lead-valasz .btn--ghost:hover { background: var(--panel); opacity: 1; }
@@ -1216,7 +1210,7 @@ html.dark .nav--scrolled { box-shadow: 0 1px 24px rgba(0,0,0,0.25); }
     color-mix(in srgb, #1F6E8C 6%, #F5F2ED) 100%
   );
 }
-.page--fogaszat .btn { --btn-face: #2C8FB5; --btn-edge: color-mix(in srgb, #2C8FB5 68%, #000000); color: #fff; }
+.page--fogaszat .btn { --btn-face: #2C8FB5; color: #fff; }
 .page--fogaszat .btn:hover { opacity: 0.88; }
 .page--fogaszat .btn--ghost { --btn-face: var(--bone); --btn-edge: color-mix(in oklab, var(--bone) 72%, var(--stone)); border-color: var(--line); color: var(--ink); }
 .page--fogaszat .btn--ghost:hover { background: var(--panel); opacity: 1; }
@@ -1239,7 +1233,7 @@ html.dark .nav--scrolled { box-shadow: 0 1px 24px rgba(0,0,0,0.25); }
     color-mix(in srgb, #1E7BA8 6%, #F5F2ED) 100%
   );
 }
-.page--klima .btn { --btn-face: #33ABDB; --btn-edge: color-mix(in srgb, #33ABDB 68%, #000000); color: #fff; }
+.page--klima .btn { --btn-face: #33ABDB; color: #fff; }
 .page--klima .btn:hover { opacity: 0.88; }
 .page--klima .btn--ghost { --btn-face: var(--bone); --btn-edge: color-mix(in oklab, var(--bone) 72%, var(--stone)); border-color: var(--line); color: var(--ink); }
 .page--klima .btn--ghost:hover { background: var(--panel); opacity: 1; }
@@ -1262,7 +1256,7 @@ html.dark .nav--scrolled { box-shadow: 0 1px 24px rgba(0,0,0,0.25); }
     color-mix(in srgb, #B97D1A 6%, #F5F2ED) 100%
   );
 }
-.page--napelem .btn { --btn-face: #E0A12B; --btn-edge: color-mix(in srgb, #E0A12B 68%, #000000); color: #fff; }
+.page--napelem .btn { --btn-face: #E0A12B; color: #fff; }
 .page--napelem .btn:hover { opacity: 0.88; }
 .page--napelem .btn--ghost { --btn-face: var(--bone); --btn-edge: color-mix(in oklab, var(--bone) 72%, var(--stone)); border-color: var(--line); color: var(--ink); }
 .page--napelem .btn--ghost:hover { background: var(--panel); opacity: 1; }
@@ -3742,20 +3736,18 @@ html.dark { --viz-purple-soft: #1d1b33; }
   background: var(--ink); color: var(--bone); border: 1px solid var(--ink);
   font-family: var(--font-body); font-size: 13.5px; font-weight: 600; line-height: 1;
   padding: 9px 16px; border-radius: 11px; text-decoration: none; white-space: nowrap;
-  --btn-edge: color-mix(in srgb, var(--ink) 74%, #5C8FC9);
-  --press: 4px;
-  box-shadow: 0 var(--press) 0 var(--btn-edge), 0 calc(var(--press) + 4px) 12px -8px rgba(1, 14, 30, 0.4);
-  transition: transform 140ms var(--ease-out), box-shadow 140ms var(--ease-out);
+  box-shadow: 0 2px 5px -1px rgba(1, 14, 30, 0.22), 0 1px 2px rgba(1, 14, 30, 0.14);
+  transition: transform 140ms var(--ease-out), opacity 140ms, box-shadow 140ms var(--ease-out);
 }
 @media (hover: hover) and (pointer: fine) {
   .dr-top__cta:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 calc(var(--press) + 1px) 0 var(--btn-edge), 0 calc(var(--press) + 7px) 16px -8px rgba(1, 14, 30, 0.42);
+    transform: translateY(-1px); opacity: 0.93;
+    box-shadow: 0 6px 16px -5px rgba(1, 14, 30, 0.32), 0 2px 5px -2px rgba(1, 14, 30, 0.18);
   }
 }
 .dr-top__cta:active {
-  transform: translateY(calc(var(--press) - 1px));
-  box-shadow: 0 1px 0 var(--btn-edge); transition-duration: 90ms;
+  transform: scale(0.97); opacity: 1;
+  box-shadow: 0 1px 3px -1px rgba(1, 14, 30, 0.18); transition-duration: 100ms;
 }
 
 .page--direct .dr-eyebrow {
@@ -3785,20 +3777,18 @@ html.dark { --viz-purple-soft: #1d1b33; }
   background: var(--ink); color: var(--bone); border: 1px solid var(--ink);
   font-family: var(--font-body); font-size: 15px; font-weight: 600; line-height: 1;
   padding: 14px 26px; border-radius: 14px; text-decoration: none; white-space: nowrap;
-  --btn-edge: color-mix(in srgb, var(--ink) 74%, #5C8FC9);
-  --press: 5px;
-  box-shadow: 0 var(--press) 0 var(--btn-edge), 0 calc(var(--press) + 5px) 14px -8px rgba(1, 14, 30, 0.4);
+  box-shadow: 0 2px 5px -1px rgba(1, 14, 30, 0.22), 0 1px 2px rgba(1, 14, 30, 0.14);
   transition: transform 140ms var(--ease-out), opacity 140ms, box-shadow 140ms var(--ease-out);
 }
 @media (hover: hover) and (pointer: fine) {
   .page--direct .dr-btn:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 calc(var(--press) + 1px) 0 var(--btn-edge), 0 calc(var(--press) + 8px) 18px -8px rgba(1, 14, 30, 0.42);
+    transform: translateY(-1px); opacity: 0.93;
+    box-shadow: 0 6px 16px -5px rgba(1, 14, 30, 0.32), 0 2px 5px -2px rgba(1, 14, 30, 0.18);
   }
 }
 .page--direct .dr-btn:active {
-  transform: translateY(calc(var(--press) - 1px));
-  box-shadow: 0 1px 0 var(--btn-edge); transition-duration: 90ms;
+  transform: scale(0.97); opacity: 1;
+  box-shadow: 0 1px 3px -1px rgba(1, 14, 30, 0.18); transition-duration: 100ms;
 }
 .page--direct .dr-btn--lg { padding: 17px 30px; font-size: 15px; border-radius: 16px; }
 
@@ -4442,9 +4432,9 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .sk-top__cta {
   padding: 9px 16px; border-radius: 11px; background: #FFFFFF; color: var(--ink);
   font-size: 13.5px; font-weight: 600; line-height: 1; text-decoration: none;
-  --btn-edge: color-mix(in srgb, #FFFFFF 70%, var(--ink));
+  --btn-edge: color-mix(in srgb, #FFFFFF 38%, var(--ink));
   --press: 4px;
-  box-shadow: 0 var(--press) 0 var(--btn-edge), 0 calc(var(--press) + 5px) 14px -8px rgba(1, 14, 30, 0.45);
+  box-shadow: 0 var(--press) 0 var(--btn-edge), 0 calc(var(--press) + 6px) 16px -8px rgba(1, 14, 30, 0.6);
   transition: transform 140ms var(--ease-out), box-shadow 140ms var(--ease-out);
 }
 
@@ -4480,21 +4470,22 @@ html.dark { --viz-purple-soft: #1d1b33; }
   padding: 17px 30px; border-radius: 16px; background: #FFFFFF; color: var(--ink);
   border: 1px solid #FFFFFF; font-family: var(--font-body); font-size: 15px;
   font-weight: 600; line-height: 1; text-decoration: none; white-space: nowrap;
-  /* White face, so the wall underneath is a cool grey rather than black. */
-  --btn-edge: color-mix(in srgb, #FFFFFF 70%, var(--ink));
+  /* The wall stays on the white buttons — it is the one face light enough to
+     show it — and it is a deep blue-grey, not a tint. */
+  --btn-edge: color-mix(in srgb, #FFFFFF 38%, var(--ink));
   --press: 5px;
-  box-shadow: 0 var(--press) 0 var(--btn-edge), 0 calc(var(--press) + 6px) 16px -8px rgba(1, 14, 30, 0.45);
+  box-shadow: 0 var(--press) 0 var(--btn-edge), 0 calc(var(--press) + 7px) 18px -8px rgba(1, 14, 30, 0.6);
   transition: transform 140ms var(--ease-out), background 140ms, box-shadow 140ms var(--ease-out);
 }
 .sk-btn--ghost {
   background: rgba(255, 255, 255, 0.14); color: #FFFFFF;
   border: 1px solid rgba(255, 255, 255, 0.4); backdrop-filter: blur(6px);
-  --btn-edge: rgba(1, 14, 30, 0.34);
+  --btn-edge: rgba(1, 14, 30, 0.5);
 }
 @media (hover: hover) and (pointer: fine) {
   .sk-btn:hover, .sk-top__cta:hover {
     transform: translateY(-1px);
-    box-shadow: 0 calc(var(--press) + 1px) 0 var(--btn-edge), 0 calc(var(--press) + 9px) 20px -8px rgba(1, 14, 30, 0.45);
+    box-shadow: 0 calc(var(--press) + 1px) 0 var(--btn-edge), 0 calc(var(--press) + 10px) 22px -8px rgba(1, 14, 30, 0.6);
   }
   .sk-btn--ghost:hover { background: rgba(255, 255, 255, 0.22); }
 }
