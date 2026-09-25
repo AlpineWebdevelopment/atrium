@@ -4380,6 +4380,226 @@ html.dark { --viz-purple-soft: #1d1b33; }
 }
 
 /* guarantee */
+/* The questions, right before the close. Native <details>, hairline rules, no
+   card chrome: the page already has enough boxes. */
+.page--direct .dr-faq-sec { padding-bottom: clamp(30px, 4vw, 48px); }
+.dr-faq { max-width: 860px; margin: 34px auto 0; text-align: left; }
+.dr-faq__item { border-top: 1px solid var(--line); }
+.dr-faq__item:last-child { border-bottom: 1px solid var(--line); }
+.dr-faq__item summary {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 20px;
+  padding: 20px 0; cursor: pointer; list-style: none;
+  font-size: 19px; font-weight: 600; line-height: 1.35; letter-spacing: -0.008em; color: var(--ink);
+}
+.dr-faq__item summary::-webkit-details-marker { display: none; }
+.dr-faq__item summary:hover { color: color-mix(in srgb, var(--ink) 78%, var(--viz-blue)); }
+.dr-faq__mark {
+  flex: none; position: relative; width: 18px; height: 18px; margin-top: 5px;
+}
+.dr-faq__mark::before, .dr-faq__mark::after {
+  content: ""; position: absolute; left: 50%; top: 50%; background: var(--ink);
+  transform: translate(-50%, -50%); transition: transform 160ms var(--ease-out), opacity 160ms;
+}
+.dr-faq__mark::before { width: 15px; height: 2px; }
+.dr-faq__mark::after { width: 2px; height: 15px; }
+.dr-faq__item[open] .dr-faq__mark::after { transform: translate(-50%, -50%) scaleY(0); opacity: 0; }
+.dr-faq__item p {
+  margin: -4px 0 22px; padding-right: 38px; max-width: 72ch;
+  font-size: 16.5px; line-height: 1.65; color: var(--ink-70);
+}
+
+@media (max-width: 620px) {
+  .dr-faq__item summary { font-size: 17px; padding: 16px 0; gap: 14px; }
+  .dr-faq__item p { font-size: 15.5px; padding-right: 0; margin-bottom: 18px; }
+}
+
+/* /foglalas — the booking page in the /direct language: the argument on the
+   left, the form on the right. The form's own bk-* styles are untouched. */
+.page--fogl .dr-top { max-width: 1120px; }
+.fogl { padding: clamp(24px, 4vw, 48px) 0 clamp(56px, 7vw, 92px); }
+.fogl__wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+.fogl__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(28px, 4vw, 56px); align-items: start; }
+.fogl__h1 {
+  margin: 14px 0 0; font-family: var(--font-headline); font-weight: 400;
+  font-size: clamp(40px, 5.4vw, 70px); line-height: 0.96; letter-spacing: 0.012em; color: var(--ink);
+}
+.fogl__lead { margin: 18px 0 0; max-width: 46ch; font-size: 17px; line-height: 1.6; color: var(--ink-70); }
+.fogl__steps { list-style: none; margin: 30px 0 0; padding: 0; display: flex; flex-direction: column; gap: 18px; }
+.fogl__steps li { padding-top: 14px; border-top: 1px solid var(--line); }
+.fogl__n {
+  display: block; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em;
+  color: var(--stone);
+}
+.fogl__steps b { display: block; margin-top: 6px; font-size: 17px; font-weight: 600; color: var(--ink); }
+.fogl__steps em { display: block; margin-top: 4px; font-style: normal; font-size: 15px; line-height: 1.5; color: var(--ink-70); }
+.fogl__note {
+  margin: 26px 0 0; padding: 14px 16px; border: 1px dashed rgba(1, 14, 30, 0.25);
+  border-radius: 12px; font-size: 14.5px; line-height: 1.55; color: var(--ink-70);
+}
+.fogl__card {
+  background: var(--bone); border: 1px solid var(--line); border-radius: 18px;
+  padding: clamp(22px, 2.6vw, 32px);
+}
+.page--fogl .bk-title { font-family: var(--font-headline); font-weight: 400; font-size: 30px; letter-spacing: 0.012em; }
+.page--fogl .bk-eyebrow { color: var(--stone); }
+
+@media (max-width: 900px) {
+  .fogl__grid { grid-template-columns: minmax(0, 1fr); }
+  .fogl__steps { gap: 14px; }
+  .fogl__note { margin-top: 20px; }
+}
+
+/* Service drawings. Each one is built from the same parts as the page — rules,
+   chips, bars — and carries a caption, so it explains its service instead of
+   decorating it. Every accent comes from --svc-accent, so a drawing takes the
+   colour of the service it belongs to. */
+.svc__art { margin-top: 28px; }
+.sa { margin: 0; padding: 22px 22px 18px; border: 1px solid var(--line); border-radius: 16px; }
+.sa figcaption {
+  margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--line);
+  font-size: 13.5px; line-height: 1.5; color: var(--stone);
+}
+
+/* 01 — one thread down the page */
+.sa__thread { display: flex; flex-direction: column; }
+.sa__node { position: relative; display: flex; gap: 14px; padding: 0 0 16px 0; }
+.sa__node:last-child { padding-bottom: 0; }
+.sa__node::before {
+  content: ""; position: absolute; left: 5px; top: 14px; bottom: 0; width: 2px;
+  background: color-mix(in srgb, var(--svc-accent, var(--ink)) 26%, transparent);
+}
+.sa__node:last-child::before { display: none; }
+.sa__dot {
+  flex: none; width: 12px; height: 12px; margin-top: 3px; border-radius: 50%;
+  background: var(--svc-accent, var(--ink));
+}
+.sa__node b { display: block; font-size: 15px; font-weight: 600; color: var(--ink); }
+.sa__node em { display: block; margin-top: 2px; font-style: normal; font-size: 13.5px; color: var(--ink-70); }
+.sa__loop {
+  position: absolute; right: 0; top: 6px; width: 34px; height: 34px;
+  border: 2px solid color-mix(in srgb, var(--svc-accent, var(--ink)) 40%, transparent);
+  border-right-color: transparent; border-radius: 50%;
+}
+
+/* 02 — the old list */
+.sa__list { display: flex; flex-direction: column; gap: 8px; }
+.sa__row {
+  display: flex; align-items: center; gap: 10px; padding: 10px 12px;
+  border: 1px solid var(--line); border-radius: 10px; font-size: 14px; color: var(--ink-70);
+}
+.sa__chip { flex: none; width: 8px; height: 8px; border-radius: 50%; background: rgba(1, 14, 30, 0.18); }
+.sa__row--warm {
+  border-color: color-mix(in srgb, var(--svc-accent, var(--ink)) 34%, transparent);
+  color: var(--ink); font-weight: 500;
+}
+.sa__row--warm .sa__chip { background: var(--svc-accent, var(--ink)); }
+.sa__row--off { opacity: 0.55; text-decoration: line-through; text-decoration-color: rgba(1, 14, 30, 0.3); }
+
+/* 03 — two speeds */
+.sa__lanes { display: flex; flex-direction: column; gap: 18px; }
+.sa__lane { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 10px 14px; align-items: center; }
+.sa__lane-k { font-size: 13.5px; font-weight: 600; color: var(--ink); }
+.sa__bar { display: block; height: 10px; border-radius: 999px; background: rgba(1, 14, 30, 0.07); overflow: hidden; }
+.sa__bar i { display: block; height: 100%; border-radius: 999px; background: rgba(1, 14, 30, 0.28); }
+.sa__lane--fast .sa__bar i { background: var(--svc-accent, var(--ink)); }
+.sa__lane-v { grid-column: 2; font-size: 13px; color: var(--ink-70); }
+
+/* 04 — the day, and the hours nobody is there */
+.sa__day { display: flex; gap: 3px; }
+.sa__day span {
+  flex: 1; height: 26px; border-radius: 3px;
+  background: color-mix(in srgb, var(--ink) 72%, transparent);
+}
+.sa__day span.is-open { background: rgba(1, 14, 30, 0.1); }
+.sa__day-k {
+  display: flex; justify-content: space-between; margin-top: 6px;
+  font-family: var(--font-mono); font-size: 10.5px; color: var(--stone);
+}
+.sa__wave { display: flex; align-items: center; justify-content: space-between; gap: 5px; height: 36px; margin-top: 16px; }
+.sa__wave i { flex: 0 0 5px; width: 5px; border-radius: 999px; background: var(--svc-accent, var(--ink)); opacity: 0.8; }
+
+/* 05 — the shape of a build */
+.sa__flow { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.sa__step {
+  display: inline-flex; align-items: center; gap: 10px; padding: 9px 14px;
+  border: 1px solid color-mix(in srgb, var(--svc-accent, var(--ink)) 30%, var(--line));
+  border-radius: 10px; font-size: 14px; font-weight: 500; color: var(--ink);
+}
+.sa__step i {
+  width: 16px; height: 2px; border-radius: 2px; margin-right: -14px;
+  background: color-mix(in srgb, var(--svc-accent, var(--ink)) 50%, transparent);
+}
+.sa__brief {
+  margin-top: 16px; padding: 14px 16px; border: 1px dashed rgba(1, 14, 30, 0.25); border-radius: 12px;
+}
+.sa__brief-k {
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--stone);
+}
+.sa__brief p { margin: 6px 0 0; font-size: 15px; color: var(--ink); }
+
+@media (max-width: 620px) {
+  .sa { padding: 18px 16px 16px; }
+  .sa__lane { grid-template-columns: minmax(0, 1fr); }
+  .sa__lane-v { grid-column: 1; }
+  .sa__loop { display: none; }
+  .sa__day span { height: 22px; }
+}
+
+/* The three phases of the sales system: the one service that has a shape, so
+   it gets drawn as a sequence rather than another bullet list. */
+.svc__phases { margin-top: 34px; }
+.svc__h--wide { margin-bottom: 16px; }
+.svc__phase-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.svc__phase {
+  padding: 20px 20px 22px; border: 1px solid var(--line); border-radius: 14px;
+  border-top: 2px solid var(--svc-accent, var(--ink)); background: transparent;
+}
+.svc__phase-k {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em;
+  color: var(--svc-accent, var(--stone));
+}
+.svc__phase-t {
+  margin: 6px 0 12px; font-family: var(--font-display); font-weight: 700;
+  font-size: 18px; letter-spacing: -0.01em; color: var(--ink);
+}
+.svc__phase ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px; }
+.svc__phase li { font-size: 14px; line-height: 1.5; color: var(--ink-70); }
+.svc__phase li b { font-weight: 600; color: var(--ink); }
+
+/* The bespoke service carries examples instead of a feature list: what was
+   built, and for whom. Labelled as types, not as an offer. */
+.svc__ex { margin-top: 34px; }
+.svc__ex-note { margin: -8px 0 16px; font-size: 14px; color: var(--stone); max-width: 62ch; }
+.svc__ex-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.svc__ex-item { padding: 20px 20px 22px; border: 1px solid var(--line); border-radius: 14px; }
+.svc__ex-who {
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--svc-accent, var(--stone));
+}
+.svc__ex-item h4 {
+  margin: 8px 0 8px; font-family: var(--font-display); font-weight: 700;
+  font-size: 17px; line-height: 1.25; letter-spacing: -0.01em; color: var(--ink);
+}
+.svc__ex-item p { margin: 0; font-size: 14.5px; line-height: 1.55; color: var(--ink-70); }
+
+/* The three promises under the hero: plain claims, no badge chrome. */
+.svc-badges {
+  list-style: none; display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 8px 22px; margin: 22px 0 0; padding: 0;
+}
+.svc-badges li {
+  display: inline-flex; align-items: center; gap: 7px; font-size: 13px; color: var(--ink-70);
+}
+.svc-badges li::before {
+  content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--signal);
+}
+
+@media (max-width: 900px) {
+  .svc__phase-grid { grid-template-columns: minmax(0, 1fr); }
+  .svc__ex-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
 .svc-sec { padding: clamp(56px, 7vw, 96px) 0 0; border-top: 1px solid var(--line); background: var(--bone); text-align: center; }
 .page--szolg .svc-sec .dr-h2 { font-size: clamp(36px, 5vw, 58px); line-height: 0.98; }
 .svc-gua { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 38px; text-align: left; }

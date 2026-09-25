@@ -1,0 +1,40 @@
+import Hero from "@/components/Hero";
+import RealtimeDashboard from "@/components/RealtimeDashboard";
+import FullSystem from "@/components/FullSystem";
+import Manifesto from "@/components/Manifesto";
+import CustomSolutions from "@/components/CustomSolutions";
+import WorkFlow from "@/components/WorkFlow";
+// import Reputation from "@/components/Reputation"; // hidden for now — re-enable to bring it back
+// import Packages from "@/components/Packages"; // hidden for now — re-enable to bring back the offer-ladder section
+import Faq from "@/components/Faq";
+import Footer from "@/components/Footer";
+import ScrollReveal from "@/components/ScrollReveal";
+import type { Metadata } from "next";
+
+/* The landing this site ran on until the new root replaced it. Kept, not
+   deleted: the niche landings and the blog still borrow its components, and
+   it is the only place the old argument survives in one piece. Nothing links
+   here and it is noindex, so it stays out of the index and out of the way. */
+export const metadata: Metadata = {
+  alternates: { canonical: "/regi-fooldal" },
+  robots: { index: false, follow: false },
+  title: "Atrium — korábbi főoldal",
+};
+
+export default function Home() {
+  return (
+    <div className="page page--root" data-screen-label="atriumscaling.com /regi-fooldal">
+      <ScrollReveal />
+      <Hero />
+      <Manifesto />
+      <RealtimeDashboard />
+      <FullSystem />
+      <WorkFlow />
+      <CustomSolutions />
+      {/* <Reputation /> hidden for now — ask to bring it back */}
+      {/* <Packages /> hidden for now — ask to bring it back */}
+      <Faq />
+      <Footer />
+    </div>
+  );
+}

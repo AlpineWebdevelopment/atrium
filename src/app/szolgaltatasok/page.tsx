@@ -3,17 +3,17 @@ import type { Metadata } from "next";
 import { Barlow } from "next/font/google";
 import ScrollReveal from "@/components/ScrollReveal";
 import DirectFooter from "@/components/direct/DirectFooter";
+import ServiceArt from "@/components/szolg/ServiceArt";
 
-/* The services page the root deliberately leaves out: five offers, each with
-   what makes it different, what it actually does, and who it is not for. The
-   structure follows the reference the client sent (a numbered rail on the
-   left, a dark plate per service, then "why" / "what it gives" blocks); the
-   ground, type and tone stay ours — bone, Bebas over Barlow, no published
-   prices and no unverifiable figures.
+/* The services page the landing deliberately leaves out. Structure from the
+   reference the client sent — a rail with the service name on the left, then
+   "why", "what it does" and "who it is for" on the right — and the substance
+   from the old root: the three phases of the sales system, the nine bespoke
+   projects, the guarantees. Ground, type and tone stay ours: bone, Bebas over
+   Barlow, no published prices, no unverifiable figures.
 
-   Shares the /direct vocabulary (the page carries page--direct as well), so
-   the two surfaces stay one design once /direct becomes the root. noindex
-   until that swap, like /direct itself. */
+   Shares the landing's vocabulary (the page carries page--direct as well), so
+   the two surfaces stay one design. */
 
 const barlow = Barlow({
   subsets: ["latin", "latin-ext"],
@@ -23,16 +23,19 @@ const barlow = Barlow({
 
 export const metadata: Metadata = {
   alternates: { canonical: "/szolgaltatasok" },
-  robots: { index: false, follow: true },
   title: "Szolgáltatások",
   description:
     "Öt dolgot csinálunk: AI értékesítési rendszert, adatbázis-újraélesztést, szöveges és hang ügynököket, és egyedi AI-megoldásokat. Mindegyikről megmondjuk, mit ad és kinek nem való.",
 };
 
+type Phase = { k: string; t: string; items: [string, string][] };
+type Example = { t: string; who: string; d: string };
+
 type Service = {
   id: string;
   n: string;
   accent: string;
+  art: "system" | "revive" | "text" | "voice" | "custom";
   name: string;
   tag?: string;
   plate: string;
@@ -40,39 +43,75 @@ type Service = {
   why: string[];
   gives: string[];
   who: string;
+  phases?: Phase[];
+  examples?: Example[];
+  build?: { k: string; items: string[] }[];
 };
 
 const SERVICES: Service[] = [
   {
     id: "ertekesitesi-rendszer",
+    art: "system",
     n: "01",
     accent: "var(--viz-purple)",
     name: "AI értékesítési rendszer",
     tag: "Specialitásunk",
     plate: "A megkeresésből megrendelés.",
     lead:
-      "Nem csevegőablak a weboldal sarkában. Egy rendszer, amely a megkeresést végigviszi a foglalásig, az árajánlatig és az utánkövetésig. Minden csatorna ugyanabból a memóriából dolgozik: aki telefonon kezdte és Instagramon folytatja, ugyanaz az ügyfél marad.",
+      "Nem csevegőablak a weboldal sarkában. Egy rendszer, amely a megkeresést végigviszi a foglalásig, az árajánlatig és az utánkövetésig — majd gondoskodik arról, hogy az ügyfél vissza is jöjjön. Minden csatorna ugyanabból a memóriából dolgozik: aki telefonon kezdte és Instagramon folytatja, ugyanaz az ügyfél marad, és nem kell kétszer elmondania.",
     why: [
-      "Egy beszélgetés, nyolc csatorna: telefon, SMS, WhatsApp, Viber, Messenger, Instagram, e-mail, webchat.",
+      "Nyolc csatorna, egy beszélgetés: telefon, SMS, WhatsApp, Viber, Messenger, Instagram, e-mail, webchat.",
       "Az ügyfélnek semmit nem kell kétszer elmondania.",
       "Nem a bemutatón mérjük, hanem a foglalásokon és a megrendeléseken.",
-      "Hétről hétre hangoljuk, az Ön számai alapján.",
+      "A rendszert a cége méretéhez igazítjuk, a pár fős csapattól a nagyvállalatig.",
+      "Saját CRM, irányítópult és heti riport jár hozzá.",
+    ],
+    phases: [
+      {
+        k: "01",
+        t: "Megkeresés",
+        items: [
+          ["Hívásfogadás", "minden hívást felvesz, éjjel és hétvégén is"],
+          ["Azonnali utánkövetés", "a webes, Instagram- vagy Viber-érdeklődőt is percek alatt felhívja"],
+          ["Minősítés", "felteszi a fontos kérdéseket, és minősíti az érdeklődőt"],
+          ["Válaszadás", "a gyakori kérdésekre azonnal válaszol, a cég saját anyagaiból"],
+          ["Árajánlat-utánkövetés", "a kiküldött árajánlatot utánköveti, hogy ne hűljön ki"],
+          ["Élő átadás", "ha emberi segítség kell, a megfelelő kollégához kapcsol"],
+        ],
+      },
+      {
+        k: "02",
+        t: "Foglalás",
+        items: [
+          ["Időpontfoglalás", "egyenesen a naptárba, ütközés nélkül"],
+          ["Visszaigazolás", "azonnal visszaigazolja az időpontot"],
+          ["Emlékeztető", "időben szól, hogy az időpont ne maradjon el"],
+          ["Átütemezés", "lemondás vagy meg nem jelenés után visszahív, és új időpontot egyeztet"],
+        ],
+      },
+      {
+        k: "03",
+        t: "Megtartás",
+        items: [
+          ["Esedékesség-emlékeztető", "szól, amikor esedékes a következő alkalom — mielőtt az ügyfél elmaradna"],
+          ["Elégedettség-ellenőrzés", "a munka után rákérdez, minden rendben volt-e, és a gondot időben jelzi"],
+          ["Értékelés", "elégedett ügyféltől értékelést kér"],
+          ["Reaktiválás", "hónapokkal később visszahozza a régit"],
+          ["Kimutatás", "megmutatja, mit hozott a rendszer, és hol szivárog még"],
+        ],
+      },
     ],
     gives: [
-      "Minden hívást fogad, éjjel és hétvégén is.",
-      "A webes és közösségi érdeklődőt percek alatt megkeresi.",
-      "Kikérdezi és minősíti, mielőtt Önhöz kerül.",
-      "Időpontot foglal egyenesen a naptárba, ütközés nélkül.",
-      "Visszaigazol, emlékeztet, és lemondás után újat egyeztet.",
-      "A kiküldött árajánlatot utánköveti, hogy ne hűljön ki.",
-      "Ha emberi szó kell, a megfelelő kollégához kapcsol.",
-      "Saját CRM, irányítópult és heti riport jár hozzá.",
+      "Egy felület, ahol minden beszélgetés és ügyfél egy helyen van.",
+      "Heti riport arról, mi történt és mi lett belőle.",
+      "Magyar nyelv, EU-s adattárolás, GDPR-megfelelés.",
     ],
     who:
       "Szolgáltató cégnek, ahol a megkeresés telefonon vagy üzenetben érkezik, és a következő lépés egy időpont vagy egy árajánlat.",
   },
   {
     id: "adatbazis-ujraeleszt",
+    art: "revive",
     n: "02",
     accent: "var(--viz-amber)",
     name: "AI adatbázis-újraélesztés",
@@ -95,6 +134,7 @@ const SERVICES: Service[] = [
   },
   {
     id: "szoveges-ugynokok",
+    art: "text",
     n: "03",
     accent: "var(--viz-blue)",
     name: "AI szöveges ügynökök",
@@ -117,6 +157,7 @@ const SERVICES: Service[] = [
   },
   {
     id: "hang-ugynokok",
+    art: "voice",
     n: "04",
     accent: "var(--viz-cyan)",
     name: "AI hang ügynökök",
@@ -140,23 +181,66 @@ const SERVICES: Service[] = [
   },
   {
     id: "egyedi",
+    art: "custom",
     n: "05",
     accent: "var(--viz-green)",
     name: "Egyedi AI megoldások",
-    plate: "Amit a rendszer nem fed le.",
+    plate: "Amit a kész csomagok nem fednek le.",
     lead:
-      "Ha a cégében van egy ismétlődő, kézi folyamat, amely időt vagy pénzt éget, megnézzük, megoldható-e AI-jal. Ha igen, megépítjük. Ha nem, megmondjuk, és nem raboljuk tovább az idejét.",
+      "Ha az előre gyártott csomagok nem illeszkednek a működéséhez, arra építünk rendszert, amire szüksége van. Nem általánosságban beszélünk AI-ról: konkrét, ismétlődő problémára tervezünk és fejlesztünk megoldást. Lehet egyetlen automatizálás, néhány összekötött folyamat vagy egy teljes, testre szabott rendszer.",
     why: [
       "Nem kész dobozt húzunk a folyamatára: a folyamatra tervezünk.",
       "Fix áron, közösen meghatározott eredményre dolgozunk.",
       "Amit megépítünk, az az Öné — a dokumentációval együtt.",
+      "Ha nem oldható meg AI-jal, megmondjuk, és nem raboljuk tovább az idejét.",
+    ],
+    examples: [
+      {
+        t: "Hang-AI értékesítő hívásokhoz",
+        who: "Telemarketinggel értékesítő cégnek",
+        d: "A kimenő hívásokat egy hang-AI indítja: bemutatja az ajánlatot, válaszol a kérdésekre, és rögzíti a hívás eredményét. Az értékesítők már az érdeklődőkkel beszélnek, nem a hideg listával.",
+      },
+      {
+        t: "Telefonos asszisztens időpontfoglalással",
+        who: "Fogászati rendelőnek",
+        d: "Fogadja a bejövő hívásokat, mindent elmond a szolgáltatásokról, és a telefonáló nevében lefoglalja az időpontot. Utána megerősíti, és az időpontig emlékeztet rá.",
+      },
+      {
+        t: "Érdeklődő-előminősítő rendszer",
+        who: "Sok írásos megkereséssel dolgozó cégnek",
+        d: "Az írásos csatornákon kikérdezi az érdeklődőt, és felméri, mennyire komoly. A munkatárshoz csak a komoly érdeklődő kerül, és vele együtt minden, amit előre tudni kell róla.",
+      },
+      {
+        t: "Webshop-asszisztens, amely összeállítja a kosarat",
+        who: "Autóalkatrész-webshopnak",
+        d: "Írásban és élőszóban is válaszol a termékkérdésekre, és ha az ügyfél komplett egységet kér, a hozzá tartozó összes alkatrészt kosárba teszi. Nem kell cikkszámokat keresni.",
+      },
+      {
+        t: "Árajánlat-készítő rendszer",
+        who: "Árajánlatot készítő cégeknek",
+        d: "A felmérés jegyzeteiből és fotóiból, az Ön árlistája alapján elkészíti az ajánlat piszkozatát, egységes, küldhető formában. Önnek már csak átnéznie kell, nem megírnia.",
+      },
+      {
+        t: "Ügyfél-felkutató és megkereső rendszer",
+        who: "B2B értékesítéssel dolgozó cégeknek",
+        d: "Nyilvános cégadatbázisokban keresi a profilba illő cégeket, elküldi a személyre szabott első üzenetet, és csak a ténylegesen válaszolót adja át.",
+      },
+      {
+        t: "Személyes kapcsolattartó felület",
+        who: "Hosszú döntési idővel dolgozó cégnek",
+        d: "Egy felületről küldhet minden érdeklődőjének személyre szabott üzenetet — névnapra, születésnapra, más alkalomra. A kapcsolat akkor is él, amíg az érdeklődő még nem döntött.",
+      },
+      {
+        t: "Rendszerek közötti adatkapocs",
+        who: "Több, össze nem kötött programot használó cégeknek",
+        d: "A nyilvántartás, a számlázó és a naptár a háttérben egyben marad, és szól, ha valami nem stimmel. Egy ismétlődő gépelős feladat kerül le a napról.",
+      },
     ],
     gives: [
-      "Hang-AI, amely a hideg listát végighívja, és csak az érdeklődőt adja át.",
-      "Webshop-asszisztens, amely a kért egységhez minden alkatrészt kosárba tesz.",
-      "Árajánlat-piszkozat a felmérés jegyzeteiből, az Ön árlistája alapján.",
-      "B2B ügyfélkutatás: profilba illő cégek és személyre szabott első üzenet.",
-      "Adatkapocs a nyilvántartás, a számlázó és a naptár között.",
+      "Egyetlen automatizálástól a teljes, testre szabott rendszerig.",
+      "A meglévő eszközeivel együtt dolgozik, nem helyettük.",
+      "Fix ár, közösen meghatározott eredmény.",
+      "A kész rendszert dokumentációval adjuk át.",
     ],
     who:
       "Annak, akinek konkrét, ismétlődő problémája van — nem általános AI-ötlete.",
@@ -164,14 +248,28 @@ const SERVICES: Service[] = [
 ];
 
 const GUARANTEE = [
-  { t: "Fix ár, működő eredmény", d: "Közösen meghatározott eredményre dolgozunk. Ha több kör kell hozzá, az a mi dolgunk, felár nélkül." },
-  { t: "Az Öné marad", d: "A rendszert és a dokumentációt is átadjuk, így soha nem függ kizárólag tőlünk." },
-  { t: "Folyamatos rálátás", d: "Nem fekete doboz épül. Rendszeresen megmutatjuk, hol tartunk, és mit hozott eddig." },
+  {
+    t: "Fix ár, működő eredmény",
+    d: "Fix áron, közösen meghatározott eredményre dolgozunk. Ha több kör kell hozzá, az a mi dolgunk — felár nélkül.",
+  },
+  {
+    t: "Az Öné marad",
+    d: "Amit megépítünk, az az Öné. A rendszert és a dokumentációt is átadjuk, így soha nem függ kizárólag tőlünk.",
+  },
+  {
+    t: "Folyamatos rálátás",
+    d: "Nem fekete doboz épül. Rendszeresen megmutatjuk, hol tartunk, és mit hozott eddig.",
+  },
 ];
+
+const BADGES = ["Magyar nyelvű", "EU-s adattárolás", "GDPR-megfelelő"];
 
 export default function ServicesPage() {
   return (
-    <div className={`page page--direct page--szolg ${barlow.variable}`} data-screen-label="atriumscaling.com /szolgaltatasok">
+    <div
+      className={`page page--direct page--szolg ${barlow.variable}`}
+      data-screen-label="atriumscaling.com /szolgaltatasok"
+    >
       <ScrollReveal />
 
       <header className="dr-top">
@@ -199,6 +297,9 @@ export default function ServicesPage() {
               </li>
             ))}
           </ul>
+          <ul className="svc-badges reveal" data-delay="3">
+            {BADGES.map((b) => <li key={b}>{b}</li>)}
+          </ul>
         </div>
       </section>
 
@@ -219,6 +320,10 @@ export default function ServicesPage() {
 
               <p className="svc__lead reveal" data-delay="1">{s.lead}</p>
 
+              <div className="svc__art reveal" data-delay="1">
+                <ServiceArt kind={s.art} />
+              </div>
+
               <div className="svc__cols">
                 <div className="svc__col reveal" data-delay="1">
                   <h3 className="svc__h">Miért más</h3>
@@ -227,7 +332,7 @@ export default function ServicesPage() {
                   </ul>
                 </div>
                 <div className="svc__col reveal" data-delay="2">
-                  <h3 className="svc__h">Amit nyújt</h3>
+                  <h3 className="svc__h">Amit kap</h3>
                   <ul className="svc__list svc__list--ok">
                     {s.gives.map((t) => (
                       <li key={t}>
@@ -238,6 +343,46 @@ export default function ServicesPage() {
                   </ul>
                 </div>
               </div>
+
+              {/* The sales system is the one service with a shape: three phases
+                  that follow the customer, not a list of features. */}
+              {s.phases && (
+                <div className="svc__phases">
+                  <h3 className="svc__h svc__h--wide">Mit csinál, lépésről lépésre</h3>
+                  <div className="svc__phase-grid">
+                    {s.phases.map((p, i) => (
+                      <div className="svc__phase reveal" data-delay={i + 1} key={p.k}>
+                        <span className="svc__phase-k">{p.k}</span>
+                        <h4 className="svc__phase-t">{p.t}</h4>
+                        <ul>
+                          {p.items.map(([t, d]) => (
+                            <li key={t}><b>{t}</b> — {d}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {s.examples && (
+                <div className="svc__ex">
+                  <h3 className="svc__h svc__h--wide">Példa projektek</h3>
+                  <p className="svc__ex-note">
+                    Ezek megépült rendszerek típusai, nem árlista. Az Öné másképp
+                    fog kinézni — a folyamata dönti el, hogyan.
+                  </p>
+                  <div className="svc__ex-grid">
+                    {s.examples.map((e, i) => (
+                      <article className="svc__ex-item reveal" data-delay={(i % 2) + 1} key={e.t}>
+                        <span className="svc__ex-who">{e.who}</span>
+                        <h4>{e.t}</h4>
+                        <p>{e.d}</p>
+                      </article>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               <p className="svc__who reveal" data-delay="2">
                 <span>Kinek való</span>

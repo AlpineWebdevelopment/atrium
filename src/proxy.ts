@@ -18,10 +18,10 @@ import { NextResponse, type NextRequest } from "next/server";
    To end the break: set MAINTENANCE to false and deploy.
 
    MAINTENANCE_PATHS takes single pages down while the rest of the site stays
-   up — the same notice, the same 503. Exact matches only. Currently the root
-   landing, while /direct is shaped into its replacement. */
+   up — the same notice, the same 503. Exact matches only. Empty now: the root
+   carries the new landing, so there is nothing left to hold back. */
 const MAINTENANCE = false;
-const MAINTENANCE_PATHS: string[] = ["/"];
+const MAINTENANCE_PATHS: string[] = [];
 
 const OPEN_PATHS = ["/foglalas", "/chatgpt-hirdetes/foglalas", "/adatvedelem", "/aszf"];
 
@@ -69,11 +69,11 @@ const PAGE = `<!doctype html>
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  // Local only: while /direct is shaped into the new root, serve it at "/" in
-  // `next dev` so the page is edited where it will live. Production keeps the
-  // root under maintenance (MAINTENANCE_PATHS) until the real swap.
-  if (process.env.NODE_ENV === "development" && pathname === "/") {
-    return NextResponse.rewrite(new URL("/direct", request.url));
+  // /direct was this landing's address while it was being built, and it went
+  // out in links and bookmarks. It now lives at the root, so the old address
+  // sends people there permanently instead of 404-ing.
+  if (pathname === "/direct") {
+    return NextResponse.redirect(new URL("/", request.url), 308);
   }
   const pageDown = MAINTENANCE_PATHS.includes(pathname);
   if (!MAINTENANCE && !pageDown) return NextResponse.next();
