@@ -4423,9 +4423,11 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .sk-top { position: relative; z-index: 2; display: flex; align-items: center; gap: 18px; padding: 10px 6px; }
 .sk-top__brand { display: inline-flex; align-items: baseline; gap: 3px; font-family: var(--font-logo); font-weight: 600; font-size: 20px; color: #FFFFFF; text-decoration: none; }
 .sk-top__brand i { width: 6px; height: 6px; border-radius: 50%; background: #FFFFFF; }
-.sk-top__nav { margin: 0 auto; display: flex; gap: 6px; padding: 6px; border-radius: 999px; background: rgba(255,255,255,0.14); backdrop-filter: blur(8px); }
-.sk-top__nav a { padding: 6px 14px; border-radius: 999px; font-size: 13px; color: #FFFFFF; text-decoration: none; }
-.sk-top__nav a:hover { background: rgba(255,255,255,0.16); }
+/* A rounded rectangle, like the buttons — a navigation strip is a panel, not
+   a lozenge. */
+.sk-top__nav { margin: 0 auto; display: flex; gap: 4px; padding: 5px; border-radius: 14px; background: rgba(255,255,255,0.14); backdrop-filter: blur(8px); }
+.sk-top__nav a { padding: 7px 14px; border-radius: 10px; font-size: 13px; color: #FFFFFF; text-decoration: none; }
+.sk-top__nav a:hover { background: rgba(255,255,255,0.18); }
 /* Hero buttons: the site's button, turned inside out. Same padding, same radii,
    same lift and press — only the faces swap, because ink on a photograph would
    be a hole in the picture. */
