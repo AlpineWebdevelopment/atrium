@@ -4009,35 +4009,44 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .dr-bento__card--dash .dr-bento__list { flex: 1 1 0; margin: 0; padding: 0 0 0 28px; border-top: 0; border-left: 1px solid var(--line); justify-content: center; }
 
 @media (max-width: 1000px) {
-  /* tablets and phones: package runs tall on the left, technology and the
-     small language tile stack on the right at different heights */
+  /* Tablets: two equal columns, value and dashboard across both. Package and
+     technology sit side by side as equals rather than one running tall past
+     the other. */
   .dr-bento {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-areas: "val val" "pack tech" "pack lang" "dash dash";
+    grid-template-areas: "val val" "pack tech" "lang lang" "dash dash";
+  }
+  .dr-bento__card { padding: 24px 22px 26px; }
+  .dr-bento__card--lang { justify-content: flex-start; }
+  .dr-bento__card--dash { flex-direction: column; gap: 20px; }
+  .dr-bento__card--dash .dr-bento__list {
+    padding: 18px 0 0; border-left: 0; border-top: 1px solid var(--line);
   }
 }
-/* Phones keep the bento: value full width, package and technology side by
-   side as compact tiles (no paragraph, smaller type), dashboard full width. */
+/* Phones: one column. Two tiles side by side leaves each of them about 160px
+   wide, which is not a tile any more — the labelled bars turn into stripes and
+   the channel chips wrap to one word a line. Full width keeps every drawing
+   legible, and the paragraphs that were hidden to save space come back. */
 @media (max-width: 620px) {
-  .dr-bento { gap: 10px; }
-  .dr-bento__card { padding: 18px 16px 18px; gap: 14px; border-radius: 16px; }
-  .dr-bento__card--val { padding: 24px 22px; }
-  .dr-bento__card--tech .dr-bento__p,
-  .dr-bento__card--lang .dr-bento__p { display: none; }
-  .dr-bento__card--pack .dr-bento__p { font-size: 12.5px; line-height: 1.5; margin-top: 8px; }
-  .dr-bento__card--lang { padding: 16px; }
-  .dr-bento__card--lang .dr-bento__t { font-size: 15px; line-height: 1.25; margin-top: 6px; }
-  .dr-bento__card--pack .dr-bento__t,
-  .dr-bento__card--tech .dr-bento__t { font-size: 16px; line-height: 1.22; margin-top: 8px; }
-  .dr-bento__card--pack .dr-bento__list,
-  .dr-bento__card--tech .dr-bento__list { gap: 8px; padding-top: 12px; }
-  .dr-bento__card--pack .dr-bento__list li,
-  .dr-bento__card--tech .dr-bento__list li { font-size: 12.5px; gap: 7px; }
-  .dr-bento__card--pack .dr-bento__ok,
-  .dr-bento__card--tech .dr-bento__ok { width: 13px; height: 13px; }
+  .dr-bento {
+    gap: 12px;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "val" "pack" "tech" "lang" "dash";
+  }
+  .dr-bento__card { padding: 22px 20px 24px; gap: 16px; border-radius: 16px; }
+  .dr-bento__card--val { padding: 24px 22px 26px; }
+  .dr-bento__card--val .dr-bento__t { font-size: clamp(40px, 13.5cqi, 60px); }
+  .dr-bento__card--val .dr-bento__p { font-size: 16px; margin-top: 14px; }
+  .dr-bento__card--val .dr-bento__list li { font-size: 15px; }
+  .dr-bento__t { font-size: 19px; }
+  .dr-bento__p { font-size: 14.5px; }
+  .dr-bento__list li { font-size: 14.5px; }
   .dr-bento__k { font-size: 10px; }
-  .dr-bento__card--dash { flex-direction: column; gap: 16px; }
-  .dr-bento__card--dash .dr-bento__list { padding: 14px 0 0; border-left: 0; border-top: 1px solid var(--line); }
+  .dr-bento__card--lang { justify-content: flex-start; }
+  .dr-bento__card--dash { flex-direction: column; gap: 18px; }
+  .dr-bento__card--dash .dr-bento__list {
+    padding: 16px 0 0; border-left: 0; border-top: 1px solid var(--line);
+  }
 }
 
 /* /direct — "Amit mi AI-nak hívunk.": the sales system as the main offer in
@@ -4202,8 +4211,15 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .dr-art__hu-l { font-size: 12.5px; color: var(--ink-70); }
 
 @media (max-width: 620px) {
+  /* The channel chips and the language drawing used to be hidden here: in the
+     two-column phone layout there was no room for them. There is now, and a
+     tile whose drawing disappears on a phone is a tile that says nothing. */
   .dr-art { margin-top: 14px; }
-  .page--direct .dr-bento__card--tech .dr-art, .page--direct .dr-bento__card--lang .dr-art { display: none; }
+  .dr-art--chan .dr-art__chips { gap: 6px; }
+  .dr-art--chan .dr-art__chips i { font-size: 11.5px; padding: 5px 9px; }
+  .dr-art--chan .dr-art__chips i svg { width: 15px; height: 15px; }
+  .dr-art--hu { gap: 10px; }
+  .dr-art__hu-l { font-size: 12px; }
 }
 
 /* the main offer panel is the one dark surface on the page: the offer itself
@@ -4422,12 +4438,24 @@ html.dark { --viz-purple-soft: #1d1b33; }
 
 .sk-top { position: relative; z-index: 2; display: flex; align-items: center; gap: 18px; padding: 10px 6px; }
 .sk-top__brand { display: inline-flex; align-items: baseline; gap: 3px; font-family: var(--font-logo); font-weight: 600; font-size: 20px; color: #FFFFFF; text-decoration: none; }
-.sk-top__brand i { width: 6px; height: 6px; border-radius: 50%; background: #FFFFFF; }
-/* A rounded rectangle, like the buttons — a navigation strip is a panel, not
-   a lozenge. */
-.sk-top__nav { margin: 0 auto; display: flex; gap: 4px; padding: 5px; border-radius: 14px; background: rgba(255,255,255,0.14); backdrop-filter: blur(8px); }
-.sk-top__nav a { padding: 7px 14px; border-radius: 10px; font-size: 13px; color: #FFFFFF; text-decoration: none; }
-.sk-top__nav a:hover { background: rgba(255,255,255,0.18); }
+/* The signal green dot, the same as everywhere else on the site — the logo
+   should not change colour just because it sits on a photograph. */
+.sk-top__brand i { width: 6px; height: 6px; border-radius: 50%; background: var(--signal); }
+/* A rounded rectangle of glass, like the buttons — a navigation strip is a
+   panel, not a lozenge — and the page you are on is the one solid thing in
+   it: filled white, ink text. The fill is what makes the strip read as
+   navigation instead of a row of loose links. */
+.sk-top__nav {
+  margin: 0 auto; display: flex; gap: 4px; padding: 5px; border-radius: 14px;
+  background: rgba(255, 255, 255, 0.22); border: 1px solid rgba(255, 255, 255, 0.34);
+  backdrop-filter: blur(10px);
+}
+.sk-top__nav a {
+  padding: 7px 14px; border-radius: 10px; font-size: 13px; color: #FFFFFF;
+  text-decoration: none; transition: background 140ms var(--ease-out);
+}
+.sk-top__nav a.is-active { background: #FFFFFF; color: var(--ink); font-weight: 600; }
+.sk-top__nav a:not(.is-active):hover { background: rgba(255, 255, 255, 0.22); }
 /* Hero buttons: the site's button, turned inside out. Same padding, same radii,
    same lift and press — only the faces swap, because ink on a photograph would
    be a hole in the picture. */
@@ -4439,26 +4467,26 @@ html.dark { --viz-purple-soft: #1d1b33; }
 }
 
 .sk-in { position: relative; z-index: 2; width: 100%; max-width: 980px; margin: 0 auto; text-align: center; padding-top: 24px; }
-.sk-pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px 6px 6px; border-radius: 999px; background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.35); font-size: 12.5px; color: #FFFFFF; backdrop-filter: blur(8px); }
-.sk-pill b { padding: 2px 8px; border-radius: 999px; background: #FFFFFF; color: var(--ink); font-size: 11px; font-weight: 700; }
+/* No capsule around the line: the nav strip above is already a glass capsule,
+   and two of them stacked read as the same object twice. Only the "Új" marker
+   keeps a shape; the sentence is plain text, and it sits further down so the
+   header and the copy stop crowding each other. */
+.sk-pill {
+  display: inline-flex; align-items: center; gap: 10px; margin-top: clamp(16px, 3vw, 40px);
+  font-size: 13px; letter-spacing: 0.012em; color: rgba(255, 255, 255, 0.92);
+}
+.sk-pill b {
+  padding: 3px 9px; border-radius: 999px; background: #FFFFFF; color: var(--ink);
+  font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+}
 .sk-h1 { margin: 22px auto 0; max-width: 1000px; font-family: var(--font-headline); font-weight: 400; font-size: clamp(44px, 7vw, 92px); line-height: 0.96; letter-spacing: 0.012em; color: #FFFFFF; text-wrap: balance; }
 .sk-h1 span { display: block; color: rgba(255,255,255,0.86); }
 /* Bebas has no italic cut, so the slant is drawn rather than faked by the
    browser: quotation marks plus a measured lean, enough to mark the phrase as
    somebody else's word without breaking the headline's rhythm. */
 .sk-q {
-  position: relative; font-style: normal; display: inline-block; transform: skewX(-9deg);
-  color: #FFFFFF;
-}
-/* One thick stroke under the word, swept by hand: it dips, rises and lifts off
-   at the end, the way a marker does. Vermilion — warmer than the felt tip on
-   the cards below and dark enough not to glow against a bright sky. */
-.sk-q__line {
-  position: absolute; left: -2%; width: 104%; bottom: -0.04em; height: 0.34em; overflow: visible;
-}
-.sk-q__line path {
-  fill: none; stroke: #D93A16; stroke-width: 7;
-  stroke-linecap: round; vector-effect: non-scaling-stroke;
+  font-style: normal; display: inline-block; transform: skewX(-9deg); color: #FFFFFF;
 }
 .sk-lead {
   margin: 22px auto 0; max-width: 620px; font-size: 17px; line-height: 1.55;

@@ -1,14 +1,19 @@
 /* "Amit mi AI-nak hívunk." — the AI sales system as the main offer (a large
-   panel with a Bebas headline), and "anything AI can solve" beneath it as a
-   "+" strip, an add-on rather than an equal. Deliberately not a service
-   list; the services get their own page. */
+   panel with a Bebas headline), and bespoke work beneath it as a "+" strip,
+   an add-on rather than an equal. Deliberately not a service list; the
+   services get their own page. */
+/* The line has to cover the whole path — first message, order, and the next
+   one after it — without naming the steps: a list here would always be
+   missing something, and whatever is missing reads as what we cannot do. */
 const MAIN = {
   t: "AI értékesítési rendszer",
-  d: "A megkeresésből megrendelést csinál. Kevesebben morzsolódnak le, és nem kell elhinnie: heti riportban látja. A számok alapján hétről hétre jobbá tesszük.",
+  d: "Végigkíséri az ügyfelet az első üzenettől a megrendelésig, onnantól a következőig. Ami közben elveszne, azt megfogja. Nem kell elhinnie: heti riportban látja, mit hozott — és a számok alapján hétről hétre jobbá tesszük.",
 };
+/* No examples here on purpose: the services page carries those, and it is
+   always one click away. */
 const PLUS = {
-  t: "Bármi, ami AI-jal megoldható",
-  d: "Ha a cégében valami időt vagy pénzt éget, és AI-jal megoldható, megépítjük. Ha nem, megmondjuk, és nem raboljuk tovább az idejét.",
+  t: "Egyedi AI megoldások",
+  d: "Ha a kész csomag nem fedi le, amire szüksége van, pontosan arra építünk rendszert. Nem általánosságban beszélünk AI-ról: konkrét üzleti problémára konkrét megoldást tervezünk.",
 };
 
 export default function DirectWhat() {
