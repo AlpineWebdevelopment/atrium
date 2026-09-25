@@ -12,6 +12,9 @@ export default function DirectHero() {
       <header className="sk-top">
         <a className="sk-top__brand" href="/direct">Atrium<i /></a>
         <nav className="sk-top__nav">
+          {/* The filled item is the page you are on — that is what makes the
+              strip read as navigation rather than as loose links. */}
+          <a className="is-active" href="/direct" aria-current="page">Főoldal</a>
           <a href="/szolgaltatasok">Szolgáltatások</a>
           <a href="#hogyan">Hogyan dolgozunk</a>
         </nav>
