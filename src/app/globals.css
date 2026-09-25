@@ -183,7 +183,7 @@ html.dark {
 
 .btn--ghost {
   --btn-face: var(--bone);
-  --btn-edge: color-mix(in oklab, var(--bone) 52%, var(--ink));
+  --btn-edge: color-mix(in oklab, var(--bone) 72%, var(--stone));
   --press: 5px;
   color: var(--ink);
   border: 1px solid var(--line);
@@ -4432,9 +4432,9 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .sk-top__cta {
   padding: 9px 16px; border-radius: 11px; background: #FFFFFF; color: var(--ink);
   font-size: 13.5px; font-weight: 600; line-height: 1; text-decoration: none;
-  --btn-edge: color-mix(in srgb, #FFFFFF 38%, var(--ink));
+  --btn-edge: color-mix(in srgb, #FFFFFF 70%, var(--ink));
   --press: 4px;
-  box-shadow: 0 var(--press) 0 var(--btn-edge), 0 calc(var(--press) + 6px) 16px -8px rgba(1, 14, 30, 0.6);
+  box-shadow: 0 var(--press) 0 var(--btn-edge), 0 calc(var(--press) + 5px) 14px -8px rgba(1, 14, 30, 0.45);
   transition: transform 140ms var(--ease-out), box-shadow 140ms var(--ease-out);
 }
 
@@ -4470,22 +4470,22 @@ html.dark { --viz-purple-soft: #1d1b33; }
   padding: 17px 30px; border-radius: 16px; background: #FFFFFF; color: var(--ink);
   border: 1px solid #FFFFFF; font-family: var(--font-body); font-size: 15px;
   font-weight: 600; line-height: 1; text-decoration: none; white-space: nowrap;
-  /* The wall stays on the white buttons — it is the one face light enough to
-     show it — and it is a deep blue-grey, not a tint. */
-  --btn-edge: color-mix(in srgb, #FFFFFF 38%, var(--ink));
+  /* The wall stays on the white buttons — they are the one face light enough
+     to show it — and it is a cool grey, a tint of the face itself. */
+  --btn-edge: color-mix(in srgb, #FFFFFF 70%, var(--ink));
   --press: 5px;
-  box-shadow: 0 var(--press) 0 var(--btn-edge), 0 calc(var(--press) + 7px) 18px -8px rgba(1, 14, 30, 0.6);
+  box-shadow: 0 var(--press) 0 var(--btn-edge), 0 calc(var(--press) + 6px) 16px -8px rgba(1, 14, 30, 0.45);
   transition: transform 140ms var(--ease-out), background 140ms, box-shadow 140ms var(--ease-out);
 }
 .sk-btn--ghost {
   background: rgba(255, 255, 255, 0.14); color: #FFFFFF;
   border: 1px solid rgba(255, 255, 255, 0.4); backdrop-filter: blur(6px);
-  --btn-edge: rgba(1, 14, 30, 0.5);
+  --btn-edge: rgba(1, 14, 30, 0.34);
 }
 @media (hover: hover) and (pointer: fine) {
   .sk-btn:hover, .sk-top__cta:hover {
     transform: translateY(-1px);
-    box-shadow: 0 calc(var(--press) + 1px) 0 var(--btn-edge), 0 calc(var(--press) + 10px) 22px -8px rgba(1, 14, 30, 0.6);
+    box-shadow: 0 calc(var(--press) + 1px) 0 var(--btn-edge), 0 calc(var(--press) + 9px) 20px -8px rgba(1, 14, 30, 0.45);
   }
   .sk-btn--ghost:hover { background: rgba(255, 255, 255, 0.22); }
 }
