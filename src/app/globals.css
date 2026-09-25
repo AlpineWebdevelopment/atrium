@@ -4439,13 +4439,8 @@ html.dark { --viz-purple-soft: #1d1b33; }
 }
 
 .sk-in { position: relative; z-index: 2; width: 100%; max-width: 980px; margin: 0 auto; text-align: center; padding-top: 24px; }
-/* No label chip any more: the line is the claim, so the padding is even. */
-.sk-pill {
-  display: inline-flex; align-items: center; padding: 7px 16px; border-radius: 999px;
-  background: rgba(255, 255, 255, 0.16); border: 1px solid rgba(255, 255, 255, 0.35);
-  font-size: 13px; font-weight: 500; letter-spacing: 0.002em; color: #FFFFFF;
-  backdrop-filter: blur(8px);
-}
+.sk-pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px 6px 6px; border-radius: 999px; background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.35); font-size: 12.5px; color: #FFFFFF; backdrop-filter: blur(8px); }
+.sk-pill b { padding: 2px 8px; border-radius: 999px; background: #FFFFFF; color: var(--ink); font-size: 11px; font-weight: 700; }
 .sk-h1 { margin: 22px auto 0; max-width: 1000px; font-family: var(--font-headline); font-weight: 400; font-size: clamp(44px, 7vw, 92px); line-height: 0.96; letter-spacing: 0.012em; color: #FFFFFF; text-wrap: balance; }
 .sk-h1 span { display: block; color: rgba(255,255,255,0.86); }
 /* Bebas has no italic cut, so the slant is drawn rather than faked by the

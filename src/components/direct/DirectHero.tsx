@@ -18,7 +18,7 @@ export default function DirectHero() {
         <a className="sk-top__cta" href="/foglalas?from=direct">Foglaljon időpontot</a>
       </header>
       <div className="sk-in">
-        <span className="sk-pill reveal">Nem AI-t adunk el. Megrendelést.</span>
+        <span className="sk-pill reveal"><b>Új</b>Már WhatsAppon és Viberen is válaszol</span>
         <h1 className="sk-h1 reveal" data-delay="1">
           Unalmas már a sok szép{" "}
           <em className="sk-q">
