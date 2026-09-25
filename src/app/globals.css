@@ -4423,19 +4423,20 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .sk-top { position: relative; z-index: 2; display: flex; align-items: center; gap: 18px; padding: 10px 6px; }
 .sk-top__brand { display: inline-flex; align-items: baseline; gap: 3px; font-family: var(--font-logo); font-weight: 600; font-size: 20px; color: #FFFFFF; text-decoration: none; }
 .sk-top__brand i { width: 6px; height: 6px; border-radius: 50%; background: #FFFFFF; }
-/* A white rounded rectangle, like the buttons — a navigation strip is a panel,
-   not a lozenge — with the current page filled in, so the strip reads as
-   navigation and not as a row of loose links. */
+/* A rounded rectangle of frosted glass over the photograph, with the page you
+   are on filled in solid white — the fill is the only opaque thing in the
+   strip, so it reads as the current position at a glance. */
 .sk-top__nav {
   margin: 0 auto; display: flex; gap: 3px; padding: 4px; border-radius: 13px;
-  background: #FFFFFF;
+  background: rgba(255, 255, 255, 0.16); border: 1px solid rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(8px);
 }
 .sk-top__nav a {
-  padding: 7px 14px; border-radius: 9px; font-size: 13px; color: var(--ink);
+  padding: 7px 14px; border-radius: 9px; font-size: 13px; color: #FFFFFF;
   text-decoration: none; transition: background 140ms var(--ease-out);
 }
-.sk-top__nav a.is-active { background: var(--ink); color: #FFFFFF; }
-.sk-top__nav a:not(.is-active):hover { background: rgba(1, 14, 30, 0.07); }
+.sk-top__nav a.is-active { background: #FFFFFF; color: var(--ink); font-weight: 600; }
+.sk-top__nav a:not(.is-active):hover { background: rgba(255, 255, 255, 0.2); }
 /* Hero buttons: the site's button, turned inside out. Same padding, same radii,
    same lift and press — only the faces swap, because ink on a photograph would
    be a hole in the picture. */
@@ -4447,8 +4448,14 @@ html.dark { --viz-purple-soft: #1d1b33; }
 }
 
 .sk-in { position: relative; z-index: 2; width: 100%; max-width: 980px; margin: 0 auto; text-align: center; padding-top: 24px; }
-.sk-pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px 6px 6px; border-radius: 999px; background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.35); font-size: 12.5px; color: #FFFFFF; backdrop-filter: blur(8px); }
-.sk-pill b { padding: 2px 8px; border-radius: 999px; background: #FFFFFF; color: var(--ink); font-size: 11px; font-weight: 700; }
+/* Solid white, so the line reads as a note pinned on the picture rather than
+   another pane of glass; the label flips to ink to stay visible on it. */
+.sk-pill {
+  display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px 6px 6px;
+  border-radius: 999px; background: #FFFFFF; border: 1px solid #FFFFFF;
+  font-size: 12.5px; color: var(--ink);
+}
+.sk-pill b { padding: 3px 9px; border-radius: 999px; background: var(--ink); color: #FFFFFF; font-size: 11px; font-weight: 700; }
 .sk-h1 { margin: 22px auto 0; max-width: 1000px; font-family: var(--font-headline); font-weight: 400; font-size: clamp(44px, 7vw, 92px); line-height: 0.96; letter-spacing: 0.012em; color: #FFFFFF; text-wrap: balance; }
 .sk-h1 span { display: block; color: rgba(255,255,255,0.86); }
 /* Bebas has no italic cut, so the slant is drawn rather than faked by the
