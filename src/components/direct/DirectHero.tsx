@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 /* Hero. The subject must land in one glance — the AI talk being sold
    everywhere, in every form — together with our verdict on it. The hook is
    the paradox: we hate it too, and we build AI for a living.
@@ -8,7 +10,21 @@
 export default function DirectHero() {
   return (
     <section className="sk-hero">
-      <div className="sk-hero__bg" aria-hidden="true" />
+      {/* next/image rather than a CSS background: the browser cannot discover a
+          background image until the stylesheet has loaded, so on a slow
+          connection the hero used to appear blue first and only then get its
+          sky. priority preloads it, and the sizes hint keeps a phone from
+          downloading the desktop crop. */}
+      <div className="sk-hero__bg" aria-hidden="true">
+        <Image
+          src="/img/hero-eg.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="sk-hero__img"
+        />
+      </div>
       <header className="sk-top">
         <a className="sk-top__brand" href="/">Atrium<i /></a>
         <nav className="sk-top__nav">

@@ -4380,6 +4380,10 @@ html.dark { --viz-purple-soft: #1d1b33; }
 }
 
 /* guarantee */
+/* The trademark line sits under the copyright, quieter than it. */
+.dr-foot__bottom { display: flex; flex-direction: column; gap: 8px; }
+.dr-foot__tm { max-width: 78ch; font-size: 12px; line-height: 1.5; opacity: 0.72; }
+
 /* The questions, right before the close. Native <details>, hairline rules, no
    card chrome: the page already has enough boxes. */
 .page--direct .dr-faq-sec { padding-bottom: clamp(30px, 4vw, 48px); }
@@ -4641,11 +4645,8 @@ html.dark { --viz-purple-soft: #1d1b33; }
   min-height: calc(100dvh - 12px); display: flex; flex-direction: column;
 }
 .sk-in { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding-bottom: 24px; }
-.sk-hero__bg {
-  position: absolute; inset: 0; pointer-events: none;
-  background: url(/img/hero-eg.jpg) center 40% / cover no-repeat;
-  opacity: 0.82;
-}
+.sk-hero__bg { position: absolute; inset: 0; pointer-events: none; opacity: 0.82; }
+.sk-hero__img { object-fit: cover; object-position: center 40%; }
 .sk-hero__bg::after {
   content: ""; position: absolute; inset: 0;
   /* Dark at the top for the headline, dark again at the very bottom: that is

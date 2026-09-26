@@ -24,7 +24,17 @@ export default function DirectFooter() {
             <li><a href="/aszf">ÁSZF</a></li>
           </ul>
         </div>
-        <div className="dr-foot__bottom">© 2026 Atrium · atriumscaling.com</div>
+        <div className="dr-foot__bottom">
+          <span>© 2026 Atrium · atriumscaling.com</span>
+          {/* The channel marks on this page name the services the system
+              connects to. They belong to their owners, and saying so is the
+              condition of naming them at all. */}
+          <span className="dr-foot__tm">
+            A megnevezett csatornák és emblémáik a jogtulajdonosaik tulajdonát képezik.
+            Az Atrium nem áll velük üzleti kapcsolatban; a névhasználat csak azt jelzi,
+            hogy a rendszer az adott csatornán is működik.
+          </span>
+        </div>
       </div>
     </footer>
   );
