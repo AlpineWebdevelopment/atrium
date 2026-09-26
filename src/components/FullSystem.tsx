@@ -40,7 +40,7 @@ function Ico({ k, x, y, s = 18 }: { k: string; x: number; y: number; s?: number 
 function VizMegkereses() {
   const ch = [{ y: 50, k: "phone" }, { y: 105, k: "web" }, { y: 160, k: "chat" }];
   return (
-    <svg className="tsr__svg" viewBox="0 0 300 210" role="img" aria-label="Megkeresés — minden csatorna egy minősített érdeklődővé">
+    <svg className="tsr__svg" viewBox="0 0 300 210" role="img" aria-label="Megkeresés: minden csatorna egy minősített érdeklődővé">
       {ch.map((c, i) => {
         const path = `M74 ${c.y} C 130 ${c.y}, 150 105, 196 105`;
         return (
@@ -66,7 +66,7 @@ function VizMegkereses() {
 /* ---- phase 2: a booked, confirmed, reminded appointment ---- */
 function VizFoglalas() {
   return (
-    <svg className="tsr__svg" viewBox="0 0 300 210" role="img" aria-label="Foglalás — időpont a naptárban, megerősítve">
+    <svg className="tsr__svg" viewBox="0 0 300 210" role="img" aria-label="Foglalás: időpont a naptárban, megerősítve">
       <rect x="52" y="34" width="174" height="146" rx="16" fill="var(--bone)" stroke="var(--c)" strokeWidth="1.8" />
       <path d="M52 60h174" stroke="var(--c)" strokeWidth="1.5" strokeOpacity="0.4" />
       <circle cx="68" cy="47" r="3" fill="var(--c)" /><circle cx="80" cy="47" r="3" fill="var(--c)" fillOpacity="0.5" /><circle cx="92" cy="47" r="3" fill="var(--c)" fillOpacity="0.5" />
@@ -97,7 +97,7 @@ function VizMegtartas() {
   const loop = "M150 35 A70 70 0 1 1 149.9 35 Z";
   const nodes = [{ x: 150, y: 35, k: "callback" }, { x: 210, y: 140, k: "star" }, { x: 90, y: 140, k: "refresh" }];
   return (
-    <svg className="tsr__svg" viewBox="0 0 300 210" role="img" aria-label="Megtartás — az ügyfél újra és újra visszatér">
+    <svg className="tsr__svg" viewBox="0 0 300 210" role="img" aria-label="Megtartás: az ügyfél újra és újra visszatér">
       <circle cx="150" cy="105" r="70" fill="none" stroke="var(--c)" strokeWidth="1.5" strokeOpacity="0.35" strokeDasharray="3 7" />
       <circle r="3.2" fill="var(--c)"><animateMotion dur="7s" repeatCount="indefinite" path={loop} /></circle>
       {nodes.map((n, i) => (
@@ -136,7 +136,7 @@ const PHASES = [
   {
     n: "03", name: "Megtartás", cap: "az elvégzett munkától a visszatérésig", c: "#6DBC61", Viz: VizMegtartas,
     steps: [
-      { ic: "clock", t: "Esedékesség-emlékeztető", s: "szól, amikor esedékes a következő karbantartás vagy kontroll — mielőtt az ügyfél végleg elmaradna" },
+      { ic: "clock", t: "Esedékesség-emlékeztető", s: "szól, amikor esedékes a következő karbantartás vagy kontroll, mielőtt az ügyfél végleg elmaradna" },
       { ic: "confirm", t: "Elégedettség-ellenőrzés", s: "az elvégzett munka után rákérdez, minden rendben volt-e, és a gondot időben jelzi" },
       { ic: "star", t: "Értékelés", s: "elégedett ügyféltől értékelést kér" },
       { ic: "refresh", t: "Reaktiválás", s: "hónapokkal később visszahozza a régit" },
@@ -164,7 +164,7 @@ export default function FullSystem() {
           <span className="dash__eyebrow">A teljes rendszer</span>
           <h2 className="dash__h">AI-alapú értékesítési rendszer, amely Önért dolgozik<span className="heading-dot">.</span></h2>
           <p className="sys__scale">
-            A rendszert mindig a cége méretéhez igazítjuk — a pár fős csapattól
+            A rendszert mindig a cége méretéhez igazítjuk, a pár fős csapattól
             a nagyvállalatig. Pilot csomagok is elérhetők.
           </p>
 
@@ -178,7 +178,7 @@ export default function FullSystem() {
                 Az Atrium rendszer · egységes memória
               </span>
               <span className="sysframe__live">
-                <span className="sysframe__live-sub">Aki telefonon kezdte és Instagramon folytatja, ugyanaz az ügyfél marad — nem kell kétszer elmondania.</span>
+                <span className="sysframe__live-sub">Aki telefonon kezdte és Instagramon folytatja, ugyanaz az ügyfél marad, nem kell kétszer elmondania.</span>
               </span>
             </div>
             <div className="sysframe__channels">

@@ -8,19 +8,19 @@ import { useState } from "react";
 const FAQS = [
   {
     q: "Mit csinál a rendszer?",
-    a: "Minden ajánlatkérésre azonnal reagál — hívás, webűrlap, e-mail — és kvalifikálja a projektet, majd a megfelelő emberhez irányítja a részletekkel együtt. A kiküldött árajánlatokat szisztematikusan utánköveti. Minden lépésről riportot ad Önnek.",
+    a: "Minden ajánlatkérésre azonnal reagál (hívás, webűrlap, e-mail), és kvalifikálja a projektet, majd a megfelelő emberhez irányítja a részletekkel együtt. A kiküldött árajánlatokat szisztematikusan utánköveti. Minden lépésről riportot ad Önnek.",
   },
   {
     q: "Új ügyfeleket is szerez?",
-    a: "Nem. A rendszer a meglévő, már kifizetett keresletet hozza vissza — azokat az ajánlatkéréseket, amelyek eddig kihűltek, és azokat az árajánlatokat, amelyek eddig elhaltak utánkövetés nélkül. A hirdetési büdzsét nem növeljük, de jobban kiaknázzuk azt, amit a leadekért már most is költ.",
+    a: "Nem. A rendszer a meglévő, már kifizetett keresletet hozza vissza: azokat az ajánlatkéréseket, amelyek eddig kihűltek, és azokat az árajánlatokat, amelyek eddig elhaltak utánkövetés nélkül. A hirdetési büdzsét nem növeljük, de jobban kiaknázzuk azt, amit a leadekért már most is költ.",
   },
   {
     q: "Le kell cserélnünk a mostani rendszereinket?",
-    a: "Nem. Az Atrium a meglévő naptárához, CRM-jéhez és eszközeihez kötve dolgozik. A csapatnak nem kell új szoftvert megtanulnia — a rendszer a háttérben fut.",
+    a: "Nem. Az Atrium a meglévő naptárához, CRM-jéhez és eszközeihez kötve dolgozik. A csapatnak nem kell új szoftvert megtanulnia. A rendszer a háttérben fut.",
   },
   {
     q: "Mennyibe kerül?",
-    a: "Az árat az Ön számaiból állítjuk össze a megbeszélésen — a beérkező ajánlatkérések számából, a lead-árból, a jellemző beszerelés értékéből és az elvárt hatásból. Egy standard ár félrevinné. Az első megbeszélés nem kötelezi Önt semmire.",
+    a: "Az árat a megbeszélésen az Ön számaiból állítjuk össze: a beérkező ajánlatkérések számából, a lead-árból, a jellemző beszerelés értékéből és az elvárt hatásból. Egy standard ár félrevinné. Az első megbeszélés nem kötelezi Önt semmire.",
   },
   {
     q: "Hol tárolják az adatokat?",

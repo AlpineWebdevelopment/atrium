@@ -5,7 +5,7 @@ const LEAKS = [
   {
     n: "01",
     b: "A lassú válasz.",
-    s: "A vendég Instagramon ír időpontért, miközben Ön épp egy vendéggel van, tele kézzel. Egy óra múlva válaszol — mire a vendég kihűlt, vagy gyorsabb helyen foglalt. A kézi oda-vissza állandó, és lyukas.",
+    s: "A vendég Instagramon ír időpontért, miközben Ön épp egy vendéggel van, tele kézzel. Egy óra múlva válaszol, mire a vendég kihűlt, vagy gyorsabb helyen foglalt. A kézi oda-vissza állandó, és lyukas.",
   },
   {
     n: "02",

@@ -29,17 +29,17 @@ const CHANNELS = [
 ];
 
 const DAY = [
-  { time: "06:50", k: "callback", c: "#6DBC61", t: "Még alszik — a 2 éjjeli foglalási kérés már visszaigazolva." },
+  { time: "06:50", k: "callback", c: "#6DBC61", t: "Még alszik. A 2 éjjeli foglalási kérés már visszaigazolva." },
   { time: "07:30", k: "calendar", c: "#BC6285", t: "Reggeli közben 3 új időpont futott be a hétre." },
   { time: "08:15", k: "webchat", c: "#62BCAC", t: "Egy vendég 30 mp alatt választ kapott a kezeléssel kapcsolatban." },
-  { time: "09:40", k: "phone", c: "#628FBC", t: "Kezelésnél van — közben 4 hívást is felvett a rendszer." },
-  { time: "11:00", k: "qualify", c: "#BCA162", t: "Csak az árat kérdezték — előszűrve, nem foglal felesleg helyet." },
-  { time: "12:20", k: "users", c: "#628FBC", t: "Lemondás 1 perc alatt a várólistának — nem marad üres szék." },
+  { time: "09:40", k: "phone", c: "#628FBC", t: "Kezelésnél van, közben 4 hívást is felvett a rendszer." },
+  { time: "11:00", k: "qualify", c: "#BCA162", t: "Csak az árat kérdezték. Előszűrve, nem foglal felesleg helyet." },
+  { time: "12:20", k: "users", c: "#628FBC", t: "Lemondás 1 perc alatt a várólistának, így nem marad üres szék." },
   { time: "13:30", k: "refresh", c: "#BC6285", t: "Egy féléve nem járt vendég visszahíva a szezonális ajánlathoz." },
-  { time: "15:10", k: "bell", c: "#62BCAC", t: "A holnapi vendégek emlékeztetőt kaptak — kevesebb no-show." },
+  { time: "15:10", k: "bell", c: "#62BCAC", t: "A holnapi vendégek emlékeztetőt kaptak, így kevesebb a no-show." },
   { time: "16:45", k: "star", c: "#BCA162", t: "Egy elégedett vendégtől a rendszer értékelést kért." },
-  { time: "18:00", k: "phone", c: "#6DBC61", t: "Szalon zárva — de egy foglalás se vész el." },
-  { time: "20:15", k: "home", c: "#BC6285", t: "Ön otthon pihen — a rendszer dolgozik tovább." },
+  { time: "18:00", k: "phone", c: "#6DBC61", t: "Szalon zárva, de egy foglalás se vész el." },
+  { time: "20:15", k: "home", c: "#BC6285", t: "Ön otthon pihen, a rendszer dolgozik tovább." },
   { time: "21:30", k: "moon", c: "#628FBC", t: "Tele naptár, 0 elszalasztott hívás. Nyugodtan alszik." },
 ];
 
@@ -86,7 +86,7 @@ export default function HeroSalon() {
             </h1>
             {/* ATRIUM-EDIT NR2-salon — reframe subhead to DM-booking assistant product */}
             <p className="hero__sub">
-              Az Atrium egy magyar nyelvű, AI-alapú értékesítési rendszer szépségszalonoknak — a foglalási üzeneteket Messengeren és Instagramon magától megválaszolja, szabad időpontot ajánl, és a naptárába írja. Ön közben a vendéggel van.
+              Az Atrium egy magyar nyelvű, AI-alapú értékesítési rendszer szépségszalonoknak: a foglalási üzeneteket Messengeren és Instagramon magától megválaszolja, szabad időpontot ajánl, és a naptárába írja. Ön közben a vendéggel van.
             </p>
             <div className="hero__actions">
               <button className="btn">Foglaljon időpontot</button>
@@ -137,7 +137,7 @@ export default function HeroSalon() {
                   </div>
                 ))}
               </div>
-              <div className="hcon__foot">Ön kezel — a rendszer közben mindenre figyel.</div>
+              <div className="hcon__foot">Ön kezel, a rendszer közben mindenre figyel.</div>
             </div>
           </div>
         </div>

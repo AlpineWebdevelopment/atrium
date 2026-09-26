@@ -10,31 +10,31 @@ const PAINS = [
   {
     tab: "Lemorzsolódott páciensek",
     desc:
-      "A meglévő bázis a legnagyobb tartalék. A páciensek negyede lecsúszik a menetrendről — de nem mind hozható vissza: aki ár miatt ment el, azt nem. Csak az elfeledetteket — akiket soha nem hívott vissza senki — éri el a recall. Ez a leggyorsabb, leglátványosabb tétel.",
+      "A meglévő bázis a legnagyobb tartalék. A páciensek negyede lecsúszik a menetrendről, de nem mind hozható vissza: aki ár miatt ment el, azt nem. Csak az elfeledetteket (akiket soha nem hívott vissza senki) éri el a recall. Ez a leggyorsabb, leglátványosabb tétel.",
     metrics: [
       { k: "A páciensbázis", c: "var(--ink)", v: "~2 500", d: "aktív gazdi és kedvenc" },
       { k: "Lemaradásban", c: "var(--ink)", v: "~625", d: "lecsúszott a menetrendről" },
       { k: "Visszanyerhető", c: "var(--stone)", v: "~300", d: "csak az elfeledettek" },
       { k: "Recall", c: "var(--viz-red)", v: "Nincs", d: "magától senki nem hívja vissza" },
     ],
-    loss: { v: "≈ 800 000 Ft", per: "/ hó", math: "~300 elfeledett páciens — recall-lal ~40/hó visszahozható × ~20 000 Ft (kezdeti szakasz)" },
+    loss: { v: "≈ 800 000 Ft", per: "/ hó", math: "~300 elfeledett páciens, recall-lal ~40/hó visszahozható × ~20 000 Ft (kezdeti szakasz)" },
   },
   {
     tab: "Elmaradt időpontok",
     desc:
-      "A szabad óra visszahozhatatlan. Egy elfelejtett oltás vagy kontroll lyukat üt a naptárba. Emlékeztető a vizit előtt és visszahívás után a felét visszahozza — és az olcsóbb, mint utólag pótolni.",
+      "A szabad óra visszahozhatatlan. Egy elfelejtett oltás vagy kontroll lyukat üt a naptárba. Emlékeztető a vizit előtt és visszahívás után a felét visszahozza, és az olcsóbb, mint utólag pótolni.",
     metrics: [
       { k: "Időpont", c: "var(--ink)", v: "~600 / hó", d: "oltás, szűrés, kontroll" },
       { k: "Emlékeztető", c: "var(--ink)", v: "Nincs", d: "a gazdi elfelejti" },
       { k: "A gazdi", c: "var(--stone)", v: "Nem jön el", d: "~10–12% no-show" },
       { k: "A szabad óra", c: "var(--viz-red)", v: "Üresen marad", d: "visszahozhatatlan idő" },
     ],
-    loss: { v: "≈ 450 000 Ft", per: "/ hó", math: "~60–70 elmaradt időpont havonta — emlékeztetővel ~fele visszanyerhető × ~15 000 Ft" },
+    loss: { v: "≈ 450 000 Ft", per: "/ hó", math: "~60–70 elmaradt időpont havonta, emlékeztetővel ~fele visszanyerhető × ~15 000 Ft" },
   },
   {
     tab: "Elszalasztott hívások",
     desc:
-      "Az ügyeleti hívás és az új gazdi telefonon érkezik — gyakran este, hétvégén vagy műtét közben. Aki hangpostát kap, a következő rendelőt hívja. Egy új gazdi nem egy vizit: egy évtizednyi oltás, szűrés és kezelés.",
+      "Az ügyeleti hívás és az új gazdi telefonon érkezik, gyakran este, hétvégén vagy műtét közben. Aki hangpostát kap, a következő rendelőt hívja. Egy új gazdi nem egy vizit: egy évtizednyi oltás, szűrés és kezelés.",
     metrics: [
       { k: "Hívás érkezik", c: "var(--ink)", v: "Ügyeleti időben", d: "este, hétvégén, műtét közben" },
       { k: "A vonal", c: "var(--ink)", v: "Foglalt / zárva", d: "nincs, aki felvegye" },
@@ -197,16 +197,16 @@ export default function RealtimeDashboardAllatorvos() {
           <span className="dash__eyebrow">Hol szivárog a bevétel</span>
           <h2 className="dash__h">Három lyuk. Mindegyik bezárható.</h2>
           <p className="dash__p">
-            A legtöbb állatorvosi rendelő nem pácienshiánytól szenved — hanem
+            A legtöbb állatorvosi rendelő nem pácienshiánytól szenved, hanem
             attól, hogy a meglévő bázis egy része lassan elsodródik, és a
             megkeresések egy része elvész útközben. A rendszert az Ön rendelőjére
-            szabjuk, és azt a lyukat zárja be, amelyik Önnél a legnagyobb — a
+            szabjuk, és azt a lyukat zárja be, amelyik Önnél a legnagyobb, a
             recall-lal kezdve, mert az a leggyorsabb, látható nyereség.
           </p>
           <p className="dash__exnote">
-            Az alábbi számok illusztratív példák egy átlagos, forgalmas rendelőre
-            — élesben az Ön valós számaival (bázisméret, lemaradók, átlagos vizit,
-            no-show arány) töltjük ki.
+            Az alábbi számok illusztratív példák egy átlagos, forgalmas
+            rendelőre. Élesben az Ön valós számaival (bázisméret, lemaradók,
+            átlagos vizit, no-show arány) töltjük ki.
           </p>
         </div>
 

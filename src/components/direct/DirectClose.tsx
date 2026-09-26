@@ -9,7 +9,7 @@ const STEPS = [
 
 export default function DirectClose({
   title = <>Fél óra beszélgetés.<br />Nem prezentáció.</>,
-  lead = "Kérdezünk, Ön válaszol, aztán mi mondunk számokat. A végén tudni fogja, megéri-e — és ha nem éri meg, azt is kimondjuk.",
+  lead = "Kérdezünk, Ön válaszol, aztán mi mondunk számokat. A végén tudni fogja, megéri-e. Ha nem éri meg, azt is kimondjuk.",
 }: { title?: ReactNode; lead?: string }) {
   return (
     <section className="dr-close" id="kapcsolat">

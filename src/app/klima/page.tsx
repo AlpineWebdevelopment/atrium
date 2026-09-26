@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/klima" },
   title: "Klímaszervizek AI-alapú értékesítési rendszere",
   description:
-    "Magyar nyelvű AI-alapú értékesítési rendszer klímaszervizeknek: a hőségcsúcson is minden hívást fogad és kvalifikál, a megfelelő emberhez irányít, minden ajánlatot utánkövet és jelzi az esedékes karbantartásokat — az egészet Ön látja.",
+    "Magyar nyelvű AI-alapú értékesítési rendszer klímaszervizeknek: a hőségcsúcson is minden hívást fogad és kvalifikál, a megfelelő emberhez irányít, minden ajánlatot utánkövet és jelzi az esedékes karbantartásokat. Az egészet Ön látja.",
 };
 
 export default function KlimaPage() {

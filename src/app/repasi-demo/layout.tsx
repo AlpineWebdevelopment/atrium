@@ -12,7 +12,7 @@ import Shell from "../_demo/repasi/ui/Shell";
 import { APP_NAME } from "../_demo/repasi/lib/data";
 
 export const metadata: Metadata = {
-  title: `${APP_NAME} — demó konzol`,
+  title: `${APP_NAME} demó konzol`,
   description: "Belső demó: többügyfeles AI értékesítési konzol, kitalált adatokkal.",
   robots: { index: false, follow: false },
   alternates: { canonical: null },

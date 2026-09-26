@@ -12,7 +12,7 @@ export default function FinalCtaGyorsLead() {
           <p className="final-cta__p">
             30 perces megbeszélés. Megnézzük a beérkező lead-volument,
             a jelenlegi válaszidőt, és megmutatjuk, mit venne le Önről
-            a rendszer — mielőtt bármiről dönt.
+            a rendszer, mielőtt bármiről dönt.
           </p>
           <button className="btn btn--lg final-cta__btn">Foglaljon időpontot</button>
           <span className="final-cta__note">

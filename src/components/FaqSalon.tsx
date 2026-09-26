@@ -10,24 +10,24 @@ const FAQS = [
   {
     q: "Kezelés közben is felveszi a hívásokat?",
     /* ATRIUM-EDIT NR5-salon-Q2 — reframe call-answering answer to DM-booking core */
-    a: "Igen — pontosan erre terveztük. Festés, műköröm, masszázs közben a rendszer megválaszolja a Messengeren és Instagramon érkező foglalási kéréseket, időpontot kínál a naptárából, és visszaigazolja a foglalást. Ön dolgozik, a rendszer foglal.",
+    a: "Igen, pontosan erre terveztük. Festés, műköröm, masszázs közben a rendszer megválaszolja a Messengeren és Instagramon érkező foglalási kéréseket, időpontot kínál a naptárából, és visszaigazolja a foglalást. Ön dolgozik, a rendszer foglal.",
   },
   {
     q: "Mi van, ha a vendég személlyel akar beszélni?",
-    a: "Amint a vendég élő személyt kér, a rendszer rögtön átkapcsol — Önhöz vagy a kollégájához. Ha senki nem elérhető, visszahívást szervez a megadott időpontra. Közben figyeljük a hívásokat és folyamatosan finomítjuk.",
+    a: "Amint a vendég élő személyt kér, a rendszer rögtön átkapcsol Önhöz vagy a kollégájához. Ha senki nem elérhető, visszahívást szervez a megadott időpontra. Közben figyeljük a hívásokat és folyamatosan finomítjuk.",
   },
   {
     q: "Hogyan csökkenti a no-show-k számát?",
-    a: "A rendszer automatikusan emlékeztetőt küld SMS-ben vagy WhatsAppon 24 és 2 órával az időpont előtt. Ha a vendég mégsem jön, azonnal értesíti a várólistán lévőket — így az üres hely feltöltődik.",
+    a: "A rendszer automatikusan emlékeztetőt küld SMS-ben vagy WhatsAppon 24 és 2 órával az időpont előtt. Ha a vendég mégsem jön, azonnal értesíti a várólistán lévőket, így az üres hely feltöltődik.",
   },
   {
     q: "Tudja kezelni a különböző kezelési típusokat és mestereket?",
-    a: "Igen. Minden mestert, kezelést és annak időtartamát beállítjuk: hajfestés, műköröm, masszázs, arckezelés — mindegyiknek más naptár, más időtartam. A vendég pontosan ahhoz a mesterhez és kezeléshez foglal, amelyet szeretne.",
+    a: "Igen. Minden mestert, kezelést és annak időtartamát beállítjuk: hajfestés, műköröm, masszázs, arckezelés. Mindegyiknek más naptár, más időtartam. A vendég pontosan ahhoz a mesterhez és kezeléshez foglal, amelyet szeretne.",
   },
   {
     q: "Hány hívást tud egyszerre kezelni?",
     /* ATRIUM-EDIT NR5-salon-Q6 — reframe call-volume answer to DM-booking core */
-    a: "Korlátlan mennyiséget, párhuzamosan. Hétvégén, ünnepnapon, zárás után is megválaszolja az összes beérkező foglalási üzenetet — nincs késés, nincs elveszett foglalás.",
+    a: "Korlátlan mennyiséget, párhuzamosan. Hétvégén, ünnepnapon, zárás után is megválaszolja az összes beérkező foglalási üzenetet. Nincs késés, nincs elveszett foglalás.",
   },
   {
     q: "Biztonságban vannak a vendégadatok? Megfelel a GDPR-nak?",
@@ -39,11 +39,11 @@ const FAQS = [
   },
   {
     q: "Mennyi idő alatt térül meg?",
-    a: "A rendszer általában 60 nap alatt kitermeli az árát a megmentett bevételből — a feltöltött no-show helyekből és a visszahozott régi vendégekből. Havi kimutatásban látja pontosan, mennyit fogott meg.",
+    a: "A rendszer általában 60 nap alatt kitermeli az árát a megmentett bevételből: a feltöltött no-show helyekből és a visszahozott régi vendégekből. Havi kimutatásban látja pontosan, mennyit fogott meg.",
   },
   {
     q: "Vissza tudja hozni a régen nem járt vendégeket?",
-    a: "Igen. Sorra veszi azokat, akik hónapok óta nem jártak, és egy udvarias üzenettel visszahívja őket — például egy szezonális ajánlattal, vagy csak egy egyszerű \"Mikor jön legközelebb?\" kérdéssel. Ugyanabból a listából, ami már most a kezében van.",
+    a: "Igen. Sorra veszi azokat, akik hónapok óta nem jártak, és egy udvarias üzenettel visszahívja őket, például egy szezonális ajánlattal, vagy csak egy egyszerű \"Mikor jön legközelebb?\" kérdéssel. Ugyanabból a listából, ami már most a kezében van.",
   },
 ];
 

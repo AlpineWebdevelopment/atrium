@@ -13,17 +13,17 @@ import ScrollReveal from "@/components/ScrollReveal";
 const SITE_URL = "https://atriumscaling.com";
 const APPLY_EMAIL = "karrier@atriumscaling.com";
 const APPLY_HREF = `mailto:${APPLY_EMAIL}?subject=${encodeURIComponent(
-  "Jelentkezés — Full-stack fejlesztő",
+  "Jelentkezés: Full-stack fejlesztő",
 )}`;
 
 export const metadata: Metadata = {
-  title: "Karrier — Full-stack fejlesztőt keresünk",
+  title: "Karrier: Full-stack fejlesztőt keresünk",
   description:
     "Full-stack fejlesztőt keresünk 2026 októberi kezdéssel. 1 350 000 Ft nettó / hó, 100% home office, kötetlen munkaidő, teljes munkaidő.",
   alternates: { canonical: "/karrier" },
   openGraph: {
     type: "website",
-    title: "Karrier — Full-stack fejlesztőt keresünk · Atrium",
+    title: "Karrier: Full-stack fejlesztőt keresünk · Atrium",
     description:
       "1 350 000 Ft nettó / hó, home office, kötetlen munkaidő, októberi kezdés.",
     url: "/karrier",
@@ -64,7 +64,7 @@ const WORK = [
   },
   {
     t: "AI-t kötsz a működésbe",
-    d: "LLM-hívások, hangügynökök, e-mail- és naptárintegrációk — olyan funkciók, amelyek az ügyfélnek mérhetően pénzt hoznak.",
+    d: "LLM-hívások, hangügynökök, e-mail- és naptárintegrációk: olyan funkciók, amelyek az ügyfélnek mérhetően pénzt hoznak.",
     ico: (
       <>
         <rect x="4" y="8" width="16" height="12" rx="3" />
@@ -77,7 +77,7 @@ const WORK = [
   },
   {
     t: "Beleszólsz, hogyan épül",
-    d: "Kis csapat, rövid döntési út. Ha valamit máshogy csinálnál jobban, azt megbeszéljük — és úgy csináljuk.",
+    d: "Kis csapat, rövid döntési út. Ha valamit máshogy csinálnál jobban, azt megbeszéljük, és úgy csináljuk.",
     ico: (
       <>
         <circle cx="12" cy="12" r="9" />
@@ -88,10 +88,10 @@ const WORK = [
 ];
 
 const MUST = [
-  "Legalább 3 év éles webfejlesztői tapasztalat — olyan rendszereken, amelyeket valaki tényleg használt",
+  "Legalább 3 év éles webfejlesztői tapasztalat olyan rendszereken, amelyeket valaki tényleg használt",
   "Erős TypeScript, React és Next.js tudás",
   "A backend is megy: API-tervezés, SQL-adatbázisok, autentikáció, külső szolgáltatások integrálása",
-  "Önállóság — home office-ban is végigviszed, amit elvállaltál, és időben szólsz, ha csúszik",
+  "Önállóság: home office-ban is végigviszed, amit elvállaltál, és időben szólsz, ha csúszik",
   "Igényes felület: kiszúrod, ha valami „majdnem jó”, és nem hagyod úgy",
   "Gördülékeny magyar kommunikáció és angol dokumentáció olvasása",
 ];
@@ -101,7 +101,7 @@ const NICE = [
   "Hangalapú vagy telefonos rendszerek, telefonintegráció",
   "CRM, folyamatautomatizálás, e-mail- és naptárintegrációk",
   "Kitelepítés és üzemeltetés: monitorozás, hibakeresés éles rendszeren",
-  "Bármi, amit meg tudsz mutatni — saját projekt, repó, működő oldal",
+  "Bármi, amit meg tudsz mutatni: saját projekt, repó, működő oldal",
 ];
 
 const OFFER = [
@@ -109,7 +109,7 @@ const OFFER = [
   { t: "100% home office", d: "Nincs bejárás, nincs kötelező iroda." },
   { t: "Kötetlen munkaidő", d: "Az számít, ami elkészül, nem az, hogy hánykor ülsz le." },
   { t: "Teljes munkaidő, hosszú távra", d: "Nem projektre veszünk fel, hanem a csapatba." },
-  { t: "Modern stack", d: "TypeScript, Next.js, React, Tailwind — és a hozzá tartozó AI-eszközök." },
+  { t: "Modern stack", d: "TypeScript, Next.js, React, Tailwind és a hozzá tartozó AI-eszközök." },
   { t: "Eszközök tőlünk", d: "Gép, monitor, előfizetések: amivel dolgozol, azt mi álljuk." },
 ];
 
@@ -204,7 +204,7 @@ export default function KarrierPage() {
               Full-stack fejlesztőt keresünk<span className="heading-dot">.</span>
             </h1>
             <p className="kar-hero__p">
-              Magyar nyelvű AI értékesítési rendszereket építünk szolgáltató cégeknek — minden
+              Magyar nyelvű AI értékesítési rendszereket építünk szolgáltató cégeknek: minden
               hívás fogadva, minden időpont a naptárban, minden érdeklődő utánkövetve. Most egy
               embert veszünk fel, aki ezeket a rendszereket velünk együtt építi tovább.
             </p>
@@ -343,7 +343,7 @@ export default function KarrierPage() {
             <span className="dash__eyebrow">A folyamat</span>
             <h2 className="dash__h">Hogyan jelentkezhetsz<span className="heading-dot">?</span></h2>
             <p className="dash__p">
-              Négy lépés, felesleges körök nélkül. Minden jelentkezésre válaszolunk — akkor is, ha
+              Négy lépés, felesleges körök nélkül. Minden jelentkezésre válaszolunk, akkor is, ha
               nemet mondunk.
             </p>
           </div>

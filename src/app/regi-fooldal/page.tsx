@@ -18,7 +18,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   alternates: { canonical: "/regi-fooldal" },
   robots: { index: false, follow: false },
-  title: "Atrium — korábbi főoldal",
+  title: "Atrium korábbi főoldal",
 };
 
 export default function Home() {

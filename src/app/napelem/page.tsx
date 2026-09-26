@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/napelem" },
   title: "Napelemes cégek AI-alapú értékesítési rendszere",
   description:
-    "Magyar nyelvű AI-alapú értékesítési rendszer napelemes cégeknek: minden ajánlatkérésre azonnal reagál, hogy a kifizetett lead ne hűljön ki, a megfelelő emberhez irányít, és minden árajánlatot utánkövet — az egészet Ön látja.",
+    "Magyar nyelvű AI-alapú értékesítési rendszer napelemes cégeknek: minden ajánlatkérésre azonnal reagál, hogy a kifizetett lead ne hűljön ki, a megfelelő emberhez irányít, és minden árajánlatot utánkövet. Az egészet Ön látja.",
 };
 
 export default function NapelemPage() {

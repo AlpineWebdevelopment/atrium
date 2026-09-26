@@ -34,7 +34,7 @@ function Ico({ k, x, y, s = 18 }: { k: string; x: number; y: number; s?: number 
 function VizFogadas() {
   const ch = [{ y: 50, k: "phone" }, { y: 105, k: "triage" }, { y: 160, k: "phone" }];
   return (
-    <svg className="tsr__svg" viewBox="0 0 300 210" role="img" aria-label="Fogadás és sürgősségi rangsorolás — minden hívás a helyére kerül">
+    <svg className="tsr__svg" viewBox="0 0 300 210" role="img" aria-label="Fogadás és sürgősségi rangsorolás: minden hívás a helyére kerül">
       {ch.map((c, i) => {
         const path = `M74 ${c.y} C 130 ${c.y}, 150 105, 196 105`;
         return (
@@ -60,7 +60,7 @@ function VizFogadas() {
 /* Phase 02: booking calendar with reminder */
 function VizFoglalas() {
   return (
-    <svg className="tsr__svg" viewBox="0 0 300 210" role="img" aria-label="Foglalás és emlékeztetés — időpont a naptárban, megerősítve">
+    <svg className="tsr__svg" viewBox="0 0 300 210" role="img" aria-label="Foglalás és emlékeztetés: időpont a naptárban, megerősítve">
       <rect x="52" y="34" width="174" height="146" rx="16" fill="var(--bone)" stroke="var(--c)" strokeWidth="1.8" />
       <path d="M52 60h174" stroke="var(--c)" strokeWidth="1.5" strokeOpacity="0.4" />
       <circle cx="68" cy="47" r="3" fill="var(--c)" /><circle cx="80" cy="47" r="3" fill="var(--c)" fillOpacity="0.5" /><circle cx="92" cy="47" r="3" fill="var(--c)" fillOpacity="0.5" />
@@ -89,7 +89,7 @@ function VizBazis() {
   const loop = "M150 35 A70 70 0 1 1 149.9 35 Z";
   const nodes = [{ x: 150, y: 35, k: "refresh" }, { x: 210, y: 140, k: "star" }, { x: 90, y: 140, k: "bars" }];
   return (
-    <svg className="tsr__svg" viewBox="0 0 300 210" role="img" aria-label="A bázis megtartása — visszahívva esedékességkor, láthatóan">
+    <svg className="tsr__svg" viewBox="0 0 300 210" role="img" aria-label="A bázis megtartása: visszahívva esedékességkor, láthatóan">
       <circle cx="150" cy="105" r="70" fill="none" stroke="var(--c)" strokeWidth="1.5" strokeOpacity="0.35" strokeDasharray="3 7" />
       <circle r="3.2" fill="var(--c)"><animateMotion dur="7s" repeatCount="indefinite" path={loop} /></circle>
       {nodes.map((n, i) => (
@@ -112,9 +112,9 @@ const PHASES: {
   {
     n: "01", name: "Fogadás és sürgősségi rangsorolás", cap: "minden hívástól a helyére kerülésig", c: "#9662BC", Viz: VizFogadas,
     steps: [
-      { ic: "phone",   t: "Hívásfogadás",            s: "minden hívást fogad: zárás után, hétvégén, amíg Ön egy állattal van — nyugodt, magyar beszéd, mert a hívó gyakran megijedt" },
-      { ic: "triage",  t: "Sürgősségi rangsorolás",  s: "vészhelyzet vagy rutin? A sürgőset a rendelő protokollja szerint eszkalálja, a rutint lefoglalja — senkit nem szűr ki, mindenkit a helyére irányít" },
-      { ic: "chat",    t: "Kérdéskezelés",            s: "nyitvatartás, egzotikus állatok, kell-e időpont, nagyjából mennyi egy oltás — a pult nem fullad bele" },
+      { ic: "phone",   t: "Hívásfogadás",            s: "minden hívást fogad: zárás után, hétvégén, amíg Ön egy állattal van. Nyugodt, magyar beszéd, mert a hívó gyakran megijedt" },
+      { ic: "triage",  t: "Sürgősségi rangsorolás",  s: "vészhelyzet vagy rutin? A sürgőset a rendelő protokollja szerint eszkalálja, a rutint lefoglalja. Senkit nem szűr ki, mindenkit a helyére irányít" },
+      { ic: "chat",    t: "Kérdéskezelés",            s: "nyitvatartás, egzotikus állatok, kell-e időpont, nagyjából mennyi egy oltás. A pult nem fullad bele" },
     ],
   },
   {
@@ -129,7 +129,7 @@ const PHASES: {
     n: "03", name: "A bázis megtartása", cap: "visszahívva, mielőtt elsodródna", c: "#2D9B7F", Viz: VizBazis,
     steps: [
       /* ATRIUM-EDIT AV6 — Visszahívás esedékességkor gets extra visual weight: .tsr__step--lead */
-      { ic: "refresh", t: "Visszahívás esedékességkor", s: "a rendszer figyeli a bázist, és szól, ha egy kedvenc oltása vagy szűrése esedékes — ez hozza vissza az elsodródott gazdikat: saját, meglévő bevétel, nem új ügyfélszerzés", lead: true },
+      { ic: "refresh", t: "Visszahívás esedékességkor", s: "a rendszer figyeli a bázist, és szól, ha egy kedvenc oltása vagy szűrése esedékes. Ez hozza vissza az elsodródott gazdikat: saját, meglévő bevétel, nem új ügyfélszerzés", lead: true },
       { ic: "star",    t: "Értékeléskérés",             s: "vizit után" },
       /* ATRIUM-EDIT AV6 — Riport gets extra visual weight: .tsr__step--lead */
       { ic: "bars",    t: "Riport",                     s: "kezelt hívások, elkapott zárás utáni hívások, kiküldött és lefoglalt visszahívások, és a bázisból visszaszerzett bevétel", lead: true },
@@ -152,19 +152,19 @@ export default function FullSystemAllatorvos() {
       <div className="wrap">
         <div className="dash__intro reveal">
           <span className="dash__eyebrow">A teljes rendszer</span>
-          <h2 className="dash__h">Nem hét eszköz — egyetlen rendszer.</h2>
+          <h2 className="dash__h">Nem hét eszköz, hanem egyetlen rendszer.</h2>
           <p className="dash__p">
             Az Atrium egy magyar nyelvű, AI-alapú értékesítési rendszer
             állatorvosi rendelőknek: minden hívást fogad és rangsorol, lefoglalja
             a rutin időpontokat, és visszahívja a pácienseket, mielőtt
-            lemaradnának az oltásról — a háttérben, a meglévő naptárához kötve.
+            lemaradnának az oltásról, a háttérben, a meglévő naptárához kötve.
           </p>
           {/* ATRIUM-EDIT AV7 — AI named honestly; CRM mention; disclosure sentence */}
           <p className="sys__howline">
             AI-ügynökök kezelik a hang- és szöveges kommunikációt, természetes
-            magyar nyelven — a rendelő meglévő naptárához kötve. A csapatának nem
+            magyar nyelven, a rendelő meglévő naptárához kötve. A csapatának nem
             kell rendszert váltania. Ha kérdezi, hogyan működik: igen, ez egy
-            AI-alapú rendszer — pontosan megmutatjuk, mit csinál.
+            AI-alapú rendszer. Pontosan megmutatjuk, mit csinál.
           </p>
         </div>
 
@@ -225,7 +225,7 @@ export default function FullSystemAllatorvos() {
           </div>
 
           <div className="sysframe__integ">
-            Mérés végig — havonta megmutatja, hány páciense csúszott le a rendről, és mennyit hozott vissza a rendszer.
+            Mérés végig: havonta megmutatja, hány páciense csúszott le a rendről, és mennyit hozott vissza a rendszer.
           </div>
 
           <div className="jrn__result reveal">
@@ -233,7 +233,7 @@ export default function FullSystemAllatorvos() {
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">{ICONS.result}</svg>
             </span>
             <div className="jrn__result-txt">
-              <b className="jrn__result-t">Teli naptár — és a bázis visszajön</b>
+              <b className="jrn__result-t">Teli naptár, és a bázis visszajön</b>
             </div>
           </div>
 

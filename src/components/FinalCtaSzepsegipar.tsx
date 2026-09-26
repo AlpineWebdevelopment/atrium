@@ -11,7 +11,7 @@ export default function FinalCtaSzepsegipar() {
           <h2 className="final-cta__h">Nézzük meg, melyik csomag illik a szalonjához.</h2>
           <p className="final-cta__p">
             30 perces megbeszélés. Megnézzük, hogyan intézi most a foglalásokat,
-            és megmutatjuk, mit venne le Önről a rendszer — mielőtt bármiről dönt.
+            és megmutatjuk, mit venne le Önről a rendszer, mielőtt bármiről dönt.
           </p>
           <button className="btn btn--lg final-cta__btn">Foglaljon időpontot</button>
           <span className="final-cta__note">

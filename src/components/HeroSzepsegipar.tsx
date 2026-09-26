@@ -28,18 +28,18 @@ const CHANNELS = [
 
 /* Day timeline — DM-first; no qualify-out beat (fill, don't filter mandate) */
 const DAY = [
-  { time: "06:50", k: "callback",  c: "#6DBC61", t: "Még alszik — 2 éjjeli DM foglalási kérés már visszaigazolva." },
+  { time: "06:50", k: "callback",  c: "#6DBC61", t: "Még alszik. 2 éjjeli DM foglalási kérés már visszaigazolva." },
   { time: "07:30", k: "calendar",  c: "#9E6B9E", t: "Reggeli közben 3 új időpont futott be a hétre." },
-  { time: "08:15", k: "messenger", c: "#628FBC", t: "Egy vendég Messengeren írt időpontért — 30 mp alatt kapott egyet." },
-  { time: "09:40", k: "phone",     c: "#628FBC", t: "Kezelésnél van — közben 4 hívást is felvett a rendszer." },
+  { time: "08:15", k: "messenger", c: "#628FBC", t: "Egy vendég Messengeren írt időpontért, 30 mp alatt kapott egyet." },
+  { time: "09:40", k: "phone",     c: "#628FBC", t: "Kezelésnél van, közben 4 hívást is felvett a rendszer." },
   /* SZ — DM beat replaces the qualify-out "árat kérdezték" beat (fill, don't filter) */
-  { time: "11:00", k: "instagram", c: "#9E6B9E", t: "Instagramon írt be egy vendég — azonnali foglalás, kézzel nem kellett hozzányúlni." },
-  { time: "12:20", k: "users",     c: "#BC6285", t: "Lemondás 1 perc alatt a várólistának — nem marad üres szék." },
+  { time: "11:00", k: "instagram", c: "#9E6B9E", t: "Instagramon írt be egy vendég. Azonnali foglalás, kézzel nem kellett hozzányúlni." },
+  { time: "12:20", k: "users",     c: "#BC6285", t: "Lemondás 1 perc alatt a várólistának, így nem marad üres szék." },
   { time: "13:30", k: "refresh",   c: "#BC6285", t: "Egy régóta nem járt vendég visszahíva egy rövid üzenettel." },
-  { time: "15:10", k: "bell",      c: "#62BCAC", t: "A holnapi vendégek emlékeztetőt kaptak — kevesebben maradnak el." },
+  { time: "15:10", k: "bell",      c: "#62BCAC", t: "A holnapi vendégek emlékeztetőt kaptak, így kevesebben maradnak el." },
   { time: "16:45", k: "star",      c: "#BCA162", t: "Elégedett vendégtől a rendszer értékelést kért." },
-  { time: "18:00", k: "messenger", c: "#6DBC61", t: "Szalon zárva — de a Messengeren beérkező foglalás is megválaszolva." },
-  { time: "20:15", k: "home",      c: "#9E6B9E", t: "Ön otthon pihen — a rendszer dolgozik tovább." },
+  { time: "18:00", k: "messenger", c: "#6DBC61", t: "Szalon zárva, de a Messengeren beérkező foglalás is megválaszolva." },
+  { time: "20:15", k: "home",      c: "#9E6B9E", t: "Ön otthon pihen, a rendszer dolgozik tovább." },
   { time: "21:30", k: "moon",      c: "#628FBC", t: "Tele naptár, 0 elmaradt üzenet. Nyugodtan alszik." },
 ];
 
@@ -64,7 +64,7 @@ export default function HeroSzepsegipar() {
             {/* ATRIUM-EDIT SZ3 */}
             <p className="hero__sub">
               Az Atrium egy magyar nyelvű, AI-alapú értékesítési rendszer
-              szépségszalonoknak — a foglalási üzeneteket Messengeren és
+              szépségszalonoknak: a foglalási üzeneteket Messengeren és
               Instagramon magától megválaszolja, időpontot ad, és emlékeztet.
               Ön közben a vendéggel van.
             </p>
@@ -119,7 +119,7 @@ export default function HeroSzepsegipar() {
                   </div>
                 ))}
               </div>
-              <div className="hcon__foot">Ön kezel — a rendszer közben mindenre figyel.</div>
+              <div className="hcon__foot">Ön kezel, a rendszer közben mindenre figyel.</div>
             </div>
           </div>
         </div>

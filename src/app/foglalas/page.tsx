@@ -21,7 +21,7 @@ const barlow = Barlow({
 export const metadata: Metadata = {
   title: "Foglaljon időpontot",
   description:
-    "Foglaljon egy 30 perces, kötelezettség nélküli megbeszélést az Atrium csapatával — az Ön számai alapján megnézzük, mit hozna a rendszer.",
+    "Foglaljon egy 30 perces, kötelezettség nélküli megbeszélést az Atrium csapatával. Az Ön számai alapján megnézzük, mit hozna a rendszer.",
   alternates: { canonical: "/foglalas" },
   robots: { index: true, follow: true },
 };
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 const STEPS: [string, string][] = [
   ["Kérdezünk", "Hány megkeresés jön, mi történik velük, mennyit ér egy ügyfél."],
   ["Számolunk", "Az Ön számaiból, nem sablonból. Élőben, a beszélgetés alatt."],
-  ["Megmondjuk", "Mit hozna a rendszer — és azt is, ha nem érné meg Önnek."],
+  ["Megmondjuk", "Mit hozna a rendszer, és azt is, ha nem érné meg Önnek."],
 ];
 
 /* ?from=<landing slug> is set by BookingRedirect when the CTA was clicked on
@@ -59,7 +59,7 @@ export default async function FoglalasPage({
               <h1 className="fogl__h1">Fél óra beszélgetés.<br />Nem prezentáció.</h1>
               <p className="fogl__lead">
                 Nem diákat mutatunk. Kérdezünk, Ön válaszol, aztán mi mondunk
-                számokat — a végén tudni fogja, megéri-e.
+                számokat. A végén tudni fogja, megéri-e.
               </p>
 
               <ol className="fogl__steps">

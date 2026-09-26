@@ -11,11 +11,11 @@ export default function FinalCtaKlima() {
         <div className="final-cta__panel reveal">
           {/* ATRIUM-EDIT KV11 */}
           <h2 className="final-cta__h">
-            Hány hívás cseng ki a csúcson — és ki veszi fel őket?
+            Hány hívás cseng ki a csúcson, és ki veszi fel őket?
           </h2>
           <p className="final-cta__p">
             30 perces megbeszélés. Megnézzük, a hőségcsúcson hány hívás cseng ki,
-            mennyire válaszolnak időben, és hány ajánlat van most függőben —
+            mennyire válaszolnak időben, és hány ajánlat van most függőben,
             mielőtt bármiről dönt.
           </p>
           <button className="btn btn--lg final-cta__btn">Foglaljon időpontot</button>

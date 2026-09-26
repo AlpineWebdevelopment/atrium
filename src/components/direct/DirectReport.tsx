@@ -8,7 +8,7 @@ const POINTS = [
   {
     k: "Amit lát",
     t: "Minden beszélgetés, egy helyen",
-    d: "Hívás, üzenet, e-mail — visszahallgatható, a végeredménnyel együtt.",
+    d: "Hívás, üzenet, e-mail: visszahallgatható, a végeredménnyel együtt.",
     art: "rows" as const,
     c: "var(--viz-purple)",
   },
@@ -116,7 +116,7 @@ export default function DirectReport() {
         </div>
 
         <p className="dr-mention__foot reveal">
-          A hozzáférés az Öné. Nem kell elhinnie, amit mondunk — megnézheti.
+          A hozzáférés az Öné. Nem kell elhinnie, amit mondunk. Megnézheti.
         </p>
       </div>
     </section>

@@ -63,14 +63,14 @@ export default function RealtimeDashboardGyorsLead() {
           <span className="dash__eyebrow">A lassú válasz ára</span>
           <h2 className="dash__h">A leadekért már fizet. Beszéljen is velük.</h2>
           <p className="dash__p">
-            A lassú utánkövetésnél kétszer veszít: elveszik a lead — és a
+            A lassú utánkövetésnél kétszer veszít: elveszik a lead, és a
             hirdetési pénz is, amit megvett vele. A gyors válasz a kulcs: egy
-            órán belül ~7× az esély, hogy egyáltalán eléri (HBR, 2011 —
-            illusztratív, külföldi adat; a kapcsolatfelvételre értve, nem
+            órán belül ~7× az esély, hogy egyáltalán eléri (HBR, 2011;
+            illusztratív, külföldi adat, a kapcsolatfelvételre értve, nem
             garantált eladásra). Aki előbb hív, az viszi a leadet.
           </p>
           <p className="dash__exnote">
-            Az alábbi számok illusztratív példák — a valós hirdetési költséggel,
+            Az alábbi számok illusztratív példák. A valós hirdetési költséggel,
             lead-árral és ügyfélértékkel töltjük ki.
           </p>
         </div>
@@ -80,7 +80,7 @@ export default function RealtimeDashboardGyorsLead() {
             <p className="dash__desc">
               ~65 leadből havonta ~26 kap lassú vagy semmilyen első választ, mert
               a csapat épp dolgozik. A perceken belüli válasz ebből ~3–5-öt
-              visszahoz — olyan ügyfeleket, akik különben kihűltek vagy a
+              visszahoz: olyan ügyfeleket, akik különben kihűltek vagy a
               gyorsabbtól vásároltak volna.
             </p>
 
@@ -106,7 +106,7 @@ export default function RealtimeDashboardGyorsLead() {
                   </svg>
                   <span className="dash__loss-label">Becsült kieső bevétel</span>
                 </div>
-                <span className="dash__loss-math">~3–5 elveszett lead × ügyfélérték — kis tételnél ~30 000 Ft, nagyobb szolgáltatásnál ~150 000 Ft — plusz a rájuk költött hirdetési pénz</span>
+                <span className="dash__loss-math">~3–5 elveszett lead × ügyfélérték (kis tételnél ~30 000 Ft, nagyobb szolgáltatásnál ~150 000 Ft), plusz a rájuk költött hirdetési pénz</span>
               </div>
               <div className="dash__loss-v">≈ 120 000 – 600 000 Ft<span>/ hó</span></div>
             </div>

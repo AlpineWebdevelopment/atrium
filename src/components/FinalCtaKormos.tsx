@@ -7,7 +7,7 @@ export default function FinalCtaKormos() {
           {/* ATRIUM-EDIT NR6-kormos — reframe CTA body to booking-admin problem, not call/leak framing */}
           <p className="final-cta__p">
             30 perces megbeszélés. Megnézzük, hogyan intézi most a foglalásokat,
-            és megmutatjuk, mit venne le Önről a rendszer — mielőtt bármiről dönt.
+            és megmutatjuk, mit venne le Önről a rendszer, mielőtt bármiről dönt.
           </p>
           <button className="btn btn--lg final-cta__btn">Foglaljon 30 perces megbeszélést</button>
           <span className="final-cta__note">

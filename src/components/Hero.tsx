@@ -34,16 +34,16 @@ const CHANNELS = [
 ];
 
 const DAY = [
-  { time: "06:50", k: "callback", c: "#6DBC61",  t: "Még alszik — a rendszer fogadta a 4 éjjeli hívást." },
-  { time: "07:30", k: "calendar", c: "#9662BC",  t: "Reggelizik — 3 új időpont kerül a naptárba." },
-  { time: "08:15", k: "webchat",  c: "#62BCAC",  t: "Valaki a weboldalon ír, telefonon folytatja — a rendszer onnan viszi tovább, ahol abbahagyták." },
-  { time: "10:30", k: "email",    c: "#BCA162",  t: "A pár napja küldött árajánlatot a rendszer utánköveti — nem hűl ki." },
-  { time: "11:00", k: "qualify",  c: "#AD83CC",  t: "Valaki csak az árat kérdezi — a rendszer válaszol, Önnek nem kell megszakítania a munkát." },
-  { time: "11:40", k: "callback", c: "#C46C64",  t: "Egy megbeszélt időpont elmarad — a rendszer újat egyeztet." },
-  { time: "12:10", k: "users",    c: "#6DBC61",  t: "Új érdeklődő érkezik a hirdetésből — a rendszer percek alatt felveszi vele a kapcsolatot, nem órák múlva." },
-  { time: "13:30", k: "refresh",  c: "#BCA162",  t: "Egy ügyfél 8 hónapja nem jelentkezett — a rendszer megkeresi." },
-  { time: "15:10", k: "bell",     c: "#62BCAC",  t: "A holnapi időpontok emlékeztetőt kapnak — kevesebb elmaradás." },
-  { time: "20:15", k: "home",     c: "#9662BC",  t: "Ön otthon van a családdal — a telefonján látja, mit hozott a nap. A rendszer dolgozik tovább." },
+  { time: "06:50", k: "callback", c: "#6DBC61",  t: "Még alszik. A rendszer fogadta a 4 éjjeli hívást." },
+  { time: "07:30", k: "calendar", c: "#9662BC",  t: "Reggelizik, 3 új időpont kerül a naptárba." },
+  { time: "08:15", k: "webchat",  c: "#62BCAC",  t: "Valaki a weboldalon ír, telefonon folytatja. A rendszer onnan viszi tovább, ahol abbahagyták." },
+  { time: "10:30", k: "email",    c: "#BCA162",  t: "A pár napja küldött árajánlatot a rendszer utánköveti, így nem hűl ki." },
+  { time: "11:00", k: "qualify",  c: "#AD83CC",  t: "Valaki csak az árat kérdezi. A rendszer válaszol, Önnek nem kell megszakítania a munkát." },
+  { time: "11:40", k: "callback", c: "#C46C64",  t: "Egy megbeszélt időpont elmarad, a rendszer újat egyeztet." },
+  { time: "12:10", k: "users",    c: "#6DBC61",  t: "Új érdeklődő érkezik a hirdetésből. A rendszer percek alatt felveszi vele a kapcsolatot, nem órák múlva." },
+  { time: "13:30", k: "refresh",  c: "#BCA162",  t: "Egy ügyfél 8 hónapja nem jelentkezett, a rendszer megkeresi." },
+  { time: "15:10", k: "bell",     c: "#62BCAC",  t: "A holnapi időpontok emlékeztetőt kapnak, így kevesebb az elmaradás." },
+  { time: "20:15", k: "home",     c: "#9662BC",  t: "Ön otthon van a családdal, a telefonján látja, mit hozott a nap. A rendszer dolgozik tovább." },
 ];
 
 /* ATRIUM-EDIT A1 — "elmaradt időpontok" → "elszalasztott hívások és érdeklődők"; appointment-language is niche-specific, calls/inquiries are universal */
@@ -113,7 +113,7 @@ export default function Hero() {
               </span>
             </h1>
             <p className="hero__sub">
-              AI-alapú értékesítési rendszer: minden hívást fogad, minden időpontot lefoglal, minden érdeklődőt utánkövet — amíg Ön a cégét vezeti.
+              AI-alapú értékesítési rendszer: minden hívást fogad, minden időpontot lefoglal, minden érdeklődőt utánkövet, amíg Ön a cégét vezeti.
             </p>
             <div className="hero__actions">
               <a className="btn" href="#kapcsolat">Foglaljon időpontot</a>
@@ -158,7 +158,7 @@ export default function Hero() {
                   </div>
                 ))}
               </div>
-              <div className="hcon__foot">Ön a cégét vezeti — a rendszer közben mindenre figyel.</div>
+              <div className="hcon__foot">Ön a cégét vezeti, a rendszer közben mindenre figyel.</div>
             </div>
           </div>
         </div>

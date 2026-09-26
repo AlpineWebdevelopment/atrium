@@ -13,35 +13,35 @@
 
 export const SOURCES = {
   expansion: {
-    label: "OpenAI — ChatGPT Ads expands across Europe (2026. augusztus 18.)",
+    label: "OpenAI: ChatGPT Ads expands across Europe (2026. augusztus 18.)",
     url: "https://openai.com/index/chatgpt-ads-expands-across-europe/",
   },
   policies: {
-    label: "OpenAI — Ad policies (v1.5, frissítve 2026. augusztus 31.)",
+    label: "OpenAI: Ad policies (v1.5, frissítve 2026. augusztus 31.)",
     url: "https://openai.com/policies/ad-policies/",
   },
   budget: {
-    label: "OpenAI Help — Create campaigns for ChatGPT Ads (minimális napi büdzsé táblázat)",
+    label: "OpenAI Help: Create campaigns for ChatGPT Ads (minimális napi büdzsé táblázat)",
     url: "https://help.openai.com/en/articles/20001210-create-campaigns-for-chatgpt",
   },
   account: {
-    label: "OpenAI Help — Ads Manager beta account setup",
+    label: "OpenAI Help: Ads Manager beta account setup",
     url: "https://help.openai.com/en/articles/20001213-ads-manager-beta-account-setup",
   },
   billing: {
-    label: "OpenAI Help — Billing and payment",
+    label: "OpenAI Help: Billing and payment",
     url: "https://help.openai.com/en/articles/20001216-billing-payment",
   },
   collection: {
-    label: "OpenAI Help — ChatGPT Ads gyűjtőoldal (mérés, hirdetéscsoportok, kontextus-jelzések)",
+    label: "OpenAI Help: ChatGPT Ads gyűjtőoldal (mérés, hirdetéscsoportok, kontextus-jelzések)",
     url: "https://help.openai.com/en/collections/20001223-chatgpt-ads",
   },
   hvg: {
-    label: "hvg.hu — a magyar indulásról (2026. augusztus 26.)",
+    label: "hvg.hu: a magyar indulásról (2026. augusztus 26.)",
     url: "https://hvg.hu/tudomany/20260826_openai-chatgpt-reklamok-megjelenese-magyarorszag",
   },
   media1: {
-    label: "media1.hu — az európai, nem személyre szabott indulásról (2026. augusztus 25.)",
+    label: "media1.hu: az európai, nem személyre szabott indulásról (2026. augusztus 25.)",
     url: "https://media1.hu/2026/08/25/chatgpt-reklamok-hirdetesek-magyarorszag-openai-ads/",
   },
 } as const;

@@ -19,9 +19,9 @@ const JOURNEY = [
   { k: "form",     c: "#6DBC61", step: "Beérkezés",   t: "Lead kitöltötte a Meta-űrlapot." },
   { k: "chat",     c: "#628FBC", step: "Válasz",       t: "A rendszer perceken belül reagál, magyarul." },
   { k: "qualify",  c: "#AD83CC", step: "Kvalifikálva", t: "Megerősíti az érdeklődést, felteszi az első kérdéseket." },
-  { k: "calendar", c: "#62BCAC", step: "Lefoglalva",   t: "Időpont vagy visszahívás — a naptárban." },
+  { k: "calendar", c: "#62BCAC", step: "Lefoglalva",   t: "Időpont vagy visszahívás, egyenesen a naptárban." },
   { k: "refresh",  c: "#BCA162", step: "Utánkövetés",  t: "Ha nincs válasz, más csatornán, más ütemben." },
-  { k: "bars",     c: "#2B64B8", step: "Riport",       t: "Válaszidő, elért arány, foglalt arány — havonta." },
+  { k: "bars",     c: "#2B64B8", step: "Riport",       t: "Havonta: válaszidő, elért arány, foglalt arány." },
 ];
 
 export default function HeroGyorsLead() {
@@ -46,7 +46,7 @@ export default function HeroGyorsLead() {
             {/* ATRIUM-EDIT LR3 */}
             <p className="hero__sub">
               Az Atrium egy AI-alapú rendszer, amely azonnal megkeresi a
-              beérkező leadeket — mielőtt a versenytárs megteszi. Minden
+              beérkező leadeket, még mielőtt a versenytárs megteszi. Minden
               lead, minden csatornán, az első 5 percen belül.
             </p>
             <div className="hero__actions">
@@ -96,7 +96,7 @@ export default function HeroGyorsLead() {
                   </div>
                 ))}
               </div>
-              <div className="hcon__foot">Minden lead beér — egyik sem vész el válasz nélkül.</div>
+              <div className="hcon__foot">Minden lead beér, és egyik sem vész el válasz nélkül.</div>
             </div>
           </div>
         </div>

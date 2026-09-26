@@ -14,7 +14,7 @@ export default function DirectFooter() {
           <div>
             <span className="dr-foot__brand">Atrium<span className="dr-top__dot">.</span></span>
             <p className="dr-foot__sub">
-              AI értékesítési rendszer szolgáltató cégeknek. Bemutatót nem tartunk — rendszert szállítunk.
+              AI értékesítési rendszer szolgáltató cégeknek. Bemutatót nem tartunk. Rendszert szállítunk.
             </p>
           </div>
           <ul className="dr-foot__links">

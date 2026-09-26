@@ -8,7 +8,7 @@ const FAQS = [
   },
   {
     q: "Tudja kezelni a sürgősségi hívásokat?",
-    a: "Igen. A rendszer az Ön protokollja alapján azonnal kiszűri a sürgős eseteket, és azokat elsőbbséggel kezeli — ha szükséges, azonnal továbbítja Önnek. A kevésbé sürgős hívásokat egyszerűen időpontba foglalja.",
+    a: "Igen. A rendszer az Ön protokollja alapján azonnal kiszűri a sürgős eseteket, és azokat elsőbbséggel kezeli. Ha szükséges, azonnal továbbítja Önnek. A kevésbé sürgős hívásokat egyszerűen időpontba foglalja.",
   },
   {
     q: "Honnan tudja a hívó, hogy AI-jal beszél?",
@@ -16,15 +16,15 @@ const FAQS = [
   },
   {
     q: "Mi van, ha a gazda emberrel akar beszélni?",
-    a: "Amint a gazda élő embert kér, a rendszer rögtön átkapcsol — Önhöz vagy az illetékes kollégájához. Ha senki nem elérhető, visszahívást szervez a megadott időpontra. Közben mi figyeljük a beszélgetéseket és folyamatosan finomítjuk.",
+    a: "Amint a gazda élő embert kér, a rendszer rögtön átkapcsol Önhöz vagy az illetékes kollégájához. Ha senki nem elérhető, visszahívást szervez a megadott időpontra. Közben mi figyeljük a beszélgetéseket és folyamatosan finomítjuk.",
   },
   {
     q: "Milyen fajokra és kezelésekre konfigurálható?",
-    a: "Teljesen rugalmas — az Ön rendelőjének profilját állítjuk be: kis-, nagy- vagy egzotikus állatok, oltások, műtétek, fogászat, sürgősség. Minden kérdés és szűrőlogika az Ön protokollja szerint épül fel.",
+    a: "Teljesen rugalmas. Az Ön rendelőjének profilját állítjuk be: kis-, nagy- vagy egzotikus állatok, oltások, műtétek, fogászat, sürgősség. Minden kérdés és szűrőlogika az Ön protokollja szerint épül fel.",
   },
   {
     q: "Hány hívást tud egyszerre kezelni?",
-    a: "Korlátlan mennyiséget, egyszerre. Műtét alatt, vizsgálat közben, hétvégén és zárás után is felveszi az összes hívást — soha nem foglalt, nincs sorban állás.",
+    a: "Korlátlan mennyiséget, egyszerre. Műtét alatt, vizsgálat közben, hétvégén és zárás után is felveszi az összes hívást. Soha nem foglalt, nincs sorban állás.",
   },
   {
     q: "Biztonságban vannak a páciensadatok? Megfelel a GDPR-nak?",
@@ -36,11 +36,11 @@ const FAQS = [
   },
   {
     q: "Mennyi idő alatt térül meg, és hogyan látom?",
-    a: "A rendszer általában 60 nap alatt kitermeli az árát a megmentett bevételből. Havi kimutatásban látja, hány hívás futott be, hány vizsgálati időpont lett belőle, hány gazda tért vissza — és mennyi bevételt fogott meg.",
+    a: "A rendszer általában 60 nap alatt kitermeli az árát a megmentett bevételből. Havi kimutatásban látja, hány hívás futott be, hány vizsgálati időpont lett belőle, hány gazda tért vissza, és mennyi bevételt fogott meg.",
   },
   {
     q: "Vissza tudja hozni a rég nem járt gazdákat?",
-    a: "Igen. Sorra veszi az éve nem látott gazdákat és a félbehagyott érdeklődőket — például akiknek lejárt az éves oltása —, és udvariasan visszahívja őket. Ugyanabból a listából, ami már most a kezében van.",
+    a: "Igen. Sorra veszi az éve nem látott gazdákat és a félbehagyott érdeklődőket (például akiknek lejárt az éves oltása), és udvariasan visszahívja őket. Ugyanabból a listából, ami már most a kezében van.",
   },
 ];
 

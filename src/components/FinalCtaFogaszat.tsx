@@ -13,7 +13,7 @@ export default function FinalCtaFogaszat() {
           </h2>
           <p className="final-cta__p">
             30 perces megbeszélés. Megnézzük, hány aktív páciense van, és hányan
-            maradtak le a kontrollról vagy a higiéniai kezelésről — és megmutatjuk,
+            maradtak le a kontrollról vagy a higiéniai kezelésről, majd megmutatjuk,
             mennyit hoz vissza ebből a rendszer, mielőtt bármiről dönt.
           </p>
           <button className="btn btn--lg final-cta__btn">Foglaljon időpontot</button>

@@ -46,7 +46,7 @@ async function sendBookingEmails(p: {
     from,
     to: p.email,
     replyTo,
-    subject: "Időpontfoglalás megerősítése — Atrium",
+    subject: "Időpontfoglalás megerősítése | Atrium",
     html: `
       <div style="font-family:system-ui,Arial,sans-serif;font-size:15px;line-height:1.6;color:#1a1a1a">
         <p>Kedves ${esc(p.name)}!</p>
@@ -71,7 +71,7 @@ async function sendBookingEmails(p: {
     from,
     to: notifyTo,
     replyTo: p.email,
-    subject: `Új foglalás — ${p.name} (${p.slotLabel})`,
+    subject: `Új foglalás: ${p.name} (${p.slotLabel})`,
     html: `
       <div style="font-family:system-ui,Arial,sans-serif;font-size:14px;line-height:1.6;color:#1a1a1a">
         <h2 style="margin:0 0 12px">Új időpontfoglalás</h2>

@@ -8,19 +8,19 @@ import { useState } from "react";
 const FAQS = [
   {
     q: "Mit csinál a rendszer?",
-    a: "Minden megkeresést azonnal fogad — hívás, webűrlap, e-mail — a hőségcsúcson is, és kvalifikálja a munkát, majd a megfelelő emberhez irányítja a részletekkel együtt. A sürgős esetet soron kívül adja át. A kiküldött ajánlatokat szisztematikusan utánköveti, és jelzi az esedékes karbantartásokat. Minden lépésről riportot ad Önnek.",
+    a: "Minden megkeresést azonnal fogad (hívás, webűrlap, e-mail) a hőségcsúcson is, és kvalifikálja a munkát, majd a megfelelő emberhez irányítja a részletekkel együtt. A sürgős esetet soron kívül adja át. A kiküldött ajánlatokat szisztematikusan utánköveti, és jelzi az esedékes karbantartásokat. Minden lépésről riportot ad Önnek.",
   },
   {
     q: "Új ügyfeleket is szerez?",
-    a: "Nem. A rendszer a meglévő keresletet hozza vissza — azokat a hívásokat, amelyek a csúcson kicsengtek, azokat az ajánlatokat, amelyek utánkövetés nélkül elhaltak, és azokat a karbantartható ügyfeleket, akik kiestek a körből. A hirdetési büdzsét nem növeljük, de jobban kiaknázzuk azt, amit már most is költ.",
+    a: "Nem. A rendszer a meglévő keresletet hozza vissza: azokat a hívásokat, amelyek a csúcson kicsengtek, azokat az ajánlatokat, amelyek utánkövetés nélkül elhaltak, és azokat a karbantartható ügyfeleket, akik kiestek a körből. A hirdetési büdzsét nem növeljük, de jobban kiaknázzuk azt, amit már most is költ.",
   },
   {
     q: "Le kell cserélnünk a mostani rendszereinket?",
-    a: "Nem. Az Atrium a meglévő naptárához, CRM-jéhez és eszközeihez kötve dolgozik. A csapatnak nem kell új szoftvert megtanulnia — a rendszer a háttérben fut.",
+    a: "Nem. Az Atrium a meglévő naptárához, CRM-jéhez és eszközeihez kötve dolgozik. A csapatnak nem kell új szoftvert megtanulnia. A rendszer a háttérben fut.",
   },
   {
     q: "Mennyibe kerül?",
-    a: "Az árat az Ön számaiból állítjuk össze a megbeszélésen — a beérkező megkeresések számából, a jellemző beszerelési értékből és az elvárt hatásból. Egy standard ár félrevinné. Az első megbeszélés nem kötelezi Önt semmire.",
+    a: "Az árat a megbeszélésen az Ön számaiból állítjuk össze: a beérkező megkeresések számából, a jellemző beszerelési értékből és az elvárt hatásból. Egy standard ár félrevinné. Az első megbeszélés nem kötelezi Önt semmire.",
   },
   {
     q: "Hol tárolják az adatokat?",

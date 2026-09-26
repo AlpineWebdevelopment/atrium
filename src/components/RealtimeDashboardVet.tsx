@@ -5,19 +5,19 @@ const PAINS = [
   {
     tab: "Kvalifikálatlan hívások",
     desc:
-      "Hívás jön be — de a nagy része csak az árat kérdezi. Aki minden hívóval ugyanannyit foglalkozik, az a beteg állatoktól veszi el az időt. A rendszer előszűr: mire Ön felveszi a telefont, a gazda már minősítve van.",
+      "Hívás jön be, de a nagy része csak az árat kérdezi. Aki minden hívóval ugyanannyit foglalkozik, az a beteg állatoktól veszi el az időt. A rendszer előszűr: mire Ön felveszi a telefont, a gazda már minősítve van.",
     metrics: [
       { k: "Hívás beérkezik", c: "var(--ink)", v: "Minden nap", d: "hívás, üzenet, webchat" },
       { k: "Ebből sürgős eset", c: "var(--ink)", v: "A töredéke", d: "a többi csak az árat kérdezi" },
       { k: "Az Ön ideje", c: "var(--stone)", v: "Órákon át", d: "ugyanazokra a kérdésekre" },
       { k: "Előszűrés", c: "var(--viz-red)", v: "Nincs", d: "mindenki egyforma sorra kerül" },
     ],
-    loss: { v: "≈ 180 000 Ft", per: "/ hó", math: "~15 óra havonta árkérdező hívásra — a beteg állatok gazdái helyett" },
+    loss: { v: "≈ 180 000 Ft", per: "/ hó", math: "~15 óra havonta árkérdező hívásra, a beteg állatok gazdái helyett" },
   },
   {
     tab: "Elszalasztott hívások",
     desc:
-      "Műtét alatt, altatásban, vizsgálat közben nem lehet felvenni a telefont. A gazda nem vár — a következő rendelőt hívja.",
+      "Műtét alatt, altatásban, vizsgálat közben nem lehet felvenni a telefont. A gazda nem vár: a következő rendelőt hívja.",
     metrics: [
       { k: "Hívás érkezik", c: "var(--ink)", v: "16:42", d: "műtét közben" },
       { k: "A vonal", c: "var(--stone)", v: "Nem elérhető", d: "senki nem veszi fel" },
@@ -95,7 +95,7 @@ function GfxFunnel() {
         <span className="qual__leg"><i className="qual__leg-dot" style={{ background: "rgba(1,14,30,0.2)" }} />Árkérdező</span>
         <span className="qual__leg"><i className="qual__leg-dot" style={{ background: "#010E1E" }} />Beteg állat</span>
         <span className="qual__leg"><i className="qual__leg-dot" style={{ background: "#6DBC61" }} />Visszatérő gazda</span>
-        <span className="qual__note">Az előszűrés kiemeli a sürgős eseteket — Ön már csak velük foglalkozik.</span>
+        <span className="qual__note">Az előszűrés kiemeli a sürgős eseteket, így Ön már csak velük foglalkozik.</span>
       </div>
     </div>
   );
@@ -241,13 +241,13 @@ export default function RealtimeDashboardVet() {
           <span className="dash__eyebrow">Hol szivárog a bevétel</span>
           <h2 className="dash__h">Négy lyuk. Mindegyik bezárható.</h2>
           <p className="dash__p">
-            A legtöbb állatorvosi rendelő nem pácienshipánytól szenved — hanem
+            A legtöbb állatorvosi rendelő nem pácienshiánytól szenved, hanem
             attól, hogy a megkeresések egy része elvész útközben. A rendszert az
             Ön rendelőjére szabjuk, és azt a lyukat zárja be, amelyik Önnél a
             legnagyobb.
           </p>
           <p className="dash__exnote">
-            Az alábbi számok példák — élesben az Ön valós adataira szabva.
+            Az alábbi számok példák, élesben az Ön valós adataira szabva.
           </p>
         </div>
 

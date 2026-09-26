@@ -38,7 +38,7 @@ function Ico({ k, x, y, s = 18 }: { k: string; x: number; y: number; s?: number 
 function VizMegkereses() {
   const ch = [{ y: 50, k: "phone" }, { y: 105, k: "chat" }, { y: 160, k: "qualify" }];
   return (
-    <svg className="tsr__svg" viewBox="0 0 300 210" role="img" aria-label="Fogadás és kvalifikálás — minden csatorna egy minősített érdeklődővé">
+    <svg className="tsr__svg" viewBox="0 0 300 210" role="img" aria-label="Fogadás és kvalifikálás: minden csatorna egy minősített érdeklődővé">
       {ch.map((c, i) => {
         const path = `M74 ${c.y} C 130 ${c.y}, 150 105, 196 105`;
         return (
@@ -63,7 +63,7 @@ function VizMegkereses() {
 
 function VizIranyitas() {
   return (
-    <svg className="tsr__svg" viewBox="0 0 300 210" role="img" aria-label="Irányítás és foglalás — a megfelelő emberhez, a naptárba">
+    <svg className="tsr__svg" viewBox="0 0 300 210" role="img" aria-label="Irányítás és foglalás: a megfelelő emberhez, a naptárba">
       <rect x="52" y="34" width="174" height="146" rx="16" fill="var(--bone)" stroke="var(--c)" strokeWidth="1.8" />
       <path d="M52 60h174" stroke="var(--c)" strokeWidth="1.5" strokeOpacity="0.4" />
       <circle cx="68" cy="47" r="3" fill="var(--c)" /><circle cx="80" cy="47" r="3" fill="var(--c)" fillOpacity="0.5" /><circle cx="92" cy="47" r="3" fill="var(--c)" fillOpacity="0.5" />
@@ -91,7 +91,7 @@ function VizRalatas() {
   const loop = "M150 35 A70 70 0 1 1 149.9 35 Z";
   const nodes = [{ x: 150, y: 35, k: "send" }, { x: 210, y: 140, k: "confirm" }, { x: 90, y: 140, k: "bars" }];
   return (
-    <svg className="tsr__svg" viewBox="0 0 300 210" role="img" aria-label="Lezárás és rálátás — árajánlat utánkövetve, eredmény látható">
+    <svg className="tsr__svg" viewBox="0 0 300 210" role="img" aria-label="Lezárás és rálátás: árajánlat utánkövetve, eredmény látható">
       <circle cx="150" cy="105" r="70" fill="none" stroke="var(--c)" strokeWidth="1.5" strokeOpacity="0.35" strokeDasharray="3 7" />
       <circle r="3.2" fill="var(--c)"><animateMotion dur="7s" repeatCount="indefinite" path={loop} /></circle>
       {nodes.map((n, i) => (
@@ -114,8 +114,8 @@ const PHASES: {
   {
     n: "01", name: "Fogadás és kvalifikálás", cap: "minden ajánlatkéréstől a minősített érdeklődőig", c: "#9662BC", Viz: VizMegkereses,
     steps: [
-      { ic: "phone",   t: "Azonnali reakció",   s: "minden ajánlatkérést fogad: hívás, webűrlap, e-mail — vasárnap este, hétvégén és munkaidőn túl is, professzionális magyar nyelven, mielőtt a kifizetett lead kihűlne" },
-      { ic: "qualify", t: "Kvalifikálás",        s: "ingatlan típusa, tető és fogyasztás, költségvetési jelzés, határidő, komolyság — és aszerint szűr, milyen beszerelést keres a cég" },
+      { ic: "phone",   t: "Azonnali reakció",   s: "minden ajánlatkérést fogad: hívás, webűrlap, e-mail. Vasárnap este, hétvégén és munkaidőn túl is, professzionális magyar nyelven, mielőtt a kifizetett lead kihűlne" },
+      { ic: "qualify", t: "Kvalifikálás",        s: "ingatlan típusa, tető és fogyasztás, költségvetési jelzés, határidő, komolyság, és aszerint szűr, milyen beszerelést keres a cég" },
       { ic: "users",   t: "Szűrés",             s: "a nem komoly, rossz illeszkedésű megkeresés nem ér el a felmérőkig" },
       { ic: "handoff", t: "Élő átadás",          s: "a felmérő vagy projektvezető csak valós, előszűrt lehetőséget kap" },
     ],
@@ -132,8 +132,8 @@ const PHASES: {
   {
     n: "03", name: "Lezárás és rálátás", cap: "utánkövetéstől a teljes képig", c: "#6DBC61", Viz: VizRalatas,
     steps: [
-      { ic: "send",     t: "Árajánlat-utánkövetés",              s: "minden kiküldött napelemes ajánlatot szisztematikusan utánkövet, amíg az ügyfél nem válaszol vagy el nem utasít — semmi nem marad el azért, mert egy projektvezető épp elfoglalt volt" },
-      { ic: "callback", t: "Túlcsordulás és munkaidőn túli",     s: "amit az iroda elszalasztana, az nem vész el — vasárnap este, hétvégén és csúcsterhelésen is, hogy a kifizetett lead ne hűljön ki" },
+      { ic: "send",     t: "Árajánlat-utánkövetés",              s: "minden kiküldött napelemes ajánlatot szisztematikusan utánkövet, amíg az ügyfél nem válaszol vagy el nem utasít. Semmi nem marad el azért, mert egy projektvezető épp elfoglalt volt" },
+      { ic: "callback", t: "Túlcsordulás és munkaidőn túli",     s: "amit az iroda elszalasztana, az nem vész el vasárnap este, hétvégén és csúcsterhelésen sem, hogy a kifizetett lead ne hűljön ki" },
       { ic: "bars",     t: "Riport és rálátás",                  s: "Ön végre látja: hány ajánlatkérés jött be, milyen gyorsan válaszoltak, hány árajánlat van függőben, mi foglalt le, és mit hozott vissza az utánkövetés", lead: true },
     ],
   },
@@ -152,19 +152,19 @@ export default function FullSystemNapelem() {
       <div className="wrap">
         <div className="dash__intro reveal">
           <span className="dash__eyebrow">A teljes rendszer</span>
-          <h2 className="dash__h">Nem hét eszköz — egyetlen rendszer.</h2>
+          <h2 className="dash__h">Nem hét eszköz, hanem egyetlen rendszer.</h2>
           <p className="dash__p">
             Az Atrium egy magyar nyelvű, AI-alapú értékesítési rendszer: minden
             ajánlatkérésre azonnal reagál és kvalifikál, a megfelelő emberhez
-            irányít, és minden kiküldött árajánlatot utánkövet — a háttérben, az
+            irányít, és minden kiküldött árajánlatot utánkövet, a háttérben, az
             Ön meglévő naptárához, CRM-jéhez és eszközeihez kötve.
           </p>
           {/* ATRIUM-EDIT KV6 — CRM named; AI disclosure added for the more sceptical cégvezető buyer */}
           <p className="sys__howline">
             AI-ügynökök kezelik a hang- és szöveges kommunikációt, természetes
-            magyar nyelven — a meglévő naptárához, CRM-jéhez és eszközeihez kötve.
+            magyar nyelven, a meglévő naptárához, CRM-jéhez és eszközeihez kötve.
             A csapatának nem kell rendszert váltania. Ha kérdezi, hogyan működik:
-            igen, ez egy AI-alapú rendszer — pontosan megmutatjuk, mit csinál, és
+            igen, ez egy AI-alapú rendszer. Pontosan megmutatjuk, mit csinál, és
             hol adja vissza az embereinek a döntést.
           </p>
         </div>
@@ -226,7 +226,7 @@ export default function FullSystemNapelem() {
           </div>
 
           <div className="sysframe__integ">
-            Mérés végig — havonta megmutatja, mit hozott a rendszer, és hol szivárog még a bevétel.
+            Mérés végig: havonta megmutatja, mit hozott a rendszer, és hol szivárog még a bevétel.
           </div>
 
           <div className="jrn__result reveal">
@@ -234,7 +234,7 @@ export default function FullSystemNapelem() {
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">{ICONS.result}</svg>
             </span>
             <div className="jrn__result-txt">
-              <b className="jrn__result-t">Több beszerelés — és Ön először látja, hogyan</b>
+              <b className="jrn__result-t">Több beszerelés, és Ön először látja, hogyan</b>
             </div>
           </div>
 

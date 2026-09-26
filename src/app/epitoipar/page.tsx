@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/epitoipar" },
   title: "Kivitelező cégek AI-alapú értékesítési rendszere",
   description:
-    "Magyar nyelvű AI-alapú értékesítési rendszer kivitelező cégeknek: minden megkeresést fogad és kvalifikál, minden árajánlatot utánkövet, minden helyszíni felmérést beütemez — az egészet Ön látja.",
+    "Magyar nyelvű AI-alapú értékesítési rendszer kivitelező cégeknek: minden megkeresést fogad és kvalifikál, minden árajánlatot utánkövet, minden helyszíni felmérést beütemez. Az egészet Ön látja.",
 };
 
 export default function EpitoiparPage() {

@@ -10,14 +10,14 @@ const PAINS = [
   {
     tab: "Megválaszolatlan DM",
     desc:
-      "A foglalások nagy része Instagramon és Messengeren érkezik — gyakran amikor a keze tele van. A lassú válasz alatt a vendég mást foglal, vagy meggondolja magát. Az AI másodpercek alatt válaszol és időpontot ad — nem foglalási link, hanem tényleg megválaszolja az üzenetet.",
+      "A foglalások nagy része Instagramon és Messengeren érkezik, gyakran amikor a keze tele van. A lassú válasz alatt a vendég mást foglal, vagy meggondolja magát. Az AI másodpercek alatt válaszol és időpontot ad: nem foglalási link, hanem tényleg megválaszolja az üzenetet.",
     metrics: [
       { k: "DM érkezik", c: "var(--ink)", v: "Instán, Messengeren", d: "miközben a keze tele van" },
       { k: "A válasz", c: "var(--ink)", v: "Késik", d: "nem ér rá azonnal" },
       { k: "A vendég", c: "var(--stone)", v: "Elpártol", d: "mást foglal vagy meggondolja" },
       { k: "A foglalás", c: "var(--viz-red)", v: "Elmarad", d: "csendben elsodródik" },
     ],
-    loss: { v: "≈ 50 000 Ft", per: "/ hó", math: "~80 megkeresés havonta — a lassú válasz ~5 foglalást elsodor × ~10 000 Ft" },
+    loss: { v: "≈ 50 000 Ft", per: "/ hó", math: "~80 megkeresés havonta: a lassú válasz ~5 foglalást elsodor × ~10 000 Ft" },
   },
   {
     tab: "Elmaradt időpontok",
@@ -29,12 +29,12 @@ const PAINS = [
       { k: "A szék", c: "var(--stone)", v: "Üresen marad", d: "~10–12% no-show" },
       { k: "A várólista", c: "var(--viz-red)", v: "Nem hív", d: "a szabad hely nem telik fel" },
     ],
-    loss: { v: "≈ 60 000 Ft", per: "/ hó", math: "~12–14 no-show havonta — emlékeztetővel és várólistával ~6 visszahozható × ~10 000 Ft" },
+    loss: { v: "≈ 60 000 Ft", per: "/ hó", math: "~12–14 no-show havonta, emlékeztetővel és várólistával ~6 visszahozható × ~10 000 Ft" },
   },
   {
     tab: "Elsodródott vendégek",
     desc:
-      "Aki egyszer járt és nem foglalt újra, az nem elégedetlen — csak nem szólt neki senki. Egy finom „ideje a következő időpontnak?” visszahozza. A visszajáró vendég megszerzése nem kerül semmibe.",
+      "Aki egyszer járt és nem foglalt újra, az nem elégedetlen, csak nem szólt neki senki. Egy finom „ideje a következő időpontnak?” visszahozza. A visszajáró vendég megszerzése nem kerül semmibe.",
     metrics: [
       { k: "Korábbi vendég", c: "var(--ink)", v: "Több száz", d: "egyszer járt, nem jött vissza" },
       { k: "Visszahívás", c: "var(--ink)", v: "Nincs", d: "senki nem szól neki" },
@@ -195,13 +195,13 @@ export default function RealtimeDashboardSzepsegipar() {
           <span className="dash__eyebrow">Hol szivárog a bevétel</span>
           <h2 className="dash__h">Három lyuk. Mindegyik bezárható.</h2>
           <p className="dash__p">
-            A legtöbb szalon nem vendéghiánytól szenved — hanem attól, hogy apró
+            A legtöbb szalon nem vendéghiánytól szenved, hanem attól, hogy apró
             bevételek csendben elszivárognak: a megválaszolatlan DM, az elmaradt
-            időpont, a vissza nem hívott vendég. Egyenként kicsi, együtt sok — és
-            a rendszer fix áron mindet bezárja.
+            időpont, a vissza nem hívott vendég. Egyenként kicsi, együtt sok.
+            A rendszer fix áron mindet bezárja.
           </p>
           <p className="dash__exnote">
-            Az alábbi számok illusztratív példák egy kisebb szalonra — a valós
+            Az alábbi számok illusztratív példák egy kisebb szalonra. A valós
             átlagár és no-show arány szalononként erősen változik.
           </p>
         </div>

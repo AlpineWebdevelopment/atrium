@@ -7,7 +7,7 @@
    missing something, and whatever is missing reads as what we cannot do. */
 const MAIN = {
   t: "AI értékesítési rendszer",
-  d: "Végigkíséri az ügyfelet az első üzenettől a megrendelésig, onnantól a következőig. Ami közben elveszne, azt megfogja. Nem kell elhinnie: heti riportban látja, mit hozott — és a számok alapján hétről hétre jobbá tesszük.",
+  d: "Végigkíséri az ügyfelet az első üzenettől a megrendelésig, onnantól a következőig. Ami közben elveszne, azt megfogja. Nem kell elhinnie: heti riportban látja, mit hozott, és a számok alapján hétről hétre jobbá tesszük.",
 };
 /* No examples here on purpose: the services page carries those, and it is
    always one click away. */

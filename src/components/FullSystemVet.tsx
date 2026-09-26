@@ -26,14 +26,14 @@ const ICONS: Record<string, React.ReactNode> = {
 };
 
 const CAPS = [
-  { ic: "mic", c: "#9662BC", t: "Hang-AI", d: "Természetes magyar beszéd — fogadja a hívásokat és visszahív." },
-  { ic: "chat", c: "#628FBC", t: "Szöveges AI", d: "SMS, WhatsApp, Messenger, Instagram, e-mail és webchat — egy helyen." },
-  { ic: "send", c: "#AD83CC", t: "Proaktív megkeresés", d: "Nem csak válaszol — magától keresi meg az elfelejtett gazdákat." },
+  { ic: "mic", c: "#9662BC", t: "Hang-AI", d: "Természetes magyar beszéd: fogadja a hívásokat és visszahív." },
+  { ic: "chat", c: "#628FBC", t: "Szöveges AI", d: "SMS, WhatsApp, Messenger, Instagram, e-mail és webchat egy helyen." },
+  { ic: "send", c: "#AD83CC", t: "Proaktív megkeresés", d: "Nem csak válaszol: magától keresi meg az elfelejtett gazdákat." },
   { ic: "db", c: "#62BCAC", t: "Egységes páciens-memória", d: "Minden csatornán emlékszik a gazdára és az előző vizsgálatra." },
   { ic: "qualify", c: "#628FBC", t: "Sürgősségi szűrés", d: "Felteszi a fontos kérdéseket, és priorizálja a sürgős eseteket." },
   { ic: "refresh", c: "#6DBC61", t: "Naptár- és CRM-szinkron", d: "A meglévő eszközeihez kötve, valós időben." },
   { ic: "bars", c: "#BCA162", t: "Riport", d: "Havi kimutatás: hány hívás, hány vizsgálat, hol szivárog a bevétel." },
-  { ic: "clock", c: "#62BCAC", t: "0–24 elérhetőség", d: "Műtét, vizsgálat, éjszaka — mindig felveszi a telefont." },
+  { ic: "clock", c: "#62BCAC", t: "0–24 elérhetőség", d: "Műtét, vizsgálat, éjszaka: mindig felveszi a telefont." },
 ];
 
 function Ico({ k, x, y, s = 18 }: { k: string; x: number; y: number; s?: number }) {
@@ -47,7 +47,7 @@ function Ico({ k, x, y, s = 18 }: { k: string; x: number; y: number; s?: number 
 function VizMegkereses() {
   const ch = [{ y: 50, k: "phone" }, { y: 105, k: "web" }, { y: 160, k: "chat" }];
   return (
-    <svg className="tsr__svg" viewBox="0 0 300 210" role="img" aria-label="Megkeresés — minden hívás egy minősített érdeklődővé">
+    <svg className="tsr__svg" viewBox="0 0 300 210" role="img" aria-label="Megkeresés: minden hívás egy minősített érdeklődővé">
       {ch.map((c, i) => {
         const path = `M74 ${c.y} C 130 ${c.y}, 150 105, 196 105`;
         return (
@@ -72,7 +72,7 @@ function VizMegkereses() {
 
 function VizFoglalas() {
   return (
-    <svg className="tsr__svg" viewBox="0 0 300 210" role="img" aria-label="Foglalás — vizsgálati időpont a naptárban, megerősítve">
+    <svg className="tsr__svg" viewBox="0 0 300 210" role="img" aria-label="Foglalás: vizsgálati időpont a naptárban, megerősítve">
       <rect x="52" y="34" width="174" height="146" rx="16" fill="var(--bone)" stroke="var(--c)" strokeWidth="1.8" />
       <path d="M52 60h174" stroke="var(--c)" strokeWidth="1.5" strokeOpacity="0.4" />
       <circle cx="68" cy="47" r="3" fill="var(--c)" /><circle cx="80" cy="47" r="3" fill="var(--c)" fillOpacity="0.5" /><circle cx="92" cy="47" r="3" fill="var(--c)" fillOpacity="0.5" />
@@ -100,7 +100,7 @@ function VizMegtartas() {
   const loop = "M150 35 A70 70 0 1 1 149.9 35 Z";
   const nodes = [{ x: 150, y: 35, k: "callback" }, { x: 210, y: 140, k: "star" }, { x: 90, y: 140, k: "refresh" }];
   return (
-    <svg className="tsr__svg" viewBox="0 0 300 210" role="img" aria-label="Megtartás — a gazda újra és újra visszatér">
+    <svg className="tsr__svg" viewBox="0 0 300 210" role="img" aria-label="Megtartás: a gazda újra és újra visszatér">
       <circle cx="150" cy="105" r="70" fill="none" stroke="var(--c)" strokeWidth="1.5" strokeOpacity="0.35" strokeDasharray="3 7" />
       <circle r="3.2" fill="var(--c)"><animateMotion dur="7s" repeatCount="indefinite" path={loop} /></circle>
       {nodes.map((n, i) => (
@@ -140,7 +140,7 @@ const PHASES = [
       { ic: "callback", t: "No-show visszahívás", s: "visszaszerzi az elmaradt vizsgálatot" },
       { ic: "bell", t: "Oltási emlékeztető", s: "időben jelzi, mikor esedékes a következő oltás" },
       { ic: "refresh", t: "Reaktiválás", s: "régen nem járt gazdákat udvariasan visszahívja" },
-      { ic: "users", t: "Ajánláskérés", s: "az elégedett gazdától ajánlást is kér — új páciens a meglévőből" },
+      { ic: "users", t: "Ajánláskérés", s: "az elégedett gazdától ajánlást is kér: új páciens a meglévőből" },
     ],
   },
 ];
@@ -162,16 +162,16 @@ export default function FullSystemVet() {
       <div className="wrap">
         <div className="dash__intro reveal">
           <span className="dash__eyebrow">A teljes rendszer</span>
-          <h2 className="dash__h">Nem hét eszköz — egyetlen rendszer.</h2>
+          <h2 className="dash__h">Nem hét eszköz, hanem egyetlen rendszer.</h2>
           <p className="dash__p">
             Az Atrium egy magyar nyelvű, AI-alapú rendszer állatorvosi
             rendelőknek: minden csatornán ugyanaz a közös memória dolgozik, és
-            végigkíséri a gazdát az első hívástól a visszatérő pácienssé válásig
-            — a háttérben, az Ön meglévő naptárához kötve.
+            végigkíséri a gazdát az első hívástól a visszatérő pácienssé
+            válásig, a háttérben, az Ön meglévő naptárához kötve.
           </p>
           <p className="sys__howline">
             Hogyan működik? AI-ügynökök kezelik a hang- és szöveges
-            beszélgetést, természetes magyar nyelven — a csapatának semmit nem
+            beszélgetést, természetes magyar nyelven. A csapatának semmit nem
             kell lecserélnie.
           </p>
         </div>
@@ -236,7 +236,7 @@ export default function FullSystemVet() {
             </span>
             <div className="jrn__result-txt">
               <b className="jrn__result-t">Több vizsgálat, több bevétel</b>
-              <span className="jrn__result-s">és minden lépés mérve — riportálás</span>
+              <span className="jrn__result-s">és minden lépés mérve, riportálva</span>
             </div>
           </div>
           <div className="sysframe__integ">

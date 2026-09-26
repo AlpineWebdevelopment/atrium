@@ -11,12 +11,12 @@ export default function FinalCtaNapelem() {
         <div className="final-cta__panel reveal">
           {/* ATRIUM-EDIT KV11 */}
           <h2 className="final-cta__h">
-            Hány kifizetett lead hűl ki ma — és ki válaszol nekik időben?
+            Hány kifizetett lead hűl ki ma, és ki válaszol nekik időben?
           </h2>
           <p className="final-cta__p">
             30 perces megbeszélés. Az Ön lead-adataiból megnézzük, mennyi idő
             alatt érkezik válasz az ajánlatkérésekre, és hány árajánlat van most
-            függőben — mielőtt bármiről dönt.
+            függőben, mielőtt bármiről dönt.
           </p>
           <button className="btn btn--lg final-cta__btn">Foglaljon időpontot</button>
           <span className="final-cta__note">

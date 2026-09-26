@@ -4,7 +4,7 @@ import { useState } from "react";
 const PAINS = [
   {
     tab: "Kezelés közben csörgő telefon",
-    desc: "Manuálterápia, ultrahang, gyógytorna közben nem lehet felvenni a telefont. A páciens nem vár — a következő rendelőt hívja, ahol valaki felveszi.",
+    desc: "Manuálterápia, ultrahang, gyógytorna közben nem lehet felvenni a telefont. A páciens nem vár: a következő rendelőt hívja, ahol valaki felveszi.",
     metrics: [
       { k: "Hívás érkezik", c: "var(--ink)", v: "14:22", d: "kezelés közben" },
       { k: "A vonal", c: "var(--stone)", v: "Nem elérhető", d: "senki nem veszi fel" },
@@ -15,7 +15,7 @@ const PAINS = [
   },
   {
     tab: "No-show-k",
-    desc: "Az elfelejtett időpont üres kezelési idősávot jelent. Emlékeztető nélkül a bevétel végleg elveszik — és a várólistán lévők sem tudják kitölteni.",
+    desc: "Az elfelejtett időpont üres kezelési idősávot jelent. Emlékeztető nélkül a bevétel végleg elveszik, és a várólistán lévők sem tudják kitölteni.",
     metrics: [
       { k: "Időpont", c: "var(--ink)", v: "10:00", d: "gyógytorna, masszázs, manuálterápia" },
       { k: "A páciens", c: "var(--stone)", v: "Nem jön el", d: "elfelejtette" },
@@ -37,7 +37,7 @@ const PAINS = [
   },
   {
     tab: "Lemondások kezelése",
-    desc: "A hirtelen lemondás üres idősávot hagy — de ha nincs várólistakezelés, az a hely üresen marad. A rendszer azonnal értesíti a várólistán lévőket.",
+    desc: "A hirtelen lemondás üres idősávot hagy, de ha nincs várólistakezelés, az a hely üresen marad. A rendszer azonnal értesíti a várólistán lévőket.",
     metrics: [
       { k: "Lemondás érkezik", c: "var(--ink)", v: "Hirtelen", d: "24 órán belül" },
       { k: "Értesítés", c: "var(--stone)", v: "Nincs", d: "várólistán lévőknek" },
@@ -91,7 +91,7 @@ function GfxFunnel() {
         <span className="qual__leg"><i className="qual__leg-dot" style={{ background: "rgba(1,14,30,0.2)" }} />Nézelődő</span>
         <span className="qual__leg"><i className="qual__leg-dot" style={{ background: "#010E1E" }} />Komoly szándék</span>
         <span className="qual__leg"><i className="qual__leg-dot" style={{ background: "#4A9EB8" }} />Visszatérő páciens</span>
-        <span className="qual__note">Az előszűrés kiemeli a komolyakat — Ön már csak velük foglalkozik.</span>
+        <span className="qual__note">Az előszűrés kiemeli a komolyakat, így Ön már csak velük foglalkozik.</span>
       </div>
     </div>
   );
@@ -237,13 +237,13 @@ export default function RealtimeDashboardPhysio() {
           <span className="dash__eyebrow">Hol szivárog a bevétel</span>
           <h2 className="dash__h">Négy lyuk. Mindegyik bezárható.</h2>
           <p className="dash__p">
-            A legtöbb gyógytornász rendelő nem pácienshiánytól szenved —
+            A legtöbb gyógytornász rendelő nem pácienshiánytól szenved,
             hanem attól, hogy a foglalások egy része elvész útközben.
             A rendszert az Ön rendelőjére szabjuk, és azt a lyukat zárja
             be, amelyik Önnél a legnagyobb.
           </p>
           <p className="dash__exnote">
-            Az alábbi számok példák — élesben az Ön valós adataira szabva.
+            Az alábbi számok példák, élesben az Ön valós adataira szabva.
           </p>
         </div>
 

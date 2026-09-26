@@ -8,23 +8,23 @@ import { useState } from "react";
 const FAQS = [
   {
     q: "Mit csinál a rendszer?",
-    a: "Fogadja a hívásokat, rangsorolja a sürgős eseteket, lefoglalja a rutin időpontokat, emlékeztet, és visszahívja a pácienseket, amikor az oltás vagy szűrés esedékes — magyarul, a meglévő naptárához kötve.",
+    a: "Fogadja a hívásokat, rangsorolja a sürgős eseteket, lefoglalja a rutin időpontokat, emlékeztet, és visszahívja a pácienseket, amikor az oltás vagy szűrés esedékes. Mindezt magyarul, a meglévő naptárához kötve.",
   },
   {
     q: "Kiszűri a kisebb ügyfeleket?",
-    a: "Nem. Minden gazdi egy évekig tartó kapcsolat. A rendszer nem szűr ki senkit — sürgősség szerint rangsorol, és megtartja a bázist.",
+    a: "Nem. Minden gazdi egy évekig tartó kapcsolat. A rendszer nem szűr ki senkit: sürgősség szerint rangsorol, és megtartja a bázist.",
   },
   {
     q: "Új gazdikat is szerez?",
-    a: "Nem. A rendszer a meglévő keresletet és a meglévő bázist hozza vissza. Új gazdikat nem szerez — ha hirdetésből jönnek érdeklődők, azokat utánköveti, de ügyfélszerzést nem ígérünk.",
+    a: "Nem. A rendszer a meglévő keresletet és a meglévő bázist hozza vissza. Új gazdikat nem szerez. Ha hirdetésből jönnek érdeklődők, azokat utánköveti, de ügyfélszerzést nem ígérünk.",
   },
   {
     q: "Le kell cserélnünk a naptárunkat?",
-    a: "Nem. A rendelő meglévő naptárához kötjük — Google Calendar, Microsoft 365, iCal. A csapatnak semmit nem kell lecserélnie.",
+    a: "Nem. A rendelő meglévő naptárához kötjük: Google Calendar, Microsoft 365, iCal. A csapatnak semmit nem kell lecserélnie.",
   },
   {
     q: "Mennyibe kerül?",
-    a: "Az árat az Ön számaiból állítjuk össze a megbeszélésen — az aktív páciensek számából, az egy kedvencre jutó éves értékből és a lecsúszott páciensek arányából. Egy általános ár félrevinné.",
+    a: "Az árat a megbeszélésen az Ön számaiból állítjuk össze: az aktív páciensek számából, az egy kedvencre jutó éves értékből és a lecsúszott páciensek arányából. Egy általános ár félrevinné.",
   },
   {
     q: "Hol tárolják az adatokat?",

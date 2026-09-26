@@ -29,17 +29,17 @@ const CHANNELS = [
 ];
 
 const DAY = [
-  { time: "06:50", k: "callback", c: "#6DBC61", t: "Még alszik — a 2 éjjeli ajánlatkérés már visszahíva, a 3. reggelre egyeztetve." },
+  { time: "06:50", k: "callback", c: "#6DBC61", t: "Még alszik. A 2 éjjeli ajánlatkérés már visszahíva, a 3. reggelre egyeztetve." },
   { time: "07:30", k: "phone", c: "#628FBC", t: "3 reggeli ajánlatkérést fogadott a rendszer, amíg Ön az első tetőre ért." },
-  { time: "08:15", k: "calendar", c: "#9662BC", t: "Helyszíni felmérés egyenesen a naptárba — Ön nélkül." },
-  { time: "09:40", k: "qualify", c: "#AD83CC", t: "Csak árat kérdezett valaki — a rendszer kvalifikálta, az Ön idejét nem vette el." },
-  { time: "11:00", k: "sms", c: "#628FBC", t: "Egy érdeklődő nem telefonált, hanem írt — a rendszer ott is felvette a fonalat." },
+  { time: "08:15", k: "calendar", c: "#9662BC", t: "Helyszíni felmérés egyenesen a naptárba, Ön nélkül." },
+  { time: "09:40", k: "qualify", c: "#AD83CC", t: "Csak árat kérdezett valaki. A rendszer kvalifikálta, az Ön idejét nem vette el." },
+  { time: "11:00", k: "sms", c: "#628FBC", t: "Egy érdeklődő nem telefonált, hanem írt. A rendszer ott is felvette a fonalat." },
   { time: "12:20", k: "refresh", c: "#BCA162", t: "Egy 3 hete kiküldött napelemes ajánlat utánkövetése elindult." },
-  { time: "13:30", k: "callback", c: "#6DBC61", t: "2 elmaradt helyszíni felmérés újraegyeztetve — mindkettő elfogadta." },
+  { time: "13:30", k: "callback", c: "#6DBC61", t: "2 elmaradt helyszíni felmérés újraegyeztetve, mindkettő elfogadta." },
   { time: "15:10", k: "bell", c: "#62BCAC", t: "Holnapi helyszíni felmérésre emlékeztetők elküldve." },
   { time: "16:45", k: "star", c: "#BCA162", t: "Egy elégedett megbízótól a rendszer értékelést kért." },
-  { time: "18:00", k: "bars", c: "#6DBC61", t: "Nap végén egy pillantás a telefonján — a rendszer megmutatja, mit hozott a mai nap." },
-  { time: "20:15", k: "home", c: "#9662BC", t: "Ön otthon, a családdal — a rendszer dolgozik tovább." },
+  { time: "18:00", k: "bars", c: "#6DBC61", t: "Nap végén egy pillantás a telefonján: a rendszer megmutatja, mit hozott a mai nap." },
+  { time: "20:15", k: "home", c: "#9662BC", t: "Ön otthon van a családdal. A rendszer dolgozik tovább." },
   { time: "21:30", k: "moon", c: "#628FBC", t: "A vasárnap esti ajánlatkérésre is azonnal válasz ment. Nyugodtan alszik." },
 ];
 
@@ -65,7 +65,7 @@ export default function HeroNapelem() {
             {/* ATRIUM-EDIT KV3 — solar subhead */}
             <p className="hero__sub">
               Az Atrium egy magyar nyelvű, AI-alapú értékesítési rendszer
-              napelemes cégeknek — minden ajánlatkérésre azonnal reagál, minden
+              napelemes cégeknek: minden ajánlatkérésre azonnal reagál, minden
               árajánlatot utánkövet, és minden érdeklődőt visszahív, hogy a
               kifizetett lead ne hűljön ki, amíg Ön a felmérésen van.
             </p>
@@ -120,7 +120,7 @@ export default function HeroNapelem() {
                   </div>
                 ))}
               </div>
-              <div className="hcon__foot">Ön a felmérésen van — a rendszer közben mindenre figyel.</div>
+              <div className="hcon__foot">Ön a felmérésen van, a rendszer közben mindenre figyel.</div>
             </div>
           </div>
         </div>

@@ -30,7 +30,7 @@ const TILES: Tile[] = [
     area: "tech",
     k: "Technológia",
     t: "Minden csatorna, egy memória",
-    d: "Amit a cége használ, azt bekötjük — és mindegyik ugyanabból a memóriából dolgozik.",
+    d: "Amit a cége használ, azt bekötjük, és mindegyik ugyanabból a memóriából dolgozik.",
     items: ["Semmit nem kell kétszer elmondani", "Megkeresi a régi ügyfeleket", "Valós idejű CRM-szinkron"],
   },
   {

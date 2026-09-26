@@ -25,17 +25,17 @@ const CHANNELS = [
 ];
 
 const DAY = [
-  { time: "06:55", k: "callback", c: "#6DBC61", t: "Még alszik — a 3 éjjeli visszahívási kérés már várólistán van." },
+  { time: "06:55", k: "callback", c: "#6DBC61", t: "Még alszik. A 3 éjjeli visszahívási kérés már várólistán van." },
   { time: "07:30", k: "calendar", c: "#4A9EB8", t: "Reggeli közben 2 új időpont futott be a hétre." },
   { time: "08:15", k: "webchat", c: "#62BCAC", t: "Egy páciens 30 mp alatt kapott választ a kezeléssel kapcsolatban." },
-  { time: "09:40", k: "phone", c: "#628FBC", t: "Manuálterápiánál van — közben 3 hívást is felvett a rendszer." },
-  { time: "11:00", k: "qualify", c: "#4A9EB8", t: "Csak az árat kérdezték — előszűrve, nem foglal felesleg helyet." },
-  { time: "12:20", k: "users", c: "#628FBC", t: "Lemondás 1 perc alatt a várólistának — nem marad üres idősáv." },
+  { time: "09:40", k: "phone", c: "#628FBC", t: "Manuálterápiánál van, közben 3 hívást is felvett a rendszer." },
+  { time: "11:00", k: "qualify", c: "#4A9EB8", t: "Csak az árat kérdezték. Előszűrve, nem foglal felesleg helyet." },
+  { time: "12:20", k: "users", c: "#628FBC", t: "Lemondás 1 perc alatt a várólistának, így nem marad üres idősáv." },
   { time: "13:30", k: "refresh", c: "#4A9EB8", t: "Egy 3 hónapja nem járt páciens visszahívva a kezelési folyamat folytatásához." },
-  { time: "15:10", k: "bell", c: "#62BCAC", t: "A holnapi páciensek emlékeztetőt kaptak — kevesebb no-show." },
+  { time: "15:10", k: "bell", c: "#62BCAC", t: "A holnapi páciensek emlékeztetőt kaptak, így kevesebb a no-show." },
   { time: "16:45", k: "star", c: "#6B9E5E", t: "Egy elégedett páciens Google-értékelést adott a rendszer kérésére." },
-  { time: "18:00", k: "phone", c: "#6DBC61", t: "Rendelő zárva — de egy foglalás se vész el." },
-  { time: "20:15", k: "home", c: "#4A9EB8", t: "Ön otthon pihen — a rendszer dolgozik tovább." },
+  { time: "18:00", k: "phone", c: "#6DBC61", t: "Rendelő zárva, de egy foglalás se vész el." },
+  { time: "20:15", k: "home", c: "#4A9EB8", t: "Ön otthon pihen, a rendszer dolgozik tovább." },
   { time: "21:30", k: "moon", c: "#628FBC", t: "Tele naptár, 0 elszalasztott páciens. Nyugodtan alszik." },
 ];
 
@@ -82,7 +82,7 @@ export default function HeroPhysio() {
             </h1>
             {/* ATRIUM-EDIT NR2-physio — reframe subhead to course-continuation product */}
             <p className="hero__sub">
-              Az Atrium egy magyar nyelvű, AI-alapú értékesítési rendszer gyógytornász és fizioterapeuta rendelőknek — figyeli, ki marad ki a kezelési folyamatból, és magyarul, időben visszahívja a következő alkalomra.
+              Az Atrium egy magyar nyelvű, AI-alapú értékesítési rendszer gyógytornász és fizioterapeuta rendelőknek: figyeli, ki marad ki a kezelési folyamatból, és magyarul, időben visszahívja a következő alkalomra.
             </p>
             <div className="hero__actions">
               <button className="btn">Foglaljon időpontot</button>
@@ -133,7 +133,7 @@ export default function HeroPhysio() {
                   </div>
                 ))}
               </div>
-              <div className="hcon__foot">Ön kezel — a rendszer közben mindenre figyel.</div>
+              <div className="hcon__foot">Ön kezel, a rendszer közben mindenre figyel.</div>
             </div>
           </div>
         </div>

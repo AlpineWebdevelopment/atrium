@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/kormos" },
   title: "Körmösök és műkörömépítők AI-alapú értékesítési rendszere",
   description:
-    "Magyar nyelvű AI-rendszer körmösöknek és műkörömépítőknek: teli naptár, kevesebb no-show, automatikus vendégvisszahívás — a háttérben, az Ön naptárához kötve.",
+    "Magyar nyelvű AI-rendszer körmösöknek és műkörömépítőknek: teli naptár, kevesebb no-show, automatikus vendégvisszahívás a háttérben, az Ön naptárához kötve.",
 };
 
 export default function KormosPage() {

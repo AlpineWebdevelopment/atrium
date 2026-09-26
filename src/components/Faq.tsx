@@ -4,11 +4,11 @@ import { useState } from "react";
 const FAQS = [
   {
     q: "Mennyi pénzt hagyok valójában az asztalon?",
-    a: "Őszintén? Pontos számot fejből senki nem mond — aki a cége ismerete nélkül konkrét összeget ígér, az csak tippel. De a pénz szinte mindig ugyanott szivárog: a nem fogadott hívásoknál, a lassan megválaszolt érdeklődőknél és az utánkövetés nélkül maradt régi ügyfeleknél. A találkozón három valós számából — havi megkeresés, egy munka átlagos értéke, záródási arány — pár perc alatt kiszámoljuk a konkrét havi forintösszeget. Onnantól nem érzésre dönt: tudja, mennyiről van szó, és hogy megéri-e behozni.",
+    a: "Őszintén? Pontos számot fejből senki nem mond. Aki a cége ismerete nélkül konkrét összeget ígér, az csak tippel. De a pénz szinte mindig ugyanott szivárog: a nem fogadott hívásoknál, a lassan megválaszolt érdeklődőknél és az utánkövetés nélkül maradt régi ügyfeleknél. A találkozón három valós számából (havi megkeresés, egy munka átlagos értéke, záródási arány) pár perc alatt kiszámoljuk a konkrét havi forintösszeget. Onnantól nem érzésre dönt: tudja, mennyiről van szó, és hogy megéri-e behozni.",
   },
   {
     q: "Észreveszik az ügyfelek, hogy AI-val beszélnek?",
-    a: "Őszintén: a hívók túlnyomó többsége nem veszi észre, hogy AI-val beszél — nagyon ritkán fordul elő. Természetes ütemben, valódi szünetekkel és élő beszédfordulatokkal beszél, magyarul, menü és robothang nélkül. Nem titkoljuk, hogy AI; a beszélgetés egyszerűen annyira gördülékeny, hogy a legtöbben bele sem gondolnak.",
+    a: "Őszintén: a hívók túlnyomó többsége nem veszi észre, hogy AI-val beszél. Nagyon ritkán fordul elő. Természetes ütemben, valódi szünetekkel és élő beszédfordulatokkal beszél, magyarul, menü és robothang nélkül. Nem titkoljuk, hogy AI; a beszélgetés egyszerűen annyira gördülékeny, hogy a legtöbben bele sem gondolnak.",
   },
   {
     q: "Mennyire természetes a magyar beszéd?",
@@ -16,19 +16,19 @@ const FAQS = [
   },
   {
     q: "Milyen rendszert kapok mellé?",
-    a: "Egy teljes, kész rendszert — saját CRM-mel, beüzemelve, az első naptól használhatóan. Ezt ajánljuk: minden egy helyen van, és így hozza ki magából a legtöbbet. Ha viszont a megszokott eszközeinél maradna, ahhoz is csatlakozunk — a döntés az Öné, de a teljes rendszerrel jár a legjobban.",
+    a: "Egy teljes, kész rendszert: saját CRM-mel, beüzemelve, az első naptól használhatóan. Ezt ajánljuk: minden egy helyen van, és így hozza ki magából a legtöbbet. Ha viszont a megszokott eszközeinél maradna, ahhoz is csatlakozunk. A döntés az Öné, de a teljes rendszerrel jár a legjobban.",
   },
   {
     q: "Nekem mit kell csinálnom?",
-    a: "Amennyit szeretne — akár semmit. A beállítást és az üzemeltetést mi visszük; ha rá se akar nézni, nem kell. De ha bele akar szólni, hogyan épüljön, végig nyitottak vagyunk rá — az Ön rendszere, az Ön szabályai szerint. A munka mindenképp a miénk.",
+    a: "Amennyit szeretne, akár semmit. A beállítást és az üzemeltetést mi visszük; ha rá se akar nézni, nem kell. De ha bele akar szólni, hogyan épüljön, végig nyitottak vagyunk rá: az Ön rendszere, az Ön szabályai szerint. A munka mindenképp a miénk.",
   },
   {
     q: "Kié lesz az adat?",
-    a: "Az Öné, és bármikor elviheti — nem zárjuk magunkhoz. Amíg üzemeltetjük, hozzáférünk, de ha elválunk, minden Önnél marad.",
+    a: "Az Öné, és bármikor elviheti. Nem zárjuk magunkhoz. Amíg üzemeltetjük, hozzáférünk, de ha elválunk, minden Önnél marad.",
   },
   {
     q: "Tudok rajta változtatni később?",
-    a: "Igen. A cége változik, a rendszer vele változik — ez a karbantartás része, nem új számla minden apró módosításért. A rendszer Önt szolgálja, nem fordítva.",
+    a: "Igen. A cége változik, a rendszer vele változik. Ez a karbantartás része, nem új számla minden apró módosításért. A rendszer Önt szolgálja, nem fordítva.",
   },
 ];
 

@@ -7,15 +7,15 @@ import { useState } from "react";
 const FAQS = [
   {
     q: "Mit csinál pontosan a rendszer?",
-    a: "Megkeresi a beérkező leadeket az első perceken belül, minősíti az érdeklődést, foglal vagy átad — és addig megy utána, amíg valóban el nem éri. Havonta riportot küld: hány lead érkezett, mennyit ért el, milyen gyorsan.",
+    a: "Megkeresi a beérkező leadeket az első perceken belül, minősíti az érdeklődést, foglal vagy átad, és addig megy utána, amíg valóban el nem éri. Havonta riportot küld: hány lead érkezett, mennyit ért el, milyen gyorsan.",
   },
   {
     q: "Csak válaszol, vagy valóban kvalifikál is?",
-    a: "Kvalifikál is. Felteszi az első kérdéseket és megerősíti az érdeklődést — hogy Ön tényleg minőségi leadekkel foglalkozzon, ne csupán egy kontaktlistával.",
+    a: "Kvalifikál is. Felteszi az első kérdéseket és megerősíti az érdeklődést, hogy Ön tényleg minőségi leadekkel foglalkozzon, ne csupán egy kontaktlistával.",
   },
   {
     q: "Milyen hirdetési platformokkal működik?",
-    a: "Meta (Facebook, Instagram) és Google — ahol a leadek a legtöbb esetben keletkeznek. Más platform esetén a megbeszélésen megnézzük.",
+    a: "Meta (Facebook, Instagram) és Google, ahol a leadek a legtöbb esetben keletkeznek. Más platform esetén a megbeszélésen megnézzük.",
   },
   {
     q: "Milyen gyorsan van éles?",
@@ -23,7 +23,7 @@ const FAQS = [
   },
   {
     q: "Mennyibe kerül?",
-    a: "Az ár a lead-volumentől és a csatornák számától függ. A megbeszélésen a saját számaiból megmutatjuk a pontos összeget — mielőtt bármit dönt.",
+    a: "Az ár a lead-volumentől és a csatornák számától függ. A megbeszélésen a saját számaiból megmutatjuk a pontos összeget, mielőtt bármit dönt.",
   },
 ];
 

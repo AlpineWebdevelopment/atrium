@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/szepsegszalon" },
   title: "Szépségszalonok AI-alapú ügyfélkezelési rendszere",
   description:
-    "Magyar nyelvű AI-rendszer szépségszalonoknak: teli naptár, kevesebb no-show, automatikus várólistakezelés — a háttérben, az Ön eszközeihez kötve.",
+    "Magyar nyelvű AI-rendszer szépségszalonoknak: teli naptár, kevesebb no-show, automatikus várólistakezelés a háttérben, az Ön eszközeihez kötve.",
 };
 
 export default function SzepsegszalonPage() {

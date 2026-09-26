@@ -116,11 +116,11 @@ function GfxFunnel() {
         <span className="qual__leg"><i className="qual__leg-dot" style={{ background: "rgba(1,14,30,0.32)" }} />Nézelődő</span>
         <span className="qual__leg"><i className="qual__leg-dot" style={{ background: "#010E1E" }} />Komoly szándék</span>
         <span className="qual__leg"><i className="qual__leg-dot" style={{ background: "#6DBC61" }} />Vevő</span>
-        <span className="qual__note">Az előszűrés kiemeli a komolyakat — Ön már csak velük beszél.</span>
+        <span className="qual__note">Az előszűrés kiemeli a komolyakat, így Ön már csak velük beszél.</span>
       </div>
       <p className="qual__clarify">
         <b>Komoly nem egyenlő nagy.</b> A rendszer a valódi szándékot nézi, nem a
-        munka méretét — a nézelődőt szűri ki, nem a kisebb, de komoly vevőt.
+        munka méretét: a nézelődőt szűri ki, nem a kisebb, de komoly vevőt.
       </p>
     </div>
   );
@@ -267,9 +267,9 @@ function GfxCalendar() {
 function GfxQuotes() {
   type Row = { sub: string; val: string; s: "nema" | "won" };
   const rows: Row[] = [
-    { sub: "3 napja — nincs utánkövetés", val: "1 900 000 Ft", s: "nema" },
-    { sub: "ma — a rendszer utánkövette", val: "850 000 Ft", s: "won" },
-    { sub: "6 napja — nincs utánkövetés", val: "1 300 000 Ft", s: "nema" },
+    { sub: "3 napja, nincs utánkövetés", val: "1 900 000 Ft", s: "nema" },
+    { sub: "ma, a rendszer utánkövette", val: "850 000 Ft", s: "won" },
+    { sub: "6 napja, nincs utánkövetés", val: "1 300 000 Ft", s: "nema" },
   ];
   const nema = rows.filter((r) => r.s === "nema").length;
   return (
@@ -328,7 +328,7 @@ export default function RealtimeDashboard() {
           <span className="dash__eyebrow" style={{ color: "#9360BA" }}>Hol szivárog a bevétel</span>
           <h2 className="dash__h">Négy hely, ahol a pénz szivárog<span className="heading-dot">.</span></h2>
           <p className="dash__exnote">
-            Az alábbi számok példák — élesben az Ön valós adataira szabva.
+            Az alábbi számok példák, élesben az Ön valós adataira szabva.
           </p>
         </div>
 

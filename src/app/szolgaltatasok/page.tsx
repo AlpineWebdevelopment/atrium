@@ -58,7 +58,7 @@ const SERVICES: Service[] = [
     tag: "Specialitásunk",
     plate: "A megkeresésből megrendelés.",
     lead:
-      "Nem csevegőablak a weboldal sarkában. Egy rendszer, amely a megkeresést végigviszi a foglalásig, az árajánlatig és az utánkövetésig — majd gondoskodik arról, hogy az ügyfél vissza is jöjjön. Minden csatorna ugyanabból a memóriából dolgozik: aki telefonon kezdte és Instagramon folytatja, ugyanaz az ügyfél marad, és nem kell kétszer elmondania.",
+      "Nem csevegőablak a weboldal sarkában. Egy rendszer, amely a megkeresést végigviszi a foglalásig, az árajánlatig és az utánkövetésig, majd gondoskodik arról, hogy az ügyfél vissza is jöjjön. Minden csatorna ugyanabból a memóriából dolgozik: aki telefonon kezdte és Instagramon folytatja, ugyanaz az ügyfél marad, és nem kell kétszer elmondania.",
     why: [
       "Nyolc csatorna, egy beszélgetés: telefon, SMS, WhatsApp, Viber, Messenger, Instagram, e-mail, webchat.",
       "Az ügyfélnek semmit nem kell kétszer elmondania.",
@@ -93,7 +93,7 @@ const SERVICES: Service[] = [
         k: "03",
         t: "Megtartás",
         items: [
-          ["Esedékesség-emlékeztető", "szól, amikor esedékes a következő alkalom — mielőtt az ügyfél elmaradna"],
+          ["Esedékesség-emlékeztető", "szól, amikor esedékes a következő alkalom, mielőtt az ügyfél elmaradna"],
           ["Elégedettség-ellenőrzés", "a munka után rákérdez, minden rendben volt-e, és a gondot időben jelzi"],
           ["Értékelés", "elégedett ügyféltől értékelést kér"],
           ["Reaktiválás", "hónapokkal később visszahozza a régit"],
@@ -117,7 +117,7 @@ const SERVICES: Service[] = [
     name: "AI adatbázis-újraélesztés",
     plate: "A régi listája a legolcsóbb bevétel.",
     lead:
-      "A korábbi ügyfelek és a rég elhalt érdeklődők már ismerik Önt. Őket visszahozni olcsóbb, mint új embert szerezni — csak senkinek nincs ideje végigtelefonálni ezer sort.",
+      "A korábbi ügyfelek és a rég elhalt érdeklődők már ismerik Önt. Őket visszahozni olcsóbb, mint új embert szerezni. Csak senkinek nincs ideje végigtelefonálni ezer sort.",
     why: [
       "Nem tömeges körüzenet, hanem beszélgetés, amely a válaszra reagál.",
       "A listát előbb rendbe tesszük: duplikátumok, halott elérhetőségek, szegmensek.",
@@ -126,7 +126,7 @@ const SERVICES: Service[] = [
     gives: [
       "Végigmegy a régi ügyfeleken és a lezáratlan érdeklődőkön.",
       "Aki válaszol, annak azonnal időpontot vagy ajánlatot ad.",
-      "Aki nemet mond, lekerül a listáról — nem zaklatjuk tovább.",
+      "Aki nemet mond, lekerül a listáról, és nem zaklatjuk tovább.",
       "A végén számot kap: hány embert értünk el, és mennyi jött vissza.",
     ],
     who:
@@ -165,7 +165,7 @@ const SERVICES: Service[] = [
     lead:
       "Természetes magyar beszéd, menü és robothang nélkül, bejövő és kimenő hívásra is. A hangot a cégéhez hangoljuk, mielőtt élesedik.",
     why: [
-      "Hétköznapi magyar, valódi szünetekkel — nem gépi felolvasás.",
+      "Hétköznapi magyar, valódi szünetekkel, nem gépi felolvasás.",
       "Nem titkoljuk, hogy AI. A hívók többsége mégsem veszi észre.",
       "Minden hívás visszahallgatható, nem kell elhinnie, hogy jól ment.",
     ],
@@ -191,7 +191,7 @@ const SERVICES: Service[] = [
     why: [
       "Nem kész dobozt húzunk a folyamatára: a folyamatra tervezünk.",
       "Fix áron, közösen meghatározott eredményre dolgozunk.",
-      "Amit megépítünk, az az Öné — a dokumentációval együtt.",
+      "Amit megépítünk, az az Öné, a dokumentációval együtt.",
       "Ha nem oldható meg AI-jal, megmondjuk, és nem raboljuk tovább az idejét.",
     ],
     examples: [
@@ -228,7 +228,7 @@ const SERVICES: Service[] = [
       {
         t: "Személyes kapcsolattartó felület",
         who: "Hosszú döntési idővel dolgozó cégnek",
-        d: "Egy felületről küldhet minden érdeklődőjének személyre szabott üzenetet — névnapra, születésnapra, más alkalomra. A kapcsolat akkor is él, amíg az érdeklődő még nem döntött.",
+        d: "Egy felületről küldhet minden érdeklődőjének személyre szabott üzenetet: névnapra, születésnapra, más alkalomra. A kapcsolat akkor is él, amíg az érdeklődő még nem döntött.",
       },
       {
         t: "Rendszerek közötti adatkapocs",
@@ -243,14 +243,14 @@ const SERVICES: Service[] = [
       "A kész rendszert dokumentációval adjuk át.",
     ],
     who:
-      "Annak, akinek konkrét, ismétlődő problémája van — nem általános AI-ötlete.",
+      "Annak, akinek konkrét, ismétlődő problémája van, nem általános AI-ötlete.",
   },
 ];
 
 const GUARANTEE = [
   {
     t: "Fix ár, működő eredmény",
-    d: "Fix áron, közösen meghatározott eredményre dolgozunk. Ha több kör kell hozzá, az a mi dolgunk — felár nélkül.",
+    d: "Fix áron, közösen meghatározott eredményre dolgozunk. Ha több kör kell hozzá, az a mi dolgunk, felár nélkül.",
   },
   {
     t: "Az Öné marad",
@@ -356,7 +356,7 @@ export default function ServicesPage() {
                         <h4 className="svc__phase-t">{p.t}</h4>
                         <ul>
                           {p.items.map(([t, d]) => (
-                            <li key={t}><b>{t}</b> — {d}</li>
+                            <li key={t}><b>{t}</b>: {d}</li>
                           ))}
                         </ul>
                       </div>
@@ -370,7 +370,7 @@ export default function ServicesPage() {
                   <h3 className="svc__h svc__h--wide">Példa projektek</h3>
                   <p className="svc__ex-note">
                     Ezek megépült rendszerek típusai, nem árlista. Az Öné másképp
-                    fog kinézni — a folyamata dönti el, hogyan.
+                    fog kinézni: a folyamata dönti el, hogyan.
                   </p>
                   <div className="svc__ex-grid">
                     {s.examples.map((e, i) => (
@@ -413,7 +413,7 @@ export default function ServicesPage() {
             <h2 className="dr-h2">Melyik kell Önnek?</h2>
             <p className="dr-close__p">
               Ezt előre nem mondjuk meg. Fél óra beszélgetés, és a végén tudni
-              fogja — akkor is, ha a válasz az, hogy egyik sem.
+              fogja, akkor is, ha a válasz az, hogy egyik sem.
             </p>
             <a className="dr-btn dr-btn--lg" href="/foglalas?from=szolgaltatasok">Foglaljon időpontot</a>
           </div>

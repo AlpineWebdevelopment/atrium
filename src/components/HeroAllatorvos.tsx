@@ -21,7 +21,7 @@ const JOURNEY = [
   { k: "triage",   c: "#AD83CC", step: "Rangsorolva",  t: "Sürgős vagy rutin? A helyére kerül." },
   { k: "calendar", c: "#628FBC", step: "Lefoglalva",   t: "Időpont a naptárban, a gazdinak visszaigazolva." },
   { k: "bell",     c: "#9662BC", step: "Emlékeztetve", t: "Az időpont előtt, hogy meg is jelenjen." },
-  { k: "refresh",  c: "#2D9B7F", step: "Visszahívva",  t: "Egy év múlva, amikor az oltás esedékes — mielőtt elsodródna." },
+  { k: "refresh",  c: "#2D9B7F", step: "Visszahívva",  t: "Egy év múlva, amikor az oltás esedékes, még mielőtt elsodródna." },
 ];
 
 export default function HeroAllatorvos() {
@@ -46,7 +46,7 @@ export default function HeroAllatorvos() {
             {/* ATRIUM-EDIT AV3 */}
             <p className="hero__sub">
               Az Atrium egy magyar nyelvű, AI-alapú értékesítési rendszer
-              állatorvosi rendelőknek — minden hívást fogad, a sürgős eseteket
+              állatorvosi rendelőknek: minden hívást fogad, a sürgős eseteket
               rangsorolja, a rutin időpontokat lefoglalja, és visszahívja a
               pácienseket, mielőtt lemaradnának az oltásról.
             </p>
@@ -98,7 +98,7 @@ export default function HeroAllatorvos() {
                   </div>
                 ))}
               </div>
-              <div className="hcon__foot">Minden gazdi egy évekig tartó kapcsolat — egy sem vész el.</div>
+              <div className="hcon__foot">Minden gazdi egy évekig tartó kapcsolat. Egy sem vész el.</div>
             </div>
           </div>
         </div>

@@ -16,7 +16,7 @@ import FooterChatgpt from "@/components/FooterChatgpt";
 const LANDING = "/chatgpt-hirdetes";
 
 export const metadata: Metadata = {
-  title: "Foglaljon időpontot — ChatGPT hirdetés",
+  title: "Foglaljon időpontot a ChatGPT hirdetéshez",
   description:
     "Foglaljon egy ingyenes, 30 perces beszélgetést. Megnézzük, milyen kérdésekre jönne szóba az Ön cége a ChatGPT-ben, és mit építenénk rá.",
   alternates: { canonical: `${LANDING}/foglalas` },

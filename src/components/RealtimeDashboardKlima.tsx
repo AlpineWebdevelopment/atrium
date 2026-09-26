@@ -11,7 +11,7 @@ const PAINS = [
   {
     tab: "Elszalasztott hívások",
     desc:
-      "A komoly munkák telefonon indulnak — gyakran a hőségcsúcson, este vagy foglalt vonal mellett, amikor a csapat mind kint dolgozik. Aki hangpostát kap, nem vár: a következő szerelőt hívja. Egy elnyert beszerelés már sokszorosát hozza a rendszer árának.",
+      "A komoly munkák telefonon indulnak, gyakran a hőségcsúcson, este vagy foglalt vonal mellett, amikor a csapat mind kint dolgozik. Aki hangpostát kap, nem vár: a következő szerelőt hívja. Egy elnyert beszerelés már sokszorosát hozza a rendszer árának.",
     metrics: [
       { k: "Hívás érkezik", c: "var(--ink)", v: "Hőségcsúcson", d: "amikor mindenki kint van" },
       { k: "A vonal", c: "var(--ink)", v: "Hangposta", d: "Ön a tetőn, a klímánál van" },
@@ -19,12 +19,12 @@ const PAINS = [
       { k: "A beszerelés", c: "var(--viz-red)", v: "Elveszik", d: "máshol köt ki" },
     ],
     /* TODO: confirm before publishing — illustrative figure */
-    loss: { v: "≈ 4 000 000 Ft", per: "/ hó", math: "~15 hívás havonta a csúcson kicsengve — egy elnyert beszerelés ~4 000 000 Ft" },
+    loss: { v: "≈ 4 000 000 Ft", per: "/ hó", math: "~15 hívás havonta a csúcson kicsengve: egy elnyert beszerelés ~4 000 000 Ft" },
   },
   {
     tab: "Lassú utánkövetés",
     desc:
-      "A weboldalról és hirdetésből érkező érdeklődő gyorsan dönt — a hőségben pedig azonnal. Aki előbb visszahív, az viszi a felmérést. Ha az első válasz csak másnap jön, a gyorsabb versenytárs már beszerelt.",
+      "A weboldalról és hirdetésből érkező érdeklődő gyorsan dönt, a hőségben pedig azonnal. Aki előbb visszahív, az viszi a felmérést. Ha az első válasz csak másnap jön, a gyorsabb versenytárs már beszerelt.",
     metrics: [
       { k: "Érdeklődés", c: "var(--ink)", v: "Beérkezik", d: "űrlap, e-mail, hirdetés" },
       { k: "Első válasz", c: "var(--stone)", v: "Órák, napok", d: "amikor épp jut rá idő" },
@@ -32,25 +32,25 @@ const PAINS = [
       { k: "A felmérés", c: "var(--viz-red)", v: "Elveszik", d: "a gyorsabbé lesz" },
     ],
     /* TODO: confirm before publishing — illustrative figure; HBR 2011 stat is sourced */
-    loss: { v: "≈ 4 000 000 Ft", per: "/ hó", math: "az első válasz lassú — 1 órán belül ~7× az esély a kapcsolatra (HBR, 2011)" },
+    loss: { v: "≈ 4 000 000 Ft", per: "/ hó", math: "az első válasz lassú: 1 órán belül ~7× az esély a kapcsolatra (HBR, 2011)" },
   },
   {
     tab: "Lezáratlan ajánlat",
     desc:
-      "A beszerelési ajánlat kiment — de senki nem kíséri végig. Az ügyfél halogat, aztán elfelejti, vagy mást választ. A majdnem-kész üzlet csendben elveszik. A rendszer utánkövet: emlékeztet, kérdez, lezár. Ez a legnagyobb tétel.",
+      "A beszerelési ajánlat kiment, de senki nem kíséri végig. Az ügyfél halogat, aztán elfelejti, vagy mást választ. A majdnem-kész üzlet csendben elveszik. A rendszer utánkövet: emlékeztet, kérdez, lezár. Ez a legnagyobb tétel.",
     metrics: [
       { k: "Ajánlat kiküldve", c: "var(--ink)", v: "~20 / hó", d: "kimegy, és ott marad" },
       { k: "Utánkövetés", c: "var(--ink)", v: "Nincs", d: "senki nem kíséri végig" },
-      { k: "A döntés", c: "var(--stone)", v: "Némaság", d: "nem nem — csak elhal" },
+      { k: "A döntés", c: "var(--stone)", v: "Némaság", d: "nem nemet mond, csak elhal" },
       { k: "A majdnem-kész üzlet", c: "var(--viz-red)", v: "Elveszik", d: "~8–10 ajánlat csendben" },
     ],
     /* TODO: confirm before publishing — illustrative figure */
-    loss: { v: "≈ 8 000 000 Ft", per: "/ hó", math: "~8–10 utánkövetetlen ajánlat — 1–2 visszahozva ~4–8M Ft munka" },
+    loss: { v: "≈ 8 000 000 Ft", per: "/ hó", math: "~8–10 utánkövetetlen ajánlat, 1–2 visszahozva ~4–8M Ft munka" },
   },
   {
     tab: "Lemorzsolódó karbantartás",
     desc:
-      "Az esedékes karbantartás a visszatérő bevétel — de emlékeztető nélkül az ügyfél kiesik a körből, vagy a kiszállás üres címre fut ki. Elpazarolt idő, elveszett visszatérő ügyfél. A rendszer jelzi az esedékes karbantartásokat és újraegyeztet, mielőtt a kör szétesik.",
+      "Az esedékes karbantartás a visszatérő bevétel, de emlékeztető nélkül az ügyfél kiesik a körből, vagy a kiszállás üres címre fut ki. Elpazarolt idő, elveszett visszatérő ügyfél. A rendszer jelzi az esedékes karbantartásokat és újraegyeztet, mielőtt a kör szétesik.",
     metrics: [
       { k: "Karbantartás esedékes", c: "var(--ink)", v: "Hetente több", d: "visszatérő ügyfélkör" },
       { k: "Emlékeztető", c: "var(--ink)", v: "Nincs", d: "az ügyfél kiesik a körből" },
@@ -58,7 +58,7 @@ const PAINS = [
       { k: "Az ügyfél", c: "var(--viz-red)", v: "Lemorzsolódik", d: "vagy mást hív" },
     ],
     /* TODO: confirm before publishing — illustrative figure */
-    loss: { v: "≈ 1 200 000 Ft", per: "/ hó", math: "~3–5 lemorzsolódó karbantartás havonta — kiesett visszatérő bevétel és felesleges kiszállás" },
+    loss: { v: "≈ 1 200 000 Ft", per: "/ hó", math: "~3–5 lemorzsolódó karbantartás havonta: kiesett visszatérő bevétel és felesleges kiszállás" },
   },
 ];
 
@@ -156,10 +156,10 @@ function GfxQuotes() {
   type Row = { sub: string; val: string; s: "nema" | "won" };
   /* TODO: confirm before publishing — illustrative figures */
   const rows: Row[] = [
-    { sub: "3 napja — nincs utánkövetés", val: "5 800 000 Ft", s: "nema" },
-    { sub: "ma — a rendszer utánkövette", val: "4 200 000 Ft", s: "won" },
-    { sub: "6 napja — nincs utánkövetés", val: "2 400 000 Ft", s: "nema" },
-    { sub: "9 napja — nincs utánkövetés", val: "9 100 000 Ft", s: "nema" },
+    { sub: "3 napja, nincs utánkövetés", val: "5 800 000 Ft", s: "nema" },
+    { sub: "ma, a rendszer utánkövette", val: "4 200 000 Ft", s: "won" },
+    { sub: "6 napja, nincs utánkövetés", val: "2 400 000 Ft", s: "nema" },
+    { sub: "9 napja, nincs utánkövetés", val: "9 100 000 Ft", s: "nema" },
   ];
   const nema = rows.filter((r) => r.s === "nema").length;
   return (
@@ -245,15 +245,15 @@ export default function RealtimeDashboardKlima() {
           <span className="dash__eyebrow">Hol szivárog a bevétel</span>
           <h2 className="dash__h">Négy lyuk. Mindegyik bezárható.</h2>
           <p className="dash__p">
-            A legtöbb klímaszerviz nem munkahiánytól szenved — hanem attól,
+            A legtöbb klímaszerviz nem munkahiánytól szenved, hanem attól,
             hogy a megkeresések egy része elvész útközben: a csúcson kicsengő
             hívás, lassú visszajelzés, utánkövetetlen ajánlat, lemorzsolódó
             karbantartás. A rendszert az Ön működésére szabjuk, és azt a lyukat
             zárja be, amelyik Önnél a legnagyobb.
           </p>
           <p className="dash__exnote">
-            Az alábbi számok illusztratív példák egy átlagos klímaszervizre —
-            élesben az Ön valós számaival (megkeresés, átlagos beszerelés,
+            Az alábbi számok illusztratív példák egy átlagos klímaszervizre.
+            Élesben az Ön valós számaival (megkeresés, átlagos beszerelés,
             fedezet, záródás) töltjük ki.
           </p>
         </div>

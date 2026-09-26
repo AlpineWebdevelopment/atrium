@@ -4,7 +4,7 @@ import LegalDoc from "@/components/LegalDoc";
 export const metadata: Metadata = {
   title: "Általános Szerződési Feltételek (ÁSZF)",
   description:
-    "Az Atrium Általános Szerződési Feltételei — a szolgáltatások nyújtására vonatkozó szerződéses feltételek.",
+    "Az Atrium Általános Szerződési Feltételei: a szolgáltatások nyújtására vonatkozó szerződéses feltételek.",
   alternates: { canonical: "/aszf" },
 };
 

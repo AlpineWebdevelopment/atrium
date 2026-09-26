@@ -177,9 +177,9 @@ function GfxFelmeres() {
 function GfxQuotes() {
   type Row = { sub: string; val: string; s: "nema" | "won" };
   const rows: Row[] = [
-    { sub: "5 napja — nincs utánkövetés", val: "3 800 000 Ft", s: "nema" },
-    { sub: "ma — a rendszer utánkövette", val: "4 200 000 Ft", s: "won" },
-    { sub: "8 napja — nincs utánkövetés", val: "2 100 000 Ft", s: "nema" },
+    { sub: "5 napja, nincs utánkövetés", val: "3 800 000 Ft", s: "nema" },
+    { sub: "ma, a rendszer utánkövette", val: "4 200 000 Ft", s: "won" },
+    { sub: "8 napja, nincs utánkövetés", val: "2 100 000 Ft", s: "nema" },
   ];
   const nema = rows.filter((r) => r.s === "nema").length;
   return (
@@ -238,7 +238,7 @@ export default function RealtimeDashboardKivitelezes() {
           <span className="dash__eyebrow" style={{ color: "#9360BA" }}>Hol szivárog a bevétel</span>
           <h2 className="dash__h">Négy hely, ahol a pénz szivárog<span className="heading-dot">.</span></h2>
           <p className="dash__exnote">
-            Az alábbi számok példák — élesben az Ön valós adataira szabva.
+            Az alábbi számok példák, élesben az Ön valós adataira szabva.
           </p>
         </div>
 

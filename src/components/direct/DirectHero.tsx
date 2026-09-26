@@ -46,7 +46,7 @@ export default function DirectHero() {
         </h1>
         <p className="sk-lead reveal" data-delay="2">
           Nálunk az első kérdés nem az, hogy mit tud az AI. Hanem az, hogy mennyit hoz.
-          Egy rendszer, ami fogad, foglal, utánkövet — és hetente megmutatja, mi lett belőle.
+          Egy rendszer, ami fogad, foglal, utánkövet, és hetente megmutatja, mi lett belőle.
         </p>
         <div className="sk-ctas reveal" data-delay="2">
           <a className="sk-btn" href="/foglalas?from=direct">Foglaljon időpontot</a>

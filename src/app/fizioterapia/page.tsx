@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/fizioterapia" },
   title: "Gyógytornász és fizioterapeuta rendelők AI-alapú ügyfélkezelési rendszere",
   description:
-    "Magyar nyelvű AI-rendszer gyógytornász és fizioterapeuta rendelőknek: teli naptár, kevesebb no-show, automatikus páciens-utánkövetés — a háttérben, az Ön naptárához kötve.",
+    "Magyar nyelvű AI-rendszer gyógytornász és fizioterapeuta rendelőknek: teli naptár, kevesebb no-show, automatikus páciens-utánkövetés a háttérben, az Ön naptárához kötve.",
 };
 
 export default function FizioterapiaPage() {

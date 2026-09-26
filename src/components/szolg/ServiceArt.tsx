@@ -30,7 +30,7 @@ function SystemArt() {
           </div>
         ))}
       </div>
-      <figcaption>Egy szál, az első hívástól a visszatérésig — nem hat külön eszköz.</figcaption>
+      <figcaption>Egy szál, az első hívástól a visszatérésig. Nem hat külön eszköz.</figcaption>
     </figure>
   );
 }
@@ -41,10 +41,10 @@ function ReviveArt() {
   const ROWS = [
     { s: "cold", t: "Érdeklődött, nem lett belőle semmi" },
     { s: "cold", t: "Egyszer vásárolt, azóta csend" },
-    { s: "warm", t: "Válaszolt — időpontot kért" },
+    { s: "warm", t: "Válaszolt, időpontot kért" },
     { s: "cold", t: "Árajánlatot kapott, nem döntött" },
-    { s: "warm", t: "Válaszolt — visszajött" },
-    { s: "off", t: "Nemet mondott — lekerül a listáról" },
+    { s: "warm", t: "Válaszolt, visszajött" },
+    { s: "off", t: "Nemet mondott, lekerül a listáról" },
   ];
   return (
     <figure className="sa sa--revive">
@@ -69,7 +69,7 @@ function TextArt() {
         <div className="sa__lane sa__lane--slow">
           <span className="sa__lane-k">Kézzel</span>
           <span className="sa__bar" aria-hidden="true"><i style={{ width: "100%" }} /></span>
-          <span className="sa__lane-v">órák múlva — ha épp jut rá idő</span>
+          <span className="sa__lane-v">órák múlva, ha épp jut rá idő</span>
         </div>
         <div className="sa__lane sa__lane--fast">
           <span className="sa__lane-k">Az ügynökkel</span>
@@ -126,7 +126,7 @@ function CustomArt() {
         <span className="sa__brief-k">A kiindulópont</span>
         <p>Egy ismétlődő folyamat, ami időt vagy pénzt éget.</p>
       </div>
-      <figcaption>Fix ár, közösen meghatározott eredmény — és a végén a rendszer az Öné.</figcaption>
+      <figcaption>Fix ár, közösen meghatározott eredmény, és a végén a rendszer az Öné.</figcaption>
     </figure>
   );
 }

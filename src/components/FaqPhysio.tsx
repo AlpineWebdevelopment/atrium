@@ -10,24 +10,24 @@ const FAQS = [
   {
     q: "Kezelés közben is felveszi a hívásokat?",
     /* ATRIUM-EDIT NR5-physio-Q2 — reframe call-answering answer to course-continuation core */
-    a: "Igen — pontosan erre terveztük. Kezelés közben a rendszer figyeli, ki maradt ki a kezelési folyamatból, és időben megkeresi a következő alkalomra. Ön a páciensével foglalkozik, a rendszer a folytatásról gondoskodik.",
+    a: "Igen, pontosan erre terveztük. Kezelés közben a rendszer figyeli, ki maradt ki a kezelési folyamatból, és időben megkeresi a következő alkalomra. Ön a páciensével foglalkozik, a rendszer a folytatásról gondoskodik.",
   },
   {
     q: "Mi van, ha a páciens személlyel akar beszélni?",
-    a: "Amint a páciens élő személyt kér, a rendszer rögtön átkapcsol — Önhöz vagy a kollégájához. Ha senki nem elérhető, visszahívást szervez a megadott időpontra. Közben figyeljük a hívásokat és folyamatosan finomítjuk.",
+    a: "Amint a páciens élő személyt kér, a rendszer rögtön átkapcsol Önhöz vagy a kollégájához. Ha senki nem elérhető, visszahívást szervez a megadott időpontra. Közben figyeljük a hívásokat és folyamatosan finomítjuk.",
   },
   {
     q: "Hogyan csökkenti a no-show-k számát?",
-    a: "A rendszer automatikusan emlékeztetőt küld SMS-ben vagy WhatsAppon 24 és 2 órával az időpont előtt. Ha a páciens mégsem jön, azonnal értesíti a várólistán lévőket — így az üres idősáv feltöltődik.",
+    a: "A rendszer automatikusan emlékeztetőt küld SMS-ben vagy WhatsAppon 24 és 2 órával az időpont előtt. Ha a páciens mégsem jön, azonnal értesíti a várólistán lévőket, így az üres idősáv feltöltődik.",
   },
   {
     q: "Tudja kezelni a különböző kezelési típusokat és terapeutákat?",
-    a: "Igen. Minden terapeutát, kezelési típust és annak időtartamát beállítjuk: gyógytorna, manuálterápia, ultrahang, masszázs, McKenzie-módszer, Bobath — mindegyiknek más naptár, más időtartam. A páciens pontosan ahhoz a terapeutához és kezeléshez foglal, amelyre szüksége van.",
+    a: "Igen. Minden terapeutát, kezelési típust és annak időtartamát beállítjuk: gyógytorna, manuálterápia, ultrahang, masszázs, McKenzie-módszer, Bobath. Mindegyiknek más naptár, más időtartam. A páciens pontosan ahhoz a terapeutához és kezeléshez foglal, amelyre szüksége van.",
   },
   {
     q: "Hány hívást tud egyszerre kezelni?",
     /* ATRIUM-EDIT NR5-physio-Q6 — reframe call-volume answer to course-continuation core */
-    a: "Párhuzamosan több pácienst is nyomon követ. Hétvégén, ünnepnapon, zárás után is figyeli a kezelési folyamatból kimaradt pácienseket, és szükség esetén megkeresi — egyetlen páciens sem vész el útközben.",
+    a: "Párhuzamosan több pácienst is nyomon követ. Hétvégén, ünnepnapon, zárás után is figyeli a kezelési folyamatból kimaradt pácienseket, és szükség esetén megkeresi. Egyetlen páciens sem vész el útközben.",
   },
   {
     q: "Biztonságban vannak a páciensadatok? Megfelel a GDPR-nak?",
@@ -39,11 +39,11 @@ const FAQS = [
   },
   {
     q: "Mennyi idő alatt térül meg?",
-    a: "A rendszer általában 60 nap alatt kitermeli az árát a megmentett bevételből — a feltöltött no-show helyekből és a visszahozott régi páciensekből. Havi kimutatásban látja pontosan, mennyit fogott meg.",
+    a: "A rendszer általában 60 nap alatt kitermeli az árát a megmentett bevételből: a feltöltött no-show helyekből és a visszahozott régi páciensekből. Havi kimutatásban látja pontosan, mennyit fogott meg.",
   },
   {
     q: "Vissza tudja hozni a régen nem járt pácienseket?",
-    a: "Igen. Sorra veszi azokat, akik hónapok óta nem jártak, és egy udvarias üzenettel emlékezteti őket a kezelési folyamat folytatásának fontosságára — vagy egy szezonális ajánlattal hívja vissza. Ugyanabból a listából, ami már most a kezében van.",
+    a: "Igen. Sorra veszi azokat, akik hónapok óta nem jártak, és egy udvarias üzenettel emlékezteti őket a kezelési folyamat folytatásának fontosságára, vagy egy szezonális ajánlattal hívja vissza. Ugyanabból a listából, ami már most a kezében van.",
   },
 ];
 

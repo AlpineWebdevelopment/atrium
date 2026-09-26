@@ -11,50 +11,50 @@ const PAINS = [
   {
     tab: "Kihűlő kifizetett leadek",
     desc:
-      "A napelemes érdeklődő gyakran este vagy hétvégén kér ajánlatot — és párhuzamosan több céget keres meg. Aki előbb reagál, az viszi a felmérést. Az elsőként reagáló cég a kutatás szerint sokszorosára növeli az érdemi kapcsolat esélyét (HBR, 2011). A leadet Ön már kifizette: ha kihűl, a hirdetés is veszteség.",
+      "A napelemes érdeklődő gyakran este vagy hétvégén kér ajánlatot, és párhuzamosan több céget keres meg. Aki előbb reagál, az viszi a felmérést. Az elsőként reagáló cég a kutatás szerint sokszorosára növeli az érdemi kapcsolat esélyét (HBR, 2011). A leadet Ön már kifizette: ha kihűl, a hirdetés is veszteség.",
     metrics: [
       { k: "Ajánlatkérés érkezik", c: "var(--ink)", v: "Munkaidőn kívül", d: "vasárnap este, hétvégén, foglalt vonalon" },
       { k: "A vonal", c: "var(--ink)", v: "Hangposta", d: "Ön a tetőn, a felmérésen van" },
       { k: "A hívó", c: "var(--stone)", v: "Tovább lép", d: "a következő napelemes céget hívja" },
       { k: "A kifizetett lead", c: "var(--viz-red)", v: "Kihűl", d: "a beszerelés és a hirdetés is elveszik" },
     ],
-    loss: { v: "≈ 4 000 000 Ft", per: "/ hó", math: "~15 ajánlatkérés havonta munkaidőn kívül — egy elnyert beszerelés ~4 000 000 Ft" },
+    loss: { v: "≈ 4 000 000 Ft", per: "/ hó", math: "~15 ajánlatkérés havonta munkaidőn kívül: egy elnyert beszerelés ~4 000 000 Ft" },
   },
   {
     tab: "Lassú első reakció",
     desc:
-      "A hirdetésből érkező napelemes érdeklődő gyorsan dönt, mert egyszerre több ajánlatot vár. Aki előbb visszahív, az viszi a felmérést. 1 órán belül sokszorosára nő az érdemi kapcsolat esélye (HBR, 2011) — ha az első válasz csak másnap jön, a gyorsabb versenytárs már ott járt.",
+      "A hirdetésből érkező napelemes érdeklődő gyorsan dönt, mert egyszerre több ajánlatot vár. Aki előbb visszahív, az viszi a felmérést. 1 órán belül sokszorosára nő az érdemi kapcsolat esélye (HBR, 2011). Ha az első válasz csak másnap jön, a gyorsabb versenytárs már ott járt.",
     metrics: [
       { k: "Érdeklődés", c: "var(--ink)", v: "Beérkezik", d: "űrlap, e-mail, hirdetés" },
       { k: "Első válasz", c: "var(--stone)", v: "Órák, napok", d: "amikor épp jut rá idő" },
       { k: "A versenytárs", c: "var(--stone)", v: "Gyorsabb", d: "ő ér oda előbb a felmérésre" },
       { k: "A felmérés", c: "var(--viz-red)", v: "Elveszik", d: "a gyorsabbé lesz" },
     ],
-    loss: { v: "≈ 4 000 000 Ft", per: "/ hó", math: "az első válasz lassú — 1 órán belül ~7× az esély a kapcsolatra (HBR, 2011)" },
+    loss: { v: "≈ 4 000 000 Ft", per: "/ hó", math: "az első válasz lassú: 1 órán belül ~7× az esély a kapcsolatra (HBR, 2011)" },
   },
   {
     tab: "Lezáratlan árajánlat",
     desc:
-      "A napelemes árajánlat kiment — de senki nem kíséri végig. Az ügyfél halogat, összehasonlít, aztán elfelejti, vagy mást választ. A majdnem-kész üzlet csendben elveszik. A rendszer utánkövet: emlékeztet, kérdez, lezár. Ez a legnagyobb tétel.",
+      "A napelemes árajánlat kiment, de senki nem kíséri végig. Az ügyfél halogat, összehasonlít, aztán elfelejti, vagy mást választ. A majdnem-kész üzlet csendben elveszik. A rendszer utánkövet: emlékeztet, kérdez, lezár. Ez a legnagyobb tétel.",
     metrics: [
       { k: "Árajánlat kiküldve", c: "var(--ink)", v: "~20 / hó", d: "kimegy, és ott marad" },
       { k: "Utánkövetés", c: "var(--ink)", v: "Nincs", d: "senki nem kíséri végig" },
-      { k: "A döntés", c: "var(--stone)", v: "Némaság", d: "nem nem — csak elhal" },
+      { k: "A döntés", c: "var(--stone)", v: "Némaság", d: "nem nemet mond, csak elhal" },
       { k: "A majdnem-kész üzlet", c: "var(--viz-red)", v: "Elveszik", d: "~8–10 ajánlat csendben" },
     ],
-    loss: { v: "≈ 8 000 000 Ft", per: "/ hó", math: "~8–10 utánkövetetlen árajánlat — 1–2 visszahozva ~4–8M Ft beszerelés" },
+    loss: { v: "≈ 8 000 000 Ft", per: "/ hó", math: "~8–10 utánkövetetlen árajánlat, 1–2 visszahozva ~4–8M Ft beszerelés" },
   },
   {
     tab: "Elmaradt felmérés",
     desc:
-      "A helyszíni felmérés a beszerelés kezdete — de emlékeztető nélkül elmarad vagy üres címre fut ki a kiszállás. Elpazarolt idő, csúszó vagy elveszett munka. A rendszer emlékeztet és újraegyeztet.",
+      "A helyszíni felmérés a beszerelés kezdete, de emlékeztető nélkül elmarad vagy üres címre fut ki a kiszállás. Elpazarolt idő, csúszó vagy elveszett munka. A rendszer emlékeztet és újraegyeztet.",
     metrics: [
       { k: "Felmérés egyeztetve", c: "var(--ink)", v: "Hetente több", d: "helyszíni kiszállás" },
       { k: "Emlékeztető", c: "var(--ink)", v: "Nincs", d: "az ügyfél elfelejti" },
       { k: "A kiszállás", c: "var(--stone)", v: "Felesleges", d: "üres cím, elpazarolt idő" },
       { k: "A beszerelés", c: "var(--viz-red)", v: "Csúszik", d: "vagy mást hív" },
     ],
-    loss: { v: "≈ 1 200 000 Ft", per: "/ hó", math: "~3–5 elfelejtett felmérés havonta — kiesett munka és felesleges kiszállás" },
+    loss: { v: "≈ 1 200 000 Ft", per: "/ hó", math: "~3–5 elfelejtett felmérés havonta: kiesett munka és felesleges kiszállás" },
   },
 ];
 
@@ -152,10 +152,10 @@ function GfxQuotes() {
   type Row = { sub: string; val: string; s: "nema" | "won" };
   /* TODO: confirm before publishing — illustrative deal values. */
   const rows: Row[] = [
-    { sub: "3 napja — nincs utánkövetés", val: "5 800 000 Ft", s: "nema" },
-    { sub: "ma — a rendszer utánkövette", val: "4 200 000 Ft", s: "won" },
-    { sub: "6 napja — nincs utánkövetés", val: "2 400 000 Ft", s: "nema" },
-    { sub: "9 napja — nincs utánkövetés", val: "9 100 000 Ft", s: "nema" },
+    { sub: "3 napja, nincs utánkövetés", val: "5 800 000 Ft", s: "nema" },
+    { sub: "ma, a rendszer utánkövette", val: "4 200 000 Ft", s: "won" },
+    { sub: "6 napja, nincs utánkövetés", val: "2 400 000 Ft", s: "nema" },
+    { sub: "9 napja, nincs utánkövetés", val: "9 100 000 Ft", s: "nema" },
   ];
   const nema = rows.filter((r) => r.s === "nema").length;
   return (
@@ -241,15 +241,15 @@ export default function RealtimeDashboardNapelem() {
           <span className="dash__eyebrow">Hol szivárog a bevétel</span>
           <h2 className="dash__h">Négy lyuk. Mindegyik bezárható.</h2>
           <p className="dash__p">
-            A legtöbb napelemes cég nem leadhiánytól szenved — hanem attól,
+            A legtöbb napelemes cég nem leadhiánytól szenved, hanem attól,
             hogy a kifizetett megkeresések egy része elvész útközben: kihűlő
             lead, lassú visszajelzés, utánkövetetlen árajánlat, elmaradt
             felmérés. A rendszert az Ön működésére szabjuk, és azt a lyukat
             zárja be, amelyik Önnél a legnagyobb.
           </p>
           <p className="dash__exnote">
-            Az alábbi számok illusztratív példák egy átlagos napelemes cégre —
-            élesben az Ön valós számaival (lead-ár, beérkező megkeresés, jellemző
+            Az alábbi számok illusztratív példák egy átlagos napelemes cégre.
+            Élesben az Ön valós számaival (lead-ár, beérkező megkeresés, jellemző
             beszerelés értéke, záródás) töltjük ki.
           </p>
         </div>

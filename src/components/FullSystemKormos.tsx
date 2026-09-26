@@ -44,7 +44,7 @@ export default function FullSystemKormos() {
           ))}
         </div>
         <p className="dash__p reveal" data-delay="2" style={{ marginTop: "1.5rem", textAlign: "center" }}>
-          Ennyi. Nincs új alkalmazás, nincs betanulás — a meglévő naptárához kötve fut.
+          Ennyi. Nincs új alkalmazás, nincs betanulás. A meglévő naptárához kötve fut.
         </p>
         <div className="sys__badges reveal" data-delay="3">
           <span className="sys__badge">

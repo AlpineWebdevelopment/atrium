@@ -7,7 +7,7 @@ export default function FinalCta() {
           {/* ATRIUM-EDIT PC2 — point CTA forward at the system, not at a pre-decision advisory moment */}
           <p className="final-cta__p">
             30 perces megbeszélés. Megnézzük a hívásait, a beérkező leadjeit és a
-            no-show arányát — és megmutatjuk, hol szivárog a bevétel — és hogyan zárja be a rendszer.
+            no-show arányát, majd megmutatjuk, hol szivárog a bevétel, és hogyan zárja be a rendszer.
           </p>
           <button className="btn btn--lg final-cta__btn">Foglaljon 30 perces megbeszélést</button>
           {/* ATRIUM-EDIT A7 — removed audit mention; Sales Leak Audit is a post-meeting save tool per spec, not advertised to cold visitors */}

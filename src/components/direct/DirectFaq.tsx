@@ -10,11 +10,11 @@
 const FAQS: [string, string][] = [
   [
     "Mennyi pénzt hagyok valójában az asztalon?",
-    "Fejből senki nem mond rá pontos számot — aki a cége ismerete nélkül konkrét összeget ígér, az tippel. A pénz viszont szinte mindig ugyanott szivárog: a nem fogadott hívásoknál, a lassan megválaszolt érdeklődőknél és az utánkövetés nélkül maradt régi ügyfeleknél. A beszélgetésen három számából — havi megkeresés, egy munka átlagos értéke, záródási arány — pár perc alatt kiszámoljuk a havi összeget. Onnantól nem érzésre dönt.",
+    "Fejből senki nem mond rá pontos számot: aki a cége ismerete nélkül konkrét összeget ígér, az tippel. A pénz viszont szinte mindig ugyanott szivárog: a nem fogadott hívásoknál, a lassan megválaszolt érdeklődőknél és az utánkövetés nélkül maradt régi ügyfeleknél. A beszélgetésen három számából (havi megkeresés, egy munka átlagos értéke, záródási arány) pár perc alatt kiszámoljuk a havi összeget. Onnantól nem érzésre dönt.",
   ],
   [
     "Észreveszik az ügyfelek, hogy AI-val beszélnek?",
-    "A hívók túlnyomó többsége nem veszi észre. Természetes ütemben, valódi szünetekkel beszél, magyarul, menü és robothang nélkül. Nem titkoljuk, hogy AI — a beszélgetés egyszerűen annyira gördülékeny, hogy a legtöbben bele sem gondolnak.",
+    "A hívók túlnyomó többsége nem veszi észre. Természetes ütemben, valódi szünetekkel beszél, magyarul, menü és robothang nélkül. Nem titkoljuk, hogy AI. A beszélgetés egyszerűen annyira gördülékeny, hogy a legtöbben bele sem gondolnak.",
   ],
   [
     "Mennyire természetes a magyar beszéd?",
@@ -22,11 +22,11 @@ const FAQS: [string, string][] = [
   ],
   [
     "Milyen rendszert kapok mellé?",
-    "Egy teljes, kész rendszert — saját CRM-mel, beüzemelve, az első naptól használhatóan. Ezt ajánljuk, mert így minden egy helyen van. Ha a megszokott eszközeinél maradna, ahhoz is csatlakozunk; a döntés az Öné.",
+    "Egy teljes, kész rendszert: saját CRM-mel, beüzemelve, az első naptól használhatóan. Ezt ajánljuk, mert így minden egy helyen van. Ha a megszokott eszközeinél maradna, ahhoz is csatlakozunk; a döntés az Öné.",
   ],
   [
     "Nekem mit kell csinálnom?",
-    "Amennyit szeretne — akár semmit. A beállítás és az üzemeltetés a mi dolgunk. Ha bele akar szólni, hogyan épüljön, végig nyitottak vagyunk rá: az Ön rendszere, az Ön szabályai szerint.",
+    "Amennyit szeretne, akár semmit. A beállítás és az üzemeltetés a mi dolgunk. Ha bele akar szólni, hogyan épüljön, végig nyitottak vagyunk rá: az Ön rendszere, az Ön szabályai szerint.",
   ],
   [
     "Kié lesz az adat?",
@@ -34,7 +34,7 @@ const FAQS: [string, string][] = [
   ],
   [
     "Tudok rajta változtatni később?",
-    "Igen. A cége változik, a rendszer vele változik — ez a karbantartás része, nem új számla minden apró módosításért.",
+    "Igen. A cége változik, a rendszer vele változik. Ez a karbantartás része, nem új számla minden apró módosításért.",
   ],
 ];
 

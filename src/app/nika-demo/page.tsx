@@ -10,7 +10,7 @@ import type { Metadata } from "next";
 import NikaDemo from "../_demo/nika/NikaDemo";
 
 export const metadata: Metadata = {
-  title: "NIKA feladatkezelő — demó",
+  title: "NIKA feladatkezelő demó",
   description: "Belső demó: eladó- és vevőminősítés, adatlapok, pontozott párosítások.",
   robots: { index: false, follow: false },
   alternates: { canonical: null },

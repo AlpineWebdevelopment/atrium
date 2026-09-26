@@ -16,7 +16,7 @@ const FAQS = [
   },
   {
     q: "Le kell cserélnem a naptáramat?",
-    a: "Nem. A meglévő naptárához kötjük — Google Calendar, Microsoft 365, iCal. A csapatának semmit nem kell lecserélnie.",
+    a: "Nem. A meglévő naptárához kötjük: Google Calendar, Microsoft 365, iCal. A csapatának semmit nem kell lecserélnie.",
   },
   {
     q: "Mennyibe kerül?",

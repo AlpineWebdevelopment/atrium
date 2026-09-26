@@ -22,7 +22,7 @@ import { FAQS } from "@/lib/chatgptHirdetes";
    visitor who reads only the top of the page still sees what they get.
    Indexable, in the sitemap, FAQPage schema below. */
 
-const TITLE = "ChatGPT hirdetés kezelés — ügyfélszerző rendszer szolgáltató cégeknek";
+const TITLE = "ChatGPT hirdetés kezelés: ügyfélszerző rendszer szolgáltató cégeknek";
 const DESCRIPTION =
   "A ChatGPT-ben 2026 augusztusától hirdetések jelennek meg Magyarországon. Az Atrium beállítja, hogy az Ön szakmájában az Ön cégét ajánlja a válasz alatt, és megcsinálja hozzá a teljes ügyfélszerző rendszert: kérdéskutatás, ajánlat, hirdetés, céloldal, CRM, riport.";
 
