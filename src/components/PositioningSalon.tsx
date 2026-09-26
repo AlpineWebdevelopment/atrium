@@ -14,7 +14,7 @@ export default function PositioningSalon() {
             és lefoglalja, Önnek nem kell hozzányúlnia.
           </p>
           <p className="pos__niche">
-            Egyszemélyes szalontól a többszékes szalonig — mindegyiknek
+            Egyszemélyes szalontól a többszékes szalonig: mindegyiknek
             a saját rendszere, a saját mestereihez és kezeléstípusaihoz
             igazítva.
           </p>

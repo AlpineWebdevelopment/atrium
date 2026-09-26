@@ -6,17 +6,17 @@ const LEAKS = [
   {
     n: "01",
     b: "A késői válasz.",
-    s: "A lead az első 5 percben elveszíthető. Aki elsőként válaszol, az foglalkozik az ügyféllel — aki késik, az fizeti a kattintást és nem látja viszont.",
+    s: "A lead az első 5 percben elveszíthető. Aki elsőként válaszol, az foglalkozik az ügyféllel. Aki késik, az fizeti a kattintást és nem látja viszont.",
   },
   {
     n: "02",
     b: "A meg nem keresett lead.",
-    s: "A bejövő leadek egy részére egyszerűen senki nem válaszol. Kifizette a hirdetést — a bevétel elmaradt.",
+    s: "A bejövő leadek egy részére egyszerűen senki nem válaszol. Kifizette a hirdetést, a bevétel viszont elmaradt.",
   },
   {
     n: "03",
     b: "Az utánkövetés, ami kimarad.",
-    s: "Az első üzenet után nincs második. A lead elhidegszik, holott még nem döntött — csak elfoglalt volt.",
+    s: "Az első üzenet után nincs második. A lead elhidegszik, holott még nem döntött, csak elfoglalt volt.",
   },
 ];
 
@@ -47,11 +47,11 @@ export default function PositioningGyorsLead() {
           <p className="dash__p" style={{ margin: 0 }}>
             A Harvard Business Review kutatása szerint az első 5 percen
             belül megkeresett lead 21-szor nagyobb valószínűséggel
-            minősül érdemi kontaktnak — az 5 percen túl várakozóhoz
-            képest.
+            minősül érdemi kontaktnak, mint az 5 percen túl
+            várakozó.
           </p>
           <p style={{ fontFamily: "var(--font-mono)", fontSize: "11px", opacity: 0.5, letterSpacing: "0.04em", marginTop: "0.75rem", marginBottom: 0 }}>
-            Forrás: Harvard Business Review — The Short Life of Online
+            Forrás: Harvard Business Review, The Short Life of Online
             Sales Leads (2011). A statisztika az érdemi kapcsolatfelvétel
             valószínűségére vonatkozik, nem az eladási arányra.
           </p>
