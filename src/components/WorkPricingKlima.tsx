@@ -7,7 +7,7 @@ const STEPS = [
   {
     n: "01",
     t: "Megbeszélés",
-    d: "30 perces hívás — megnézzük, hány megkeresés jön be, milyen gyorsan válaszolnak rájuk a csúcson, és hány ajánlat van most nyitva.",
+    d: "30 perces hívás: megnézzük, hány megkeresés jön be, milyen gyorsan válaszolnak rájuk a csúcson, és hány ajánlat van most nyitva.",
   },
   {
     n: "02",
@@ -22,7 +22,7 @@ const STEPS = [
   {
     n: "04",
     t: "Elindítás",
-    d: "Csatlakoztatjuk a meglévő eszközeihez. A csapatnak nem kell rendszert váltania — az Atrium a háttérben dolgozik.",
+    d: "Csatlakoztatjuk a meglévő eszközeihez. A csapatnak nem kell rendszert váltania. Az Atrium a háttérben dolgozik.",
   },
 ];
 
@@ -36,14 +36,14 @@ export default function WorkPricingKlima() {
           <h2 className="dash__h">Az árat az Ön számaiból állítjuk össze.</h2>
           <p className="dash__p">
             Nincs rögzített árlista. A beérkező megkeresések számából, a jellemző
-            beszerelési értékből és az elvárt hatásból számítjuk az ajánlatot —
+            beszerelési értékből és az elvárt hatásból számítjuk az ajánlatot,
             nem egy standard csomagból, hanem az Önök valóságából.
           </p>
           {/* ATRIUM-EDIT KV8 — ROI framing; no fabricated numbers */}
           <p className="dash__p">
             <b>A megtérülés az Önök beszerelési értékén a legnagyobb.</b> Néhány
-            visszahozott ajánlat egy szezonban — olyanok, amelyek eddig csendben
-            elhaltak, mert senki nem követte utána — önmagában megtérítik a
+            visszahozott ajánlat egy szezonban (olyanok, amelyek eddig csendben
+            elhaltak, mert senki nem követte utána) önmagában megtérítik a
             rendszer költségét. A válasz gyorsasága és a szűrés tovább szaporítja
             azt.
           </p>
@@ -62,7 +62,7 @@ export default function WorkPricingKlima() {
         </div>
         <div className="wpr__note reveal" data-delay="2">
           Az első megbeszélés nem kötelezi Önt semmire. Ha nem látunk valós hatást
-          az Önök számaiból — azt is megmondjuk.
+          az Önök számaiból, azt is megmondjuk.
         </div>
       </div>
     </section>

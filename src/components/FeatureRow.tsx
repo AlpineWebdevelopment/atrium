@@ -6,7 +6,7 @@ const ITEMS = [
   },
   {
     title: "Magyar nyelvű",
-    desc: "Természetes magyar beszéd, formális Ön-megszólítás — a telefon másik végén is. Nem gépi menü.",
+    desc: "Természetes magyar beszéd, formális Ön-megszólítás, a telefon másik végén is. Nem gépi menü.",
     icon: <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />,
   },
   {

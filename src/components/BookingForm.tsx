@@ -144,7 +144,7 @@ export default function BookingForm({
       <div className="bk-success">
         <span className="bk-success-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg></span>
         <h2 className="bk-success-h">Időpont lefoglalva.</h2>
-        <p className="bk-success-p">{chosenLabel ? `${chosenLabel} — ` : ""}hamarosan felvesszük Önnel a kapcsolatot a megerősítéshez.</p>
+        <p className="bk-success-p">{chosenLabel ? `${chosenLabel}. ` : ""}Hamarosan felvesszük Önnel a kapcsolatot a megerősítéshez.</p>
         <a href={backHref} className="btn btn--ghost" style={{ marginTop: "22px" }}>{backLabel}</a>
       </div>
     );

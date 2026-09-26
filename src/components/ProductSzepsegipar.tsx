@@ -30,11 +30,11 @@ export default function ProductSzepsegipar() {
           {/* ATRIUM-EDIT SZ5 — "not a booking link" lead line: the core differentiator */}
           <p className="dash__p">
             A rendszer magától, emberi módon megválaszolja az üzenetet Messengeren
-            és Instagramon, és lefoglalja az időpontot — a vendégnek nem kell új
+            és Instagramon, és lefoglalja az időpontot. A vendégnek nem kell új
             alkalmazást megtanulnia.
           </p>
           <p className="sys__howline">
-            Magyar nyelvű, AI-alapú rendszer — a meglévő naptárához kötve, a
+            Magyar nyelvű, AI-alapú rendszer, a meglévő naptárához kötve. A
             csapatának semmit nem kell lecserélnie.
           </p>
         </div>

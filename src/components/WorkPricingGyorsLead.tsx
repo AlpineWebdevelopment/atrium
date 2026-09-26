@@ -13,7 +13,7 @@ export default function WorkPricingGyorsLead() {
           <h2 className="dash__h">Egy szám. Nincs rejtett tétel.</h2>
           <p className="dash__p">
             A havidíj a lead-volumentől és a csatornák számától függ.
-            A megbeszélésen — a saját számaiból kiindulva — megmutatjuk
+            A megbeszélésen, a saját számaiból kiindulva, megmutatjuk
             a pontos összeget, mielőtt bármiről dönt.
           </p>
         </div>
@@ -24,18 +24,18 @@ export default function WorkPricingGyorsLead() {
               <em style={{ fontStyle: "normal", opacity: 0.6, fontSize: "0.85em" }}>havi, a csatornák és volumen alapján</em>
               <br />
               Minden beérkező lead kezelése: azonnali válasz, kvalifikáció,
-              foglalás vagy átadás, utánkövetés — és havi riport az
+              foglalás vagy átadás, utánkövetés és havi riport az
               eredményekről.
             </span>
             {/* LR8 — price placeholder; do not publish without confirming */}
             <b className="wpr__t" style={{ marginTop: "0.5rem", display: "block", opacity: 0.45, fontFamily: "var(--font-mono)", letterSpacing: "0.04em", fontSize: "0.9em" }}>
-              [Havidíj — beállítandó] Ft / hó
+              [Havidíj: beállítandó] Ft / hó
             </b>
           </div>
         </div>
         <p className="dash__p reveal" data-delay="2" style={{ marginTop: "1.5rem", textAlign: "center" }}>
           Nincs setup-díj, nincs hosszú távú kötelezettség az első
-          hónapban — a saját számaiból látja, megéri-e.
+          hónapban: a saját számaiból látja, megéri-e.
         </p>
       </div>
     </section>

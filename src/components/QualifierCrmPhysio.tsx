@@ -124,7 +124,7 @@ function GfxCost() {
 const BENEFITS = [
   { b: "Rendelőjére szabva", s: "kezelési típusok, terapeuták és kapacitás szerint konfigurálva", c: "#4A9EB8", Gfx: GfxTuned },
   { b: "Saját páciens-CRM", s: "a páciensadatok az Ön rendszerében, nem egy bérelt felületen", c: "#628FBC", Gfx: GfxOwn },
-  { b: "Több kezelés", s: "ugyanannyi megkeresésből — mert egy időpont sem vész el útközben", c: "#62BCAC", Gfx: GfxFunnels },
+  { b: "Több kezelés", s: "ugyanannyi megkeresésből, mert egy időpont sem vész el útközben", c: "#62BCAC", Gfx: GfxFunnels },
   { b: "Receptionnél olcsóbb", s: "a nap minden órájában dolgozik, és kevesebbe kerül, mint egy recepciós", c: "#6B9E5E", Gfx: GfxCost },
 ];
 

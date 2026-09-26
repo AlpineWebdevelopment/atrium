@@ -19,7 +19,7 @@ const PACKAGES = [
   {
     n: "Teljes",
     sub: "havi fix díj",
-    d: "Minden, ami az Alapban — plusz az elmaradt vendégek visszahívása, a régiek visszahozása, értékeléskérés, és egy rövid havi kimutatás.",
+    d: "Minden, ami az Alapban, plusz az elmaradt vendégek visszahívása, a régiek visszahozása, értékeléskérés, és egy rövid havi kimutatás.",
     p: "99 000 Ft / hó",
   },
 ];
@@ -51,7 +51,7 @@ export default function WorkPricingSzepsegipar() {
           ))}
         </div>
         <p className="dash__p reveal" data-delay="2" style={{ marginTop: "1.5rem", textAlign: "center" }}>
-          Mindegyik a meglévő naptárához kötve indul — a csapatának semmit nem kell lecserélnie.
+          Mindegyik a meglévő naptárához kötve indul. A csapatának semmit nem kell lecserélnie.
         </p>
       </div>
     </section>

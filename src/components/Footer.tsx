@@ -4,11 +4,11 @@ export default function Footer() {
       <div className="wrap">
         <div className="footer__top">
           <div className="footer__brand-col">
-            <a href="#rendszer" className="footer__brand" aria-label="Atrium — az oldal tetejére">
+            <a href="#rendszer" className="footer__brand" aria-label="Atrium, az oldal tetejére">
               Atrium<span className="dot" aria-hidden="true" />
             </a>
             <p className="footer__sub">
-              Magyar nyelvű AI értékesítési rendszer — minden hívás fogadva, minden időpont a naptárban, minden érdeklődő utánkövetve.
+              Magyar nyelvű AI értékesítési rendszer: minden hívás fogadva, minden időpont a naptárban, minden érdeklődő utánkövetve.
             </p>
             <a href="#kapcsolat" className="btn footer__cta">Foglaljon időpontot</a>
           </div>

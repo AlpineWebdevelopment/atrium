@@ -55,10 +55,10 @@ export default function VoiceDemo() {
         <div className="vdemo__inner reveal">
           <div className="vdemo__copy">
             <span className="dash__eyebrow">Élő bemutató</span>
-            <h2 className="vdemo__h">Próbálja ki a rendszert most — élőben.</h2>
+            <h2 className="vdemo__h">Próbálja ki a rendszert most, élőben.</h2>
             <p className="vdemo__p">
               Nyomja meg a gombot, és pár másodpercen belül az Atrium AI
-              asszisztense felveszi a hívást — magyarul, ahogy az Ön ügyfelei
+              asszisztense felveszi a hívást, magyarul, ahogy az Ön ügyfelei
               hallanák.
             </p>
           </div>
@@ -99,7 +99,7 @@ export default function VoiceDemo() {
             )}
             {status === "error" && (
               <>
-                <p className="vdemo__err">Hiba — engedélyezze a mikrofont, és próbálja újra.</p>
+                <p className="vdemo__err">Hiba: engedélyezze a mikrofont, és próbálja újra.</p>
                 <button className="btn vdemo__btn" onClick={() => setStatus("idle")}>
                   Újra
                 </button>

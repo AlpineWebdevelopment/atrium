@@ -34,7 +34,7 @@ const EXAMPLES: { ico: IconKey; t: string; d: string; who: string; c: string }[]
   {
     ico: "phoneOut",
     t: "Hang-AI értékesítő hívásokhoz",
-    d: "A telefonos értékesítés hívásról hívásra halad a listán — órák mennek el, mire valaki felveszi és meghallgat. A kimenő hívásokat egy hang-AI indítja: természetes beszélgetésben bemutatja az ajánlatot, válaszol a kérdésekre, és rögzíti, mi lett a hívás eredménye. Az értékesítők már az érdeklődő ügyfelekkel beszélnek, nem a hideg listával.",
+    d: "A telefonos értékesítés hívásról hívásra halad a listán. Órák mennek el, mire valaki felveszi és meghallgat. A kimenő hívásokat egy hang-AI indítja: természetes beszélgetésben bemutatja az ajánlatot, válaszol a kérdésekre, és rögzíti, mi lett a hívás eredménye. Az értékesítők már az érdeklődő ügyfelekkel beszélnek, nem a hideg listával.",
     who: "Telemarketinggel értékesítő cégnek",
     c: "#9662BC",
   },
@@ -48,49 +48,49 @@ const EXAMPLES: { ico: IconKey; t: string; d: string; who: string; c: string }[]
   {
     ico: "gift",
     t: "Személyes kapcsolattartó felület",
-    d: "Ahogy nő az érdeklődők száma, a személyes figyelem egyre kevésbé fér bele a napba. A felületről a cég minden érdeklődőjének személyre szabott e-mailt vagy üzenetet küldhet — névnapra, születésnapra, más alkalomra. A kapcsolat közvetlenebb marad akkor is, ha az érdeklődő még nem döntött.",
+    d: "Ahogy nő az érdeklődők száma, a személyes figyelem egyre kevésbé fér bele a napba. A felületről a cég minden érdeklődőjének személyre szabott e-mailt vagy üzenetet küldhet: névnapra, születésnapra, más alkalomra. A kapcsolat közvetlenebb marad akkor is, ha az érdeklődő még nem döntött.",
     who: "Vállalkozások adásvételével foglalkozó cégnek",
     c: "#62BCAC",
   },
   {
     ico: "filter",
     t: "Érdeklődő-előminősítő rendszer",
-    d: "A munkatársak idejét az viszi el, hogy minden érdeklődővel végigbeszéljék ugyanazokat a kérdéseket — azokkal is, akik nem komolyak. A rendszer az írásos csatornákon kikérdezi az érdeklődőt, és felméri, mennyire komoly. A munkatárshoz csak a komoly érdeklődő kerül, és vele együtt minden, amit előre tudni kell róla.",
+    d: "A munkatársak idejét az viszi el, hogy minden érdeklődővel végigbeszéljék ugyanazokat a kérdéseket, azokkal is, akik nem komolyak. A rendszer az írásos csatornákon kikérdezi az érdeklődőt, és felméri, mennyire komoly. A munkatárshoz csak a komoly érdeklődő kerül, és vele együtt minden, amit előre tudni kell róla.",
     who: "Sok írásos megkereséssel dolgozó cégnek",
     c: "#BCA162",
   },
   {
     ico: "cart",
     t: "Webshop-asszisztens, amely összeállítja a kosarat",
-    d: "Egy komplett első lökhárító nyolc külön alkatrészből áll — ezeket korábban egy munkatárs kereste ki telefonban, cikkszámról cikkszámra. Az AI-asszisztenssel írásban és élőszóban is lehet beszélni: minden termékkérdésre válaszol, és ha az ügyfél egy komplett egységet kér, a hozzá tartozó összes alkatrészt a kosárba teszi. A vásárlónak nem kell cikkszámokat keresnie, a munkatársnak pedig nem kell telefonon végigmennie velük.",
+    d: "Egy komplett első lökhárító nyolc külön alkatrészből áll. Ezeket korábban egy munkatárs kereste ki telefonban, cikkszámról cikkszámra. Az AI-asszisztenssel írásban és élőszóban is lehet beszélni: minden termékkérdésre válaszol, és ha az ügyfél egy komplett egységet kér, a hozzá tartozó összes alkatrészt a kosárba teszi. A vásárlónak nem kell cikkszámokat keresnie, a munkatársnak pedig nem kell telefonon végigmennie velük.",
     who: "Autóalkatrész-webshopnak",
     c: "#9662BC",
   },
   {
     ico: "doc",
     t: "Árajánlat-készítő rendszer",
-    d: "Az árajánlatok ma este készülnek, a nap végén, a felmérés jegyzeteiből. A rendszer a jegyzetekből és fotókból — az Ön árlistája alapján — elkészíti az ajánlat piszkozatát, egységes, küldhető formában. Önnek már csak átnéznie és elküldenie kell, nem megírni.",
-    who: "Árajánlatot készítő cégeknek — a kivitelezéstől a rendelőig",
+    d: "Az árajánlatok ma este készülnek, a nap végén, a felmérés jegyzeteiből. A rendszer a jegyzetekből és fotókból, az Ön árlistája alapján, elkészíti az ajánlat piszkozatát, egységes, küldhető formában. Önnek már csak átnéznie és elküldenie kell, nem megírni.",
+    who: "Árajánlatot készítő cégeknek, a kivitelezéstől a rendelőig",
     c: "#628FBC",
   },
   {
     ico: "target",
     t: "Ügyfél-felkutató és megkereső rendszer",
-    d: "Az új ügyfelek felkutatása és megszólítása ma az értékesítő idejének javát viszi el — és nagy része nem vezet sehová. A rendszer nyilvános cégadatbázisokban és LinkedInen keresi a profilba illő cégeket, megírja és e-mailben elküldi a személyre szabott első üzenetet, és csak a ténylegesen válaszolót adja át. Ön a komoly lehetőségekkel foglalkozik, nem a hideg névsorral.",
+    d: "Az új ügyfelek felkutatása és megszólítása ma az értékesítő idejének javát viszi el, és nagy része nem vezet sehová. A rendszer nyilvános cégadatbázisokban és LinkedInen keresi a profilba illő cégeket, megírja és e-mailben elküldi a személyre szabott első üzenetet, és csak a ténylegesen válaszolót adja át. Ön a komoly lehetőségekkel foglalkozik, nem a hideg névsorral.",
     who: "B2B értékesítéssel dolgozó cégeknek",
     c: "#62BCAC",
   },
   {
     ico: "refresh",
     t: "Rendszerek közötti adatkapocs",
-    d: "Az ügyfél-nyilvántartás, a számlázó és a naptár ma külön szigeteken áll, és valaki kézzel viszi át köztük az adatot — időnként hibázva. A rendszer a háttérben tartja egyben a hármat, és szól, ha valami nem stimmel. Egy ismétlődő gépelős feladat kerül le a napról.",
+    d: "Az ügyfél-nyilvántartás, a számlázó és a naptár ma külön szigeteken áll, és valaki kézzel viszi át köztük az adatot, időnként hibázva. A rendszer a háttérben tartja egyben a hármat, és szól, ha valami nem stimmel. Egy ismétlődő gépelős feladat kerül le a napról.",
     who: "Több, össze nem kötött programot használó cégeknek",
     c: "#BCA162",
   },
   {
     ico: "plus",
     t: "Az Ön ötlete",
-    d: "Ha a működésében van egy visszatérő, kézi folyamat, amely felemészti az idejét, mondja el. Megnézzük, automatizálható-e — és ha igen, megépítjük.",
+    d: "Ha a működésében van egy visszatérő, kézi folyamat, amely felemészti az idejét, mondja el. Megnézzük, automatizálható-e, és ha igen, megépítjük.",
     who: "Bármire, ami ismétlődik és automatizálható",
     c: "#6DBC61",
   },
@@ -99,7 +99,7 @@ const EXAMPLES: { ico: IconKey; t: string; d: string; who: string; c: string }[]
 const GUARANTEES = [
   {
     t: "Fix ár, működő eredmény",
-    d: "Fix áron, közösen meghatározott eredményre dolgozunk. Ha több kör kell hozzá, az a mi dolgunk — felár nélkül.",
+    d: "Fix áron, közösen meghatározott eredményre dolgozunk. Ha több kör kell hozzá, az a mi dolgunk, felár nélkül.",
   },
   {
     t: "Az Öné marad",
@@ -126,7 +126,7 @@ export default function CustomSolutions() {
         <div className="cux__lead reveal" data-delay="1">
           <span className="cux__lead-kicker">Az Ön ötlete a kiindulópont</span>
           <p className="cux__lead-txt">
-            Mondja el, mire van szüksége — a többit ránk bízhatja. Lehet egyetlen automatizálás, néhány összekötött folyamat, vagy egy teljes, testre szabott rendszer.
+            Mondja el, mire van szüksége, a többit ránk bízhatja. Lehet egyetlen automatizálás, néhány összekötött folyamat, vagy egy teljes, testre szabott rendszer.
           </p>
           <div className="cux__scale" aria-hidden="true">
             <div className="cux__scale-step">

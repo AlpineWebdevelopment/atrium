@@ -19,17 +19,17 @@ type Rung = {
 const RUNGS: Rung[] = [
   {
     rung: "Belépő", name: "Atrium Pilot", acc: "#4AA3FF", ico: "flag",
-    for: "Egy konkrét feladat, 30 napra — hogy lássa a számokat, mielőtt dönt.",
+    for: "Egy konkrét feladat, 30 napra, hogy lássa a számokat, mielőtt dönt.",
     price: "Fix díj · 30 nap",
     items: [
-      "Egy kiválasztott funkció — pl. hívásfogadás vagy elmaradt időpontok visszahívása",
+      "Egy kiválasztott funkció, pl. hívásfogadás vagy elmaradt időpontok visszahívása",
       "30 nap, hosszú távú szerződés nélkül",
       "A végén kézzelfogható számok, tiszta döntés",
     ],
   },
   {
     rung: "Köztes", name: "Atrium Modular", acc: "#7C5CFF", ico: "layers",
-    for: "Több funkció, de még nem a teljes rendszer — az Ön igényeire szabva.",
+    for: "Több funkció, de még nem a teljes rendszer, az Ön igényeire szabva.",
     price: "Egyedi árazás",
     items: [
       "A hét funkcióból a megfelelők kiválogatva",
@@ -54,7 +54,7 @@ const RUNGS: Rung[] = [
     price: "A munkához szabva",
     items: [
       "Az Ön egyedi folyamatára épített fejlesztés",
-      "Nem kész elemekből — a feladatra tervezve",
+      "Nem kész elemekből, hanem a feladatra tervezve",
       "Az árat a munka terjedelme határozza meg",
     ],
   },
@@ -69,7 +69,7 @@ export default function Packages() {
           <h2 className="dash__h">Onnan indul, ahol most tart.</h2>
           <p className="dash__p">
             A 30 napos belépőtől a teljes rendszerig. Az árat mindig az Ön
-            számaiból számoljuk — egy általános árlista úgyis félrevinné.
+            számaiból számoljuk, mert egy általános árlista úgyis félrevinné.
           </p>
         </div>
 
@@ -100,7 +100,7 @@ export default function Packages() {
         </div>
 
         <p className="lad__note reveal" data-delay="2">
-          Nincs rögzített árlista — az árat a beszélgetésen, az Ön számaiból
+          Nincs rögzített árlista: az árat a beszélgetésen, az Ön számaiból
           számoljuk ki. Kötelezettség nélkül.
         </p>
       </div>

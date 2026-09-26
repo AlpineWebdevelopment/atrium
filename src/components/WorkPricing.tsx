@@ -2,10 +2,10 @@
    without printing a rate card (value-based, per brand spec). */
 
 const STEPS = [
-  { n: "01", t: "Először az Ön számait nézzük meg — hol szivárog a bevétel, és mennyit ér egy ügyfél." },
-  { n: "02", t: "Az árat ezekből a számokból szabjuk. Nincs rögzített árlista — egy általános ár úgyis félrevinné." },
+  { n: "01", t: "Először az Ön számait nézzük meg: hol szivárog a bevétel, és mennyit ér egy ügyfél." },
+  { n: "02", t: "Az árat ezekből a számokból szabjuk. Nincs rögzített árlista, mert egy általános ár úgyis félrevinné." },
   { n: "03", t: "Mi építjük, mi üzemeltetjük, és havonta megmutatjuk, mit hozott. Az eszközeit nem kell lecserélnie." },
-  { n: "04", t: "Indulhat egy 30 napos, fix díjas belépővel is — előbb a számok, aztán a döntés." },
+  { n: "04", t: "Indulhat egy 30 napos, fix díjas belépővel is: előbb a számok, aztán a döntés." },
 ];
 
 export default function WorkPricing() {
@@ -17,7 +17,7 @@ export default function WorkPricing() {
           <h2 className="dash__h">Beszélgetés, nem prezentáció.</h2>
           {/* ATRIUM-EDIT PC1 — stop denying the product; affirm buyer gets a system, bespoke is the differentiator */}
           <p className="dash__p">
-            Kész rendszert kap, az Ön működésére építve — nem sablonból. Az árat
+            Kész rendszert kap, az Ön működésére építve, nem sablonból. Az árat
             is az Ön számaiból számoljuk ki.
           </p>
         </div>

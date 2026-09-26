@@ -124,7 +124,7 @@ A szolgáltatás nyújtása elsősorban távoli módon történik. Az értékes�
 
 ### 5.3. A mesterséges intelligencia alkalmazása
 
-Az értékesítési rendszer működése AI-alapú. A Szolgáltató a mesterséges intelligencia alkalmazása során a vonatkozó uniós szabályozás, így különösen az (EU) 2024/1689 rendelet (EU AI Act) rendelkezéseire figyelemmel jár el. Ennek keretében — ahol ezt jogszabály előírja — a rendszerrel kommunikáló természetes személyeket tájékoztatni kell arról, hogy mesterséges intelligenciával lépnek kapcsolatba. Az ilyen tájékoztatás biztosítása az Ügyfél és a Szolgáltató közös érdeke és felelőssége; a részleteket az Egyedi Szerződés rendezi.
+Az értékesítési rendszer működése AI-alapú. A Szolgáltató a mesterséges intelligencia alkalmazása során a vonatkozó uniós szabályozás, így különösen az (EU) 2024/1689 rendelet (EU AI Act) rendelkezéseire figyelemmel jár el. Ennek keretében (ahol ezt jogszabály előírja) a rendszerrel kommunikáló természetes személyeket tájékoztatni kell arról, hogy mesterséges intelligenciával lépnek kapcsolatba. Az ilyen tájékoztatás biztosítása az Ügyfél és a Szolgáltató közös érdeke és felelőssége; a részleteket az Egyedi Szerződés rendezi.
 
 
 ---
@@ -153,7 +153,7 @@ A szerződés nyelve magyar.
 
 ### 7.1. Árak
 
-A Szolgáltató szolgáltatásainak ára projektfüggő, és egyedileg kerül megállapításra az Ügyfél igényei, a projekt komplexitása és terjedelme, valamint az Ügyfél tényleges üzleti számai alapján. A konkrét árakat az egyedi ajánlat tartalmazza. A számlázás és az ÁFA feltüntetése a Szolgáltató mindenkori adójogi státusza szerint történik: alanyi adómentesség esetén a számla ÁFA-t nem tartalmaz és „AAM" megjelöléssel készül; ÁFA-körbe tartozás esetén az ajánlat a nettó árat, az alkalmazandó ÁFA mértékét és a bruttó végösszeget is feltünteti. Az ajánlatban szereplő árak — eltérő rendelkezés hiányában — a kézhezvételtől számított 30 napig érvényesek.
+A Szolgáltató szolgáltatásainak ára projektfüggő, és egyedileg kerül megállapításra az Ügyfél igényei, a projekt komplexitása és terjedelme, valamint az Ügyfél tényleges üzleti számai alapján. A konkrét árakat az egyedi ajánlat tartalmazza. A számlázás és az ÁFA feltüntetése a Szolgáltató mindenkori adójogi státusza szerint történik: alanyi adómentesség esetén a számla ÁFA-t nem tartalmaz és „AAM" megjelöléssel készül; ÁFA-körbe tartozás esetén az ajánlat a nettó árat, az alkalmazandó ÁFA mértékét és a bruttó végösszeget is feltünteti. Az ajánlatban szereplő árak (eltérő rendelkezés hiányában) a kézhezvételtől számított 30 napig érvényesek.
 
 ### 7.2. Fizetési feltételek
 
@@ -165,7 +165,7 @@ A Szolgáltató szolgáltatásainak ára projektfüggő, és egyedileg kerül me
 
 ### 7.3. Késedelmes fizetés
 
-Késedelmes fizetés esetén a Szolgáltató — mint vállalkozások közötti (B2B) szerződés jogosultja — a Polgári Törvénykönyv (2013. évi V. törvény) 6:155. §-a szerinti késedelmi kamatra jogosult, amelynek mértéke a késedelemmel érintett naptári félév első napján érvényes **jegybanki alapkamat 8 százalékponttal növelt összege**. Ezen felül a Szolgáltató a behajtási költségátalányról szóló **2016. évi IX. törvény** alapján a behajtási költségek fedezésére **40 eurónak megfelelő, a Magyar Nemzeti Bank késedelem kezdőnapján érvényes hivatalos deviza-középárfolyamán számított forintösszegű behajtási költségátalányra** jogosult.
+Késedelmes fizetés esetén a Szolgáltató (mint vállalkozások közötti (B2B) szerződés jogosultja) a Polgári Törvénykönyv (2013. évi V. törvény) 6:155. §-a szerinti késedelmi kamatra jogosult, amelynek mértéke a késedelemmel érintett naptári félév első napján érvényes **jegybanki alapkamat 8 százalékponttal növelt összege**. Ezen felül a Szolgáltató a behajtási költségátalányról szóló **2016. évi IX. törvény** alapján a behajtási költségek fedezésére **40 eurónak megfelelő, a Magyar Nemzeti Bank késedelem kezdőnapján érvényes hivatalos deviza-középárfolyamán számított forintösszegű behajtási költségátalányra** jogosult.
 
 A fizetési határidő elmulasztása esetén a Szolgáltató jogosult a szolgáltatás nyújtásának felfüggesztésére, illetve a már üzemeltetett rendszer működésének szüneteltetésére, megfelelő előzetes értesítést követően.
 
@@ -213,7 +213,7 @@ Az Ügyfél jogosult részletes tájékoztatást kérni a teljesítésről, a pr
 
 ### 9.1. Az Ügyfél tulajdona
 
-A megrendelt és kifizetett értékesítési rendszer Ügyfél részére kiépített konkrét példánya, annak konfigurációja, valamint az Ügyfél által biztosított vagy a rendszer működése során az Ügyfél nevében keletkezett adatok és tartalmak az **Ügyfél tulajdonát** képezik. A teljes díj megfizetését követően az Ügyfél jogosult saját rendszerének használatára és — az Egyedi Szerződés keretei között — annak átvételére.
+A megrendelt és kifizetett értékesítési rendszer Ügyfél részére kiépített konkrét példánya, annak konfigurációja, valamint az Ügyfél által biztosított vagy a rendszer működése során az Ügyfél nevében keletkezett adatok és tartalmak az **Ügyfél tulajdonát** képezik. A teljes díj megfizetését követően az Ügyfél jogosult saját rendszerének használatára és (az Egyedi Szerződés keretei között) annak átvételére.
 
 ### 9.2. A Szolgáltató fenntartott jogai
 
@@ -237,7 +237,7 @@ A Szolgáltató vállalja, hogy szolgáltatásait szakszerűen, a vonatkozó sza
 
 ### 10.2. Felelősségkorlátozás
 
-A Szolgáltató nem felel az Ügyfélnél felmerülő közvetett károkért, elmaradt haszonért vagy következményi károkért, kivéve szándékos vagy súlyosan gondatlan magatartás esetén. A Szolgáltató felelőssége — a szándékos károkozás és a súlyos gondatlanság esetét kivéve — az adott Egyedi Szerződés keretében ténylegesen megfizetett díj összegében korlátozott.
+A Szolgáltató nem felel az Ügyfélnél felmerülő közvetett károkért, elmaradt haszonért vagy következményi károkért, kivéve szándékos vagy súlyosan gondatlan magatartás esetén. A Szolgáltató felelőssége (a szándékos károkozás és a súlyos gondatlanság esetét kivéve) az adott Egyedi Szerződés keretében ténylegesen megfizetett díj összegében korlátozott.
 
 ### 10.3. Az AI-ra vonatkozó korlátozások
 
@@ -247,7 +247,7 @@ Az AI-alapú rendszer a legjobb gyakorlat szerint működik, azonban a Szolgált
 
 **Az általa irányított alvállalkozók** tekintetében a Szolgáltató úgy felel az alvállalkozó által okozott károkért, mintha azokat maga okozta volna.
 
-**A független technológiai platformok** (pl. a hangalapú rendszert kiszolgáló külső szolgáltatók, illetve a ChatGPT hirdetési rendszere) működéséért, rendelkezésre állásáért és döntéseiért a Szolgáltató csak olyan mértékben felel, amennyiben arra ésszerűen ráhatása van. E platformok megnevezését és az adatkezelés helyét a Szolgáltató adatvédelmi tájékoztatója, illetve — az érintett adatokat illetően — az Adatfeldolgozói megállapodás tartalmazza. A személyes adatok feldolgozása tekintetében a Szolgáltató adatfeldolgozói felelőssége a GDPR 28. cikke szerint áll fenn, függetlenül a jelen pont szerinti polgári jogi felelősségkorlátozástól.
+**A független technológiai platformok** (pl. a hangalapú rendszert kiszolgáló külső szolgáltatók, illetve a ChatGPT hirdetési rendszere) működéséért, rendelkezésre állásáért és döntéseiért a Szolgáltató csak olyan mértékben felel, amennyiben arra ésszerűen ráhatása van. E platformok megnevezését és az adatkezelés helyét a Szolgáltató adatvédelmi tájékoztatója, illetve (az érintett adatokat illetően) az Adatfeldolgozói megállapodás tartalmazza. A személyes adatok feldolgozása tekintetében a Szolgáltató adatfeldolgozói felelőssége a GDPR 28. cikke szerint áll fenn, függetlenül a jelen pont szerinti polgári jogi felelősségkorlátozástól.
 
 ### 10.5. Szavatosság és garancia
 

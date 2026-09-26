@@ -155,7 +155,7 @@ function GfxCost() {
 const BENEFITS = [
   { b: "Rendelőjére szabva", s: "faj, sürgősségi protokoll és kapacitás szerint konfigurálva", c: "#9662BC", Gfx: GfxTuned },
   { b: "Saját CRM", s: "a páciensadatok az Ön rendszerében, nem egy bérelt felületen", c: "#628FBC", Gfx: GfxOwn },
-  { b: "Több vizsgálat", s: "ugyanannyi megkeresésből — mert egy gazda sem vész el útközben", c: "#62BCAC", Gfx: GfxFunnels },
+  { b: "Több vizsgálat", s: "ugyanannyi megkeresésből, mert egy gazda sem vész el útközben", c: "#62BCAC", Gfx: GfxFunnels },
   { b: "Receptionnél olcsóbb", s: "a nap minden órájában dolgozik, és kevesebbe kerül, mint egy recepciós", c: "#6DBC61", Gfx: GfxCost },
 ];
 

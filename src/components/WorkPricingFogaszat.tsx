@@ -7,12 +7,12 @@ const STEPS = [
   {
     n: "01",
     t: "Megbeszélés",
-    d: "30 perces hívás — megnézzük az aktív páciensek számát, az egy páciensre jutó éves értéket, és hogy a bázisból hányan maradtak le a kontroll- és higiéniai rendről.",
+    d: "30 perces hívás: megnézzük az aktív páciensek számát, az egy páciensre jutó éves értéket, és hogy a bázisból hányan maradtak le a kontroll- és higiéniai rendről.",
   },
   {
     n: "02",
     t: "Diagnózis",
-    d: "Összerakjuk, hol a legnagyobb szivárgás: a meg nem válaszolt hívások, vagy a lemorzsolódó bázis — és melyik hozza vissza a nagyobb bevételt.",
+    d: "Összerakjuk, hol a legnagyobb szivárgás: a meg nem válaszolt hívások, vagy a lemorzsolódó bázis, és melyik hozza vissza a nagyobb bevételt.",
   },
   {
     n: "03",
@@ -22,7 +22,7 @@ const STEPS = [
   {
     n: "04",
     t: "Elindítás",
-    d: "Csatlakoztatjuk a meglévő naptárhoz és eszközökhöz. A csapatnak nem kell rendszert váltania — az Atrium a háttérben dolgozik.",
+    d: "Csatlakoztatjuk a meglévő naptárhoz és eszközökhöz. A csapatnak nem kell rendszert váltania. Az Atrium a háttérben dolgozik.",
   },
 ];
 
@@ -44,11 +44,11 @@ export default function WorkPricingFogaszat() {
           <p className="dash__p">
             <b>A nagyobb pénz a meglévő bázisban van.</b> Egy rendelő több ezer
             aktív pácienssel, ahol egy részük lecsúszott a rendről, olyan
-            visszatérő bevételt szerez vissza, ami sokszorosa a rendszer árának —
+            visszatérő bevételt szerez vissza, ami sokszorosa a rendszer árának,
             és ez a bevétel olyan páciensekből jön, akik már az Önéi. Legyünk
             őszinték: nem minden elmaradt páciens hozható vissza. Aki költség miatt
-            maradt el, azt nem ígérjük. Amit visszahozunk, az az elsodródott rész
-            — aki csak elfelejtette, vagy sosem kapott emlékeztetőt.
+            maradt el, azt nem ígérjük. Amit visszahozunk, az az elsodródott rész:
+            aki csak elfelejtette, vagy sosem kapott emlékeztetőt.
           </p>
         </div>
         <div className="wpr__grid reveal" data-delay="1">
@@ -65,7 +65,7 @@ export default function WorkPricingFogaszat() {
         </div>
         <div className="wpr__note reveal" data-delay="2">
           Az első megbeszélés nem kötelezi Önt semmire. Ha nem látunk valós
-          visszahozható bázist az Önök számaiból — azt is megmondjuk.
+          visszahozható bázist az Önök számaiból, azt is megmondjuk.
         </div>
       </div>
     </section>

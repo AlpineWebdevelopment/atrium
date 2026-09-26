@@ -12,11 +12,11 @@ const ICONS: Record<string, React.ReactNode> = {
 };
 
 const CAPS = [
-  { ic: "chat",     c: "#628FBC", t: "Percek alatt válaszol",       d: "Minden beérkező leaddel azonnal felveszi a kapcsolatot — az első 5 perc a kritikus ablak." },
+  { ic: "chat",     c: "#628FBC", t: "Percek alatt válaszol",       d: "Minden beérkező leaddel azonnal felveszi a kapcsolatot. Az első 5 perc a kritikus ablak." },
   { ic: "qualify",  c: "#AD83CC", t: "Kvalifikál",                   d: "Megerősíti az érdeklődést és felteszi az első kérdéseket, hogy Ön valóban minőségi leadekkel foglalkozzon." },
   { ic: "calendar", c: "#62BCAC", t: "Foglal vagy átad",             d: "Ha az ütemterv megengedi, időpontot vagy visszahívást foglal. Ha emberi döntés kell, azonnal értesíti Önt." },
   { ic: "refresh",  c: "#BCA162", t: "Utánamegy, amíg el nem éri",  d: "Ha nincs válasz az első üzenetre, más csatornán, más időpontban, más szövegezéssel próbál újra." },
-  { ic: "bars",     c: "#2B64B8", t: "Riport",                       d: "Havonta megmutatja: hány lead érkezett, mennyit ért el a rendszer, milyen gyorsan — és hol veszett el." },
+  { ic: "bars",     c: "#2B64B8", t: "Riport",                       d: "Havonta megmutatja: hány lead érkezett, mennyit ért el a rendszer, milyen gyorsan, és hol veszett el." },
 ];
 
 export default function ProductGyorsLead() {
@@ -30,12 +30,12 @@ export default function ProductGyorsLead() {
           <p className="dash__p">
             Nem egy chatbot. Nem egy automatikus e-mail. Egy rendszer,
             amely felveszi a kapcsolatot, minősíti az érdeklődést, és
-            addig megy utána, amíg valóban el nem éri — magyarul, emberi
+            addig megy utána, amíg valóban el nem éri, magyarul, emberi
             hangon.
           </p>
           <p className="sys__howline">
-            Magyar nyelvű, AI-alapú rendszer — a meglévő CRM-jéhez és
-            naptárához kötve, a csapatának semmit nem kell lecserélnie.
+            Magyar nyelvű, AI-alapú rendszer, a meglévő CRM-jéhez és
+            naptárához kötve. A csapatának semmit nem kell lecserélnie.
           </p>
         </div>
 

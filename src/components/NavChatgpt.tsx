@@ -36,7 +36,7 @@ export default function NavChatgpt({ base = "" }: { base?: string }) {
     <header className={`nav nav--newtype nav--cg${scrolled ? " nav--scrolled" : ""}`}>
       <div className="wrap">
         <div className="nav__in">
-          <a href={onLanding ? "#rendszer" : base} className="nav__brand" aria-label={onLanding ? "Atrium — az oldal tetejére" : "Atrium — vissza az oldalra"}>
+          <a href={onLanding ? "#rendszer" : base} className="nav__brand" aria-label={onLanding ? "Atrium, az oldal tetejére" : "Atrium, vissza az oldalra"}>
             Atrium<span className="dot" aria-hidden="true" />
           </a>
           <nav className="nav__links" aria-label="Oldalszakaszok">

@@ -12,7 +12,7 @@ Adatkezelőként kötelességünknek tartjuk, hogy tiszteletben tartsuk az Ön s
 
 Kérjük, figyelmesen olvassa el ezt a Tájékoztatót, mielőtt személyes adatait megadja számunkra.
 
-> **A jelen Tájékoztató hatálya.** Ez a Tájékoztató a Weboldalon keresztül, illetve az Atriummal való közvetlen kapcsolatfelvétel során gyűjtött adatokra vonatkozik — vagyis azokra az adatokra, amelyeket Ön mint érdeklődő vagy ügyfél ad meg nekünk. Amikor az Atrium egy ügyfele megbízásából értékesítési rendszert üzemeltet, és ennek során az ügyfél saját ügyfeleinek (pl. egy rendelő pácienseinek) adatait kezeli, akkor az Atrium **adatfeldolgozóként** jár el. Az ilyen adatkezelést az Atrium és az adott ügyfél között létrejött külön **adatfeldolgozói megállapodás** szabályozza; az érintett végfelhasználók az adott ügyfél saját adatvédelmi tájékoztatójából tájékozódhatnak. A jelen Tájékoztató nem terjed ki erre.
+> **A jelen Tájékoztató hatálya.** Ez a Tájékoztató a Weboldalon keresztül, illetve az Atriummal való közvetlen kapcsolatfelvétel során gyűjtött adatokra vonatkozik, vagyis azokra az adatokra, amelyeket Ön mint érdeklődő vagy ügyfél ad meg nekünk. Amikor az Atrium egy ügyfele megbízásából értékesítési rendszert üzemeltet, és ennek során az ügyfél saját ügyfeleinek (pl. egy rendelő pácienseinek) adatait kezeli, akkor az Atrium **adatfeldolgozóként** jár el. Az ilyen adatkezelést az Atrium és az adott ügyfél között létrejött külön **adatfeldolgozói megállapodás** szabályozza; az érintett végfelhasználók az adott ügyfél saját adatvédelmi tájékoztatójából tájékozódhatnak. A jelen Tájékoztató nem terjed ki erre.
 
 ---
 
@@ -75,11 +75,11 @@ A számviteli bizonylatokat a számvitelről szóló 2000. évi C. törvény 169
 
 Az adatkezelés során az alábbi szolgáltatók (adatfeldolgozók, illetve közös adatkezelők vagy önálló adatkezelők) közreműködését vesszük igénybe. Az adatfeldolgozók kizárólag az Adatkezelő utasításai szerint járnak el, titoktartási kötelezettséggel rendelkeznek, és megfelelő technikai és szervezési intézkedéseket alkalmaznak.
 
-> **Átláthatósági nyilatkozat.** A rendszereink egy része az Európai Unión kívül, elsősorban az Amerikai Egyesült Államokban tárolja vagy dolgozza fel az adatokat. Ezekben az esetekben a továbbítás jogszerűségét az Európai Bizottság által elfogadott **általános szerződési feltételek (Standard Contractual Clauses, SCC)**, illetve az adott szolgáltató adatfeldolgozói megállapodása (DPA) biztosítja. Nem állítjuk, hogy minden adat kizárólag az Európai Unión belül kerül feldolgozásra — ehelyett pontosan megnevezzük, hol és milyen garanciák mellett történik az adatkezelés.
+> **Átláthatósági nyilatkozat.** A rendszereink egy része az Európai Unión kívül, elsősorban az Amerikai Egyesült Államokban tárolja vagy dolgozza fel az adatokat. Ezekben az esetekben a továbbítás jogszerűségét az Európai Bizottság által elfogadott **általános szerződési feltételek (Standard Contractual Clauses, SCC)**, illetve az adott szolgáltató adatfeldolgozói megállapodása (DPA) biztosítja. Nem állítjuk, hogy minden adat kizárólag az Európai Unión belül kerül feldolgozásra. Ehelyett pontosan megnevezzük, hol és milyen garanciák mellett történik az adatkezelés.
 
 | Szolgáltató | Szolgáltatás típusa | Adatkezelés / tárolás helye | Továbbítási garancia |
 |---|---|---|---|
-| **Supabase** | Adatbázis- és háttér-infrastruktúra | Európai Unió — Frankfurt (eu-central-1) | EU-n belüli tárolás; DPA |
+| **Supabase** | Adatbázis- és háttér-infrastruktúra | Európai Unió, Frankfurt (eu-central-1) | EU-n belüli tárolás; DPA |
 | **Retell AI** | Hangalapú AI hívásfogadás és -kezelés | Amerikai Egyesült Államok (AWS US régiók) | DPA + SCC |
 | **Twilio** | Telefonos (SIP) kapcsolat | Amerikai Egyesült Államok | DPA + SCC |
 | **ElevenLabs** | Hangszintézis (szöveg-beszéd) | Amerikai Egyesült Államok / Egyesült Királyság | DPA + SCC |
@@ -90,7 +90,7 @@ Az adatkezelés során az alábbi szolgáltatók (adatfeldolgozók, illetve köz
 
 
 **Adattovábbítás harmadik országba.**
-Bizonyos szolgáltatóink (pl. Retell AI, illetve egyes AI modellszolgáltatók) az Egyesült Államokban tárolják vagy dolgozzák fel az adatokat. Ezekben az esetekben gondoskodunk arról, hogy a GDPR V. fejezete szerinti megfelelő garanciák — elsősorban az Európai Bizottság által elfogadott általános szerződési feltételek (SCC) — biztosítva legyenek. A vonatkozó garanciák másolatát kérésre az info@atriumscaling.com címen elérhetővé tesszük.
+Bizonyos szolgáltatóink (pl. Retell AI, illetve egyes AI modellszolgáltatók) az Egyesült Államokban tárolják vagy dolgozzák fel az adatokat. Ezekben az esetekben gondoskodunk arról, hogy a GDPR V. fejezete szerinti megfelelő garanciák (elsősorban az Európai Bizottság által elfogadott általános szerződési feltételek (SCC)) biztosítva legyenek. A vonatkozó garanciák másolatát kérésre az info@atriumscaling.com címen elérhetővé tesszük.
 
 ---
 
@@ -108,7 +108,7 @@ Bizonyos szolgáltatóink (pl. Retell AI, illetve egyes AI modellszolgáltatók)
 - **Adattovábbítás:** a Meta Pixel által gyűjtött adatok a Meta Platforms részére kerülnek továbbításra, amely azokat az Európai Unión kívül (Amerikai Egyesült Államok) is feldolgozhatja, az Európai Bizottság megfelelőségi határozata, illetve általános szerződési feltételek (SCC) alapján. A Meta adatkezeléséről a Meta saját adatvédelmi tájékoztatójában tájékozódhat.
 
 **Marketing célú követőkód (OpenAI Pixel)**
-- A Weboldal ChatGPT-hirdetéshez kapcsolódó céloldalain — így különösen a **/chatgpt-hirdetes** oldalon — az OpenAI hirdetési rendszerének konverziómérő kódja („OpenAI Pixel") működhet.
+- A Weboldal ChatGPT-hirdetéshez kapcsolódó céloldalain (így különösen a **/chatgpt-hirdetes** oldalon) az OpenAI hirdetési rendszerének konverziómérő kódja („OpenAI Pixel") működhet.
 - **Cél:** a ChatGPT felületén megjelenő hirdetéseink eredményességének mérése (pl. hány időpontfoglalás származik egy adott hirdetésből), valamint a kampányok ez alapján történő optimalizálása.
 - **Jogalap:** az Ön előzetes, önkéntes hozzájárulása (GDPR 6. cikk (1) bekezdés a) pont), amelyet a Weboldalon megjelenő süti-tájékoztató útján adhat meg. A Pixel az Ön hozzájárulása nélkül nem aktiválódik, és hozzájárulását bármikor visszavonhatja a sütibeállítások módosításával.
 - **Adattovábbítás:** az OpenAI Pixel által gyűjtött adatok az OpenAI részére kerülnek továbbításra, amely azokat az Európai Unión kívül (Amerikai Egyesült Államok) is feldolgozhatja, az Európai Bizottság által elfogadott általános szerződési feltételek (SCC) alapján. Az OpenAI adatkezeléséről az OpenAI saját adatvédelmi tájékoztatójában tájékozódhat.
@@ -124,13 +124,13 @@ A fentieken túl a Weboldal nem használ analitikai vagy marketing célú sütik
 
 A GDPR alapján Önt az alábbi jogok illetik meg:
 
-- **Hozzáférési jog** — tájékoztatást kérhet arról, hogy kezeljük-e a személyes adatait, és ha igen, hozzáférhet azokhoz.
-- **Helyesbítéshez való jog** — kérheti a pontatlan adatok helyesbítését, illetve a hiányos adatok kiegészítését.
-- **Törléshez való jog** („elfeledtetéshez való jog") — kérheti adatainak törlését a GDPR-ban meghatározott esetekben.
-- **Az adatkezelés korlátozásához való jog** — bizonyos esetekben kérheti az adatkezelés korlátozását.
-- **Adathordozhatósághoz való jog** — kérheti, hogy az Ön által megadott adatokat tagolt, géppel olvasható formátumban megkapja, illetve más adatkezelőhöz továbbítsuk.
-- **Tiltakozáshoz való jog** — tiltakozhat a jogos érdeken alapuló adatkezelés ellen.
-- **Hozzájárulás visszavonásához való jog** — a hozzájáruláson alapuló adatkezelés esetén hozzájárulását bármikor visszavonhatja; ez nem érinti a visszavonás előtti adatkezelés jogszerűségét.
+- **Hozzáférési jog**: tájékoztatást kérhet arról, hogy kezeljük-e a személyes adatait, és ha igen, hozzáférhet azokhoz.
+- **Helyesbítéshez való jog**: kérheti a pontatlan adatok helyesbítését, illetve a hiányos adatok kiegészítését.
+- **Törléshez való jog** („elfeledtetéshez való jog"): kérheti adatainak törlését a GDPR-ban meghatározott esetekben.
+- **Az adatkezelés korlátozásához való jog**: bizonyos esetekben kérheti az adatkezelés korlátozását.
+- **Adathordozhatósághoz való jog**: kérheti, hogy az Ön által megadott adatokat tagolt, géppel olvasható formátumban megkapja, illetve más adatkezelőhöz továbbítsuk.
+- **Tiltakozáshoz való jog**: tiltakozhat a jogos érdeken alapuló adatkezelés ellen.
+- **Hozzájárulás visszavonásához való jog**: a hozzájáruláson alapuló adatkezelés esetén hozzájárulását bármikor visszavonhatja; ez nem érinti a visszavonás előtti adatkezelés jogszerűségét.
 
 **Jogai gyakorlása.** Kérjük, írjon az **info@atriumscaling.com** címre. Kérelmére indokolatlan késedelem nélkül, de legkésőbb **1 hónapon belül** válaszolunk. Összetett kérelem esetén ezt a határidőt további 2 hónappal meghosszabbíthatjuk, amelyről Önt tájékoztatjuk.
 
@@ -151,7 +151,7 @@ Felhívjuk figyelmét, hogy az interneten keresztüli adatátvitel soha nem lehe
 
 ## 8. Adatvédelmi incidens
 
-Amennyiben olyan adatvédelmi incidens következik be, amely valószínűsíthetően magas kockázattal jár az Ön jogaira és szabadságaira nézve, az Adatkezelő indokolatlan késedelem nélkül tájékoztatja Önt az incidensről és a megtett intézkedésekről, valamint — ahol jogszabály előírja — bejelentést tesz a felügyeleti hatóságnak.
+Amennyiben olyan adatvédelmi incidens következik be, amely valószínűsíthetően magas kockázattal jár az Ön jogaira és szabadságaira nézve, az Adatkezelő indokolatlan késedelem nélkül tájékoztatja Önt az incidensről és a megtett intézkedésekről, valamint (ahol jogszabály előírja) bejelentést tesz a felügyeleti hatóságnak.
 
 ---
 
@@ -166,7 +166,7 @@ E-mail: ugyfelszolgalat@naih.hu
 Weboldal: https://www.naih.hu
 
 
-Ezen túlmenően Ön bírósági jogorvoslattal is élhet. A pert — választása szerint — az Adatkezelő székhelye szerinti, vagy az Ön lakóhelye, illetve tartózkodási helye szerinti törvényszék előtt is megindíthatja.
+Ezen túlmenően Ön bírósági jogorvoslattal is élhet. A pert (választása szerint) az Adatkezelő székhelye szerinti, vagy az Ön lakóhelye, illetve tartózkodási helye szerinti törvényszék előtt is megindíthatja.
 
 ---
 
@@ -178,13 +178,13 @@ Szolgáltatásaink kizárólag vállalkozások (B2B) részére érhetők el, és
 
 ## 11. Automatizált döntéshozatal és profilalkotás
 
-Az Adatkezelő a Weboldalon keresztül gyűjtött adatok tekintetében nem alkalmaz olyan, kizárólag automatizált adatkezelésen alapuló döntéshozatalt — ideértve a profilalkotást is —, amely Önre nézve joghatással járna vagy Önt hasonlóképpen jelentős mértékben érintené.
+Az Adatkezelő a Weboldalon keresztül gyűjtött adatok tekintetében nem alkalmaz olyan, kizárólag automatizált adatkezelésen alapuló döntéshozatalt (ideértve a profilalkotást is), amely Önre nézve joghatással járna vagy Önt hasonlóképpen jelentős mértékben érintené.
 
 ---
 
 ## 12. A Tájékoztató módosítása
 
-Az Adatkezelő fenntartja a jogot, hogy a jelen Tájékoztatót bármikor módosítsa. A módosításokról a Weboldal tetején feltüntetett „Utolsó frissítés" dátum frissítésével tájékoztatjuk Önt. Jelentős változások esetén — amennyiben rendelkezünk az Ön e-mail címével — e-mailben is értesítjük. Kérjük, rendszeresen ellenőrizze a Tájékoztatót.
+Az Adatkezelő fenntartja a jogot, hogy a jelen Tájékoztatót bármikor módosítsa. A módosításokról a Weboldal tetején feltüntetett „Utolsó frissítés" dátum frissítésével tájékoztatjuk Önt. Jelentős változások esetén (amennyiben rendelkezünk az Ön e-mail címével) e-mailben is értesítjük. Kérjük, rendszeresen ellenőrizze a Tájékoztatót.
 
 ---
 
@@ -199,7 +199,7 @@ A jelen Tájékoztatóra és az azon alapuló adatkezelésre a **magyar jog**, �
 Ha bármilyen kérdése van a jelen Tájékoztatóval vagy az adatkezeléssel kapcsolatban, kérjük, vegye fel velünk a kapcsolatot:
 
 **E-mail:** info@atriumscaling.com
-**Adatkezelő:** Atrium (üzemeltető: Severin Simon Máté E.V. — részletek a 2. pontban)
+**Adatkezelő:** Atrium (üzemeltető: Severin Simon Máté E.V., részletek a 2. pontban)
 
 ---
 

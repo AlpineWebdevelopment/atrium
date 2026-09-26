@@ -10,7 +10,7 @@ export default function SeriousBusiness() {
           <p className="split__p">
             Az Atrium operátorként gondolkodik, nem szoftvervendorként.
             Magyar nyelven, az Ön számai mellett, a meglévő eszközeibe
-            integrálva — nem egy újabb felület, amit a csapatnak meg kell tanulnia.
+            integrálva, nem egy újabb felület, amit a csapatnak meg kell tanulnia.
           </p>
         </div>
         <div className="divider" />

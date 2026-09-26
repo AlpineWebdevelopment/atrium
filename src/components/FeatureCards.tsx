@@ -60,7 +60,7 @@ export default function FeatureCards() {
         </div>
         <p className="fcard__desc">
           Csatlakozik hozzájuk, nem váltja le őket. A telefonszáma, a naptára
-          és a CRM-je marad — egy kattintással összekötve.
+          és a CRM-je marad, egy kattintással összekötve.
         </p>
         <div className="fcard__mock">
           <div className="mock__tiles">

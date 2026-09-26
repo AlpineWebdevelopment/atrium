@@ -21,63 +21,63 @@ const EXAMPLES: { ico: IconKey; t: string; d: string; who: string; c: string }[]
   {
     ico: "refresh",
     t: "Alvállalkozói és anyagrendelési egyeztető",
-    d: "Az alvállalkozók időpontjai és az anyagrendelési határidők ma telefonban és fejben élnek — egyetlen csúszás, és áll a munka a helyszínen. A rendszer egyezteti és követi mindkettőt, és előre szól, ha egy szállítmány vagy egy alvállalkozó csúszik. Kevesebb telefonálás, kevesebb állásidő a helyszínen.",
+    d: "Az alvállalkozók időpontjai és az anyagrendelési határidők ma telefonban és fejben élnek. Egyetlen csúszás, és áll a munka a helyszínen. A rendszer egyezteti és követi mindkettőt, és előre szól, ha egy szállítmány vagy egy alvállalkozó csúszik. Kevesebb telefonálás, kevesebb állásidő a helyszínen.",
     who: "Több alvállalkozóval és beszállítóval dolgozó cégeknek",
     c: "#9662BC",
   },
   {
     ico: "doc",
     t: "Engedély- és dokumentum-feldolgozó",
-    d: "Az engedélyek, szerződések és számlák adatait ma valaki kézzel viszi át a rendszerébe — határidő, ügyszám, összeg, soronként. A rendszer kiolvassa belőlük a lényeget, és rendezetten a meglévő rendszerébe írja. A kézi rögzítés és az elgépelés megszűnik.",
+    d: "Az engedélyek, szerződések és számlák adatait ma valaki kézzel viszi át a rendszerébe: határidő, ügyszám, összeg, soronként. A rendszer kiolvassa belőlük a lényeget, és rendezetten a meglévő rendszerébe írja. A kézi rögzítés és az elgépelés megszűnik.",
     who: "Sok hatósági engedéllyel és papírral dolgozó cégeknek",
     c: "#628FBC",
   },
   {
     ico: "trend",
     t: "Kintlévőség-figyelő",
-    d: "A kész munka számlája kiment, a pénz mégis késik — és a fizetésre emlékeztetni kínos, ezért gyakran elmarad. A rendszer figyeli a lejárt számlákat, és a megfelelő hangnemben, időben emlékeztet. A pénz hamarabb beérkezik, Önnek nem kell a kínos telefonokat intéznie.",
+    d: "A kész munka számlája kiment, a pénz mégis késik, és a fizetésre emlékeztetni kínos, ezért gyakran elmarad. A rendszer figyeli a lejárt számlákat, és a megfelelő hangnemben, időben emlékeztet. A pénz hamarabb beérkezik, Önnek nem kell a kínos telefonokat intéznie.",
     who: "Rendszeres kintlévőséggel küzdő kivitelező cégeknek",
     c: "#62BCAC",
   },
   {
     ico: "send",
     t: "Tételes árajánlat-összeállító",
-    d: "Egy tételes árajánlat összeállítása ma egy estét visz el: méretek, anyagárak, a korábbi hasonló munkák átnézése. A rendszer a felmérés adataiból és a korábbi ajánlataiból összeállítja a tételes ajánlat vázát — Ön már csak ellenőrzi, pontosít és kiküldi. Az ajánlat aznap megy ki, nem egy hét múlva.",
+    d: "Egy tételes árajánlat összeállítása ma egy estét visz el: méretek, anyagárak, a korábbi hasonló munkák átnézése. A rendszer a felmérés adataiból és a korábbi ajánlataiból összeállítja a tételes ajánlat vázát. Ön már csak ellenőrzi, pontosít és kiküldi. Az ajánlat aznap megy ki, nem egy hét múlva.",
     who: "Sok tételes ajánlatot készítő cégeknek",
     c: "#BCA162",
   },
   {
     ico: "layers",
     t: "Vezetői irányítópult",
-    d: "Hol tart most minden aktív projekt, melyik határidő közeleg, melyik számla van lejárva — ma ez több helyen és fejben él. A rendszer egy helyre gyűjti, és naprakészen mutatja. A heti áttekintéshez nem kell több táblázatot összevadászni.",
+    d: "Hol tart most minden aktív projekt, melyik határidő közeleg, melyik számla van lejárva? Ma ez több helyen és fejben él. A rendszer egy helyre gyűjti, és naprakészen mutatja. A heti áttekintéshez nem kell több táblázatot összevadászni.",
     who: "Egyszerre több projektet vezető cégeknek",
     c: "#9662BC",
   },
   {
     ico: "target",
     t: "Rendszer-összekötő automatizálás",
-    d: "A számlázó, a naptár és a CRM ma külön él — az adatot valaki kézzel másolja az egyikből a másikba. A rendszer ezt a háttérben elvégzi, és jelez, ha valami eltér a megszokottól. Egy teljes kézi munkafolyamat eltűnik a napból.",
+    d: "A számlázó, a naptár és a CRM ma külön él. Az adatot valaki kézzel másolja az egyikből a másikba. A rendszer ezt a háttérben elvégzi, és jelez, ha valami eltér a megszokottól. Egy teljes kézi munkafolyamat eltűnik a napból.",
     who: "Több, egymással össze nem kötött rendszert használó cégeknek",
     c: "#628FBC",
   },
   {
     ico: "search",
     t: "Belső tudás-asszisztens",
-    d: "A válasz egy korábbi projekt rögzítésében vagy a cég műszaki anyagában már megvan — az új kolléga mégis úgy jut hozzá, hogy megkérdez valakit. A rendszer ezekből az anyagokból válaszol, a forrást megjelölve. A betanulás gyorsabb, a tapasztalt kollégát nem szakítja félbe minden kérdés.",
+    d: "A válasz egy korábbi projekt rögzítésében vagy a cég műszaki anyagában már megvan, az új kolléga mégis úgy jut hozzá, hogy megkérdez valakit. A rendszer ezekből az anyagokból válaszol, a forrást megjelölve. A betanulás gyorsabb, a tapasztalt kollégát nem szakítja félbe minden kérdés.",
     who: "Növekvő, sok új belépőt betanító cégeknek",
     c: "#62BCAC",
   },
   {
     ico: "chat",
     t: "Garanciális hibajegy-kezelő",
-    d: "Az átadás után a hibajelzések szétszórva érkeznek — telefonon, e-mailben, üzenetben —, és néhány elsikkad, amíg nagyobb baj nem lesz belőle. A rendszer egy helyen fogadja és rögzíti a garanciális jelzéseket, és rászól, ha valami túl rég nyitva van. Egy reklamáció sem marad megválaszolatlanul.",
+    d: "Az átadás után a hibajelzések szétszórva érkeznek (telefonon, e-mailben, üzenetben), és néhány elsikkad, amíg nagyobb baj nem lesz belőle. A rendszer egy helyen fogadja és rögzíti a garanciális jelzéseket, és rászól, ha valami túl rég nyitva van. Egy reklamáció sem marad megválaszolatlanul.",
     who: "Átadás utáni garanciális ügyeket kezelő cégeknek",
     c: "#BCA162",
   },
   {
     ico: "plus",
     t: "Az Ön ötlete",
-    d: "Ha a működésében van egy visszatérő, kézi folyamat, amely felemészti az idejét, mondja el. Megnézzük, automatizálható-e — és ha igen, megépítjük.",
+    d: "Ha a működésében van egy visszatérő, kézi folyamat, amely felemészti az idejét, mondja el. Megnézzük, automatizálható-e, és ha igen, megépítjük.",
     who: "Bármilyen kivitelező cégnek",
     c: "#6DBC61",
   },
@@ -86,7 +86,7 @@ const EXAMPLES: { ico: IconKey; t: string; d: string; who: string; c: string }[]
 const GUARANTEES = [
   {
     t: "Fix ár, működő eredmény",
-    d: "Fix áron, közösen meghatározott eredményre dolgozunk. Ha több kör kell hozzá, az a mi dolgunk — felár nélkül.",
+    d: "Fix áron, közösen meghatározott eredményre dolgozunk. Ha több kör kell hozzá, az a mi dolgunk, felár nélkül.",
   },
   {
     t: "Az Öné marad",
@@ -112,7 +112,7 @@ export default function CustomSolutionsKivitelezes() {
         <div className="cux__lead reveal" data-delay="1">
           <span className="cux__lead-kicker">Az Ön ötlete a kiindulópont</span>
           <p className="cux__lead-txt">
-            Mondja el, mire van szüksége — a többit ránk bízhatja. Lehet egyetlen automatizálás, néhány összekötött folyamat, vagy egy teljes, testre szabott rendszer.
+            Mondja el, mire van szüksége, a többit ránk bízhatja. Lehet egyetlen automatizálás, néhány összekötött folyamat, vagy egy teljes, testre szabott rendszer.
           </p>
           <div className="cux__scale" aria-hidden="true">
             <div className="cux__scale-step">

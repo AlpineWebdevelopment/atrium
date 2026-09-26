@@ -7,7 +7,7 @@ const STEPS = [
   {
     n: "01",
     t: "Megbeszélés",
-    d: "30 perces hívás — megnézzük, hány ajánlatkérés jön be, milyen gyorsan válaszolnak rájuk, és hány árajánlat van most nyitva.",
+    d: "30 perces hívás: megnézzük, hány ajánlatkérés jön be, milyen gyorsan válaszolnak rájuk, és hány árajánlat van most nyitva.",
   },
   {
     n: "02",
@@ -22,7 +22,7 @@ const STEPS = [
   {
     n: "04",
     t: "Elindítás",
-    d: "Csatlakoztatjuk a meglévő eszközeihez. A csapatnak nem kell rendszert váltania — az Atrium a háttérben dolgozik.",
+    d: "Csatlakoztatjuk a meglévő eszközeihez. A csapatnak nem kell rendszert váltania. Az Atrium a háttérben dolgozik.",
   },
 ];
 
@@ -37,14 +37,14 @@ export default function WorkPricingNapelem() {
           <p className="dash__p">
             Nincs rögzített árlista. A beérkező ajánlatkérések számából, a
             lead-árból, a jellemző beszerelés értékéből és az elvárt hatásból
-            számítjuk az ajánlatot — nem egy standard csomagból, hanem az Önök
+            számítjuk az ajánlatot, nem egy standard csomagból, hanem az Önök
             valóságából.
           </p>
           {/* ATRIUM-EDIT KV8 — ROI framing; no fabricated numbers */}
           <p className="dash__p">
             <b>A megtérülés a kifizetett leadjein és a beszerelés értékén a
-            legnagyobb.</b> Néhány visszahozott árajánlat negyedévente — olyanok,
-            amelyek eddig csendben elhaltak, mert senki nem követte utána —
+            legnagyobb.</b> Néhány visszahozott árajánlat negyedévente (olyanok,
+            amelyek eddig csendben elhaltak, mert senki nem követte utána)
             önmagában megtérítik a rendszer költségét. A gyors első reakció pedig
             megvédi azt a hirdetést, amit a leadekért már kifizetett.
           </p>
@@ -63,7 +63,7 @@ export default function WorkPricingNapelem() {
         </div>
         <div className="wpr__note reveal" data-delay="2">
           Az első megbeszélés nem kötelezi Önt semmire. Ha nem látunk valós hatást
-          az Önök számaiból — azt is megmondjuk.
+          az Önök számaiból, azt is megmondjuk.
         </div>
       </div>
     </section>

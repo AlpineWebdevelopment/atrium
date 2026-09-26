@@ -46,7 +46,7 @@ export default function StartAnywhere() {
               </div>
             ))}
             <p className="sa__note">
-              Minden hívás, minden űrlap, minden elmaradt időpont — egyetlen
+              Minden hívás, minden űrlap, minden elmaradt időpont egyetlen
               rendszerbe fogva, magyar nyelven, az Ön meglévő naptárába kötve.
             </p>
           </div>

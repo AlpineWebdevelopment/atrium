@@ -19,7 +19,7 @@ const PACKAGES = [
   {
     n: "Teljes szalon",
     sub: "havi fix díj",
-    d: "Minden, ami az Alapban — plusz a törzsvendégek visszahívása új időpontra, értékeléskérés, a lemondott időpontok újratöltése, és havi riport arról, mi történt.",
+    d: "Minden, ami az Alapban, plusz a törzsvendégek visszahívása új időpontra, értékeléskérés, a lemondott időpontok újratöltése, és havi riport arról, mi történt.",
     p: "99 000 Ft / hó",
   },
 ];
@@ -32,7 +32,7 @@ export default function WorkPricingSalon() {
           <span className="dash__eyebrow"><span className="newtag">szépségszalonoknak</span> Csomagok</span>
           <h2 className="dash__h">Fix csomagok, fix árak.</h2>
           <p className="dash__p">
-            Nincs rejtett tétel és nincs alkudozás — az árat előre látja, és azt választja,
+            Nincs rejtett tétel és nincs alkudozás: az árat előre látja, és azt választja,
             ami a szalonjának kell. Mi építjük, mi üzemeltetjük, és a meglévő naptárához kötjük.
           </p>
         </div>
@@ -50,7 +50,7 @@ export default function WorkPricingSalon() {
           ))}
         </div>
         <p className="dash__p reveal" data-delay="2" style={{ marginTop: "1.5rem", textAlign: "center" }}>
-          Mindegyik a meglévő naptárához kötve indul — a csapatának semmit nem kell lecserélnie.
+          Mindegyik a meglévő naptárához kötve indul. A csapatának semmit nem kell lecserélnie.
         </p>
       </div>
     </section>

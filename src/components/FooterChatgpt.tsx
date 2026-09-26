@@ -23,7 +23,7 @@ export default function FooterChatgpt({ base = "" }: { base?: string }) {
       <div className="wrap">
         <div className="footer__top">
           <div className="footer__brand-col">
-            <a href={onLanding ? "#rendszer" : base} className="footer__brand" aria-label={onLanding ? "Atrium — az oldal tetejére" : "Atrium — vissza az oldalra"}>
+            <a href={onLanding ? "#rendszer" : base} className="footer__brand" aria-label={onLanding ? "Atrium, az oldal tetejére" : "Atrium, vissza az oldalra"}>
               Atrium<span className="dot" aria-hidden="true" />
             </a>
             <p className="footer__sub">

@@ -23,7 +23,7 @@ export default function Manifesto() {
             Eddig az AI-ról beszéltek Önnek. Mi a pénzéről fogunk<span className="manifesto__dot">.</span>
           </h2>
           <p className="manifesto__p">
-            Valószínűleg már jónéhány cég megkereste fényes AI-bemutatóval, ami a meetingen jól mutatott, aztán semmit nem hozott. Mi nem AI-t árulunk, hanem egy dolgot szüntetünk meg: a kieső bevételt. Nem dolgozunk kitalált statisztikákkal és esettanulmányokkal — és ha nem tudunk segíteni, nyíltan megmondjuk a meetingen.
+            Valószínűleg már jónéhány cég megkereste fényes AI-bemutatóval, ami a meetingen jól mutatott, aztán semmit nem hozott. Mi nem AI-t árulunk, hanem egy dolgot szüntetünk meg: a kieső bevételt. Nem dolgozunk kitalált statisztikákkal és esettanulmányokkal, és ha nem tudunk segíteni, nyíltan megmondjuk a meetingen.
           </p>
         </div>
 

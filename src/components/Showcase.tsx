@@ -61,7 +61,7 @@ export default function Showcase() {
         <div className="show__foot reveal" data-delay="2">
           <div className="show__foot-l">
             <strong>A rendszer</strong>
-            <span>Recepció, foglalás, utánkövetés és riportálás — niche-re hangolva.</span>
+            <span>Recepció, foglalás, utánkövetés és riportálás, niche-re hangolva.</span>
           </div>
           <div className="show__arrows">
             <button className="show__arrow" aria-label="Előző">
