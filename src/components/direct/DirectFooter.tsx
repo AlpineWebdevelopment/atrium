@@ -36,6 +36,11 @@ export default function DirectFooter() {
           </span>
         </div>
       </div>
+      {/* The name, once, at the size it deserves: cropped by the viewport and
+          fading into the ground, so it reads as a mark rather than another
+          heading. Hidden from screen readers — the brand is already in the
+          text above. */}
+      <div className="dr-foot__mark" aria-hidden="true"><span>Atrium</span></div>
     </footer>
   );
 }

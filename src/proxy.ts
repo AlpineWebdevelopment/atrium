@@ -18,10 +18,12 @@ import { NextResponse, type NextRequest } from "next/server";
    To end the break: set MAINTENANCE to false and deploy.
 
    MAINTENANCE_PATHS takes single pages down while the rest of the site stays
-   up — the same notice, the same 503. Exact matches only. Empty now: the root
-   carries the new landing, so there is nothing left to hold back. */
+   up — the same notice, the same 503. Exact matches only. The root is on that
+   list: the new landing lives there, and it does not go public until we say
+   so. `next dev` skips the whole check, so the page can still be worked on at
+   localhost. */
 const MAINTENANCE = false;
-const MAINTENANCE_PATHS: string[] = [];
+const MAINTENANCE_PATHS: string[] = ["/"];
 
 const OPEN_PATHS = ["/foglalas", "/chatgpt-hirdetes/foglalas", "/adatvedelem", "/aszf"];
 
@@ -69,6 +71,8 @@ const PAGE = `<!doctype html>
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
+  // Local work is never held back by the maintenance notice.
+  if (process.env.NODE_ENV === "development") return NextResponse.next();
   // /direct was this landing's address while it was being built, and it went
   // out in links and bookmarks. It now lives at the root, so the old address
   // sends people there permanently instead of 404-ing.

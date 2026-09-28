@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Onest, Geist, Geist_Mono, Bebas_Neue, Outfit, Bricolage_Grotesque } from "next/font/google";
+import { Onest, Geist, Geist_Mono, Fragment_Mono, Bebas_Neue, Outfit, Bricolage_Grotesque } from "next/font/google";
 import Nav from "@/components/Nav";
 import BookingRedirect from "@/components/BookingRedirect";
 import "./globals.css";
@@ -20,6 +20,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin", "latin-ext"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   variable: "--font-geist-mono-src",
+  display: "swap",
+});
+/* The label face on the new surfaces. Fragment Mono is a plain grotesque
+   monospace with no typewriter mannerisms — it does the job of a small
+   uppercase label without announcing itself, and it is nowhere near as widely
+   used as the usual mono suspects. */
+const fragmentMono = Fragment_Mono({
+  subsets: ["latin", "latin-ext"],
+  weight: "400",
+  variable: "--font-fragment-mono-src",
   display: "swap",
 });
 /* Site type — Bebas Neue (headlines) + Outfit (everything else), the
@@ -94,7 +104,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="hu"
-      className={`${onest.variable} ${geist.variable} ${geistMono.variable} ${bebas.variable} ${outfit.variable} ${bricolage.variable}`}
+      className={`${onest.variable} ${geist.variable} ${geistMono.variable} ${fragmentMono.variable} ${bebas.variable} ${outfit.variable} ${bricolage.variable}`}
       suppressHydrationWarning
       data-scroll-behavior="smooth"
     >

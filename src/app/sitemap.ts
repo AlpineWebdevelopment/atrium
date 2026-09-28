@@ -30,8 +30,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   return [
-    { url: SITE_URL, lastModified: new Date(), priority: 1 },
-    { url: `${SITE_URL}/szolgaltatasok`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.9 },
+    /* The root and /szolgaltatasok are held back (see proxy.ts) and carry
+       noindex, so they stay out of the sitemap until the site goes public. */
     { url: `${SITE_URL}/chatgpt-hirdetes`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.9 },
     ...landings,
     { url: `${SITE_URL}/blog`, lastModified: new Date(), priority: 0.7 },
