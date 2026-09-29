@@ -25,7 +25,7 @@
   --a-radius: 10px;
   --a-ease: cubic-bezier(0.4, 0, 0.2, 1);
 
-  font-family: var(--font-geist-src), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-barlow-src), ui-sans-serif, system-ui, sans-serif;
   background: var(--a-canvas);
   color: var(--a-text);
   -webkit-font-smoothing: antialiased;

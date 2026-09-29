@@ -83,7 +83,7 @@ export default function RelatedPosts({
               <p className="font-mono text-[11px] uppercase tracking-widest text-stone">
                 {p.niche}
               </p>
-              <h3 className="mt-1 font-outfit text-[16.5px] font-semibold leading-snug">
+              <h3 className="mt-1 font-barlow text-[16.5px] font-semibold leading-snug">
                 {p.title}
               </h3>
               <p className="mt-1 text-[14px] leading-normal text-stone">{p.dek}</p>

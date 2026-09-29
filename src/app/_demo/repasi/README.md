@@ -100,10 +100,10 @@ egy éles rendszerben is — ezt a Hívások képernyő alcíme ki is mondja.
 Nyugodt, technikus operátori konzol: `#FAFAF9` vászon, fehér felületek, 1px
 `#E7E5E4` keret, 10px sarok, árnyék nélkül. **Egyetlen kiemelőszín**, a mély
 türkiz `#0F766E`. A szemantikus színek csak kis státuszpirulákban jelennek meg.
-UI-betű Geist Sans, **minden szám, azonosító, telefonszám, időtartam és
+UI-betű Barlow, **minden szám, azonosító, telefonszám, időtartam és
 százalék Geist Mono**, tabuláris számjegyekkel.
 
-A betűket a demó a projekt gyökér-layoutjából örökli (`--font-geist-src`,
+A betűket a demó a projekt gyökér-layoutjából örökli (`--font-barlow-src`,
 `--font-geist-mono-src`), ezért nem tölti be másodszor ugyanazt a két
 betűtípust — a `geist` npm csomagra nincs szükség.
 

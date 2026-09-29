@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Onest, Geist, Geist_Mono, Fragment_Mono, Bebas_Neue, Outfit, Bricolage_Grotesque } from "next/font/google";
+import { Onest, Geist_Mono, Fragment_Mono, Bebas_Neue, Barlow, Bricolage_Grotesque } from "next/font/google";
 import Nav from "@/components/Nav";
 import BookingRedirect from "@/components/BookingRedirect";
 import "./globals.css";
@@ -8,12 +8,6 @@ const onest = Onest({
   subsets: ["latin", "latin-ext"], // latin-ext required for Hungarian glyphs (ő, ű, etc.)
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   variable: "--font-onest-src",
-  display: "swap",
-});
-const geist = Geist({
-  subsets: ["latin", "latin-ext"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-geist-src",
   display: "swap",
 });
 const geistMono = Geist_Mono({
@@ -32,16 +26,18 @@ const fragmentMono = Fragment_Mono({
   variable: "--font-fragment-mono-src",
   display: "swap",
 });
-/* Site type — Bebas Neue (headlines) + Outfit (everything else), the
-   hírösweb.hu pairing, on every public surface: landings, blog, legal,
-   offers, career, booking. Driven by the --font-headline / --font-display /
-   --font-body tokens and the font-headline / font-outfit utilities in
-   globals.css. Geist Mono stays the mono face.
+/* Site type — Bebas Neue (headlines) + Barlow (everything else: body copy,
+   card titles, lists, buttons) on every public surface: landings, blog,
+   legal, offers, career, booking. Driven by the --font-headline /
+   --font-display / --font-body tokens and the font-headline / font-barlow
+   utilities in globals.css. Geist Mono stays the mono face.
+
+   Barlow replaced Outfit, and Geist Sans was dropped entirely (the repasi
+   demo now reads --font-barlow-src too).
 
    The wordmark keeps the type it always had — Onest by default, Bricolage
    Grotesque on /, /chatgpt-hirdetes and /direct — via --font-logo, which is
-   why Onest and Bricolage are still loaded. Onest and Geist also stay for the
-   client demos (_demo/*), which keep their own look.
+   why Onest and Bricolage are still loaded.
 
    Bebas Neue is a condensed all-caps face with a single 400 weight;
    globals.css turns weight synthesis off and gives headlines positive
@@ -52,9 +48,12 @@ const bebas = Bebas_Neue({
   variable: "--font-bebas-src",
   display: "swap",
 });
-const outfit = Outfit({
-  subsets: ["latin", "latin-ext"],
-  variable: "--font-outfit-src",
+/* Barlow carries all running text: body copy, card titles, lists, buttons.
+   A slightly narrow grotesque, so it sits well under the condensed Bebas. */
+const barlow = Barlow({
+  subsets: ["latin", "latin-ext"], // latin-ext required for Hungarian glyphs (ő, ű, etc.)
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-barlow-src",
   display: "swap",
 });
 // Wordmark only (the logo's weight is 600).
@@ -104,7 +103,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="hu"
-      className={`${onest.variable} ${geist.variable} ${geistMono.variable} ${fragmentMono.variable} ${bebas.variable} ${outfit.variable} ${bricolage.variable}`}
+      className={`${onest.variable} ${geistMono.variable} ${fragmentMono.variable} ${bebas.variable} ${barlow.variable} ${bricolage.variable}`}
       suppressHydrationWarning
       data-scroll-behavior="smooth"
     >

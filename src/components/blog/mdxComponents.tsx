@@ -13,7 +13,7 @@ export const mdxComponents = {
   // h3 — Outfit semibold, slightly muted so it reads as a sub-beat under h2.
   h3: (p: ComponentProps<"h3">) => (
     <h3
-      className="mb-1.5 mt-7 font-outfit text-[17px] font-semibold leading-[1.3] text-stone"
+      className="mb-1.5 mt-7 font-barlow text-[17px] font-semibold leading-[1.3] text-stone"
       {...p}
     />
   ),
@@ -52,7 +52,7 @@ export const mdxComponents = {
   thead: (p: ComponentProps<"thead">) => <thead {...p} />,
   th: (p: ComponentProps<"th">) => (
     <th
-      className="border-b border-line py-[0.6rem] pr-4 text-left font-outfit font-bold last:pr-0"
+      className="border-b border-line py-[0.6rem] pr-4 text-left font-barlow font-bold last:pr-0"
       {...p}
     />
   ),

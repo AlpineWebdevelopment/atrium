@@ -57,7 +57,7 @@ export default function NicheBlogIndex({ slug }: { slug: string }) {
                       {p.frontmatter.publishedAt}
                     </p>
                   </div>
-                  <h2 className="mt-1 font-outfit text-[20px] font-semibold">
+                  <h2 className="mt-1 font-barlow text-[20px] font-semibold">
                     {p.frontmatter.title}
                   </h2>
                   <p className="mt-1 text-[15px] leading-[1.6] text-stone">{p.frontmatter.dek}</p>

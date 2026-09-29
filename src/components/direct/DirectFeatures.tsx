@@ -9,39 +9,34 @@ import type { ReactNode } from "react";
    so tiles fill their cells. No illustrations, no published prices, no
    unverifiable figures. */
 
-type Tile = { area: string; k: string; t: string; d: string; items?: string[] };
+type Tile = { area: string; t: string; d: string; items?: string[] };
 
 const TILES: Tile[] = [
   {
     area: "val",
-    k: "Érték",
     t: "Egy dolga van: pénzt hozni.",
     d: "Nem képgenerálás, nem csevegőablak a weboldal sarkában. Az a dolga, hogy több megkeresésből legyen megrendelés.",
     items: ["Több ügyfél, több foglalás, több bevétel", "Megtérülés az Ön számaiból, nem ígéretből", "Mérhető növekedés, nem bemutató"],
   },
   {
     area: "pack",
-    k: "Csomag",
     t: "Az Ön cégére szabva",
     d: "A folyamatához és a méretéhez igazítjuk, a pár fős csapattól a nagyvállalatig.",
     items: ["Saját CRM minden csomagban", "Díj a cég méretéhez igazítva", "Folyamatos támogatás"],
   },
   {
     area: "tech",
-    k: "Technológia",
     t: "Minden csatorna, egy memória",
     d: "Amit a cége használ, azt bekötjük, és mindegyik ugyanabból a memóriából dolgozik.",
     items: ["Semmit nem kell kétszer elmondani", "Megkeresi a régi ügyfeleket", "Valós idejű CRM-szinkron"],
   },
   {
     area: "lang",
-    k: "Nyelv",
     t: "Magyarul, ahogy az ügyfelei beszélnek",
     d: "Természetes magyar beszéd, menü és robothang nélkül.",
   },
   {
     area: "dash",
-    k: "Irányítópult",
     t: "Minden adat egy helyen",
     d: "Egy felületen látja az összes beszélgetést, ügyfelet és eredményt, valós időben.",
     items: ["Minden beszélgetés visszanézhető", "Élő mutatók és statisztikák", "Több AI-ügynök egy helyen, mobilon is"],
@@ -61,13 +56,17 @@ function Art({ area }: { area: string }) {
        the system has just filled. Anything more (channels, colours per
        source) only raises questions at this size. */
     const DAYS = ["H", "K", "SZ", "CS", "P"];
-    const HOURS = ["09", "11", "13", "15"];
-    /* row-major, 4 rows x 5 days: 1 = booked, 0 = free, 2 = just booked */
+    const HOURS = ["08", "10", "12", "14", "16", "18"];
+    /* row-major, 6 rows x 5 days: 1 = booked, 0 = free, 2 = just booked.
+       On desktop the tile is as tall as the two beside it, and the week
+       grows to fill it, so a full working day is drawn, not a slice. */
     const SLOTS = [
       1, 1, 1, 1, 0,
       1, 1, 1, 1, 1,
       1, 1, 1, 0, 1,
+      1, 0, 1, 1, 1,
       1, 1, 1, 1, 2,
+      0, 1, 1, 1, 1,
     ];
     return (
       <div className="dr-art dr-art--cal" role="img" aria-label="Egy munkahét naptára, amely megtelik lefoglalt időpontokkal">
@@ -233,7 +232,6 @@ export default function DirectFeatures() {
           {TILES.map((it, i) => (
             <div className={`dr-bento__card dr-bento__card--${it.area} reveal`} data-delay={i + 1} key={it.area}>
               <div className="dr-bento__top">
-                <span className="dr-bento__k">{it.k}</span>
                 <h3 className="dr-bento__t">{it.t}</h3>
                 <p className="dr-bento__p">{it.d}</p>
                 <Art area={it.area} />

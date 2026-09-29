@@ -1,5 +1,5 @@
 /* Atrium — Chronicle-style landing, Atrium colors + fonts only.
-   Bone / Ink / Signal / Stone. Onest (display) + Geist (body) + Geist Mono.
+   Bone / Ink / Signal / Stone. Bebas Neue (headlines) + Barlow (body) + Geist Mono.
    Full rebuild: faithful Chronicle layout, Atrium palette + type.
    + colorful data-viz dashboard (tabbed) & packages sections. */
 
@@ -21,10 +21,10 @@
   --line:   rgba(1, 14, 30, 0.10);
   --line-2: rgba(1, 14, 30, 0.06);
 
-  --font-display: var(--font-outfit-src), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-barlow-src), ui-sans-serif, system-ui, sans-serif;
   --font-headline: var(--font-bebas-src), ui-sans-serif, system-ui, sans-serif;
   --font-logo: var(--font-onest-src), ui-sans-serif, system-ui, sans-serif;
-  --font-body:    var(--font-outfit-src), ui-sans-serif, system-ui, sans-serif;
+  --font-body:    var(--font-barlow-src), ui-sans-serif, system-ui, sans-serif;
   --font-mono:    "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
   --ease: cubic-bezier(0.32, 0.72, 0, 1);          /* default / drawer-style */
@@ -44,9 +44,8 @@
   --color-line: var(--line);
 
   --font-onest: var(--font-onest-src), ui-sans-serif, system-ui, sans-serif;
-  --font-geist: var(--font-geist-src), ui-sans-serif, system-ui, sans-serif;
   --font-headline: var(--font-bebas-src), ui-sans-serif, system-ui, sans-serif;
-  --font-outfit: var(--font-outfit-src), ui-sans-serif, system-ui, sans-serif;
+  --font-barlow: var(--font-barlow-src), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono-src), ui-monospace, monospace;
 }
 
@@ -59,7 +58,7 @@
     text-rendering: optimizeLegibility;
   }
   body {
-    font-family: var(--font-outfit);
+    font-family: var(--font-barlow);
   }
   @media (prefers-reduced-motion: reduce) {
     *,
@@ -3290,10 +3289,10 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .page--chatgpt-hirdetes,
 .page--root,
 .nav--newtype {
-  --font-display: var(--font-outfit-src), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-barlow-src), ui-sans-serif, system-ui, sans-serif;
   --font-headline: var(--font-bebas-src), ui-sans-serif, system-ui, sans-serif;
   --font-logo: var(--font-bricolage-src), ui-sans-serif, system-ui, sans-serif;
-  --font-body: var(--font-outfit-src), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-barlow-src), ui-sans-serif, system-ui, sans-serif;
 }
 .page--root, .page--root .btn, .nav--newtype .btn, .nav--newtype .nav__link { font-family: var(--font-body); }
 .page--chatgpt-hirdetes {
@@ -3623,10 +3622,10 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .nav--cg .nav__cta { font-size: 14px; padding: 10px 18px; }
 
 .footer--cg {
-  --font-display: var(--font-outfit-src), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-barlow-src), ui-sans-serif, system-ui, sans-serif;
   --font-headline: var(--font-bebas-src), ui-sans-serif, system-ui, sans-serif;
   --font-logo: var(--font-bricolage-src), ui-sans-serif, system-ui, sans-serif;
-  --font-body: var(--font-outfit-src), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-barlow-src), ui-sans-serif, system-ui, sans-serif;
   border-top: 1px solid var(--line);
 }
 .footer--cg .footer__brand { font-family: var(--font-display); font-weight: 600; }
@@ -3714,10 +3713,10 @@ html.dark { --viz-purple-soft: #1d1b33; }
   --viz-green: #15803D;
   --viz-amber: #B45309;
   --viz-red: #D32718;
-  --font-display: var(--font-barlow-src), var(--font-outfit-src), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-barlow-src), ui-sans-serif, system-ui, sans-serif;
   --font-headline: var(--font-bebas-src), ui-sans-serif, system-ui, sans-serif;
   --font-logo: var(--font-bricolage-src), ui-sans-serif, system-ui, sans-serif;
-  --font-body: var(--font-barlow-src), var(--font-outfit-src), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-barlow-src), ui-sans-serif, system-ui, sans-serif;
   font-family: var(--font-body);
   background: var(--bone);
 }
@@ -3854,7 +3853,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
 /* Bebas Neue is a condensed all-caps display face with a single weight. It
    is used the way hírösweb.hu uses it — on the large headlines only (hero,
    section headings, the wordmark); every smaller "display" role (card and
-   step titles, stat values, tabs) falls to Outfit through --font-display,
+   step titles, stat values, tabs) falls to Barlow through --font-display,
    because Bebas at 14-17px is cramped and hard to read.
    - No faux bold: the headlines ask for 550-650 and the browser would smear
      the 400 drawing. Landings and the site nav only; the blog keeps
@@ -3988,17 +3987,13 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .dr-bento__card--tech { grid-area: tech; }
 .dr-bento__card--dash { grid-area: dash; }
 .dr-bento__card--lang { grid-area: lang; justify-content: center; }
-.dr-bento__k {
-  display: block; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--stone);
-}
 .dr-bento__t {
-  margin: 10px 0 0; font-family: var(--font-display); font-weight: 700;
+  margin: 0; font-family: var(--font-display); font-weight: 700;
   font-size: 22px; line-height: 1.2; letter-spacing: -0.015em; color: var(--ink); text-wrap: balance;
 }
 .dr-bento__card--val .dr-bento__t {
   font-family: var(--font-headline); font-weight: 400; font-size: clamp(52px, 18.4cqi, 104px);
-  line-height: 0.92; letter-spacing: 0.01em; margin-top: 14px;
+  line-height: 0.92; letter-spacing: 0.01em; margin-top: 0;
 }
 .dr-bento__p { margin: 10px 0 0; font-size: 18px; line-height: 1.55; color: var(--ink-70); }
 .dr-bento__card--val .dr-bento__p { font-size: 20.5px; max-width: 540px; margin-top: 20px; }
@@ -4032,29 +4027,33 @@ html.dark { --viz-purple-soft: #1d1b33; }
     padding: 18px 0 0; border-left: 0; border-top: 1px solid var(--line);
   }
 }
-/* Phones: one column. Two tiles side by side leaves each of them about 160px
-   wide, which is not a tile any more — the labelled bars turn into stripes and
-   the channel chips wrap to one word a line. Full width keeps every drawing
-   legible, and the paragraphs that were hidden to save space come back. */
+/* Phones: still a bento, not a stack. The value tile runs full width with
+   its week, then two pairs of half-width tiles: package beside language (both
+   short), technology beside dashboard (both tall). The labelled bars stack
+   their labels above the bar, the chips shrink, and the package and
+   technology checklists step aside so the pairs stay level. */
 @media (max-width: 620px) {
   .dr-bento {
-    gap: 12px;
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: "val" "pack" "tech" "lang" "dash";
+    gap: 10px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas: "val val" "pack lang" "tech dash";
   }
-  .dr-bento__card { padding: 22px 20px 24px; gap: 16px; border-radius: 16px; }
-  .dr-bento__card--val { padding: 24px 22px 26px; }
+  .dr-bento__card { padding: 16px 14px 18px; gap: 14px; border-radius: 14px; }
+  .dr-bento__card--val { padding: 24px 20px 26px; }
   .dr-bento__card--val .dr-bento__t { font-size: clamp(40px, 13.5cqi, 60px); }
   .dr-bento__card--val .dr-bento__p { font-size: 16px; margin-top: 14px; }
   .dr-bento__card--val .dr-bento__list li { font-size: 15px; }
-  .dr-bento__t { font-size: 19px; }
-  .dr-bento__p { font-size: 14.5px; }
-  .dr-bento__list li { font-size: 14.5px; }
-  .dr-bento__k { font-size: 10px; }
+  .dr-bento__t { font-size: 17px; line-height: 1.22; }
+  .dr-bento__p { font-size: 13.5px; line-height: 1.45; margin-top: 8px; }
+  .dr-bento__list { padding-top: 12px; gap: 7px; }
+  .dr-bento__list li { font-size: 13px; line-height: 1.4; gap: 8px; }
+  .dr-bento__ok { width: 13px; height: 13px; }
+  .dr-bento__card--pack .dr-bento__list,
+  .dr-bento__card--tech .dr-bento__list { display: none; }
   .dr-bento__card--lang { justify-content: flex-start; }
-  .dr-bento__card--dash { flex-direction: column; gap: 18px; }
+  .dr-bento__card--dash { flex-direction: column; gap: 14px; }
   .dr-bento__card--dash .dr-bento__list {
-    padding: 16px 0 0; border-left: 0; border-top: 1px solid var(--line);
+    padding: 12px 0 0; border-left: 0; border-top: 1px solid var(--line);
   }
 }
 
@@ -4114,13 +4113,45 @@ html.dark { --viz-purple-soft: #1d1b33; }
   background-attachment: scroll;
 }
 .page--direct .dr-card,
-.page--direct .dr-bento__card,
-.page--direct .dr-what__main,
-.page--direct .dr-close__panel {
+.page--direct .dr-what__main {
   background: transparent; border-color: rgba(1, 14, 30, 0.24); box-shadow: none;
+}
+/* The closing panel is a white sheet like the bento's, only it does not lean.
+   A hairline holds its edge, so a panel this size does not float away. */
+.page--direct .dr-close__panel {
+  background: #FFFFFF; border-color: rgba(1, 14, 30, 0.08);
+  box-shadow: 0 1px 2px rgba(1, 14, 30, 0.05), 0 4px 10px -7px rgba(1, 14, 30, 0.22);
 }
 .page--direct .dr-card:hover { transform: none; border-color: rgba(1, 14, 30, 0.42); box-shadow: none; }
 .page--direct .dr-what__plus { border-color: rgba(1, 14, 30, 0.18); }
+
+/* The bento: white sheets on the table, each leaning its own way, on a
+   short, tight shadow. The lean lives in a variable so the scroll reveal can
+   keep its slide-in and land on the rotation instead of resetting it. */
+.page--direct .dr-bento-sec { overflow-x: clip; }
+.page--direct .dr-bento { gap: 30px; padding: 12px; }
+.page--direct .dr-bento__card {
+  --lean: 0deg;
+  background: #FFFFFF; border-color: transparent;
+  box-shadow: 0 1px 2px rgba(1, 14, 30, 0.1), 0 8px 14px -6px rgba(1, 14, 30, 0.35);
+  transform: rotate(var(--lean));
+}
+.page--direct .dr-bento__card.reveal { transform: translateY(18px) rotate(var(--lean)); }
+.page--direct .dr-bento__card.reveal.visible { transform: rotate(var(--lean)); }
+.page--direct .dr-bento__card--val  { --lean: -1.6deg; }
+.page--direct .dr-bento__card--pack { --lean: 2deg; }
+.page--direct .dr-bento__card--tech { --lean: -2.2deg; }
+.page--direct .dr-bento__card--lang { --lean: 2.4deg; }
+.page--direct .dr-bento__card--dash { --lean: 1.4deg; }
+@media (max-width: 620px) {
+  /* a full-width card on a phone pokes out of the screen at two degrees */
+  .page--direct .dr-bento { gap: 22px; padding: 8px 6px; }
+  .page--direct .dr-bento__card--val  { --lean: -0.7deg; }
+  .page--direct .dr-bento__card--pack { --lean: 0.9deg; }
+  .page--direct .dr-bento__card--tech { --lean: -0.9deg; }
+  .page--direct .dr-bento__card--lang { --lean: 1deg; }
+  .page--direct .dr-bento__card--dash { --lean: 0.7deg; }
+}
 
 /* /direct — the small drawings inside the panels. Each one is labelled, so
    it explains its tile instead of decorating it: company sizes on the
@@ -4128,20 +4159,24 @@ html.dark { --viz-purple-soft: #1d1b33; }
    spoken line with a voice trace on the language tile. */
 .dr-art { margin-top: 18px; width: 100%; }
 
-/* the value tile: a working week with two states — booked or free */
-.dr-art--cal { display: block; max-width: 430px; margin: 30px 0 6px; }
+/* the value tile: a working week with two states — booked or free. The tile
+   is as tall as the two beside it, so the week stretches to fill it: the
+   rows share whatever height is left, between a slim bar and a real slot. */
+.dr-bento__card--val .dr-bento__top { flex: 1 1 auto; display: flex; flex-direction: column; }
+.dr-art--cal { display: flex; flex-direction: column; flex: 1 1 auto; max-width: 460px; margin: 30px 0 6px; }
 .dr-art__cal-top,
-.dr-art__cal-row { display: grid; grid-template-columns: 30px repeat(5, 1fr); gap: 6px; align-items: center; }
+.dr-art__cal-row { display: grid; grid-template-columns: 30px repeat(5, 1fr); gap: 6px; align-items: stretch; }
 .dr-art__cal-top { margin-bottom: 8px; }
 .dr-art__cal-top em,
 .dr-art__cal-row > em {
   font-style: normal; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.08em;
-  color: var(--stone); text-align: center;
+  color: var(--stone); text-align: center; align-self: center;
 }
 .dr-art__cal-row > em { text-align: right; }
-.dr-art__cal-body { display: flex; flex-direction: column; gap: 6px; }
+.dr-art__cal-body { display: flex; flex-direction: column; flex: 1 1 auto; gap: 6px; }
+.dr-art__cal-row { flex: 1 1 24px; min-height: 24px; max-height: 54px; }
 .dr-art__cal-row i {
-  position: relative; display: block; height: 24px; border-radius: 5px;
+  position: relative; display: block; min-height: 24px; border-radius: 5px;
   background: var(--viz-purple);
   animation: dr-book 400ms var(--ease-out) both;
 }
@@ -4152,6 +4187,8 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .dr-art__cal-row:nth-child(2) i { animation-delay: 120ms; }
 .dr-art__cal-row:nth-child(3) i { animation-delay: 240ms; }
 .dr-art__cal-row:nth-child(4) i { animation-delay: 360ms; }
+.dr-art__cal-row:nth-child(5) i { animation-delay: 480ms; }
+.dr-art__cal-row:nth-child(6) i { animation-delay: 600ms; }
 .dr-art__cal-row i.is-new { background: var(--viz-green); animation-delay: 700ms; }
 .dr-art__cal-row i.is-new b {
   position: absolute; inset: 0; display: grid; place-items: center;
@@ -4223,12 +4260,25 @@ html.dark { --viz-purple-soft: #1d1b33; }
   /* The channel chips and the language drawing used to be hidden here: in the
      two-column phone layout there was no room for them. There is now, and a
      tile whose drawing disappears on a phone is a tile that says nothing. */
-  .dr-art { margin-top: 14px; }
-  .dr-art--chan .dr-art__chips { gap: 6px; }
-  .dr-art--chan .dr-art__chips i { font-size: 11.5px; padding: 5px 9px; }
-  .dr-art--chan .dr-art__chips i svg { width: 15px; height: 15px; }
+  .dr-art { margin-top: 12px; }
+  .dr-art--chan .dr-art__chips { gap: 5px; }
+  .dr-art--chan .dr-art__chips i { font-size: 11px; padding: 4px 8px 4px 6px; gap: 4px; }
+  .dr-art--chan .dr-art__chips i.more { padding: 4px 8px; }
+  .dr-art--chan .dr-art__chips i svg { width: 13px; height: 13px; }
   .dr-art--hu { gap: 10px; }
   .dr-art__hu-l { font-size: 12px; }
+  /* half-width tiles: the labelled bars carry their label above the bar,
+     the memory pill is allowed to wrap */
+  .dr-art--sizes { gap: 9px; }
+  .dr-art__size { flex-direction: column; align-items: stretch; gap: 4px; }
+  .dr-art__size em { width: auto; font-size: 11.5px; }
+  .dr-art__size i { height: 7px; }
+  .dr-art__rows { gap: 8px; padding: 10px 10px 12px; }
+  .dr-art__row { flex-direction: column; align-items: stretch; gap: 4px; }
+  .dr-art__row em { width: auto; font-size: 11.5px; }
+  .dr-art__row i { flex: none; height: 7px; }
+  .dr-art__mem { font-size: 11.5px; white-space: normal; text-align: center; padding: 6px 12px; line-height: 1.3; }
+  .dr-art__merge { margin: 4px 0 0; }
 }
 
 /* the main offer panel is the one dark surface on the page: the offer itself
@@ -4247,17 +4297,11 @@ html.dark { --viz-purple-soft: #1d1b33; }
 }
 
 .dr-mention { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin-top: 38px; text-align: left; }
-.dr-mention__item { padding-top: 18px; border-top: 2px solid var(--ink); }
-.dr-mention__k {
-  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em;
-  text-transform: uppercase; color: var(--stone);
-}
 .dr-mention__item h3 {
-  margin: 12px 0 0; font-family: var(--font-headline); font-weight: 400;
+  margin: 0; font-family: var(--font-headline); font-weight: 400;
   font-size: clamp(26px, 2.6vw, 32px); line-height: 1.02; letter-spacing: 0.012em; color: var(--ink);
 }
 .dr-mention__item p { margin: 12px 0 0; font-size: 18px; line-height: 1.55; color: var(--ink-70); }
-.dr-mention__item--pay .dr-mention__k { color: color-mix(in srgb, var(--viz-green) 80%, var(--ink)); }
 .dr-art2 { display: block; width: 132px; height: 52px; margin: 16px 0 0; }
 .dr-art2 rect, .dr-art2 circle { stroke: none; }
 .dr-art2--line path { fill: none; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
@@ -4391,102 +4435,6 @@ html.dark { --viz-purple-soft: #1d1b33; }
   .fogl__note { margin-top: 20px; }
 }
 
-/* Service drawings. Each one is built from the same parts as the page — rules,
-   chips, bars — and carries a caption, so it explains its service instead of
-   decorating it. Every accent comes from --svc-accent, so a drawing takes the
-   colour of the service it belongs to. */
-.svc__art { margin-top: 28px; }
-.sa { margin: 0; padding: 22px 22px 18px; border: 1px solid var(--line); border-radius: 16px; }
-.sa figcaption {
-  margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--line);
-  font-size: 13.5px; line-height: 1.5; color: var(--stone);
-}
-
-/* 01 — one thread down the page */
-.sa__thread { display: flex; flex-direction: column; }
-.sa__node { position: relative; display: flex; gap: 14px; padding: 0 0 16px 0; }
-.sa__node:last-child { padding-bottom: 0; }
-.sa__node::before {
-  content: ""; position: absolute; left: 5px; top: 14px; bottom: 0; width: 2px;
-  background: color-mix(in srgb, var(--svc-accent, var(--ink)) 26%, transparent);
-}
-.sa__node:last-child::before { display: none; }
-.sa__dot {
-  flex: none; width: 12px; height: 12px; margin-top: 3px; border-radius: 50%;
-  background: var(--svc-accent, var(--ink));
-}
-.sa__node b { display: block; font-size: 15px; font-weight: 600; color: var(--ink); }
-.sa__node em { display: block; margin-top: 2px; font-style: normal; font-size: 13.5px; color: var(--ink-70); }
-.sa__loop {
-  position: absolute; right: 0; top: 6px; width: 34px; height: 34px;
-  border: 2px solid color-mix(in srgb, var(--svc-accent, var(--ink)) 40%, transparent);
-  border-right-color: transparent; border-radius: 50%;
-}
-
-/* 02 — the old list */
-.sa__list { display: flex; flex-direction: column; gap: 8px; }
-.sa__row {
-  display: flex; align-items: center; gap: 10px; padding: 10px 12px;
-  border: 1px solid var(--line); border-radius: 10px; font-size: 14px; color: var(--ink-70);
-}
-.sa__chip { flex: none; width: 8px; height: 8px; border-radius: 50%; background: rgba(1, 14, 30, 0.18); }
-.sa__row--warm {
-  border-color: color-mix(in srgb, var(--svc-accent, var(--ink)) 34%, transparent);
-  color: var(--ink); font-weight: 500;
-}
-.sa__row--warm .sa__chip { background: var(--svc-accent, var(--ink)); }
-.sa__row--off { opacity: 0.55; text-decoration: line-through; text-decoration-color: rgba(1, 14, 30, 0.3); }
-
-/* 03 — two speeds */
-.sa__lanes { display: flex; flex-direction: column; gap: 18px; }
-.sa__lane { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 10px 14px; align-items: center; }
-.sa__lane-k { font-size: 13.5px; font-weight: 600; color: var(--ink); }
-.sa__bar { display: block; height: 10px; border-radius: 999px; background: rgba(1, 14, 30, 0.07); overflow: hidden; }
-.sa__bar i { display: block; height: 100%; border-radius: 999px; background: rgba(1, 14, 30, 0.28); }
-.sa__lane--fast .sa__bar i { background: var(--svc-accent, var(--ink)); }
-.sa__lane-v { grid-column: 2; font-size: 13px; color: var(--ink-70); }
-
-/* 04 — the day, and the hours nobody is there */
-.sa__day { display: flex; gap: 3px; }
-.sa__day span {
-  flex: 1; height: 26px; border-radius: 3px;
-  background: color-mix(in srgb, var(--ink) 72%, transparent);
-}
-.sa__day span.is-open { background: rgba(1, 14, 30, 0.1); }
-.sa__day-k {
-  display: flex; justify-content: space-between; margin-top: 6px;
-  font-family: var(--font-mono); font-size: 10.5px; color: var(--stone);
-}
-.sa__wave { display: flex; align-items: center; justify-content: space-between; gap: 5px; height: 36px; margin-top: 16px; }
-.sa__wave i { flex: 0 0 5px; width: 5px; border-radius: 999px; background: var(--svc-accent, var(--ink)); opacity: 0.8; }
-
-/* 05 — the shape of a build */
-.sa__flow { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
-.sa__step {
-  display: inline-flex; align-items: center; gap: 10px; padding: 9px 14px;
-  border: 1px solid color-mix(in srgb, var(--svc-accent, var(--ink)) 30%, var(--line));
-  border-radius: 10px; font-size: 14px; font-weight: 500; color: var(--ink);
-}
-.sa__step i {
-  width: 16px; height: 2px; border-radius: 2px; margin-right: -14px;
-  background: color-mix(in srgb, var(--svc-accent, var(--ink)) 50%, transparent);
-}
-.sa__brief {
-  margin-top: 16px; padding: 14px 16px; border: 1px dashed rgba(1, 14, 30, 0.25); border-radius: 12px;
-}
-.sa__brief-k {
-  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.08em;
-  text-transform: uppercase; color: var(--stone);
-}
-.sa__brief p { margin: 6px 0 0; font-size: 15px; color: var(--ink); }
-
-@media (max-width: 620px) {
-  .sa { padding: 18px 16px 16px; }
-  .sa__lane { grid-template-columns: minmax(0, 1fr); }
-  .sa__lane-v { grid-column: 1; }
-  .sa__loop { display: none; }
-  .sa__day span { height: 22px; }
-}
 
 .page--szolg .dr-close { border-top: 0; }
 
@@ -4603,3 +4551,132 @@ html.dark { --viz-purple-soft: #1d1b33; }
 }
 .page--direct .dr-sec:first-of-type { border-top: 0; }
 .page--direct .sk-hero + .dr-sec { padding-top: clamp(56px, 7vw, 96px); }
+
+/* Service drawings. Each one is built from the same parts as the page — rules,
+   chips, bars — and carries a caption, so it explains its service instead of
+   decorating it. Every accent comes from --svc-accent, so a drawing takes the
+   colour of the service it belongs to. */
+.svc__art { margin-top: 28px; }
+.sa { margin: 0; padding: 22px 22px 18px; border: 1px solid var(--line); border-radius: 16px; }
+.sa figcaption {
+  margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--line);
+  font-size: 13.5px; line-height: 1.5; color: var(--stone);
+}
+
+/* 01 — one thread down the page */
+.sa__thread { display: flex; flex-direction: column; }
+.sa__node { position: relative; display: flex; gap: 14px; padding: 0 0 16px 0; }
+.sa__node:last-child { padding-bottom: 0; }
+.sa__node::before {
+  content: ""; position: absolute; left: 5px; top: 14px; bottom: 0; width: 2px;
+  background: color-mix(in srgb, var(--svc-accent, var(--ink)) 26%, transparent);
+}
+.sa__node:last-child::before { display: none; }
+.sa__dot {
+  flex: none; width: 12px; height: 12px; margin-top: 3px; border-radius: 50%;
+  background: var(--svc-accent, var(--ink));
+}
+.sa__node b { display: block; font-size: 15px; font-weight: 600; color: var(--ink); }
+.sa__node em { display: block; margin-top: 2px; font-style: normal; font-size: 13.5px; color: var(--ink-70); }
+.sa__loop {
+  position: absolute; right: 0; top: 6px; width: 34px; height: 34px;
+  border: 2px solid color-mix(in srgb, var(--svc-accent, var(--ink)) 40%, transparent);
+  border-right-color: transparent; border-radius: 50%;
+}
+
+/* 02 — the old list */
+.sa__list { display: flex; flex-direction: column; gap: 8px; }
+.sa__row {
+  display: flex; align-items: center; gap: 10px; padding: 10px 12px;
+  border: 1px solid var(--line); border-radius: 10px; font-size: 14px; color: var(--ink-70);
+}
+.sa__chip { flex: none; width: 8px; height: 8px; border-radius: 50%; background: rgba(1, 14, 30, 0.18); }
+.sa__row--warm {
+  border-color: color-mix(in srgb, var(--svc-accent, var(--ink)) 34%, transparent);
+  color: var(--ink); font-weight: 500;
+}
+.sa__row--warm .sa__chip { background: var(--svc-accent, var(--ink)); }
+.sa__row--off { opacity: 0.55; text-decoration: line-through; text-decoration-color: rgba(1, 14, 30, 0.3); }
+
+/* 03 — two speeds */
+.sa__lanes { display: flex; flex-direction: column; gap: 18px; }
+.sa__lane { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 10px 14px; align-items: center; }
+.sa__lane-k { font-size: 13.5px; font-weight: 600; color: var(--ink); }
+.sa__bar { display: block; height: 10px; border-radius: 999px; background: rgba(1, 14, 30, 0.07); overflow: hidden; }
+.sa__bar i { display: block; height: 100%; border-radius: 999px; background: rgba(1, 14, 30, 0.28); }
+.sa__lane--fast .sa__bar i { background: var(--svc-accent, var(--ink)); }
+.sa__lane-v { grid-column: 2; font-size: 13px; color: var(--ink-70); }
+
+/* 04 — the day, and the hours nobody is there */
+.sa__day { display: flex; gap: 3px; }
+.sa__day span {
+  flex: 1; height: 26px; border-radius: 3px;
+  background: color-mix(in srgb, var(--ink) 72%, transparent);
+}
+.sa__day span.is-open { background: rgba(1, 14, 30, 0.1); }
+.sa__day-k {
+  display: flex; justify-content: space-between; margin-top: 6px;
+  font-family: var(--font-mono); font-size: 10.5px; color: var(--stone);
+}
+.sa__wave { display: flex; align-items: center; justify-content: space-between; gap: 5px; height: 36px; margin-top: 16px; }
+.sa__wave i { flex: 0 0 5px; width: 5px; border-radius: 999px; background: var(--svc-accent, var(--ink)); opacity: 0.8; }
+
+/* 05 — the shape of a build */
+.sa__flow { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.sa__step {
+  display: inline-flex; align-items: center; gap: 10px; padding: 9px 14px;
+  border: 1px solid color-mix(in srgb, var(--svc-accent, var(--ink)) 30%, var(--line));
+  border-radius: 10px; font-size: 14px; font-weight: 500; color: var(--ink);
+}
+.sa__step i {
+  width: 16px; height: 2px; border-radius: 2px; margin-right: -14px;
+  background: color-mix(in srgb, var(--svc-accent, var(--ink)) 50%, transparent);
+}
+.sa__brief {
+  margin-top: 16px; padding: 14px 16px; border: 1px dashed rgba(1, 14, 30, 0.25); border-radius: 12px;
+}
+.sa__brief-k {
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--stone);
+}
+.sa__brief p { margin: 6px 0 0; font-size: 15px; color: var(--ink); }
+
+@media (max-width: 620px) {
+  .sa { padding: 18px 16px 16px; }
+  .sa__lane { grid-template-columns: minmax(0, 1fr); }
+  .sa__lane-v { grid-column: 1; }
+  .sa__loop { display: none; }
+  .sa__day span { height: 22px; }
+}
+
+/* /direct — the questions. Native <details>, so they open without
+   JavaScript: a hairline per row, the question on the left and a plus that
+   becomes a minus on the right. */
+.dr-faq { max-width: 880px; margin: clamp(26px, 3.4vw, 40px) auto 0; text-align: left; }
+.dr-faq__item { border-bottom: 1px solid var(--line); }
+.dr-faq__item:first-child { border-top: 1px solid var(--line); }
+.dr-faq__item summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  padding: 20px 2px; font-size: 18.5px; font-weight: 600; line-height: 1.35;
+  color: var(--ink); cursor: pointer; list-style: none;
+}
+.dr-faq__item summary::-webkit-details-marker { display: none; }
+.dr-faq__item summary::marker { content: ""; }
+.dr-faq__item summary:hover { color: color-mix(in srgb, var(--ink) 78%, #FFFFFF); }
+.dr-faq__mark { position: relative; flex: none; width: 18px; height: 18px; }
+.dr-faq__mark::before,
+.dr-faq__mark::after {
+  content: ""; position: absolute; left: 50%; top: 50%; width: 16px; height: 2px;
+  margin: -1px 0 0 -8px; border-radius: 2px; background: var(--ink);
+  transition: transform 220ms var(--ease-out);
+}
+.dr-faq__mark::after { transform: rotate(90deg); }
+.dr-faq__item[open] .dr-faq__mark::after { transform: rotate(0deg); }
+.dr-faq__item p {
+  margin: 0 0 22px; max-width: 76ch; font-size: 17px; line-height: 1.6; color: var(--ink-70);
+}
+
+@media (max-width: 620px) {
+  .dr-faq__item summary { padding: 16px 0; gap: 14px; font-size: 16.5px; }
+  .dr-faq__item p { margin-bottom: 18px; font-size: 15.5px; }
+}

@@ -1,38 +1,32 @@
 /* The dashboard gets a mention, not a mock-up: the surface is built for each
    client, so drawing one screen here would promise the wrong thing. Four
-   columns, each with a small drawing; the fourth is the payback, and the only
-   one that carries a coloured rule. No axes, no figures — shape and colour
+   columns, each with a small drawing. No axes, no figures — shape and colour
    only, because a number here would be a claim we cannot back. */
 
 const POINTS = [
   {
-    k: "Amit lát",
     t: "Minden beszélgetés, egy helyen",
     d: "Hívás, üzenet, e-mail: visszahallgatható, a végeredménnyel együtt.",
     art: "rows" as const,
     c: "var(--viz-purple)",
   },
   {
-    k: "Amit mér",
     t: "Azt, amit Ön akar mérni",
     d: "A mutatókat a bevezetéskor közösen tesszük rá. Nem sablon felületet kap.",
     art: "bars" as const,
     c: "var(--viz-blue)",
   },
   {
-    k: "Amikor nézi",
     t: "Bármikor, mobilról is",
     d: "Nem havi riportra vár: belép, és látja a hetet.",
     art: "week" as const,
     c: "var(--viz-cyan)",
   },
   {
-    k: "A megtérülés",
     t: "Látja, mennyit hozott",
     d: "Nem érzésre: a rendszerből jött munkák egy helyen, a díj mellett.",
     art: "line" as const,
     c: "var(--viz-green)",
-    pay: true,
   },
 ];
 
@@ -101,13 +95,7 @@ export default function DirectReport() {
 
         <div className="dr-mention">
           {POINTS.map((p, i) => (
-            <div
-              className={`dr-mention__item${p.pay ? " dr-mention__item--pay" : ""} reveal`}
-              data-delay={i + 1}
-              key={p.k}
-              style={p.pay ? { borderTopColor: p.c } : undefined}
-            >
-              <span className="dr-mention__k">{p.k}</span>
+            <div className="dr-mention__item reveal" data-delay={i + 1} key={p.t}>
               <h3>{p.t}</h3>
               <Art kind={p.art} c={p.c} />
               <p>{p.d}</p>

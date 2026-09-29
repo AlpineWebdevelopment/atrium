@@ -37,8 +37,8 @@ export function Faq({ items }: { items?: FaqItem[] }) {
       <dl>
         {items.map((item, i) => (
           <div key={i} className="border-t border-line py-4 first:border-t-0">
-            <dt className="font-outfit text-[16.5px] font-semibold leading-[1.3]">{item.q}</dt>
-            <dd className="mt-2 text-[15px] leading-[1.6] italic font-outfit text-stone">{item.a}</dd>
+            <dt className="font-barlow text-[16.5px] font-semibold leading-[1.3]">{item.q}</dt>
+            <dd className="mt-2 text-[15px] leading-[1.6] italic font-barlow text-stone">{item.a}</dd>
           </div>
         ))}
       </dl>
