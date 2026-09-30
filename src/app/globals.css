@@ -3912,7 +3912,10 @@ html.dark { --viz-purple-soft: #1d1b33; }
 
 /* sections */
 .dr-sec { padding: clamp(52px, 6vw, 84px) 0; border-top: 1px solid var(--line); }
-.page--direct .dr-sec .dr-h2 { font-size: clamp(42px, 6vw, 76px); line-height: 0.98; }
+/* One size for every section heading on the page, the close included: the
+   FAQ title ran wider than the one above the booking and the two read as
+   different ranks. */
+.page--direct .dr-sec .dr-h2 { font-size: clamp(40px, 5.2vw, 64px); line-height: 0.98; }
 
 /* cards */
 .dr-cards { display: grid; gap: 18px; margin-top: 34px; text-align: left; }
@@ -3951,7 +3954,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
   text-align: center; background: transparent; border: 0; border-radius: 0; box-shadow: none;
   padding: clamp(28px, 3.4vw, 44px) 0;
 }
-.page--direct .dr-close .dr-h2 { font-size: clamp(34px, 4.6vw, 58px); line-height: 0.98; }
+.page--direct .dr-close .dr-h2 { font-size: clamp(40px, 5.2vw, 64px); line-height: 0.98; }
 .page--direct .dr-close__p { margin: 16px auto 0; max-width: 660px; font-size: 19px; }
 /* The three steps carry the same weight as the bento copy: this is the last
    thing read before the button, so it should not be the smallest type on the
