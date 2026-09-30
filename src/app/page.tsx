@@ -4,7 +4,6 @@ import DirectHero from "@/components/direct/DirectHero";
 import DirectNow from "@/components/direct/DirectNow";
 import DirectWhat from "@/components/direct/DirectWhat";
 import DirectFeatures from "@/components/direct/DirectFeatures";
-import DirectReport from "@/components/direct/DirectReport";
 import DirectFaq from "@/components/direct/DirectFaq";
 import DirectClose from "@/components/direct/DirectClose";
 import DirectFooter from "@/components/direct/DirectFooter";
@@ -44,7 +43,6 @@ export default function Home() {
       <DirectNow />
       <DirectWhat />
       <DirectFeatures />
-      <DirectReport />
       <DirectFaq />
       <DirectClose />
       <DirectFooter />

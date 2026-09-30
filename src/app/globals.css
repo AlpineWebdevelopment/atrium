@@ -3828,6 +3828,8 @@ html.dark { --viz-purple-soft: #1d1b33; }
 }
 .dr-foot__links a:hover { color: var(--ink); }
 .dr-foot__bottom { margin-top: 26px; font-size: 12.5px; color: var(--stone); }
+/* the trademark note: present, quiet, on its own line */
+.dr-foot__tm { display: block; margin-top: 10px; max-width: 86ch; font-size: 11.5px; line-height: 1.5; }
 
 /* Kept from the font trials — a pre-existing bug, not a font issue: the base
    .hero__title is nowrap for the root-template hero, which is built from two
@@ -3934,7 +3936,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
   border-radius: 2px 6px 3px 8px;
   -webkit-box-decoration-break: clone; box-decoration-break: clone;
 }
-.dr-card__a { display: block; font-size: 16px; line-height: 1.45; color: var(--stone); }
+.dr-card__a { display: block; font-size: 18px; line-height: 1.45; color: var(--stone); }
 .dr-card__b { display: block; margin-top: 6px; font-size: 21px; font-weight: 600; line-height: 1.3; letter-spacing: -0.005em; color: var(--ink); }
 .dr-statement {
   margin: 34px auto 0; max-width: 720px; font-family: var(--font-display); font-weight: 600;
@@ -3959,102 +3961,15 @@ html.dark { --viz-purple-soft: #1d1b33; }
 /* narrow */
 @media (max-width: 720px) {
   .dr-cards--2 { grid-template-columns: minmax(0, 1fr); }
+  /* the four pairs stay two by two on a phone: they are short lines, and the
+     rhythm of the block is the point */
+  .page--direct .dr-cards--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 18px; }
+  /* these sit after the desktop sizes in the file, so they are written with
+     the grid in the selector to win on specificity, not on order */
+  .page--direct .dr-cards--2 .dr-card__a { font-size: 12px; letter-spacing: 0.03em; }
+  .page--direct .dr-cards--2 .dr-card__b { margin-top: 7px; font-size: clamp(16px, 4.6vw, 21px); line-height: 1.25; }
+  .page--direct .dr-cards--2 .dr-card__hl { padding: 1px 5px 2px; }
   .dr-proof { gap: 8px 22px; }
-}
-
-/* /direct — bento grid under "Amit mi AI-nak hívunk.". Two columns: value
-   is the tall tile on the left spanning two rows, package and technology
-   stack on the right, the dashboard spans the full width underneath. Each card is a flex column with the checklist pushed to the bottom
-   (margin-top: auto), so every tile fills its cell edge to edge. Tablets
-   and phones keep a two-column bento: value on top, package and technology
-   side by side, dashboard underneath. */
-.page--direct .dr-bento-sec { border-top: 0; padding-top: 0; }
-.dr-bento {
-  display: grid; gap: 16px; text-align: left;
-  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
-  grid-template-areas:
-    "val pack"
-    "val tech"
-    "dash lang";
-}
-.dr-bento__card {
-  display: flex; flex-direction: column; gap: 20px; min-width: 0;
-  background: var(--panel); border: 1px solid var(--line); border-radius: 18px;
-  padding: 28px 28px 30px;
-}
-.dr-bento__card--val { grid-area: val; padding: clamp(28px, 3.4vw, 40px); container-type: inline-size; }
-.dr-bento__card--pack { grid-area: pack; }
-.dr-bento__card--tech { grid-area: tech; }
-.dr-bento__card--dash { grid-area: dash; }
-.dr-bento__card--lang { grid-area: lang; justify-content: center; }
-.dr-bento__t {
-  margin: 0; font-family: var(--font-display); font-weight: 700;
-  font-size: 22px; line-height: 1.2; letter-spacing: -0.015em; color: var(--ink); text-wrap: balance;
-}
-.dr-bento__card--val .dr-bento__t {
-  font-family: var(--font-headline); font-weight: 400; font-size: clamp(52px, 18.4cqi, 104px);
-  line-height: 0.92; letter-spacing: 0.01em; margin-top: 0;
-}
-.dr-bento__p { margin: 10px 0 0; font-size: 18px; line-height: 1.55; color: var(--ink-70); }
-.dr-bento__card--val .dr-bento__p { font-size: 20.5px; max-width: 540px; margin-top: 20px; }
-.dr-bento__list {
-  list-style: none; margin: auto 0 0; padding: 16px 0 0; border-top: 1px solid var(--line);
-  display: flex; flex-direction: column; gap: 9px;
-}
-.dr-bento__list li { display: flex; gap: 11px; align-items: flex-start; font-size: 17.5px; line-height: 1.45; font-weight: 500; color: var(--ink); }
-.dr-bento__card--val .dr-bento__list li { font-size: 18.5px; }
-.dr-bento__ok {
-  flex: none; width: 16px; height: 16px; margin-top: 1px; fill: none; stroke: var(--ink);
-  stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round;
-}
-/* the wide dashboard tile: text left, checklist right */
-.dr-bento__card--dash { flex-direction: row; align-items: stretch; gap: 32px; }
-.dr-bento__card--dash .dr-bento__top { flex: 1 1 0; }
-.dr-bento__card--dash .dr-bento__list { flex: 1 1 0; margin: 0; padding: 0 0 0 28px; border-top: 0; border-left: 1px solid var(--line); justify-content: center; }
-
-@media (max-width: 1000px) {
-  /* Tablets: two equal columns, value and dashboard across both. Package and
-     technology sit side by side as equals rather than one running tall past
-     the other. */
-  .dr-bento {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-areas: "val val" "pack tech" "lang lang" "dash dash";
-  }
-  .dr-bento__card { padding: 24px 22px 26px; }
-  .dr-bento__card--lang { justify-content: flex-start; }
-  .dr-bento__card--dash { flex-direction: column; gap: 20px; }
-  .dr-bento__card--dash .dr-bento__list {
-    padding: 18px 0 0; border-left: 0; border-top: 1px solid var(--line);
-  }
-}
-/* Phones: still a bento, not a stack. The value tile runs full width with
-   its week, then two pairs of half-width tiles: package beside language (both
-   short), technology beside dashboard (both tall). The labelled bars stack
-   their labels above the bar, the chips shrink, and the package and
-   technology checklists step aside so the pairs stay level. */
-@media (max-width: 620px) {
-  .dr-bento {
-    gap: 10px;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-areas: "val val" "pack lang" "tech dash";
-  }
-  .dr-bento__card { padding: 16px 14px 18px; gap: 14px; border-radius: 14px; }
-  .dr-bento__card--val { padding: 24px 20px 26px; }
-  .dr-bento__card--val .dr-bento__t { font-size: clamp(40px, 13.5cqi, 60px); }
-  .dr-bento__card--val .dr-bento__p { font-size: 16px; margin-top: 14px; }
-  .dr-bento__card--val .dr-bento__list li { font-size: 15px; }
-  .dr-bento__t { font-size: 17px; line-height: 1.22; }
-  .dr-bento__p { font-size: 13.5px; line-height: 1.45; margin-top: 8px; }
-  .dr-bento__list { padding-top: 12px; gap: 7px; }
-  .dr-bento__list li { font-size: 13px; line-height: 1.4; gap: 8px; }
-  .dr-bento__ok { width: 13px; height: 13px; }
-  .dr-bento__card--pack .dr-bento__list,
-  .dr-bento__card--tech .dr-bento__list { display: none; }
-  .dr-bento__card--lang { justify-content: flex-start; }
-  .dr-bento__card--dash { flex-direction: column; gap: 14px; }
-  .dr-bento__card--dash .dr-bento__list {
-    padding: 12px 0 0; border-left: 0; border-top: 1px solid var(--line);
-  }
 }
 
 /* /direct — "Amit mi AI-nak hívunk.": the sales system as the main offer in
@@ -4065,8 +3980,10 @@ html.dark { --viz-purple-soft: #1d1b33; }
   background: var(--panel); border: 1px solid var(--line); border-radius: 20px;
   padding: clamp(28px, 4vw, 48px);
 }
+/* the same small title as the statements carry: the body face, bold */
 .dr-what__k {
-  display: block; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em;
+  display: block; font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(13px, 1.15vw, 15.5px); line-height: 1.2; letter-spacing: 0.07em;
   text-transform: uppercase; color: var(--stone);
 }
 .dr-what__t {
@@ -4084,7 +4001,7 @@ html.dark { --viz-purple-soft: #1d1b33; }
   display: grid; place-items: center; font-family: var(--font-display); font-weight: 700; font-size: 24px; line-height: 1;
 }
 .dr-what__pt { margin: 4px 0 0; font-family: var(--font-display); font-weight: 700; font-size: 21.5px; line-height: 1.2; color: var(--ink); }
-.dr-what__pp { margin: 6px 0 0; font-size: 16.5px; line-height: 1.6; color: var(--ink-70); }
+.dr-what__pp { margin: 8px 0 0; font-size: 18.5px; line-height: 1.6; color: var(--ink-70); }
 @media (max-width: 520px) {
   .dr-what__plus { gap: 14px; }
   .dr-what__sign { width: 34px; height: 34px; font-size: 20px; }
@@ -4107,179 +4024,79 @@ html.dark { --viz-purple-soft: #1d1b33; }
      corners; the colour only appears further down the page, and it is the
      sky's own blue rather than the dashboard purple */
   background:
-    radial-gradient(60% 34% at 88% 62%, rgba(46, 111, 214, 0.14) 0%, transparent 62%),
-    radial-gradient(55% 30% at 6% 88%, rgba(46, 111, 214, 0.1) 0%, transparent 60%),
-    linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 38%, #F6FAFF 100%);
+    radial-gradient(58% 32% at 88% 58%, rgba(46, 111, 214, 0.17) 0%, transparent 64%),
+    radial-gradient(52% 30% at 6% 86%, rgba(46, 111, 214, 0.14) 0%, transparent 62%),
+    radial-gradient(46% 26% at 18% 12%, rgba(91, 33, 182, 0.07) 0%, transparent 66%),
+    linear-gradient(180deg, #FFFFFF 0%, #FBFCFF 34%, #EEF3FD 100%);
   background-attachment: scroll;
 }
-.page--direct .dr-card,
-.page--direct .dr-what__main {
-  background: transparent; border-color: rgba(1, 14, 30, 0.24); box-shadow: none;
+/* No boxes and no rules: the promise is set small and in capitals, and the
+   line that answers it is large and struck through with the felt tip. The
+   pairs are held apart by air alone. */
+.page--direct .dr-cards {
+  gap: clamp(30px, 4vw, 56px) clamp(36px, 5vw, 80px);
+  margin-bottom: clamp(26px, 3.4vw, 52px); text-align: center;
 }
-/* The closing panel is a white sheet like the bento's, only it does not lean.
-   A hairline holds its edge, so a panel this size does not float away. */
-.page--direct .dr-close__panel {
-  background: #FFFFFF; border-color: rgba(1, 14, 30, 0.08);
-  box-shadow: 0 1px 2px rgba(1, 14, 30, 0.05), 0 4px 10px -7px rgba(1, 14, 30, 0.22);
+.page--direct .dr-card {
+  background: transparent; border: 0; border-radius: 0; box-shadow: none; padding: 0;
 }
-.page--direct .dr-card:hover { transform: none; border-color: rgba(1, 14, 30, 0.42); box-shadow: none; }
+.page--direct .dr-card--x { display: block; }
+.page--direct .dr-card__a {
+  font-size: 15px; letter-spacing: 0.02em; text-transform: uppercase;
+  color: rgba(1, 14, 30, 0.62);
+}
+.page--direct .dr-card__b {
+  margin-top: 10px; font-size: clamp(24px, 2.6vw, 34px); line-height: 1.2; font-weight: 600;
+}
+/* centred lines take the felt tip's overhang on both sides */
+.page--direct .dr-card__hl { margin-left: 0; padding: 1px 8px 2px; }
+.page--direct .dr-card:hover { transform: none; box-shadow: none; }
 .page--direct .dr-what__plus { border-color: rgba(1, 14, 30, 0.18); }
 
-/* The bento: white sheets on the table, each leaning its own way, on a
-   short, tight shadow. The lean lives in a variable so the scroll reveal can
-   keep its slide-in and land on the rotation instead of resetting it. */
-.page--direct .dr-bento-sec { overflow-x: clip; }
-.page--direct .dr-bento { gap: 30px; padding: 12px; }
-.page--direct .dr-bento__card {
-  --lean: 0deg;
-  background: #FFFFFF; border-color: transparent;
-  box-shadow: 0 1px 2px rgba(1, 14, 30, 0.1), 0 8px 14px -6px rgba(1, 14, 30, 0.35);
-  transform: rotate(var(--lean));
+/* The foot is the one dark surface at the end of the page: the light ground
+   stops here, and the name is set once at the size it deserves, cropped by
+   the viewport and fading into the ink. */
+.page--direct .dr-foot {
+  position: relative; overflow: hidden; border-top: 0;
+  margin-top: clamp(40px, 6vw, 88px);
+  padding: clamp(40px, 5vw, 68px) 0 0;
+  background: var(--ink); color: var(--bone);
 }
-.page--direct .dr-bento__card.reveal { transform: translateY(18px) rotate(var(--lean)); }
-.page--direct .dr-bento__card.reveal.visible { transform: rotate(var(--lean)); }
-.page--direct .dr-bento__card--val  { --lean: -1.6deg; }
-.page--direct .dr-bento__card--pack { --lean: 2deg; }
-.page--direct .dr-bento__card--tech { --lean: -2.2deg; }
-.page--direct .dr-bento__card--lang { --lean: 2.4deg; }
-.page--direct .dr-bento__card--dash { --lean: 1.4deg; }
-@media (max-width: 620px) {
-  /* a full-width card on a phone pokes out of the screen at two degrees */
-  .page--direct .dr-bento { gap: 22px; padding: 8px 6px; }
-  .page--direct .dr-bento__card--val  { --lean: -0.7deg; }
-  .page--direct .dr-bento__card--pack { --lean: 0.9deg; }
-  .page--direct .dr-bento__card--tech { --lean: -0.9deg; }
-  .page--direct .dr-bento__card--lang { --lean: 1deg; }
-  .page--direct .dr-bento__card--dash { --lean: 0.7deg; }
+.page--direct .dr-foot__brand { color: var(--bone); }
+.page--direct .dr-foot__sub,
+.page--direct .dr-foot__bottom { color: rgba(245, 242, 237, 0.6); }
+.page--direct .dr-foot__links a { color: rgba(245, 242, 237, 0.78); }
+.page--direct .dr-foot__links a:hover { color: var(--bone); }
+.page--direct .dr-foot__tm { color: rgba(245, 242, 237, 0.42); }
+.dr-foot__mark {
+  margin-top: clamp(26px, 4vw, 54px); line-height: 0.76; text-align: center;
+  user-select: none;
 }
-
-/* /direct — the small drawings inside the panels. Each one is labelled, so
-   it explains its tile instead of decorating it: company sizes on the
-   package tile, channels merging into one memory on the technology tile, a
-   spoken line with a voice trace on the language tile. */
-.dr-art { margin-top: 18px; width: 100%; }
-
-/* the value tile: a working week with two states — booked or free. The tile
-   is as tall as the two beside it, so the week stretches to fill it: the
-   rows share whatever height is left, between a slim bar and a real slot. */
-.dr-bento__card--val .dr-bento__top { flex: 1 1 auto; display: flex; flex-direction: column; }
-.dr-art--cal { display: flex; flex-direction: column; flex: 1 1 auto; max-width: 460px; margin: 30px 0 6px; }
-.dr-art__cal-top,
-.dr-art__cal-row { display: grid; grid-template-columns: 30px repeat(5, 1fr); gap: 6px; align-items: stretch; }
-.dr-art__cal-top { margin-bottom: 8px; }
-.dr-art__cal-top em,
-.dr-art__cal-row > em {
-  font-style: normal; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.08em;
-  color: var(--stone); text-align: center; align-self: center;
-}
-.dr-art__cal-row > em { text-align: right; }
-.dr-art__cal-body { display: flex; flex-direction: column; flex: 1 1 auto; gap: 6px; }
-.dr-art__cal-row { flex: 1 1 24px; min-height: 24px; max-height: 54px; }
-.dr-art__cal-row i {
-  position: relative; display: block; min-height: 24px; border-radius: 5px;
-  background: var(--viz-purple);
-  animation: dr-book 400ms var(--ease-out) both;
-}
-.dr-art__cal-row i.is-free {
-  background: repeating-linear-gradient(45deg, rgba(1,14,30,0.05) 0 4px, transparent 4px 8px);
-  border: 1px solid rgba(1, 14, 30, 0.14); animation: none;
-}
-.dr-art__cal-row:nth-child(2) i { animation-delay: 120ms; }
-.dr-art__cal-row:nth-child(3) i { animation-delay: 240ms; }
-.dr-art__cal-row:nth-child(4) i { animation-delay: 360ms; }
-.dr-art__cal-row:nth-child(5) i { animation-delay: 480ms; }
-.dr-art__cal-row:nth-child(6) i { animation-delay: 600ms; }
-.dr-art__cal-row i.is-new { background: var(--viz-green); animation-delay: 700ms; }
-.dr-art__cal-row i.is-new b {
-  position: absolute; inset: 0; display: grid; place-items: center;
-  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em;
-  text-transform: uppercase; color: #FFFFFF; font-weight: 400;
-}
-@keyframes dr-book { from { opacity: 0; transform: scale(0.85); } to { opacity: 1; transform: none; } }
-.dr-art__cal-legend { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 14px; }
-.dr-art__cal-legend em { display: inline-flex; align-items: center; gap: 7px; font-style: normal; font-size: 13.5px; color: var(--ink-70); }
-.dr-art__cal-legend i { width: 10px; height: 10px; border-radius: 3px; }
-.dr-art__cal-legend i.booked { background: var(--viz-purple); }
-.dr-art__cal-legend i.now { background: var(--viz-green); }
-.dr-art__cal-legend i.free { background: repeating-linear-gradient(45deg, rgba(1,14,30,0.06) 0 3px, transparent 3px 6px); border: 1px solid rgba(1, 14, 30, 0.16); }
-@media (prefers-reduced-motion: reduce) { .dr-art__cal-row i { animation: none; } }
-
-/* the little dashboard window on the dashboard tile */
-.dr-art--panel { border: 1px solid rgba(1, 14, 30, 0.18); border-radius: 12px; overflow: hidden; }
-.dr-art__win { display: flex; gap: 5px; padding: 8px 10px; border-bottom: 1px solid rgba(1, 14, 30, 0.12); }
-.dr-art__win i { width: 7px; height: 7px; border-radius: 50%; background: rgba(1, 14, 30, 0.16); }
-.dr-art__rows { display: flex; flex-direction: column; gap: 9px; padding: 12px 14px 14px; }
-.dr-art__row { display: flex; align-items: center; gap: 10px; }
-.dr-art__row em { flex: none; width: 104px; font-style: normal; font-size: 13.5px; color: var(--ink-70); }
-.dr-art__row i { flex: 1; height: 9px; border-radius: 999px; background: rgba(1, 14, 30, 0.07); overflow: hidden; display: block; }
-.dr-art__row b { display: block; height: 100%; border-radius: 999px; }
-
-.dr-bento__card--val .dr-bento__top { flex: 1; display: flex; flex-direction: column; }
-.dr-bento__card--val .dr-art--cal { margin-top: auto; margin-bottom: auto; }
-
-.dr-art--sizes { display: flex; flex-direction: column; gap: 8px; }
-.dr-art__size { display: flex; align-items: center; gap: 10px; }
-.dr-art__size em { flex: none; width: 118px; font-style: normal; font-size: 13.5px; color: var(--stone); }
-.dr-art__size i { display: block; height: 8px; border-radius: 999px; opacity: 0.85; }
-
-.dr-art--chan { display: flex; flex-direction: column; align-items: center; }
-.dr-art__chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
-.dr-art__chips i {
-  display: inline-flex; align-items: center; gap: 5px; padding: 5px 10px 5px 7px;
-  border: 1px solid rgba(1, 14, 30, 0.18); border-radius: 999px;
-  font-style: normal; font-size: 13px; line-height: 1.35; white-space: nowrap; color: var(--ink);
-}
-.dr-art__chips svg { width: 15px; height: 15px; flex: none; }
-.dr-art__chips i.more { padding: 5px 11px; }
-.dr-art__chips i.more {
-  border-style: dashed; border-color: color-mix(in srgb, var(--viz-purple) 45%, transparent);
-  color: color-mix(in srgb, var(--viz-purple) 70%, var(--ink));
-}
-.dr-art__merge { display: block; margin: 6px 0 2px; }
-.dr-art__merge svg { width: 42px; height: 21px; fill: none; stroke: rgba(1, 14, 30, 0.28); stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
-.dr-art__mem {
-  margin-top: 4px; padding: 7px 16px; border-radius: 999px; background: var(--ink); color: var(--bone);
-  font-size: 13.5px; white-space: nowrap;
+.dr-foot__mark span {
+  display: block; font-family: var(--font-headline); font-weight: 400;
+  font-size: clamp(96px, 26vw, 340px); letter-spacing: 0.012em;
+  background: linear-gradient(180deg, rgba(245, 242, 237, 0.3) 0%, rgba(245, 242, 237, 0.02) 76%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
 }
 
-/* the language tile: a Hungarian mark instead of a sample sentence */
-.dr-art--hu { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-.dr-art__flag {
-  display: flex; flex-direction: column; width: 26px; height: 18px; flex: none;
-  border-radius: 3px; overflow: hidden; border: 1px solid rgba(1, 14, 30, 0.14);
+/* The statements stand on their own ground: a white field with the contour
+   pattern in it, both fading in at the top and out at the bottom, so the
+   block has no edges. Nothing else on the page carries it. */
+.page--direct .dr-bento-sec { position: relative; }
+.page--direct .dr-bento-sec::before {
+  content: ""; position: absolute; inset: -6% 0; z-index: 0; pointer-events: none;
+  background: linear-gradient(180deg,
+    rgba(255, 255, 255, 0) 0%, #FFFFFF 14%, #FFFFFF 84%, rgba(255, 255, 255, 0) 100%);
 }
-.dr-art__flag i { flex: 1; }
-.dr-art__flag i:nth-child(1) { background: #CD2A3E; }
-.dr-art__flag i:nth-child(2) { background: #FFFFFF; }
-.dr-art__flag i:nth-child(3) { background: #436F4D; }
-.dr-art__hu-wave { display: inline-flex; align-items: center; gap: 3.5px; }
-.dr-art__hu-wave i { width: 3.5px; border-radius: 999px; opacity: 0.85; }
-.dr-art__hu-l { font-size: 13.5px; color: var(--ink-70); }
-
-@media (max-width: 620px) {
-  /* The channel chips and the language drawing used to be hidden here: in the
-     two-column phone layout there was no room for them. There is now, and a
-     tile whose drawing disappears on a phone is a tile that says nothing. */
-  .dr-art { margin-top: 12px; }
-  .dr-art--chan .dr-art__chips { gap: 5px; }
-  .dr-art--chan .dr-art__chips i { font-size: 11px; padding: 4px 8px 4px 6px; gap: 4px; }
-  .dr-art--chan .dr-art__chips i.more { padding: 4px 8px; }
-  .dr-art--chan .dr-art__chips i svg { width: 13px; height: 13px; }
-  .dr-art--hu { gap: 10px; }
-  .dr-art__hu-l { font-size: 12px; }
-  /* half-width tiles: the labelled bars carry their label above the bar,
-     the memory pill is allowed to wrap */
-  .dr-art--sizes { gap: 9px; }
-  .dr-art__size { flex-direction: column; align-items: stretch; gap: 4px; }
-  .dr-art__size em { width: auto; font-size: 11.5px; }
-  .dr-art__size i { height: 7px; }
-  .dr-art__rows { gap: 8px; padding: 10px 10px 12px; }
-  .dr-art__row { flex-direction: column; align-items: stretch; gap: 4px; }
-  .dr-art__row em { width: auto; font-size: 11.5px; }
-  .dr-art__row i { flex: none; height: 7px; }
-  .dr-art__mem { font-size: 11.5px; white-space: normal; text-align: center; padding: 6px 12px; line-height: 1.3; }
-  .dr-art__merge { margin: 4px 0 0; }
+.page--direct .dr-bento-sec::after {
+  content: ""; position: absolute; inset: -6% 0; z-index: 0;
+  pointer-events: none; opacity: 0.28;
+  background: url("/img/bg-topo.webp") center center / 100% 100% no-repeat;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 16%, #000 82%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 16%, #000 82%, transparent 100%);
 }
+.page--direct .dr-bento-sec > * { position: relative; z-index: 1; }
 
 /* the main offer panel is the one dark surface on the page: the offer itself
    carries the contrast, so the section needs no colour. */
@@ -4287,37 +4104,6 @@ html.dark { --viz-purple-soft: #1d1b33; }
 .page--direct .dr-what__t { color: var(--bone); }
 .page--direct .dr-what__k { color: rgba(245, 242, 237, 0.6); }
 .page--direct .dr-what__p { color: rgba(245, 242, 237, 0.8); }
-
-/* /direct — the dashboard section. The surface itself is custom per client,
-   so this only says what it is for: three columns under a rule, no mock-up. */
-.dr-rep__sub { margin: 18px auto 0; max-width: 720px; font-size: 19px; line-height: 1.6; color: var(--ink-70); }
-.dr-rep__note {
-  margin: 18px 0 0; text-align: center; font-family: var(--font-mono); font-size: 11px;
-  letter-spacing: 0.08em; text-transform: uppercase; color: var(--stone);
-}
-
-.dr-mention { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin-top: 38px; text-align: left; }
-.dr-mention__item h3 {
-  margin: 0; font-family: var(--font-headline); font-weight: 400;
-  font-size: clamp(26px, 2.6vw, 32px); line-height: 1.02; letter-spacing: 0.012em; color: var(--ink);
-}
-.dr-mention__item p { margin: 12px 0 0; font-size: 18px; line-height: 1.55; color: var(--ink-70); }
-.dr-art2 { display: block; width: 132px; height: 52px; margin: 16px 0 0; }
-.dr-art2 rect, .dr-art2 circle { stroke: none; }
-.dr-art2--line path { fill: none; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
-.dr-art2--line path:first-child { stroke: none; }
-.dr-mention__foot {
-  margin: 40px auto 0; max-width: 680px; text-align: center; font-size: 19px;
-  line-height: 1.5; font-weight: 600; color: var(--ink);
-}
-
-@media (max-width: 820px) {
-  .dr-mention { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 34px; }
-  .dr-mention__foot { margin-top: 30px; font-size: 16px; }
-}
-@media (max-width: 560px) {
-  .dr-mention { grid-template-columns: minmax(0, 1fr); }
-}
 
 /* /szolgaltatasok — the page borrows the landing's shell: the sky band, the
    centred cards, the statement line. What is left here is the dark plate that
@@ -4549,7 +4335,10 @@ html.dark { --viz-purple-soft: #1d1b33; }
   .sk-hero { margin: 8px 12px 0; padding: 14px 16px 40px; min-height: calc(100dvh - 8px); }
   .sk-top__nav { display: none; }
 }
-.page--direct .dr-sec:first-of-type { border-top: 0; }
+/* No rules between the sections: the page's gradient and the spacing carry
+   the rhythm, and a hairline across the width only cut it up. */
+.page--direct .dr-sec,
+.page--direct .dr-close { border-top: 0; }
 .page--direct .sk-hero + .dr-sec { padding-top: clamp(56px, 7vw, 96px); }
 
 /* Service drawings. Each one is built from the same parts as the page — rules,
@@ -4679,4 +4468,61 @@ html.dark { --viz-purple-soft: #1d1b33; }
 @media (max-width: 620px) {
   .dr-faq__item summary { padding: 16px 0; gap: 14px; font-size: 16.5px; }
   .dr-faq__item p { margin-bottom: 18px; font-size: 15.5px; }
+}
+
+/* /direct — "Amit mi AI-nak hívunk." as four rows in the page's own colours:
+   the text on one side, one drawn object on the other, the sides swapping
+   row by row. The rows sit close together, so the four read as one block. */
+.nx-band { margin-top: clamp(14px, 2vw, 26px); text-align: left; }
+
+/* The five statements: the claim one side, the explanation and the proof the
+   other, and the sides swap row by row. The half of the claim that carries
+   the point is set in the row's own colour. A hairline parts them. */
+.nx-band { margin-top: clamp(16px, 2.2vw, 28px); text-align: left; }
+.nx-row {
+  display: grid; grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
+  gap: clamp(18px, 3vw, 56px); align-items: start;
+  padding: clamp(24px, 3.2vw, 48px) 0; border-top: 1px solid var(--line);
+}
+.nx-row:first-child { border-top: 0; padding-top: clamp(4px, 1vw, 12px); }
+.nx-row--flip .nx-row__head { order: 2; }
+/* one word says what the claim is about, in the row's colour */
+.nx-row__k {
+  display: block; margin-bottom: clamp(8px, 1vw, 14px);
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(13px, 1.15vw, 15.5px); line-height: 1.2;
+  letter-spacing: 0.07em; text-transform: uppercase; color: var(--art-accent);
+}
+.nx-row__t {
+  margin: 0; font-family: var(--font-headline); font-weight: 400;
+  /* capped so both halves of every claim stay on one line: two lines, never
+     three, whatever the screen */
+  font-size: clamp(36px, 5vw, 72px); line-height: 0.94; letter-spacing: 0.012em;
+  color: var(--ink);
+}
+/* every claim breaks the same way: what it is on one line, what it does on
+   the next, in the row's colour. */
+.nx-row__t em { display: block; font-style: normal; color: var(--art-accent); }
+.nx-row__body { padding-top: clamp(4px, 0.8vw, 10px); }
+.nx-row__body > p {
+  margin: 0; max-width: 46ch; font-size: clamp(16px, 1.45vw, 18.5px);
+  line-height: 1.6; color: var(--ink-70);
+}
+.nx-list { list-style: none; margin: clamp(16px, 1.8vw, 24px) 0 0; padding: 0; display: flex; flex-direction: column; gap: 9px; }
+.nx-list li { display: flex; gap: 10px; align-items: flex-start; font-size: clamp(15px, 1.35vw, 17px); line-height: 1.4; font-weight: 500; color: var(--ink); }
+.nx-list svg {
+  flex: none; width: 17px; height: 17px; margin-top: 1px; fill: none; stroke: var(--art-accent);
+  stroke-width: 2.8; stroke-linecap: round; stroke-linejoin: round;
+}
+
+@media (max-width: 860px) {
+  /* the claim keeps its own side on a phone too, the proof the other: the
+     type steps down so both halves still hold two lines */
+  .nx-row { grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr); gap: 14px; padding: 24px 0; }
+  .nx-row__t { font-size: clamp(21px, 5.6vw, 30px); line-height: 1; }
+  .nx-row__k { font-size: 11.5px; letter-spacing: 0.06em; margin-bottom: 8px; }
+  .nx-row__body > p { font-size: 14.5px; line-height: 1.5; }
+  .nx-list { margin-top: 12px; gap: 7px; }
+  .nx-list li { font-size: 13.5px; gap: 8px; }
+  .nx-list svg { width: 14px; height: 14px; }
 }
