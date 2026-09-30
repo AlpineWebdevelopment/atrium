@@ -4341,6 +4341,17 @@ html.dark { --viz-purple-soft: #1d1b33; }
   .sk-hero { margin: 8px 12px 0; padding: 14px 16px 40px; min-height: calc(100dvh - 8px); }
   .sk-top__nav { display: none; }
 }
+/* The two buttons stay side by side on a phone: stacked, they pushed the
+   proof line under the fold. They give up padding and a point of type
+   instead of a row. */
+@media (max-width: 560px) {
+  .sk-ctas { flex-wrap: nowrap; gap: 9px; }
+  .sk-btn { flex: 0 1 auto; padding: 14px 17px; font-size: 14px; }
+}
+@media (max-width: 380px) {
+  .sk-ctas { gap: 7px; }
+  .sk-btn { padding: 13px 13px; font-size: 13.5px; }
+}
 /* No rules between the sections: the page's gradient and the spacing carry
    the rhythm, and a hairline across the width only cut it up. */
 .page--direct .dr-sec,
