@@ -26,10 +26,10 @@ export default function DirectNow() {
               </div>
             ))}
           </div>
+          {/* One sentence: two of them ran over three lines on a phone and the
+              line broke the punch. */}
           <p className="dr-statement reveal" data-delay="3">
-            Ez nem innováció. Ez lehúzás, jó marketinggel.
-            <br />
-            Mi azt mérjük, amit Ön: forintot, órát, megrendelést.
+            Ez nem innováció, csak lehúzás, jó marketinggel.
           </p>
         </div>
       </div>
