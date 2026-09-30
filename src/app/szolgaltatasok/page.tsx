@@ -98,7 +98,7 @@ const SERVICES: Service[] = [
         ],
       },
     ],
-    who: "Szolgáltató cégnek, ahol a megkeresés telefonon vagy üzenetben érkezik, és a következő lépés egy időpont vagy egy árajánlat.",
+    who: "Annak a cégnek, ahol a megkeresés telefonon vagy üzenetben érkezik, és a következő lépés egy időpont vagy egy árajánlat.",
   },
   {
     id: "adatbazis-ujraeleszt",

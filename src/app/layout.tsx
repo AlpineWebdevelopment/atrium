@@ -73,7 +73,7 @@ export const SITE = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
-  title: { default: "Atrium · Értékesítési rendszerek szolgáltató cégeknek", template: "%s · Atrium" },
+  title: { default: "Atrium · AI értékesítési rendszerek cégeknek", template: "%s · Atrium" },
   description:
     "Az Atrium egy magyar nyelvű AI-alapú értékesítési rendszer: minden hívást fogad, minden időpontot lefoglal, minden érdeklődőt utánkövet.",
   openGraph: { type: "website", locale: SITE.locale, siteName: SITE.name },

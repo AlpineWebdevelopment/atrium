@@ -5,7 +5,7 @@ import { getAllPosts } from "@/lib/posts";
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "Tényszerű, forrásolt írások AI értékesítési rendszerekről magyar szolgáltató vállalkozásoknak.",
+    "Tényszerű, forrásolt írások AI értékesítési rendszerekről magyar vállalkozásoknak.",
   alternates: { canonical: "/blog" },
 };
 

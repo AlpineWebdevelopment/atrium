@@ -27,7 +27,7 @@ export default function FooterChatgpt({ base = "" }: { base?: string }) {
               Atrium<span className="dot" aria-hidden="true" />
             </a>
             <p className="footer__sub">
-              AI növekedési partner szolgáltató cégeknek. Beállítjuk, hogy az Ön szakmájában az Ön cége álljon a ChatGPT válasza alatt, és megépítjük hozzá a teljes ügyfélszerző rendszert.
+              AI növekedési partner cégeknek. Beállítjuk, hogy az Ön szakmájában az Ön cége álljon a ChatGPT válasza alatt, és megépítjük hozzá a teljes ügyfélszerző rendszert.
             </p>
             {onLanding && <a href="#kapcsolat" className="btn footer__cta cg-btn">Foglaljon időpontot.</a>}
           </div>

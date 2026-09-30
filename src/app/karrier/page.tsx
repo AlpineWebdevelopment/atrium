@@ -167,7 +167,7 @@ export default function KarrierPage() {
     "@type": "JobPosting",
     title: "Full-stack fejlesztő",
     description:
-      "Full-stack fejlesztőt keresünk az Atrium csapatába: magyar nyelvű AI értékesítési rendszereket építünk szolgáltató cégeknek. TypeScript, Next.js, React, saját CRM és AI-integrációk. 100% home office, kötetlen munkaidő, teljes munkaidős jogviszony, 2026 októberi kezdéssel.",
+      "Full-stack fejlesztőt keresünk az Atrium csapatába: magyar nyelvű AI értékesítési rendszereket építünk cégeknek. TypeScript, Next.js, React, saját CRM és AI-integrációk. 100% home office, kötetlen munkaidő, teljes munkaidős jogviszony, 2026 októberi kezdéssel.",
     datePosted: "2026-08-10",
     employmentType: "FULL_TIME",
     jobStartDate: "2026-10-01",
@@ -204,7 +204,7 @@ export default function KarrierPage() {
               Full-stack fejlesztőt keresünk<span className="heading-dot">.</span>
             </h1>
             <p className="kar-hero__p">
-              Magyar nyelvű AI értékesítési rendszereket építünk szolgáltató cégeknek: minden
+              Magyar nyelvű AI értékesítési rendszereket építünk cégeknek: minden
               hívás fogadva, minden időpont a naptárban, minden érdeklődő utánkövetve. Most egy
               embert veszünk fel, aki ezeket a rendszereket velünk együtt építi tovább.
             </p>

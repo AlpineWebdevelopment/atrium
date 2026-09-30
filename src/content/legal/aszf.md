@@ -38,7 +38,7 @@ A jelen ÁSZF folyamatosan elérhető a Szolgáltató weboldalán (www.atriumsca
 | **E-mail** | info@atriumscaling.com |
 | **Weboldal** | www.atriumscaling.com |
 
-**Tevékenységi kör:** értékesítési rendszerek építése és üzemeltetése szolgáltató vállalkozások részére, ideértve az AI-alapú hívásfogadást, időpontfoglalást, érdeklődő-utánkövetést és a kapcsolódó automatizálást.
+**Tevékenységi kör:** értékesítési rendszerek építése és üzemeltetése vállalkozások részére, ideértve az AI-alapú hívásfogadást, időpontfoglalást, érdeklődő-utánkövetést és a kapcsolódó automatizálást.
 
 ---
 

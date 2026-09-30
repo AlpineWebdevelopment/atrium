@@ -1,7 +1,7 @@
 /* "Kinek való, és kinek nem" — green check list versus red cross list. */
 
 const YES = [
-  "Szolgáltató cégeknek, amelyek az OpenAI jelenlegi szabályai szerint hirdethetnek: helyi szolgáltatások, kivitelezés és szakipar, szépségipar, oktatás, digitális termékek.",
+  "Cégeknek, amelyek az OpenAI jelenlegi szabályai szerint hirdethetnek: helyi szolgáltatások, kivitelezés és szakipar, szépségipar, oktatás, digitális termékek.",
   "Akinek van kapacitása új ügyfeleket fogadni a következő hetekben.",
   "Aki elsőként akar ott lenni a saját szakmájában, amíg a felület üres.",
   "Aki azt akarja látni, hány ügyfél jött, nem azt, hány kattintás.",
