@@ -4049,8 +4049,10 @@ html.dark { --viz-purple-soft: #1d1b33; }
   font-size: 15px; letter-spacing: 0.02em; text-transform: uppercase;
   color: rgba(1, 14, 30, 0.62);
 }
+/* Two strokes on every card, so the block has one shape: the line height
+   carries the gap between them. */
 .page--direct .dr-card__b {
-  margin-top: 10px; font-size: clamp(24px, 2.6vw, 34px); line-height: 1.2; font-weight: 600;
+  margin-top: 10px; font-size: clamp(24px, 2.6vw, 34px); line-height: 1.62; font-weight: 600;
 }
 /* centred lines take the felt tip's overhang on both sides */
 .page--direct .dr-card__hl { margin-left: 0; padding: 1px 8px 2px; }

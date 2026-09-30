@@ -1,11 +1,15 @@
 /* Where the buyer's money went so far — telegraphic pairs, cost against a
    result they can check in their own numbers (revenue, hours, orders).
-   Their own experience, not claims about named competitors. */
+   Their own experience, not claims about named competitors.
+
+   The result is broken at the colon so every card is struck out twice, the
+   same shape at every width: the label on one stroke, the number on the
+   next. */
 const SHOW = [
-  { a: "Demó: lenyűgöző volt.", b: "Bevétel belőle: nulla." },
-  { a: "Chatbot: udvarias.", b: "Ügyfelet hozott: egyet se." },
-  { a: "Automatizálás: beüzemelve.", b: "Megspórolt munkaóra: nulla." },
-  { a: "AI-előfizetés: minden hónapban.", b: "Plusz megrendelés: egy se." },
+  { a: "Demó: lenyűgöző volt.", b1: "Bevétel belőle:", b2: "nulla." },
+  { a: "Chatbot: udvarias.", b1: "Ügyfelet hozott:", b2: "egyet se." },
+  { a: "Automatizálás: beüzemelve.", b1: "Megspórolt óra:", b2: "nulla." },
+  { a: "AI-előfizetés: minden hónapban.", b1: "Új megrendelés:", b2: "egy se." },
 ];
 
 export default function DirectNow() {
@@ -20,7 +24,7 @@ export default function DirectNow() {
                 <p>
                   <span className="dr-card__a">{t.a}</span>
                   <span className="dr-card__b">
-                    <mark className="dr-card__hl">{t.b}</mark>
+                    <mark className="dr-card__hl">{t.b1}<br />{t.b2}</mark>
                   </span>
                 </p>
               </div>
